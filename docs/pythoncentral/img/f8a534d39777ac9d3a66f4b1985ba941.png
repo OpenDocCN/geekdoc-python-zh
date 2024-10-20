@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+	<head>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3730271461974795"
+     crossorigin="anonymous"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WK4SJKW');</script>
+<!-- End Google Tag Manager -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+		<!-- HTML5 shim and Respond.js. Brings IE 8 into the 21st century. -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<title>
+			Page Not Found | Python Central		</title>
+
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="http://www.pythoncentral.io/xmlrpc.php" />
+	<link rel="preload" id="python-font-awesome" rel="stylesheet" href="https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/font-awesome-4.7.0/css/font-awesome.min.css" />
+
+	
+	<meta name='robots' content='noindex, follow' />
+<style>
+	.adthrive-ad {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+		overflow-x: visible;
+		clear: both;
+		line-height: 0;
+	}
+	.adthrive-sidebar {
+width: 320px;
+margin-top: 90px !important;
+}
+
+.adthrive-sidebar-1 {
+padding-top: 10px;
+}
+
+.adthrive-sidebar.adthrive-stuck {
+margin-top: 90px !important;
+}</style>
+<script>
+	window.adthriveCLS = {
+		enabledLocations: ['Content', 'Recipe'],
+		injectedSlots: [],
+		injectedFromPlugin: true,
+		branch: '659e921',bucket: 'prod',			};
+	window.adthriveCLS.siteAds = {"siteId":"5dee8a51641fa21c7b01846a","siteName":"Python Central","betaTester":false,"targeting":[{"value":"5dee8a51641fa21c7b01846a","key":"siteId"},{"value":"6233884d8063067088c9e2ca","key":"organizationId"},{"value":"Python Central","key":"siteName"},{"value":"AdThrive Edge","key":"service"},{"value":"on","key":"bidding"},{"value":["Tech"],"key":"verticals"}],"breakpoints":{"tablet":768,"desktop":1024},"adUnits":[{"sequence":null,"targeting":[{"value":["Header"],"key":"location"}],"devices":["desktop","tablet"],"name":"Header","sticky":false,"location":"Header","dynamic":{"pageSelector":"","spacing":0,"max":1,"lazy":false,"lazyMax":null,"elementSelector":"#content","skip":0,"classNames":[],"position":"afterbegin","every":1,"enabled":true},"adSizes":[[728,90],[970,250],[970,90],[468,60],[320,50],[320,100],[1,1],[300,50],[728,250]],"priority":399,"autosize":true},{"sequence":1,"targeting":[{"value":["Sidebar"],"key":"location"}],"devices":["desktop"],"name":"Sidebar_1","sticky":false,"location":"Sidebar","dynamic":{"pageSelector":"","spacing":0,"max":1,"lazy":false,"lazyMax":null,"elementSelector":"#sidebar2 > *","skip":0,"classNames":[],"position":"afterend","every":1,"enabled":true},"adSizes":[[160,600],[336,280],[320,50],[300,600],[250,250],[1,1],[320,100],[300,1050],[300,50],[300,420],[300,250]],"priority":299,"autosize":true},{"sequence":9,"targeting":[{"value":["Sidebar"],"key":"location"},{"value":true,"key":"sticky"}],"devices":["desktop"],"name":"Sidebar_9","sticky":true,"location":"Sidebar","dynamic":{"pageSelector":"","spacing":0,"max":1,"lazy":false,"lazyMax":null,"elementSelector":"#sidebar2","skip":0,"classNames":[],"position":"beforeend","every":1,"enabled":true},"adSizes":[[160,600],[336,280],[320,50],[300,600],[250,250],[1,1],[320,100],[300,1050],[300,50],[300,420],[300,250]],"priority":291,"autosize":true},{"sequence":2,"targeting":[{"value":["Sidebar"],"key":"location"},{"value":true,"key":"sticky"}],"devices":["desktop"],"name":"Sidebar_2","sticky":true,"location":"Sidebar","dynamic":{"pageSelector":"","spacing":0,"max":1,"lazy":false,"lazyMax":null,"elementSelector":".sidebars3","skip":0,"classNames":[],"position":"beforeend","every":1,"enabled":true},"adSizes":[[160,600],[336,280],[320,50],[300,600],[250,250],[1,1],[320,100],[300,1050],[300,50],[300,420],[300,250]],"priority":298,"autosize":true},{"sequence":null,"targeting":[{"value":["Content"],"key":"location"}],"devices":["desktop"],"name":"Content","sticky":false,"location":"Content","dynamic":{"pageSelector":"body.single","spacing":0.85,"max":4,"lazy":true,"lazyMax":95,"elementSelector":"#primary > article p","skip":0,"classNames":[],"position":"afterend","every":1,"enabled":true},"adSizes":[[728,90],[336,280],[320,50],[468,60],[970,90],[250,250],[1,1],[320,100],[970,250],[1,2],[300,50],[300,300],[552,334],[728,250],[300,250]],"priority":199,"autosize":true},{"sequence":null,"targeting":[{"value":["Content"],"key":"location"}],"devices":["tablet","phone"],"name":"Content","sticky":false,"location":"Content","dynamic":{"pageSelector":"","spacing":0,"max":3,"lazy":false,"lazyMax":null,"elementSelector":"#homepage-content > *","skip":0,"classNames":[],"position":"afterend","every":2,"enabled":true},"adSizes":[[728,90],[336,280],[320,50],[468,60],[970,90],[250,250],[1,1],[320,100],[970,250],[1,2],[300,50],[300,300],[552,334],[728,250],[300,250]],"priority":199,"autosize":true},{"sequence":null,"targeting":[{"value":["Content"],"key":"location"}],"devices":["tablet"],"name":"Content","sticky":false,"location":"Content","dynamic":{"pageSelector":"body.single","spacing":0.7,"max":6,"lazy":true,"lazyMax":93,"elementSelector":"#primary > article p","skip":0,"classNames":[],"position":"afterend","every":1,"enabled":true},"adSizes":[[728,90],[336,280],[320,50],[468,60],[970,90],[250,250],[1,1],[320,100],[970,250],[1,2],[300,50],[300,300],[552,334],[728,250],[300,250]],"priority":199,"autosize":true},{"sequence":null,"targeting":[{"value":["Content"],"key":"location"}],"devices":["phone"],"name":"Content","sticky":false,"location":"Content","dynamic":{"pageSelector":"body.single","spacing":0.85,"max":6,"lazy":true,"lazyMax":93,"elementSelector":"#primary > article p","skip":0,"classNames":[],"position":"afterend","every":1,"enabled":true},"adSizes":[[728,90],[336,280],[320,50],[468,60],[970,90],[250,250],[1,1],[320,100],[970,250],[1,2],[300,50],[300,300],[552,334],[728,250],[300,250]],"priority":199,"autosize":true},{"sequence":null,"targeting":[{"value":["Below Post"],"key":"location"}],"devices":["desktop","tablet","phone"],"name":"Below_Post","sticky":false,"location":"Below Post","dynamic":{"pageSelector":"body.single","spacing":0,"max":0,"lazy":true,"lazyMax":1,"elementSelector":"#primary","skip":0,"classNames":[],"position":"afterend","every":1,"enabled":true},"adSizes":[[728,90],[336,280],[320,50],[468,60],[250,250],[1,1],[320,100],[300,250],[970,250],[728,250]],"priority":99,"autosize":true},{"sequence":null,"targeting":[{"value":["Footer"],"key":"location"},{"value":true,"key":"sticky"}],"devices":["tablet","phone","desktop"],"name":"Footer","sticky":true,"location":"Footer","dynamic":{"pageSelector":"","spacing":0,"max":1,"lazy":false,"lazyMax":null,"elementSelector":"body","skip":0,"classNames":[],"position":"beforeend","every":1,"enabled":true},"adSizes":[[320,50],[320,100],[728,90],[970,90],[468,60],[1,1],[300,50]],"priority":-1,"autosize":true}],"adDensityLayout":{"mobile":{"adDensity":0.28,"onePerViewport":false},"pageOverrides":[],"desktop":{"adDensity":0.28,"onePerViewport":false}},"adDensityEnabled":true,"siteExperiments":[],"adTypes":{"nativeMobileRecipe":true,"expandableFooter":true,"nativeDesktopSidebar":true,"nativeDesktopContent":true,"outstreamDesktop":true,"interscroller":true,"miniscroller":true,"nativeDesktopRecipe":true,"outstreamMobile":true,"animatedFooter":true,"nativeMobileContent":true},"adOptions":{"theTradeDesk":true,"verizon":true,"undertone":true,"footerCloseButton":false,"teads":true,"pmp":true,"thirtyThreeAcross":true,"sharethrough":true,"removeVideoTitleWrapper":true,"pubMatic":true,"roundel":true,"infiniteScroll":false,"yahoossp":true,"sonobi":true,"yieldmo":true,"footerSelector":"","amazonUAM":true,"gamMCMEnabled":true,"gamMCMChildNetworkCode":"22347531757","stickyContainerAds":false,"rubicon":true,"conversant":false,"openx":true,"mobileHeaderHeight":1,"unruly":true,"mediaGrid":true,"bRealTime":true,"gumgum":true,"comscoreFooter":true,"desktopInterstitial":true,"footerCloseButtonDesktop":false,"isAutoOptimized":true,"comscoreTAL":true,"brightroll":true,"targetaff":false,"advancePlaylistOptions":{"playlistPlayer":{"enabled":true},"relatedPlayer":{"enabled":true,"applyToFirst":false}},"kargo":true,"liveRampATS":true,"footerCloseButtonMobile":false,"allowSmallerAdSizes":true,"comscore":"Tech","mobileInterstitial":true,"tripleLift":true,"sensitiveCategories":["alc","ast","cbd","conl","cosm","dat","dlu","drg","gamc","gamv","grq","pol","rel","sst","ske","wtl"],"liveRamp":true,"mobileInterstitialBlockedPageSelectors":"","adthriveEmailIdentity":true,"criteo":true,"nativo":true,"infiniteScrollOptions":{"selector":"","heightThreshold":0},"clsOptimizedAds":true,"colossus":true,"verticals":["Tech"],"inImage":false,"advancePlaylist":true,"delayLoading":false,"inImageZone":null,"appNexus":true,"liveRampId":"","infiniteScrollRefresh":false,"indexExchange":true},"videoPlayers":{"contextual":{"autoplayCollapsibleEnabled":false,"overrideEmbedLocation":false,"defaultPlayerType":"static"},"videoEmbed":"wordpress","footerSelector":"","players":[{"devices":["desktop","mobile"],"description":"","id":4064151,"title":"Stationary related player - desktop and mobile","type":"stationaryRelated","enabled":true,"playerId":"ZYgQyE6V"},{"pageSelector":"","devices":["desktop"],"description":"","elementSelector":"","skip":0,"id":4064152,"position":"afterend","title":"Sticky related player - desktop","type":"stickyRelated","enabled":true,"playerId":"ZYgQyE6V"},{"pageSelector":"","devices":["mobile"],"mobileLocation":"top-right","description":"","elementSelector":"","skip":0,"id":4064153,"position":"afterend","title":"Sticky related player - mobile","type":"stickyRelated","enabled":true,"playerId":"ZYgQyE6V"},{"playlistId":"FIHXSgyb","pageSelector":"","devices":["mobile"],"mobileLocation":"top-right","description":"","skip":0,"title":"","type":"stickyPlaylist","enabled":false,"footerSelector":"","elementSelector":"","id":4064155,"position":"afterend","saveVideoCloseState":false,"shuffle":true,"playerId":"57ONtG03"},{"playlistId":"FIHXSgyb","pageSelector":"","devices":["desktop"],"description":"","elementSelector":"","skip":0,"id":4064156,"position":"afterend","title":"","type":"sekindo","enabled":false},{"playlistId":"FIHXSgyb","pageSelector":"","devices":["mobile"],"description":"","elementSelector":"","skip":0,"id":4064157,"position":"afterend","title":"","type":"sekindo","enabled":false},{"playlistId":"FIHXSgyb","pageSelector":"body.single","devices":["desktop","mobile"],"mobileLocation":"bottom-right","description":"","skip":4,"title":"","type":"stickyPlaylist","enabled":false,"footerSelector":"","elementSelector":"#primary > article p","id":4064154,"position":"afterend","saveVideoCloseState":false,"shuffle":true,"playerId":"57ONtG03"}],"partners":{"roundel":true,"yahoossp":true,"criteo":true,"unruly":true,"mediaGrid":true,"gumgum":true,"telaria":true,"colossus":true,"pmp":true,"amazonUAM":true,"kargo":true,"thirtyThreeAcross":true,"stickyOutstream":{"allowOnHomepage":false,"mobile":{"enabled":false},"desktop":{"enabled":false},"blockedPageSelectors":"","allowForPageWithStickyPlayer":{"enabled":true}},"sharethrough":true,"rubicon":true,"appNexus":true,"conversant":false,"tripleLift":true,"openx":true,"pubMatic":true,"spotx":true,"indexExchange":true}}};</script>
+
+<script>
+(function(w, d) {
+	w.adthrive = w.adthrive || {};
+	w.adthrive.cmd = w.adthrive.cmd || [];
+	w.adthrive.plugin = 'adthrive-ads-2.1.1';
+	w.adthrive.host = 'ads.adthrive.com';
+	w.adthrive.integration = 'plugin';
+
+	var commitParam = (w.adthriveCLS && w.adthriveCLS.bucket !== 'prod' && w.adthriveCLS.branch) ? '&commit=' + w.adthriveCLS.branch : '';
+
+	var s = d.createElement('script');
+	s.async = true;
+	s.referrerpolicy='no-referrer-when-downgrade';
+	s.src = 'https://' + w.adthrive.host + '/sites/5dee8a51641fa21c7b01846a/ads.min.js?referrer=' + w.encodeURIComponent(w.location.href) + commitParam + '&cb=' + (Math.floor(Math.random() * 100) + 1) + '';
+	var n = d.getElementsByTagName('script')[0];
+	n.parentNode.insertBefore(s, n);
+})(window, document);
+</script>
+
+	<!-- This site is optimized with the Yoast SEO plugin v16.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:title" content="Page Not Found | Python Central" />
+	<meta property="og:site_name" content="Python Central" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.pythoncentral.io/#website","url":"https://www.pythoncentral.io/","name":"Python Central","description":"Python Programming Examples, Tutorials and Recipes","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.pythoncentral.io/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='fd_plugin_css-css'  href='https://www.pythoncentral.io/wp-content/plugins/freshdesk-support/public/css/freshdesk_plugin.css?ver=5.7' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://www.pythoncentral.io/wp-includes/css/dist/block-library/style.min.css?ver=5.7' type='text/css' media='all' />
+<link rel='stylesheet' id='cdv8-gdpr-cookieconsent-csslib-css'  href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css?ver=5.7' type='text/css' media='all' />
+<link rel='stylesheet' id='ppress-frontend-css'  href='https://www.pythoncentral.io/wp-content/plugins/wp-user-avatar/assets/css/frontend.min.css?ver=3.2.12' type='text/css' media='all' />
+<link rel='stylesheet' id='ppress-flatpickr-css'  href='https://www.pythoncentral.io/wp-content/plugins/wp-user-avatar/assets/flatpickr/flatpickr.min.css?ver=3.2.12' type='text/css' media='all' />
+<link rel='stylesheet' id='ppress-select2-css'  href='https://www.pythoncentral.io/wp-content/plugins/wp-user-avatar/assets/select2/select2.min.css?ver=5.7' type='text/css' media='all' />
+<link rel='stylesheet' id='twitter-bootstrap-css'  href='https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/bootstrap/css/bootstrap.min.css?ver=3.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/css/style.min.css?ver=2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='custom-style-css'  href='https://www.pythoncentral.io/wp-content/themes/pythoncentral/style.css?ver=1.0' type='text/css' media='all' />
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://www.pythoncentral.io/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-content/plugins/wp-user-avatar/assets/flatpickr/flatpickr.min.js?ver=5.7' id='ppress-flatpickr-js'></script>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-content/plugins/wp-user-avatar/assets/select2/select2.min.js?ver=5.7' id='ppress-select2-js'></script>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/bootstrap/js/bootstrap.min.js?ver=3.1.1' id='bootstrap-js'></script>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/typeahead/typeahead.jquery.min.js?ver=0.10.1' id='typeahead-js'></script>
+<link rel="https://api.w.org/" href="https://www.pythoncentral.io/wp-json/" />    <link rel="apple-touch-icon" href="https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" type="image/png" href="https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/images/favicons/favicon.png">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/images/favicons/favicon.ico">
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><script data-ad-client="ca-pub-3730271461974795" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript">
+    var vglnk = {key: '449311fcfd243a4d99208c25805faa02'};
+    (function(d, t) {
+        var s = d.createElement(t);
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//cdn.viglink.com/api/vglnk.js';
+        var r = d.getElementsByTagName(t)[0];
+            r.parentNode.insertBefore(s, r);
+    }(document, 'script'));
+</script><script id='cls-disable-ads-659e921'>var cls_disable_ads=function(t){"use strict";function o(t,o){var e="function"==typeof Symbol&&t[Symbol.iterator];if(!e)return t;var n,i,r=e.call(t),a=[];try{for(;(void 0===o||o-- >0)&&!(n=r.next()).done;)a.push(n.value)}catch(t){i={error:t}}finally{try{n&&!n.done&&(e=r.return)&&e.call(r)}finally{if(i)throw i.error}}return a}function e(t,o,e){if(e||2===arguments.length)for(var n,i=0,r=o.length;i<r;i++)!n&&i in o||(n||(n=Array.prototype.slice.call(o,0,i)),n[i]=o[i]);return t.concat(n||Array.prototype.slice.call(o))}var n,i,r,a,l,s,d,c,u,p;!function(t){t.Prebid="prebid",t.GAM="gam",t.Amazon="amazon",t.WebVitals="webvitals",t.Marmalade="marmalade",t.Floors="floors",t.CMP="cmp"}(n||(n={})),function(t){t.fpvNonLazy="fpvNonLazy",t.lazy="lazy",t.refresh="refresh",t.session="session",t.crossDomain="crossdomain",t.highSequence="highsequence"}(i||(i={})),function(t){t.prebidLoad="prebidLoad",t.amazonLoad="amazonLoad",t.gptLoad="gptLoad"}(r||(r={})),function(t){t.Desktop="desktop",t.Mobile="mobile"}(a||(a={})),function(t){t.Video_Collapse_Autoplay_SoundOff="Video_Collapse_Autoplay_SoundOff",t.Video_Individual_Autoplay_SOff="Video_Individual_Autoplay_SOff",t.Video_Coll_SOff_Smartphone="Video_Coll_SOff_Smartphone",t.Video_In_Post_ClicktoPlay_SoundOn="Video_In-Post_ClicktoPlay_SoundOn"}(l||(l={})),function(t){t.None="none"}(s||(s={})),function(t){t.WEIGHTEDCHOICE="weightedChoice",t.BERNOULLITRIAL="bernoulliTrial"}(d||(d={})),function(t){t.INTEGER="integer",t.FLOAT="float",t.BOOLEAN="boolean",t.STRING="string"}(c||(c={})),function(t){t.DESKTOP="desktop",t.MOBILE="mobile",t.ALL="all"}(u||(u={})),function(t){t.AdDensity="addensity",t.FooterCloseButton="footerclose",t.Interstitial="interstitial",t.RemoveVideoTitleWrapper="removevideotitlewrapper",t.StickyOutstream="stickyoutstream",t.StickyOutstreamOnStickyPlayer="sospp",t.VideoAdvancePlaylistRelatedPlayer="videoadvanceplaylistrp",t.MobileStickyPlayerPosition="mspp"}(p||(p={}));var h=function(t){var o=window.location.href;return t.some((function(t){return new RegExp(t,"i").test(o)}))},f=function(){function t(){}return t.prototype.info=function(t,n){for(var i=[],r=2;r<arguments.length;r++)i[r-2]=arguments[r];this.call.apply(this,e([console.info,t,n],o(i),!1))},t.prototype.warn=function(t,n){for(var i=[],r=2;r<arguments.length;r++)i[r-2]=arguments[r];this.call.apply(this,e([console.warn,t,n],o(i),!1))},t.prototype.error=function(t,n){for(var i=[],r=2;r<arguments.length;r++)i[r-2]=arguments[r];this.call.apply(this,e([console.error,t,n],o(i),!1)),this.sendErrorLogToCommandQueue.apply(this,e([t,n],o(i),!1))},t.prototype.event=function(t,o){for(var e=[],n=2;n<arguments.length;n++)e[n-2]=arguments[n];this.info(t,o)},t.prototype.sendErrorLogToCommandQueue=function(t,o){for(var e=[],n=2;n<arguments.length;n++)e[n-2]=arguments[n];window.adthrive=window.adthrive||{},window.adthrive.cmd=window.adthrive.cmd||[],window.adthrive.cmd.push(function(){void 0!==window.adthrive.logError&&"function"==typeof window.adthrive.logError&&window.adthrive.logError(t,o,e)}.bind(t,o,e))},t.prototype.call=function(t,n,i){for(var r=[],a=3;a<arguments.length;a++)r[a-3]=arguments[a];var l=["%c".concat(n,"::").concat(i," ")],s=["color: #999; font-weight: bold;"];r.length>0&&"string"==typeof r[0]&&l.push(r.shift()),s.push.apply(s,e([],o(r),!1));try{Function.prototype.apply.call(t,console,e([l.join("")],o(s),!1))}catch(t){return void console.error(t)}},t}(),y=new f,v=function(){function t(t){this.adthrive=t,this.all=!1,this.content=!1,this.recipe=!1,this.video=!1,this.locations=new Set,this.reasons=new Set,(this.urlHasEmail(window.location.href)||this.urlHasEmail(window.document.referrer))&&(this.all=!0,this.reasons.add("all_email"));try{this.checkCommandQueue(),null!==document.querySelector(".tag-novideo")&&(this.video=!0,this.locations.add("Video"),this.reasons.add("video_tag"))}catch(t){y.error("ClsDisableAds","checkCommandQueue",t)}}return t.prototype.checkCommandQueue=function(){var t=this;this.adthrive&&this.adthrive.cmd&&this.adthrive.cmd.forEach((function(o){var e=o.toString(),n=t.extractAPICall(e,"disableAds");n&&t.disableAllAds(t.extractPatterns(n));var i=t.extractAPICall(e,"disableContentAds");i&&t.disableContentAds(t.extractPatterns(i));var r=t.extractAPICall(e,"disablePlaylistPlayers");r&&t.disablePlaylistPlayers(t.extractPatterns(r))}))},t.prototype.extractPatterns=function(t){var o=t.match(/["'](.*?)['"]/g);if(null!==o)return o.map((function(t){return t.replace(/["']/g,"")}))},t.prototype.extractAPICall=function(t,o){var e=new RegExp(o+"\\((.*?)\\)","g"),n=t.match(e);return null!==n&&n[0]},t.prototype.disableAllAds=function(t){t&&!h(t)||(this.all=!0,this.reasons.add("all_page"))},t.prototype.disableContentAds=function(t){t&&!h(t)||(this.content=!0,this.recipe=!0,this.locations.add("Content"),this.locations.add("Recipe"),this.reasons.add("content_plugin"))},t.prototype.disablePlaylistPlayers=function(t){t&&!h(t)||(this.video=!0,this.locations.add("Video"),this.reasons.add("video_page"))},t.prototype.urlHasEmail=function(t){if(!t)return!1;return null!==/([A-Z0-9._%+-]+(@|%(25)*40)[A-Z0-9.-]+\.[A-Z]{2,})/i.exec(t)},t}(),m=window.adthriveCLS;return m&&(m.disableAds=new v(window.adthrive)),t.ClsDisableAds=v,Object.defineProperty(t,"__esModule",{value:!0}),t}({});
+</script>		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+margin-right: 0px;
+margin-left: 0px;
+}
+
+#div-gpt-ad-1510621959781-3 {
+margin-top:1em;
+text-align:center;
+}
+
+.ul, ol{
+overflow: hidden;
+}
+
+.alert-info{
+overflow:hidden;
+}
+
+
+
+
+
+
+section#article-downloads-navigation {
+    margin-bottom: 30px !important;
+    margin-top: 0px !important;
+}
+
+.banners_home{
+    text-align: center;
+    margin: 30px 0 0 0;
+}
+#top-ad-container {
+	text-align: center;
+/*	height:250px;
+	border:1px solid #333;*/
+}
+
+.cc-revoke, .cc-window {    
+    z-index: 99999999999999 !important;
+}
+
+div#primis_container_div > div:nth-child(2) {
+    margin-bottom: 150px;
+}
+
+@media(min-width:768px){
+	.col-lg-9 {
+    width: 70%;
+}
+/*	body.single #content .container {
+    width: 100%;
+    max-width: 1440px;
+}*/
+	body.single div#sidebar2{   
+    float: left;
+	}
+	body.single section#primary,
+	body.single .fb-comments.fb_iframe_widget,
+body.single div#main section#article-downloads-navigation{   
+  /*  margin-left: 230px !important;*/
+  }
+
+body.single	section#article-downloads-navigation {
+   /* width: 100%;*/
+}
+body .fb-comments.fb_iframe_widget.fb_iframe_widget_fluid_desktop {
+    width: 79% !important;
+}
+	
+	body.home div#main{
+			width:800px;
+		 padding-right:10px;
+	}
+	body.home div#sidebar2,
+	body.single div#sidebar2{
+			width: 336px;
+	}
+
+	body.single div#main{
+		/* width:760px;*/
+	}
+	body.single section#primary{
+		 width: 730px;
+	}
+	.sidebar-ads-block{		 
+		float: left;
+		width:100%;
+		margin:15px 0;
+	} 
+	
+ 
+div#taboola-below-article-thumbnails {
+    margin-left: 230px;
+}
+	
+}
+body.home	div#taboola-below-article-thumbnails{
+		display:none;
+	}
+.leftside-bar{
+	  width: 300px;
+    height: 600px;
+    min-height: 200px;
+    overflow: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px;
+    z-index: 99999;
+    float:left;
+}
+
+.contact-freshdesk{
+    cursor: pointer;
+}
+ul.policy-topic-include li span {
+    position: absolute;
+    right: 5px;
+}
+
+ul.policy-topic-include li {
+    border-bottom: 1px solid #333;
+    list-style: none;
+    position: relative;
+    max-width: 70%;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    padding-right: 20px;
+}
+ul.policy-topic-include{
+    padding: 0;
+}
+body.page-id-4080  table tr td, table tr th{
+    border: 1px solid #ddd;
+    padding: 5px;
+	vertical-align: top;
+}
+body.page-id-4080 table tr th{
+    text-align: center;
+    background: #eee;
+}
+
+footer#footer {
+    padding-bottom: 70px;
+}
+
+
+@media(max-width:767px){
+	 
+	.sidebar-ads-block{
+		display:none;
+	}
+	.mobile_fixed{
+		width: 320px;
+		height: 100px;
+		min-height: 80px;
+		overflow: auto;
+		position: -webkit-sticky;
+		position: sticky;
+    top: 60px;
+		text-align:center;
+		z-index: 99999;
+	}
+	.leftside-bar{
+		display:none;
+	}
+	body.home div#main{			 
+		 padding-right:0px;
+	}
+	
+}
+ 
+iframe#launcher-frame {
+    bottom: 100px !important;
+}
+
+footer#footer {
+    margin-bottom: 60px;
+    background: #fff;
+}
+.cc-window.cc-banner.cc-type-info.cc-theme-block.cc-bottom {
+    display: none !important;
+}
+
+/* 10-11-2021 */
+
+.sidebars3{ display:none}
+
+@media(min-width:1800px){
+	
+	.sidebars3{ display:block}
+	
+}
+
+
+@media(max-width:767px){
+	
+ 	
+.single-post div {
+  width: auto !important;
+	max-width:100%;
+ }	
+	
+body, html {
+    overflow-x: hidden;
+}
+div#AdThrive_Footer_1_phone {
+    max-width: 320px;
+}		
+.primisvideo {
+  height: 300px!important;
+}
+.primisslate>iframe:nth-child(1) + div#primis_container_div div#closeContainer + div>div {
+    height: auto !important;
+} 
+.single-post  section#article-downloads-navigation {
+/*     margin-left: 20px !important; */
+}	
+.single-post div#sidebar2 {
+    padding-left: 16px;
+}	
+.single-post div#main{
+    padding-right: 0 !important;
+}	
+.single-post section#primary {
+/*     width: calc(100% + 20px); */
+}	
+	
+}
+		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+
+<!-- Adsense -->
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+
+
+
+<!-- Taboola Code -->
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({article:'auto'});
+  !function (e, f, u, i) {
+    if (!document.getElementById(i)){
+      e.async = 1;
+      e.src = u;
+      e.id = i;
+      f.parentNode.insertBefore(e, f);
+    }
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/pythoncentral/loader.js',
+  'tb_loader_script');
+  if(window.performance && typeof window.performance.mark == 'function')
+    {window.performance.mark('tbl_ic');}
+</script>
+
+<!-- Taboola Code End-->
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-65994140-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<!-- TODO move out of inline, into scss -->
+<style>
+h1.bolder{
+font-size: 21px;
+color: #444;
+font-weight: bold;
+padding-bottom: 0.5em;
+border-bottom: 1px solid #eee;
+}
+.sidebars3{
+	padding: 10px;
+	width: 336px;
+	height: 600px;
+	margin: 0 auto;
+	position: fixed;
+	top:0;
+	left:0
+}
+</style>
+
+<!-- <script>
+(function(w, d) {
+w.adthrive = w.adthrive || {};
+w.adthrive.cmd = w.adthrive.cmd || [];
+w.adthrive.plugin = 'adthrive-ads-1.0.43-manual';
+w.adthrive.host = 'ads.adthrive.com';
+var s = d.createElement('script');
+s.async = true;
+s.referrerpolicy='no-referrer-when-downgrade';
+s.src = 'https://' + w.adthrive.host + '/sites/5dee8a51641fa21c7b01846a/ads.min.js?referrer=' + w.encodeURIComponent(w.location.href);
+var n = d.getElementsByTagName('script')[0];
+n.parentNode.insertBefore(s, n);
+})(window, document);
+</script> -->
+<script type="text/javascript" async src="https://btloader.com/tag?o=5766703155773440&upapi=true"></script>
+</head>
+
+<body class="error404 adthrive-disable-all">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK4SJKW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Facebook SDK end -->
+
+		<header id="header" role="banner" class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+
+
+		        <div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+					<a title="Python Central" href="https://www.pythoncentral.io">
+						<img alt="Python Central Logo"
+							 src="https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/images/python-central.svg"
+							 onerror="this.onerror = null; this.src = 'https://www.pythoncentral.io/wp-content/themes/pythoncentral/assets/images/python-central.gif'"
+							 id="logo" class="non-responsive">
+					</a>
+		        </div>
+
+				<nav id="primary-nav" class="collapse navbar-collapse">
+					<ul id="menu-top-menu" class="nav navbar-nav"><li id="menu-item-2886" class="menu-item-2886"><a title="Python Tips &#038; Tricks" href="https://www.pythoncentral.io/category/python-tips-tricks-hacks-idioms/"><span class="glyphicon "></span>&nbsp;Tips &#038; Tricks</a></li>
+<li id="menu-item-2875" class="menu-item-2875"><a title="Python How Tos" href="https://www.pythoncentral.io/category/python-how-tos/"><span class="glyphicon "></span>&nbsp;How Tos</a></li>
+<li id="menu-item-2876" class="menu-item-2876 dropdown"><a href="https://www.pythoncentral.io/category/python-library-tutorials/"><span class="glyphicon "></span>&nbsp;Libraries <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-3379" class="menu-item-3379"><a title="Python SQLAlchemy Tutorial" href="https://www.pythoncentral.io/series/python-sqlalchemy-database-tutorial/"><span class="glyphicon glyphicon-book"></span>&nbsp;SQLAlchemy</a></li>
+	<li id="menu-item-3374" class="menu-item-3374"><a title="Python Django Tutorial" href="https://www.pythoncentral.io/series/python-django-tutorial/"><span class="glyphicon glyphicon-book"></span>&nbsp;Django</a></li>
+	<li id="menu-item-3373" class="menu-item-3373"><a title="Python PySide/PyQt Tutorial" href="https://www.pythoncentral.io/series/python-pyside-pyqt-tutorial/"><span class="glyphicon glyphicon-book"></span>&nbsp;PySide / PyQt</a></li>
+	<li id="menu-item-3371" class="menu-item-3371"><a title="Python SQLite Tutorial" href="https://www.pythoncentral.io/series/python-sqlite-database-tutorial/"><span class="glyphicon glyphicon-book"></span>&nbsp;SQLite</a></li>
+	<li id="menu-item-3369" class="menu-item-3369"><a title="Python Android Scripting Layer (SL4A) Tutorial" href="https://www.pythoncentral.io/series/python-sl4a-android-scripting-layer-tutorial/"><span class="glyphicon glyphicon-book"></span>&nbsp;Android Scripting Layer (SL4A)</a></li>
+</ul>
+</li>
+<li id="menu-item-2867" class="menu-item-2867 dropdown"><a title="Python Tutorials" href="https://www.pythoncentral.io/category/python-tutorials/"><span class="glyphicon "></span>&nbsp;Tutorials <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-3376" class="menu-item-3376"><a title="Encoding and Decoding Python Strings" href="https://www.pythoncentral.io/series/python-encoding-decoding-strings/"><span class="glyphicon glyphicon-book"></span>&nbsp;Encoding and Decoding</a></li>
+	<li id="menu-item-3375" class="menu-item-3375"><a title="Python Regular Expressions" href="https://www.pythoncentral.io/series/python-regular-expressions-tutorial/"><span class="glyphicon glyphicon-book"></span>&nbsp;Regular Expressions</a></li>
+	<li id="menu-item-3378" class="menu-item-3378"><a title="Python Classes Tutorial" href="https://www.pythoncentral.io/series/python-classes-tutorial/"><span class="glyphicon glyphicon-book"></span>&nbsp;Classes</a></li>
+</ul>
+</li>
+<li id="menu-item-2872" class="menu-item-2872 dropdown"><a title="Python Recipes" href="https://www.pythoncentral.io/category/python-recipes/"><span class="glyphicon "></span>&nbsp;Recipes <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-3377" class="menu-item-3377"><a title="Python Recursive File and Directory Manipulation" href="https://www.pythoncentral.io/series/python-recursive-file-and-directory-manipulation/"><span class="glyphicon glyphicon-book"></span>&nbsp;Recursion</a></li>
+</ul>
+</li>
+<li id="menu-item-2887" class="menu-item-2887"><a title="Python Tools" href="https://www.pythoncentral.io/category/python-related-tools/"><span class="glyphicon "></span>&nbsp;Tools</a></li>
+<li id="menu-item-3301" class="menu-item-3301"><a title="Python API Tutorials" href="https://www.pythoncentral.io/category/python-api/"><span class="glyphicon "></span>&nbsp;API</a></li>
+<li id="menu-item-31" class="menu-item-31 dropdown"><a title="About Python Cenral" href="https://www.pythoncentral.io/about/"><span class="glyphicon "></span>&nbsp;About <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-874" class="menu-item-874"><a title="Python Central Frequently Asked Questions" href="https://www.pythoncentral.io/frequently-asked-questions/"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;FAQ</a></li>
+	<li id="menu-item-2854" class="menu-item-2854"><a title="Provide Feedback or Report Issues to Python Central" target="_blank"><span class="glyphicon glyphicon-link"></span>&nbsp;Feedback &#038; Issues</a></li>
+</ul>
+</li>
+</ul>				</nav>
+			</div>
+
+		</header>
+
+		<div role="document" id="content">
+
+
+<div style="padding: 10px; width: 450px; margin: 0 auto;">
+
+<!-- brano ad -->
+
+</div>
+
+<div class="container">
+		<div class="sidebars3"></div>
+				<div class="row">
+
+<div class="col-md-9" role="main">
+	<section id="primary">
+		<div class="page-header">
+			<h1>Can't find the page!</h1>
+			<ol class="breadcrumb hidden-print"><li><a  href="https://www.pythoncentral.io" title="Home">Home</a></li><li class="active">404</li></ol>		</div>
+
+		<article class="post-6213 post type-post status-publish format-standard has-post-thumbnail hentry category-python-tips-tricks-hacks-idioms category-python-library-tutorials category-python-related-tools category-python-recipes category-python-how-tos category-python-tutorials category-python-api series-python-data-structures-tutorial series-python-sqlalchemy-database-tutorial series-python-pyside-pyqt-tutorial series-python-django-tutorial series-python-regular-expressions-tutorial series-python-sqlite-database-tutorial series-python-recursive-file-and-directory-manipulation series-python-encoding-decoding-strings series-python-sl4a-android-scripting-layer-tutorial series-python-classes-tutorial has_thumb">
+			<div class="entry-content">
+				<div class="alert alert-danger">
+					<p>
+						<strong>Oops!</strong> It looks like the page doesn't exist.
+						<a href="https://www.pythoncentral.io">Click here</a>
+						to go back to the homepage.
+					</p>
+				</div>
+			</div>
+		</article>
+	</section>
+</div>
+
+<div id='sidebar2' style='max-width=100%; overflow:hidden'>
+
+<!-- <section id="article-downloads-navigation" class="hidden-print" style='width:100%; margin: 0; padding: 0 1em 1em 1em; float: left;'>
+<h1 class='bolder'>Signup for new content</h1>
+<form action="https://app.bigmailer.io/t/f/73c21432-90c7-4f7c-bc8b-9843936a050d" data-style="plain" id="form[73c21432-90c7-4f7c-bc8b-9843936a050d]" method="POST" target="_blank">
+ <p>
+  <label for="field[e699b86c-1b4e-4084-91b1-7b3df0208db4]">
+   Email
+  </label>
+  <br/>
+  <input id="field[e699b86c-1b4e-4084-91b1-7b3df0208db4]" name="field[e699b86c-1b4e-4084-91b1-7b3df0208db4]" required="required" type="email" placeholder="Email address..."/>
+ </p>
+ <p id="success[73c21432-90c7-4f7c-bc8b-9843936a050d]" style="display:none;color:green;">
+  Thank you for joining our mailing list!
+ </p>
+ <p>
+  <button type="submit" class="btn btn-default">
+   Subscribe
+  </button>
+ </p>
+</form>
+
+</section> -->
+
+<script>
+ var _bmxq = _bmxq || []; _bmxq.push(['_setupForm', 'form[73c21432-90c7-4f7c-bc8b-9843936a050d]']);
+</script>
+<script async="" src="https://cdn.bigmailer.io/lib.js">
+</script>
+
+
+<section id="article-downloads-navigation" class="hidden-print" style='width: 100%; margin: 2em 0 0 0; padding: 0 0 1em 1em; float: left;'>
+	<h1 class='bolder'>Latest Articles</h1>
+
+	<div class="lines-wrapper">
+		<ul class="nav nav-list">
+		<li><span class="glyphicon glyphicon-file"></span><a href='https://www.pythoncentral.io/installing-python-on-mac-using-homebrew/' title='Installing Python on Mac Using Homebrew'>Installing Python on Mac Using Homebrew</a></li><li><span class="glyphicon glyphicon-file"></span><a href='https://www.pythoncentral.io/python-developer-resume-writing-guide/' title='Python Developer Resume Writing Guide'>Python Developer Resume Writing Guide</a></li><li><span class="glyphicon glyphicon-file"></span><a href='https://www.pythoncentral.io/a-guide-to-pythons-operator/' title='A Guide to Python&#039;s += Operator'>A Guide to Python's += Operator</a></li><li><span class="glyphicon glyphicon-file"></span><a href='https://www.pythoncentral.io/pandas-data-frame-a-tutorial-for-creating-and-manipulating-data/' title='Pandas Data Frame: A Tutorial for Creating and Manipulating Data'>Pandas Data Frame: A Tutorial for Creating and Manipulating Data</a></li><li><span class="glyphicon glyphicon-file"></span><a href='https://www.pythoncentral.io/how-to-round-numbers-in-python-easy-steps/' title='How To Round Numbers in Python: Easy Steps'>How To Round Numbers in Python: Easy Steps</a></li>		</ul>
+	</div>
+
+	<div class="clearfix"></div>
+</section>
+
+<br />
+
+<!-- <section id="article-downloads-navigation" class="hidden-print" style='width: 100%; margin: 2em 0 0 0em; padding: 0 0 1em 1em; float: left;'>
+
+	<h1 class='bolder'>Social</h1>
+	<div style="display: flex;">
+		<a href="https://twitter.com/PythonCentral" target="_blank" title="Python Central on Twitter">
+			<i style="color: #355c7c; margin-right:0.8em; margin-left:0.2em;" class="fa fa-3x fa-twitter-square" aria-hidden="true" title="Twitter"></i>
+		</a>
+		<a href="https://plus.google.com/117103316424864449594/posts" target="_blank" title="Python Central on Google Plus">
+			<i style="color: #355c7c; margin-right:0.8em;" class="fa fa-3x fa-google-plus-square" aria-hidden="true" title="Google Plus"></i>
+		</a>
+
+		<a href="https://www.facebook.com/PythonCentral" target="_blank" title="Python Central on Facebook">
+			<i style="color: #355c7c; margin-right:0.8em;" class="fa fa-3x fa-facebook-square" aria-hidden="true" title="Facebook"></i>
+		</a>
+
+		<a href="http://feeds.feedburner.com/PythonCentral" target="_blank" title="Python Central's RSS Feed">
+			<i style="color: #355c7c;" class="fa fa-3x fa-rss-square" aria-hidden="true" title="RSS"></i>
+		</a>
+	</div>
+	<div style="margin-top: 1em; padding: 10px 0px;">
+		Python is a beautiful language.
+	</div>
+</section> -->
+
+<section id="article-downloads-navigation" class="hidden-print" style='width: 100%; margin: 2em 0 0 0em; padding: 0 0 1em 1em; float: left;'>
+ 
+<ul>
+    </ul>
+	<h1 class='bolder'>Tags</h1>
+
+
+	<div style="display: flex;flex-wrap: wrap;list-style: none;" class="tag_list">
+
+	            <li><a href="https://www.pythoncentral.io/tag/python/" title="Python">Python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pickle/" title="Pickle">Pickle</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pickling/" title="Pickling">Pickling</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/unpickling/" title="Unpickling">Unpickling</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/html/" title="HTML">HTML</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/html-parser/" title="HTML Parser">HTML Parser</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/html-extraction/" title="HTML Extraction">HTML Extraction</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/parsing/" title="Parsing">Parsing</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/scrapping/" title="Scrapping">Scrapping</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/stack/" title="stack">stack</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/queue/" title="queue">queue</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/deque/" title="deque">deque</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/push/" title="push">push</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pop/" title="pop">pop</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/dequeue/" title="dequeue">dequeue</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/data-structures/" title="Data structures">Data structures</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/stacks/" title="stacks">stacks</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/enqueue/" title="enqueue">enqueue</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/datastructure/" title="datastructure">datastructure</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/array/" title="array">array</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/list/" title="list">list</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/circular-queue/" title="circular queue">circular queue</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/head/" title="head">head</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/tail/" title="tail">tail</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/priority-queue/" title="priority queue">priority queue</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/min-heap/" title="min heap">min heap</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/heapify/" title="heapify">heapify</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/heap/" title="heap">heap</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/search/" title="search">search</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/binary-search/" title="binary search">binary search</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/linear-search/" title="linear search">linear search</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/algorithm/" title="algorithm">algorithm</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/sort/" title="Sort">Sort</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/ascending/" title="ascending">ascending</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/bubble-sort/" title="bubble sort">bubble sort</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/sorting/" title="sorting">sorting</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/insertion-sort/" title="insertion sort">insertion sort</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/effiiciency/" title="effiiciency">effiiciency</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/selection-sort/" title="selection sort">selection sort</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/merge-sort/" title="merge sort">merge sort</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/quick-sort/" title="quick sort">quick sort</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/linked-list/" title="Linked List">Linked List</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/singly-linked-list/" title="Singly Linked List">Singly Linked List</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/data-structure/" title="Data Structure">Data Structure</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/node/" title="Node">Node</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/insert-node/" title="Insert Node">Insert Node</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/add-node/" title="Add Node">Add Node</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/print-node/" title="Print Node">Print Node</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/algorithms/" title="algorithms">algorithms</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/remove-a-node/" title="remove a node">remove a node</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/find-a-node/" title="find a node">find a node</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/reversal/" title="reversal">reversal</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/in-place-reversal/" title="in place reversal">in place reversal</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/learning/" title="Learning">Learning</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/programming/" title="Programming">Programming</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/programming-language/" title="Programming language">Programming language</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/web-development/" title="web development">web development</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/machine-learning/" title="machine learning">machine learning</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/intro/" title="intro">intro</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/howto/" title="howto">howto</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-tutorial/" title="python tutorial">python tutorial</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-tips/" title="Python tips">Python tips</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-tools/" title="Python tools">Python tools</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/installation/" title="installation">installation</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/install-python/" title="install python">install python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/django/" title="Django">Django</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/flask/" title="Flask">Flask</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-salaries/" title="Python salaries">Python salaries</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/learn-python/" title="learn python">learn python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/windows/" title="windows">windows</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/install-python-on-windows/" title="install python on windows">install python on windows</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/remove-python/" title="remove python">remove python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/uninstall-python/" title="uninstall python">uninstall python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/scripts/" title="scripts">scripts</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-scripts/" title="python scripts">python scripts</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/dict/" title="dict">dict</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/dictionary/" title="dictionary">dictionary</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-dictionary/" title="python dictionary">python dictionary</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/function/" title="function">function</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-function/" title="python function">python function</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/scopes/" title="Scopes">Scopes</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/function-scope/" title="function scope">function scope</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/calling-function/" title="calling function">calling function</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/list-sort/" title="list sort">list sort</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/string/" title="String">String</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/reverse/" title="reverse">reverse</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/reverse-string/" title="reverse string">reverse string</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/concatenate-string/" title="concatenate string">concatenate string</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-string/" title="python string">python string</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/compare-string/" title="compare string">compare string</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/learning-python/" title="learning python">learning python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/csv-in-python/" title="csv in python">csv in python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/csv-file-python/" title="csv file python">csv file python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pythons-built-in-csv-library/" title="Python&#039;s Built-in CSV Library">Python&#039;s Built-in CSV Library</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-update/" title="python update">python update</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pandas-installation/" title="pandas installation">pandas installation</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/how-to-install-pandas/" title="how to install pandas">how to install pandas</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/tuple-in-python/" title="Tuple in Python">Tuple in Python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/tuple/" title="tuple">tuple</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pip/" title="Pip">Pip</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-packages/" title="python packages">python packages</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-ide/" title="Python IDE">Python IDE</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-code-editors/" title="python Code Editors">python Code Editors</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/code-editors/" title="Code Editors">Code Editors</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/code-interface/" title="code interface">code interface</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/time-delay/" title="time delay">time delay</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-bugs/" title="python bugs">python bugs</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/logging-in-python/" title="logging in python">logging in python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-logging/" title="python logging">python logging</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/logging-apis/" title="logging APIs">logging APIs</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/logging-module/" title="logging module">logging module</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/zen-of-python/" title="Zen of Python">Zen of Python</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/philosophy-of-programming/" title="Philosophy of Programming">Philosophy of Programming</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pandas-groupby/" title="pandas groupby">pandas groupby</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/groupby-method/" title="GroupBy method">GroupBy method</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/groupby/" title=".groupby()">.groupby()</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/fastapi/" title="FastAPI">FastAPI</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-maps/" title="python maps">python maps</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pytest/" title="Pytest">Pytest</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/unittest/" title="unittest">unittest</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pyunit/" title="PyUnit">PyUnit</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pythonzip/" title="PythonZip">PythonZip</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/zipfunction/" title="ZipFunction">ZipFunction</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/python-counter/" title="Python Counter">Python Counter</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/counter-class/" title="Counter class">Counter class</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/constructing-counters/" title="Constructing Counters">Constructing Counters</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/concatenate-data-frames/" title="Concatenate Data Frames">Concatenate Data Frames</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/concatenation/" title="concatenation">concatenation</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/concat-function/" title="concat() function">concat() function</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pyenv/" title="pyenv">pyenv</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pythonbrew/" title="Pythonbrew">Pythonbrew</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pyenv-global/" title="pyenv global">pyenv global</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/argparse/" title="argparse">argparse</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/dataframes/" title="dataframes">dataframes</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pandas-reset_index/" title="pandas.reset_index">pandas.reset_index</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/reset_index/" title="reset_index()">reset_index()</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/round-numbers/" title="round numbers">round numbers</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/pandas-dataframes/" title="pandas dataframes">pandas dataframes</a></li>
+                    <li><a href="https://www.pythoncentral.io/tag/plus-equals/" title="plus equals">plus equals</a></li>
+            		<!-- <a href="https://twitter.com/PythonCentral" target="_blank" title="Python Central on Twitter">
+			<i style="color: #355c7c; margin-right:0.8em; margin-left:0.2em;" class="fa fa-3x fa-twitter-square" aria-hidden="true" title="Twitter"></i>
+		</a>
+		<a href="https://plus.google.com/117103316424864449594/posts" target="_blank" title="Python Central on Google Plus">
+			<i style="color: #355c7c; margin-right:0.8em;" class="fa fa-3x fa-google-plus-square" aria-hidden="true" title="Google Plus"></i>
+		</a>
+
+		<a href="https://www.facebook.com/PythonCentral" target="_blank" title="Python Central on Facebook">
+			<i style="color: #355c7c; margin-right:0.8em;" class="fa fa-3x fa-facebook-square" aria-hidden="true" title="Facebook"></i>
+		</a>
+
+		<a href="http://feeds.feedburner.com/PythonCentral" target="_blank" title="Python Central's RSS Feed">
+			<i style="color: #355c7c;" class="fa fa-3x fa-rss-square" aria-hidden="true" title="RSS"></i>
+		</a> -->
+	</div>
+	<div style="margin-top: 1em; padding: 10px 0px;">
+		Python is a beautiful language.
+	</div>
+</section>
+
+<!-- <div id="taboola-below-article-thumbnails"></div>
+	<script type="text/javascript">
+	  window._taboola = window._taboola || [];
+	  _taboola.push({
+	    mode: 'thumbnails-a',
+	    container: 'taboola-below-article-thumbnails',
+	    placement: 'Below Article Thumbnails',
+	    target_type: 'mix'
+	  });
+	</script> -->
+
+
+</div>
+
+<style>
+.tag_list li {
+    padding: 8px;
+    border: 1px solid rgb(70 119 163);
+    border-radius: 32px;
+    margin: 4px 4px;
+}
+	</style>				</div>
+			</div>
+		</div>
+
+		<footer class="hidden-print" id="footer">
+			<div class="container">
+				<div class="row">
+					<div id="footer-menu" class="col-md-7 col-sm-7">
+															<nav id="footer-nav">
+										<div class="menu-bottom-menu-container"><ul id="menu-bottom-menu" class="list-inline"><li id="menu-item-847" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-847"><a title="Python Central Home" href="https://www.pythoncentral.io/">Home</a></li>
+<li id="menu-item-848" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-848"><a title="About Python Central" href="https://www.pythoncentral.io/about/">About</a></li>
+<li id="menu-item-878" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-878"><a title="Frequently Asked Questions about Python Central" href="https://www.pythoncentral.io/frequently-asked-questions/">FAQ</a></li>
+<li id="menu-item-2855" class="contact-freshdesks menu-item menu-item-type-custom menu-item-object-custom menu-item-2855"><a title="Contact Python Central" target="_blank" rel="noopener" href="https://www.pythoncentral.io/contact-us/">Contact</a></li>
+<li id="menu-item-4804" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4804"><a target="_blank" rel="noopener" href="https://www.pythoncentral.io/wp-content/themes/pythoncentral/pdf/PythonCentral.io_Privacy_Policy_AdThriveIncluded%20(1).pdf">Python Central Privacy Policy</a></li>
+<li id="menu-item-4805" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4805"><a target="_blank" rel="noopener" href="https://www.pythoncentral.io/wp-content/themes/pythoncentral/pdf/PythonCentral.io_Cookie_Policy.pdf">Cookie Policy</a></li>
+</ul></div>									</nav>
+													</div>
+
+					<div id="copyright" class="col-md-5 col-sm-5 text-right">
+						<span>
+							&copy; Copyright 2023 - 
+							<a href="https://www.pythoncentral.io" title="Python Programming Examples, Tutorials and Recipes">Python Central</a>.
+						</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script id='cls-insertion-659e921'>!function(){"use strict";var e=function(e,t){return null==e||e!=e?t:e},t=function(e){var t=e.offsetHeight,n=e.offsetWidth,i=e.getBoundingClientRect(),o=document.body,r=document.documentElement,a=window.pageYOffset||r.scrollTop||o.scrollTop,l=window.pageXOffset||r.scrollLeft||o.scrollLeft,s=r.clientTop||o.clientTop||0,c=r.clientLeft||o.clientLeft||0,u=Math.round(i.top+a-s),d=Math.round(i.left+l-c);return{top:u,left:d,bottom:u+t,right:d+n,width:n,height:t}},n=function(){var e=navigator.userAgent,t=/Tablet|iPad|Playbook|Nook|webOS|Kindle|Android (?!.*Mobile).*Safari/i.test(e);return/Mobi|iP(hone|od)|Opera Mini/i.test(e)&&!t},i=function(e,t){return i=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n])},i(e,t)};function o(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Class extends value "+String(t)+" is not a constructor or null");function n(){this.constructor=e}i(e,t),e.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}var r=function(){return r=Object.assign||function(e){for(var t,n=1,i=arguments.length;n<i;n++)for(var o in t=arguments[n])Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o]);return e},r.apply(this,arguments)};function a(e,t,n,i){var o,r=arguments.length,a=r<3?t:null===i?i=Object.getOwnPropertyDescriptor(t,n):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)a=Reflect.decorate(e,t,n,i);else for(var l=e.length-1;l>=0;l--)(o=e[l])&&(a=(r<3?o(a):r>3?o(t,n,a):o(t,n))||a);return r>3&&a&&Object.defineProperty(t,n,a),a}function l(e,t){if("object"==typeof Reflect&&"function"==typeof Reflect.metadata)return Reflect.metadata(e,t)}function s(e){var t="function"==typeof Symbol&&Symbol.iterator,n=t&&e[t],i=0;if(n)return n.call(e);if(e&&"number"==typeof e.length)return{next:function(){return e&&i>=e.length&&(e=void 0),{value:e&&e[i++],done:!e}}};throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")}function c(e,t){var n="function"==typeof Symbol&&e[Symbol.iterator];if(!n)return e;var i,o,r=n.call(e),a=[];try{for(;(void 0===t||t-- >0)&&!(i=r.next()).done;)a.push(i.value)}catch(e){o={error:e}}finally{try{i&&!i.done&&(n=r.return)&&n.call(r)}finally{if(o)throw o.error}}return a}function u(e,t,n){if(n||2===arguments.length)for(var i,o=0,r=t.length;o<r;o++)!i&&o in t||(i||(i=Array.prototype.slice.call(t,0,o)),i[o]=t[o]);return e.concat(i||Array.prototype.slice.call(t))}var d,p,h,f,y,m,g,v,_,b,S=function(e,t,n){void 0===n&&(n=document);var i=function(e){void 0===e&&(e=document);var t=e.querySelectorAll("article");if(0===t.length)return null;var n=Array.from(t).reduce((function(e,t){return t.offsetHeight>e.offsetHeight?t:e}));return n&&n.offsetHeight>1.5*window.innerHeight?n:null}(n),o=i?[i]:[],r=[];e.forEach((function(e){var i,a=Array.from(n.querySelectorAll(e.elementSelector)).slice(0,e.skip);(i=e.elementSelector,i.includes(",")?i.split(","):[i]).forEach((function(i){for(var l=n.querySelectorAll(i),s=function(n){var i=l[n];if(t.map.some((function(e){return e.el.isEqualNode(i)})))return"continue";var s=i&&i.parentElement;s&&s!==document.body?o.push(s):o.push(i),-1===a.indexOf(i)&&r.push({dynamicAd:e,element:i})},c=0;c<l.length;c++)s(c)}))}));var a=function(e){return void 0===e&&(e=document),(e===document?document.body:e).getBoundingClientRect().top}(n),l=r.sort((function(e,t){return e.element.getBoundingClientRect().top-a-(t.element.getBoundingClientRect().top-a)}));return[o,l]},P=function(e){localStorage.removeItem("adthrive_".concat(e.toLowerCase()))},A=function(e,t){try{var n={value:t,created:Date.now()};localStorage.setItem("adthrive_".concat(e.toLowerCase()),JSON.stringify(n))}catch(e){}},E=function(e,t,n){void 0===n&&(n=!1);try{var i=localStorage.getItem("adthrive_".concat(e.toLowerCase()));if(i){var o=JSON.parse(i),r=void 0!==t&&Date.now()-o.created>=t;if(o&&!r)return n&&A(e,o.value),o.value}}catch(e){}return null},w=function(e){return null!=e&&!("number"==typeof e&&isNaN(e))},C=function(e,t,n,i,o){var a;void 0===i&&(i=!0);var l="abgroup",s=E(l,n,i);if(null!==s){var c=s[e];if(w(c))return c}var u=t(),d=r(r({},s),((a={})[e]=u,a));return A(l,d),o&&o(),u};!function(e){e.Prebid="prebid",e.GAM="gam",e.Amazon="amazon",e.WebVitals="webvitals",e.Marmalade="marmalade",e.Floors="floors",e.CMP="cmp"}(d||(d={})),function(e){e.fpvNonLazy="fpvNonLazy",e.lazy="lazy",e.refresh="refresh",e.session="session",e.crossDomain="crossdomain",e.highSequence="highsequence"}(p||(p={})),function(e){e.prebidLoad="prebidLoad",e.amazonLoad="amazonLoad",e.gptLoad="gptLoad"}(h||(h={})),function(e){e.Desktop="desktop",e.Mobile="mobile"}(f||(f={})),function(e){e.Video_Collapse_Autoplay_SoundOff="Video_Collapse_Autoplay_SoundOff",e.Video_Individual_Autoplay_SOff="Video_Individual_Autoplay_SOff",e.Video_Coll_SOff_Smartphone="Video_Coll_SOff_Smartphone",e.Video_In_Post_ClicktoPlay_SoundOn="Video_In-Post_ClicktoPlay_SoundOn"}(y||(y={})),function(e){e.None="none"}(m||(m={})),function(e){e.WEIGHTEDCHOICE="weightedChoice",e.BERNOULLITRIAL="bernoulliTrial"}(g||(g={})),function(e){e.INTEGER="integer",e.FLOAT="float",e.BOOLEAN="boolean",e.STRING="string"}(v||(v={})),function(e){e.DESKTOP="desktop",e.MOBILE="mobile",e.ALL="all"}(_||(_={})),function(e){e.AdDensity="addensity",e.FooterCloseButton="footerclose",e.Interstitial="interstitial",e.RemoveVideoTitleWrapper="removevideotitlewrapper",e.StickyOutstream="stickyoutstream",e.StickyOutstreamOnStickyPlayer="sospp",e.VideoAdvancePlaylistRelatedPlayer="videoadvanceplaylistrp",e.MobileStickyPlayerPosition="mspp"}(b||(b={}));var O=function(e,t,n){switch(t){case b.AdDensity:return function(e,t){var n=e.adDensityEnabled,i=e.adDensityLayout.pageOverrides.find((function(e){return!!document.querySelector(e.pageSelector)&&(e[t].onePerViewport||"number"==typeof e[t].adDensity)}));return!n||!i}(e,n);case b.StickyOutstream:return function(e){var t,n,i,o=null===(i=null===(n=null===(t=e.videoPlayers)||void 0===t?void 0:t.partners)||void 0===n?void 0:n.stickyOutstream)||void 0===i?void 0:i.blockedPageSelectors;return!o||!document.querySelector(o)}(e);case b.Interstitial:return function(e){var t=e.adOptions.interstitialBlockedPageSelectors||e.adOptions.mobileInterstitialBlockedPageSelectors;return!t||!document.querySelector(t)}(e);default:return!0}},D=function(){try{return Math.round(window.performance.now())}catch(e){return 0}},x=function(e){try{return{valid:!0,elements:document.querySelectorAll(e)}}catch(e){return r({valid:!1},e)}},M=function(e){return""===e?{valid:!0}:x(e)},k=function(){function e(){}return e.prototype.info=function(e,t){for(var n=[],i=2;i<arguments.length;i++)n[i-2]=arguments[i];this.call.apply(this,u([console.info,e,t],c(n),!1))},e.prototype.warn=function(e,t){for(var n=[],i=2;i<arguments.length;i++)n[i-2]=arguments[i];this.call.apply(this,u([console.warn,e,t],c(n),!1))},e.prototype.error=function(e,t){for(var n=[],i=2;i<arguments.length;i++)n[i-2]=arguments[i];this.call.apply(this,u([console.error,e,t],c(n),!1)),this.sendErrorLogToCommandQueue.apply(this,u([e,t],c(n),!1))},e.prototype.event=function(e,t){for(var n=[],i=2;i<arguments.length;i++)n[i-2]=arguments[i];this.info(e,t)},e.prototype.sendErrorLogToCommandQueue=function(e,t){for(var n=[],i=2;i<arguments.length;i++)n[i-2]=arguments[i];window.adthrive=window.adthrive||{},window.adthrive.cmd=window.adthrive.cmd||[],window.adthrive.cmd.push(function(){void 0!==window.adthrive.logError&&"function"==typeof window.adthrive.logError&&window.adthrive.logError(e,t,n)}.bind(e,t,n))},e.prototype.call=function(e,t,n){for(var i=[],o=3;o<arguments.length;o++)i[o-3]=arguments[o];var r=["%c".concat(t,"::").concat(n," ")],a=["color: #999; font-weight: bold;"];i.length>0&&"string"==typeof i[0]&&r.push(i.shift()),a.push.apply(a,u([],c(i),!1));try{Function.prototype.apply.call(e,console,u([r.join("")],c(a),!1))}catch(e){return void console.error(e)}},e}(),I=new k,j=function(e,t){if(!e)return!1;var n=!!e.enabled,i=null==e.dateStart||Date.now()>=e.dateStart,o=null==e.dateEnd||Date.now()<=e.dateEnd,r=null===e.selector||""!==e.selector&&!!document.querySelector(e.selector),a="mobile"===e.platform&&"mobile"===t,l="desktop"===e.platform&&"desktop"===t,s=null===e.platform||"all"===e.platform||a||l,c="bernoulliTrial"===e.experimentType?1===e.variants.length:function(e){var t=e.reduce((function(e,t){return t.weight?t.weight+e:e}),0);return e.length>0&&e.every((function(e){var t=e.value,n=e.weight;return!(null==t||"number"==typeof t&&isNaN(t)||!n)}))&&100===t}(e.variants);return c||I.error("ValidateSiteExperiment","util","experiment presented invalid choices for key:",e.key,e.variants),n&&i&&o&&r&&s&&c},L=["siteId","siteName","adOptions","breakpoints","adUnits"],R=function(){function e(){this._clsGlobalData=window.adthriveCLS}return Object.defineProperty(e.prototype,"enabled",{get:function(){return!!this._clsGlobalData&&!!this._clsGlobalData.siteAds&&function(e,t){if(void 0===t&&(t=L),!e)return!1;for(var n=0;n<t.length;n++)if(!e[t[n]])return!1;return!0}(this._clsGlobalData.siteAds)},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"error",{get:function(){return!(!this._clsGlobalData||!this._clsGlobalData.error)},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"siteAds",{get:function(){return this._clsGlobalData.siteAds},set:function(e){this._clsGlobalData.siteAds=e},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"disableAds",{get:function(){return this._clsGlobalData.disableAds},set:function(e){this._clsGlobalData.disableAds=e},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"enabledLocations",{get:function(){return this._clsGlobalData.enabledLocations},set:function(e){this._clsGlobalData.enabledLocations=e},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"injectedFromPlugin",{get:function(){return this._clsGlobalData.injectedFromPlugin},set:function(e){this._clsGlobalData.injectedFromPlugin=e},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"injectedFromSiteAds",{get:function(){return this._clsGlobalData.injectedFromSiteAds},set:function(e){this._clsGlobalData.injectedFromSiteAds=e},enumerable:!1,configurable:!0}),e.prototype.overwriteInjectedSlots=function(e){this._clsGlobalData.injectedSlots=e},e.prototype.setInjectedSlots=function(e){this._clsGlobalData.injectedSlots=this._clsGlobalData.injectedSlots||[],this._clsGlobalData.injectedSlots.push(e)},Object.defineProperty(e.prototype,"injectedSlots",{get:function(){return this._clsGlobalData.injectedSlots},enumerable:!1,configurable:!0}),e.prototype.setInjectedVideoSlots=function(e){this._clsGlobalData.injectedVideoSlots=this._clsGlobalData.injectedVideoSlots||[],this._clsGlobalData.injectedVideoSlots.push(e)},Object.defineProperty(e.prototype,"injectedVideoSlots",{get:function(){return this._clsGlobalData.injectedVideoSlots},enumerable:!1,configurable:!0}),e.prototype.setInjectedScripts=function(e){this._clsGlobalData.injectedScripts=this._clsGlobalData.injectedScripts||[],this._clsGlobalData.injectedScripts.push(e)},Object.defineProperty(e.prototype,"getInjectedScripts",{get:function(){return this._clsGlobalData.injectedScripts},enumerable:!1,configurable:!0}),e.prototype.setExperiment=function(e,t,n){void 0===n&&(n=!1),this._clsGlobalData.experiments=this._clsGlobalData.experiments||{},this._clsGlobalData.siteExperiments=this._clsGlobalData.siteExperiments||{},(n?this._clsGlobalData.siteExperiments:this._clsGlobalData.experiments)[e]=t},e.prototype.getExperiment=function(e,t){void 0===t&&(t=!1);var n=t?this._clsGlobalData.siteExperiments:this._clsGlobalData.experiments;return n&&n[e]},e.prototype.setWeightedChoiceExperiment=function(e,t,n){void 0===n&&(n=!1),this._clsGlobalData.experimentsWeightedChoice=this._clsGlobalData.experimentsWeightedChoice||{},this._clsGlobalData.siteExperimentsWeightedChoice=this._clsGlobalData.siteExperimentsWeightedChoice||{},(n?this._clsGlobalData.siteExperimentsWeightedChoice:this._clsGlobalData.experimentsWeightedChoice)[e]=t},e.prototype.getWeightedChoiceExperiment=function(e,t){var n,i;void 0===t&&(t=!1);var o=t?null===(n=this._clsGlobalData)||void 0===n?void 0:n.siteExperimentsWeightedChoice:null===(i=this._clsGlobalData)||void 0===i?void 0:i.experimentsWeightedChoice;return o&&o[e]},Object.defineProperty(e.prototype,"branch",{get:function(){return this._clsGlobalData.branch},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"bucket",{get:function(){return this._clsGlobalData.bucket},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"videoDisabledFromPlugin",{get:function(){return this._clsGlobalData.videoDisabledFromPlugin},set:function(e){this._clsGlobalData.videoDisabledFromPlugin=e},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"targetDensityLog",{get:function(){return this._clsGlobalData.targetDensityLog},set:function(e){this._clsGlobalData.targetDensityLog=e},enumerable:!1,configurable:!0}),e}(),T=function(){function e(){}return e.getScrollTop=function(){return(window.pageYOffset||document.documentElement.scrollTop)-(document.documentElement.clientTop||0)},e.shufflePlaylist=function(e){for(var t,n,i=e.length;0!==i;)n=Math.floor(Math.random()*e.length),t=e[i-=1],e[i]=e[n],e[n]=t;return e},e.isMobileLandscape=function(){return window.matchMedia("(orientation: landscape) and (max-height: 480px)").matches},e.playerViewable=function(e){var t=e.getBoundingClientRect();return this.isMobileLandscape()?window.innerHeight>t.top+t.height/2&&t.top+t.height/2>0:window.innerHeight>t.top+t.height/2},e.playerVisible=function(e){var t=e.getBoundingClientRect();return window.innerHeight>t.top},e.createQueryString=function(e){return Object.keys(e).map((function(t){return"".concat(t,"=").concat(e[t])})).join("&")},e.createEncodedQueryString=function(e){return Object.keys(e).map((function(t){return"".concat(t,"=").concat(encodeURIComponent(e[t]))})).join("&")},e.setMobileLocation=function(e){return"top-left"===(e=e||"bottom-right")?e="adthrive-collapse-top-left":"top-right"===e?e="adthrive-collapse-top-right":"bottom-left"===e?e="adthrive-collapse-bottom-left":"bottom-right"===e?e="adthrive-collapse-bottom-right":"top-center"===e&&(e=n()?"adthrive-collapse-top-center":"adthrive-collapse-bottom-right"),e},e}(),G=function(t){this._clsOptions=t,this.removeVideoTitleWrapper=e(this._clsOptions.siteAds.adOptions.removeVideoTitleWrapper,!1);var n=this._clsOptions.siteAds.videoPlayers;this.footerSelector=e(n&&n.footerSelector,""),this.players=e(n&&n.players.map((function(e){return e.mobileLocation=T.setMobileLocation(e.mobileLocation),e})),[]),this.contextualSettings=n&&n.contextual},V=function(e){this.mobileStickyPlayerOnPage=!1,this.playlistPlayerAdded=!1,this.contextualPlayerAdded=!1,this.footerSelector="",this.removeVideoTitleWrapper=!1,this.videoAdOptions=new G(e),this.players=this.videoAdOptions.players,this.contextualSettings=this.videoAdOptions.contextualSettings,this.removeVideoTitleWrapper=this.videoAdOptions.removeVideoTitleWrapper,this.footerSelector=this.videoAdOptions.footerSelector},N=function(){},H=function(e){function t(t){var n=e.call(this)||this;return n._probability=t,n}return o(t,e),t.prototype.get=function(){if(this._probability<0||this._probability>1)throw new Error("Invalid probability");return Math.random()<this._probability},t}(N),W=function(){function e(){this._clsOptions=new R,this.shouldUseCoreExperimentsConfig=!1}return e.prototype.setExperimentKey=function(e){void 0===e&&(e=!1),this._clsOptions.setExperiment(this.key,this.result,e)},e}(),B=function(e){function t(){var t=e.call(this)||this;return t._result=!1,t._choices=[{choice:!0},{choice:!1}],t.key="smhd100",t._result=t.run(),t.setExperimentKey(),t}return o(t,e),Object.defineProperty(t.prototype,"result",{get:function(){return this._result},enumerable:!1,configurable:!0}),t.prototype.run=function(){return new H(.1).get()},t}(W),z=[[728,90],[300,250],[300,600],[320,50],[970,250],[160,600],[300,1050],[336,280],[970,90],[300,50],[320,100],[468,60],[250,250],[120,240],[1,1],[300,300],[552,334],[300,420],[728,250],[320,300],[300,390]],F=new Map([["Footer",1],["Header",2],["Sidebar",3],["Content",4],["Recipe",5],["Sidebar_sticky",6],["Below Post",7]]),q=function(t,n){var i=new B;return n.filter((function(e){return void 0!==e.dynamic&&e.dynamic.enabled})).map((function(n){var o,r=n.location.replace(/\s+/g,"_");return{auctionPriority:F.get(r)||8,location:r,sequence:e(n.sequence,1),sizes:(o=n.adSizes,z.filter((function(e){var t=c(e,2),n=t[0],i=t[1];return o.some((function(e){var t=c(e,2),o=t[0],r=t[1];return n===o&&i===r}))}))).filter((function(e){return function(e,t,n,i){var o=c(t,2),r=o[0],a=o[1];return!("Footer"===e&&"phone"===n&&320===r&&100===a||"Header"===e&&a>100&&i.result)}(n.location,e,t,i)})),devices:n.devices,pageSelector:e(n.dynamic.pageSelector,"").trim(),elementSelector:e(n.dynamic.elementSelector,"").trim(),position:e(n.dynamic.position,"beforebegin"),max:Math.floor(e(n.dynamic.max,0)),spacing:e(n.dynamic.spacing,0),skip:Math.floor(e(n.dynamic.skip,0)),every:Math.max(Math.floor(e(n.dynamic.every,1)),1),classNames:n.dynamic.classNames||[],sticky:"Footer"===n.location||n.sticky,stickyOverlapSelector:e(n.stickyOverlapSelector,"").trim(),autosize:n.autosize,special:e(n.targeting,[]).filter((function(e){return"special"===e.key})).reduce((function(e,t){return e.concat.apply(e,u([],c(t.value),!1))}),[]),lazy:e(n.dynamic.lazy,!1),lazyMax:e(n.dynamic.lazyMax,2),lazyMaxDefaulted:0!==n.dynamic.lazyMax&&!n.dynamic.lazyMax}}))},U=function(e,t){var n=function(e){var t=e.clientWidth;if(getComputedStyle){var n=getComputedStyle(e,null);t-=parseFloat(n.paddingLeft||"0")+parseFloat(n.paddingRight||"0")}return t}(t),i=e.sticky&&"Sidebar"===e.location;return e.sizes.filter((function(t){var o=!e.autosize||(t[0]<=n||t[0]<=320),r=!i||t[1]<=window.innerHeight-100;return o&&r}))},J=function(e){this.clsOptions=e,this.enabledLocations=["Below_Post","Content","Recipe","Sidebar"]};var K,Q=function(e){return function(e,t){void 0===t&&(t={});var n=t.insertAt;if(e&&"undefined"!=typeof document){var i=document.head||document.getElementsByTagName("head")[0],o=document.createElement("style");o.type="text/css","top"===n&&i.firstChild?i.insertBefore(o,i.firstChild):i.appendChild(o),o.styleSheet?o.styleSheet.cssText=e:o.appendChild(document.createTextNode(e))}}('\n  .adthrive-device-phone .adthrive-sticky-content {\n    height: 450px !important;\n    margin-bottom: 100px !important;\n  }\n  .adthrive-content.adthrive-sticky {\n    position: -webkit-sticky;\n    position: sticky !important;\n    top: 42px !important;\n    margin-top: 42px !important;\n  }\n  .adthrive-content.adthrive-sticky:after {\n    content: "— Advertisement. Scroll down to continue. —";\n    font-size: 10pt;\n    margin-top: 5px;\n    margin-bottom: 5px;\n    display:block;\n    color: #888;\n  }\n  body.single .adthrive-content {\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: center;\n    min-height:'.concat(e||400,"px !important;\n    margin: 10px 0 10px 0;\n    background-color: #FAFAFA;\n    padding-bottom:0px;\n  }\n  body.single .adthrive-content > div {\n    flex-basis: unset;\n    position: sticky !important;\n    display: block;\n    flex-direction: column;\n    top: 5px;\n  }\n  "))},Y=function(e){function t(t,n){void 0===t&&(t=[]);var i=e.call(this)||this;return i._choices=t,i._default=n,i}return o(t,e),t.fromArray=function(e,n){return new t(e.map((function(e){var t=c(e,2);return{choice:t[0],weight:t[1]}})),n)},t.prototype.addChoice=function(e,t){this._choices.push({choice:e,weight:t})},t.prototype.get=function(){var e,t,n,i,o=(n=0,i=100,Math.random()*(i-n)+n),r=0;try{for(var a=s(this._choices),l=a.next();!l.done;l=a.next()){var c=l.value,u=c.choice;if((r+=c.weight)>=o)return u}}catch(t){e={error:t}}finally{try{l&&!l.done&&(t=a.return)&&t.call(a)}finally{if(e)throw e.error}}return this._default},Object.defineProperty(t.prototype,"totalWeight",{get:function(){return this._choices.reduce((function(e,t){return e+t.weight}),0)},enumerable:!1,configurable:!0}),t}(N),X=function(e){return function(e){for(var t=5381,n=e.length;n;)t=33*t^e.charCodeAt(--n);return t>>>0}(e).toString(16)},Z=function(e,t,n,i,o,r){var a=Math.round(r-o),l=[],s=[];l.push("(",n.map((function(){return"%o"})).join(", "),")"),s.push.apply(s,u([],c(n),!1)),void 0!==i&&(l.push(" => %o"),s.push(i)),l.push(" %c(".concat(a,"ms)")),s.push("color: #999;")},$=function(e,t,n){var i=void 0!==n.get?n.get:n.value;return function(){for(var n=[],o=0;o<arguments.length;o++)n[o]=arguments[o];try{var r=D(),a=i.apply(this,n);if(a instanceof Promise)return a.then((function(e){var t=D();return Z(0,0,n,e,r,t),Promise.resolve(e)})).catch((function(n){throw n.logged||(I.error(e,t,n),n.logged=!0),n}));var l=D();return Z(0,0,n,a,r,l),a}catch(n){throw n.logged||(I.error(e,t,n),n.logged=!0),n}}},ee=function(e,t){return void 0===t&&(t=!1),function(n){var i,o,a=Object.getOwnPropertyNames(n.prototype).filter((function(e){return t||0!==e.indexOf("_")})).map((function(e){return[e,Object.getOwnPropertyDescriptor(n.prototype,e)]}));try{for(var l=s(a),u=l.next();!u.done;u=l.next()){var d=c(u.value,2),p=d[0],h=d[1];void 0!==h&&"function"==typeof h.value?n.prototype[p]=$(e,p,h):void 0!==h&&void 0!==h.get&&"function"==typeof h.get&&Object.defineProperty(n.prototype,p,r(r({},h),{get:$(e,p,h)}))}}catch(e){i={error:e}}finally{try{u&&!u.done&&(o=l.return)&&o.call(l)}finally{if(i)throw i.error}}}},te=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t._resultValidator=function(){return!0},t}return o(t,e),t.prototype._isValidResult=function(t){var n=this;return e.prototype._isValidResult.call(this,t,(function(){return n._resultValidator(t)||"control"===t}))},t.prototype.run=function(){if(!this.experimentConfig)return I.error("CLSWeightedChoiceSiteExperiment","run","No experiment config found"),"control";if(!this._mappedChoices||0===this._mappedChoices.length)return I.error("CLSWeightedChoiceSiteExperiment","run","No experiment config found"),"control";var e=new Y(this._mappedChoices).get();return this._isValidResult(e)?e:(I.error("CLSWeightedChoiceSiteExperiment","run","Invalid result from experiment choices. Defaulting to control.",e),"control")},t}(function(){function e(){}return Object.defineProperty(e.prototype,"enabled",{get:function(){return void 0!==this.experimentConfig},enumerable:!1,configurable:!0}),e.prototype._isValidResult=function(e,t){return void 0===t&&(t=function(){return!0}),t()&&w(e)},e}()),ne=function(){function e(e){var t,i,o=this;this.siteExperiments=[],this._clsOptions=e,this._device=n()?"mobile":"desktop",this.siteExperiments=null!==(i=null===(t=this._clsOptions.siteAds.siteExperiments)||void 0===t?void 0:t.filter((function(e){var t=e.key,n=j(e,o._device),i=O(o._clsOptions.siteAds,t,o._device);return n&&i})))&&void 0!==i?i:[]}return e.prototype.getSiteExperimentByKey=function(e){return this.siteExperiments.filter((function(t){return t.key.toLowerCase()===e.toLowerCase()}))[0]},e}(),ie=function(e){function t(t){var n=e.call(this)||this;return n._choices=[],n._mappedChoices=[],n._result="control",n._resultValidator=function(e){return"number"==typeof e},n.key=b.AdDensity,n._clsSiteExperiments=new ne(t),n.experimentConfig=n._clsSiteExperiments.getSiteExperimentByKey(n.key),n.enabled&&(n._choices=n.experimentConfig.variants,n._mappedChoices=n._mapChoices(),n._result=n.run(),t.setWeightedChoiceExperiment(n.key,n._result,!0)),n}return o(t,e),Object.defineProperty(t.prototype,"result",{get:function(){return this._result},enumerable:!1,configurable:!0}),t.prototype.run=function(){this.enabled||I.error("CLSAdDensitySiteExperiment","run","No experiment config found");var e=new Y(this._mappedChoices).get();return this._isValidResult(e)?e:(I.error("CLSAdDensitySiteExperiment","run","Invalid result from experiment choices. Defaulting to control."),"control")},t.prototype._mapChoices=function(){return this._choices.map((function(e){var t=e.weight,n=e.value;return{weight:t,choice:"number"==typeof n?(n||0)/100:"control"}}))},a([function(e,t,n){var i=n.value;i&&(n.value=function(){for(var e,t=this,n=[],o=0;o<arguments.length;o++)n[o]=arguments[o];var r=Array.isArray(this._choices)?X(JSON.stringify(this._choices)):null,a=this.key?this.key.toLowerCase():"",l=r?"".concat(a,"_").concat(r):a,s=this.sessionStoragePrefix?"".concat(this.sessionStoragePrefix,"-").concat(l):l;return!1===(null===(e=E("branch"))||void 0===e?void 0:e.enabled)&&P(s),C(s,(function(){return i.apply(t,n)}),864e5)})},l("design:type",Function),l("design:paramtypes",[]),l("design:returntype",void 0)],t.prototype,"run",null),t=a([ee("CLSAdDensitySiteExperiment"),l("design:paramtypes",[R])],t)}(te),oe=function(e){function t(){var t=e.call(this)||this;return t._result=!1,t.key="scae",t._choices=[{choice:!0},{choice:!1}],t.weight=.99,t._result=t.run(),t.setExperimentKey(),t}return o(t,e),Object.defineProperty(t.prototype,"result",{get:function(){return this._result},enumerable:!1,configurable:!0}),t.prototype.run=function(){return new H(this.weight).get()},t=a([ee("StickyContainerAdsExperiment"),l("design:paramtypes",[])],t)}(W),re="250px",ae=function(){function n(e,t){this._clsOptions=e,this._adInjectionMap=t,this._recipeCount=0,this._mainContentHeight=0,this._mainContentDiv=null,this._totalAvailableElements=[],this._minDivHeight=250,this._densityDevice=f.Desktop,this._pubLog={onePerViewport:!1,targetDensity:0,targetDensityUnits:0,combinedMax:0},this._densityMax=.99,this._smallerIncrementAttempts=0,this._absoluteMinimumSpacingByDevice=250,this._usedAbsoluteMinimum=!1,this._infPageEndOffset=0,this.locationMaxLazySequence=new Map([["Recipe",5]]),this.locationToMinHeight={Below_Post:re,Content:re,Recipe:re,Sidebar:re};var n=this._clsOptions.siteAds.breakpoints,i=n.tablet,o=n.desktop;this._device=function(e,t){var n=window.innerWidth;return n>=t?"desktop":n>=e?"tablet":"phone"}(i,o),this._config=new J(e),this._clsOptions.enabledLocations=this._config.enabledLocations,this._clsAdDensitySiteExperiment=this._clsOptions.siteAds.siteExperiments?new ie(this._clsOptions):null}return n.prototype.start=function(){var e,t,n,i,o=this;try{!function(e){var t=document.body,n="adthrive-device-".concat(e);if(!t.classList.contains(n))try{t.classList.add(n)}catch(e){I.error("BodyDeviceClassComponent","init",{message:e.message});var i="classList"in document.createElement("_");I.error("BodyDeviceClassComponent","init.support",{support:i})}}(this._device);var r=q(this._device,this._clsOptions.siteAds.adUnits).filter((function(e){return o._locationEnabled(e)})).filter((function(e){return t=e,n=o._device,t.devices.includes(n);var t,n})).filter((function(e){return 0===(t=e).pageSelector.length||null!==document.querySelector(t.pageSelector);var t})),a=this.inject(r),l=new oe;(null===(t=null===(e=this._clsOptions.siteAds.adOptions.stickyContainerConfig)||void 0===e?void 0:e.content)||void 0===t?void 0:t.enabled)&&l.result&&Q(null===(i=null===(n=this._clsOptions.siteAds.adOptions.stickyContainerConfig)||void 0===n?void 0:n.content)||void 0===i?void 0:i.minHeight),a.forEach((function(e){return o._clsOptions.setInjectedSlots(e)}))}catch(e){I.error("ClsDynamicAdsInjector","start",e)}},n.prototype.inject=function(t,n){void 0===n&&(n=document),this._densityDevice="desktop"===this._device?f.Desktop:f.Mobile,this._overrideDefaultAdDensitySettingsWithSiteExperiment();var i=this._clsOptions.siteAds,o=e(i.adDensityEnabled,!0),r=i.adDensityLayout&&o,a=t.filter((function(e){return r?"Content"!==e.location:e})),l=t.filter((function(e){return r?"Content"===e.location:null}));return u(u([],c(a.length?this._injectNonDensitySlots(a,n):[]),!1),c(l.length?this._injectDensitySlots(l,n):[]),!1)},n.prototype._injectNonDensitySlots=function(e,n){var i,o,r=this;void 0===n&&(n=document);var a=[],l=[];try{for(var d=s(e),p=d.next();!p.done;p=d.next()){var h=p.value,f=0,y=0,m=0;h.spacing>0&&(f=window.innerHeight*h.spacing,y=f);var g=this._repeatDynamicAds(h),v=this.getElements(h.elementSelector,n);h.skip;for(var _=function(e){if(m+1>g.length)return"break";var i=v[e];if(f>0){var o=t(i).bottom;if(o<=y)return"continue";y=o+f}var r=g[m],s="".concat(r.location,"_").concat(r.sequence);a.some((function(e){return e.name===s}))&&(m+=1);var d=b.getDynamicElementId(r),p="adthrive-".concat(h.location.replace("_","-").toLowerCase()),_=u([p,"".concat(p,"-").concat(h.sequence)],c(h.classNames),!1),S=b.addAd(i,d,h.position,_);if(S){var P=U(r,S);if(P.length){var A={clsDynamicAd:h,dynamicAd:r,element:S,sizes:P,name:s,infinite:n!==document};a.push(A),l.push({location:r.location,element:S}),"Recipe"===h.location&&++b._recipeCount,m+=1}i=S}},b=this,S=h.skip;S<v.length;S+=h.every){if("break"===_(S))break}}}catch(e){i={error:e}}finally{try{p&&!p.done&&(o=d.return)&&o.call(d)}finally{if(i)throw i.error}}return l.forEach((function(e){var t=e.location;e.element.style.minHeight=r.locationToMinHeight[t]})),a},n.prototype._injectDensitySlots=function(e,t){void 0===t&&(t=document);try{this._calculateMainContentHeightAndAllElements(e,t)}catch(e){return[]}var n=this._getDensitySettings(e,t),i=n.onePerViewport,o=n.targetAll,r=n.targetDensityUnits,a=n.combinedMax,l=n.numberOfUnits;return this._absoluteMinimumSpacingByDevice=i?window.innerHeight:this._absoluteMinimumSpacingByDevice,l?(this._adInjectionMap.filterUsed(),this._findElementsForAds(l,i,o,a,r,t),this._insertAds()):[]},n.prototype._overrideDefaultAdDensitySettingsWithSiteExperiment=function(){var e;if(null===(e=this._clsAdDensitySiteExperiment)||void 0===e?void 0:e.enabled){var t=this._clsAdDensitySiteExperiment.result;"number"==typeof t&&(this._clsOptions.siteAds.adDensityEnabled=!0,this._clsOptions.siteAds.adDensityLayout[this._densityDevice].adDensity=t)}},n.prototype._getDensitySettings=function(e,t){void 0===t&&(t=document);var n=this._clsOptions.siteAds.adDensityLayout,i=this._determineOverrides(n.pageOverrides),o=i.length?i[0]:n[this._densityDevice],r=o.adDensity,a=o.onePerViewport,l=this._shouldTargetAllEligible(r),s=this._getTargetDensityUnits(r,l),d=this._getCombinedMax(e,t),p=Math.min.apply(Math,u([],c(u([this._totalAvailableElements.length,s],c(d>0?[d]:[]),!1)),!1));return this._pubLog={onePerViewport:a,targetDensity:r,targetDensityUnits:s,combinedMax:d},{onePerViewport:a,targetAll:l,targetDensityUnits:s,combinedMax:d,numberOfUnits:p}},n.prototype._determineOverrides=function(e){var t=this;return e.filter((function(e){var t=M(e.pageSelector);return""===e.pageSelector||t.elements&&t.elements.length})).map((function(e){return e[t._densityDevice]}))},n.prototype._shouldTargetAllEligible=function(e){return e===this._densityMax},n.prototype._getTargetDensityUnits=function(e,t){return t?this._totalAvailableElements.length:Math.floor(e*this._mainContentHeight/(1-e)/this._minDivHeight)-this._recipeCount},n.prototype._getCombinedMax=function(t,n){return void 0===n&&(n=document),e(t.filter((function(e){var t;try{t=n.querySelector(e.elementSelector)}catch(e){}return t})).map((function(e){return Number(e.max)+Number(e.lazyMaxDefaulted?0:e.lazyMax)})).sort((function(e,t){return t-e}))[0],0)},n.prototype._elementLargerThanMainContent=function(e){return e.offsetHeight>=this._mainContentHeight&&this._totalAvailableElements.length>1},n.prototype._elementDisplayNone=function(e){var t=window.getComputedStyle(e,null).display;return t&&"none"===t||"none"===e.style.display},n.prototype._isBelowMaxes=function(e,t){return this._adInjectionMap.map.length<e&&this._adInjectionMap.map.length<t},n.prototype._findElementsForAds=function(e,t,n,i,o,r){var a=this;void 0===r&&(r=document),this._clsOptions.targetDensityLog={onePerViewport:t,combinedMax:i,targetDensityUnits:o,targetDensityPercentage:this._pubLog.targetDensity,mainContentHeight:this._mainContentHeight,recipeCount:this._recipeCount,numberOfEls:this._totalAvailableElements.length};var l=function(e){var t,c;try{for(var u=s(a._totalAvailableElements),d=u.next();!d.done;d=u.next()){var p=d.value,h=p.dynamicAd,f=p.element;if(a._logDensityInfo(f,h.elementSelector,e),!(!n&&a._elementLargerThanMainContent(f)||a._elementDisplayNone(f))){if(!a._isBelowMaxes(i,o))break;a._checkElementSpacing({dynamicAd:h,element:f,insertEvery:e,targetAll:n,target:r})}}}catch(e){t={error:e}}finally{try{d&&!d.done&&(c=u.return)&&c.call(u)}finally{if(t)throw t.error}}!a._usedAbsoluteMinimum&&a._smallerIncrementAttempts<5&&(++a._smallerIncrementAttempts,l(a._getSmallerIncrement(e)))},c=this._getInsertEvery(e,t,o);l(c)},n.prototype._getSmallerIncrement=function(e){var t=.6*e;return t<=this._absoluteMinimumSpacingByDevice&&(t=this._absoluteMinimumSpacingByDevice,this._usedAbsoluteMinimum=!0),t},n.prototype._insertAds=function(){var e=this,t=[];return this._adInjectionMap.filterUsed(),this._adInjectionMap.map.forEach((function(n,i){var o=n.el,r=n.dynamicAd,a=n.target,l=Number(r.sequence)+i,s=r.max,c=r.lazy&&l>s;r.sequence=l,r.lazy=c;var u=e._addContentAd(o,r,a);u&&(r.used=!0,t.push(u))})),t},n.prototype._getInsertEvery=function(e,t,n){var i=this._absoluteMinimumSpacingByDevice;return this._moreAvailableElementsThanUnitsToInject(n,e)?(this._usedAbsoluteMinimum=!1,i=this._useWiderSpacing(n,e)):(this._usedAbsoluteMinimum=!0,i=this._useSmallestSpacing(t)),t&&window.innerHeight>i?window.innerHeight:i},n.prototype._useWiderSpacing=function(e,t){return this._mainContentHeight/Math.min(e,t)},n.prototype._useSmallestSpacing=function(e){return e&&window.innerHeight>this._absoluteMinimumSpacingByDevice?window.innerHeight:this._absoluteMinimumSpacingByDevice},n.prototype._moreAvailableElementsThanUnitsToInject=function(e,t){return this._totalAvailableElements.length>e||this._totalAvailableElements.length>t},n.prototype._logDensityInfo=function(e,t,n){var i=this._pubLog;i.onePerViewport,i.targetDensity;i.targetDensityUnits;i.combinedMax,this._totalAvailableElements.length},n.prototype._checkElementSpacing=function(e){var t=e.dynamicAd,n=e.element,i=e.insertEvery,o=e.targetAll,a=e.target,l=void 0===a?document:a;(this._isFirstAdInjected()||this._hasProperSpacing(n,t,o,i))&&this._markSpotForContentAd(n,r({},t),l)},n.prototype._isFirstAdInjected=function(){return!this._adInjectionMap.map.length},n.prototype._markSpotForContentAd=function(e,t,n){void 0===n&&(n=document);var i="beforebegin"===t.position||"afterbegin"===t.position;this._adInjectionMap.add(e,this._getElementCoords(e,i),t,n),this._adInjectionMap.sort()},n.prototype._hasProperSpacing=function(e,t,n,i){var o="beforebegin"===t.position||"afterbegin"===t.position,r="beforeend"===t.position||"afterbegin"===t.position,a=n||this._isElementFarEnoughFromOtherAdElements(e,i,o),l=r||this._isElementNotInRow(e,o),s=-1===e.id.indexOf("AdThrive_".concat("Below_Post"));return a&&l&&s},n.prototype._isElementFarEnoughFromOtherAdElements=function(e,t,n){for(var i=this._getElementCoords(e,n),o=!1,r=0;r<this._adInjectionMap.map.length;r++){var a=this._adInjectionMap.map[r].coords,l=this._adInjectionMap.map[r+1]&&this._adInjectionMap.map[r+1].coords;if(o=i-t>a&&(!l||i+t<l))break}return o},n.prototype._isElementNotInRow=function(e,t){var n=e.previousElementSibling,i=e.nextElementSibling,o=t?!n&&i||n&&e.tagName!==n.tagName?i:n:i;return!(!o||0!==e.getBoundingClientRect().height)||(!o||e.getBoundingClientRect().top!==o.getBoundingClientRect().top)},n.prototype._calculateMainContentHeightAndAllElements=function(e,t){void 0===t&&(t=document);var n=c(function(e,t,n){void 0===n&&(n=document);var i=c(S(e,t,n),2),o=i[0],r=i[1];if(0===o.length)throw Error("No Main Content Elements Found");return[Array.from(o).reduce((function(e,t){return t.offsetHeight>e.offsetHeight?t:e}))||document.body,r]}(e,this._adInjectionMap,t),2),i=n[0],o=n[1];this._mainContentDiv=i,this._totalAvailableElements=o,this._mainContentHeight=function(e,t){void 0===t&&(t="div #comments, section .comments");var n=e.querySelector(t);return n?e.offsetHeight-n.offsetHeight:e.offsetHeight}(this._mainContentDiv)},n.prototype._getElementCoords=function(e,t){void 0===t&&(t=!1);var n=e.getBoundingClientRect();return(t?n.top:n.bottom)+window.scrollY},n.prototype._addContentAd=function(e,t,n){void 0===n&&(n=document);var i=null,o="adthrive-".concat(t.location.replace("_","-").toLowerCase()),r="".concat(o,"-").concat(t.sequence),a=this.addAd(e,this.getDynamicElementId(t),t.position,u([o,r],c(t.classNames),!1));if(a){var l=U(t,a);if(l.length)a.style.minHeight=this.locationToMinHeight[t.location],i={clsDynamicAd:t,dynamicAd:t,element:a,sizes:l,name:"".concat(t.location,"_").concat(t.sequence),infinite:n!==document}}return i},n.prototype.getDynamicElementId=function(e){return"".concat("AdThrive","_").concat(e.location,"_").concat(e.sequence,"_").concat(this._device)},n.prototype.getElements=function(e,t){return void 0===t&&(t=document),t.querySelectorAll(e)},n.prototype.addAd=function(e,t,n,i){if(void 0===i&&(i=[]),!document.getElementById(t)){var o='<div id="'.concat(t,'" class="adthrive-ad ').concat(i.join(" "),'"></div>');e.insertAdjacentHTML(n,o)}return document.getElementById(t)},n.prototype._repeatDynamicAds=function(t){for(var n=[],i=t.lazy?e(this.locationMaxLazySequence.get(t.location),0):0,o=t.max,a=t.lazyMax,l=0===i&&t.lazy?o+a:Math.min(Math.max(i-t.sequence+1,0),o+a),s=Math.max(o,l),c=0;c<s;c++){var u=Number(t.sequence)+c,d=t.lazy&&c>=o;n.push(r(r({},t),{sequence:u,lazy:d}))}return n},n.prototype._locationEnabled=function(e){var t=this._clsOptions.enabledLocations.includes(e.location),n=this._clsOptions.disableAds&&this._clsOptions.disableAds.all||document.body.classList.contains("adthrive-disable-all"),i=!document.body.classList.contains("adthrive-disable-content")&&!this._clsOptions.disableAds.reasons.has("content_plugin");return t&&!n&&i},n}(),le=function(e){function t(t,n){var i=e.call(this,t,"ClsVideoInsertion")||this;return i._videoConfig=t,i._clsOptions=n,i._IN_POST_SELECTOR=".adthrive-video-player",i._WRAPPER_BAR_HEIGHT=36,i._playersAddedFromPlugin=[],i}return o(t,e),t.prototype.init=function(){this._initializePlayers()},t.prototype._wrapJWPlayerWithCLS=function(e,t,n){if(void 0===n&&(n=0),e.parentNode){var i=e.offsetWidth*(9/16),o=this._createGenericCLSWrapper(i,t,n);return e.parentNode.insertBefore(o,e),o.appendChild(e),o}return null},t.prototype._createGenericCLSWrapper=function(e,t,n){var i=document.createElement("div");return i.id="cls-video-container-".concat(t),i.className="adthrive",i.style.minHeight="".concat(e+n,"px"),i},t.prototype._getTitleHeight=function(e){e.innerText="Title",e.style.visibility="hidden",document.body.appendChild(e);var t=window.getComputedStyle(e),n=parseInt(t.height,10),i=parseInt(t.marginTop,10),o=parseInt(t.marginBottom,10);return document.body.removeChild(e),Math.min(n+o+i,50)},t.prototype._initializePlayers=function(){var e=document.querySelectorAll(this._IN_POST_SELECTOR);e.length&&this._initializeRelatedPlayers(e),this._shouldRunAutoplayPlayers()&&this._determineAutoplayPlayers()},t.prototype._createStationaryRelatedPlayer=function(e,t){var n="mobile"===this._device?[400,225]:[640,360],i=y.Video_In_Post_ClicktoPlay_SoundOn;if(t&&e.mediaId){var o=this._wrapJWPlayerWithCLS(t,e.mediaId);this._playersAddedFromPlugin.push(e.mediaId),o&&this._clsOptions.setInjectedVideoSlots({playerId:e.playerId,playerName:i,playerSize:n,element:o,type:"stationaryRelated"})}},t.prototype._createStickyRelatedPlayer=function(e,t){var n="mobile"===this._device?[400,225]:[640,360],i=y.Video_Individual_Autoplay_SOff;if(this._stickyRelatedOnPage=!0,this._videoConfig.mobileStickyPlayerOnPage="mobile"===this._device,t&&e.position&&e.mediaId){var o=document.createElement("div");t.insertAdjacentElement(e.position,o);var r=document.createElement("h3");r.style.margin="10px 0";var a=this._getTitleHeight(r),l=this._wrapJWPlayerWithCLS(o,e.mediaId,this._WRAPPER_BAR_HEIGHT+a);this._playersAddedFromPlugin.push(e.mediaId),l&&this._clsOptions.setInjectedVideoSlots({playlistId:e.playlistId,playerId:e.playerId,playerSize:n,playerName:i,element:o,type:"stickyRelated"})}},t.prototype._createPlaylistPlayer=function(e,t){var n=e.playlistId,i="mobile"===this._device?y.Video_Coll_SOff_Smartphone:y.Video_Collapse_Autoplay_SoundOff,o="mobile"===this._device?[400,225]:[640,360];this._videoConfig.mobileStickyPlayerOnPage=!0;var r=document.createElement("div");t.insertAdjacentElement(e.position,r);var a=this._wrapJWPlayerWithCLS(r,n,this._WRAPPER_BAR_HEIGHT);this._playersAddedFromPlugin.push("playlist-".concat(n)),a&&this._clsOptions.setInjectedVideoSlots({playlistId:e.playlistId,playerId:e.playerId,playerSize:o,playerName:i,element:r,type:"stickyPlaylist"})},t.prototype._isVideoAllowedOnPage=function(){var e=this._clsOptions.disableAds;if(e&&e.video){var t="";e.reasons.has("video_tag")?t="video tag":e.reasons.has("video_plugin")?t="video plugin":e.reasons.has("video_page")&&(t="command queue");var n=t?"ClsVideoInsertionMigrated":"ClsVideoInsertion";return I.error(n,"isVideoAllowedOnPage",new Error("DBP: Disabled by publisher via ".concat(t||"other"))),!1}return!this._clsOptions.videoDisabledFromPlugin},t}(function(e){function t(t,n){var i=e.call(this)||this;i._videoConfig=t,i._component=n,i._stickyRelatedOnPage=!1,i._contextualMediaIds=[];var o,r=i._videoConfig.players||[];i._device=(void 0===o&&(o=navigator.userAgent),/Windows NT|Macintosh/i.test(o)?"desktop":"mobile"),i._potentialPlayerMap=i._setPotentialPlayerMap();var a=r.filter((function(e){return"stationaryRelated"===e.type&&e.enabled}));return i._potentialPlayerMap.stationaryRelated=a,i}return o(t,e),t.prototype._setPotentialPlayerMap=function(){var e=this,t=this._videoConfig.players,n={stickyRelated:[],stickyPlaylist:[],stationaryRelated:[]};return t&&t.length?t.filter((function(t){var n;return null===(n=t.devices)||void 0===n?void 0:n.includes(e._device)})).reduce((function(t,n){return t[n.type]||(I.event(e._component,"constructor","Unknown Video Player Type detected",n.type),t[n.type]=[]),n.enabled&&t[n.type].push(n),t}),n):n},t.prototype._checkPlayerSelectorOnPage=function(e){var t=this,n=this._potentialPlayerMap[e].map((function(e){return{player:e,playerElement:t._getPlacementElement(e)}}));return n.length?n[0]:{player:null,playerElement:null}},t.prototype._getOverrideElement=function(e,t,n){if(e&&t){var i=document.createElement("div");t.insertAdjacentElement(e.position,i),n=i}else{var o=this._checkPlayerSelectorOnPage("stickyPlaylist"),r=o.player,a=o.playerElement;if(r&&a){i=document.createElement("div");a.insertAdjacentElement(r.position,i),n=i}}return n},t.prototype._shouldOverrideElement=function(e){var t=e.getAttribute("override-embed");return"true"===t||"false"===t?"true"===t:!!this._videoConfig.contextualSettings&&this._videoConfig.contextualSettings.overrideEmbedLocation},t.prototype._getPlacementElement=function(e){var t=M(e.pageSelector),n=x(e.elementSelector);return t.valid?e.pageSelector&&!t.elements.length?(I.event("VideoUtils","getPlacementElement",new Error("PSNF: ".concat(e.pageSelector," does not exist on the page"))),null):n.valid?n.elements.length>e.skip?n.elements[e.skip]:(I.event("VideoUtils","getPlacementElement",new Error("ESNF: ".concat(e.elementSelector," does not exist on the page"))),null):(I.error("VideoUtils","getPlacementElement",new Error("".concat(e.elementSelector," is not a valid selector"))),null):(I.error("VideoUtils","getPlacementElement",new Error("".concat(e.pageSelector," is not a valid selector"))),null)},t.prototype._getEmbeddedPlayerType=function(e){var t=e.getAttribute("data-player-type");return t&&"default"!==t||(t=this._videoConfig.contextualSettings?this._videoConfig.contextualSettings.defaultPlayerType:"static"),this._stickyRelatedOnPage&&(t="static"),t},t.prototype._getUnusedMediaId=function(e){var t=e.getAttribute("data-video-id");return!(!t||this._contextualMediaIds.includes(t))&&(this._contextualMediaIds.push(t),t)},t.prototype._createRelatedPlayer=function(e,t,n){"collapse"===t?this._createCollapsePlayer(e,n):"static"===t&&this._createStaticPlayer(e,n)},t.prototype._createCollapsePlayer=function(e,t){var n=this._checkPlayerSelectorOnPage("stickyRelated"),i=n.player,o=n.playerElement,a=i||this._potentialPlayerMap.stationaryRelated[0];a&&a.playerId?(this._shouldOverrideElement(t)&&(t=this._getOverrideElement(i,o,t)),t=document.querySelector("#cls-video-container-".concat(e," > div"))||t,this._createStickyRelatedPlayer(r(r({},a),{mediaId:e}),t)):I.error(this._component,"_createCollapsePlayer","No video player found")},t.prototype._createStaticPlayer=function(e,t){if(this._potentialPlayerMap.stationaryRelated.length&&this._potentialPlayerMap.stationaryRelated[0].playerId){var n=this._potentialPlayerMap.stationaryRelated[0];this._createStationaryRelatedPlayer(r(r({},n),{mediaId:e}),t)}else I.error(this._component,"_createStaticPlayer","No video player found")},t.prototype._shouldRunAutoplayPlayers=function(){return!(!this._isVideoAllowedOnPage()||!this._potentialPlayerMap.stickyRelated.length&&!this._potentialPlayerMap.stickyPlaylist.length)},t.prototype._determineAutoplayPlayers=function(){var e=this._component,t="VideoManagerComponent"===e,n=this._config;if(this._stickyRelatedOnPage)I.event(e,"stickyRelatedOnPage",t&&{device:n&&n.context.device,isDesktop:this._device}||{});else{var i=this._checkPlayerSelectorOnPage("stickyPlaylist"),o=i.player,r=i.playerElement;o&&o.playerId&&o.playlistId&&r?this._createPlaylistPlayer(o,r):I.event(e,"noStickyPlaylist",t&&{vendor:"none",device:n&&n.context.device,isDesktop:this._device}||{})}},t.prototype._initializeRelatedPlayers=function(e){for(var t=0;t<e.length;t++){var n=e[t],i=this._getEmbeddedPlayerType(n),o=this._getUnusedMediaId(n);o&&this._createRelatedPlayer(o,i,n)}},t}(function(){function e(){}return Object.defineProperty(e.prototype,"enabled",{get:function(){return!0},enumerable:!1,configurable:!0}),e}())),se=function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return o(t,e),t}(function(){function e(){this._map=[]}return e.prototype.add=function(e,t,n,i){void 0===i&&(i=document),this._map.push({el:e,coords:t,dynamicAd:n,target:i})},Object.defineProperty(e.prototype,"map",{get:function(){return this._map},enumerable:!1,configurable:!0}),e.prototype.sort=function(){this._map.sort((function(e,t){return e.coords-t.coords}))},e.prototype.filterUsed=function(){this._map=this._map.filter((function(e){return!e.dynamicAd.used}))},e}());try{(K=new R)&&K.enabled&&(new ae(K,new se).start(),new le(new V(K),K).init())}catch(e){I.error("CLS","pluginsertion-iife",e),window.adthriveCLS&&(window.adthriveCLS.injectedFromPlugin=!1)}}();
+</script><script>(function () {var clsElements = document.querySelectorAll("script[id^='cls-']"); window.adthriveCLS && clsElements && clsElements.length === 0 ? window.adthriveCLS.injectedFromPlugin = false : ""; })();</script>  <!-- VigLink: http://viglink.com -->
+  <script type="text/javascript">
+    var vglnk = { key: '449311fcfd243a4d99208c25805faa02' };
+
+    (function(d, t) {
+      var s = d.createElement(t); s.type = 'text/javascript'; s.async = true;
+      s.src = '//cdn.viglink.com/api/vglnk.js?key=' + vglnk.key;
+      var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
+    }(document, 'script'));
+  </script>
+  <!-- end VigLink -->
+<script>
+	window.fwSettings={
+	'widget_id':43000001322
+	};
+	!function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}() 
+</script> <script type='text/javascript' src='https://widget.freshworks.com/widgets/43000001322.js' async defer></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js' id='cdv8-gdpr-cookieconsent-jslib-js'></script>
+<script type='text/javascript' id='cdv8-gdpr-js-extra'>
+/* <![CDATA[ */
+var cdv8Gdpr = {"popupBackgroundColor":"#edeff5","popupTextColor":"#838391","btnBackgroundColor":"#4b81e8","bannerMessage":"This website uses cookies to ensure you get the best experience on our website.","dismissBtnText":"Accept!","policyLinkText":"Read Our Privacy Policy","policyLinkTextURL":"https:\/\/www.pythoncentral.io\/python-central-privacy-policy\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-content/plugins/gdpr-enhancements-master/assets/js/cdv8-gdpr.js' id='cdv8-gdpr-js'></script>
+<script type='text/javascript' id='wpil-frontend-script-js-extra'>
+/* <![CDATA[ */
+var wpilFrontend = {"ajaxUrl":"\/wp-admin\/admin-ajax.php","postId":"6213","postType":"post","openInternalInNewTab":"0","openExternalInNewTab":"0","disableClicks":"0","openLinksWithJS":"0","trackAllElementClicks":"0","clicksI18n":{"imageNoText":"Image in link: No Text","imageText":"Image Title: ","noText":"No Anchor Text Found"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-content/plugins/link-whisper-premium/js/frontend.js?ver=1667486241' id='wpil-frontend-script-js'></script>
+<script type='text/javascript' id='ppress-frontend-script-js-extra'>
+/* <![CDATA[ */
+var pp_ajax_form = {"ajaxurl":"https:\/\/www.pythoncentral.io\/wp-admin\/admin-ajax.php","confirm_delete":"Are you sure?","deleting_text":"Deleting...","deleting_error":"An error occurred. Please try again.","nonce":"c5b9530f52","disable_ajax_form":"false"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-content/plugins/wp-user-avatar/assets/js/frontend.min.js?ver=3.2.12' id='ppress-frontend-script-js'></script>
+<script type='text/javascript' src='https://www.pythoncentral.io/wp-includes/js/wp-embed.min.js?ver=5.7' id='wp-embed-js'></script>
+<script>!function(){"use strict";!function(e){if(-1===e.cookie.indexOf("__adblocker")){e.cookie="__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";var t=new XMLHttpRequest;t.open("GET","https://www.npttech.com/advertising.js",!0),t.onreadystatechange=function(){if(XMLHttpRequest.DONE===t.readyState)if(200===t.status){var n=e.createElement("script");n.innerHTML=t.responseText,e.getElementsByTagName("head")[0].appendChild(n)}else{var a=new Date;a.setTime(a.getTime()+3e5),e.cookie="__adblocker=true; expires="+a.toUTCString()+"; path=/"}},t.send()}}(document)}();
+</script><script>!function(){"use strict";var e;e=document,function(){var t,n;function r(){var t=e.createElement("script");t.src="https://cafemedia-com.videoplayerhub.com/galleryplayer.js",e.head.appendChild(t)}function a(){var t=e.cookie.match("(^|[^;]+)\\s*__adblocker\\s*=\\s*([^;]+)");return t&&t.pop()}function c(){clearInterval(n)}return{init:function(){var e;"true"===(t=a())?r():(e=0,n=setInterval((function(){100!==e&&"false"!==t||c(),"true"===t&&(r(),c()),t=a(),e++}),50))}}}().init()}();
+</script><script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.pythoncentral.io/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+
+<script type="text/javascript">
+		var mobile_menu_clicked = false;var mobile_menu = document.getElementsByClassName('contact-freshdesk')[0];
+		mobile_menu.addEventListener("click", function(){
+              
+	  var iframe = document.getElementById("launcher-frame");
+	  var elmnt = iframe.contentWindow.document.getElementsByClassName("launcher-button");
+	jQuery(elmnt).click();
+
+	  });
+
+</script>
+
+
+
+
+<!-- Taboola Code -->
+	<script type="text/javascript">
+	  window._taboola = window._taboola || [];
+	  _taboola.push({flush: true});
+	</script>
+<!-- Taboola Code End-->
+
+
+	</body>
+</html>
