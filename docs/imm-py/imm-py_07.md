@@ -1,0 +1,372 @@
+# 装饰器
+
+装饰器(Decorators)是 Python 的一个重要部分。简单地说：他们是修改其他函数的功能的函数。他们有助于让我们的代码更简短，也更 Pythonic（Python 范儿）。大多数初学者不知道在哪儿使用它们，所以我将要分享下，哪些区域里装饰器可以让你的代码更简洁。
+
+首先，让我们讨论下如何写你自己的装饰器。
+
+这可能是最难掌握的概念之一。我们会每次只讨论一个步骤，这样你能完全理解它。
+
+# 一切皆对象
+
+首先我们来理解下 Python 中的函数
+
+```py
+def hi(name="yasoob"):
+    return "hi " + name
+
+print(hi())
+# output: 'hi yasoob'
+
+# 我们甚至可以将一个函数赋值给一个变量，比如
+greet = hi
+# 我们这里没有在使用小括号，因为我们并不是在调用 hi 函数
+# 而是在将它放在 greet 变量里头。我们尝试运行下这个
+
+print(greet())
+# output: 'hi yasoob'
+
+# 如果我们删掉旧的 hi 函数，看看会发生什么！
+del hi
+print(hi())
+#outputs: NameError
+
+print(greet())
+#outputs: 'hi yasoob' 
+```
+
+# 在函数中定义函数
+
+刚才那些就是函数的基本知识了。我们来让你的知识更进一步。在 Python 中我们可以在一个函数中定义另一个函数：
+
+```py
+def hi(name="yasoob"):
+    print("now you are inside the hi() function")
+
+    def greet():
+        return "now you are in the greet() function"
+
+    def welcome():
+        return "now you are in the welcome() function"
+
+    print(greet())
+    print(welcome())
+    print("now you are back in the hi() function")
+
+hi()
+#output:now you are inside the hi() function
+#       now you are in the greet() function
+#       now you are in the welcome() function
+#       now you are back in the hi() function
+
+# 上面展示了无论何时你调用 hi(), greet()和 welcome()将会同时被调用。
+# 然后 greet()和 welcome()函数在 hi()函数之外是不能访问的，比如：
+
+greet()
+#outputs: NameError: name 'greet' is not defined 
+```
+
+那现在我们知道了可以在函数中定义另外的函数。也就是说：我们可以创建嵌套的函数。现在你需要再多学一点，就是函数也能返回函数。
+
+# 从函数中返回函数
+
+其实并不需要在一个函数里去执行另一个函数，我们也可以将其作为输出返回出来：
+
+```py
+def hi(name="yasoob"):
+    def greet():
+        return "now you are in the greet() function"
+
+    def welcome():
+        return "now you are in the welcome() function"
+
+    if name == "yasoob":
+        return greet
+    else:
+        return welcome
+
+a = hi()
+print(a)
+#outputs: <function greet at 0x7f2143c01500>
+
+#上面清晰地展示了`a`现在指向到 hi()函数中的 greet()函数
+#现在试试这个
+
+print(a())
+#outputs: now you are in the greet() function 
+```
+
+再次看看这个代码。在`if/else`语句中我们返回`greet`和`welcome`，而不是`greet()`和`welcome()`。为什么那样？这是因为当你把一对小括号放在后面，这个函数就会执行；然而如果你不放括号在它后面，那它可以被到处传递，并且可以赋值给别的变量而不去执行它。
+
+你明白了吗？让我再稍微多解释点细节。
+
+当我们写下`a = hi()`，`hi()`会被执行，而由于`name`参数默认是*yasoob*，所以函数`greet`被返回了。如果我们把语句改为`a = hi(name = "ali")`，那么`welcome`函数将被返回。我们还可以打印出`hi()()`，这会输出*now you are in the greet() function*。
+
+# 将函数作为参数传给另一个函数
+
+```py
+def hi():
+    return "hi yasoob!"
+
+def doSomethingBeforeHi(func):
+    print("I am doing some boring work before executing hi()")
+    print(func())
+
+doSomethingBeforeHi(hi)
+#outputs:I am doing some boring work before executing hi()
+#        hi yasoob! 
+```
+
+现在你已经具备所有必需知识，来进一步学习装饰器真正是什么了。装饰器让你在一个函数的前后去执行代码。
+
+# 你的第一个装饰器
+
+在上一个例子里，其实我们已经创建了一个装饰器！现在我们修改下上一个装饰器，并编写一个稍微更有用点的程序：
+
+```py
+def a_new_decorator(a_func):
+
+    def wrapTheFunction():
+        print("I am doing some boring work before executing a_func()")
+
+        a_func()
+
+        print("I am doing some boring work after executing a_func()")
+
+    return wrapTheFunction
+
+def a_function_requiring_decoration():
+    print("I am the function which needs some decoration to remove my foul smell")
+
+a_function_requiring_decoration()
+#outputs: "I am the function which needs some decoration to remove my foul smell"
+
+a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration)
+#now a_function_requiring_decoration is wrapped by wrapTheFunction()
+
+a_function_requiring_decoration()
+#outputs:I am doing some boring work before executing a_func()
+#        I am the function which needs some decoration to remove my foul smell
+#        I am doing some boring work after executing a_func() 
+```
+
+你看明白了吗？我们刚刚应用了之前学习到的原理。这正是 python 中装饰器做的事情！它们封装一个函数，并且用这样或者那样的方式来修改它的行为。现在你也许疑惑，我们在代码里并没有使用@符号？那只是一个简短的方式来生成一个被装饰的函数。这里是我们如何使用@来运行之前的代码：
+
+```py
+@a_new_decorator
+def a_function_requiring_decoration():
+    """Hey you! Decorate me!"""
+    print("I am the function which needs some decoration to "
+          "remove my foul smell")
+
+a_function_requiring_decoration()
+#outputs: I am doing some boring work before executing a_func()
+#         I am the function which needs some decoration to remove my foul smell
+#         I am doing some boring work after executing a_func()
+
+#the @a_new_decorator is just a short way of saying:
+a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration) 
+```
+
+希望你现在对 Python 装饰器的工作原理有一个基本的理解。如果我们运行如下代码会存在一个问题：
+
+```py
+print(a_function_requiring_decoration.__name__)
+# Output: wrapTheFunction 
+```
+
+这并不是我们想要的！Ouput 输出应该是“a_function_requiring_decoration”。这里的函数被 warpTheFunction 替代了。它重写了我们函数的名字和注释文档(docstring)。幸运的是 Python 提供给我们一个简单的函数来解决这个问题，那就是 functools.wraps。我们修改上一个例子来使用 functools.wraps：
+
+```py
+from functools import wraps
+
+def a_new_decorator(a_func):
+ @wraps(a_func)
+    def wrapTheFunction():
+        print("I am doing some boring work before executing a_func()")
+        a_func()
+        print("I am doing some boring work after executing a_func()")
+    return wrapTheFunction
+
+@a_new_decorator
+def a_function_requiring_decoration():
+    """Hey yo! Decorate me!"""
+    print("I am the function which needs some decoration to "
+          "remove my foul smell")
+
+print(a_function_requiring_decoration.__name__)
+# Output: a_function_requiring_decoration 
+```
+
+现在好多了。我们接下来学习装饰器的一些常用场景。
+
+蓝本规范:
+
+```py
+from functools import wraps
+def decorator_name(f):
+ @wraps(f)
+    def decorated(*args, **kwargs):
+        if not can_run:
+            return "Function will not run"
+        return f(*args, **kwargs)
+    return decorated
+
+@decorator_name
+def func():
+    return("Function is running")
+
+can_run = True
+print(func())
+# Output: Function is running
+
+can_run = False
+print(func())
+# Output: Function will not run 
+```
+
+注意：@wraps 接受一个函数来进行装饰，并加入了复制函数名称、注释文档、参数列表等等的功能。这可以让我们在装饰器里面访问在装饰之前的函数的属性。
+
+# 使用场景
+
+现在我们来看一下装饰器在哪些地方特别耀眼，以及使用它可以让一些事情管理起来变得更简单。
+
+# 授权(Authorization)
+
+装饰器能有助于检查某个人是否被授权去使用一个 web 应用的端点(endpoint)。它们被大量使用于 Flask 和 Django web 框架中。这里是一个例子来使用基于装饰器的授权：
+
+```py
+from functools import wraps
+
+def requires_auth(f):
+ @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            authenticate()
+        return f(*args, **kwargs)
+    return decorated 
+```
+
+# 日志(Logging)
+
+日志是装饰器运用的另一个亮点。这是个例子：
+
+```py
+from functools import wraps
+
+def logit(func):
+ @wraps(func)
+    def with_logging(*args, **kwargs):
+        print(func.__name__ + " was called")
+        return func(*args, **kwargs)
+    return with_logging
+
+@logit
+def addition_func(x):
+   """Do some math."""
+   return x + x
+
+result = addition_func(4)
+# Output: addition_func was called 
+```
+
+我敢肯定你已经在思考装饰器的一个其他聪明用法了。
+
+# 带参数的装饰器
+
+来想想这个问题，难道`@wraps`不也是个装饰器吗？但是，它接收一个参数，就像任何普通的函数能做的那样。那么，为什么我们不也那样做呢？
+
+这是因为，当你使用`@my_decorator`语法时，你是在应用一个以单个函数作为参数的一个包裹函数。记住，Python 里每个东西都是一个对象，而且这包括函数！记住了这些，我们可以编写一下能返回一个包裹函数的函数。
+
+# 在函数中嵌入装饰器
+
+我们回到日志的例子，并创建一个包裹函数，能让我们指定一个用于输出的日志文件。
+
+```py
+from functools import wraps
+
+def logit(logfile='out.log'):
+    def logging_decorator(func):
+ @wraps(func)
+        def wrapped_function(*args, **kwargs):
+            log_string = func.__name__ + " was called"
+            print(log_string)
+            # 打开 logfile，并写入内容
+            with open(logfile, 'a') as opened_file:
+                # 现在将日志打到指定的 logfile
+                opened_file.write(log_string + '\n')
+        return wrapped_function
+    return logging_decorator
+
+@logit()
+def myfunc1():
+    pass
+
+myfunc1()
+# Output: myfunc1 was called
+# 现在一个叫做 out.log 的文件出现了，里面的内容就是上面的字符串
+
+@logit(logfile='func2.log')
+def myfunc2():
+    pass
+
+myfunc2():
+    pass
+
+myfunc2()
+# Output: myfunc2 was called
+# 现在一个叫做 func2.log 的文件出现了，里面的内容就是上面的字符串 
+```
+
+# 装饰器类
+
+现在我们有了能用于正式环境的`logit`装饰器，但当我们的应用的某些部分还比较脆弱时，异常也许是需要更紧急关注的事情。比方说有时你只想打日志到一个文件。而有时你想把引起你注意的问题发送到一个 email，同时也保留日志，留个记录。这是一个使用继承的场景，但目前为止我们只看到过用来构建装饰器的函数。
+
+幸运的是，类也可以用来构建装饰器。那我们现在以一个类而不是一个函数的方式，来重新构建`logit`。
+
+```py
+class logit(object):
+    def __init__(self, logfile='out.log'):
+        self.logfile = logfile
+
+    def __call__(self, func):
+        log_string = func.__name__ + " was called"
+        print(log_string)
+        # 打开 logfile 并写入
+        with open(self.logfile, 'a') as opened_file:
+            # 现在将日志打到指定的文件
+            opened_file.write(log_string + '\n')
+        # 现在，发送一个通知
+        self.notify()
+
+    def notify(self):
+        # logit 只打日志，不做别的
+        pass 
+```
+
+这个实现有一个附加优势，在于比嵌套函数的方式更加整洁，而且包裹一个函数还是使用跟以前一样的语法：
+
+```py
+@logit()
+def myfunc1():
+    pass 
+```
+
+现在，我们给`logit`创建子类，来添加 email 的功能(虽然 email 这个话题不会在这里展开)。
+
+```py
+class email_logit(logit):
+    '''
+    一个 logit 的实现版本，可以在函数调用时发送 email 给管理员
+    '''
+    def __init__(self, email='admin@myproject.com', *args, **kwargs):
+        self.email = email
+        super(logit, self).__init__(*args, **kwargs)
+
+    def notify(self):
+        # 发送一封 email 到 self.email
+        # 这里就不做实现了
+        pass 
+```
+
+从现在起，`@email_logit`将会和`@logit`产生同样的效果，但是在打日志的基础上，还会多发送一封邮件给管理员。
