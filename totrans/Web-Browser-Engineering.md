@@ -1,7 +1,3 @@
-<!--yml
-category: 未分类
-date: 2025-12-21 10:22:11
--->
 
 # Web Browser Engineering
 
@@ -10,30 +6,6 @@ date: 2025-12-21 10:22:11
 Pavel Panchekha & Chris Harrelson; one page edition
 
 [Twitter](https://twitter.com/browserbook) · [Blog](https://browserbook.substack.com/) · [Discussions](https://github.com/browserengineering/book/discussions)
-
-### Quick links
-
-*   [Preface](#preface)
-*   [Browsers and the Web](#intro)
-*   [History of the Web](#history)
-*   [Downloading Web Pages](#http)
-*   [Drawing to the Screen](#graphics)
-*   [Formatting Text](#text)
-*   [Constructing a Document Tree](#html)
-*   [Laying Out Pages](#layout)
-*   [Applying User Styles](#styles)
-*   [Handling Buttons and Links](#chrome)
-*   [Sending Information to Servers](#forms)
-*   [Running Interactive Scripts](#scripts)
-*   [Keeping Data Private](#security)
-*   [Adding Visual Effects](#visual-effects)
-*   [Scheduling Tasks and Threads](#scheduling)
-*   [Animating and Compositing](#animations)
-*   [Making Content Accessible](#accessibility)
-*   [Supporting Embedded Content](#embeds)
-*   [Reusing Previous Computation](#invalidation)
-*   [What Wasn’t Covered](#skipped)
-*   [A Changing Landscape](#change)
 
 # Preface
 
@@ -322,7 +294,7 @@ A web browser displays information identified by a URL. And the first step is to
 
 Browsing the internet starts with a URL,“URL” stands for “uniform resource locator”, meaning that it is a portable (uniform) way to identify web pages (resources) and also that it describes how to access those files (locator). a short string that identifies a particular web page that the browser should visit.
 
-```
+```py
 http://example.org/index.html
 
 ```
@@ -335,7 +307,7 @@ From a URL, the browser can start the process of downloading the web page. The b
 
 On many systems, you can set up this kind of connection using the `telnet` program, like this:The “80” is the port, discussed below.
 
-```
+```py
 telnet example.org 80
 ```
 
@@ -343,7 +315,7 @@ telnet example.org 80
 
 You might need to install `telnet`; it is often disabled by default. On Windows, [go to Programs and Features / Turn Windows features on or off](https://www.lifewire.com/what-is-telnet-2626026) in the Control Panel; you’ll need to reboot. When you run it, it’ll clear the screen instead of printing something, but other than that works normally. On macOS, you can use the `nc -v` command as a replacement for `telnet`:
 
-```
+```py
 nc -v example.org 80
 ```
 
@@ -351,7 +323,7 @@ The output is a little different but it works in the same way. On most Linux sys
 
 You’ll get output that looks like this:
 
-```
+```py
 Trying 93.184.216.34...
 Connected to example.org.
 Escape character is '^]'.
@@ -365,7 +337,7 @@ The URL syntax is defined in [RFC 3987](https://tools.ietf.org/html/rfc3986), w
 
 Once it’s connected, the browser requests information from the server by giving its *path*, the path being the part of a URL that comes after the host name, like `/index.html`. The structure of the request is shown in Figure 2\. Type this into `telnet` to try it.
 
-```
+```py
 GET /index.html HTTP/1.0
 Host: example.org
 
@@ -385,7 +357,7 @@ HTTP/1.0 is standardized in [RFC 1945](https://tools.ietf.org/html/rfc1945), and
 
 The server’s response starts with the line in Figure 3.
 
-```
+```py
 HTTP/1.0 200 OK
 
 ```
@@ -404,7 +376,7 @@ Note the genius of having two sets of error codes (400s and 500s) to tell you wh
 
 After the `200 OK` line, the server sends its own headers. When I did this, I got these headers (but yours will differ):
 
-```
+```py
 Age: 545933
 Cache-Control: max-age=604800
 Content-Type: text/html; charset=UTF-8
@@ -437,7 +409,7 @@ So far we’ve communicated with another computer using `telnet`. But it turns o
 
 Let’s start with parsing the URL. I’m going to make parsing a URL return a `URL` object, and I’ll put the parsing code into the constructor:
 
-```
+```py
 class URL:
  def __init__(self, url):
  # ...
@@ -447,7 +419,7 @@ The `__init__` method is Python’s peculiar syntax for class constructors, and 
 
 Let’s start with the scheme, which is separated from the rest of the URL by `://`. Our browser only supports `http`, so let’s check that, too:
 
-```
+```py
 class URL:
  def __init__(self, url):
  self.scheme, url = url.split("://", 1)
@@ -456,7 +428,7 @@ class URL:
 
 Now we must separate the host from the path. The host comes before the first `/`, while the path is that slash and everything after it:
 
-```
+```py
 class URL:
  def __init__(self, url):
  # ...
@@ -470,7 +442,7 @@ class URL:
 
 Now that the `URL` has the `host` and `path` fields, we can download the web page at that URL. We’ll do that in a new method, `request`:
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -486,7 +458,7 @@ The first step to downloading a web page is connecting to the host. The operatin
 
 By picking all of these options, we can create a socket like so:While this code uses the Python `socket` library, your favorite language likely contains a very similar library; the API is basically standardized. In Python, the flags we pass are defaults, so you can actually call `socket.socket()`; I’m keeping the flags here in case you’re following along in another language.
 
-```
+```py
 import socket
 
 class URL:
@@ -500,7 +472,7 @@ class URL:
 
 Once you have a socket, you need to tell it to connect to the other computer. For that, you need the host and a *port*. The port depends on the protocol you are using; for now it should be 80.
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -519,7 +491,7 @@ The “sockets” API, which Python more or less implements directly, derives fr
 
 Now that we have a connection, we make a request to the other server. To do so, we send it some data using the `send` method:
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -533,7 +505,7 @@ The `send` method just sends the request to the server.`send` actually returns a
 
 Also note the `encode` call. When you send data, it’s important to remember that you are sending raw bits and bytes; they could form text or an image or video. But a Python string is specifically for representing text. The `encode` method converts text into bytes, and there’s a corresponding `decode` method that goes the other way.When you call `encode` and `decode` you need to tell the computer what *character encoding* you want it to use. This is a complicated topic. I’m using `utf8` here, which is a common character encoding and will work on many pages, but in the real world you would need to be more careful. Python reminds you to be careful by giving different types to text and to bytes:
 
-```
+```py
 >>> type("text")
 <class 'str'>
 >>> type("text".encode("utf8"))
@@ -544,7 +516,7 @@ If you see an error about `str` versus `bytes`, it’s because you forgot to cal
 
 To read the server’s response, you could use the `read` function on sockets, which gives whatever bits of the response have already arrived. Then you write a loop to collect those bits as they arrive. However, in Python you can use the `makefile` helper function, which hides the loop:If you’re in another language, you might only have `socket.read` available. You’ll need to write the loop, checking the socket status, yourself.
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -555,7 +527,7 @@ Here, `makefile` returns a file-like object containing every byte we receive fro
 
 Let’s now split the response into pieces. The first line is the status line:I could have asserted that 200 is required, since that’s the only code our browser supports, but it’s better to just let the browser render the returned body, because servers will generally output a helpful and user-readable HTML error page even for error codes. This is another way in which the web is easy to implement incrementally.
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -567,7 +539,7 @@ Note that I do *not* check that the server’s version of HTTP is the same as mi
 
 After the status line come the headers:
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -583,7 +555,7 @@ For the headers, I split each line at the first colon and fill in a map of heade
 
 Headers can describe all sorts of information, but a couple of headers are especially important because they tell us that the data we’re trying to access is being sent in an unusual way. Let’s make sure none of those are present.Exercise 1-9 describes how your browser should handle these headers if they are present.
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -593,7 +565,7 @@ class URL:
 
 The usual way to get the sent data, then, is everything after the headers:
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -603,7 +575,7 @@ class URL:
 
 It’s the body that we’re going to display, so let’s return that:
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -622,7 +594,7 @@ In HTML, there are *tags* and *text*. Each tag starts with a `<` and ends with a
 
 So, to create our very, very simple web browser, let’s take the page HTML and print all the text, but not the tags, in it.If this example causes Python to produce a `SyntaxError` pointing to the `end` on the last line, it is likely because you are running Python 2 instead of Python 3\. Make sure you are using Python 3. I’ll do this in a new function, `show`:Note that this is a global function and not in the `URL` class.
 
-```
+```py
 def show(body):
  in_tag = False
  for c in body:
@@ -638,7 +610,7 @@ This code is pretty complex. It goes through the request body character by chara
 
 We can now load a web page just by stringing together `request` and `show`:Like `show`, this is a global function.
 
-```
+```py
 def load(url):
  body = url.request()
  show(body)
@@ -646,7 +618,7 @@ def load(url):
 
 Add the following code to run `load` from the command line:
 
-```
+```py
 if __name__ == "__main__":
  import sys
  load(URL(sys.argv[1]))
@@ -654,7 +626,7 @@ if __name__ == "__main__":
 
 The first line is Python’s version of a `main` function, run only when executing this script from the command line. The code reads the first argument (`sys.argv[1]`) from the command line and uses it as a URL. Try running this code on the URL `http://example.org/`:
 
-```
+```py
 python3 browser.py http://example.org/
 ```
 
@@ -676,7 +648,7 @@ Luckily, the Python `ssl` library implements all of these details for us, so mak
 
 Making an encrypted connection with `ssl` is pretty easy. Suppose you’ve already created a socket, `s`, and connected it to `example.org`. To encrypt the connection, you use `ssl.create_default_context` to create a *context* `ctx` and use that context to *wrap* the socket `s`:
 
-```
+```py
 import ssl
 ctx = ssl.create_default_context()
 s = ctx.wrap_socket(s, server_hostname=host)
@@ -688,7 +660,7 @@ On macOS, you’ll need to [run a program called “Install Certificates”](htt
 
 Let’s try to take this code and add it to `request`. First, we need to detect which scheme is being used:
 
-```
+```py
 import ssl
 
 class URL:
@@ -702,7 +674,7 @@ class URL:
 
 Encrypted HTTP connections usually use port 443 instead of port 80:
 
-```
+```py
 class URL:
  def __init__(self, url):
  # ...
@@ -714,7 +686,7 @@ class URL:
 
 We can use that port when creating the socket:
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -724,7 +696,7 @@ class URL:
 
 Next, we’ll wrap the socket with the `ssl` library:
 
-```
+```py
 class URL:
  def request(self):
  # ...
@@ -739,7 +711,7 @@ Your browser should now be able to connect to HTTPS sites.
 
 While we’re at it, let’s add support for custom ports, which are specified in a URL by putting a colon after the host name, as in Figure 6.
 
-```
+```py
 http://example.org:8080/index.html
 
 ```
@@ -748,7 +720,7 @@ Figure 6: Where the port goes in a URL.
 
 If the URL has a port we can parse it out and use it:
 
-```
+```py
 class URL:
  def __init__(self, url):
  # ...
@@ -759,7 +731,7 @@ class URL:
 
 Custom ports are handy for debugging. Python has a built-in web server you can use to serve files on your computer. For example, if you run
 
-```
+```py
 python3 -m http.server 8000 -d /some/directory
 ```
 
@@ -769,7 +741,7 @@ TLS is pretty complicated. You can read the details in [RFC 8446](https://tools.
 
 At this point you should be able to run your program on any web page. Here is what it should output for [a simple example](examples/example1-simple.html):
 
-```
+```py
  This is a simple
     web page with some
     text in it. 
@@ -838,7 +810,7 @@ Desktop and laptop computers run operating systems that provide *desktop environ
 
 Doing all of this by hand is a bit of a drag, so programs usually use a *graphical toolkit* to simplify these steps. Python comes with a graphical toolkit called Tk in the Python package `tkinter`.The library is called Tk, and it was originally written for a different language called Tcl. Python contains an interface to it, hence the name. Using it is quite simple:
 
-```
+```py
 import tkinter
 window = tkinter.Tk()
 tkinter.mainloop()
@@ -846,7 +818,7 @@ tkinter.mainloop()
 
 Here, `tkinter.Tk()` asks the desktop environment to create a window and returns an object that you can use to draw to the window. The `tkinter.mainloop()` call enters a loop that looks like this:This pseudocode may look like an infinite loop that locks up the computer, but it’s not. Either the operating system will multitask among threads and processes, or the `pendingEvents` call will sleep until events are available, or both; in any case, other code will run and create events for the loop to respond to.
 
-```
+```py
 while True:
  for evt in pendingEvents():
  handleEvent(evt)
@@ -869,7 +841,7 @@ Also, power efficiency is much more important, because the device runs on a batt
 
 Our browser will draw the web page text to a *canvas*, a rectangular Tk widget that you can draw circles, lines, and text on. For example, you can create a canvas with Tk like this:You may be familiar with the HTML `<canvas>` element, which is a similar idea: a two-dimensional rectangle in which you can draw shapes.
 
-```
+```py
 window = tkinter.Tk()
 canvas = tkinter.Canvas(window, width=800, height=600)
 canvas.pack()
@@ -879,7 +851,7 @@ The first line creates the window, and the second creates the `Canvas` inside th
 
 To keep it all organized let’s put this code in a class:
 
-```
+```py
 WIDTH, HEIGHT = 800, 600
 
 class Browser:
@@ -895,7 +867,7 @@ class Browser:
 
 Once you’ve made a canvas, you can call methods that draw shapes on the canvas. Let’s do that inside `load`, which we’ll move into the new `Browser` class:
 
-```
+```py
 class Browser:
  def load(self, url):
  # ...
@@ -906,7 +878,7 @@ class Browser:
 
 To run this code, create a `Browser`, call `load`, and then start the Tk `mainloop`:
 
-```
+```py
 if __name__ == "__main__":
  import sys
  Browser().load(URL(sys.argv[1]))
@@ -929,7 +901,7 @@ Let’s draw a simple web page on this canvas. So far, our browser steps through
 
 To start, let’s change the `show` function from the previous chapter into a function that I’ll call `lex`Foreshadowing future developments… which just *returns* the textual content of an HTML document without printing it:
 
-```
+```py
 def lex(body):
  text = ""
  # ...
@@ -942,7 +914,7 @@ def lex(body):
 
 Then, `load` will draw that text, character by character:
 
-```
+```py
 def load(self, url):
  # ...
  for c in text:
@@ -953,7 +925,7 @@ Let’s test this code on a real web page. For reasons that might seem inscrutab
 
 Why a blob instead of letters? Well, of course, because we are drawing every letter in the same place, so they all overlap! Let’s fix that:
 
-```
+```py
 HSTEP, VSTEP = 13, 18
 cursor_x, cursor_y = HSTEP, VSTEP
 for c in text:
@@ -965,7 +937,7 @@ The variables `cursor_x` and `cursor_y` point to where the next character will g
 
 The text now forms a line from left to right. But with an 800-pixel-wide canvas and 13 pixels per character, one line only fits about 60 characters. You need more than that to read a novel, so we also need to *wrap* the text once we reach the edge of the screen:
 
-```
+```py
 for c in text:
  # ...
  if cursor_x >= WIDTH - HSTEP:
@@ -1001,7 +973,7 @@ Our browser will have the same split. Right now `load` computes both the positio
 
 Let’s start with `layout`. Instead of calling `canvas.create_text` on each character, let’s add it to a list, together with its position. Since `layout` doesn’t need to access anything in `Browser`, it can be a standalone function:
 
-```
+```py
 def layout(text):
  display_list = []
  cursor_x, cursor_y = HSTEP, VSTEP
@@ -1015,7 +987,7 @@ The resulting list of things to display is called a *display list*.The term “d
 
 Once the display list is computed, `draw` needs to loop through it and draw each character. Since `draw` does need access to the canvas, we make it a method on `Browser`:
 
-```
+```py
 class Browser:
  def draw(self):
  for x, y, c in self.display_list:
@@ -1024,7 +996,7 @@ class Browser:
 
 Now `load` just needs to call `layout` followed by `draw`:
 
-```
+```py
 class Browser:
  def load(self, url):
  body = url.request()
@@ -1035,7 +1007,7 @@ class Browser:
 
 Now we can add scrolling. Let’s add a field for how far you’ve scrolled:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -1044,7 +1016,7 @@ class Browser:
 
 The page coordinate `y` then has screen coordinate `y - self.scroll`:
 
-```
+```py
 def draw(self):
  for x, y, c in self.display_list:
  self.canvas.create_text(x, y - self.scroll, text=c)
@@ -1056,7 +1028,7 @@ Most browsers scroll the page when you press the up and down keys, rotate the sc
 
 Tk allows you to *bind* a function to a key, which instructs Tk to call that function when the key is pressed. For example, to bind to the down arrow key, write:
 
-```
+```py
 def __init__(self):
  # ...
  self.window.bind("<Down>", self.scrolldown)
@@ -1064,7 +1036,7 @@ def __init__(self):
 
 Here, `self.scrolldown` is an *event handler*, a function that Tk will call whenever the down arrow key is pressed.`scrolldown` is passed an *event object* as an argument by Tk, but since scrolling down doesn’t require any information about the key press besides the fact that it happened, `scrolldown` ignores that event object. All it needs to do is increment `scroll` and redraw the canvas:
 
-```
+```py
 SCROLL_STEP = 100
 
 def scrolldown(self, e):
@@ -1074,7 +1046,7 @@ def scrolldown(self, e):
 
 If you try this out, you’ll find that scrolling draws all the text a second time. That’s because we didn’t erase the old text before drawing the new text. Call `canvas.delete` to clear the old text:
 
-```
+```py
 def draw(self):
  self.canvas.delete("all")
  # ...
@@ -1094,7 +1066,7 @@ But scrolling in our browser is pretty slow.How fast exactly seems to depend a l
 
 Real browsers have a lot of quite tricky optimizations for this, but for our browser let’s limit ourselves to a simple improvement: skip drawing characters that are offscreen:
 
-```
+```py
 for x, y, c in self.display_list:
  if y > self.scroll + HEIGHT: continue
  if y + VSTEP < self.scroll: continue
@@ -1179,7 +1151,7 @@ This nomenclature reflects the world of the printing press: metal shapes in boxe
 
 Yet Tk’s *font objects* correspond to the older meaning of font: a type at a fixed size, style, and weight. For example:You can only create `Font` objects, or any other kinds of Tk objects, after calling `tkinter.Tk()`, and you need to import `tkinter.font` separately.
 
-```
+```py
 import tkinter.font
 window = tkinter.Tk()
 bi_times = tkinter.font.Font(
@@ -1194,7 +1166,7 @@ Your computer might not have “Times” installed; you can list the available f
 
 Font objects can be passed to `create_text`’s `font` argument:
 
-```
+```py
 canvas.create_text(200, 100, text="Hi!", font=bi_times)
 ```
 
@@ -1204,7 +1176,7 @@ In the olden times, American typesetters kept their boxes of metal shapes arrang
 
 Text takes up space vertically and horizontally, and the font object’s `metrics` and `measure` methods measure that space:On your computer, you might get different numbers. That’s right—text rendering is OS-dependent, because it is complex enough that everyone uses one of a few libraries to do it, usually libraries that ship with the OS. That’s why macOS fonts tend to be “blurrier” than the same font on Windows: different libraries make different trade-offs.
 
-```
+```py
 >>> bi_times.metrics()
 {'ascent': 15, 'descent': 4, 'linespace': 19, 'fixed': 0}
 >>> bi_times.measure("Hi!")
@@ -1219,7 +1191,7 @@ Figure 3: The various vertical metrics of a font. All glyphs in a font share the
 
 Let’s dig deeper. Remember that `bi_times` is size-16 Times: why does `font.metrics` report that it is actually 19 pixels tall? Well, first of all, a size of 16 means 16 *points*, which are defined as 72nds of an inch, not 16 *pixels*,Actually, the definition of a “point” is a total mess, with many different length units all called “point” around the world. The [Wikipedia page](https://en.wikipedia.org/wiki/Point_(typography)) has the details, but a traditional American/British point is actually slightly less than 1/72 of an inch. The 1/72 standard comes from PostScript, but some systems predate it; TeX , for example, hews closer to the traditional point, approximating it as 1/72.27 of an inch. which your monitor probably has around 100 of per inch.Tk doesn’t use points anywhere else in its API. It’s supposed to use pixels if you pass it a negative number, but that doesn’t appear to work. Those 16 points measure not the individual letters but the metal blocks the letters were once carved from, so the letters themselves must be *less than* 16 points. In fact, different size-16 fonts have letters of varying heights:You might even notice that Times has different metrics in this code block than in the earlier one where we specified a bold, italic Times font. The bold, italic Times font is taller, at least on my current macOS system!
 
-```
+```py
 >>> tkinter.font.Font(family="Courier", size=16).metrics()
 {'fixed': 1, 'ascent': 13, 'descent': 4, 'linespace': 17}
 >>> tkinter.font.Font(family="Times", size=16).metrics()
@@ -1230,7 +1202,7 @@ Let’s dig deeper. Remember that `bi_times` is size-16 Times: why does `font.me
 
 The `measure()` method is more direct: it tells you how much *horizontal* space text takes up, in pixels. This depends on the text, of course, since different letters have different widths:Note that the sum of the individual letters’ lengths is not the length of the word. Tk uses fractional pixels internally, but rounds up to return whole pixels in the `measure` call. Plus, some fonts use something called *kerning* to shift letters a little bit when particular pairs of letters are next to one another, or even *shaping* to make two letters look one glyph.
 
-```
+```py
 >>> bi_times.measure("Hi!")
 24
 >>> bi_times.measure("H")
@@ -1245,14 +1217,14 @@ The `measure()` method is more direct: it tells you how much *horizontal* space 
 
 You can use this information to lay text out on the page. For example, suppose you want to draw the text “Hello, world!” in two pieces, so that “world!” is italic. Let’s use two fonts:
 
-```
+```py
 font1 = tkinter.font.Font(family="Times", size=16)
 font2 = tkinter.font.Font(family="Times", size=16, slant='italic')
 ```
 
 We can now lay out the text, starting at `(200, 200)`:
 
-```
+```py
 x, y = 200, 200
 canvas.create_text(x, y, text="Hello, ", font=font1)
 x += font1.measure("Hello, ")
@@ -1265,7 +1237,7 @@ Unfortunately, this code has a bug, though one masked by the choice of example t
 
 Luckily, the meaning of the coordinate you pass in is configurable. We can instruct Tk to treat the coordinate we gave as the top-left corner of the text by setting the `anchor` argument to `"nw"`, meaning the “northwest” corner of the text:
 
-```
+```py
 x, y = 200, 225
 canvas.create_text(x, y, text="Hello, ", font=font1, anchor='nw')
 x += font1.measure("Hello, ")
@@ -1281,7 +1253,7 @@ If you find font metrics confusing, you’re not the only one! In 2012, the Mich
 
 In [Chapter 2](graphics.html), the `layout` function looped over the text character by character and moved to the next line whenever we ran out of space. That’s appropriate in Chinese, where each character more or less *is* a word. But in English you can’t move to the next line in the middle of a word. Instead, we need to lay out the text one word at a time:This code splits words on whitespace. It’ll thus break on Chinese, since there won’t be whitespace between words. Real browsers use language-dependent rules for laying out text, including for identifying word boundaries.
 
-```
+```py
 def layout(text):
  # ...
  for word in text.split():
@@ -1291,7 +1263,7 @@ def layout(text):
 
 Unlike Chinese characters, words are different sizes, so we need to measure the width of each word:
 
-```
+```py
 import tkinter.font
 
 def layout(text):
@@ -1304,7 +1276,7 @@ def layout(text):
 
 Here I’ve chosen to use Tk’s default font. Now, if we draw the text at `cursor_x`, its right end would be at `cursor_x + w`. That might be past the right edge of the page, and in this case we need to make space by wrapping to the next line:
 
-```
+```py
 def layout(text):
  for word in text.split():
  # ...
@@ -1317,7 +1289,7 @@ Note that this code block only shows the insides of the `for` loop. The rest of 
 
 So now `cursor_x` and `cursor_y` have the location to the *start* of the word, so we add to the display list and update `cursor_x` to point to the end of the word:
 
-```
+```py
 def layout(text):
  for word in text.split():
  # ...
@@ -1335,7 +1307,7 @@ Right now, all of the text on the page is drawn with one font. But web pages som
 
 Let’s change `lex` to return a list of *tokens*, where a token is either a `Text` object (for a run of characters outside a tag) or a `Tag` object (for the contents of a tag). You’ll need to write the `Text` and `Tag` classes:If you’re familiar with Python, you might want to use the `dataclass` library, which makes it easier to define these sorts of utility classes.
 
-```
+```py
 class Text:
  def __init__(self, text):
  self.text = text
@@ -1347,7 +1319,7 @@ class Tag:
 
 `lex` must now gather text into `Text` and `Tag` objects:If you’ve done some or all of the exercises in prior chapters, your code will look different. Code snippets in the book always assume you haven’t done the exercises, so you’ll need to port your modifications.
 
-```
+```py
 def lex(body):
  out = []
  buffer = ""
@@ -1374,7 +1346,7 @@ Note that `Text` and `Tag` are asymmetric: `lex` avoids empty `Text` objects, bu
 
 Since we’ve modified `lex`, we are now passing `layout` not just the text of the page, but also the tags in it. So `layout` must loop over tokens, not text:
 
-```
+```py
 def layout(tokens):
  # ...
  for tok in tokens:
@@ -1386,14 +1358,14 @@ def layout(tokens):
 
 `layout` can also examine tag tokens to change font when directed by the page. Let’s start with support for weights and styles, with two corresponding variables:
 
-```
+```py
 weight = "normal"
 style = "roman"
 ```
 
 Those variables must change when the bold and italics open and close tags are seen:
 
-```
+```py
 if isinstance(tok, Text):
  # ...
 elif tok.tag == "i":
@@ -1410,7 +1382,7 @@ Note that this code correctly handles not only `<b>bold</b>` and `<i>italic</i>`
 
 The `style` and `weight` variables are used to select the font:
 
-```
+```py
 if isinstance(tok, Text):
  for word in tok.text.split():
  font = tkinter.font.Font(
@@ -1423,7 +1395,7 @@ if isinstance(tok, Text):
 
 Since the font is computed in `layout` but used in `draw`, we’ll need to add the font used to each entry in the display list:
 
-```
+```py
 if isinstance(tok, Text):
  for word in tok.text.split():
  # ...
@@ -1438,7 +1410,7 @@ Make sure to update `draw` to expect and use this extra font field in display li
 
 With all of these tags, `layout` has become quite large, with lots of local variables and some complicated control flow. That is one sign that something deserves to be a class, not a function:
 
-```
+```py
 class Layout:
  def __init__(self, tokens):
  self.display_list = []
@@ -1446,7 +1418,7 @@ class Layout:
 
 Every local variable in `layout` then becomes a field of `Layout`:
 
-```
+```py
 self.cursor_x = HSTEP
 self.cursor_y = VSTEP
 self.weight = "normal"
@@ -1455,7 +1427,7 @@ self.style = "roman"
 
 The core of the old `layout` is a loop over tokens, and we can move the body of that loop to a method on `Layout`:
 
-```
+```py
 def __init__(self, tokens):
  # ...
  for tok in tokens:
@@ -1472,7 +1444,7 @@ def token(self, tok):
 
 In fact, the body of the `isinstance(tok, Text)` branch can be moved to its own method:
 
-```
+```py
 def word(self, word):
  font = tkinter.font.Font(
  size=16,
@@ -1485,7 +1457,7 @@ def word(self, word):
 
 Now that everything has moved out of `Browser`’s old `layout` function, it can be replaced with calls into `Layout`:
 
-```
+```py
 class Browser:
  def load(self, url):
  body = url.request()
@@ -1500,13 +1472,13 @@ Anyway, this refactor isolated all of the text-handling code into its own method
 
 Our experience with font styles and weights suggests a simple approach that customizes the `size` field in `Layout`. It starts out with:
 
-```
+```py
 self.size = 12
 ```
 
 That variable is used to create the font object:
 
-```
+```py
 font = tkinter.font.Font(
  size=self.size,
  weight=self.weight,
@@ -1516,7 +1488,7 @@ font = tkinter.font.Font(
 
 And we can change the size in `<big>` and `<small>` tags by updating this variable:
 
-```
+```py
 def token(self, tok):
  # ...
  elif tok.tag == "small":
@@ -1545,7 +1517,7 @@ Figure 4: How lines are laid out when multiple fonts are involved. All words are
 
 Let’s start with phase one. Since one line contains text from many tags, we need a field on `Layout` to store the line-to-be. That field, `line`, will be a list, and `text` will add words to it instead of to the display list. Entries in `line` will have *x* but not *y* positions, since *y* positions aren’t computed in the first phase:
 
-```
+```py
 class Layout:
  def __init__(self, tokens):
  # ...
@@ -1559,7 +1531,7 @@ class Layout:
 
 The new `line` field is essentially a buffer, where words are held temporarily before they can be placed. The second phase is that buffer being flushed when we’re finished with a line:
 
-```
+```py
 class Layout:
  def word(self, word):
  if self.cursor_x + w > WIDTH - HSTEP:
@@ -1568,7 +1540,7 @@ class Layout:
 
 As usual with buffers, we also need to make sure the buffer is flushed once all tokens are processed:
 
-```
+```py
 class Layout:
  def __init__(self, tokens):
  # ...
@@ -1591,7 +1563,7 @@ Figure 5: Aligning the words on a line.
 
 Since we want words to line up “on the line”, let’s start by computing where that line should be. That depends on the tallest word on the line:
 
-```
+```py
 def flush(self):
  if not self.line: return
  metrics = [font.metrics() for x, word, font in self.line]
@@ -1600,13 +1572,13 @@ def flush(self):
 
 The baseline is then `max_ascent` below `self.y`—or actually a little more to account for the leading:Actually, 25% leading doesn’t add 25% of the ascent above the ascender and 25% of the descent below the descender. Instead, it adds [12.5% of the line height in both places](https://www.w3.org/TR/CSS2/visudet.html#leading), which is subtly different when fonts are mixed. But let’s skip that subtlety here.
 
-```
+```py
 baseline = self.cursor_y + 1.25 * max_ascent
 ```
 
 Now that we know where the line is, we can place each word relative to that line and add it to the display list:
 
-```
+```py
 for x, word, font in self.line:
  y = baseline - font.metrics("ascent")
  self.display_list.append((x, y, word, font))
@@ -1614,21 +1586,21 @@ for x, word, font in self.line:
 
 Note how `y` starts at the baseline, and moves *up* by just enough to accommodate that word’s ascent. Now `cursor_y` must move far enough down below `baseline` to account for the deepest descender:
 
-```
+```py
 max_descent = max([metric["descent"] for metric in metrics])
 self.cursor_y = baseline + 1.25 * max_descent
 ```
 
 Finally, `flush` must update the `Layout`’s `cursor_x` and `line` fields:
 
-```
+```py
 self.cursor_x = HSTEP
 self.line = []
 ```
 
 Now all the text is aligned along the line, even when text sizes are mixed. Plus, this new `flush` function is convenient for other line-breaking jobs. For example, in HTML the `<br>` tagWhich is a self-closing tag, so there’s no `</br>`. Many tags that *are* content, instead of annotating it, are like this. Some people like adding a final slash to self-closing tags, as in `<br/>`, but this is not required in HTML. ends the current line and starts a new one:
 
-```
+```py
 def token(self, tok):
  # ...
  elif tok.tag == "br":
@@ -1637,7 +1609,7 @@ def token(self, tok):
 
 Likewise, paragraphs are defined by the `<p>` and `</p>` tags, so `</p>` also ends the current line:
 
-```
+```py
 def token(self, tok):
  # ...
  elif tok.tag == "/p":
@@ -1665,13 +1637,13 @@ Caching is such a good idea that most text libraries already implement it, typic
 
 We’ll store our cache in a global `FONTS` dictionary:
 
-```
+```py
 FONTS = {}
 ```
 
 The keys to this dictionary will be size/weight/style triples, and the values will be `Font` objects.Actually, the values are a font object and a `tkinter.Label` object. This dramatically improves the performance of `metrics` for some reason, and is recommended by the [Python documentation](https://github.com/python/cpython/blob/main/Lib/tkinter/font.py#L163). We can put the caching logic itself in a new `get_font` function:
 
-```
+```py
 def get_font(size, weight, style):
  key = (size, weight, style)
  if key not in FONTS:
@@ -1684,7 +1656,7 @@ def get_font(size, weight, style):
 
 Then the `word` method can call `get_font` instead of creating a `Font` object directly:
 
-```
+```py
 class Layout:
  def word(self, word):
  font = get_font(self.size, self.weight, self.style)
@@ -1752,7 +1724,7 @@ Figure 1: An HTML document, showing tags, text, and the nesting structure.
 
 For our browser to use a tree, tokens need to evolve into nodes. That means adding a list of children and a parent pointer to each one. Here’s the new `Text` class, representing text at the leaf of the tree:
 
-```
+```py
 class Text:
  def __init__(self, text, parent):
  self.text = text
@@ -1762,7 +1734,7 @@ class Text:
 
 Since it takes two tags (the open and the close tag) to make a node, let’s rename the `Tag` class to `Element`, and make it look like this:
 
-```
+```py
 class Element:
  def __init__(self, tag, parent):
  self.tag = tag
@@ -1774,7 +1746,7 @@ I added a `children` field to both `Text` and `Element`, even though text nodes 
 
 Constructing a tree of nodes from source code is called parsing. A parser builds a tree one element or text node at a time. But that means the parser needs to store an *incomplete* tree as it goes. For example, suppose the parser has so far read this bit of HTML:
 
-```
+```py
 <html><video></video><section><h1>This is my webpage
 ```
 
@@ -1788,7 +1760,7 @@ Since the parser reads the HTML file from beginning to end, these unfinished tag
 
 Parsing is a little more complex than `lex`, so we’re going to want to break it into several functions, organized in a new `HTMLParser` class. That class can also store the source code it’s analyzing and the incomplete tree:
 
-```
+```py
 class HTMLParser:
  def __init__(self, body):
  self.body = body
@@ -1797,7 +1769,7 @@ class HTMLParser:
 
 Before the parser starts, it hasn’t seen any tags at all, so the `unfinished` list storing the tree starts empty. But as the parser reads tokens, that list fills up. Let’s start that by aspirationally renaming the `lex` function we have now to `parse`:
 
-```
+```py
 class HTMLParser:
  def parse(self):
  # ...
@@ -1805,7 +1777,7 @@ class HTMLParser:
 
 We’ll need to do a bit of surgery on `parse`. Right now `parse` creates `Tag` and `Text` objects and appends them to the `out` array. We need it to create `Element` and `Text` objects and add them to the `unfinished` tree. Since a tree is a bit more complex than a list, I’ll move the adding-to-a-tree logic to two new methods, `add_text` and `add_tag`.
 
-```
+```py
 def parse(self):
  text = ""
  in_tag = False
@@ -1833,7 +1805,7 @@ HTML derives from a long line of document processing systems. Its predecessor, [
 
 Let’s talk about adding nodes to a tree. To add a text node we add it as a child of the last unfinished node:
 
-```
+```py
 class HTMLParser:
  def add_text(self, text):
  parent = self.unfinished[-1]
@@ -1843,7 +1815,7 @@ class HTMLParser:
 
 On the other hand, tags are a little more complex since they might be an open *or* a close tag:
 
-```
+```py
 class HTMLParser:
  def add_tag(self, tag):
  if tag.startswith("/"):
@@ -1854,7 +1826,7 @@ class HTMLParser:
 
 An open tag adds an unfinished node to the end of the list:
 
-```
+```py
 def add_tag(self, tag):
  # ...
  else:
@@ -1865,7 +1837,7 @@ def add_tag(self, tag):
 
 A close tag instead finishes the last unfinished node by adding it to the previous unfinished node in the list:
 
-```
+```py
 def add_tag(self, tag):
  if tag.startswith("/"):
  node = self.unfinished.pop()
@@ -1876,7 +1848,7 @@ def add_tag(self, tag):
 
 Once the parser is done, it turns our incomplete tree into a complete tree by just finishing any unfinished nodes:
 
-```
+```py
 class HTMLParser:
  def finish(self):
  while len(self.unfinished) > 1:
@@ -1888,7 +1860,7 @@ class HTMLParser:
 
 This is *almost* a complete parser, but it doesn’t quite work at the beginning and end of the document. The very first open tag is an edge case without a parent:
 
-```
+```py
 def add_tag(self, tag):
  # ...
  else:
@@ -1898,7 +1870,7 @@ def add_tag(self, tag):
 
 The very last tag is also an edge case, because there’s no unfinished node to add it to:
 
-```
+```py
 def add_tag(self, tag):
  if tag.startswith("/"):
  if len(self.unfinished) == 1: return
@@ -1913,7 +1885,7 @@ The ill-considered JavaScript `document.write` method allows JavaScript to modif
 
 How do we know our parser does the right thing—that it builds the right tree? Well the place to start is *seeing* the tree it produces. We can do that with a quick, recursive pretty-printer:
 
-```
+```py
 def print_tree(node, indent=0):
  print(" " * indent, node)
  for child in node.children:
@@ -1922,7 +1894,7 @@ def print_tree(node, indent=0):
 
 Here we’re printing each node in the tree, and using indentation to show the tree structure. Since we need to print each node, it’s worth taking the time to give them a nice printed form, which in Python means defining the `__repr__` function:
 
-```
+```py
 class Text:
  def __repr__(self):
  return repr(self.text)
@@ -1936,7 +1908,7 @@ In general it’s a good idea to define `__repr__` methods for any data objects,
 
 Try this out on [the web page](https://browser.engineering/html.html) corresponding to this chapter, parsing the HTML source code and then calling `print_tree` to visualize it:
 
-```
+```py
 body = URL(sys.argv[1]).request()
 nodes = HTMLParser(body).parse()
 print_tree(nodes)
@@ -1944,7 +1916,7 @@ print_tree(nodes)
 
 You’ll see something like this at the beginning:
 
-```
+```py
  <!doctype html>
    '\n'
    <html lang="en-US" xml:lang="en-US">
@@ -1958,7 +1930,7 @@ Immediately a couple of things stand out. Let’s start at the top, with the `<!
 
 This special tag, called a [doctype](https://html.spec.whatwg.org/multipage/syntax.html#the-doctype), is always the very first thing in an HTML document. But it’s not really an element at all, nor is it supposed to have a close tag. Our browser won’t be using the doctype for anything, so it’s best to throw it away:Real browsers use doctypes to switch between standards-compliant and legacy parsing and layout modes.
 
-```
+```py
 def add_tag(self, tag):
  if tag.startswith("!"): return
  # ...
@@ -1968,7 +1940,7 @@ This ignores all tags that start with an exclamation mark, which not only throws
 
 Just throwing out doctypes isn’t quite enough though—if you run your parser now, it will crash. That’s because after the doctype comes a newline, which our parser treats as text and tries to insert into the tree. Except there isn’t a tree, since the parser hasn’t seen any open tags. For simplicity, let’s just have our browser skip whitespace-only text nodes to side-step the problem:Real browsers retain whitespace to correctly render `make<span></span>up` as one word and `make<span> </span>up` as two. Our browser won’t. Plus, ignoring whitespace simplifies later chapters by avoiding a special case for whitespace-only text tags.
 
-```
+```py
 def add_text(self, text):
  if text.isspace(): return
  # ...
@@ -1976,7 +1948,7 @@ def add_text(self, text):
 
 The first part of the parsed HTML tree for the `browser.engineering` home page now looks something like this:
 
-```
+```py
  <html lang="en-US" xml:lang="en-US">
    <head>
      <meta charset="utf-8" /="">
@@ -1992,7 +1964,7 @@ In SGML, document type declarations contained a URL which defined the valid tags
 
 Elements like `<meta>` and `<link>` are what are called self-closing: these tags don’t surround content, so you don’t ever write `</meta>` or `</link>`. Our parser needs special support for them. In HTML, there’s a [specific list](https://html.spec.whatwg.org/multipage/syntax.html#void-elements) of these self-closing tags (the specification calls them “void” tags):A lot of these tags are obscure. Browsers also support some additional, obsolete self-closing tags not listed here, like `keygen`.
 
-```
+```py
 SELF_CLOSING_TAGS = [
  "area", "base", "br", "col", "embed", "hr", "img", "input",
  "link", "meta", "param", "source", "track", "wbr",
@@ -2001,7 +1973,7 @@ SELF_CLOSING_TAGS = [
 
 Our parser needs to auto-close tags from this list:
 
-```
+```py
 def add_tag(self, tag):
  # ...
  elif tag in self.SELF_CLOSING_TAGS:
@@ -2016,7 +1988,7 @@ HTML attributes add information about an element; open tags can have any number 
 
 Since we’re not handling whitespace in values, we can split on whitespace to get the tag name and the attribute–value pairs:
 
-```
+```py
 class HTMLParser:
  def get_attributes(self, text):
  parts = text.split()
@@ -2029,7 +2001,7 @@ class HTMLParser:
 
 HTML tag names are case insensitive, as by the way are attribute names, so I case-fold them.Lower-casing text is the [wrong way](https://www.b-list.org/weblog/2018/nov/26/case/) to do case-insensitive comparisons in languages like Cherokee. In HTML specifically, tag names only use the ASCII characters so lower-casing them would be sufficient, but I’m using Python’s `casefold` function because it’s a good habit to get into. Then, inside the loop, I split each attribute–value pair into a name and a value. The easiest case is an unquoted attribute, where an equal sign separates the two:
 
-```
+```py
 def get_attributes(self, text):
  # ...
  for attrpair in parts[1:]:
@@ -2041,7 +2013,7 @@ def get_attributes(self, text):
 
 The value can also be omitted, like in `<input disabled>`, in which case the attribute value defaults to the empty string:
 
-```
+```py
 for attrpair in parts[1:]:
  # ...
  else:
@@ -2050,7 +2022,7 @@ for attrpair in parts[1:]:
 
 Finally, the value can be quoted, in which case the quotes have to be stripped out:Quoted attributes allow whitespace between the quotes. Parsing that properly requires something like a finite state machine instead of just splitting on whitespace.
 
-```
+```py
 if "=" in attrpair:
  # ...
  if len(value) > 2 and value[0] in ["'", "\""]:
@@ -2060,7 +2032,7 @@ if "=" in attrpair:
 
 We’ll store these attributes inside `Element`s:
 
-```
+```py
 class Element:
  def __init__(self, tag, attributes, parent):
  self.tag = tag
@@ -2070,7 +2042,7 @@ class Element:
 
 That means we’ll need to call `get_attributes` at the top of `add_tag` to get the `attributes` we need to construct an `Element`.
 
-```
+```py
 def add_tag(self, tag):
  tag, attributes = self.get_attributes(tag)
  # ...
@@ -2078,7 +2050,7 @@ def add_tag(self, tag):
 
 Remember to use `tag` and `attribute` instead of `text` in `add_tag`, and try your parser again:
 
-```
+```py
  <html>
     <head>
       <meta>
@@ -2098,7 +2070,7 @@ Putting a slash at the end of self-closing tags, like `<br/>`, became fashionabl
 
 Right now, the `Layout` class works token by token; we now want it to go node by node instead. So let’s separate the old `token` method into two parts: all the cases for open tags will go into a new `open_tag` method and all the cases for close tags will go into a new `close_tag` method:The case for text tokens is no longer needed because our browser can just call the existing `add_text` method directly.
 
-```
+```py
 class Layout:
  def open_tag(self, tag):
  if tag == "i":
@@ -2113,7 +2085,7 @@ class Layout:
 
 Now we need the `Layout` object to walk the node tree, calling `open_tag`, `close_tag`, and `text` in the right order:
 
-```
+```py
 def recurse(self, tree):
  if isinstance(tree, Text):
  for word in tree.text.split():
@@ -2127,7 +2099,7 @@ def recurse(self, tree):
 
 The `Layout` constructor can now call `recurse` instead of looping through the list of tokens. We’ll also need the browser to construct the node tree, like this:
 
-```
+```py
 class Browser:
  def load(self, url):
  body = url.request()
@@ -2146,7 +2118,7 @@ The parser now handles HTML pages correctly—at least when the HTML is written 
 
 The full algorithm is, as you might expect, complicated beyond belief, with dozens of ever-more-special cases forming a taxonomy of human error, but one of its nicer features is *implicit* tags. Normally, an HTML document starts with a familiar boilerplate:
 
-```
+```py
 <!doctype html>
 <html>
  <head>
@@ -2158,7 +2130,7 @@ The full algorithm is, as you might expect, complicated beyond belief, with doze
 
 In reality, *all six* of these tags, except the doctype, are optional: browsers insert them automatically when the web page omits them. Let’s insert implicit tags in our browser via a new `implicit_tags` function. We’ll want to call it in both `add_text` and `add_tag`:
 
-```
+```py
 class HTMLParser:
  def add_text(self, text):
  if text.isspace(): return
@@ -2174,7 +2146,7 @@ class HTMLParser:
 
 Note that `implicit_tags` isn’t called for the ignored whitespace and doctypes. Let’s also call it in `finish`, to make sure that an `<html>` and `<body>` tag are created even for empty strings:
 
-```
+```py
 class HTMLParser:
  def finish(self):
  if not self.unfinished:
@@ -2184,7 +2156,7 @@ class HTMLParser:
 
 The argument to `implicit_tags` is the tag name (or `None` for text nodes), which we’ll compare to the list of unfinished tags to determine what’s been omitted:
 
-```
+```py
 class HTMLParser:
  def implicit_tags(self, tag):
  while True:
@@ -2196,7 +2168,7 @@ class HTMLParser:
 
 Let’s start with the easiest case, the implicit `<html>` tag. An implicit `<html>` tag is necessary if the first tag in the document is something other than `<html>`:
 
-```
+```py
 while True:
  # ...
  if open_tags == [] and tag != "html":
@@ -2205,7 +2177,7 @@ while True:
 
 Both `<head>` and `<body>` can also be omitted, but to figure out which it is we need to look at which tag is being added:
 
-```
+```py
 while True:
  # ...
  elif open_tags == ["html"] \
@@ -2218,7 +2190,7 @@ while True:
 
 Here, `HEAD_TAGS` lists the tags that you’re supposed to put into the `<head>` element:The `<script>` tag can go in either the head or the body section, but it goes into the head by default.
 
-```
+```py
 class HTMLParser:
  HEAD_TAGS = [
  "base", "basefont", "bgsound", "noscript",
@@ -2230,7 +2202,7 @@ Note that if both the `<html>` and `<head>` tags are omitted, `implicit_tags` is
 
 Finally, the `</head>` tag can also be implicit if the parser is inside the `<head>` and sees an element that’s supposed to go in the `<body>`:
 
-```
+```py
 while True:
  # ...
  elif open_tags == ["html", "head"] and \
@@ -2240,7 +2212,7 @@ while True:
 
 Technically, the `</body>` and `</html>` tags can also be implicit. But since our `finish` function already closes any unfinished tags, that doesn’t need any extra code. So all that’s left for `implicit_tags` is to exit out of the loop:
 
-```
+```py
 while True:
  # ...
  else:
@@ -2313,7 +2285,7 @@ In a browser, layout is about producing a *layout tree*, whose nodes are *layout
 
 Let’s start by looking at how the existing `Layout` class is used:
 
-```
+```py
 class Browser:
  def load(self, url):
  # ...
@@ -2323,7 +2295,7 @@ class Browser:
 
 Here, a `Layout` object is created briefly and then thrown away. Let’s instead make it the beginning of our layout tree by storing it in a `Browser` field:
 
-```
+```py
 class Browser:
  def load(self, url):
  # ...
@@ -2334,7 +2306,7 @@ class Browser:
 
 Note that I’ve renamed the `Layout` constructor to a `layout` method, so that constructing a layout object and actually laying it out can be different steps. The constructor now just stores the node it was passed:
 
-```
+```py
 class Layout:
  def __init__(self, node):
  self.node = node
@@ -2342,7 +2314,7 @@ class Layout:
 
 So far, we still don’t have a tree—we just have a single `Layout` object. To make it into a tree, we’ll need to add child and parent pointers. I’m also going to add a pointer to the previous sibling, because that’ll be useful for computing sizes and positions later:
 
-```
+```py
 class Layout:
  def __init__(self, node, parent, previous):
  self.node = node
@@ -2353,7 +2325,7 @@ class Layout:
 
 That said, requiring a `parent` and `previous` object now makes it tricky to construct a `Layout` object in `Browser`, since the root of the layout tree obviously can’t have a parent. To rectify that, let me add a second kind of layout object to serve as the root of the layout tree.I don’t want to just pass `None` for the parent, because the root layout object also computes its size and position differently, as we’ll see later in this chapter. I think of that root as the document itself, so let’s call it `DocumentLayout`:
 
-```
+```py
 class DocumentLayout:
  def __init__(self, node):
  self.node = node
@@ -2372,7 +2344,7 @@ Now when we construct a `DocumentLayout` object inside `load`, we’ll be buildi
 
 By the way, since we now have `DocumentLayout`, let’s rename `Layout` so it’s less ambiguous. I like `BlockLayout` as a name, because we ultimately want it to represent a block of text, like a paragraph or a heading:
 
-```
+```py
 class BlockLayout:
  # ...
 ```
@@ -2395,7 +2367,7 @@ Figure 1: An example of an HTML tree and the corresponding layout tree.
 
 To create these intermediate `BlockLayout` children, we can use a loop like this:
 
-```
+```py
 class BlockLayout:
  def layout_intermediate(self):
  previous = None
@@ -2411,7 +2383,7 @@ This code is tricky, so read it carefully. It involves two trees: the HTML tree,
 
 So we have two ways to lay out an element: either calling `recurse` and `flush`, or this `layout_intermediate` function. To determine which one a layout object should use, we’ll need to know what kind of content its HTML node contains: *inline* text and text-related tags like `<b>`, or *blocks* like `<p>` and `<h1>`. Let’s add a `layout_mode` method that computes which is which:
 
-```
+```py
 class BlockLayout:
  def layout_mode(self):
  if isinstance(self.node, Text):
@@ -2428,7 +2400,7 @@ class BlockLayout:
 
 Here, the list of `BLOCK_ELEMENTS` is basically what you expect, a list of all the tags that describe blocks and containers:Taken from the [HTML living standard](https://html.spec.whatwg.org/multipage/#toc-semantics).
 
-```
+```py
 BLOCK_ELEMENTS = [
  "html", "body", "article", "section", "nav", "aside",
  "h1", "h2", "h3", "h4", "h5", "h6", "hgroup", "header",
@@ -2443,7 +2415,7 @@ Our `layout_mode` method has to handle one tricky case, where a node contains bo
 
 So now `BlockLayout` can determine what kind of layout to do based on the `layout_mode` of its HTML node:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  mode = self.layout_mode()
@@ -2467,7 +2439,7 @@ class BlockLayout:
 
 Finally, since `BlockLayout`s can now have children, the `layout` method next needs to recursively call `layout` so those children can construct their children, and so on recursively:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -2485,7 +2457,7 @@ In the [previous chapter](html.html), the `Layout` object was responsible for th
 
 Let’s add `x`, `y`, `width`, and `height` fields for each layout object type:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous):
  # ...
@@ -2499,7 +2471,7 @@ Do the same for `DocumentLayout`. Now we need to update the `layout` method to u
 
 Let’s start with `cursor_x` and `cursor_y`. Instead of having them denote absolute positions on the page, let’s make them relative to the `BlockLayout`’s `x` and `y`. So they now need to start from `0` instead of `HSTEP` and `VSTEP`, in both `layout` and `flush`:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  else:
@@ -2514,7 +2486,7 @@ class BlockLayout:
 
 Since these fields are now relative, we’ll need to add the block’s `x` and `y` position in `flush` when computing the display list:
 
-```
+```py
 class BlockLayout:
  def flush(self):
  # ...
@@ -2527,7 +2499,7 @@ class BlockLayout:
 
 Similarly, to wrap lines, we can’t compare `cursor_x` to `WIDTH`, because `cursor_x` is a relative position while `WIDTH` is an absolute position; instead, we’ll wrap lines when `cursor_x` reaches the block’s `width`:
 
-```
+```py
 class BlockLayout:
  def word(self, word):
  # ...
@@ -2538,7 +2510,7 @@ class BlockLayout:
 
 So now that leaves us with the problem of computing these `x`, `y`, and `width` fields. Let’s recall that `BlockLayout`s represent blocks of text like paragraphs or headings, and are stacked vertically one atop another. That means each one starts at its parent’s left edge and goes all the way across its parent:In the [next chapter](styles.html), we’ll add support for author-defined styles, which in real browsers modify these layout rules by setting custom widths or changing how *x* and *y* positions are computed.
 
-```
+```py
 class BlockLayout:
  def layout(self):
  self.x = self.parent.x
@@ -2548,7 +2520,7 @@ class BlockLayout:
 
 A layout object’s vertical position depends on whether there’s a previous sibling. If there is one, the layout object starts right after it; otherwise, it starts at its parent’s top edge:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  if self.previous:
@@ -2560,7 +2532,7 @@ class BlockLayout:
 
 Finally, height is a little tricky. A `BlockLayout` that contains other blocks should be tall enough to contain all of its children, so its height should be the sum of its children’s heights:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -2571,7 +2543,7 @@ class BlockLayout:
 
 However, a `BlockLayout` that contains text doesn’t have children; instead, it needs to be tall enough to contain all its text, which we can conveniently read off from `cursor_y`:Since the height is just equal to `cursor_y`, why not rename `cursor_y` to `height` instead? You could, it would work fine, but I would rather not. As you can see from, say, the `y` computation, the `height` field is a public field, read by other layout objects to compute their positions. As such, I’d rather make sure it *always* has the right value, whereas `cursor_y` changes as we lay out a paragraph of text and therefore sometimes has the “wrong” value. Keeping these two fields separate avoids a whole class of nasty bugs where the `height` field is read “too soon” and therefore gets the wrong value.
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -2602,7 +2574,7 @@ This kind of dependency reasoning is crucial to layout and more broadly to any k
 
 `DocumentLayout` needs some layout code too, though since the document always starts in the same place it’s pretty simple:
 
-```
+```py
 class DocumentLayout:
  def layout(self):
  # ...
@@ -2625,7 +2597,7 @@ Our `layout` method is now doing quite a bit of work: computing sizes and positi
 
 I think it’s most convenient to do that by adding a `paint` function to each layout object, whose return value is the display list entries for that object. Then there is a separate function, `paint_tree`, that recursively calls `paint` on all layout objects:
 
-```
+```py
 def paint_tree(layout_object, display_list):
  display_list.extend(layout_object.paint())
 
@@ -2635,7 +2607,7 @@ def paint_tree(layout_object, display_list):
 
 For `DocumentLayout`, there is nothing to paint:
 
-```
+```py
 class DocumentLayout:
  def paint(self):
  return []
@@ -2645,7 +2617,7 @@ You can now delete the line that computes a `DocumentLayout`’s `display_list` 
 
 For a `BlockLayout` object, we need to copy over the `display_list` field that it computes during `recurse` and `flush`:And again, delete the line that computes a `BlockLayout`’s `display_list` field by copying from child layout objects.
 
-```
+```py
 class BlockLayout:
  def paint(self):
  return self.display_list
@@ -2653,7 +2625,7 @@ class BlockLayout:
 
 Now the browser can use `paint_tree` to collect its own `display_list` variable:
 
-```
+```py
 class Browser:
  def load(self, url):
  # ...
@@ -2672,7 +2644,7 @@ Browsers use the layout tree a lot,For example, in [Chapter 7](chrome.html), we�
 
 Backgrounds are rectangles, so our first task is putting rectangles in the display list. Right now, the display list is a list of words to draw to the screen, but we can conceptualize it instead as a list of *commands*, of which there is currently only one type. We now want two types of commands:
 
-```
+```py
 class DrawText:
  def __init__(self, x1, y1, text, font):
  self.top = y1
@@ -2691,7 +2663,7 @@ class DrawRect:
 
 Now `BlockLayout` must add `DrawText` objects for each word it wants to draw, but only in inline mode:Why not change the `display_list` field inside a `BlockLayout` to contain `DrawText` commands directly? I suppose you could, but I think it’s cleaner to create all of the draw commands in `paint`.
 
-```
+```py
 class BlockLayout:
  def paint(self):
  cmds = []
@@ -2703,7 +2675,7 @@ class BlockLayout:
 
 But it can also add a `DrawRect` command to draw a background. Let’s add a gray background to `pre` tags (which are used for code examples):
 
-```
+```py
 class BlockLayout:
  def paint(self):
  # ...
@@ -2718,7 +2690,7 @@ Make sure this code comes *before* the loop that adds `DrawText` objects: the ba
 
 With the display list filled out, we need to draw each graphics command. Let’s add an `execute` method for this. On `DrawText` it calls `create_text`:
 
-```
+```py
 class DrawText:
  def execute(self, scroll, canvas):
  canvas.create_text(
@@ -2730,7 +2702,7 @@ class DrawText:
 
 Note that `execute` takes the scroll amount as a parameter; this way, each graphics command does the relevant coordinate conversion itself. `DrawRect` does the same with `create_rectangle`:
 
-```
+```py
 class DrawRect:
  def execute(self, scroll, canvas):
  canvas.create_rectangle(
@@ -2744,7 +2716,7 @@ By default, `create_rectangle` draws a one-pixel black border, which we don’t 
 
 We still want to skip offscreen graphics commands, so let’s add a `bottom` field to `DrawText` so we know when to skip those:
 
-```
+```py
 def __init__(self, x1, y1, text, font):
  # ...
  self.bottom = y1 + font.metrics("linespace")
@@ -2752,7 +2724,7 @@ def __init__(self, x1, y1, text, font):
 
 The browser’s `draw` method now just uses `top` and `bottom` to decide which commands to `execute`:
 
-```
+```py
 class Browser:
  def draw(self):
  self.canvas.delete("all")
@@ -2766,7 +2738,7 @@ Try your browser on a page—maybe [this chapter’s](https://browser.engineerin
 
 Here’s one more cute benefit of tree-based layout: we now record the height of the whole page. The browser can use that to avoid scrolling past the bottom:
 
-```
+```py
 def scrolldown(self, e):
  max_y = max(self.document.height + 2*VSTEP - HEIGHT, 0)
  self.scroll = min(self.scroll + SCROLL_STEP, max_y)
@@ -2815,7 +2787,7 @@ The complete set of functions, classes, and methods in our browser should look s
 
 5-5 *Anonymous block boxes*. Sometimes, an element has a mix of text-like and container-like children. For example, in this HTML,
 
-```
+```py
 <div><i>Hello, </i><b>world!</b><p>So it began...</p></div>
 ```
 
@@ -2844,7 +2816,7 @@ In the [previous chapter](layout.html) we gave each `pre` element a gray backgro
 
 One way a web page can change its appearance is with the `style` attribute. For example, this changes an element’s background color:
 
-```
+```py
 <div style="background-color:lightblue">Blue background</div>
 ```
 
@@ -2856,7 +2828,7 @@ More generally, a `style` attribute contains property–value pairs separated by
 
 To add this to our browser, we’ll need to start by parsing these property–value pairs. I’ll use recursive *parsing functions*, which are a good way to build a complex parser step by step. The idea is that each parsing function advances through the text being parsed and returns the data it parsed. We’ll have different functions for different types of data, and organize them in a `CSSParser` class that stores the text being parsed and the parser’s current position in it:
 
-```
+```py
 class CSSParser:
  def __init__(self, s):
  self.s = s
@@ -2865,7 +2837,7 @@ class CSSParser:
 
 Let’s start small and build up. A parsing function for whitespace increments the index `i` past every whitespace character:
 
-```
+```py
 def whitespace(self):
  while self.i < len(self.s) and self.s[self.i].isspace():
  self.i += 1
@@ -2873,7 +2845,7 @@ def whitespace(self):
 
 Whitespace is meaningless, so there’s no parsed data to return. But when we parse property names, we’ll want to return them:
 
-```
+```py
 def word(self):
  start = self.i
  while self.i < len(self.s):
@@ -2890,7 +2862,7 @@ This function increments `i` through any word characters,I’ve chosen the set o
 
 Parsing functions can fail. The `word` function we just wrote raises an exception if `i` hasn’t advanced through at least one character—otherwise it didn’t point at a word to begin with.You can add error text to the exception-raising code, too; I recommend doing that to help you debug problems. Likewise, to check for a literal colon (or some other punctuation character) you’d do this:
 
-```
+```py
 def literal(self, literal):
  if not (self.i < len(self.s) and self.s[self.i] == literal):
  raise Exception("Parsing error")
@@ -2899,7 +2871,7 @@ def literal(self, literal):
 
 The great thing about parsing functions is that they can build on one another. For example, property–value pairs are a property, a colon, and a value,In reality, properties and values have different syntaxes, so using `word` for both isn’t quite right, but for our browser’s limited CSS implementation this simplification will do. with whitespace in between:
 
-```
+```py
 def pair(self):
  prop = self.word()
  self.whitespace()
@@ -2911,7 +2883,7 @@ def pair(self):
 
 We can parse sequences by calling parsing functions in a loop. For example, `style` attributes are a sequence of property–value pairs:
 
-```
+```py
 def body(self):
  pairs = {}
  while self.i < len(self.s):
@@ -2927,7 +2899,7 @@ Now, in a browser, we always have to think about handling errors. Sometimes a we
 
 We can skip things with this little function; it stops at any one of a set of characters and returns that character (or `None` if it was stopped by the end of the file):
 
-```
+```py
 def ignore_until(self, chars):
  while self.i < len(self.s):
  if self.s[self.i] in chars:
@@ -2939,7 +2911,7 @@ def ignore_until(self, chars):
 
 When we fail to parse a property–value pair, we skip either to the next semicolon or to the end of the string:
 
-```
+```py
 def body(self):
  # ...
  while self.i < len(self.s):
@@ -2965,7 +2937,7 @@ This parsing method is formally called recursive descent parsing for an [LL(1)](
 
 Now that the `style` attribute is parsed, we can use that parsed information in the rest of the browser. Let’s do that inside a `style` function, which saves the parsed `style` attribute in the node’s `style` field:
 
-```
+```py
 def style(node):
  node.style = {}
  if isinstance(node, Element) and "style" in node.attributes:
@@ -2976,7 +2948,7 @@ def style(node):
 
 The method can recurse through the HTML tree to make sure each element gets a style:
 
-```
+```py
 def style(node):
  # ...
  for child in node.children:
@@ -2985,7 +2957,7 @@ def style(node):
 
 Call `style` in the browser’s `load` method, after parsing the HTML but before doing layout. With the `style` information stored on each element, the browser can consult it for styling information during paint:
 
-```
+```py
 class BlockLayout:
  def paint(self):
  # ...
@@ -3024,7 +2996,7 @@ Selectors come in lots of types, but in our browser we’ll support two: tag sel
 
 We’ll have a class for each type of selector to store the selector’s contents, like the tag name for a tag selector:
 
-```
+```py
 class TagSelector:
  def __init__(self, tag):
  self.tag = tag
@@ -3032,7 +3004,7 @@ class TagSelector:
 
 Each selector class will also test whether the selector matches an element:
 
-```
+```py
 class TagSelector:
  def matches(self, node):
  return isinstance(node, Element) and self.tag == node.tag
@@ -3040,7 +3012,7 @@ class TagSelector:
 
 A descendant selector works similarly. It has two parts, which are both themselves selectors:
 
-```
+```py
 class DescendantSelector:
  def __init__(self, ancestor, descendant):
  self.ancestor = ancestor
@@ -3049,7 +3021,7 @@ class DescendantSelector:
 
 Then the `matches` method is recursive:
 
-```
+```py
 class DescendantSelector:
  def matches(self, node):
  if not self.descendant.matches(node): return False
@@ -3061,7 +3033,7 @@ class DescendantSelector:
 
 Now, to create these selector objects, we need a parser. In this case, that’s just another parsing function:Once again, using `word` here for tag names is actually not quite right, but it’s close enough. One side effect of using `word` is that a class name selector (like `.main`) or an identifier selector (like `#signup`) is mis-parsed as a tag name selector. But, luckily, that won’t cause any harm since there aren’t any elements with those tags.
 
-```
+```py
 class CSSParser:
  def selector(self):
  out = TagSelector(self.word().casefold())
@@ -3076,7 +3048,7 @@ class CSSParser:
 
 A CSS file is just a sequence of selectors and blocks:
 
-```
+```py
 def parse(self):
  rules = []
  while self.i < len(self.s):
@@ -3092,7 +3064,7 @@ def parse(self):
 
 Once again, let’s pause to think about error handling. First, when we call `body` while parsing CSS, we need it to stop when it reaches a closing brace:
 
-```
+```py
 def body(self):
  # ...
  while self.i < len(self.s) and self.s[self.i] != "}":
@@ -3110,7 +3082,7 @@ def body(self):
 
 Second, there might also be a parse error while parsing a selector. In that case, we want to skip the whole rule:
 
-```
+```py
 def parse(self):
  # ...
  while self.i < len(self.s):
@@ -3142,7 +3114,7 @@ A parser receives arbitrary bytes as input, so parser bugs are usually easy for 
 
 With the parser debugged, the next step is applying the parsed style sheet to the web page. Since each CSS rule can style many elements on the page, this will require looping over all elements *and* all rules. When a rule applies, its property–value pairs are copied to the element’s style information:
 
-```
+```py
 def style(node, rules):
  # ...
  for selector, body in rules:
@@ -3156,19 +3128,19 @@ Make sure to put this loop before the one that parses the `style` attribute: the
 
 To try this out, we’ll need a style sheet. Every browser ships with a *browser style sheet*,Technically called a “user agent” style sheet. User agent, like the Memex. which defines its default styling for the various HTML elements. For our browser, it might look like this:
 
-```
+```py
 pre { background-color: gray; }
 ```
 
 Let’s store that in a new file, `browser.css`, and have our browser read it when it starts:
 
-```
+```py
 DEFAULT_STYLE_SHEET = CSSParser(open("browser.css").read()).parse()
 ```
 
 Now, when the browser loads a web page, it can apply that default style sheet to set up its default styling for each element:
 
-```
+```py
 def load(self, url):
  # ...
  rules = DEFAULT_STYLE_SHEET.copy()
@@ -3178,7 +3150,7 @@ def load(self, url):
 
 The browser style sheet is the default for the whole web. But each web site can also use CSS to set a consistent style for the whole site by referencing CSS files using `link` elements:
 
-```
+```py
 <link rel="stylesheet" href="/main.css">
 ```
 
@@ -3190,7 +3162,7 @@ Figure 2: A browser loading related assets, like a stylesheet, for a web page.
 
 Since we’ll be doing similar tasks in the next few chapters, let’s generalize a bit and write a recursive function that turns a tree into a list of nodes:
 
-```
+```py
 def tree_to_list(tree, list):
  list.append(tree)
  for child in tree.children:
@@ -3200,7 +3172,7 @@ def tree_to_list(tree, list):
 
 I’ve written this helper to work on both HTML and layout trees, for later. We can use `tree_to_list` with a Python list comprehension to grab the URL of each linked style sheet:It’s kind of crazy, honestly, that Python lets you write things like this—crazy, but very convenient!
 
-```
+```py
 def load(self, url):
  # ...
  links = [node.attributes["href"]
@@ -3221,7 +3193,7 @@ Now, these style sheet URLs are usually not full URLs; they are something called
 
 To download the style sheets, we’ll need to convert each relative URL into a full URL:
 
-```
+```py
 class URL:
  def resolve(self, url):
  if "://" in url: return URL(url)
@@ -3237,7 +3209,7 @@ class URL:
 
 Also, because of the early web architecture, browsers are responsible for resolving parent directories (`..`) in relative URLs:
 
-```
+```py
 class URL:
  def resolve(self, url):
  if not url.startswith("/"):
@@ -3251,7 +3223,7 @@ class URL:
 
 Now the browser can request each linked style sheet and add its rules to the `rules` list:
 
-```
+```py
 def load(self, url):
  # ...
  for link in links:
@@ -3275,7 +3247,7 @@ In CSS, the correct order is called *cascade order*, and it is based on the rule
 
 Since our browser only has tag selectors, cascade order just counts them:
 
-```
+```py
 class TagSelector:
  def __init__(self, tag):
  # ...
@@ -3289,7 +3261,7 @@ class DescendantSelector:
 
 Then cascade order for rules is just those priorities:
 
-```
+```py
 def cascade_priority(rule):
  selector, body = rule
  return selector.priority
@@ -3297,7 +3269,7 @@ def cascade_priority(rule):
 
 Now when we call `style`, we need to sort the rules, like this:
 
-```
+```py
 def load(self, url):
  # ...
  style(self.nodes, sorted(rules, key=cascade_priority))
@@ -3316,7 +3288,7 @@ The way text styles work in CSS is called *inheritance*. Inheritance means that 
 
 Let’s implement inheritance for four font properties: `font-size`, `font-style` (for `italic`), `font-weight` (for `bold`), and `color`:
 
-```
+```py
 INHERITED_PROPERTIES = {
  "font-size": "16px",
  "font-style": "normal",
@@ -3327,7 +3299,7 @@ INHERITED_PROPERTIES = {
 
 The values in this dictionary are each property’s defaults. We’ll then add the actual inheritance code to the `style` function. It has to come *before* the other loops, since explicit rules should override inheritance:
 
-```
+```py
 def style(node, rules):
  # ...
  for property, default_value in INHERITED_PROPERTIES.items():
@@ -3342,7 +3314,7 @@ Inheriting font size comes with a twist. Web pages can use percentages as font s
 
 In fact, browsers resolve font size percentages to absolute pixel units before those values are inherited; it’s called a “computed style”.The full CSS standard is a bit more confusing: there are [specified, computed, used, and actual values](https://www.w3.org/TR/CSS2/cascade.html#value-stages), and they affect lots of CSS properties besides `font-size`. But we’re not implementing those other properties in this book.
 
-```
+```py
 def style(node, rules):
  # ...
  if node.style["font-size"].endswith("%"):
@@ -3354,7 +3326,7 @@ def style(node, rules):
 
 Resolving percentage sizes has just one tricky edge case: percentage sizes for the root `html` element. In that case the percentage is relative to the default font size:This code has to parse and unparse font sizes because our `style` field stores strings; in a real browser the computed style is stored parsed so this doesn’t have to happen.
 
-```
+```py
 def style(node, rules):
  # ...
  if node.style["font-size"].endswith("%"):
@@ -3375,7 +3347,7 @@ Styling a page can be slow, so real browsers apply tricks like [bloom filters](h
 
 So now with all these font properties implemented, let’s change layout to use them! That will let us move our default text styles to the browser style sheet:
 
-```
+```py
 a { color: blue; }
 i { font-style: italic; }
 b { font-weight: bold; }
@@ -3385,7 +3357,7 @@ big { font-size: 110%; }
 
 The browser looks up font information in `BlockLayout`’s `word` method; we’ll need to change it to use the node’s `style` field, and for that, we’ll need to pass in the node itself:
 
-```
+```py
 class BlockLayout:
  def recurse(self, node):
  if isinstance(node, Text):
@@ -3407,7 +3379,7 @@ Note that for `font-style` we need to translate CSS “normal” to Tk “roman�
 
 Text color requires a bit more plumbing. First, we have to read the color and store it in the current `line`:
 
-```
+```py
 def word(self, node, word):
  color = node.style["color"]
  # ...
@@ -3417,7 +3389,7 @@ def word(self, node, word):
 
 The `flush` method then copies it from `line` to `display_list`:
 
-```
+```py
 def flush(self):
  # ...
  metrics = [font.metrics() for x, word, font, color in self.line]
@@ -3430,7 +3402,7 @@ def flush(self):
 
 That `display_list` is converted to drawing commands in `paint`:
 
-```
+```py
 def paint(self):
  # ...
  if self.layout_mode() == "inline":
@@ -3440,7 +3412,7 @@ def paint(self):
 
 `DrawText` now needs a `color` argument, and needs to pass it to `create_text`’s `fill` parameter:
 
-```
+```py
 class DrawText:
  def __init__(self, x1, y1, text, font, color):
  # ...
@@ -3454,7 +3426,7 @@ class DrawText:
 
 Phew! That was a lot of coordinated changes, so test everything and make sure it works. You should now see links on the [web version of this chapter](https://browser.engineering/styles.html) appear in blue—and you might also notice that the rest of the text has become slightly lighter.The main body text on the web is colored `#333`, or roughly 97% black after [gamma correction](https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ). Also, now that we’re explicitly setting the text color, we should explicitly set the background color as well:My Linux machine sets the default background color to a light gray, while my macOS laptop has a “Dark Mode” where the default background color becomes a dark gray. Setting the background color explicitly avoids the browser looking strange in these situations.
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -3467,7 +3439,7 @@ class Browser:
 
 These changes obsolete all the code in `BlockLayout` that handles specific tags, like the `style`, `weight`, and `size` properties and the `open_tag` and `close_tag` methods. Let’s refactor a bit to get rid of them:
 
-```
+```py
 class BlockLayout:
  def recurse(self, node):
  if isinstance(node, Text):
@@ -3530,7 +3502,7 @@ The complete set of functions, classes, and methods in our browser should now lo
 
 6-9 *`!important`*. A CSS property–value pair can be marked “important” using the `!important` syntax, like this:
 
-```
+```py
 #banner a { color: black !important; }
 ```
 
@@ -3561,7 +3533,7 @@ The core of the web is the link, so the most important part of the browser inter
 
 The big idea is to introduce two new types of layout objects: `LineLayout` and `TextLayout`. A `BlockLayout` will now have a `LineLayout` child for each line of text, which itself will contain a `TextLayout` for each word in that line. These new classes can make the layout tree look different from the HTML tree. So to avoid surprises, let’s look at a simple example:
 
-```
+```py
 <html>
  <body>
  Here is some text that is
@@ -3573,7 +3545,7 @@ The big idea is to introduce two new types of layout objects: `LineLayout` and `
 
 The text in the `body` element wraps across two lines (because of the `br` element), so the layout tree will have this structure:
 
-```
+```py
 DocumentLayout
   BlockLayout[block] (html element)
     BlockLayout[inline] (body element)
@@ -3595,7 +3567,7 @@ Note how one `body` element corresponds to a `BlockLayout` with two `LineLayout`
 
 Let’s get started. Defining `LineLayout` is straightforward:
 
-```
+```py
 class LineLayout:
  def __init__(self, node, parent, previous):
  self.node = node
@@ -3606,7 +3578,7 @@ class LineLayout:
 
 `TextLayout` is only a little more tricky. A single `TextLayout` refers not to a whole HTML node but to a specific word. That means `TextLayout` needs an extra argument to know which word that is:
 
-```
+```py
 class TextLayout:
  def __init__(self, node, word, parent, previous):
  self.node = node
@@ -3620,7 +3592,7 @@ Like the other layout modes, `LineLayout` and `TextLayout` will need their own `
 
 Recall [how word wrapping (see Chapter 3)](text.html) inside `BlockLayout`’s `word` method works. That method updates a `line` field, which stores all the words in the current line:
 
-```
+```py
 self.line.append((self.cursor_x, word, font, color))
 ```
 
@@ -3628,7 +3600,7 @@ When it’s time to go to the next line, `word` calls `flush`, which computes th
 
 Let’s start with adding a word to a line. Instead of a `line` field, we want to create `TextLayout` objects and add them to `LineLayout` objects. The `LineLayout`s are children of the `BlockLayout`, so the current line can be found at the end of the `children` array:
 
-```
+```py
 class BlockLayout:
  def word(self, node, word):
  line = self.children[-1]
@@ -3639,7 +3611,7 @@ class BlockLayout:
 
 Now let’s think about what happens when we reach the end of the line. The current code calls `flush`, which does stuff like positioning text and clearing the `line` field. We don’t want to do all that—we just want to create a new `LineLayout` object. So let’s use a different method for that:
 
-```
+```py
 class BlockLayout:
  def word(self, node, word):
  # ...
@@ -3649,7 +3621,7 @@ class BlockLayout:
 
 This `new_line` method just creates a new line and resets some fields:
 
-```
+```py
 class BlockLayout:
  def new_line(self):
  self.cursor_x = 0
@@ -3660,7 +3632,7 @@ class BlockLayout:
 
 Now there are a lot of fields we’re not using. Let’s clean them up. In the core `layout` method, we don’t need to initialize the `display_list`, `cursor_y` or `line` fields, since we won’t be using any of those any more. Instead, we just need to call `new_line` and `recurse`:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -3671,7 +3643,7 @@ class BlockLayout:
 
 The `layout` method already recurses into its children to lay them out, so that part doesn’t need any change. And moreover, we can now compute the height of a paragraph of text by summing the height of its lines, so this part of the code no longer needs to be different depending on the layout mode:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -3686,7 +3658,7 @@ The layout objects generated by a text node need not even be consecutive. Englis
 
 We’re now creating line and text objects, but we still need to lay them out. Let’s start with lines. Lines stack vertically and take up their parent’s full width, so computing `x` and `y` and `width` looks the same as for our other boxes:You could reduce the duplication with some helper methods (or even something more elaborate, like mixin classes), but in a real browser different layout modes support different kinds of extra features (like text direction or margins) and the code looks quite different.
 
-```
+```py
 class LineLayout:
  def layout(self):
  self.width = self.parent.width
@@ -3704,7 +3676,7 @@ Computing height, though, is different—this is where computing maximum ascents
 
 To lay out text we need font metrics, so let’s start by getting the relevant font using the same font-construction code as `BlockLayout`:
 
-```
+```py
 class TextLayout:
  def layout(self):
  weight = self.node.style["font-weight"]
@@ -3716,7 +3688,7 @@ class TextLayout:
 
 Next, we need to compute the word’s size and `x` position. We use the font metrics to compute size, and stack words left to right to compute position.
 
-```
+```py
 class TextLayout:
  def layout(self):
  # ...
@@ -3736,7 +3708,7 @@ There’s no code here to compute the `y` position, however. The vertical positi
 
 That method will pilfer code from the old `flush` method. First, let’s lay out each word:
 
-```
+```py
 class LineLayout:
  def layout(self):
  # ...
@@ -3746,7 +3718,7 @@ class LineLayout:
 
 Next, we need to compute the line’s baseline based on the maximum ascent and descent, using basically the same code as the old `flush` method:
 
-```
+```py
 # ...
 max_ascent = max([word.font.metrics("ascent")
  for word in self.children])
@@ -3761,14 +3733,14 @@ Note that this code is reading from a `font` field on each word and writing to e
 
 Finally, since each line is now a standalone layout object, it needs to have a height. We compute it from the maximum ascent and descent:
 
-```
+```py
 # ...
 self.height = 1.25 * (max_ascent + max_descent)
 ```
 
 So that’s `layout` for `LineLayout` and `TextLayout`. All that’s left is painting. For `LineLayout` there is nothing to paint:
 
-```
+```py
 class LineLayout:
  def paint(self):
  return []
@@ -3776,7 +3748,7 @@ class LineLayout:
 
 And each `TextLayout` creates a single `DrawText` call:
 
-```
+```py
 class TextLayout:
  def paint(self):
  color = self.node.style["color"]
@@ -3793,7 +3765,7 @@ Actually, text rendering is [*way* more complex](https://gankra.github.io/blah/t
 
 Now that we know where the links are, we can work on clicking them. In Tk, click handling works just like key press handling: you bind an event handler to a certain event. For click handling that event is `<Button-1>`, button number 1 being the left button on the mouse.Button 2 is the middle button; button 3 is the right-hand button.
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -3802,7 +3774,7 @@ class Browser:
 
 Inside `click`, we want to figure out what link the user has clicked on. Luckily, the event handler is passed an event object, whose `x` and `y` fields refer to where the click happened:
 
-```
+```py
 class Browser:
  def click(self, e):
  x, y = e.x, e.y
@@ -3810,7 +3782,7 @@ class Browser:
 
 Now, here, we have to be careful with coordinate systems. Those *x* and *y* coordinates are relative to the browser window. Since the canvas is in the top-left corner of the window, those are also the *x* and *y* coordinates relative to the canvas. We want the coordinates relative to the web page, so we need to account for scrolling:
 
-```
+```py
 class Browser:
  def click(self, e):
  # ...
@@ -3821,7 +3793,7 @@ More generally, handling events like clicks involves *reversing* the usual rende
 
 So the next step is to go from page coordinates to a layout object:You could try to first find the paint command clicked on, and go from that to layout object, but in real browsers there are all sorts of reasons this won’t work, starting with invisible objects that can nonetheless be clicked on. See Exercise 7-11.
 
-```
+```py
 # ...
 objs = [obj for obj in tree_to_list(self.document, [])
  if obj.x <= x < obj.x + obj.width
@@ -3830,7 +3802,7 @@ objs = [obj for obj in tree_to_list(self.document, [])
 
 In principle there might be more than one layout object in this list.In real browsers there are all sorts of ways this could happen, like negative margins. But remember that click handling is the reverse of painting. When we paint, we paint the tree from front to back, so when hit testing we should start at the last element:Real browsers use the `z-index` property to control which sibling is on top. So real browsers have to compute [stacking contexts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) to resolve what you actually clicked on.
 
-```
+```py
 # ...
 if not objs: return
 elt = objs[-1].node
@@ -3838,7 +3810,7 @@ elt = objs[-1].node
 
 This `elt` node is the most specific node that was clicked. With a link, that’s usually going to be a text node. But since we want to know the actual URL the user clicked on, we need to climb back up the HTML tree to find the link element:I wrote this in a kind of curious way so it’s easy to add other types of clickable things—like text boxes and buttons—in [Chapter 8](forms.html).
 
-```
+```py
 # ...
 while elt:
  if isinstance(elt, Text):
@@ -3850,7 +3822,7 @@ while elt:
 
 Once we find the link element itself, we need to extract the URL and load it:
 
-```
+```py
 # ...
 elif elt.tag == "a" and "href" in elt.attributes:
  url = self.url.resolve(elt.attributes["href"])
@@ -3859,7 +3831,7 @@ elif elt.tag == "a" and "href" in elt.attributes:
 
 Note that this `resolve` call requires storing the current page’s URL:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -3884,14 +3856,14 @@ Here’s the plan: the `Browser` class will own the window and canvas and all re
 
 To start, rename your existing `Browser` class to be just `Tab`, since until now we’ve only handled a single web page:
 
-```
+```py
 class Tab:
  # ...
 ```
 
 Then we’ll need a new `Browser` class. It has to store a list of tabs and also which one is active:
 
-```
+```py
 class Browser:
  def __init__(self):
  self.tabs = []
@@ -3900,7 +3872,7 @@ class Browser:
 
 It also owns the window and handles all events:
 
-```
+```py
 class Browser:
  def __init__(self):
  self.window = tkinter.Tk()
@@ -3916,7 +3888,7 @@ Remove these lines from `Tab`’s constructor.
 
 The `handle_down` and `handle_click` methods need page-specific information, so these handler methods just forward the event to the active tab:
 
-```
+```py
 class Browser:
  def handle_down(self, e):
  self.active_tab.scrolldown()
@@ -3934,7 +3906,7 @@ You’ll need to tweak the `Tab`’s `scrolldown` and `click` methods:
 
 Finally, the `Browser`’s `draw` call also calls into the active tab:
 
-```
+```py
 class Browser:
  def draw(self):
  self.canvas.delete("all")
@@ -3943,7 +3915,7 @@ class Browser:
 
 Note that clearing the screen is the `Browser`’s job, not the `Tab`’s. After that, we only draw the active tab, which is how tabs are supposed to work. `Tab`’s `draw` method needs to take the canvas in as an argument:
 
-```
+```py
 class Tab:
  def draw(self, canvas):
  # ...
@@ -3953,7 +3925,7 @@ Since the `Browser` controls the canvas and handles events, it decides when rend
 
 We’re basically done splitting `Tab` from `Browser`, and after a refactor like this we need to test things. To do that, we’ll need to create at least one tab, like this:
 
-```
+```py
 class Browser:
  def new_tab(self, url):
  new_tab = Tab()
@@ -3965,7 +3937,7 @@ class Browser:
 
 On startup, you should now create a `Browser` with one tab:
 
-```
+```py
 if __name__ == "__main__":
  import sys
  Browser().new_tab(URL(sys.argv[1]))
@@ -3982,7 +3954,7 @@ Real web browsers don’t just show web page contents—they’ve got labels and
 
 However, a browser’s UI is quite complicated, so let’s put that code in a new `Chrome` helper class:
 
-```
+```py
 class Chrome:
  def __init__(self, browser):
  self.browser = browser
@@ -4005,7 +3977,7 @@ Figure 1: The intended appearance of the browser chrome.
 
 A lot of this design involves text, so let’s start by picking a font:
 
-```
+```py
 class Chrome:
  def __init__(self, browser):
  # ...
@@ -4017,7 +3989,7 @@ Because different operating systems draw fonts differently, we’ll need to adju
 
 Using that font height, we can now determine where the tab bar starts and ends:
 
-```
+```py
 class Chrome:
  def __init__(self, browser):
  # ...
@@ -4030,7 +4002,7 @@ Note that I’ve added some padding so that text doesn’t run into the edge of 
 
 We will store rectangles representing the size of various elements in the browser chrome. For that, a new `Rect` class will be convenient:
 
-```
+```py
 class Rect:
  def __init__(self, left, top, right, bottom):
  self.left = left
@@ -4043,7 +4015,7 @@ Now, this tab row needs to contain a new-tab button and the tab names themselves
 
 I’ll add padding around the new-tab button:
 
-```
+```py
 class Chrome:
  def __init__(self, browser):
  # ...
@@ -4056,7 +4028,7 @@ class Chrome:
 
 Then the tabs will start `padding` past the end of the new-tab button. Because the number of tabs can change, I’m not going to store the location of each tab. Instead I’ll just compute their bounds on the fly:
 
-```
+```py
 class Chrome:
  def tab_rect(self, i):
  tabs_start = self.newtab_rect.right + self.padding
@@ -4070,7 +4042,7 @@ Note that I measure the text “Tab X” and use that for all of the tab widths.
 
 To actually draw the UI, we’ll first have the browser chrome paint a display list, which the `Browser` will then draw to the screen:
 
-```
+```py
 class Chrome:
  def paint(self):
  cmds = []
@@ -4080,7 +4052,7 @@ class Chrome:
 
 Let’s start by first painting the new-tab button:
 
-```
+```py
 class Chrome:
  def paint(self):
  # ...
@@ -4094,7 +4066,7 @@ class Chrome:
 
 The `DrawOutline` command draws a rectangular border:
 
-```
+```py
 class DrawOutline:
  def __init__(self, rect, color, thickness):
  self.rect = rect
@@ -4111,7 +4083,7 @@ class DrawOutline:
 
 Next up is drawing the tabs. Python’s `enumerate` function lets you iterate over both the indices and the contents of an array at the same time. For each tab, we need to create a border on the left and right and then draw the tab name:
 
-```
+```py
 class Chrome:
  def paint(self):
  # ...
@@ -4131,7 +4103,7 @@ class Chrome:
 
 Finally, to identify which tab is the active tab, we’ve got to make that file folder shape with the current tab sticking up:
 
-```
+```py
 class Chrome:
  def paint(self):
  for i, tab in enumerate(self.browser.tabs):
@@ -4147,7 +4119,7 @@ class Chrome:
 
 The `DrawLine` command draws a line of a given color and thickness. It’s defined like so:
 
-```
+```py
 class DrawLine:
  def __init__(self, x1, y1, x2, y2, color, thickness):
  self.rect = Rect(x1, y1, x2, y2)
@@ -4163,7 +4135,7 @@ class DrawLine:
 
 One final thing: we want to make sure that the browser chrome is always drawn on top of the page contents. To guarantee that, we can draw a white rectangle behind the chrome:
 
-```
+```py
 class Chrome:
  def __init__(self, browser):
  # ...
@@ -4182,7 +4154,7 @@ class Chrome:
 
 Make sure the background is drawn before any other part of the chrome. I also added a line at the bottom of the chrome to separate it from the page. Note how I also changed `DrawRect` to pass a `Rect` instead of the four corners; this requires a change to `BlockLayout`:
 
-```
+```py
 class BlockLayout:
  def self_rect(self):
  return Rect(self.x, self.y,
@@ -4200,7 +4172,7 @@ Add a `rect` field to `DrawText` and `DrawLine` too. (The width and height for `
 
 Drawing this chrome display list is now straightforward:
 
-```
+```py
 class Browser:
  def draw(self):
  # ...
@@ -4212,7 +4184,7 @@ Note that this display list is always drawn at the top of the window, unlike the
 
 However, we also have to make some adjustments to tab drawing to account for the fact that the browser chrome takes up some vertical space. Let’s add a `tab_height` parameter to `Tab`s:
 
-```
+```py
 class Tab:
  def __init__(self, tab_height):
  # ...
@@ -4221,7 +4193,7 @@ class Tab:
 
 We can pass it to `new_tab`:
 
-```
+```py
 class Browser:
  def new_tab(self, url):
  new_tab = Tab(HEIGHT - self.chrome.bottom)
@@ -4230,7 +4202,7 @@ class Browser:
 
 We can then adjust `scrolldown` to account for the height of the page content now being `tab_height`:
 
-```
+```py
 class Tab:
  def scrolldown(self):
  max_y = max(
@@ -4240,7 +4212,7 @@ class Tab:
 
 Finally, in `Tab`’s `draw` method we need to shift the drawing commands down by the chrome height. I’ll pass the chrome height in as an `offset` parameter:
 
-```
+```py
 class Tab:
  def draw(self, canvas, offset):
  for cmd in self.display_list:
@@ -4252,7 +4224,7 @@ class Tab:
 
 The `Browser`’s final `draw` method now looks like this:
 
-```
+```py
 class Browser:
  def draw(self):
  self.canvas.delete("all")
@@ -4263,7 +4235,7 @@ class Browser:
 
 One more thing: clicking on tabs to switch between them. The `Browser` handles the click and now needs to delegate clicks on the browser chrome to the `Chrome` object:
 
-```
+```py
 class Browser:
  def handle_click(self, e):
  if e.y < self.chrome.bottom:
@@ -4276,7 +4248,7 @@ class Browser:
 
 Note that we need to subtract out the chrome size when clicking on tab contents. As for clicks on the browser chrome, inside `Chrome` we need to figure out what the user clicked on. To make that easier, let’s add a quick method to test whether a point is contained in a `Rect`:
 
-```
+```py
 class Rect:
  def contains_point(self, x, y):
  return x >= self.left and x < self.right \
@@ -4285,7 +4257,7 @@ class Rect:
 
 We use this method to handle clicks inside `Chrome`, and then use it to choose between clicking to add a tab or select an open tab.
 
-```
+```py
 class Chrome:
  def click(self, x, y):
  if self.newtab_rect.contains_point(x, y):
@@ -4305,7 +4277,7 @@ Google Chrome 1.0 was accompanied by a [comic book](https://www.google.com/googl
 
 Now that we are navigating between pages all the time, it’s easy to get a little lost and forget what web page you’re looking at. An address bar that shows the current URL would help a lot. Let’s make room for it in the chrome:
 
-```
+```py
 class Chrome:
  def __init__(self, browser):
  # ...
@@ -4317,7 +4289,7 @@ class Chrome:
 
 This “URL bar” will contain the back button and the address bar:
 
-```
+```py
 class Chrome:
  def __init__(self, browser):
  # ...
@@ -4337,7 +4309,7 @@ class Chrome:
 
 Painting the back button is straightforward:
 
-```
+```py
 class Chrome:
  def paint(self):
  # ...
@@ -4350,7 +4322,7 @@ class Chrome:
 
 The address bar needs to get the current tab’s URL from the browser:
 
-```
+```py
 class Chrome:
  def paint(self):
  # ...
@@ -4364,7 +4336,7 @@ class Chrome:
 
 Here, `str` is a built-in Python function that we can override to correctly convert `URL` objects to strings:
 
-```
+```py
 class URL:
  def __str__(self):
  port_part = ":" + str(self.port)
@@ -4379,7 +4351,7 @@ I think the extra logic to hide port numbers is worth it to make the URLs more t
 
 What should happen when the back button is clicked? Well, *that tab* should go back. Other tabs are not affected. So the `Browser` has to invoke some method on the current tab to go back:
 
-```
+```py
 class Chrome:
  def click(self, x, y):
  # ...
@@ -4389,7 +4361,7 @@ class Chrome:
 
 For the active tab to “go back”, it needs to store a “history” of which pages it’s visited before:
 
-```
+```py
 class Tab:
  def __init__(self, tab_height):
  # ...
@@ -4398,7 +4370,7 @@ class Tab:
 
 The history grows every time we go to a new page:
 
-```
+```py
 class Tab:
  def load(self, url):
  self.history.append(url)
@@ -4407,7 +4379,7 @@ class Tab:
 
 Going back uses that history. You might think to write this:
 
-```
+```py
 class Tab:
  def go_back(self):
  if len(self.history) > 1:
@@ -4416,7 +4388,7 @@ class Tab:
 
 That’s almost correct, but it doesn’t work if you click the back button twice, because `load` adds to the history. Instead, we need to do something more like this:
 
-```
+```py
 class Tab:
  def go_back(self):
  if len(self.history) > 1:
@@ -4449,7 +4421,7 @@ Figure 2: Screenshots of editing in the address bar in Apple Safari 16.6.
 
 These steps suggest that the browser stores the contents of the address bar separately from the `url` field, and also that there’s some state to say whether you’re currently typing into the address bar. Let’s call the contents `address_bar` and the state `focus`:
 
-```
+```py
 class Chrome:
  def __init__(self, browser):
  # ...
@@ -4459,7 +4431,7 @@ class Chrome:
 
 Clicking on the address bar should set `focus` and clicking outside it should clear `focus`:
 
-```
+```py
 class Chrome:
  def click(self, x, y):
  self.focus = None
@@ -4473,7 +4445,7 @@ Note that clicking on the address bar also clears the address bar contents. That
 
 Now, when we draw the address bar, we need to check whether to draw the current URL or the currently typed text:
 
-```
+```py
 class Chrome:
  def paint(self):
  # ...
@@ -4492,7 +4464,7 @@ class Chrome:
 
 When the user is typing in the address bar, let’s also draw a cursor. Making states (like focus) visible on the screen (like with the cursor) makes software easier to use:
 
-```
+```py
 class Chrome:
  def paint(self):
  # ...
@@ -4509,7 +4481,7 @@ class Chrome:
 
 Next, when the address bar is focused, we need to support typing in a URL. In Tk, you can bind to `<Key>` to capture all key presses. The event object’s `char` field contains the character the user typed.
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -4526,7 +4498,7 @@ This `handle_key` handler starts with some conditions: `<Key>` fires for every k
 
 Then `Chrome` can check `focus` and add on to `address_bar`:
 
-```
+```py
 class Chrome:
  def keypress(self, char):
  if self.focus == "address bar":
@@ -4535,7 +4507,7 @@ class Chrome:
 
 Finally, once the new URL is entered, we need to handle the “Enter” key, which Tk calls `<Return>`, and actually send the browser to the new address:
 
-```
+```py
 class Chrome:
  def enter(self):
  if self.focus == "address bar":
@@ -4625,7 +4597,7 @@ HTML forms have a couple of moving parts.
 
 First, in HTML there is a `form` element, which contains `input` elements,There are other elements similar to `input`, such as `select` and `textarea`. They work similarly enough; they just represent different kinds of user controls, like dropdowns and multi-line inputs. which in turn can be edited by the user. So a form might be written like this (see results in Figure 1):
 
-```
+```py
 <form action="/submit" method="post">
  <p>Name: <input name=name value=1></p>
  <p>Comment: <input name=comment value=2></p>
@@ -4639,7 +4611,7 @@ Figure 1: The example form in our browser.
 
 This form contains two text entry boxes called `name` and `comment`. When the user goes to this page, they can click on those boxes to edit their values. Then, when they click the button at the end of the form, the browser collects all of the name–value pairs and bundles them into an HTTP `POST` request (as indicated by the `method` attribute), sent to the URL given by the `form` element’s `action` attribute, with the usual rules of relative URLs—so in this case, `/submit`. The `POST` request looks like this:
 
-```
+```py
 POST /submit HTTP/1.0
 Host: example.org
 Content-Length: 16
@@ -4659,7 +4631,7 @@ First, let’s draw the input areas that the user will type into.Most applicatio
 
 First, there’s no `word` argument to `InputLayout`s:
 
-```
+```py
 class InputLayout:
  def __init__(self, node, parent, previous):
  self.node = node
@@ -4670,7 +4642,7 @@ class InputLayout:
 
 Second, `input` elements usually have a fixed width:
 
-```
+```py
 INPUT_WIDTH_PX = 200
 
 class InputLayout:
@@ -4682,7 +4654,7 @@ class InputLayout:
 
 The `input` and `button` elements need to be visually distinct so the user can find them easily. Our browser’s styling capabilities are limited, so let’s use background color to do that:
 
-```
+```py
 input {
  font-size: 16px; font-weight: normal; font-style: normal;
  background-color: lightblue;
@@ -4695,7 +4667,7 @@ button {
 
 When the browser paints an `InputLayout` it needs to draw the background:
 
-```
+```py
 class InputLayout:
  def paint(self):
  cmds = []
@@ -4709,7 +4681,7 @@ class InputLayout:
 
 It then needs to get the input element’s text contents:
 
-```
+```py
 class InputLayout:
  def paint(self):
  # ...
@@ -4727,7 +4699,7 @@ class InputLayout:
 
 Note that `<button>` elements can in principle contain complex HTML, not just a text node. That’s too complicated for this chapter, so I’m having the browser print a warning and skip the text in that case.See Exercise 8-8. Finally, we draw that text:
 
-```
+```py
 class InputLayout:
  def paint(self):
  # ...
@@ -4741,7 +4713,7 @@ By this point in the book, you’ve seen many layout objects, so I’m glossing 
 
 We now need to create some `InputLayout`s, which we can do in `BlockLayout`:
 
-```
+```py
 class BlockLayout:
  def recurse(self, node):
  if isinstance(node, Text):
@@ -4758,7 +4730,7 @@ class BlockLayout:
 
 Finally, this new `input` method is similar to the `text` method, creating a new layout object and adding it to the current line:It’s so similar in fact that they only differ in how they compute `w`. I’ll resist the temptation to refactor this code until we get to [Chapter 15](embeds.html).
 
-```
+```py
 class BlockLayout:
  def input(self, node):
  w = INPUT_WIDTH_PX
@@ -4782,7 +4754,7 @@ But actually, there are a couple more complications due to the way we decided to
 
 We can fix that with this change to `layout_mode` to add a second condition for returning “inline”:
 
-```
+```py
 class BlockLayout:
  def layout_mode(self):
  # ...
@@ -4793,7 +4765,7 @@ class BlockLayout:
 
 The second problem is that, again due to having block siblings, sometimes an `<input>` or `<button>` element will create a `BlockLayout` (which will then create an `InputLayout` inside). In this case we don’t want to paint the background twice, so let’s add some simple logic to skip painting it in `BlockLayout` in this case, via a new `should_paint` method:Recall (see [Chapter 5](layout.html#block-layout)) that we only get into this situation due to the presence of anonymous block boxes. Also, it’s worth noting that there are various other ways that our browser does not fully implement all the complexities of inline painting—one example is that it does not correctly paint nested inlines with different background colors. Inline layout and paint are very complicated in real browsers.
 
-```
+```py
 class BlockLayout:
  # ...
  def should_paint(self):
@@ -4803,7 +4775,7 @@ class BlockLayout:
 
 Add a trivial `should_paint` method that just returns `True` to all of the other layout object types. Now we can skip painting objects based on `should_paint`:
 
-```
+```py
 def paint_tree(layout_object, display_list):
  if layout_object.should_paint():
  display_list.extend(layout_object.paint())
@@ -4820,7 +4792,7 @@ We’ve got `input` elements rendering, but you can’t edit their contents yet.
 
 Clearing is easy, another case inside `Tab`’s `click` method:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  while elt:
@@ -4834,7 +4806,7 @@ However, if you try this, you’ll notice that clicking does not actually clear 
 
 Right now, the layout tree and display list are computed in `load`, but we don’t want to reload the whole page; we just want to redo the styling, layout, paint and draw phases. Together these are called *rendering*. So let’s extract these phases into a new `Tab` method, `render`:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -4852,7 +4824,7 @@ For this code to work, you’ll also need to change `nodes` and `rules` from loc
 
 Now when we click an `input` element and clear its contents, we can call `render` to redraw the page with the `input` cleared:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  while elt:
@@ -4865,7 +4837,7 @@ So that’s clicking in an `input` area. But typing is harder. Think back to how
 
 Naturally, we will need a `focus` field on each `Tab`, to remember which text entry (if any) we’ve recently clicked on:
 
-```
+```py
 class Tab:
  def __init__(self):
  # ...
@@ -4874,7 +4846,7 @@ class Tab:
 
 Now when we click on an input element, we need to set `focus` (and clear focus if nothing was found to focus on):
 
-```
+```py
 class Tab:
  def click(self, x, y):
  self.focus = None
@@ -4889,13 +4861,13 @@ But remember that keyboard input isn’t handled by the `Tab`—it’s handled b
 
 In other words, when you click on the web page, the `Browser` updates its `focus` field to remember that the user is interacting with the page, not the browser chrome. And if so, it should unfocus (“blur”) the browser chrome:
 
-```
+```py
 class Chrome:
  def blur(self):
  self.focus = None
 ```
 
-```
+```py
 class Browser:
  def handle_click(self, e):
  if e.y < self.chrome.bottom:
@@ -4912,7 +4884,7 @@ The `if` branch that corresponds to clicks in the browser chrome unsets `focus`,
 
 When a key press happens, the `Browser` either sends it to the address bar or calls the active tab’s `keypress` method (or neither, if nothing is focused):
 
-```
+```py
 class Browser:
  def handle_key(self, e):
  # ...
@@ -4925,7 +4897,7 @@ class Browser:
 
 Here I’ve changed `keypress` to return true if the browser chrome consumed the key:
 
-```
+```py
 class Chrome:
  def keypress(self, char):
  if self.focus == "address bar":
@@ -4936,7 +4908,7 @@ class Chrome:
 
 That `keypress` method then uses the tab’s `focus` field to put the character in the right text entry:
 
-```
+```py
 class Tab:
  def keypress(self, char):
  if self.focus:
@@ -4950,7 +4922,7 @@ Hierarchical focus handling is an important pattern for combining graphical widg
 
 So now we have user input working with `input` elements. Before we move on, there is one last tweak that we need to make: drawing the text cursor in the `Tab`’s `render` method. This turns out to be harder than expected: the cursor should be drawn by the `InputLayout` of the focused node, and that means that each node has to know whether or not it’s focused:
 
-```
+```py
 class Element:
  def __init__(self, tag, attributes, parent):
  # ...
@@ -4959,7 +4931,7 @@ class Element:
 
 Add the same field to `Text` nodes; they’ll never be focused and never draw cursors, but it’s more convenient if `Text` and `Element` have the same fields. We’ll set this when we move focus to an input element:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  while elt:
@@ -4974,7 +4946,7 @@ class Tab:
 
 Note that we have to un-focus the currently focused element, lest it keep drawing its cursor. Anyway, now we can draw a cursor if an `input` element is focused:
 
-```
+```py
 class InputLayout:
  def paint(self):
  # ...
@@ -4993,7 +4965,7 @@ This approach to drawing the text cursor—having the `InputLayout` draw it—al
 
 You submit a form by clicking on a `button`. So let’s add another condition to the big `while` loop in `click`:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  while elt:
@@ -5005,7 +4977,7 @@ class Tab:
 
 Once we’ve found the button, we need to find the form that it’s in by walking up the HTML tree:
 
-```
+```py
 elif elt.tag == "button":
  while elt:
  if elt.tag == "form" and "action" in elt.attributes:
@@ -5015,7 +4987,7 @@ elif elt.tag == "button":
 
 The `submit_form` method is then in charge of finding all of the input elements, encoding them in the right way, and sending the `POST` request. First, we look through all the descendents of the `form` to find `input` elements:
 
-```
+```py
 class Tab:
  def submit_form(self, elt):
  inputs = [node for node in tree_to_list(elt, [])
@@ -5026,7 +4998,7 @@ class Tab:
 
 For each of those `input` elements, we need to extract the `name` attribute and the `value` attribute, and *form encode* both of them. Form encoding is how the name–value pairs are formatted in the HTTP `POST` request. Basically, it is: name, then equal sign, then value; and name–value pairs are separated by ampersands:
 
-```
+```py
 class Tab:
  def submit_form(self, elt):
  # ...
@@ -5042,7 +5014,7 @@ Here, `body` initially has an extra `&` tacked on to the front, which is removed
 
 Now, any time you see special syntax like this, you’ve got to ask: what if the name or the value has an equal sign or an ampersand in it? So in fact, “percent encoding” replaces all special characters with a percent sign followed by those characters’ hex codes. For example, a space becomes `%20` and a period becomes `%2e`. Python provides a percent-encoding function as `quote` in the `urllib.parse` module:You can write your own `percent_encode` function using Python’s `ord` and `hex` functions if you like. I’m using the standard function for expediency. [In Chapter 1](http.html), using these library functions would have obscured key concepts, but by this point percent encoding is necessary but not conceptually interesting.
 
-```
+```py
 for input in inputs:
  # ...
  name = urllib.parse.quote(name)
@@ -5052,7 +5024,7 @@ for input in inputs:
 
 Now that `submit_form` has built a request body, it needs to make a `POST` request. I’m going to defer that responsibility to the `load` function, which handles making requests:
 
-```
+```py
 def submit_form(self, elt):
  # ...
  url = self.url.resolve(elt.attributes["action"])
@@ -5061,7 +5033,7 @@ def submit_form(self, elt):
 
 The new `payload` argument to `load` is then passed through to `request`:
 
-```
+```py
 def load(self, url, payload=None):
  # ...
  body = url.request(payload)
@@ -5070,7 +5042,7 @@ def load(self, url, payload=None):
 
 In `request`, this new argument is used to decide between a `GET` and a `POST` request:
 
-```
+```py
 class URL:
  def request(self, payload=None):
  # ...
@@ -5082,7 +5054,7 @@ class URL:
 
 If it’s a `POST` request, the `Content-Length` header is mandatory:
 
-```
+```py
 class URL:
  def request(self, payload=None):
  # ...
@@ -5094,7 +5066,7 @@ class URL:
 
 Note that the `Content-Length` is the length of the payload in bytes, which might not be equal to its length in letters.Because characters from many languages take up multiple bytes. Finally, after the headers, we send the payload itself:
 
-```
+```py
 class URL:
  def request(self, payload=None):
  # ...
@@ -5135,7 +5107,7 @@ A web server is a separate program from the web browser, so let’s start a new 
 
 Let’s start by opening a socket. Like for the browser, we need to create an internet streaming socket using TCP:
 
-```
+```py
 import socket
 s = socket.socket(
  family=socket.AF_INET,
@@ -5148,7 +5120,7 @@ The `setsockopt` call is optional. Normally, when a program has a socket open an
 
 Now, with this socket, instead of calling `connect` (to connect to some other server), we’ll call `bind`, which waits for other computers to connect:
 
-```
+```py
 s.bind(('', 8000))
 s.listen()
 ```
@@ -5159,7 +5131,7 @@ Finally, after the `bind` call, the `listen` call tells the OS that we’re read
 
 To actually accept those connections, we enter a loop that runs once per connection. At the top of the loop we call `s.accept` to wait for a new connection:
 
-```
+```py
 while True:
  conx, addr = s.accept()
  handle_connection(conx)
@@ -5169,7 +5141,7 @@ That connection object is, confusingly, also a socket: it is the socket correspo
 
 So, we’ve got to read from the socket line by line. First, we read the request line:
 
-```
+```py
 def handle_connection(conx):
  req = conx.makefile("b")
  reqline = req.readline().decode('utf8')
@@ -5179,7 +5151,7 @@ def handle_connection(conx):
 
 Then we read the headers until we get to a blank line, accumulating the headers in a dictionary:
 
-```
+```py
 def handle_connection(conx):
  # ...
  headers = {}
@@ -5192,7 +5164,7 @@ def handle_connection(conx):
 
 Finally we read the body, but only when the `Content-Length` header tells us how much of it to read (that’s why that header is mandatory on `POST` requests):
 
-```
+```py
 def handle_connection(conx):
  # ...
  if 'content-length' in headers:
@@ -5204,7 +5176,7 @@ def handle_connection(conx):
 
 Now the server needs to generate a web page in response. We’ll get to that later; for now, just abstract that away behind a `do_request` call:
 
-```
+```py
 def handle_connection(conx):
  # ...
  status, body = do_request(method, url, headers, body)
@@ -5212,7 +5184,7 @@ def handle_connection(conx):
 
 The server then sends this page back to the browser:
 
-```
+```py
 def handle_connection(conx):
  # ...
  response = "HTTP/1.0 {}\r\n".format(status)
@@ -5237,13 +5209,13 @@ So far, all of this server code is “boilerplate”—any web application will 
 
 Let’s store guest book entries in a Python list. Usually web applications use *persistent* state, like a database, so that the server can be restarted without losing state, but our guest book need not be that resilient.
 
-```
+```py
 ENTRIES = [ 'Pavel was here' ]
 ```
 
 Next, `do_request` has to output HTML that shows those entries:
 
-```
+```py
 def do_request(method, url, headers, body):
  out = "<!doctype html>"
  for entry in ENTRIES:
@@ -5257,7 +5229,7 @@ By the way, while you’re debugging this web server, it’s probably better to 
 
 We’ll use forms to let visitors write in the guest book:
 
-```
+```py
 def do_request(method, url, headers, body):
  # ...
  out += "<form action=add method=post>"
@@ -5271,7 +5243,7 @@ When this form is submitted, the browser will send a `POST` request to `http://l
 
 First rename the current `do_request` to `show_comments`:
 
-```
+```py
 def show_comments():
  # ...
  return out
@@ -5279,7 +5251,7 @@ def show_comments():
 
 This then frees up the `do_request` function to figure out which function to call for which request:
 
-```
+```py
 def do_request(method, url, headers, body):
  if method == "GET" and url == "/":
  return "200 OK", show_comments()
@@ -5292,7 +5264,7 @@ def do_request(method, url, headers, body):
 
 When a `POST` request to `/add` comes in, the first step is to decode the request body:
 
-```
+```py
 def form_decode(body):
  params = {}
  for field in body.split("&"):
@@ -5305,7 +5277,7 @@ def form_decode(body):
 
 Note that I use `unquote_plus` instead of `unquote`, because browsers may also use a plus sign to encode a space. The `add_entry` function then looks up the `guest` parameter and adds its content as a new guest book entry:
 
-```
+```py
 def add_entry(params):
  if 'guest' in params:
  ENTRIES.append(params['guest'])
@@ -5314,7 +5286,7 @@ def add_entry(params):
 
 I’ve also added a “404” response. Fitting the austere stylings of our guest book, here’s the 404 page:
 
-```
+```py
 def not_found(url, method):
  out = "<!doctype html>"
  out += "<h1>{}  {} not found!</h1>".format(method, url)
@@ -5403,7 +5375,7 @@ Like other JavaScript engines, DukPy not only executes JavaScript code, but also
 
 The first step to using DukPy is installing it. On most machines, including on Windows, macOS, and Linux systems, you should be able to do this with:
 
-```
+```py
 python3 -m pip install dukpy
 ```
 
@@ -5413,7 +5385,7 @@ If you’re following along in something other than Python, you might need to sk
 
 To test whether you installed DukPy correctly, execute this:
 
-```
+```py
 import dukpy
 dukpy.evaljs("2 + 2")
 ```
@@ -5430,7 +5402,7 @@ On the web, JavaScript is found in `<script>` tags. Normally, a `<script>` tag h
 
 Finding and downloading those scripts is similar to what we did for CSS. First, we need to find all of the scripts:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -5444,7 +5416,7 @@ class Tab:
 
 Next, we run all of the scripts:
 
-```
+```py
 def load(self, url, payload=None):
  # ...
  for script in scripts:
@@ -5459,20 +5431,20 @@ def load(self, url, payload=None):
 
 This should run before styling and layout. To try it out, create a simple web page with a `script` tag:
 
-```
+```py
 <script src=test.js></script>
 ```
 
 Then write a super simple script to `test.js`, maybe this:
 
-```
+```py
 var x = 2
 x + x
 ```
 
 Point your browser at that page, and you should see:
 
-```
+```py
 Script returned: 4
 ```
 
@@ -5484,7 +5456,7 @@ Actually, real browsers run JavaScript code as soon as the browser *parses* the 
 
 Right now, our browser just prints the last expression in a script; but in a real browser scripts must call the `console.log` function to print. To support that, we will need to *export a function* from Python into JavaScript. We’ll be exporting a lot of functions, so to avoid polluting the `Tab` object with many new methods, let’s put this code in a new `JSContext` class:
 
-```
+```py
 class JSContext:
  def __init__(self):
  self.interp = dukpy.JSInterpreter()
@@ -5497,7 +5469,7 @@ DukPy’s `JSInterpreter` object stores the values of all the JavaScript variabl
 
 We create this new `JSContext` object while loading the page:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -5509,7 +5481,7 @@ class Tab:
 
 As a side benefit of using one `JSContext` for all scripts, it is now possible to run two scripts and have one of them define a variable that the other uses, say on a page like this:
 
-```
+```py
 <script src=a.js></script>
 <script src=b.js></script>
 ```
@@ -5518,7 +5490,7 @@ Suppose `a.js` is “`var x = 2;`” and `b.js` is “`console.log(x + x)`”; t
 
 Now, to allow JavaScript to interact with the outside world, DukPy allows us to “export” functions to it. For example, we can export Python’s `print` function like so:
 
-```
+```py
 class JSContext:
  def __init__(self):
  # ...
@@ -5527,7 +5499,7 @@ class JSContext:
 
 We can call an exported function from JavaScript using DukPy’s `call_python` function. For example:
 
-```
+```py
 call_python("log", "Hi from JS")
 ```
 
@@ -5535,7 +5507,7 @@ When this JavaScript code runs, DukPy converts the JavaScript string `"Hi from J
 
 Since we ultimately want a [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/console/log) function, not a `call_python` function, we need to define a `console` object and then give it a `log` property. We can do that *in JavaScript*:
 
-```
+```py
 console = { log: function(x) { call_python("log", x); } }
 ```
 
@@ -5547,7 +5519,7 @@ Figure 1: The browser can evaluate JavaScript and JavaScript code can call back 
 
 We can call that JavaScript code our “JavaScript runtime”; we run it before we run any user code, so let’s stick it in a `runtime.js` file and execute it when the `JSContext` is created, before we run any user code:
 
-```
+```py
 RUNTIME_JS = open("runtime.js").read()
 
 class JSContext:
@@ -5566,13 +5538,13 @@ If a script runs for a long time, or has an infinite loop, our browser locks up 
 
 Crashes in JavaScript code are frustrating to debug. You can cause a crash by writing bad code, or by explicitly raising an exception, like so:
 
-```
+```py
 throw Error("bad");
 ```
 
 When a web page runs some JavaScript that crashes, the browser should ignore the crash. Web pages shouldn’t be able to crash our browser! You can implement that like this (plus changing the call site of `run` to pass the script):
 
-```
+```py
 class JSContext:
  def run(self, script, code):
  try:
@@ -5585,7 +5557,7 @@ But as you go through this chapter, you’ll also run into another type of crash
 
 Here are a few tips to help with these crashes. First, if you get a crash inside some JavaScript function, wrap the body of the function like this:
 
-```
+```py
 function foo() {
  try {
  // ...
@@ -5598,7 +5570,7 @@ function foo() {
 
 This code catches all exceptions and prints a stack trace before re-raising them. If you instead are getting crashes inside an exported function you will need to wrap that function, on the Python side:
 
-```
+```py
 class JSContext:
  def foo(self, arg):
  try:
@@ -5625,7 +5597,7 @@ We’ll implement simplified versions of these APIs.The simplifications will be 
 
 Let’s start with `querySelectorAll`. First, export a function:
 
-```
+```py
 class JSContext:
  def __init__(self):
  # ...
@@ -5636,7 +5608,7 @@ class JSContext:
 
 In JavaScript, `querySelectorAll` is a method on the `document` object, which we need to define in the JavaScript runtime:
 
-```
+```py
 document = { querySelectorAll: function(s) {
  return call_python("querySelectorAll", s);
 }}
@@ -5644,7 +5616,7 @@ document = { querySelectorAll: function(s) {
 
 On the Python side, `querySelectorAll` first has to parse the selector and then find and return the matching elements. To parse the selector, I’ll call into the `CSSParser`’s `selector` method:If you pass `querySelectorAll` an invalid selector, the `selector` call will throw an error, and DukPy will convert that Python-side exception into a JavaScript-side exception in the web script we are running, which can catch it.
 
-```
+```py
 class JSContext:
  def querySelectorAll(self, selector_text):
  selector = CSSParser(selector_text).selector()
@@ -5652,7 +5624,7 @@ class JSContext:
 
 Next we need to find and return all matching elements. To do that, we need the `JSContext` to have access to the `Tab`, specifically to its `nodes` field. So let’s pass in the `Tab` when creating a `JSContext`:
 
-```
+```py
 class JSContext:
  def __init__(self, tab):
  self.tab = tab
@@ -5667,7 +5639,7 @@ class Tab:
 
 Now `querySelectorAll` will find all nodes matching the selector:
 
-```
+```py
 def querySelectorAll(self, selector_text):
  # ...
  nodes = [node for node
@@ -5677,7 +5649,7 @@ def querySelectorAll(self, selector_text):
 
 Finally, we need to return those nodes back to JavaScript. You might try something like this:
 
-```
+```py
 def querySelectorAll(self, selector_text):
  # ...
  return nodes
@@ -5685,7 +5657,7 @@ def querySelectorAll(self, selector_text):
 
 However, this throws an error:Yes, that’s a confusing error message. Is it a `JSRuntimeError`, an `EvalError`, or a `TypeError`? The confusion is a consequence of the complex interaction of Python, JS, and C code. (JSON, or JavaScript Object Notation, is a language-independent data format.)
 
-```
+```py
 _dukpy.JSRuntimeError: EvalError:
 Error while calling Python Function:
 TypeError('Object of type Element is not JSON serializable')
@@ -5701,7 +5673,7 @@ Figure 2: The relationship between `Node` objects in JavaScript and `Element`/`T
 
 We’ll need to keep track of the handle to node mapping. Let’s create a `node_to_handle` data structure to map nodes to handles, and a `handle_to_node` map that goes the other way:
 
-```
+```py
 class JSContext:
  def __init__(self, tab):
  # ...
@@ -5712,7 +5684,7 @@ class JSContext:
 
 Now the `querySelectorAll` handler can allocate handles for each node and return those handles instead:
 
-```
+```py
 def querySelectorAll(self, selector_text):
  # ...
  return [self.get_handle(node) for node in nodes]
@@ -5720,7 +5692,7 @@ def querySelectorAll(self, selector_text):
 
 The `get_handle` function should create a new handle if one doesn’t exist yet:
 
-```
+```py
 class JSContext:
  def get_handle(self, elt):
  if elt not in self.node_to_handle:
@@ -5734,13 +5706,13 @@ class JSContext:
 
 So now the `querySelectorAll` handler returns something like `[1, 3, 4, 7]`, with each number being a handle for an element, which DukPy can easily convert into JavaScript objects without issue. Now of course, on the JavaScript side, `querySelectorAll` shouldn’t return a bunch of numbers: it should return a list of `Node` objects.In a real browser, `querySelectorAll` actually returns a [`NodeList` object](https://developer.mozilla.org/en-US/docs/Web/API/NodeList), for kind of abstruse reasons that aren’t relevant here. So let’s define a `Node` object in our runtime that wraps a handle:If your JavaScript is rusty, you might want to read up on the crazy way you define classes in JavaScript. Modern JavaScript also provides the `class` syntax, which is more sensible, but it’s not supported in DukPy.
 
-```
+```py
 function Node(handle) { this.handle = handle; }
 ```
 
 We create these `Node` objects in `querySelectorAll`’s wrapper:This code creates new `Node` objects every time you call `querySelectorAll`, even if there’s already a `Node` for that handle. That means you can’t use equality to compare `Node` objects. I’ll ignore that but a real browser wouldn’t.
 
-```
+```py
 document = { querySelectorAll: function(s) {
  var handles = call_python("querySelectorAll", s);
  return handles.map(function(h) { return new Node(h) });
@@ -5755,7 +5727,7 @@ One simple DOM method is `getAttribute`, a method on `Node` objects that lets yo
 
 The solution is similar to `querySelectorAll`: instead of shipping the `Node` object itself, we send over its handle:
 
-```
+```py
 Node.prototype.getAttribute = function(attr) {
  return call_python("getAttribute", this.handle, attr);
 }
@@ -5763,7 +5735,7 @@ Node.prototype.getAttribute = function(attr) {
 
 On the Python side, the `getAttribute` function takes two arguments, a handle and an attribute:
 
-```
+```py
 class JSContext:
  def getAttribute(self, handle, attr):
  elt = self.handle_to_node[handle]
@@ -5775,7 +5747,7 @@ Note that if the attribute is not assigned, the `get` method will return `None`,
 
 We finally have enough of the DOM API to implement a little character count function for text areas:
 
-```
+```py
 inputs = document.querySelectorAll('input')
 for (var i = 0; i < inputs.length; i++) {
  var name = inputs[i].getAttribute("name");
@@ -5802,7 +5774,7 @@ Figure 3: The browser calls into JavaScript when events happen.
 
 Let’s start with generating events. I’ll create a `dispatch_event` method and call it whenever an event is generated. That includes, first of all, any time we click in the page:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  # ...
@@ -5820,7 +5792,7 @@ class Tab:
 
 Second, before updating input area values:
 
-```
+```py
 class Tab:
  def keypress(self, char):
  if self.focus:
@@ -5830,7 +5802,7 @@ class Tab:
 
 And finally, when submitting forms but before actually sending the request to the server:
 
-```
+```py
 def submit_form(self, elt):
  self.js.dispatch_event("submit", elt)
  # ...
@@ -5838,7 +5810,7 @@ def submit_form(self, elt):
 
 So far so good—but what should the `dispatch_event` method do? Well, it needs to run listeners passed to `addEventListener`, so those need to be stored somewhere. Since those listeners are JavaScript functions, we need to keep that data on the JavaScript side, in a variable in the runtime. I’ll call that variable `LISTENERS`; we’ll use it to look up handles and event types, so let’s make it map handles to a dictionary that maps event types to a list of listeners:
 
-```
+```py
 LISTENERS = {}
 
 Node.prototype.addEventListener = function(type, listener) {
@@ -5852,7 +5824,7 @@ Node.prototype.addEventListener = function(type, listener) {
 
 To dispatch an event, we need to look up the type and handle in the `LISTENERS` array, like this:
 
-```
+```py
 Node.prototype.dispatchEvent = function(type) {
  var handle = this.handle;
  var list = (LISTENERS[handle] && LISTENERS[handle][type]) || [];
@@ -5866,7 +5838,7 @@ Note that `dispatchEvent` uses the `call` method on functions, which sets the va
 
 When an event occurs, the browser calls `dispatchEvent` from Python:
 
-```
+```py
 class JSContext:
  def dispatch_event(self, type, elt):
  handle = self.node_to_handle.get(elt, -1)
@@ -5876,7 +5848,7 @@ class JSContext:
 
 Here, the `EVENT_DISPATCH_JS` constant is a string of JavaScript code that dispatches a new event:
 
-```
+```py
 EVENT_DISPATCH_JS = \
  "new Node(dukpy.handle).dispatchEvent(dukpy.type)"
 ```
@@ -5885,7 +5857,7 @@ So when `dispatch_event` is called on the Python side, that runs `dispatchEvent`
 
 With all this event-handling machinery in place, we can update the character count every time an input area changes:
 
-```
+```py
 function lengthCheck() {
  var name = this.getAttribute("name");
  var value = this.getAttribute("value");
@@ -5895,7 +5867,7 @@ function lengthCheck() {
 }
 ```
 
-```
+```py
 var inputs = document.querySelectorAll("input");
 for (var i = 0; i < inputs.length; i++) {
  inputs[i].addEventListener("keydown", lengthCheck);
@@ -5912,7 +5884,7 @@ JavaScript [first appeared in 1995](https://auth0.com/blog/a-brief-history-of-ja
 
 So far we’ve implemented read-only DOM methods; now we need methods that change the page. The full DOM API provides a lot of such methods, but for simplicity I’m going to implement only `innerHTML`, which is used like this:
 
-```
+```py
 node.innerHTML = "This is my <b>new</b> bit of content!";
 ```
 
@@ -5920,7 +5892,7 @@ In other words, `innerHTML` is a *property* of node objects, with a *setter* tha
 
 Let’s implement this, starting on the JavaScript side. JavaScript has the obscure `Object.defineProperty` function to define setters, which DukPy supports:
 
-```
+```py
 Object.defineProperty(Node.prototype, 'innerHTML', {
  set: function(s) {
  call_python("innerHTML_set", this.handle, s.toString());
@@ -5930,7 +5902,7 @@ Object.defineProperty(Node.prototype, 'innerHTML', {
 
 In `innerHTML_set`, we’ll need to parse the HTML string. That turns out to be trickier than you’d think, because our browser’s HTML parser is intended to parse whole HTML documents, not these document fragments. As an expedient, close-enough hack,Real browsers follow the [standardized parsing algorithm](https://html.spec.whatwg.org/#parsing-html-fragments) for HTML fragments. I’ll just wrap the HTML in an `html` and `body` element:
 
-```
+```py
 def innerHTML_set(self, handle, s):
  doc = HTMLParser("<html><body>" + s + "</body></html>").parse()
  new_nodes = doc.children[0].children
@@ -5938,7 +5910,7 @@ def innerHTML_set(self, handle, s):
 
 Don’t forget to export the `innerHTML_set` function. Note that we extract all children of the `body` element, because an `innerHTML_set` call can create multiple nodes at a time. These new nodes must now be made children of the element `innerHTML_set` was called on:
 
-```
+```py
 def innerHTML_set(self, handle, s):
  # ...
  elt = self.handle_to_node[handle]
@@ -5953,7 +5925,7 @@ It might look like we’re done—but try this out and you’ll realize that not
 
 Whenever the page changes, we need to update its rendering by calling `render`:Redoing layout for the whole page is often wasteful; [Chapter 16](invalidation.html) explores a more complicated algorithm that speeds this up.
 
-```
+```py
 class JSContext:
  def innerHTML_set(self, handle, s):
  # ...
@@ -5966,7 +5938,7 @@ Let’s try this out in our guest book. Say we want a 100-character limit on gue
 
 First, switch to the server codebase and add a `<strong>` after the guest book form. Initially this element will be empty, but we’ll write an error message into it if the paragraph gets too long.
 
-```
+```py
 def show_comments():
  # ...
  out += "<strong></strong>"
@@ -5975,7 +5947,7 @@ def show_comments():
 
 Also add a script to the page.
 
-```
+```py
 def show_comments():
  # ...
  out += "<script src=/comment.js></script>"
@@ -5984,7 +5956,7 @@ def show_comments():
 
 Now the browser will request `comment.js`, so our server needs to *serve* that JavaScript file:
 
-```
+```py
 def do_request(method, url, headers, body):
  # ...
  elif method == "GET" and url == "/comment.js":
@@ -5995,7 +5967,7 @@ def do_request(method, url, headers, body):
 
 We can then put our little input length checker into `comment.js`, with the `lengthCheck` function modified to use `innerHTML`:
 
-```
+```py
 var strong = document.querySelectorAll("strong")[0];
 
 function lengthCheck() {
@@ -6013,7 +5985,7 @@ for (var i = 0; i < inputs.length; i++) {
 
 Try it out: write a long comment and you should see the page warning you when it grows too long. By the way, we might want to make it stand out more, so let’s go ahead and add another URL to our web server, `/comment.css`, with the contents:
 
-```
+```py
 strong { font-weight: bold; color: red; }
 ```
 
@@ -6031,7 +6003,7 @@ There are a few steps involved. First of all, event listeners should receive an 
 
 First of all, we’ll need event objects. Back to our JavaScript runtime:
 
-```
+```py
 function Event(type) {
  this.type = type
  this.do_default = true;
@@ -6044,7 +6016,7 @@ Event.prototype.preventDefault = function() {
 
 Note the `do_default` field, to record whether `preventDefault` has been called. We’ll now be passing an `Event` object to `dispatchEvent`, instead of just the event type:
 
-```
+```py
 Node.prototype.dispatchEvent = function(evt) {
  var type = evt.type;
  // ...
@@ -6058,14 +6030,14 @@ Node.prototype.dispatchEvent = function(evt) {
 
 In Python, we now need to create an `Event` to pass to `dispatchEvent`:
 
-```
+```py
 EVENT_DISPATCH_JS = \
  "new Node(dukpy.handle).dispatchEvent(new Event(dukpy.type))"
 ```
 
 Also note that `dispatchEvent` returns `evt.do_default`, which is not only standard in JavaScript but also helpful when dispatching events from Python, because Python’s `dispatch_event` can return that boolean to its handler:
 
-```
+```py
 class JSContext:
  def dispatch_event(self, type, elt):
  # ...
@@ -6076,7 +6048,7 @@ class JSContext:
 
 This way, every time an event happens, the browser can check the return value of `dispatch_event` and stop if it is `True`. We have three such places in the `click` method:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  while elt:
@@ -6096,7 +6068,7 @@ class Tab:
 
 And one in `submit_form`:
 
-```
+```py
 class Tab:
  def submit_form(self, elt):
  if self.js.dispatch_event("submit", elt): return
@@ -6104,7 +6076,7 @@ class Tab:
 
 And one in `keypress`:
 
-```
+```py
 class Tab:
  def keypress(self, char):
  if self.focus:
@@ -6113,7 +6085,7 @@ class Tab:
 
 Now our character count code can prevent the user from submitting a form: it can use a global variable to track whether or not submission is allowed, and then when submission is attempted it can check that variable and cancel that submission if necessary:
 
-```
+```py
 var allow_submit = true;
 
 function lengthCheck() {
@@ -6134,7 +6106,7 @@ This way it’s impossible to submit the form when the comment is too long!
 
 Well … impossible in this browser. But since there are browsers that don’t run JavaScript (like ours, one chapter back), we should check the length on the server side too:
 
-```
+```py
 def add_entry(params):
  if 'guest' in params and len(params['guest']) <= 100:
  ENTRIES.append(params['guest'])
@@ -6179,7 +6151,7 @@ The complete set of functions, classes, and methods in our browser should now lo
 
 9-6 *Serializing HTML*. Reading from [`innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) should return a string containing HTML source code. That source code should reflect the *current* attributes of the element; for example:
 
-```
+```py
 element.innerHTML = '<span id=foo>Chris was here</span>';
 element.id = 'bar';
 console.log(element.innerHTML);
@@ -6219,13 +6191,13 @@ The web fixes this problem with cookies. A cookie—the name is meaningless, ign
 
 Here are the technical details. An HTTP response can contain a `Set-Cookie` header. This header contains a key–value pair; for example, the following header sets the value of the `foo` cookie to `bar`:
 
-```
+```py
 Set-Cookie: foo=bar
 ```
 
 The browser remembers this key–value pair, and the next time it makes a request to the same server (cookies are site-specific), the browser echoes it back in the `Cookie` header:
 
-```
+```py
 Cookie: foo=bar
 ```
 
@@ -6237,7 +6209,7 @@ Figure 1: The server assigns cookies to the browser with the `Set-Cookie` header
 
 Let’s use cookies to write a login system for our guest book. Each user will be identified by a long random number stored in the `token` cookie.This `random.random` call returns a decimal number with 53 bits of randomness. That’s not great; 256 bits is typically the goal. And `random.random` is not a secure random number generator: by observing enough tokens you can predict future values and use those to hijack accounts. A real web application must use a cryptographically secure random number generator for tokens. The server will either extract a token from the `Cookie` header, or generate a new one for new visitors:
 
-```
+```py
 import random
 
 def handle_connection(conx):
@@ -6251,7 +6223,7 @@ def handle_connection(conx):
 
 Of course, new visitors need to be told to remember their newly generated token:
 
-```
+```py
 def handle_connection(conx):
  # ...
  if 'cookie' not in headers:
@@ -6264,7 +6236,7 @@ The first code block runs after all the request headers are parsed, before handl
 
 With these two code changes, each visitor to the guest book now has a unique identity. We can now use that identity to store information about each user. Let’s do that in a server side `SESSIONS` variable:Browsers and servers both limit header lengths, so it’s best to store minimal data in cookies. Plus, cookies are sent back and forth on every request, so long cookies mean a lot of useless traffic. It’s therefore wise to store user data on the server, and only store a pointer to that data in the cookie. And, since cookies are stored by the browser, they can be changed arbitrarily by the user, so it would be insecure to trust the cookie data.
 
-```
+```py
 SESSIONS = {}
 
 def handle_connection(conx):
@@ -6276,7 +6248,7 @@ def handle_connection(conx):
 
 `SESSIONS` maps tokens to session data dictionaries. The `setdefault` method both gets a key from a dictionary and also sets a default value if the key isn’t present. I’m passing that session data via `do_request` to individual pages like `show_comments` and `add_entry`:
 
-```
+```py
 def do_request(session, method, url, headers, body):
  if method == "GET" and url == "/":
  return "200 OK", show_comments(session)
@@ -6303,7 +6275,7 @@ I want users to log in before posting to the guest book. Minimally, that means:
 
 Let’s start coding. We’ll hard-code two user/password pairs:
 
-```
+```py
 LOGINS = {
  "crashoverride": "0cool",
  "cerealkiller": "emmanuel"
@@ -6312,7 +6284,7 @@ LOGINS = {
 
 Users will log in by going to `/login`:
 
-```
+```py
 def do_request(session, method, url, headers, body):
  # ...
  elif method == "GET" and url == "/login":
@@ -6322,7 +6294,7 @@ def do_request(session, method, url, headers, body):
 
 This page shows a form with a username and a password field:I’ve given the `password` input area the type `password`, which in a real browser will draw stars or dots instead of showing what you’ve entered, though our browser doesn’t do that; see [Exercise 10-1](#exercises). Also, do note that this is not particularly accessible HTML, lacking for example `<label>` elements around the form labels. Not that our browser supports that!
 
-```
+```py
 def login_form(session):
  body = "<!doctype html>"
  body += "<form action=/ method=post>"
@@ -6335,7 +6307,7 @@ def login_form(session):
 
 Note that the form `POST`s its data to the `/` URL. We’ll want to handle these `POST` requests in a new function that checks passwords and does logins:
 
-```
+```py
 def do_request(session, method, url, headers, body):
  # ...
  elif method == "POST" and url == "/":
@@ -6346,7 +6318,7 @@ def do_request(session, method, url, headers, body):
 
 This `do_login` function checks passwords and logs people in by storing their user name in the session data:Actually, using `==` to compare passwords like this is a bad idea: Python’s equality function for strings scans the string from left to right, and exits as soon as it finds a difference. Therefore, you get a clue about the password from *how long* it takes to check a password guess; this is called a [timing side channel](https://en.wikipedia.org/wiki/Timing_attack). This book is about the browser, not the server, but a real web application has to do a [constant-time string comparison](https://www.chosenplaintext.ca/articles/beginners-guide-constant-time-cryptography.html)!
 
-```
+```py
 def do_login(session, params):
  username = params.get("username")
  password = params.get("password")
@@ -6363,7 +6335,7 @@ Note that the session data (including the `user` key) is stored on the server, s
 
 So now we can check if a user is logged in by checking the `session` data. Let’s only show the comment form to logged in users:
 
-```
+```py
 def show_comments(session):
  # ...
  if "user" in session:
@@ -6379,7 +6351,7 @@ def show_comments(session):
 
 Likewise, `add_entry` must check that the user is logged in before posting comments:
 
-```
+```py
 def add_entry(session, params):
  if "user" not in session: return
  if 'guest' in params and len(params['guest']) <= 100:
@@ -6388,7 +6360,7 @@ def add_entry(session, params):
 
 Note that the username from the session is stored into `ENTRIES`:The pre-loaded comments reference 1995’s *Hackers*. [Hack the Planet!](https://xkcd.com/1337)
 
-```
+```py
 ENTRIES = [
  ("No names. We are nameless!", "cerealkiller"),
  ("HACK THE PLANET!!!", "crashoverride"),
@@ -6397,7 +6369,7 @@ ENTRIES = [
 
 When we print the guest book entries, we’ll show who authored them:
 
-```
+```py
 def show_comments(session):
  # ...
  for entry, who in ENTRIES:
@@ -6414,7 +6386,7 @@ A more obscure browser authentication system is [TLS client certificates](https:
 
 To start, we need a place in the browser that stores cookies; that data structure is traditionally called a *cookie jar*:Because once you have one silly name it’s important to stay on-brand.
 
-```
+```py
 COOKIE_JAR = {}
 ```
 
@@ -6422,7 +6394,7 @@ Since cookies are site-specific, our cookie jar will map sites to cookies. Note 
 
 When the browser visits a page, it needs to send the cookie for that site:
 
-```
+```py
 class URL:
  def request(self, payload=None):
  # ...
@@ -6434,7 +6406,7 @@ class URL:
 
 Symmetrically, the browser has to update the cookie jar when it sees a `Set-Cookie` header:A server can actually send multiple `Set-Cookie` headers to set multiple cookies in one request, though our browser won’t handle that correctly.
 
-```
+```py
 class URL:
  def request(self, payload=None):
  # ...
@@ -6458,7 +6430,7 @@ The easiest way for an attacker to steal your private data is to ask for it. Of 
 
 `XMLHttpRequest` sends asynchronous HTTP requests from JavaScript. Since I’m using `XMLHttpRequest` just to illustrate security issues, I’ll implement a minimal version here. Specifically, I’ll support only *synchronous* requests.Synchronous `XMLHttpRequest`s are slowly moving through [deprecation and obsolescence](https://xhr.spec.whatwg.org/#the-open()-method), but I’m using them here because they are easier to implement. We’ll implement the asynchronous variant in Chapter 12. Using this minimal `XMLHttpRequest` looks like this:
 
-```
+```py
 x = new XMLHttpRequest();
 x.open("GET", url, false);
 x.send();
@@ -6467,7 +6439,7 @@ x.send();
 
 We’ll define the `XMLHttpRequest` objects and methods in JavaScript. The `open` method will just save the method and URL:`XMLHttpRequest` has more options not implemented here, like support for usernames and passwords. This code is also missing some error checking, like making sure the method is a valid HTTP method supported by our browser.
 
-```
+```py
 function XMLHttpRequest() {}
 
 XMLHttpRequest.prototype.open = function(method, url, is_async) {
@@ -6479,7 +6451,7 @@ XMLHttpRequest.prototype.open = function(method, url, is_async) {
 
 The `send` method calls an exported function:As above, this implementation skips important `XMLHttpRequest` features, like setting request headers (and reading response headers), changing the response type, or triggering various events and callbacks during the request.
 
-```
+```py
 XMLHttpRequest.prototype.send = function(body) {
  this.responseText = call_python("XMLHttpRequest_send",
  this.method, this.url, body);
@@ -6488,7 +6460,7 @@ XMLHttpRequest.prototype.send = function(body) {
 
 The `XMLHttpRequest_send` function just calls `request`:Note that the `method` argument is ignored, because our `request` function chooses the method on its own based on whether a payload is passed. This doesn’t match the standard (which allows `POST` requests with no payload), and I’m only doing it here for convenience.
 
-```
+```py
 class JSContext:
  def XMLHttpRequest_send(self, method, url, body):
  full_url = self.tab.url.resolve(url)
@@ -6512,7 +6484,7 @@ Let’s imagine an attacker wants to know your username on our guest book server
 
 With `XMLHttpRequest`, an attacker’s websiteWhy is the user on the attacker’s site? Perhaps it has funny memes, or it’s been hacked and is being used for the attack against its will, or perhaps the evildoer paid for ads on sketchy websites where users have low standards for security anyway. could request the guest book page:
 
-```
+```py
 x = new XMLHttpRequest();
 x.open("GET", "http://localhost:8000/", false);
 x.send();
@@ -6525,7 +6497,7 @@ To prevent issues like this, browsers have a [*same-origin policy*](https://deve
 
 Let’s implement the same-origin policy for our browser. We’ll need to compare the URL of the request to the URL of the page we are on:
 
-```
+```py
 class JSContext:
  def XMLHttpRequest_send(self, method, url, body):
  # ...
@@ -6536,7 +6508,7 @@ class JSContext:
 
 The `origin` function can just strip off the path from a URL:
 
-```
+```py
 class URL:
  def origin(self):
  return self.scheme + "://" + self.host + ":" + str(self.port)
@@ -6552,7 +6524,7 @@ The same-origin policy prevents cross-origin `XMLHttpRequest` calls. But the sam
 
 In cross-site request forgery, instead of using `XMLHttpRequest`, the attacker uses a form that submits to the guest book:
 
-```
+```py
 <form action="http://localhost:8000/add" method=post>
  <p><input name=guest></p>
  <p><button>Sign the book!</button></p>
@@ -6569,7 +6541,7 @@ To start with, there are things the server can do. The usual advice is to give a
 
 To implement this fix, generate a nonce and save it in the user session when a form is requested:Usually `<input type=hidden>` is invisible, though our browser doesn’t support this.
 
-```
+```py
 def show_comments(session):
  # ...
  if "user" in session:
@@ -6581,7 +6553,7 @@ def show_comments(session):
 
 When a form is submitted, the server checks that the right nonce is submitted with it:In real websites it’s usually best to allow one user to have multiple active nonces, so that a user can open two forms in two tabs without that overwriting the valid nonce. To prevent the nonce set from growing over time, you’d have nonces expire after a while. I’m skipping this here, because it’s not the focus of this chapter.
 
-```
+```py
 def add_entry(session, params):
  if "nonce" not in session or "nonce" not in params: return
  if session["nonce"] != params["nonce"]: return
@@ -6598,7 +6570,7 @@ For form submissions, that fail-safe solution is `SameSite` cookies. The idea is
 
 A cookie is marked `SameSite` in the `Set-Cookie` header like this:
 
-```
+```py
 Set-Cookie: foo=bar; SameSite=Lax
 ```
 
@@ -6606,7 +6578,7 @@ The `SameSite` attribute can take the value `Lax`, `Strict`, or `None`, and as I
 
 First, let’s modify `COOKIE_JAR` to store cookie/parameter pairs, and then parse those parameters out of `Set-Cookie` headers:
 
-```
+```py
 def request(self, payload=None):
  if "set-cookie" in response_headers:
  cookie = response_headers["set-cookie"]
@@ -6624,7 +6596,7 @@ def request(self, payload=None):
 
 When sending a cookie in an HTTP request, the browser only sends the cookie value, not the parameters:
 
-```
+```py
 def request(self, payload=None):
  if self.host in COOKIE_JAR:
  cookie, params = COOKIE_JAR[self.host]
@@ -6633,7 +6605,7 @@ def request(self, payload=None):
 
 This stores the `SameSite` parameter of a cookie. But to actually use it, we need to know which site an HTTP request is being made from. Let’s add a new `referrer` parameter to `request` to track that:The “referrer” is the web page that “referred” our browser to make the current request. `SameSite` cookies are actually supposed to [use the “top-level site”](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site-00#section-2.1), not the referrer, to determine if the cookies should be sent, but the differences are subtle and I’m skipping them for simplicity.
 
-```
+```py
 class URL:
  def request(self, referrer, payload=None):
  # ...
@@ -6641,7 +6613,7 @@ class URL:
 
 Our browser calls `request` in three places, and we need to send the top-level URL in each case. At the top of `load`, it makes the initial request to a page. Modify it like so:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  headers, body = url.request(self.url, payload)
@@ -6652,7 +6624,7 @@ Here, `url` is the new URL to visit, but `self.url` is the URL of the page the r
 
 Later, the browser loads styles and scripts with more `request` calls:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -6678,7 +6650,7 @@ For these requests the top-level URL is the new URL being loaded. That’s becau
 
 Similarly, `XMLHttpRequest`-triggered requests use the tab URL as their top-level URL:
 
-```
+```py
 class JSContext:
  def XMLHttpRequest_send(self, method, url, body):
  # ...
@@ -6688,7 +6660,7 @@ class JSContext:
 
 The `request` function can now check the `referrer` argument before sending `SameSite` cookies. Remember that `SameSite` cookies are only sent for `GET` requests or if the new URL and the top-level URL have the same host name:As I write this, some browsers also check that the new URL and the top-level URL have the same scheme and some browsers ignore subdomains, so that `www.foo.com` and `login.foo.com` are considered the “same site”. If cookies were invented today, they’d probably be specific to URL origins (in fact, there is [an effort to do just that](https://github.com/sbingler/Origin-Bound-Cookies)), much like content security policies, but alas historical contingencies and backward compatibility force rules that are more complex but easier to deploy.
 
-```
+```py
 def request(self, referrer, payload=None):
  if self.host in COOKIE_JAR:
  # ...
@@ -6706,7 +6678,7 @@ Note that we check whether the `referrer` is set—it won’t be when we’re lo
 
 Our guest book can now mark its cookies `SameSite`:
 
-```
+```py
 def handle_connection(conx):
  if 'cookie' not in headers:
  template = "Set-Cookie: token={}; SameSite=Lax\r\n"
@@ -6725,20 +6697,20 @@ Now other websites can’t misuse our browser’s cookies to read or write priva
 
 A web service needs to defend itself from being *misused*. Consider the code in our guest book that outputs guest book entries:
 
-```
+```py
 out += "<p>" + entry + "\n"
 out += "<i>by " + who + "</i></p>"
 ```
 
 Note that `entry` can be anything, including anything the user might stick into our comment form. That includes HTML tags, like a custom `<script>` tag! So, a malicious user could post this comment:
 
-```
+```py
 Hi! <script src="http://my-server/evil.js"></script>
 ```
 
 The server would then output this HTML:
 
-```
+```py
 <p>Hi! <script src="http://my-server/evil.js"></script>
 <i>by crashoverride</i></p>
 ```
@@ -6749,7 +6721,7 @@ The core problem here is that user comments are supposed to be data, but the bro
 
 The standard fix is to encode the data so that it can’t be interpreted as code. For example, in HTML, you can write `&lt;` to display a less-than sign.You may have implemented this in Exercise 1-4. Python has an `html` module for this kind of encoding:
 
-```
+```py
 import html
 
 def show_comments(session):
@@ -6767,7 +6739,7 @@ Since the CSS parser we implemented in Chapter 6 is very permissive, some HTML p
 
 One such layer is the `Content-Security-Policy` header. The full specification for this header is quite complex, but in the simplest case, the header is set to the keyword `default-src` followed by a space-separated list of servers:
 
-```
+```py
 Content-Security-Policy: default-src http://example.org
 ```
 
@@ -6775,7 +6747,7 @@ This header asks the browser not to load any resources (including CSS, JavaScrip
 
 Let’s implement support for this header. First, we’ll need `request` to return the response headers:
 
-```
+```py
 class URL:
  def request(self, referrer, payload=None):
  # ...
@@ -6786,7 +6758,7 @@ Make sure to update all existing uses of `request` to ignore the headers.
 
 Next, we’ll need to extract and parse the `Content-Security-Policy` header when loading a page:In real browsers `Content-Security-Policy` can also list scheme-generic URLs and other sources like `self`. And there are keywords other than `default-src`, to restrict styles, scripts, and `XMLHttpRequest`s each to their own set of URLs.
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -6802,7 +6774,7 @@ class Tab:
 
 This parsing needs to happen *before* we request any JavaScript or CSS, because we now need to check whether those requests are allowed:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -6818,7 +6790,7 @@ Note that we need to first resolve relative URLs to know if they’re allowed. A
 
 `XMLHttpRequest` URLs also need to be checked:Note that when loading styles and scripts, our browser merely ignores blocked resources, while for blocked `XMLHttpRequest`s it throws an exception. That’s because exceptions in `XMLHttpRequest` calls can be caught and handled in JavaScript.
 
-```
+```py
 class JSContext:
  def XMLHttpRequest_send(self, method, url, body):
  full_url = self.tab.url.resolve(url)
@@ -6829,7 +6801,7 @@ class JSContext:
 
 The `allowed_request` check needs to handle both the case where there is no `Content-Security-Policy` and the case where there is one:
 
-```
+```py
 class Tab:
  def allowed_request(self, url):
  return self.allowed_origins == None or \
@@ -6838,7 +6810,7 @@ class Tab:
 
 The guest book can now send a `Content-Security-Policy` header:
 
-```
+```py
 def handle_connection(conx):
  # ...
  csp = "default-src http://localhost:8000"
@@ -6848,7 +6820,7 @@ def handle_connection(conx):
 
 To check that our implementation works, let’s have the guest book request a script from outside the list of allowed servers:
 
-```
+```py
 def show_comments(session):
  # ...
  out += "<script src=https://example.com/evil.js></script>"
@@ -6925,7 +6897,7 @@ While Tkinter is great for basic shapes and input handling, it doesn’t give us
 
 Start by installing [Skia](https://kyamagu.github.io/skia-python/) and [SDL](https://pypi.org/project/PySDL2/):
 
-```
+```py
 python3 -m pip install 'skia-python==87.*' pysdl2 pysdl2-dll
 ```
 
@@ -6935,7 +6907,7 @@ Note that I’m explicitly installing Skia version 87\. Skia makes regular relea
 
 Once installed, remove the `tkinter` imports from browser and replace them with these:
 
-```
+```py
 import ctypes
 import sdl2
 import skia
@@ -6949,7 +6921,7 @@ The [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canva
 
 The first big task is to switch to using SDL to create the window and handle events. The main loop of the browser first needs some boilerplate to get SDL started:
 
-```
+```py
 if __name__ == "__main__":
  sdl2.SDL_Init(sdl2.SDL_INIT_EVENTS)
  browser = Browser()
@@ -6959,7 +6931,7 @@ if __name__ == "__main__":
 
 Next, we need to create an SDL window, instead of a Tkinter window, inside the `Browser`. Here’s the SDL incantation:
 
-```
+```py
 class Browser:
  def __init__(self):
  self.sdl_window = sdl2.SDL_CreateWindow(b"Browser",
@@ -6969,7 +6941,7 @@ class Browser:
 
 Now that we’ve created a window, we need to handle events sent to it. SDL doesn’t have a `mainloop` or `bind` method; we have to implement it ourselves:
 
-```
+```py
 def mainloop(browser):
  event = sdl2.SDL_Event()
  while True:
@@ -6983,7 +6955,7 @@ def mainloop(browser):
 
 The details of `ctypes` and `PollEvent` aren’t too important here, but note that `SDL_QUIT` is an event, sent when the user closes the last open window. The `handle_quit` method it calls just cleans up the window object:
 
-```
+```py
 class Browser:
  def handle_quit(self):
  sdl2.SDL_DestroyWindow(self.sdl_window)
@@ -6991,7 +6963,7 @@ class Browser:
 
 Call `mainloop` in place of `tkinter.mainloop`:
 
-```
+```py
 if __name__ == "__main__":
  # ...
  mainloop(browser)
@@ -6999,7 +6971,7 @@ if __name__ == "__main__":
 
 In place of all the `bind` calls in the `Browser` constructor, we can just directly call methods for various types of events, like clicks, typing, and so on. The SDL syntax looks like this:
 
-```
+```py
 def mainloop(browser):
  while True:
  while sdl2.SDL_PollEvent(ctypes.byref(event)) != 0:
@@ -7025,7 +6997,7 @@ Let’s peek under the hood of these SDL calls. When we create an SDL window, we
 
 A *surface* is a representation of a graphics buffer into which you can draw *pixels* (bits representing colors). We implicitly created an SDL surface when we created an SDL window; let’s also create a surface for Skia to draw to:
 
-```
+```py
 class Browser:
  def __init__(self):
  self.root_surface = skia.Surface.MakeRaster(
@@ -7037,7 +7009,7 @@ class Browser:
 
 Each pixel has a color. Note the `ct` argument, meaning “color type”, which indicates that each pixel of this surface should be represented as *r*ed, *g*reen, *b*lue, and *a*lpha values, each of which should take up eight bits. In other words, pixels are basically defined like so:
 
-```
+```py
 class Pixel:
  def __init__(self, r, g, b, a):
  self.r = r
@@ -7050,7 +7022,7 @@ This `Pixel` definition is an illustrative example, not actual code in our brows
 
 Defining colors via red, green, and blue components is fairly standardIt’s formally known as the [sRGB color space](https://en.wikipedia.org/wiki/SRGB), and it dates back to [CRT (cathode-ray tube) displays](https://en.wikipedia.org/wiki/Cathode-ray_tube), which had a pretty limited *gamut* of expressible colors. New technologies like LCD, LED, and OLED can display more colors, so CSS now includes [syntax](https://drafts.csswg.org/css-color-4/) for expressing these new colors. Still, all color spaces have a limited gamut of expressible colors. and corresponds to how computer screens work.Actually, some screens contain [lights besides red, green, and blue](https://geometrian.com/programming/reference/subpixelzoo/index.php), including white, cyan, or yellow. Moreover, different screens can use slightly different reds, greens, or blues; professional color designers typically have to [calibrate their screen](https://en.wikipedia.org/wiki/Color_calibration) to display colors accurately. For the rest of us, the software still communicates with the display in terms of standard red, green, and blue colors, and the display hardware converts them to whatever pixels it uses. For example, in CSS, we refer to arbitrary colors with a hash character and six hex digits, like `#ffd700`, with two digits each for red, green, and blue:Alpha is implicitly 255, meaning opaque, in this case.
 
-```
+```py
 def parse_color(color):
  if color.startswith("#") and len(color) == 7:
  r = int(color[1:3], 16)
@@ -7061,7 +7033,7 @@ def parse_color(color):
 
 The colors we’ve seen so far can just be specified in terms of this syntax:
 
-```
+```py
 NAMED_COLORS = {
  "black": "#000000",
  "white": "#ffffff",
@@ -7081,7 +7053,7 @@ You can add more named colors from [the list](https://developer.mozilla.org/en-U
 
 Let’s now use our understanding of surfaces and colors to copy from the Skia surface, where we will draw the chrome and page content, to the SDL surface, which actually appears on the screen. This is a little hairy, because we are moving data between two low-level libraries, but really we’re just copying pixels from one place to another. First, get the sequence of bytes representing the Skia surface:
 
-```
+```py
 class Browser:
  def draw(self):
  # ...
@@ -7091,7 +7063,7 @@ class Browser:
 
 Next, we need to copy the data to an SDL surface. This requires telling SDL what order the pixels are stored in and your computer’s [endianness](https://en.wikipedia.org/wiki/Endianness):
 
-```
+```py
 class Browser:
  def __init__(self):
  if sdl2.SDL_BYTEORDER == sdl2.SDL_BIG_ENDIAN:
@@ -7108,7 +7080,7 @@ class Browser:
 
 The `CreateRGBSurfaceFrom` method then wraps the data in an SDL surface (without copying the bytes):
 
-```
+```py
 class Browser:
  def draw(self):
  # ...
@@ -7122,7 +7094,7 @@ class Browser:
 
 Finally, we draw all this pixel data on the window itself by blitting (copying) it from `sdl_surface` to `sdl_window`’s surface:Note that since Skia and SDL are C++ libraries, they are not always consistent with Python’s garbage collection system. So the link between the output of `tobytes` and `sdl_window` is not guaranteed to be kept consistent when `skia_bytes` is garbage-collected. The SDL surface could be left pointing at a bogus piece of memory, leading to memory corruption or a crash. The code here is correct because all of these are local variables that are garbage-collected together, but if not you need to be careful to keep all of them alive at the same time.
 
-```
+```py
 class Browser:
  def draw(self):
  # ...
@@ -7141,7 +7113,7 @@ We take it for granted, but color standards like [CIELAB](https://en.wikipedia.o
 
 We want to draw text, rectangles, and so on to the Skia surface. This step—coloring in the pixels of a surface to draw shapes on it—is called “rasterization” and is one important task of a graphics library. In Skia, rasterization happens via a *canvas* API. A canvas is just an object that draws to a particular surface:
 
-```
+```py
 class Browser:
  def draw(self, canvas, offset):
  # ...
@@ -7155,7 +7127,7 @@ The first thing we need to do is change the `rect` field into a Skia `Rect` obje
 
 For `DrawText` and `DrawLine` in particular, it’s:
 
-```
+```py
 class DrawText:
  def __init__(self, x1, y1, text, font, color):
  self.rect = skia.Rect.MakeLTRB(
@@ -7173,7 +7145,7 @@ class DrawLine:
 
 Our browser’s drawing commands will need to invoke Skia methods on this canvas. To draw a line, you use Skia’s `Path` object:Consult the [Skia](https://skia.org) and [skia-python](https://kyamagu.github.io/skia-python/) documentation for more on the Skia API.
 
-```
+```py
 class DrawLine:
  def execute(self, canvas, scroll):
  path = skia.Path().moveTo(
@@ -7192,7 +7164,7 @@ Note the steps involved here. We first create a `Path` object, and then call `dr
 
 We do something similar to draw text using `drawString`:
 
-```
+```py
 class DrawText:
  def execute(self, canvas, scroll):
  paint = skia.Paint(
@@ -7209,7 +7181,7 @@ Note again that we create a `Paint` object identifying the color and asking for 
 
 Finally, for drawing rectangles you use `drawRect`:
 
-```
+```py
 class DrawRect:
  def execute(self, canvas, scroll):
  paint = skia.Paint(
@@ -7220,7 +7192,7 @@ class DrawRect:
 
 To create an outline, draw a rectangle but set the `Style` parameter of the `Paint` to `Stroke_Style`:
 
-```
+```py
 class DrawOutline:
  def execute(self, scroll, canvas):
  paint = skia.Paint(
@@ -7233,7 +7205,7 @@ class DrawOutline:
 
 Since we’re replacing Tkinter with Skia, we are also replacing `tkinter.font`. In Skia, a font object has two pieces: a `Typeface`, which is a type family with a certain weight, style, and width; and a `Font`, which is a `Typeface` at a particular size. It’s the `Typeface` that contains data and caches, so that’s what we need to cache:
 
-```
+```py
 def get_font(size, weight, style):
  key = (weight, style)
  if key not in FONTS:
@@ -7255,7 +7227,7 @@ def get_font(size, weight, style):
 
 Our browser also needs font metrics and measurements. In Skia, these are provided by the `measureText` and `getMetrics` methods. Let’s start with `measureText` replacing all calls to `measure`. For example, in the `paint` method in `InputLayout`, we must do:
 
-```
+```py
 class InputLayout:
  def paint(self):
  if self.node.is_focused:
@@ -7269,7 +7241,7 @@ Also, in the `layout` method of `LineLayout` and in `DrawText` we make calls to 
 
 Importantly, in Skia the ascent needs to be negated. In Skia, ascent and descent are positive if they go downward and negative if they go upward, so ascents will normally be negative, the opposite of Tkinter. There’s no analog for the `linespace` field that Tkinter provides, but you can use descent minus ascent instead:
 
-```
+```py
 def linespace(font):
  metrics = font.getMetrics()
  return metrics.fDescent - metrics.fAscent
@@ -7279,7 +7251,7 @@ You should now be able to run the browser again. It should look and behave just 
 
 Finally, Skia also provides some new features. For example, Skia has native support for rounded rectangles via `RRect` objects. We can implement that by converting `DrawRect` to `DrawRRect`:
 
-```
+```py
 class DrawRRect:
  def __init__(self, rect, radius, color):
  self.rect = rect
@@ -7295,7 +7267,7 @@ class DrawRRect:
 
 Then we can draw these rounded rectangles for backgrounds:
 
-```
+```py
 class BlockLayout:
  def paint(self):
  if bgcolor != "transparent":
@@ -7308,7 +7280,7 @@ class BlockLayout:
 
 With that, [this example](https://browser.engineering/examples/example11-rounded-background.html):Note that the example listed here, in common with other examples present in the book, accesses a local resource (a CSS file in this case) that is also present on [browser.engineering](https://browser.engineering/).
 
-```
+```py
 <link rel=stylesheet href="example11-longword.css">
 <div>
 Background is rounded
@@ -7333,7 +7305,7 @@ So far, any time the user scrolled a web page, we had to clear the canvas and re
 
 To implement this, we’ll need two new Skia surfaces: a surface for browser chrome and a surface for the current `Tab`’s contents. We’ll only need to re-raster the `Tab` surface if page contents change, but not when (say) the user types into the address bar. And we can scroll the `Tab` without any raster at all—we just copy a different part of the current `Tab` surface to the screen. Let’s call those surfaces `chrome_surface` and `tab_surface`:We could even use a different surface for each `Tab`, but real browsers don’t do this, since each surface uses up a lot of memory, and typically users don’t notice the small raster delay when switching tabs.
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -7352,7 +7324,7 @@ We’ll also need to split the browser’s `draw` method into three parts:
 
 Let’s start by doing the split:
 
-```
+```py
 class Browser:
  def raster_tab(self):
  canvas = self.tab_surface.getCanvas()
@@ -7372,7 +7344,7 @@ class Browser:
 
 Since we didn’t create the `tab_surface` on startup, we need to create it at the top of `raster_tab`:For a very big web page, `tab_surface` can be much larger than the size of the SDL window, and therefore take up a very large amount of memory. We’ll ignore that, but a real browser would only paint and raster surface content up to a certain distance from the visible region, and re-paint/raster as the user scrolls.
 
-```
+```py
 import math
 
 class Browser:
@@ -7391,7 +7363,7 @@ Note that we need to recreate the tab surface if the page’s height changes. Th
 
 Next, `draw` should copy from the chrome and tab surfaces to the root surface. Moreover, we need to translate the `tab_surface` down by `chrome_bottom` and up by `scroll`, and clip it to just the area of the window that doesn’t overlap the browser chrome:
 
-```
+```py
 class Browser:
  def draw(self):
  # ...
@@ -7419,7 +7391,7 @@ Note the `draw` calls: these copy the `tab_surface` and `chrome_surface` to the 
 
 Finally, everywhere in `Browser` that we call `draw`, we now need to call either `raster_tab` or `raster_chrome` first. For example, in `handle_click`, we do this:
 
-```
+```py
 class Browser:
  def handle_click(self, e):
  if e.y < self.chrome.bottom:
@@ -7435,7 +7407,7 @@ Notice how we don’t redraw the chrome when only the tab changes, and vice vers
 
 However, clicking on a web page can cause it to navigate to a new one, so we do need to detect that and raster the browser chrome if the URL changed:
 
-```
+```py
 class Browser:
  def handle_click(self, e):
  if e.y < self.chrome.bottom:
@@ -7452,7 +7424,7 @@ class Browser:
 
 We also have some related changes in `Tab`. Let’s rename `Tab`’s `draw` method to `raster`. In it, we no longer need to pass around the scroll offset to the `execute` methods, or account for `chrome_bottom`, because we always draw the whole tab to the tab surface:
 
-```
+```py
 class Tab:
  def raster(self, canvas):
  for cmd in self.display_list:
@@ -7461,7 +7433,7 @@ class Tab:
 
 Likewise, we can remove the `scroll` parameter from each drawing command’s `execute` method:
 
-```
+```py
 class DrawRect:
  def execute(self, canvas):
  paint = skia.Paint(
@@ -7488,7 +7460,7 @@ Note that the text is a kind of dark orange, because its color is a mix of 50% b
 
 Skia supports this kind of transparency by setting the “alpha” field on the parsed color:
 
-```
+```py
 def parse_color(color):
  # ...
  elif color.startswith("#") and len(color) == 9:
@@ -7526,7 +7498,7 @@ Figure 4: A rendered web page is actually the result of stacking and blending a 
 
 To match this use pattern, in Skia, surfaces form a stack. You can push a new surface on the stack, raster things to it, and then pop it off, which blends it with the surface below. When rastering, you push a new surface onto the stack every time you need to apply some visual effect, and pop-and-blend once you’re done rastering all the elements that that effect will be applied to, like this:
 
-```
+```py
 # draw parent
 canvas.saveLayer(None, skia.Paint(Alphaf=0.5))
 # draw children
@@ -7537,7 +7509,7 @@ Here, the `saveLayer` call asks SkiaIt’s called `saveLayer` instead of `create
 
 `saveLayer` and `restore` are like a pair of parentheses enclosing child drawing operations. This means our display list is no longer just a linear sequence of drawing operations, but a tree. So in our display list, let’s handle `opacity` with an `Opacity` command that takes a sequence of other drawing commands as an argument:
 
-```
+```py
 class Opacity:
  def __init__(self, opacity, children):
  self.opacity = opacity
@@ -7558,7 +7530,7 @@ class Opacity:
 
 We can now wrap the drawing commands painted by an element with `Opacity` to add transparency to the whole element. I’m going to do this by adding a new `paint_effects` method to layout objects, which should be passed a list of drawing commands to wrap:
 
-```
+```py
 class BlockLayout:
  def paint_effects(self, cmds):
  cmds = paint_visual_effects(
@@ -7568,7 +7540,7 @@ class BlockLayout:
 
 I put the actual construction of the `Opacity` command in a new global `paint_visual_effects` method (because other object types will also need it):
 
-```
+```py
 def paint_visual_effects(node, cmds, rect):
  opacity = float(node.style.get("opacity", "1.0"))
 
@@ -7579,7 +7551,7 @@ def paint_visual_effects(node, cmds, rect):
 
 A change is now needed in `paint_tree` to call `paint_effects`, but only *after* recursing into children, and only if `should_paint` is true. That’s because these visual effects apply to the entire subtree’s display list, not just the current object, and don’t apply to “anonymous” objects (see Chapter 8).
 
-```
+```py
 def paint_tree(layout_object, display_list):
  if layout_object.should_paint():
  cmds = layout_object.paint()
@@ -7603,7 +7575,7 @@ When a pixel with alpha overlaps another pixel, the final color is a mix of thei
 
 When we apply a `Paint` with an `Alphaf` parameter, the first thing Skia does is add the requested opacity to each pixel:
 
-```
+```py
 class Pixel:
  def alphaf(self, opacity):
  self.a = self.a * opacity
@@ -7615,7 +7587,7 @@ That `Alphaf` parameter applies to pixels in one surface. But with `saveLayer` w
 
 Here, the terminology can get confusing: we imagine that the pixels “on top” are blending into the pixels “below”, so we call the top surface the *source surface*, with source pixels, and the bottom surface the *destination surface*, with destination pixels. When we combine them, there are lots of ways we could do it, but the default on the web is called “simple alpha compositing” or *source-over* compositing. In Python, the code to implement it looks like this:The formula for this code can be found [here](https://www.w3.org/TR/SVG11/masking.html#SimpleAlphaBlending). Note that that page refers to *premultiplied* alpha colors, but Skia’s API generally does not use premultiplied representations, and this code doesn’t either. (Skia does represent colors internally in a premultiplied form, however.)
 
-```
+```py
 class Pixel:
  def source_over(self, source):
  new_a = source.a + self.a * (1 - source.a)
@@ -7634,7 +7606,7 @@ class Pixel:
 
 Here, the destination pixel `self` is modified to blend in the source pixel `source`. The mathematical expressions for the red, green, and blue color channels are identical, and basically average the source and destination colors, weighted by alpha.For example, if the alpha of the source pixel is 1, the result is just the source pixel color, and if it is 0 the result is the backdrop pixel color. You might imagine the overall operation of `saveLayer` with an `Alphaf` parameter as something like this:In reality, reading individual pixels into memory to manipulate them like this is slow, so libraries such as Skia don’t make it convenient to do so. (Skia canvases do have `peekPixels` and `readPixels` methods that are sometimes used, but not for this.)
 
-```
+```py
 for (x, y) in destination.coordinates():
  source[x, y].alphaf(opacity)
  destination[x, y].source_over(source[x, y])
@@ -7644,7 +7616,7 @@ Source-over compositing is one way to combine two pixel values. But it’s not t
 
 “Multiply” multiplies the color values:
 
-```
+```py
 class Pixel:
  def multiply(self, source):
  self.r = self.r * source.r
@@ -7654,7 +7626,7 @@ class Pixel:
 
 And “difference” computes their absolute differences:
 
-```
+```py
 class Pixel:
  def difference(self, source):
  self.r = abs(self.r - source.r)
@@ -7664,7 +7636,7 @@ class Pixel:
 
 CSS supports these and many other blending modesMany of these blending modes are [common](https://en.wikipedia.org/wiki/Blend_modes) to other graphics editing programs like Photoshop and GIMP. Some, like [“dodge” and “burn”](https://en.wikipedia.org/wiki/Dodging_and_burning), go back to analog photography, where photographers would expose some parts of the image more than others to manipulate their brightness. via the [`mix-blend-mode` property](https://drafts.fxtf.org/compositing-1/#propdef-mix-blend-mode), like this:
 
-```
+```py
 <div style="background-color:orange">
  Parent
  <div style="background-color:blue;mix-blend-mode:difference">
@@ -7684,7 +7656,7 @@ Figure 5: Example of the `difference` value for `mix-blend-mode` with a blue chi
 
 Here, when blue overlaps with orange, we see pink: blue has (red, green, blue) color channels of `(0, 0, 1)`, and orange has `(1, 0.65, 0)`, so with “difference” blending the resulting pixel will be `(1, 0.65, 1)`, which is pink. On a pixel level, what’s happening is something like this:
 
-```
+```py
 for (x, y) in destination.coordinates():
  source[x, y].alphaf(opacity)
  source[x, y].difference(destination[x, y])
@@ -7695,7 +7667,7 @@ This looks weird, but conceptually it blends the destination into the source (wh
 
 Skia supports the [multiply](https://drafts.fxtf.org/compositing-1/#blendingmultiply) and [difference](https://drafts.fxtf.org/compositing-1/#blendingdifference) blend modes natively:
 
-```
+```py
 def parse_blend_mode(blend_mode_str):
  if blend_mode_str == "multiply":
  return skia.BlendMode.kMultiply
@@ -7707,7 +7679,7 @@ def parse_blend_mode(blend_mode_str):
 
 We can then support blending in our browser by defining a new `Blend` operation:
 
-```
+```py
 class Blend:
  def __init__(self, blend_mode, children):
  self.blend_mode = blend_mode
@@ -7729,7 +7701,7 @@ class Blend:
 
 Applying it when `mix-blend-mode` is set just requires a simple change to `paint_visual_effects`:
 
-```
+```py
 def paint_visual_effects(node, cmds, rect):
  # ...
  blend_mode = node.style.get("mix-blend-mode")
@@ -7757,7 +7729,7 @@ Usually, `overflow: clip` is used with properties like `height` or `rotate` whic
 
 Figure 6: An example of overflowing text not being clipped by rounded corners.
 
-```
+```py
 <div 
  style="border-radius:30px;background-color:lightblue;overflow:clip">
  This test text exists here to ensure that the "div" element is
@@ -7777,7 +7749,7 @@ Counterintuitively, we’ll implement clipping using blending modes. We’ll mak
 
 [Destination-in compositing](https://drafts.fxtf.org/compositing-1/#porterduffcompositingoperators_dstin) basically means keeping the pixels of the destination surface that intersect with the source surface. The source surface’s color is not used—just its alpha. In our case, the source surface is the rounded rectangle mask and the destination surface is the content we want to clip, so destination-in fits perfectly. In code, destination-in looks like this:
 
-```
+```py
 class Pixel:
  def destination_in(self, source):
  self.a = self.a * source.a
@@ -7785,7 +7757,7 @@ class Pixel:
 
 Now, in `paint_visual_effects`, we need to create a new layer, draw the mask image into it, and then blend it with the element contents with destination-in blending:
 
-```
+```py
 def paint_visual_effects(node, cmds, rect):
  # ...
  if node.style.get("overflow", "visible") == "clip":
@@ -7804,7 +7776,7 @@ def paint_visual_effects(node, cmds, rect):
 
 Here I pass `destination-in` as the blend mode, though note that this is a bit of a hack and that isn’t actually a valid value of `mix-blend-mode`:
 
-```
+```py
 def parse_blend_mode(blend_mode_str):
  # ...
  elif blend_mode_str == "destination-in":
@@ -7830,7 +7802,7 @@ Let’s review all the surfaces that our code can create for an element:
 
 But not every element has opacity, blend modes, or clipping applied, and we could skip creating those surfaces most of the time. For example, there’s no reason to create a surface in `Opacity` if no opacity is actually applied:
 
-```
+```py
 class Opacity:
  def execute(self, canvas):
  paint = skia.Paint(
@@ -7846,7 +7818,7 @@ class Opacity:
 
 Similarly, `Blend` doesn’t necessarily need to create a layer if there’s no blending going on. But the logic here is a little trickier: the `Blend` operation not only applies blending but also isolates the element contents, which matters if they are being clipped by `overflow`. So let’s skip creating a layer in `Blend` when there’s no blending mode, but let’s set the blend mode to a special, non-standard `source-over` value when we need clipping:
 
-```
+```py
 def paint_visual_effects(node, cmds, rect):
  if node.style.get("overflow", "visible") == "clip":
  if not blend_mode:
@@ -7856,7 +7828,7 @@ def paint_visual_effects(node, cmds, rect):
 
 We’ll parse that as the default source-over blend mode:
 
-```
+```py
 def parse_blend_mode(blend_mode_str):
  # ...
  elif blend_mode_str == "source-over":
@@ -7866,7 +7838,7 @@ def parse_blend_mode(blend_mode_str):
 
 This is actually unnecessary, since `parse_blend_mode` already parses unknown strings as source-over blending, but it’s good to be explicit. Anyway, now `Blend` can skip `saveLayer` if no blend mode is passed:
 
-```
+```py
 class Blend:
  def execute(self, canvas):
  paint = skia.Paint(
@@ -7882,7 +7854,7 @@ class Blend:
 
 So now we skip creating extra surfaces when `Opacity` and `Blend` aren’t really necessary. But there’s still one case where we use too many: both `Opacity` and `Blend` can create a surface instead of sharing one. Let’s fix that by just merging opacity into `Blend`:This works for opacity, but not for filters that “move pixels” such as [blur](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/blur()). Such a filter needs to be applied before clipping, not when blending into the parent surface. Otherwise, the edge of the blur will not be sharp.
 
-```
+```py
 class Blend:
  def __init__(self, opacity, blend_mode, children):
  self.opacity = opacity
@@ -7909,7 +7881,7 @@ class Blend:
 
 Now `paint_visual_effects` looks like this:
 
-```
+```py
 def paint_visual_effects(node, cmds, rect):
  # ...
 
@@ -7986,7 +7958,7 @@ So far, most of the work our browser’s been doing has come from user actions l
 
 Modern browsers adapt to this reality by multitasking, prioritizing, and deduplicating work. Every bit of work the browser might do—loading pages, running scripts, and responding to user actions—is turned into a *task*, which can be executed later, where a task is just a function (plus its arguments) that can be executed:
 
-```
+```py
 class Task:
  def __init__(self, task_code, *args):
  self.task_code = task_code
@@ -8002,7 +7974,7 @@ Note the special `*args` syntax in the constructor arguments and in the call to 
 
 The point of a task is that it can be created at one point in time, and then run at some later time by a task runner of some kind, according to a scheduling algorithm.The event loops we discussed in [Chapter 2](graphics.html#eventloop) and [Chapter 11](visual-effects.html#sdl-creates-the-window) are task runners, where the tasks to run are provided by the operating system. In our browser, the task runner will store tasks in a first-in, first-out queue:
 
-```
+```py
 class TaskRunner:
  def __init__(self):
  self.tab = tab
@@ -8014,7 +7986,7 @@ class TaskRunner:
 
 When the time comes to run a task, our task runner can just remove the first task from the queue and run it:First-in, first-out is a simplistic way to choose which task to run next, and real browsers have sophisticated *schedulers* which consider [many different factors](https://blog.chromium.org/2015/04/scheduling-tasks-intelligently-for_30.html).
 
-```
+```py
 class TaskRunner:
  def run(self):
  if len(self.tasks) > 0:
@@ -8024,13 +7996,13 @@ class TaskRunner:
 
 To run those tasks, we need to call the `run` method on our `TaskRunner`, which we can do in the main event loop:
 
-```
+```py
 class Tab:
  def __init__(self):
  self.task_runner = TaskRunner(self)
 ```
 
-```
+```py
 def mainloop(browser):
  while True:
  # ...
@@ -8041,7 +8013,7 @@ The `TaskRunner` allows us to choose when exactly different tasks are handled. H
 
 With this simple task runner, we can now queue up tasks and execute them later. For example, right now, when loading a web page, our browser will download and run all scripts before doing its rendering steps. That makes pages slower to load. We can fix this by creating tasks for running scripts:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -8063,14 +8035,14 @@ JavaScript uses a task-based [event loop](https://developer.mozilla.org/en-US/do
 
 Tasks are *also* a natural way to support several JavaScript APIs that ask for a function to be run at some point in the future. For example, [`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) lets you run a JavaScript function some number of milliseconds from now. This code prints “Callback” to the console one second from now:
 
-```
+```py
 function callback() { console.log('Callback'); }
 setTimeout(callback, 1000);
 ```
 
 As with `addEventListener` in [Chapter 9](scripts.html#event-handling), we’ll implement `setTimeout` by saving the callback in a JavaScript variable and creating a handle by which the Python-side code can call it:
 
-```
+```py
 SET_TIMEOUT_REQUESTS = {}
 
 function setTimeout(callback, time_delta) {
@@ -8082,7 +8054,7 @@ function setTimeout(callback, time_delta) {
 
 The exported `setTimeout` function will create a timer, wait for the requested time period, and then ask the JavaScript runtime to run the callback. That last part will happen via `__runSetTimeout`:Note that we never remove `callback` from the `SET_TIMEOUT_REQUESTS` dictionary. This could lead to a memory leak, if the callback is holding on to the last reference to some large data structure. [Chapter 9](scripts.html) had a similar issue with handles. Avoiding memory leaks in data structures shared between the browser and the browser application takes a lot of care and this book doesn’t attempt to do it right.
 
-```
+```py
 function __runSetTimeout(handle) {
  var callback = SET_TIMEOUT_REQUESTS[handle]
  callback();
@@ -8091,7 +8063,7 @@ function __runSetTimeout(handle) {
 
 Now let’s implement the Python side of this API. We can use the [`Timer`](https://docs.python.org/3/library/threading.html#timer-objects) class in Python’s [`threading`](https://docs.python.org/3/library/threading.html) module. You use the class like this:An alternative approach would be to record when each `Task` is supposed to occur, and compare against the current time in the event loop. This is called *polling*, and is what, for example, the SDL event loop does to look for events and tasks. However, that can mean wasting CPU cycles in a loop until the task is ready, so I expect the `Timer` to be more efficient.
 
-```
+```py
 import threading
 def callback():
  # ...
@@ -8102,7 +8074,7 @@ This runs `callback` one second from now. Simple! But `threading.Timer` executes
 
 Let’s implement that:
 
-```
+```py
 SETTIMEOUT_JS = "__runSetTimeout(dukpy.handle)"
 
 class JSContext:
@@ -8127,7 +8099,7 @@ To do so we use a [`Condition`](https://docs.python.org/3/library/threading.html
 
 The `Condition` class is actually a [`Lock`](https://docs.python.org/3/library/threading.html#threading.Lock), plus functionality to be able to *wait* until a state condition occurs. If you have no more work to do right now, acquire `condition` and then call `wait`. This will cause the thread to stop at that line of code. When more work comes in to do, such as in `schedule_task`, a call to `notify_all` will wake up the thread that called `wait`.
 
-```
+```py
 class TaskRunner:
  def __init__(self, tab):
  # ...
@@ -8160,7 +8132,7 @@ When using locks, it’s super important to remember to release the lock eventua
 
 The `setTimeout` code is now thread-safe, but still has yet another bug: if we navigate from one page to another, `setTimeout` callbacks still pending on the previous page might still try to execute. That is easily prevented by adding a `discarded` field on `JSContext` and setting it when loading a new page:
 
-```
+```py
 class JSContext:
  def __init__(self, tab):
  # ...
@@ -8171,7 +8143,7 @@ class JSContext:
  self.interp.evaljs(SETTIMEOUT_JS, handle=handle)
 ```
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -8186,7 +8158,7 @@ Unfortunately, Python currently has a [global interpreter lock](https://wiki.pyt
 
 Threads can also be used to add browser multitasking. For example, in [Chapter 10](security.html#cross-site-requests) we implemented the `XMLHttpRequest` class, which lets scripts make requests to the server. But in our implementation, the whole browser would seize up while waiting for the request to finish. That’s obviously bad.For this reason, the synchronous version of the API that we implemented in Chapter 10 is not very useful and a huge performance footgun. Some browsers are now moving to deprecate synchronous `XMLHttpRequest`. Python’s `Thread` class lets us do better:
 
-```
+```py
 threading.Thread(target=callback).start()
 ```
 
@@ -8196,7 +8168,7 @@ We’ll implement asynchronous `XMLHttpRequest` calls using threads. Specificall
 
 Like with `setTimeout`, we’ll store the callback on the JavaScript side and refer to it with a handle:
 
-```
+```py
 XHR_REQUESTS = {}
 
 function XMLHttpRequest() {
@@ -8207,7 +8179,7 @@ function XMLHttpRequest() {
 
 When a script calls the `open` method on an `XMLHttpRequest` object, we’ll now allow the `is_async` flag to be true:In browsers, the `is_async` parameter is optional and defaults to `true`, but our browser doesn’t implement that.
 
-```
+```py
 XMLHttpRequest.prototype.open = function(method, url, is_async) {
  this.is_async = is_async;
  this.method = method;
@@ -8217,7 +8189,7 @@ XMLHttpRequest.prototype.open = function(method, url, is_async) {
 
 The `send` method will need to send over the `is_async` flag and the handle:
 
-```
+```py
 XMLHttpRequest.prototype.send = function(body) {
  this.responseText = call_python("XMLHttpRequest_send",
  this.method, this.url, body, this.is_async, this.handle);
@@ -8226,7 +8198,7 @@ XMLHttpRequest.prototype.send = function(body) {
 
 On the browser side, the `XMLHttpRequest_send` handler will have three parts. The first part will resolve the URL and do security checks:
 
-```
+```py
 class JSContext:
  def XMLHttpRequest_send(
  self, method, url, body, isasync, handle):
@@ -8240,7 +8212,7 @@ class JSContext:
 
 Then, we’ll define a function that makes the request and enqueues a task for running callbacks:
 
-```
+```py
 class JSContext:
  def XMLHttpRequest_send(
  self, method, url, body, isasync, handle):
@@ -8256,7 +8228,7 @@ Note that the task runs `dispatch_xhr_onload`, which we’ll define in just a mo
 
 Finally, depending on the `is_async` flag the browser will either call this function right away, or in a new thread:
 
-```
+```py
 class JSContext:
  def XMLHttpRequest_send(
  self, method, url, body, isasync, handle):
@@ -8271,7 +8243,7 @@ Note that in the asynchronous case, the `XMLHttpRequest_send` method starts a th
 
 To communicate the result back to JavaScript, we’ll call a `__runXHROnload` function from `dispatch_xhr_onload`:
 
-```
+```py
 XHR_ONLOAD_JS = "__runXHROnload(dukpy.out, dukpy.handle)"
 
 class JSContext:
@@ -8283,7 +8255,7 @@ class JSContext:
 
 The `__runXHROnload` method just pulls the relevant object from `XHR_REQUESTS` and calls its `onload` function, which is the standard callback for asynchronous `XMLHttpRequest`s:
 
-```
+```py
 function __runXHROnload(body, handle) {
  var obj = XHR_REQUESTS[handle];
  var evt = new Event('load');
@@ -8305,13 +8277,13 @@ Now, it might be hard to see how the browser can prioritize which JavaScript cal
 
 So let’s establish 30 frames per second—33 ms for each frame—as our refresh rate target:Of course, 30 times per second is actually 33.33333… ms. But it’s a toy browser, and having a more exact value also makes tests easier to write.
 
-```
+```py
 REFRESH_RATE_SEC = .033
 ```
 
 Now, drawing a frame is split between the `Tab` and `Browser`. The `Tab` needs to call `render` to compute a display list. Then the `Browser` needs to raster and draw that display list (and also the chrome display list). Let’s put those `Browser` tasks in their own method:
 
-```
+```py
 class Browser:
  def raster_and_draw(self):
  self.raster_chrome()
@@ -8321,7 +8293,7 @@ class Browser:
 
 Now, we don’t need *each* tab redrawing itself every frame, because the user only sees one tab at a time. We just need the *active* tab redrawing itself. Therefore, it’s the `Browser` that should control when we update the display, not individual `Tab`s. So let’s write a `schedule_animation_frame` methodIt’s called an “animation frame” because sequential rendering of different pixels is an animation, and each time you render it’s one “frame”—like a drawing in a picture frame. that schedules a task to `render` the active tab:
 
-```
+```py
 class Browser:
  def __init__(self):
  self.animation_timer = None
@@ -8340,7 +8312,7 @@ class Browser:
 
 We can kick off the process when we start the browser. In the top-level loop, after running a task on the active tab the browser will need to raster and draw, in case that task was a rendering task:
 
-```
+```py
 def mainloop(browser):
  while True:
  # ...
@@ -8359,7 +8331,7 @@ If you run this on your computer, there’s a good chance your CPU usage will sp
 
 Let’s fix this using a *dirty bit*, a piece of state that tells us if some complex data structure is up to date. Since we want to know if we need to run `render`, let’s call our dirty bit `needs_render`:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -8376,7 +8348,7 @@ class Tab:
 
 One advantage of this flag is that we can now set `needs_render` when the HTML has changed instead of calling `render` directly. The `render` will still happen, but later. This makes scripts faster, especially if they modify the page multiple times. Make this change in `innerHTML_set`, `load`, `click`, and `keypress` when changing the DOM. For example, in `load`, do this:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -8385,7 +8357,7 @@ class Tab:
 
 And in `innerHTML_set`, do this:
 
-```
+```py
 class JSContext:
  def innerHTML_set(self, handle, s):
  # ...
@@ -8396,7 +8368,7 @@ There are more calls to `render`; you should find and fix all of them … except
 
 We now don’t immediately render when something changes. That means that the layout tree (and style) could be out of date when a method is called. Normally, this isn’t a problem, but in one important case it is: click handling. That’s because we need to read the layout tree to figure out what object was clicked on, which means the layout tree needs to be up to date. To fix this, add a call to `render` at the top of `click`:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  self.render()
@@ -8407,7 +8379,7 @@ Another problem with our implementation is that the browser is now doing `raster
 
 We can avoid this using another dirty bit, which I’ll call `needs_raster_and_draw`:The `needs_raster_and_draw` dirty bit doesn’t just make the browser a bit more efficient. Later in this chapter, we’ll add multiple browser threads, and at that point this dirty bit is necessary to avoid erratic behavior when animating. Try removing it later and see for yourself!
 
-```
+```py
 class Browser:
  def __init__(self):
  self.needs_raster_and_draw = False
@@ -8424,7 +8396,7 @@ class Browser:
 
 We will need to call `set_needs_raster_and_draw` every time either the `Browser` changes something about the browser chrome, or any time the `Tab` changes its rendering. The browser chrome is changed by event handlers:
 
-```
+```py
 class Browser:
  def handle_click(self, e):
  if e.y < self.chrome.bottom:
@@ -8444,7 +8416,7 @@ class Browser:
 
 Here I need a small change to make `enter` return whether something was done:
 
-```
+```py
 class Chrome:
  def enter(self):
  if self.focus == "address bar":
@@ -8456,7 +8428,7 @@ class Chrome:
 
 And the `Tab` should also set this bit after running `render`:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -8469,7 +8441,7 @@ class Tab:
 
 You’ll need to pass in the `browser` parameter when a `Tab` is constructed:
 
-```
+```py
 class Browser:
  def new_tab(self, url):
  new_tab = Tab(self, HEIGHT - self.chrome.bottom)
@@ -8484,7 +8456,7 @@ This scheduled, task-based approach to rendering is necessary for running comple
 
 One big reason for a steady rendering cadence is so that animations run smoothly. Web pages can set up such animations using the [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) API. This API allows scripts to run code right before the browser runs its rendering pipeline, making the animation maximally smooth. It works like this:
 
-```
+```py
 function callback() { /* Modify DOM */ }
 requestAnimationFrame(callback);
 ```
@@ -8493,7 +8465,7 @@ By calling `requestAnimationFrame`, this code is doing two things: scheduling a 
 
 The implementation of this JavaScript API is straightforward. Like before, we store the callbacks on the JavaScript side:
 
-```
+```py
 RAF_LISTENERS = [];
 
 function requestAnimationFrame(fn) {
@@ -8504,7 +8476,7 @@ function requestAnimationFrame(fn) {
 
 In `JSContext`, when that method is called, we need to schedule a new rendering task:
 
-```
+```py
 class JSContext:
  def __init__(self, tab):
  # ...
@@ -8512,7 +8484,7 @@ class JSContext:
  self.requestAnimationFrame)
 ```
 
-```
+```py
  def requestAnimationFrame(self):
  task = Task(self.tab.render)
  self.tab.task_runner.schedule_task(task)
@@ -8520,7 +8492,7 @@ class JSContext:
 
 Then, when `render` is actually called, we need to call back into JavaScript, like this:
 
-```
+```py
 class Tab:
  def render(self):
  if not self.needs_render: return
@@ -8530,7 +8502,7 @@ class Tab:
 
 This `__runRAFHandlers` function is a little tricky:
 
-```
+```py
 function __runRAFHandlers() {
  var handlers_copy = RAF_LISTENERS;
  RAF_LISTENERS = [];
@@ -8544,7 +8516,7 @@ Note that `__runRAFHandlers` needs to reset `RAF_LISTENERS` to the empty array b
 
 This situation may seem like a corner case, but it’s actually very important, as this is how pages can run an *animation*: by iteratively scheduling one frame after another. For example, here’s a simple counter “animation”:
 
-```
+```py
 var count = 0;
 function callback() {
  var output = document.querySelectorAll("div")[1];
@@ -8557,7 +8529,7 @@ requestAnimationFrame(callback);
 
 This script will cause 100 animation frame tasks to run on the rendering event loop. During that time, our browser will display an animated count from 0 to 99\. Serve this example web page from our HTTP server:
 
-```
+```py
 def do_request(session, method, url, headers, body):
  elif method == "GET" and url == "/count":
  return "200 OK", show_count()
@@ -8578,13 +8550,13 @@ One flaw with our implementation so far is that an inattentive coder might call 
 
 Luckily, rendering is special in that it never makes sense to have two rendering tasks in a row, since the page wouldn’t have changed in between. To avoid having two rendering tasks we’ll add a dirty bit called `needs_animation_frame` to the `Browser` that indicates whether a rendering task actually needs to be scheduled:
 
-```
+```py
 class Browser:
  def __init__(self):
  self.needs_animation_frame = True
 ```
 
-```
+```py
  def schedule_animation_frame(self):
  # ...
  if self.needs_animation_frame and not self.animation_timer:
@@ -8593,7 +8565,7 @@ class Browser:
 
 A tab will set the `needs_animation_frame` flag when an animation frame is requested:
 
-```
+```py
 class JSContext:
  def requestAnimationFrame(self):
  self.tab.browser.set_needs_animation_frame(self.tab)
@@ -8621,7 +8593,7 @@ To instrument our browser, let’s have it output the [JSON](https://www.json.or
 
 To start, let’s wrap the actual file and format in a class:
 
-```
+```py
 class MeasureTime:
  def __init__(self):
  self.file = open("browser.trace", "w")
@@ -8629,7 +8601,7 @@ class MeasureTime:
 
 A trace file is just a JSON object with a `traceEvents` fieldThere are other optional fields too, which provide various kinds of metadata. We won’t need them here. which contains a list of trace events:
 
-```
+```py
 class MeasureTime:
  def __init__(self):
  # ...
@@ -8638,7 +8610,7 @@ class MeasureTime:
 
 Each trace event has a number of fields. The `ph` and `name` fields define the event type. For example, setting `ph` to `M` and `name` to `process_name` allows us to change the displayed process name:
 
-```
+```py
 class MeasureTime:
  def __init__(self):
  # ...
@@ -8656,7 +8628,7 @@ The new name (“Browser”) is passed in `args`, and the other fields are requi
 
 We’ll create this `MeasureTime` object when we start the browser, so we can use it to measure how long various browser components take:
 
-```
+```py
 class Browser:
  def __init__(self):
  self.measure = MeasureTime()
@@ -8664,7 +8636,7 @@ class Browser:
 
 Now let’s add trace events when our browser does something interesting. We specifically want `B` and `E` events, which mark the beginning and end of some interesting computation. Because we have that initial trace event, every later trace event needs to be preceded by a comma:
 
-```
+```py
 class MeasureTime:
  def time(self, name):
  ts = time.time() * 1000000
@@ -8678,7 +8650,7 @@ class MeasureTime:
 
 Here, the `name` argument to `time` should describe what kind of computation is starting, and it needs to match the name passed to the corresponding `stop` event:
 
-```
+```py
 class MeasureTime:
  def stop(self, name):
  ts = time.time() * 1000000
@@ -8692,7 +8664,7 @@ class MeasureTime:
 
 We can measure tab rendering by just calling `time` and `stop`:
 
-```
+```py
 class Tab:
  def render(self):
  if not self.needs_render: return
@@ -8705,7 +8677,7 @@ Do the same for `raster_and_draw`, and for all of the code that calls `evaljs` t
 
 Finally, when we finish tracing (that is, when we close the browser window), we want to leave the file a valid JSON file:
 
-```
+```py
 class MeasureTime:
  def finish(self):
  self.file.write(']}')
@@ -8754,7 +8726,7 @@ The overall control flow for rendering a frame will therefore be:
 
 Let’s implement this design. To start, we’ll add a `Thread` to each `TaskRunner`, which will be the tab’s main thread. This thread will need to run in a loop, pulling tasks from the task queue and running them. We’ll put that loop inside the `TaskRunner`’s `run` method.
 
-```
+```py
 class TaskRunner:
  def __init__(self, tab):
  # ...
@@ -8769,7 +8741,7 @@ class TaskRunner:
 
 Note that I name the thread; this is a good habit that helps with debugging. Let’s also name the browser thread:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -8778,7 +8750,7 @@ class Browser:
 
 Remove the call to `run` from the top-level `while True` loop, since that loop is now going to be running in the browser thread. And `run` will have its own loop:
 
-```
+```py
 class TaskRunner:
  def run(self):
  while True:
@@ -8787,7 +8759,7 @@ class TaskRunner:
 
 Because this loop runs forever, the main thread will live on indefinitely. So if the browser quits, we’ll want it to ask the main thread to quit as well:
 
-```
+```py
 class Browser:
  def handle_quit(self):
  for tab in self.tabs:
@@ -8796,7 +8768,7 @@ class Browser:
 
 The `set_needs_quit` method sets a flag on `TaskRunner` that’s checked every time it loops:
 
-```
+```py
 class TaskRunner:
  def set_needs_quit(self):
  self.condition.acquire(blocking=True)
@@ -8822,7 +8794,7 @@ class TaskRunner:
 
 The `Browser` should no longer call any methods on the `Tab`. Instead, to handle events, it should schedule tasks on the main thread. For example, here is loading:
 
-```
+```py
 class Browser:
  def schedule_load(self, url, body=None):
  self.active_tab.task_runner.clear_pending_tasks()
@@ -8832,7 +8804,7 @@ class Browser:
 
 We need to clear any pending tasks before loading a new page, because those previous tasks are now invalid:
 
-```
+```py
 class TaskRunner:
  def clear_pending_tasks(self):
  self.condition.acquire(blocking=True)
@@ -8842,7 +8814,7 @@ class TaskRunner:
 
 We also need to split `new_tab` into a version that acquires a lock and one that doesn’t (`new_tab_internal`):
 
-```
+```py
 class Browser:
  def new_tab(self, url):
  self.lock.acquire(blocking=True)
@@ -8858,7 +8830,7 @@ class Browser:
 
 This way `new_tab_internal` can be called directly by methods, like `Chrome`’s `click` method, that already hold the lock.Using locks while avoiding race conditions and deadlocks can be quite difficult!
 
-```
+```py
 class Chrome:
  def click(self, x, y):
  if self.newtab_rect.contains(x, y):
@@ -8872,7 +8844,7 @@ class Chrome:
 
 Event handlers are mostly similar, except that we need to be careful to distinguish events that affect the browser chrome from those that affect the tab. For example, consider `handle_click`. If the user clicked on the browser chrome, we can handle it right there in the browser thread. But if the user clicked on the web page, we must schedule a task on the main thread:
 
-```
+```py
 class Browser:
  def handle_click(self, e):
  self.lock.acquire(blocking=True)
@@ -8888,7 +8860,7 @@ class Browser:
 
 The same logic holds for `keypress`:
 
-```
+```py
 class Browser:
  def handle_key(self, char):
  if not (0x20 <= ord(char) < 0x7f): return
@@ -8911,7 +8883,7 @@ We already have a `set_needs_animation_frame` method, but we also need a `commit
 
 Let’s make a simple class for storing this data:
 
-```
+```py
 class CommitData:
  def __init__(self, url, scroll, height, display_list):
  self.url = url
@@ -8922,7 +8894,7 @@ class CommitData:
 
 When running an animation frame, the `Tab` should construct one of these objects and pass it to `commit`. To keep `render` from getting too confusing, let’s put this in a new `run_animation_frame` method, and move `__runRAFHandlers` there too.Why not reuse `render` instead of a new method? Because the `render` method is just about updating style, layout and paint when needed; it’s called for every frame, but it’s also called from `click`, and in real browsers from many other places too. Meanwhile, `run_animation_frame` is only called for frames, and therefore it, not `render`, runs RAF handlers and calls `commit`.
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -8940,7 +8912,7 @@ class Tab:
 
 Think of the `CommitData` object as being sent from the main thread to the browser thread. That means the main thread shouldn’t access it any more, and for this reason I’m resetting the `display_list` field. The `Browser` should now schedule `run_animation_frame`:
 
-```
+```py
 class Browser:
  def schedule_animation_frame(self):
  def callback():
@@ -8951,7 +8923,7 @@ class Browser:
 
 On the `Browser` side, the new `commit` method needs to read out all of the data it was sent and call `set_needs_raster_and_draw` as needed. Because this call will come from another thread, we’ll need to acquire a lock. Another important step is to not clear the `animation_timer` object until *after* the next commit occurs. Otherwise multiple rendering tasks could be queued at the same time. Finally, store all the `CommitData`: save the `scroll` in `active_tab_scroll`, the `url` in `active_tab_url`, and additionally store the `height` and, if available, the `display_list`:
 
-```
+```py
 class Browser:
  def __init__(self):
  self.lock = threading.Lock()
@@ -8980,7 +8952,7 @@ Note that `commit` is called on the main thread, but acquires the browser thread
 
 Now that we have a browser lock, we also need to acquire the lock any time the browser thread accesses any of its variables. For example, in `set_needs_animation_frame`, do this:
 
-```
+```py
 class Browser:
  def set_needs_animation_frame(self, tab):
  self.lock.acquire(blocking=True)
@@ -8990,7 +8962,7 @@ class Browser:
 
 In `schedule_animation_frame` you’ll need to do it both inside and outside the callback:
 
-```
+```py
 class Browser:
  def schedule_animation_frame(self):
  def callback():
@@ -9007,7 +8979,7 @@ Add locks to `raster_and_draw`, `handle_down`, `handle_click`, `handle_key`, and
 
 We also don’t want the main thread doing rendering faster than the browser thread can raster and draw. So we should only schedule animation frames once raster and draw are done.The technique of controlling the speed of the front of a pipeline by means of the speed of its end is called *back pressure*. Luckily, that’s exactly what we’re doing:
 
-```
+```py
 def mainloop(browser):
  while True:
  # ...
@@ -9023,7 +8995,7 @@ Due to the Python GIL, threading in Python doesn’t increase *throughput*, but 
 
 Now that we have two threads, we’ll want to be able to visualize this in the traces we produce. Luckily, the Chrome tracing format supports that. First of all, we’ll want to make the `MeasureTime` methods thread-safe, so they can be called from either thread:
 
-```
+```py
 class MeasureTime:
  def __init__(self):
  self.lock = threading.Lock()
@@ -9047,7 +9019,7 @@ class MeasureTime:
 
 Next, in every trace event, we’ll want to provide a real thread ID in the `tid` field, which we can get by calling `get_ident` from the `threading` library:
 
-```
+```py
 class MeasureTime:
  def time(self, name):
  # ...
@@ -9062,7 +9034,7 @@ class MeasureTime:
 
 Do the same thing in `stop`. We can also show human-readable thread names by adding metadata events when finishing the trace:Note that our browser doesn’t let you close tabs, so any thread stays around until the trace is `finish`ed. If closing tabs were possible, we’d need to do thread names somewhat differently.
 
-```
+```py
 class MeasureTime:
  def finish(self):
  self.lock.acquire(blocking=True)
@@ -9088,7 +9060,7 @@ The tracing system we introduced in this chapter comes directly from real browse
 
 Splitting the main thread from the browser thread means that the main thread can run a lot of JavaScript without slowing down the browser much. But it’s still possible for really slow JavaScript to slow the browser down. For example, imagine our counter adds the following artificial slowdown:
 
-```
+```py
 function callback() {
  for (var i = 0; i < 5e6; i++);
  // ...
@@ -9103,7 +9075,7 @@ The best we can do is to keep two scroll offsets, one on the browser thread and 
 
 Let’s implement that. To start, we’ll need to store an `active_tab_scroll` variable on the `Browser`, and update it when the user scrolls:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -9130,7 +9102,7 @@ This code calls `set_needs_raster_and_draw` to redraw the screen with a new scro
 
 The scroll offset also needs to change when the user switches tabs, but in this case we don’t know the right scroll offset yet. We need the main thread to run in order to commit a new display list for the other tab, and at that point we will have a new scroll offset as well. Move tab switching (in `load` and `handle_click`) to a new method `set_active_tab` that simply schedules a new animation frame:Note that both callers already hold the lock, so this method doesn’t need to acquire it.
 
-```
+```py
 class Browser:
  def set_active_tab(self, tab):
  self.active_tab = tab
@@ -9142,7 +9114,7 @@ class Browser:
 
 So far, this is only updating the scroll offset on the browser thread. But the main thread eventually needs to know about the scroll offset, so it can pass it back to `commit`. So, when the `Browser` creates a rendering task for `run_animation_frame`, it should pass in the scroll offset. The `run_animation_frame` function can then store the scroll offset before doing anything else. Add a `scroll` parameter to `run_animation_frame`:
 
-```
+```py
 class Browser:
  def schedule_animation_frame(self):
  # ...
@@ -9158,7 +9130,7 @@ class Browser:
 
 But the main thread also needs to be able to modify the scroll offset. We’ll add a `scroll_changed_in_tab` flag that tracks whether it’s done so, and only store the browser thread’s scroll offset if `scroll_changed_in_tab` is not already true.Two-threaded scroll has a lot of edge cases, including some I didn’t anticipate when writing this chapter. For example, it’s pretty clear that a load should force scroll to 0 (unless the browser implements [scroll restoration](https://developer.mozilla.org/en-US/docs/Web/API/History/scrollRestoration) for back-navigations!), but what about a scroll clamp followed by a browser scroll that brings it back to within the clamped region? By splitting the browser into two threads, we’ve brought in all of the challenges of concurrency and distributed state.
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -9172,7 +9144,7 @@ class Tab:
 
 We’ll set `scroll_changed_in_tab` when loading a new page or when the browser thread’s scroll offset is past the bottom of the page:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -9200,7 +9172,7 @@ class Tab:
 
 If the main thread *hasn’t* overridden the browser’s scroll offset, we’ll set the scroll offset to `None` in the commit data:
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  # ...
@@ -9215,7 +9187,7 @@ class Tab:
 
 The browser thread can ignore the scroll offset in this case:
 
-```
+```py
 class Browser:
  def commit(self, tab, data):
  if tab == self.active_tab:
@@ -9248,7 +9220,7 @@ Nevertheless, in practice, no current modern browser runs style or layout on any
 
 One possible way to resolve these tensions is to optimistically move style and layout off the main thread, similar to optimistically doing threaded scrolling if a web page doesn’t `preventDefault` a scroll. Is that a good idea? Maybe, but forced style and layout aren’t just caused by JavaScript execution. One example is our implementation of `click`, which causes a forced render before hit testing:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  self.render()
@@ -9324,7 +9296,7 @@ An [animation](https://en.wikipedia.org/wiki/Animation) is a sequence of still p
 
 In this chapter we’ll focus on animations of web page elements. Let’s start by writing a simple animation using the `requestAnimationFrame` API [implemented in Chapter 12](scheduling.html#animating-frames). This method requests that some JavaScript code run on the next frame; to run repeatedly over many frames, we can just have that JavaScript code call `requestAnimationFrame` itself:
 
-```
+```py
 function run_animation_frame() {
  if (animate())
  requestAnimationFrame(run_animation_frame);
@@ -9338,13 +9310,13 @@ For example, we can fade an element in by smoothly transitioning its `opacity` v
 
 So let’s take this `div` containing some text:
 
-```
+```py
 <div>This text fades</div>
 ```
 
 and write an `animate` function to incrementally change its `opacity`:
 
-```
+```py
 var div = document.querySelectorAll("div")[0];
 var total_frames = 120;
 var current_frame = 0;
@@ -9363,7 +9335,7 @@ Here’s how it looks; click the buttons to start a fade:
 
 This animation *almost* runs in our browser, except that we need to add support for changing an element’s `style` attribute from JavaScript. To do that, register a setter on the `style` attribute of `Node` in the JavaScript runtime:
 
-```
+```py
 Object.defineProperty(Node.prototype, 'style', {
  set: function(s) {
  call_python("style_set", this.handle, s.toString());
@@ -9373,7 +9345,7 @@ Object.defineProperty(Node.prototype, 'style', {
 
 Then, inside the browser, define a handler for `style_set`:
 
-```
+```py
 class JSContext:
  def __init__(self, tab):
  # ...
@@ -9411,19 +9383,19 @@ Luckily, SDL and Skia support GPUs and all of these steps; it’s mostly a matte
 
 First, we’ll need to install the OpenGL library:
 
-```
+```py
 pip3 install PyOpenGL
 ```
 
 and import it:
 
-```
+```py
 import OpenGL.GL
 ```
 
 Now we’ll need to configure SDL to use OpenGL and start/stop a [GL context](https://www.khronos.org/opengl/wiki/OpenGL_Context) at the beginning/end of the program. For our purposes, just consider this API boilerplate:Starting a GL context is just OpenGL’s way of saying “set up the surface into which subsequent OpenGL commands will draw”. After creating one you can even execute OpenGL commands manually, [without using Skia at all](http://pyopengl.sourceforge.net/), to draw polygons or other objects on the screen.
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -9447,13 +9419,13 @@ class Browser:
 
 That `print` statement shows the GPU vendor and renderer that the browser is using; this will help you verify that it’s actually using your GPU. I’m using a Chromebook to write this chapter, so for me it says:The `virgl` renderer stands for “virtual GL”, a way of hardware-accelerating the Linux subsystem of ChromeOS that works with the ChromeOS Linux sandbox. This is a bit slower than using the GPU directly, so you’ll probably see even faster raster and draw than I do.
 
-```
+```py
 OpenGL initialized: vendor=b'Red Hat', renderer=b'virgl'
 ```
 
 Now we can configure Skia to draw directly to the screen. The incantation is:Weirdly, this code draws to the window without referencing `gl_context` or `sdl_window` directly. That’s because OpenGL is a strange API with a lot of hidden global state; the `MakeGL` Skia method implicitly binds to the existing GL context.
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -9474,7 +9446,7 @@ class Browser:
 
 An extra advantage of using OpenGL is that we won’t need to copy data between Skia and SDL anymore. Instead we just *flush* the Skia surface (Skia surfaces draw lazily) and call `SDL_GL_SwapWindow` to activate the new framebuffer (because of OpenGL [double-buffering](https://wiki.libsdl.org/SDL_GL_SwapWindow)):
 
-```
+```py
 class Browser:
  def draw(self):
  # ...
@@ -9484,7 +9456,7 @@ class Browser:
 
 Finally, our browser also creates Skia surfaces for the `chrome_surface` and `tab_surface`. We don’t want to draw these straight to the screen, so the incantation is a bit different:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -9515,7 +9487,7 @@ So, how do we do less work in the raster-and-draw phase? The answer is a techniq
 
 To explain compositing, we’ll need to think about our browser’s display list, and to do that it’s useful to print it out. For example, for `DrawRect` you might print:
 
-```
+```py
 class DrawRect:
  def __repr__(self):
  return ("DrawRect(top={} left={} " +
@@ -9526,7 +9498,7 @@ class DrawRect:
 
 The `Blend` command sometimes does nothing if no opacity or blend mode is passed; it’s helpful to indicate that when printing:
 
-```
+```py
 class Blend:
  def __repr__(self):
  args = ""
@@ -9541,7 +9513,7 @@ class Blend:
 
 You’ll also need to add `children` fields to all of the paint commands, since `print_tree` relies on those. Now we can print out our browser’s display list:
 
-```
+```py
 class Tab:
  def render(self):
  # ...
@@ -9551,7 +9523,7 @@ class Tab:
 
 For our opacity example, the (key part of) the display list for one frame might look like this:
 
-```
+```py
 Blend(alpha=0.119866666667)
   DrawText(text=This)
   DrawText(text=text)
@@ -9560,7 +9532,7 @@ Blend(alpha=0.119866666667)
 
 On the next frame, it instead might like this:
 
-```
+```py
 Blend(alpha=0.112375)
   DrawText(text=This)
   DrawText(text=text)
@@ -9571,7 +9543,7 @@ In each case, rastering this display list means first rastering the three words 
 
 The idea is to first raster the three words to a separate surface (but this time owned by us, not Skia), which we’ll call a *composited layer*, that is saved for future use:
 
-```
+```py
 Composited Layer:
   DrawText(text=This)
   DrawText(text=text)
@@ -9580,14 +9552,14 @@ Composited Layer:
 
 Now instead of rastering those three words, we can just copy over the composited layer with a `DrawCompositedLayer` command:
 
-```
+```py
 Blend(alpha=0.112375)
   DrawCompositedLayer()
 ```
 
 Importantly, on the next frame, the `Blend` changes but the `DrawText`s don’t, so on that frame all we need to do is re-run the `Blend`:
 
-```
+```py
 Blend(alpha=0.119866666667)
   DrawCompositedLayer()
 ```
@@ -9608,7 +9580,7 @@ Let’s implementing compositing. We’ll need to identify paint commands and mo
 
 To identify paint commands, it’ll be helpful to give them all a `PaintCommand` superclass:
 
-```
+```py
 class PaintCommand:
  def __init__(self, rect):
  self.rect = rect
@@ -9617,7 +9589,7 @@ class PaintCommand:
 
 Now each paint command needs to be a subclass of `PaintCommand`; to do that, you need to name the superclass when the class is declared and also use some special syntax in the constructor:
 
-```
+```py
 class DrawLine(PaintCommand):
  def __init__(self, x1, y1, x2, y2, color, thickness):
  super().__init__(skia.Rect.MakeLTRB(x1, y1, x2, y2))
@@ -9626,7 +9598,7 @@ class DrawLine(PaintCommand):
 
 `MakeLTRB` creates the `rect` for the `PaintCommand` constructor. We can also give a superclass to visual effects:
 
-```
+```py
 class VisualEffect:
  def __init__(self, rect, children):
  self.rect = rect.makeOffset(0.0, 0.0)
@@ -9641,7 +9613,7 @@ Go ahead and modify each paint command and visual effect class to be a subclass 
 
 We can now list all of the paint commands using `tree_to_list`:
 
-```
+```py
 class Browser:
  def composite(self):
  all_commands = []
@@ -9653,7 +9625,7 @@ class Browser:
 
 Next we need to group paint commands into layers. For now, let’s do the simplest possible thing and put each paint command into its own `CompositedLayer`:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -9669,7 +9641,7 @@ class Browser:
 
 Here, a `CompositedLayer` just stores a list of *display items* (and a surface that they’ll be drawn to).For now, it’s just one display item, but that will change pretty soon.
 
-```
+```py
 class CompositedLayer:
  def __init__(self, skia_context, display_item):
  self.skia_context = skia_context
@@ -9681,7 +9653,7 @@ Now we need a draw display list that combines the composited layers. To build th
 
 First, to make it easy to access those ancestor visual effects and compare them, let’s add parent pointers to our display list tree:
 
-```
+```py
 def add_parent_pointers(nodes, parent=None):
  for node in nodes:
  node.parent = parent
@@ -9695,7 +9667,7 @@ class Browser:
 
 Next, we’ll need to *clone* each of the ancestors of the layer’s paint commands and inject new children, so let’s add a new `clone` method to the visual effects classes. For `Blend`, it’ll create a new `Blend` with the same parameters but new children:
 
-```
+```py
 class Blend(VisualEffect):
  # ...
  def clone(self, child):
@@ -9707,7 +9679,7 @@ Our browser won’t be cloning paint commands, since they’re all going to be i
 
 We can now build the draw display list. For each composited layer, create a `DrawCompositedLayer` command (which we’ll define in just a moment). Then, walk up the display list, wrapping that `DrawCompositedLayer` in each visual effect that applies to that composited layer:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -9731,7 +9703,7 @@ The code in `paint_draw_list` just walks up from each composited layer, recreati
 
 Let’s fix that by reusing cloned effects:
 
-```
+```py
 class Browser:
  def paint_draw_list(self):
  new_effects = {}
@@ -9756,7 +9728,7 @@ That’s it! Now that we’ve split the display list into composited layers and 
 
 Let’s start with raster. In the raster step, the browser needs to walk the list of composited layers and raster each:
 
-```
+```py
 class Browser:
  def raster_tab(self):
  for composited_layer in self.composited_layers:
@@ -9765,7 +9737,7 @@ class Browser:
 
 Inside `raster`, the composited layer needs to allocate a surface to raster itself into; this requires knowing how big it is. That’s just the union of the bounding boxes of all of its paint commands—the `rect` field:
 
-```
+```py
 class CompositedLayer:
  # ...
  def composited_bounds(self):
@@ -9777,7 +9749,7 @@ class CompositedLayer:
 
 We’ll create a surface just big enough to store the items in this composited layer; this reduces how much GPU memory we need. That being said, there are some tricky corner cases to consider, such as how Skia rasters lines or anti-aliased text across multiple pixels in order to look nice or align with the pixel grid.One pixel of “slop” around the edges is not good enough for a real browser, which has to deal with lots of really subtle issues like nicely blending pixels between adjacent composited layers, subpixel positioning, and effects like blur filters with infinite theoretical extent. So let’s add in one extra pixel on each side to account for that:
 
-```
+```py
  def composited_bounds(self):
  # ...
  rect.outset(1, 1)
@@ -9786,7 +9758,7 @@ We’ll create a surface just big enough to store the items in this composited l
 
 And now we can make the surface with those bounds:
 
-```
+```py
 class CompositedLayer:
  def raster(self):
  bounds = self.composited_bounds()
@@ -9804,7 +9776,7 @@ class CompositedLayer:
 
 To raster the composited layer, draw all of its display items to this surface. The only tricky part is the need to offset by the `top` and `left` of the composited bounds, since the surface bounds don’t include that offset:
 
-```
+```py
 class CompositedLayer:
  def raster(self):
  # ...
@@ -9818,7 +9790,7 @@ class CompositedLayer:
 
 That’s all for the raster phase. For the draw phase, we’ll first need to implement the `DrawCompositedLayer` command. It takes a composited layer to draw:
 
-```
+```py
 class DrawCompositedLayer(PaintCommand):
  def __init__(self, composited_layer):
  self.composited_layer = composited_layer
@@ -9831,7 +9803,7 @@ class DrawCompositedLayer(PaintCommand):
 
 Executing a `DrawCompositedLayer` is straightforward—just draw its surface into the parent surface, adjusting for the correct offset:
 
-```
+```py
 class DrawCompositedLayer(PaintCommand):
  def execute(self, canvas):
  layer = self.composited_layer
@@ -9841,7 +9813,7 @@ class DrawCompositedLayer(PaintCommand):
 
 Compared with raster, the browser’s `draw` phase is satisfyingly simple: simply execute the draw display list.
 
-```
+```py
 class Browser:
  def draw(self):
  # ...
@@ -9856,7 +9828,7 @@ class Browser:
 
 All that’s left is wiring these methods up; let’s rename `raster_and_draw` to `composite_raster_and_draw` (to remind us that there’s now an additional composite step) and add our two new methods. (And don’t forget to rename the corresponding dirty bit and call sites.)
 
-```
+```py
 class Browser:
  def composite_raster_and_draw(self):
  # ...
@@ -9878,7 +9850,7 @@ The key to not re-rastering layers is to know which layers have changed, and whi
 
 CSS transitions take the `requestAnimationFrame` loop we used to implement animations and move it “into the browser”. The web page just needs to add a CSS [`transition`](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) property, which defines properties to animate and how long to animate them for. Here’s how to say opacity changes to a `div` should animate for two seconds:
 
-```
+```py
 div { transition: opacity 2s; }
 ```
 
@@ -9892,7 +9864,7 @@ Visually, it looks more or less identicalIt’s not exactly the same, because ou
 
 To implement CSS transitions, we’ll need to represent animation state—like the JavaScript variables `current_frame` and `change_per_frame` from the earlier example—in the browser. Since multiple elements can animate at a time, let’s store an `animations` dictionary on each node, keyed by the property being animated:For simplicity, this code leaves animations in the `animations` dictionary even when they’re done animating. Removing them would be necessary, however, for really long-running tabs where just looping over all the already-completed animations can take a while.
 
-```
+```py
 class Text:
  def __init__(self, text, parent):
  # ...
@@ -9908,7 +9880,7 @@ class Element:
 
 The simplest type of thing to animate is numeric properties like `opacity`:
 
-```
+```py
 class NumericAnimation:
  def __init__(self, old_value, new_value, num_frames):
  self.old_value = float(old_value)
@@ -9922,7 +9894,7 @@ class NumericAnimation:
 
 Much like in JavaScript, we’ll need an `animate` method that increments the frame count, computes the new value and returns it:
 
-```
+```py
 class NumericAnimation:
  def animate(self):
  self.frame_count += 1
@@ -9934,7 +9906,7 @@ class NumericAnimation:
 
 We’ll create these animation objects every time a style value changes, which we can detect in `style` by diffing the old and new styles of each node:
 
-```
+```py
 def style(node, rules):
  old_style = node.style
 
@@ -9948,7 +9920,7 @@ This `diff_styles` function is going to look for all properties that are mention
 
 The first challenge is, annoyingly, that at the moment our CSS parser doesn’t recognize `opacity 2s` as a valid CSS value, since it parses values as a single word. Let’s upgrade the parser to recognize any string of characters except one of a specified set of `chars`:
 
-```
+```py
 class CSSParser:
  def until_chars(self, chars):
  start = self.i
@@ -9965,7 +9937,7 @@ class CSSParser:
 
 Inside a CSS rule body, a property value continues until a semicolon or a close curly brace:
 
-```
+```py
 class CSSParser:
  def body(self):
  while self.i < len(self.s) and self.s[self.i] != "}":
@@ -9976,7 +9948,7 @@ class CSSParser:
 
 Now that we parse the CSS property, we can parse out the properties with transitions:Note that this returns a dictionary mapping property names to transition durations, measured in frames.
 
-```
+```py
 def parse_transition(value):
  properties = {}
  if not value: return properties
@@ -9989,7 +9961,7 @@ def parse_transition(value):
 
 Now `diff_style` can loop through all of the properties mentioned in `transition` and see which ones changed. It returns a dictionary containing only the transitioning properties, and mapping each such property to its old value, new value, and duration (again in frames).Note also that this code has to deal with subtleties like the `transition` property being added or removed, or properties being removed instead of changing values.
 
-```
+```py
 def diff_styles(old_style, new_style):
  transitions = {}
  for property, num_frames in \
@@ -10006,7 +9978,7 @@ def diff_styles(old_style, new_style):
 
 Back inside `style`, we’re going to want to create a new animation object for each transitioning property—we’ll support only `opacity`.
 
-```
+```py
 def style(node, rules, tab):
  if old_style:
  transitions = diff_styles(old_style, node.style)
@@ -10024,7 +9996,7 @@ Any time a property listed in a `transition` changes its value, we create an ani
 
 Running the animation entails iterating through all the active animations on the page and calling `animate` on them. Since CSS transitions are similar to `requestAnimationFrame` animations, let’s run animations right after handling `requestAnimationFrame` callbacks:
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  # ...
@@ -10044,7 +10016,7 @@ Figure 2: The rendering cycle between the browser and main threads.
 
 However, it’s not as simple as just setting `needs_render` any time an animation is active. Setting `needs_render` means re-running `style`, which would notice that the animation changed a property value and start a *new* animation! During an animation, we want to run `layout` and `paint`, but we *don’t* want to run `style`:While a real browser definitely has an analog of the `needs_layout` and `needs_paint` flags, our fix for restarting animations doesn’t handle a bunch of edge cases. For example, if a different style property than the one being animated changes, the browser shouldn’t restart the animation. Real browsers do things like storing multiple copies of the style—the computed style and the animated style—to solve issues like this.
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  for node in tree_to_list(self.nodes, []):
@@ -10058,7 +10030,7 @@ class Tab:
 
 To implement `set_needs_layout`, we’ve got to replace the single `needs_render` flag with three flags: `needs_style`, `needs_layout`, and `needs_paint`. In our implementation, setting a dirty bit earlier in the pipeline will end up causing everything after it to also run,This is yet another difference from real browsers, which optimize some cases that just require style and paint, or other combinations. so `set_needs_render` still just sets the `needs_style` flag:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -10074,7 +10046,7 @@ class Tab:
 
 Now we can write a `set_needs_layout` method that sets flags for the `layout` and `paint` phases, but not the `style` phase:
 
-```
+```py
 class Tab:
  def set_needs_layout(self):
  self.needs_layout = True
@@ -10083,7 +10055,7 @@ class Tab:
 
 To support these new dirty bits, `render` must check each phase’s bit instead of checking `needs_render` at the start:By the way, this *does* obsolete our tracing code for how long rendering takes. Rendering now does different work on different frames, so measuring rendering overall doesn’t really make sense! I’m going to leave this be and just not look at the rendering measures anymore, but the best fix would be to have three trace events for the three phases of `render`.
 
-```
+```py
 class Tab:
  def render(self):
  self.browser.measure.time('render')
@@ -10119,7 +10091,7 @@ We’re finally ready to teach the browser how to avoid raster (and layout) when
 
 Implementing this is harder than it sounds. We’ll need to split the *new* display list into the *old* composited layers and a *new* draw display list. To do this we’ll need to know how the new and old display lists are related, and what parts of the display list changed. For this purpose we’ll add a `node` field to each display item, storing the node that painted it, as a sort of identifier:Note that the browser thread can never *access* that node, since it is owned by another thread. But it can use the node as an identifier.
 
-```
+```py
 class VisualEffect:
  def __init__(self, rect, children, node=None):
  # ...
@@ -10130,7 +10102,7 @@ Now, when an animation runs—but nothing else changes—we’ll use these nodes
 
 First, when a composited animation runs, save the `Element` whose style was changed in a new array called `composited_updates`. We’ll also only set the `needs_paint` flag, not `needs_layout`, in this case:
 
-```
+```py
 class Tab:
  def __init__(self, browser):
  # ...
@@ -10151,7 +10123,7 @@ Now, when we `commit` a frame which only needs the paint phase, send the `compos
 
 To accomplish this we’ll need several steps. First, when painting a `Blend`, record it on the `Element`:
 
-```
+```py
 def paint_visual_effects(node, cmds, rect):
  # ...
  blend_op = Blend(opacity, blend_mode, cmds)
@@ -10161,7 +10133,7 @@ def paint_visual_effects(node, cmds, rect):
 
 Next, add a list of composited updates to `CommitData` (each of which will contain the `Element` and `Blend` pointers).
 
-```
+```py
 class CommitData:
  def __init__(self, url, scroll, height,
  display_list, composited_updates):
@@ -10171,7 +10143,7 @@ class CommitData:
 
 And finally, commit the new information.Note the distinction between `None` and `{}` for `composited_updates`. `None` means that the compositing step is needed, whereas `{}` means that it is not—the dictionary just happens to be empty, because there aren’t any composited animations running. A good example of the latter is changes to scroll, which don’t affect compositing, yet are not animated.
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  # ...
@@ -10194,7 +10166,7 @@ class Tab:
 
 Now for the browser thread. First, add `needs_composite`, `needs_raster` and `needs_draw` dirty bits and corresponding `set_needs_composite`, `set_needs_raster`, and `set_needs_draw` methods (and remove the old dirty bit):
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -10229,7 +10201,7 @@ class Browser:
 
 Then, where we currently call `set_needs_raster_and_draw`, such as `handle_down`, we need to call `set_needs_raster`:
 
-```
+```py
 class Browser:
  def handle_down(self):
  # ...
@@ -10238,7 +10210,7 @@ class Browser:
 
 Use the data passed in `commit` to decide whether to call `set_needs_composite` or `set_needs_draw`, and store off the updates in `composited_updates`:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -10260,7 +10232,7 @@ Now let’s think about the draw step. Normally, we create the draw display list
 
 To do so, define a method `get_latest` that gets an updated visual effect from `composited_updates` if there is one:
 
-```
+```py
 class Browser:
  def get_latest(self, effect):
  node = effect.node
@@ -10273,7 +10245,7 @@ class Browser:
 
 Using `get_latest` in `paint_draw_list` is a one-liner:
 
-```
+```py
 class Browser:
  def paint_draw_list(self):
  for composited_layer in self.composited_layers:
@@ -10288,7 +10260,7 @@ Now the draw display list will be based on the new display list, and animations 
 
 One final note: the compositing data structures need to be cleared when changing tabs. Let’s do that by factoring out a `clear_data` method that clears everything in one go.
 
-```
+```py
 class Browser:
  def clear_data(self):
  self.active_tab_scroll = 0
@@ -10330,7 +10302,7 @@ To that end, we’d like to use fewer composited layers. The simplest thing we c
 
 Let’s implement that. We’ll need two new methods on composited layers: `add` and `can_merge`. The `add` method just adds a new display item to a composited layer:
 
-```
+```py
 class CompositedLayer:
  def add(self, display_item):
  self.display_items.append(display_item)
@@ -10338,7 +10310,7 @@ class CompositedLayer:
 
 But we should only add compatible display items to the same composited layer, determined by the `can_merge` method. A display item can be merged if it has the same parents as existing ones in the composited layer:
 
-```
+```py
 class CompositedLayer:
  def can_merge(self, display_item):
  return display_item.parent == \
@@ -10347,7 +10319,7 @@ class CompositedLayer:
 
 Now we want to use these methods in `composite`. Basically, instead of making a new composited layer for every single paint command, walk backwardBackward, because we can’t draw things in the wrong order. Later items in the display list have to draw later. through the `composited_layers` trying to find a composited layer to merge the command into:If you’re not familiar with Python’s `for ... else` syntax, the `else` block executes only if the loop never executed `break`.
 
-```
+```py
 class Browser:
  def composite(self):
  for cmd in paint_commands:
@@ -10365,7 +10337,7 @@ We can do even better by placing entire display list *subtrees* that aren’t an
 
 To implement this, add a new `needs_compositing` field, which is `True` when a visual effect should go in the draw display list and `False` when it should go into a composited layer. We’ll set it to `False` for most visual effects:
 
-```
+```py
 class VisualEffect:
  def __init__(self, rect, children):
  self.needs_compositing = False
@@ -10373,7 +10345,7 @@ class VisualEffect:
 
 We should set it to `True` when compositing would help us animate something. There are all sorts of complex heuristics real browsers use, but to keep things simple let’s just set it to `True` for `Blend`s (when they actually do something, not for no-ops), regardless of whether they are animating:
 
-```
+```py
 class Blend(VisualEffect):
  def __init__(self, opacity, blend_mode, node, children):
  # ...
@@ -10383,7 +10355,7 @@ class Blend(VisualEffect):
 
 We’ll *also* need to mark a visual effect as needing compositing if any of its descendants do. That’s because if one effect is in the draw phase, then the ones above it will have to be as well:
 
-```
+```py
 class VisualEffect:
  def __init__(self, rect, children, node=None):
  # ...
@@ -10394,7 +10366,7 @@ class VisualEffect:
 
 Now, instead of layers containing bare paint commands, they can contain subtrees of non-composited commands:
 
-```
+```py
 class Browser:
  def composite(self):
  # ...
@@ -10415,7 +10387,7 @@ Our compositing algorithm now creates way fewer layers! It does a good job of gr
 
 At this point, the compositing algorithm and its effect on content is getting pretty complicated. It will be very useful to you to add in more visual debugging to help understand what is going on. One good way to do this is to add a [flag](https://docs.python.org/3/library/argparse.html)I also recommend you add a mode to your browser that disables compositing (that is, setting `needs_compositing` to `False` for every `VisualEffect`), and disables use of the GPU (that is, going back to the old way of making Skia surfaces). Everything should still work (albeit more slowly) in all of the modes, and you can use these additional modes to debug your browser more fully and benchmark its performance. to our browser that draws a red border around `CompositedLayer` content. This is a very simple addition to `CompositedLayer.raster`:
 
-```
+```py
 class CompositedLayer:
  def raster(self):
  # ...
@@ -10453,7 +10425,7 @@ Therefore, the green square has to go in its own composited layer. This is calle
 
 Let’s modify our compositing algorithm to take overlap into account. Basically, when considering which composited layer a display item goes in, also check if it overlaps with an existing composited layer. If so, start a new `CompositedLayer` for this display item:
 
-```
+```py
 class Browser:
  def composite(self):
  # ...
@@ -10473,7 +10445,7 @@ It’s a bit hard to *test* this code, however, because our browser doesn’t ye
 
 The `transform` CSS property is quite powerful, and lets you apply [any linear transform](https://developer.mozilla.org/en-US/docs/Web/CSS/transform) in 3D space, but let’s stick to basic 2D translations. That’s enough to implement something similar to the example with the blue and green square:The green square has a `transform` property also so that paint order doesn’t change when you try the demo in a real browser. That’s because there are various rules for painting, and “positioned” elements (such as elements with a `transform`) are supposed to paint after regular (non-positioned) elements. (This particular rule is mostly a historical artifact.)
 
-```
+```py
 <div style="background-color:lightblue;
  transform:translate(50px, 50px)">Underneath</div>
 <div style="background-color:lightgreen;
@@ -10482,7 +10454,7 @@ The `transform` CSS property is quite powerful, and lets you apply [any linear t
 
 Supporting these transforms is simple. First let’s parse the property values:The CSS transform syntax allows multiple transforms in a space-separated sequence; the end result involves applying each in sequence. I won’t implement that, just like I won’t implement many other parts of the standardized transform syntax.
 
-```
+```py
 def parse_transform(transform_str):
  if transform_str.find('translate(') < 0:
  return None
@@ -10495,7 +10467,7 @@ def parse_transform(transform_str):
 
 Then, add some code to `paint_visual_effects` to add new `Transform` visual effects:
 
-```
+```py
 def paint_visual_effects(node, cmds, rect):
  translation = parse_transform(
  node.style.get("transform", ""))
@@ -10505,7 +10477,7 @@ def paint_visual_effects(node, cmds, rect):
 
 These `Transform` display items just call the conveniently built-in Skia canvas `translate` method:
 
-```
+```py
 class Transform(VisualEffect):
  def __init__(self, translation, rect, node, children):
  super().__init__(rect, children, node)
@@ -10536,7 +10508,7 @@ class Transform(VisualEffect):
 
 We also need to fix the hit testing algorithm to take into account translations in `click`. Instead of just comparing the locations of layout objects with the click point, compute an *absolute* bound—in coordinates of what the user sees, including the translation offset—and compare against that. Let’s use two helper methods that compute such bounds. The first maps a rect through a translation, and the second walks up the node tree, mapping through each translation found.
 
-```
+```py
 def map_translation(rect, translation):
  if not translation:
  return rect
@@ -10560,7 +10532,7 @@ def absolute_bounds_for_obj(obj):
 
 And then use it in `click`:
 
-```
+```py
 class Tab:
  # ...
  def click(self, x, y):
@@ -10575,7 +10547,7 @@ However, if you try to load the example above, you’ll find that it still looks
 
 That’s because when we test for overlap, we’re comparing the `composited_bounds` of the display item to the `composited_bounds` of the composited layer. That means we’re comparing the original location of the display item, not its shifted version. We need to compute the absolute bounds instead:
 
-```
+```py
 class Browser:
  def composite(self):
  for cmd in non_composited_commands:
@@ -10590,7 +10562,7 @@ class Browser:
 
 The `absolute_bounds` method looks like this:
 
-```
+```py
 class CompositedLayer:
  def absolute_bounds(self):
  rect = skia.Rect.MakeEmpty()
@@ -10601,7 +10573,7 @@ class CompositedLayer:
 
 To implement `local_to_absolute`, we first need a new `map` method on `Transform` that takes a rect in the coordinate space of the “contents” of the transform and outputs a rect in post-transform space. For example, if the transform was `translate(20px, 0px)` then the output of calling `map` on a rect would translate it by 20 pixels in the *x* direction.
 
-```
+```py
 class Transform(VisualEffect):
  def map(self, rect):
  return map_translation(rect, self.translation)
@@ -10609,7 +10581,7 @@ class Transform(VisualEffect):
 
 For `Blend`, it’s worth adding a special case for clipping:
 
-```
+```py
 class Blend(VisualEffect):
  def map(self, rect):
  if self.children and \
@@ -10624,7 +10596,7 @@ class Blend(VisualEffect):
 
 Now we can compute the absolute bounds of a display item, mapping its composited bounds through all of the visual effects applied to it. This looks a lot like `absolute_bounds_for_obj`, except that it works on the display list and not the layout object tree:
 
-```
+```py
 def local_to_absolute(display_item, rect):
  while display_item.parent:
  rect = display_item.parent.map(rect)
@@ -10658,7 +10630,7 @@ There’s one more situation worth thinking about, though. Suppose we have a hug
 
 Let’s fix that by also applying those clips to `composited_bounds`.This is very important, because otherwise some composited layers can end up huge despite not drawing much to the screen. A good example of this optimization making a big difference is loading the browser from [Chapter 15](https://browser.engineering/embeds.html) for the [browser.engineering](https://browser.engineering/) homepage, where otherwise we would end up with an enormous composited layer for an iframe. We’ll do it by first computing the absolute bounds for each item, then mapping them back to local space, which will have the effect of computing the “clipped local rect” for each display item:
 
-```
+```py
 class CompositedLayer:
  def composited_bounds(self):
  rect = skia.Rect.MakeEmpty()
@@ -10671,7 +10643,7 @@ class CompositedLayer:
 
 This requires implementing `absolute_to_local`:
 
-```
+```py
 def absolute_to_local(display_item, rect):
  parent_chain = []
  while display_item.parent:
@@ -10684,7 +10656,7 @@ def absolute_to_local(display_item, rect):
 
 Which in turn relies on `unmap`. For `Blend` these should be no-ops, but for `Transform` it’s just the inverse translation:
 
-```
+```py
 def map_translation(rect, translation, reversed=False):
  # ...
  else:
@@ -10797,7 +10769,7 @@ To implement it, we first need a way to trigger zooming. On most browsers, that�
 
 To handle modifier keys, we’ll need to listen to both “key down” and “key up” events in the event loop, and store whether the `Ctrl` key is pressed:
 
-```
+```py
 def mainloop(browser):
  # ...
  ctrl_down = False
@@ -10817,7 +10789,7 @@ def mainloop(browser):
 
 Now we can have a case in the key handling code for “key down” events while the `Ctrl` key is held:
 
-```
+```py
 def mainloop(browser):
  while True:
  if sdl2.SDL_PollEvent(ctypes.byref(event)) != 0:
@@ -10836,7 +10808,7 @@ Here, the argument to `increment_zoom` is whether we should increment (`True`) o
 
 The `Browser` code just delegates to the `Tab`, via a main thread task:
 
-```
+```py
 class Browser:
  # ...
  def increment_zoom(self, increment):
@@ -10850,7 +10822,7 @@ class Browser:
 
 Finally, the `Tab` responds to these commands by adjusting a new `zoom` property, which starts at `1` and acts as a multiplier for all “CSS sizes” on the web page:Zoom typically does not change the size of elements of the browser chrome. Browsers *can* do that too, but it’s usually triggered by a global OS setting.
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -10875,7 +10847,7 @@ class Tab:
 
 Note that we need to set the `needs_render` flag when we zoom to redraw the screen after zooming is complete. Also note that when we zoom the page we also need to adjust the scroll position,In a real browser, adjusting the scroll position when zooming is more complex than just multiplying. That’s because zoom not only changes the heights of individual lines of text, but also changes line breaking, meaning more or fewer lines of text. This means there’s no easy correspondence between old and new scroll positions. Most real browsers implement a much more general algorithm called [scroll anchoring](https://drafts.csswg.org/css-scroll-anchoring-1/) that handles all kinds of changes beyond just zoom. and reset the zoom level when we navigate to a new page:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  self.zoom = 1
@@ -10884,7 +10856,7 @@ class Tab:
 
 The `zoom` factor is supposed to multiply all CSS sizes, so we’ll need access to it during layout. There are a few ways to do this, but one easy way is just to pass it as a parameter to `layout` for `DocumentLayout`:
 
-```
+```py
 class DocumentLayout:
  def layout(self, zoom):
  self.zoom = zoom
@@ -10892,7 +10864,7 @@ class DocumentLayout:
  # ...
 ```
 
-```
+```py
 class Tab:
  def render(self):
  if self.needs_layout:
@@ -10903,7 +10875,7 @@ class Tab:
 
 Every other layout object can also have a `zoom` field, copied from its parent in `layout`. Here’s `BlockLayout`; the other layout classes should do the same:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  self.zoom = self.parent.zoom
@@ -10912,7 +10884,7 @@ class BlockLayout:
 
 Various methods now need to scale their font sizes to account for `zoom`. Since scaling by `zoom` is a common operation, let’s wrap it in a helper method, `dpx`:Normally, `dpx` would be a terrible function name, being short and cryptic. But we’ll be calling this function a lot, mixed in with mathematical operations, and it’ll be convenient for it not to take up too much space.
 
-```
+```py
 def dpx(css_px, zoom):
  return css_px * zoom
 ```
@@ -10921,7 +10893,7 @@ Think of `dpx` not as a simple helper method, but as a unit conversion from a *C
 
 We’ll do this conversion to adjust the font sizes in the `text` and `input` methods for `BlockLayout`, and in `InputLayout`:
 
-```
+```py
 class BlockLayout:
  def word(self, node, word):
  # ...
@@ -10936,7 +10908,7 @@ class BlockLayout:
  # ...
 ```
 
-```
+```py
 class InputLayout:
  def layout(self):
  # ...
@@ -10947,7 +10919,7 @@ class InputLayout:
 
 As well as the font size in `TextLayout`:Browsers also usually have a *minimum* font size feature, but it’s a lot trickier to use correctly. Since a minimum font size only affects *some* of the text on the page, and doesn’t affect other CSS lengths, it can cause overflowing fonts and broken layouts. Because of these problems, browsers often restrict the feature to situations where the site seems to be using [relative font sizes](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size).
 
-```
+```py
 class TextLayout:
  # ...
  def layout(self):
@@ -10958,7 +10930,7 @@ class TextLayout:
 
 And the fixed `INPUT_WIDTH_PX` for text boxes:
 
-```
+```py
 class BlockLayout:
  # ...
  def input(self, node):
@@ -10967,7 +10939,7 @@ class BlockLayout:
 
 Finally, one tricky place we need to adjust for zoom is inside `DocumentLayout`. Here there are two sets of lengths: the overall `WIDTH`, and the `HSTEP`/`VSTEP` padding around the edges of the page. The `WIDTH` comes from the size of the application window itself, so that’s measured in device pixels and doesn’t need to be converted. But the `HSTEP`/`VSTEP` is part of the page’s layout, so it’s in CSS pixels and *does* need to be converted:
 
-```
+```py
 class DocumentLayout:
  def layout(self, zoom):
  # ...
@@ -11000,7 +10972,7 @@ Another useful visual change is using darker colors to help users who are extra 
 
 We’ll trigger dark mode in the event loop with `Ctrl-d`:
 
-```
+```py
 def mainloop(browser):
  while True:
  if sdl2.SDL_PollEvent(ctypes.byref(event)) != 0:
@@ -11013,7 +10985,7 @@ def mainloop(browser):
 
 When dark mode is active, we need to draw both the browser chrome and the web page contents differently. The browser chrome is a bit easier, so let’s start with that. We’ll start with a `dark_mode` field indicating whether dark mode is active:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -11025,7 +10997,7 @@ class Browser:
 
 Now we just need to flip all the colors in `raster_chrome` when `dark_mode` is set. Let’s store the foreground and background colors in variables we can reuse:
 
-```
+```py
 class Browser:
  def raster_chrome(self):
  if self.dark_mode:
@@ -11038,7 +11010,7 @@ class Browser:
 
 Similarly, in `paint` on `Chrome`, we need to use the right foreground color:
 
-```
+```py
 class Chrome:
  def paint(self):
  if self.browser.dark_mode:
@@ -11051,7 +11023,7 @@ Then we just need to use `color` instead of `black` everywhere. Make that change
 
 Now, we want the web page content to change from light mode to dark mode as well. To start, let’s inform the `Tab` when the user requests dark mode:
 
-```
+```py
 class Browser:
  # ...
  def toggle_dark_mode(self):
@@ -11063,7 +11035,7 @@ class Browser:
 
 And in `Tab`:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -11076,7 +11048,7 @@ class Tab:
 
 Note that we need to re-render the page when the dark mode setting is flipped, so that the user actually sees the new colors. On that note, we also need to set dark mode when changing tabs, since all tabs should be either dark or light:
 
-```
+```py
 class Browser:
  def set_active_tab(self, tab):
  # ...
@@ -11086,7 +11058,7 @@ class Browser:
 
 Now we need the page’s colors to somehow depend on dark mode. The easiest to change are the default text color and the background color of the document, which are set by the browser. The default text color, for example, comes from the `INHERITED_PROPERTIES` dictionary, which we can just modify based on the dark mode:
 
-```
+```py
 class Tab:
  # ...
  def render(self):
@@ -11101,7 +11073,7 @@ class Tab:
 
 And the background for the page is drawn by the `Browser` in the `draw` method, which we can make depend on dark mode:
 
-```
+```py
 class Browser:
  # ...
  def draw(self):
@@ -11126,7 +11098,7 @@ Our simple dark mode implementation works well for pages with just text on a bac
 
 To support this, CSS uses [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries). This is a special syntax that basically wraps some CSS rules in an `if` statement with some kind of condition; if the condition is true, those CSS rules are used, but if the condition is false, they are ignored. The `prefers-color-scheme` condition checks for dark mode. For example, this CSS will make `<div>`s have a white text on a black background only in dark mode:
 
-```
+```py
 @media (prefers-color-scheme: dark) {
  div { background-color: black; color: white; }
 }
@@ -11134,7 +11106,7 @@ To support this, CSS uses [media queries](https://developer.mozilla.org/en-US/do
 
 Web developers can use `prefers-color-scheme` queries in their own style sheets, adjusting their own choice of colors to fit user requests, but we can also use a `prefers-color-scheme` media query in the browser default style sheet to adjust the default colors for links, buttons, and text entries:
 
-```
+```py
 @media (prefers-color-scheme: dark) {
  a { color: lightblue; }
  input { background-color: #2222FF; }
@@ -11146,7 +11118,7 @@ Here I chose very specific hexadecimal colors that preserve the general color sc
 
 To implement media queries, we’ll have to start with parsing this syntax:
 
-```
+```py
 class CSSParser:
  def media_query(self):
  self.literal("@")
@@ -11162,7 +11134,7 @@ class CSSParser:
 
 Then, in `parse`, we keep track of the current color scheme and adjust it every time we enter or exit an `@media` rule:For simplicity, this code doesn’t handle nested `@media` rules, because with just one type of media query there’s no point in nesting them. To handle nested `@media` queries the `media` variable would have to store a stack of conditions.
 
-```
+```py
 class CSSParser:
  def parse(self):
  # ...
@@ -11189,7 +11161,7 @@ class CSSParser:
 
 Note that I’ve modified the list of rules to store not just the selector and the body, but also the color scheme for those rules—`None` if it applies regardless of color scheme, `dark` for dark mode only, and `light` for light mode only. This way, the `style` function can ignore rules that don’t apply:
 
-```
+```py
 def style(node, rules, tab):
  # ...
  for media, selector, body in rules:
@@ -11212,7 +11184,7 @@ Right now, most of our browser’s features are triggered using the mouse,Except
 
 Let’s start with the browser chrome, since it’s the easiest. Here, we need to allow the user to back-navigate, to type in the address bar, and to create and cycle through tabs, all with the keyboard. We’ll also add a keyboard shortcut for quitting the browser.Depending on the OS you might also need shortcuts for minimizing or maximizing the browser window. Those require calling specialized OS APIs, so I won’t implement them. Let’s make all these shortcuts in the event loop use the `Ctrl` modifier key so they don’t interfere with normal typing: `Ctrl-Left` to go back, `Ctrl-l` to type in the address bar, `Ctrl-t` to create a new tab, `Ctrl-Tab` to switch to the next tab, and `Ctrl-q` to exit the browser:
 
-```
+```py
 def mainloop(browser):
  while True:
  if sdl2.SDL_PollEvent(ctypes.byref(event)) != 0:
@@ -11237,7 +11209,7 @@ def mainloop(browser):
 
 Here, the `focus_addressbar` and `cycle_tabs` methods are new, but their contents are just copied from `handle_click`:
 
-```
+```py
 class Chrome:
  def focus_addressbar(self):
  self.focus = "address bar"
@@ -11264,7 +11236,7 @@ We’ll implement this by expanding our implementation of *focus*. We already ha
 
 We’ll start by binding those keys in the event loop:
 
-```
+```py
 def mainloop(browser):
  while True:
  if sdl2.SDL_PollEvent(ctypes.byref(event)) != 0:
@@ -11278,7 +11250,7 @@ def mainloop(browser):
 
 Note that these lines don’t go inside the `if ctrl_down` block, since we’re binding `Tab` and `Enter`, not `Ctrl-Tab` and `Ctrl-Enter`. In `Browser`, we just forward these keys to the active tab’s `enter` and `advance_tab` methods:Real browsers also support `Shift-Tab` to go backwards in focus order.
 
-```
+```py
 class Browser:
  def handle_tab(self):
  self.focus = "content"
@@ -11295,7 +11267,7 @@ class Browser:
 
 Let’s start with the `advance_tab` method. Each time it’s called, the browser should advance focus to the next focusable thing. This will first require a definition of which elements are focusable:
 
-```
+```py
 def is_focusable(node):
  return node.tag in ["input", "button", "a"]
 
@@ -11308,7 +11280,7 @@ class Tab:
 
 Next, in `advance_tab`, we need to find out where the currently focused element is in this list so we can move focus to the next one.
 
-```
+```py
 class Tab:
  def advance_tab(self):
  # ...
@@ -11320,7 +11292,7 @@ class Tab:
 
 Finally, we just need to focus on the chosen element. If we’ve reached the last focusable node (or if there weren’t any focusable nodes to begin with), we’ll unfocus the page and move focus to the address bar:
 
-```
+```py
 class Tab:
  def advance_tab(self):
  if idx < len(focusable_nodes):
@@ -11333,7 +11305,7 @@ class Tab:
 
 Now that an element is focused, the user should be able to interact with it by pressing `Enter`. Since the exact action they’re performing varies (navigating a link, pressing a button, clearing a text entry), we’ll call this “activating” the element:
 
-```
+```py
 class Tab:
  def enter(self):
  if not self.focus: return
@@ -11342,7 +11314,7 @@ class Tab:
 
 The `activate_element` method does different things for different kinds of elements:
 
-```
+```py
 class Tab:
  def activate_element(self, elt):
  if elt.tag == "input":
@@ -11362,7 +11334,7 @@ All of this activation code is copied from the `click` method on `Tab`s. Note th
 
 The `click` method can now be rewritten to call `activate_element` directly:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  while elt:
@@ -11377,7 +11349,7 @@ class Tab:
 
 Also, since now any element can be focused, we need `keypress` to check that an `input` element is focused before typing into it:
 
-```
+```py
 class Tab:
  def keypress(self, char):
  if self.focus and self.focus.tag == "input":
@@ -11390,7 +11362,7 @@ I’ve called `activate_element` to create an empty `value` attribute.
 
 Similarly, `InputLayout` used to draw a cursor for any focused element. Now that `button` elements can be focused, it needs to be more careful:
 
-```
+```py
 class InputLayout:
  def paint(self):
  # ...
@@ -11401,7 +11373,7 @@ class InputLayout:
 
 Finally, note that sometimes activating an element submits a form or navigates to a new page, which means the element we were focused on no longer exists. We need to make sure to clear focus in this case:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  self.focus = None
@@ -11412,7 +11384,7 @@ We now have the ability to focus on links, buttons, and text entries. But as wit
 
 Browsers support the `tabindex` HTML attribute to make this possible. The `tabindex` attribute is a number. An element isn’t focusable if its `tabindex` is negative, and elements with smaller `tabindex` values come before those with larger values and those without a `tabindex` at all. To implement that, we need to sort the focusable elements by tab index, so we need a function that returns the tab index:
 
-```
+```py
 def get_tabindex(node):
  tabindex = int(node.attributes.get("tabindex", "9999999"))
  return 9999999 if tabindex == 0 else tabindex
@@ -11420,7 +11392,7 @@ def get_tabindex(node):
 
 The default value, “9999999”, is a hack to make sure that elements without a `tabindex` attribute sort after ones with the attribute. Now we can sort by `get_tabindex` in `advance_tab`:
 
-```
+```py
 class Tab:
  def advance_tab(self):
  focusable_nodes = [node
@@ -11434,7 +11406,7 @@ Since Python’s sort is “stable”, two elements with the same `tabindex` won
 
 Additionally, elements with non-negative `tabindex` are automatically focusable, even if they aren’t a link or a button or a text entry. That’s useful, because that element might listen to the `click` event. To support this let’s first extend `is_focusable` to consider `tabindex`:
 
-```
+```py
 def is_focusable(node):
  if get_tabindex(node) < 0:
  return False
@@ -11446,7 +11418,7 @@ def is_focusable(node):
 
 If you print out `focusable_nodes` for the [focus example](examples/example14-focus.html), you should get this:
 
-```
+```py
 [<a tabindex="1" href="/">,
  <button tabindex="2">,
  <div tabindex="3">,
@@ -11457,7 +11429,7 @@ If you print out `focusable_nodes` for the [focus example](examples/example14-fo
 
 We also need to make sure to send a `click` event when an element is activated. Note that just like clicking on an element, activating an element can be canceled from JavaScript using `preventDefault`.
 
-```
+```py
 class Tab:
  def enter(self):
  if not self.focus: return
@@ -11475,7 +11447,7 @@ Thanks to our keyboard shortcuts, users can now reach any link, button, or text 
 
 To implement focus rings, we’ll use the same mechanism we use to draw text cursors. Recall that, right now, text cursors are added by drawing a vertical line in `InputLayout`’s `paint` method. We’ll add a call to `paint_outline` in that method, to draw a rectangle around the focused element:
 
-```
+```py
 def paint_outline(node, cmds, rect, zoom):
  if not node.is_focused: return
  cmds.append(DrawOutline(rect, "black", 1))
@@ -11483,7 +11455,7 @@ def paint_outline(node, cmds, rect, zoom):
 
 Set this `is_focused` flag in a new `focus_element` method that we’ll now use to change the `focus` field in a `Tab`:
 
-```
+```py
 class Tab:
  def focus_element(self, node):
  if self.focus:
@@ -11495,7 +11467,7 @@ class Tab:
 
 Outline painting should happen in `paint_effects`, because it paints on top of the subtree.
 
-```
+```py
 class InputLayout:
  def paint_effects(self, cmds):
  cmds = paint_visual_effects(self.node, cmds, self.self_rect())
@@ -11507,7 +11479,7 @@ I also changed the cursor drawing to only happen if the node is focused *and* it
 
 Unfortunately, handling links is a little more complicated. That’s because one `<a>` element corresponds to multiple `TextLayout` objects, so there’s not just one layout object where we can stick the code. Moreover, those `TextLayout`s could be split across several lines, so we might want to draw more than one focus ring. To work around this, let’s draw the focus ring in `LineLayout`. Each `LineLayout` finds all of its child `TextLayout`s that are focused, and draws a rectangle around them all.
 
-```
+```py
 class LineLayout:
  def paint_effects(self, cmds):
  outline_rect = skia.Rect.MakeEmpty()
@@ -11530,7 +11502,7 @@ Except for one problem: if the focused element is scrolled offscreen, there is s
 
 Doing this is a bit tricky, because determining if the element is offscreen requires layout. So, instead of scrolling to it immediately, we’ll set a new `needs_focus_scroll` bit on `Tab`:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -11543,7 +11515,7 @@ class Tab:
 
 Then, `run_animation_frame` can scroll appropriately before resetting the flag:
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  # ...
@@ -11555,7 +11527,7 @@ class Tab:
 
 To actually do the scrolling, we need to find the layout object corresponding to the focused node:
 
-```
+```py
 class Tab:
  def scroll_to(self, elt):
  objs = [
@@ -11568,7 +11540,7 @@ class Tab:
 
 Then, we scroll to it:
 
-```
+```py
 class Tab:
  def scroll_to(self, elt):
  # ...
@@ -11592,7 +11564,7 @@ Figure 5: Example of focus outline.
 
 But ideally, the focus indicator should be customizable, so that the web page author can make sure the focused element stands out. In CSS, that’s done with the `:focus` [pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes). Basically, this means you can write a selector like this:
 
-```
+```py
 div:focus { ... }
 ```
 
@@ -11600,7 +11572,7 @@ And then that selector applies only to `<div>` elements that are currently focus
 
 To implement this, we need to parse this new kind of selector. Let’s change `selector` to call a new `simple_selector` subroutine to parse a tag name and a possible pseudo-class:
 
-```
+```py
 class CSSParser:
  def selector(self):
  out = self.simple_selector()
@@ -11612,7 +11584,7 @@ class CSSParser:
 
 In `simple_selector`, the parser first parses a tag name and then checks if that’s followed by a colon and a pseudo-class name:
 
-```
+```py
 class CSSParser:
  def simple_selector(self):
  out = TagSelector(self.word().casefold())
@@ -11625,7 +11597,7 @@ class CSSParser:
 
 A `PseudoclassSelector` wraps another selector:
 
-```
+```py
 class PseudoclassSelector:
  def __init__(self, pseudoclass, base):
  self.pseudoclass = pseudoclass
@@ -11635,7 +11607,7 @@ class PseudoclassSelector:
 
 Matching is straightforward:
 
-```
+```py
 class PseudoclassSelector:
  def matches(self, node):
  if not self.base.matches(node):
@@ -11650,13 +11622,13 @@ Unknown pseudoclasses simply never match anything.
 
 The focused element can now be styled. But ideally we’d also be able to customize the focus outline itself and not just the element. That can be done by adding support for the CSS [`outline` property](https://developer.mozilla.org/en-US/docs/Web/CSS/outline), which looks like this (for a 3-pixel-thick red outline):We’ll only implement this syntax, but `outline` can also take a few other forms.
 
-```
+```py
 outline: 3px solid red;
 ```
 
 We can parse that into a thickness and a color:
 
-```
+```py
 def parse_outline(outline_str):
  if not outline_str: return None
  values = outline_str.split(" ")
@@ -11667,7 +11639,7 @@ def parse_outline(outline_str):
 
 And then paint a parsed outline:
 
-```
+```py
 def paint_outline(node, cmds, rect, zoom):
  outline = parse_outline(node.style.get("outline"))
  if not outline: return
@@ -11677,7 +11649,7 @@ def paint_outline(node, cmds, rect, zoom):
 
 Even better, we can move the default two-pixel black outline into the browser default style sheet, like this:
 
-```
+```py
 input:focus { outline: 2px solid black; }
 button:focus { outline: 2px solid black; }
 div:focus { outline: 2px solid black; }
@@ -11685,7 +11657,7 @@ div:focus { outline: 2px solid black; }
 
 Moreover, we can now make the outline white when dark mode is triggered, which is important for it to stand out against the black background:
 
-```
+```py
 @media (prefers-color-scheme: dark) {
 input:focus { outline: 2px solid white; }
 button:focus { outline: 2px solid white; }
@@ -11696,7 +11668,7 @@ a:focus { outline: 2px solid white; }
 
 Finally, change all of our `paint` methods to use `parse_outline` instead of `is_focused` to draw the outline. Here is `LineLayout`:
 
-```
+```py
 class LineLayout:
  def paint_effects(self, cmds):
  # ...
@@ -11739,7 +11711,7 @@ This probably sounds a lot like HTML—and it is quite similar! But, just as the
 
 Let’s implement an accessibility tree in our browser. It’s built in a rendering phase just after layout:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -11762,7 +11734,7 @@ class Tab:
 
 The accessibility tree is built out of `AccessibilityNode`s:
 
-```
+```py
 class AccessibilityNode:
  def __init__(self, node):
  self.node = node
@@ -11771,7 +11743,7 @@ class AccessibilityNode:
 
 The `build` method on `AccessibilityNode` recursively creates the accessibility tree. To do so, we traverse the HTML tree and, for each node, determine what “role” it plays in the accessibility tree. Some elements, like `<div>`, have no role, so don’t appear in the accessibility tree, while elements like `<input>`, `<a>` and `<button>` have default roles.Roles and default roles are specified in the [WAI-ARIA standard](https://www.w3.org/TR/wai-aria-1.2/#introroles). We can compute the role of a node based on its tag name, or from the special `role` attribute if that exists:
 
-```
+```py
 class AccessibilityNode:
  def __init__(self, node):
  # ...
@@ -11799,7 +11771,7 @@ class AccessibilityNode:
 
 To build the accessibility tree, just recursively walk the HTML tree. Along the way, skip nodes with a `none` role, but still recurse into their children:
 
-```
+```py
 class AccessibilityNode:
  def build(self):
  for child_node in self.node.children:
@@ -11817,7 +11789,7 @@ class AccessibilityNode:
 
 Here is the accessibility tree for the [focus example](examples/example14-focus.html):
 
-```
+```py
  role=document
    role=button
      role=focusable text
@@ -11865,7 +11837,7 @@ Typically, the screen reader is a separate application from the browser;Screen r
 
 But should our built-in screen reader live in the `Browser` or each `Tab`? Modern browsers generally talk to screen readers from something like the `Browser`, so we’ll do that too.And therefore the browser thread in our multithreaded browser. So the very first thing we need to do is send the tab’s accessibility tree over to the browser thread. That’ll be a straightforward extension of the commit concept introduced in [Chapter 12](scheduling.html#committing-a-display-list). First, we’ll add the tree to `CommitData`:
 
-```
+```py
 class CommitData:
  def __init__(self, url, scroll, height, display_list,
  composited_updates, accessibility_tree):
@@ -11875,7 +11847,7 @@ class CommitData:
 
 Then we send it across in `run_animation_frame`:
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  # ...
@@ -11899,14 +11871,14 @@ Note that I clear the `accessibility_tree` field once it’s sent to the browser
 
 Now that the tree is in the browser thread, let’s implement the screen reader. We’ll use two Python libraries to actually read text out loud: [`gtts`](https://pypi.org/project/gTTS/) (which wraps the Google [text-to-speech service](https://cloud.google.com/text-to-speech/docs/apis)) and [`playsound`](https://pypi.org/project/playsound/). You can install them using `pip`:
 
-```
+```py
 python3 -m pip install gtts
 python3 -m pip install playsound
 ```
 
 You can use these libraries to convert text to an audio file, and then play it:
 
-```
+```py
 import os
 import gtts
 import playsound
@@ -11925,7 +11897,7 @@ You may need to adjust the `SPEECH_FILE` path to fit your system better. If you 
 
 To start with, we’ll want a key binding that turns the screen reader on and off. While real operating systems typically use more obscure shortcuts, I’ll use `Ctrl-a` to turn on the screen reader in the event loop:
 
-```
+```py
 def mainloop(browser):
  while True:
  if sdl2.SDL_PollEvent(ctypes.byref(event)) != 0:
@@ -11938,7 +11910,7 @@ def mainloop(browser):
 
 The `toggle_accessibility` method tells the `Tab` that accessibility is on:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -11960,7 +11932,7 @@ class Browser:
 
 When accessibility is on, the `Browser` should call a new `update_accessibility` method, which we’ll implement in a moment to actually produce sound:
 
-```
+```py
 class Browser:
  def composite_raster_and_draw(self):
  # ...
@@ -11972,7 +11944,7 @@ Now, what should the screen reader say? That’s not really up to the browser—
 
 To speak the whole document, we need to know how to speak each `AccessibilityNode`. This has to be decided back in the `Tab`, since the text will include DOM content that is not accessible to the browser thread. So let’s add a `text` field to `AccessibilityNode` and set it in `build` according to the node’s role and surrounding DOM context. For text nodes it’s just the text, and otherwise it describes the element tag, plus whether it’s focused.
 
-```
+```py
 class AccessibilityNode:
  def __init__(self, node):
  # ...
@@ -12012,7 +11984,7 @@ class AccessibilityNode:
 
 This text construction logic is, of course, pretty naive, but it’s enough to demonstrate the idea. Here is how it works out for the [focus example](examples/example14-focus.html):
 
-```
+```py
  role=document text=Document
    role=button text=Button
      role=focusable text text=Focusable text: This is a button
@@ -12052,7 +12024,7 @@ This text construction logic is, of course, pretty naive, but it’s enough to d
 
 The screen reader can then read the whole document by speaking the `text` field on each `AccessibilityNode`.
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -12080,7 +12052,7 @@ Speaking the whole document happens only once. But the user might need feedback 
 
 To do that, the browser thread is going to need to know which element is focused. Let’s add that to the `CommitData`:
 
-```
+```py
 class CommitData:
  def __init__(self, url, scroll, height, display_list,
  composited_updates, accessibility_tree, focus):
@@ -12090,7 +12062,7 @@ class CommitData:
 
 Make sure to pass this new argument in `run_animation_frame`. Then, in `Browser`, we’ll need to extract this field and save it to `tab_focus`:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -12106,7 +12078,7 @@ class Browser:
 
 Now we need to know when focus changes. The simplest way is to store a `last_tab_focus` field on `Browser` with the last focused element we actually spoke out loud:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -12115,7 +12087,7 @@ class Browser:
 
 Then, if `tab_focus` isn’t equal to `last_tab_focus`, we know focus has moved and it’s time to speak the focused node. The change looks like this:
 
-```
+```py
 class Browser:
  def update_accessibility(self):
  # ...
@@ -12133,7 +12105,7 @@ class Browser:
 
 The `speak_node` method is similar to `speak_document` but it only speaks a single node:
 
-```
+```py
 class Browser:
  def speak_node(self, node, text):
  text += node.text
@@ -12158,7 +12130,7 @@ The `alert` role addresses this need. A screen reader will immediatelyThe alert 
 
 On to implementation. We first need to make it possible for scripts to change the `role` attribute, by adding support for the `setAttribute` method. On the JavaScript side, this just calls a browser API:
 
-```
+```py
 Node.prototype.setAttribute = function(attr, value) {
  return call_python("setAttribute", this.handle, attr, value);
 }
@@ -12166,7 +12138,7 @@ Node.prototype.setAttribute = function(attr, value) {
 
 The Python side is also quite simple:
 
-```
+```py
 class JSContext:
  def __init__(self, tab):
  # ...
@@ -12182,7 +12154,7 @@ class JSContext:
 
 Now we can implement the `alert` role. Search the accessibility tree for elements with that role:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -12199,7 +12171,7 @@ class Browser:
 
 Now, we can’t just read out every `alert` at every frame; we need to keep track of what elements have already been read, so we don’t read them twice:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -12215,7 +12187,7 @@ class Browser:
 
 Since `spoken_alerts` points into the accessibility tree, we need to update it any time the accessibility tree is rebuilt, to point into the new tree. Just like with compositing, use the `node` pointers in the accessibility tree to match accessibility nodes between the old and new accessibility tree. Note that, while this matching *could* be done inside `commit`, we want that method to be as fast as possible since that method blocks both the browser and main threads. So it’s best to do it in `update_accessibility`:
 
-```
+```py
 class Browser:
  def update_accessibility(self):
  # ...
@@ -12247,7 +12219,7 @@ Let’s try that. Implementing this particular feature requires each accessibili
 
 Getting access to the geometry is tricky, because the accessibility tree is generated from the HTML tree, while the geometry is accessible in the layout tree. Let’s add a `layout_object` pointer to each `Element` object to help with that:If it has a layout object, that is. Some `Element`s might not, and their `layout_object` pointers will stay `None`.
 
-```
+```py
 class Element:
  def __init__(self, tag, attributes, parent):
  # ...
@@ -12261,7 +12233,7 @@ class Text:
 
 Now, when we construct a layout object, we can fill in the `layout_object` field of its `Element`. In `BlockLayout`, it looks like this:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous):
  # ...
@@ -12270,7 +12242,7 @@ class BlockLayout:
 
 Make sure to add a similar line of code to the constructors for every other type of layout object. Each `AccessibilityNode` can then store the layout object’s bounds:
 
-```
+```py
 class AccessibilityNode:
  def __init__(self, node):
  # ...
@@ -12286,7 +12258,7 @@ Note that I’m using `absolute_bounds_for_obj` here, because the bounds we’re
 
 However, there is another complication: it may be that `node.layout_object` is not set; for example, text nodes do not have one.And that’s OK, because I chose not to set bounds at all for these nodes, as they are not focusable. Likewise, nodes with inline layout generally do not. So we need to walk up the tree to find the parent with a `BlockLayout` and union all text nodes in all `LineLayouts` that are children of the current `node`. And because there can be multiple `LineLayouts` and text nodes, the bounds need to be in an array of `skia.Rect` objects:
 
-```
+```py
 class AccessibilityNode:
  def compute_bounds(self):
  # ...
@@ -12307,7 +12279,7 @@ class AccessibilityNode:
 
 So let’s implement the read-on-hover feature. First we need to listen for mouse move events in the event loop, which in SDL are called `MOUSEMOTION`:
 
-```
+```py
 def mainloop(browser):
  while True:
  if sdl2.SDL_PollEvent(ctypes.byref(event)) != 0:
@@ -12318,7 +12290,7 @@ def mainloop(browser):
 
 The browser should listen to the hovered position, determine if it’s over an accessibility node, and highlight that node. We don’t want to disturb the normal rendering cadence, so in `handle_hover` save the hover event and then in `composite_raster_and_draw` react to the hover:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -12334,7 +12306,7 @@ class Browser:
 
 When the user hovers over a node, we’ll do two things. First, draw its bounds on the screen; this helps users see what they’re hovering over, plus it’s also helpful for debugging. Do that in `paint_draw_list`; start by finding the accessibility node the user is hovering over (note the need to take scroll into account):
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -12350,7 +12322,7 @@ class Browser:
 
 By the way, the acronym `a11y` in `a11y_node`, with an “a”, the number 11, and a “y”, is a common shorthand for the word “accessibility”.The number “11” refers to the number of letters we’re eliding from “accessibility”. The `hit_test` function recurses over the accessibility tree:
 
-```
+```py
 class AccessibilityNode:
  def contains_point(self, x, y):
  for bound in self.bounds:
@@ -12370,7 +12342,7 @@ class AccessibilityNode:
 
 Once the hit test is done and the browser knows what node the user is hovering over, save this information on the `Browser`—so that the outline persists between frames—and draw an outline:
 
-```
+```py
 class Browser:
  def paint_draw_list(self):
  if self.pending_hover:
@@ -12382,7 +12354,7 @@ class Browser:
 
 Finally, we can draw the outline at the end of `paint_draw_list`:
 
-```
+```py
 class Browser:
  def paint_draw_list(self):
  # ...
@@ -12397,7 +12369,7 @@ Note that the color of the outline depends on whether or not dark mode is on, to
 
 So now we have an outline drawn. But we additionally want to speak what the user is hovering over. To do that we’ll need another flag, `needs_speak_hovered_node`, which we’ll set whenever hover moves from one element to another:
 
-```
+```py
 class Browser:
  def __init__(self):
  # ...
@@ -12414,7 +12386,7 @@ class Browser:
 
 The ugly conditional is necessary to handle two cases: either hovering over an object when nothing was previously hovered, or moving the mouse from one object onto another. We set the flag in either case, and then use that flag in `update_accessibility`:
 
-```
+```py
 class Browser:
  def update_accessibility(self):
  # ...
@@ -12493,7 +12465,7 @@ While our browser can render complex styles, visual effects, and animations, all
 
 Images are certainly the most popular kind of embedded content on the web,So it’s a little ironic that images only make their appearance in Chapter 15 of this book! It’s because Tkinter doesn’t support many image formats or proper sizing and clipping, so I had to wait for the introduction of Skia. dating back to [early 1993](http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html).This history is also [the reason behind](http://1997.webhistory.org/www.lists/www-talk.1993q1/0196.html) a lot of inconsistencies, like `src` versus `href` or `img` versus `image`. They’re included on web pages via the `<img>` tag, which looks like this:
 
-```
+```py
 <img src="https://browser.engineering/im/hes.jpg">
 ```
 
@@ -12514,7 +12486,7 @@ Let’s start with downloading images from a URL. Naturally, that happens over H
 
 The change is pretty minimal: instead of passing the `"r"` flag to `makefile`, pass a `"b"` flag indicating binary mode:
 
-```
+```py
 class URL:
  def request(self, referrer, payload=None):
  # ...
@@ -12524,7 +12496,7 @@ class URL:
 
 Now every time we read from `response`, we will get `bytes` of binary data, not a `str` with textual data, so we’ll need to change some HTTP parser code to explicitly `decode` the data:
 
-```
+```py
 class URL:
  def request(self, referrer, payload=None):
  # ...
@@ -12538,7 +12510,7 @@ class URL:
 
 Note that I *didn’t* add a `decode` call when we read the body; that’s because the body might actually be binary data, and we want to return that binary data directly to the browser. Now, every existing call to `request`, which wants textual data, needs to `decode` the response. For example, in `load`, you’ll want to do something like this:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -12553,7 +12525,7 @@ Make sure to make this change everywhere in your browser that you call `request`
 
 When we download images, however, we *won’t* call `decode`; we’ll just use the binary data directly.
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -12571,7 +12543,7 @@ class Tab:
 
 Once we’ve downloaded the image, we need to turn it into a Skia `Image` object. That requires the following code:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  for img in images:
@@ -12587,7 +12559,7 @@ Because we used `MakeWithoutCopy`, the `Data` object just stores a reference to 
 
 These download and decode steps can both fail; if that happens we’ll load a “broken image” placeholder (I used [one from Wikipedia](https://commons.wikimedia.org/wiki/File:Broken_Image.png)):
 
-```
+```py
 BROKEN_IMAGE = skia.Image.open("Broken_Image.png")
 
 class Tab:
@@ -12603,7 +12575,7 @@ class Tab:
 
 Now that we’ve downloaded and saved the image, we need to use it. That just requires calling Skia’s `drawImageRect` function:
 
-```
+```py
 class DrawImage(PaintCommand):
  def __init__(self, image, rect):
  super().__init__(rect)
@@ -12621,7 +12593,7 @@ Because image decoding can be so expensive, Skia also has several algorithms ava
 
 To give web page authors control over this performance bottleneck, there’s an [`image-rendering`](https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering) CSS property that indicates which algorithm to use. Let’s add that as an argument to `DrawImage`:
 
-```
+```py
 def parse_image_rendering(quality):
  if quality == "high-quality":
  return skia.FilterQuality.kHigh_FilterQuality
@@ -12654,7 +12626,7 @@ As we do this, you might recall doing something very similar for `<input>` eleme
 
 Let’s split the existing `InputLayout` into a superclass called `EmbedLayout`, containing most of the existing code, and a new subclass with the input-specific code, `InputLayout`:In a real browser, input elements are usually called *widgets* because they have a lot of [special rendering rules](https://html.spec.whatwg.org/multipage/rendering.html#widgets) that sometimes involve CSS.
 
-```
+```py
 class EmbedLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -12670,7 +12642,7 @@ class EmbedLayout:
  self.x = self.parent.x
 ```
 
-```
+```py
 class InputLayout(EmbedLayout):
  def __init__(self, node, parent, previous):
  super().__init__(node, parent, previous)
@@ -12681,7 +12653,7 @@ class InputLayout(EmbedLayout):
 
 The idea is that `EmbedLayout` should provide common layout code for all kinds of embedded content, while its subclasses like `InputLayout` should provide the custom code for that type of content. Different types of embedded content might have different widths and heights, so that should happen in each subclass, as should the definition of `paint`:
 
-```
+```py
 class InputLayout(EmbedLayout):
  def layout(self):
  # ...
@@ -12696,7 +12668,7 @@ class InputLayout(EmbedLayout):
 
 `ImageLayout` can now inherit most of its behavior from `EmbedLayout`, but take its width and height from the image itself:
 
-```
+```py
 class ImageLayout(EmbedLayout):
  def __init__(self, node, parent, previous):
  super().__init__(node, parent, previous)
@@ -12714,7 +12686,7 @@ Notice that the height of the image depends on the font size of the element. Tho
 
 Also, in the code above I introduced new `ascent` and `descent` fields on `EmbedLayout` subclasses. This is meant to be used in `LineLayout` layout in place of the existing layout code for ascent and descent. It also requires introducing those fields on `TextLayout`:
 
-```
+```py
 class LineLayout:
  def layout(self):
  # ...
@@ -12740,7 +12712,7 @@ class TextLayout:
 
 Painting an image is also straightforward:
 
-```
+```py
 class ImageLayout(EmbedLayout):
  def paint(self):
  cmds = []
@@ -12756,7 +12728,7 @@ Now we need to create `ImageLayout`s in `BlockLayout`. Input elements are create
 
 Let’s instead refactor the shared code into new methods which `text`, `image`, and `input` can call. First, all of these methods need a font to determine how much spaceYes, this is how real browsers do it too. to leave after the inline; let’s make a function for that:
 
-```
+```py
 def font(style, zoom):
  weight = style["font-weight"]
  variant = style["font-style"]
@@ -12767,7 +12739,7 @@ def font(style, zoom):
 
 There’s also shared code that handles line layout; let’s put that into a new `add_inline_child` method. We’ll need to pass in the HTML node, the element, and the layout class to instantiate (plus a `word` parameter that’s just for `TextLayout`s):
 
-```
+```py
 class BlockLayout:
  def add_inline_child(self, node, w, child_class, word=None):
  if self.cursor_x + w > self.x + self.width:
@@ -12785,7 +12757,7 @@ class BlockLayout:
 
 We can redefine `word` and `input` in a satisfying way now:
 
-```
+```py
 class BlockLayout:
  def word(self, node, word):
  node_font = font(node.style, self.zoom)
@@ -12799,7 +12771,7 @@ class BlockLayout:
 
 Adding `image` is easy:
 
-```
+```py
 class BlockLayout:
  def recurse(self, node):
  # ...
@@ -12813,7 +12785,7 @@ class BlockLayout:
 
 And of course, images also get the same inline layout mode as input elements:
 
-```
+```py
 class BlockLayout:
  def layout_mode(self):
  # ...
@@ -12830,14 +12802,14 @@ Now that we have `ImageLayout` nodes in our layout tree, we’ll be painting `Dr
 
 But what about our second output modality, screen readers? That’s what the `alt` attribute is for. It works like this:
 
-```
+```py
 <img src="https://browser.engineering/im/hes.jpg"
  alt="An operator using the Hypertext Editing System in 1969">
 ```
 
 Implementing this in `AccessibilityNode` is very easy:
 
-```
+```py
 class AccessibilityNode:
  def __init__(self, node):
  else:
@@ -12864,7 +12836,7 @@ So far, an image’s size on the screen is its size in pixels, possibly zoomed.N
 
 If *both* those attributes are present, things are pretty easy: we just read from them when laying out the element, both in `image`:
 
-```
+```py
 class BlockLayout:
  def image(self, node):
  if "width" in node.attributes:
@@ -12876,7 +12848,7 @@ class BlockLayout:
 
 And in `ImageLayout`:
 
-```
+```py
 class ImageLayout(EmbedLayout):
  def layout(self):
  # ...
@@ -12898,7 +12870,7 @@ This works great, but it has a major flaw: if the ratio of `width` to `height` i
 
 Implementing this aspect ratio tweak is easy:
 
-```
+```py
 class ImageLayout(EmbedLayout):
  # ...
  def layout(self):
@@ -12920,7 +12892,7 @@ class ImageLayout(EmbedLayout):
 
 Your browser should now be able to render the following [example page](https://browser.engineering/examples/example15-img.html) correctly, as shown in Figure 2\. When it’s scrolled down a bit you should see what’s shown in Figure 3 (notice the different aspect ratios). And scrolling to the end will show what appears in Figure 4, including the “broken image” icon.
 
-```
+```py
 Original size:  <img src="/im/hes.jpg" alt="A computer operator ...">
 <br>
 Smaller: <img width=50 height=50 src="/im/hes.jpg">
@@ -12989,7 +12961,7 @@ Create these two classes and split the methods between them accordingly.
 
 Naturally, every `Frame` will need a reference to its `Tab`; it’s also convenient to have access to the parent frame and the corresponding `<iframe>` element:
 
-```
+```py
 class Frame:
  def __init__(self, tab, parent_frame, frame_element):
  self.tab = tab
@@ -13000,7 +12972,7 @@ class Frame:
 
 Now let’s look at how `Frame`s are created. The first place is in `Tab`’s `load` method, which needs to create the *root frame*:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -13015,7 +12987,7 @@ class Tab:
 
 Note that the guts of `load` now live in the `Frame`, because the `Frame` owns the HTML tree. The `Frame` can *also* construct child `Frame`s, for `<iframe>` elements:
 
-```
+```py
 class Frame:
  def load(self, url, payload=None):
  # ...
@@ -13036,7 +13008,7 @@ class Frame:
 
 Since iframes can have subresources (and subframes!) and therefore be slow to load, we should load them asynchronously, just like scripts:
 
-```
+```py
 class Frame:
  def load(self, url, payload=None):
  for iframe in iframes:
@@ -13047,7 +13019,7 @@ class Frame:
 
 And since they are asynchronous, we need to record whether they have loaded yet, to avoid trying to render an unloaded iframe:
 
-```
+```py
 class Frame:
  def __init__(self, tab, parent_frame, frame_element):
  # ...
@@ -13061,14 +13033,14 @@ class Frame:
 
 So we’ve now got a tree of frames inside a single tab. But because we will sometimes need direct access to an arbitrary frame, let’s also give each frame an identifier, which I’m calling a *window ID*:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
  self.window_id_to_frame = {}
 ```
 
-```
+```py
 class Frame:
  def __init__(self, tab, parent_frame, frame_element):
  # ...
@@ -13086,7 +13058,7 @@ Rendering is split between the `Tab` and its `Frame`s: the `Frame` does style an
 
 Let’s start with splitting the rendering pipeline. The main methods here are still the `Tab`’s `run_animation_frame` and `render`, which iterate over all loaded iframes:
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  # ...
@@ -13114,7 +13086,7 @@ class Tab:
 
 In this code I used a new `dispatch_RAF` method:
 
-```
+```py
 class JSContext:
  def dispatch_RAF(self):
  self.interp.evaljs("window.__runRAFHandlers()")
@@ -13122,7 +13094,7 @@ class JSContext:
 
 Note that the `needs_accessibility`, `pending_hover`, and other flags are all still on the `Tab`, because they relate to the `Tab`’s part of rendering. Meanwhile, style and layout happen in the `Frame` now:
 
-```
+```py
 class Frame:
  def __init__(self, tab, parent_frame, frame_element):
  # ...
@@ -13151,7 +13123,7 @@ Again, these dirty bits move to the `Frame` because they relate to the frame’s
 
 Unlike images, iframes have *no [intrinsic size](https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size)*: the layout size of an `<iframe>` element does not depend on its content.There was an attempt to provide iframes with intrinsic sizing in the past, but it was [removed](https://github.com/whatwg/html/issues/331) from the HTML specification when no browser implemented it. This may change [in the future](https://github.com/w3c/csswg-drafts/issues/1771), as there are good use cases for a “seamless” iframe whose layout is coordinated with its parent frame. That means there’s a crucial extra bit of communication that needs to happen between the parent and child frames: how wide and tall should a frame be laid out? This is defined by the attributes and CSS of the `iframe` element:
 
-```
+```py
 class BlockLayout:
  def layout_mode(self):
  # ...
@@ -13182,7 +13154,7 @@ class BlockLayout:
 
 The `IframeLayout` layout code is similar, inheriting from `EmbedLayout`, but without the aspect ratio code:
 
-```
+```py
 class IframeLayout(EmbedLayout):
  def __init__(self, node, parent, previous, parent_frame):
  super().__init__(node, parent, previous, parent_frame)
@@ -13206,14 +13178,14 @@ The extra two pixels provide room for a border, one pixel on each side, later on
 
 Note that if its `width` isn’t specified, an iframe uses a [default value](https://www.w3.org/TR/CSS2/visudet.html#inline-replaced-width), chosen a long time ago based on the average screen sizes of the day:
 
-```
+```py
 IFRAME_WIDTH_PX = 300
 IFRAME_HEIGHT_PX = 150
 ```
 
 Now, this code is run in the *parent* frame. We need to get this width and height over to the *child* frame, so that it can know its width and height during layout. So let’s add a field for that in the child frame:
 
-```
+```py
 class Frame:
  def __init__(self, tab, parent_frame, frame_element):
  # ...
@@ -13223,7 +13195,7 @@ class Frame:
 
 And we can set those when the parent frame is laid out:
 
-```
+```py
 class IframeLayout(EmbedLayout):
  def layout(self):
  # ...
@@ -13238,7 +13210,7 @@ The conditional is only there to handle the (unusual) case of an iframe blocked 
 
 You might be surprised that I’m not calling `set_needs_render` on the child frame here. That’s a shortcut: the `width` and `height` attributes can only change through `setAttribute`, while `zoom` can only change in `zoom_by` and `reset_zoom`. All of those handlers, however, need to invalidate all frames, via a new method to do so, instead of the old `set_needs_render` on `Tab` which is now gone. Update all of these call sites to call it (plus changes to dark mode, which affects style for all frames):
 
-```
+```py
 class Tab:
  def set_needs_render_all_frames(self):
  for id, frame in self.window_id_to_frame.items():
@@ -13247,7 +13219,7 @@ class Tab:
 
 The root frame, of course, fills the whole window:
 
-```
+```py
 class Tab:
  def load(self, url, payload=None):
  # ...
@@ -13259,7 +13231,7 @@ Note that there’s a tricky dependency order here. We need the parent frame to 
 
 We’ve now got frames styled and laid out, and just need to paint them. Unlike layout and style, all the frames in a tab produce a single, unified display list, so we’re going to need to work recursively. We’ll have the `Tab` paint the root `Frame`:
 
-```
+```py
 class Tab:
  def render(self):
  if self.needs_paint:
@@ -13270,7 +13242,7 @@ class Tab:
 
 Most of the layout tree’s `paint` methods don’t need to change, but to paint an `IframeLayout`, we’ll need to paint the child frame in `paint_tree`:
 
-```
+```py
 def paint_tree(layout_object, display_list):
  cmds = layout_object.paint()
 
@@ -13288,7 +13260,7 @@ def paint_tree(layout_object, display_list):
 
 Before putting those commands in the display list, though, we need to add a border, clip iframe content that exceeds the visual area available, and transform the coordinate system:
 
-```
+```py
 class IframeLayout(EmbedLayout):
  def paint_effects(self, cmds):
  # ...
@@ -13310,13 +13282,13 @@ class IframeLayout(EmbedLayout):
 
 The `Transform` shifts over the child frame contents so that its top-left corner starts in the right place,This book doesn’t go into the details of the [CSS box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model), but the `width` and `height` attributes of an iframe refer to the *content box*, and adding the border width yields the *border box*. As a result, what we’ve implemented is somewhat incorrect. `ClipRRect` clips the contents of the iframe to the inside of the border, and `paint_outline` adds the border. To trigger the outline, just add this to the browser CSS file:
 
-```
+```py
 iframe { outline: 1px solid black; }
 ```
 
 Finally, let’s also add iframes to the accessibility tree. Like the display list, the accessibility tree is global across all frames. We can have iframes create `iframe` nodes:
 
-```
+```py
 class AccessibilityNode:
  def __init__(self, node):
  else:
@@ -13326,7 +13298,7 @@ class AccessibilityNode:
 
 To `build` such a node, we just recurse into the frame:
 
-```
+```py
 class AccessibilityNode:
  def build_internal(self, child_node):
  if isinstance(child_node, Element) \
@@ -13346,7 +13318,7 @@ Now that we’ve got iframes rendering to the screen, let’s close the loop wit
 
 At a high level, event handlers just delegate to the root frame:
 
-```
+```py
 class Tab:
  def click(self, x, y):
  self.render()
@@ -13355,7 +13327,7 @@ class Tab:
 
 When an iframe is clicked, it passes the click through to the child frame, and immediately returns afterward, because iframes capture click events. Note how I subtracted the absolute *x* and *y* offsets of the iframe from the (absolute) *x* and *y* click positions when recursing into the child frame:
 
-```
+```py
 class Frame:
  def click(self, x, y):
  # ...
@@ -13387,7 +13359,7 @@ Figure 6: Rendering of nested iframes.
 
 Let’s get the other interactions working as well, starting with focusing an element. You can focus on *only one element per tab*, so we will still store the `focus` on the `Tab`, but we’ll need to store the iframe the focused element is on too:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  self.focus = None
@@ -13396,7 +13368,7 @@ class Tab:
 
 When an iframe tries to focus on an element, it sets itself as the focused iframe, but before it does that, it needs to un-focus the previously focused iframe:
 
-```
+```py
 class Frame:
  def focus_element(self, node):
  # ...
@@ -13410,7 +13382,7 @@ We need to re-render the previously focused iframe so that it stops drawing the 
 
 Another interaction is pressing `Tab` to cycle through focusable elements in the current frame. Let’s move the `advance_tab` logic into `Frame` and just dispatch to it from the `Tab`:This is not a particularly user-friendly implementation of tab cycling when multiple frames are involved; see Exercise 15-9 for a better version.
 
-```
+```py
 class Tab:
  def advance_tab(self):
  frame = self.focused_frame or self.root_frame
@@ -13421,7 +13393,7 @@ Do the same thing for `keypress` and `enter`, which are used for interacting wit
 
 Another big interaction we need to support is scrolling. We’ll store the scroll offset in each `Frame`:
 
-```
+```py
 class Frame:
  def __init__(self, tab, parent_frame, frame_element):
  self.scroll = 0
@@ -13429,7 +13401,7 @@ class Frame:
 
 Now, as you might recall from [Chapter 13](animations.html), scrolling happens both inside `Browser` and inside `Tab`, to improve responsiveness. That was already quite complicated, so to keep things simple we’ll only support threaded scrolling on the root frame. We’ll need a new commit parameter so the browser thread knows whether the root frame is focused:
 
-```
+```py
 class CommitData:
  def __init__(self, url, scroll, root_frame_focused, height,
  display_list, composited_updates, accessibility_tree, focus):
@@ -13451,7 +13423,7 @@ class Tab:
 
 The `Browser` thread will save this information in `commit` and use it when the user requests a scroll:
 
-```
+```py
 class Browser:
  def commit(self, tab, data):
  # ...
@@ -13468,7 +13440,7 @@ class Browser:
 
 When a tab is asked to scroll, it then scrolls the focused frame:
 
-```
+```py
 class Tab:
  def scrolldown(self):
  frame = self.focused_frame or self.root_frame
@@ -13478,7 +13450,7 @@ class Tab:
 
 If a frame other than the root frame is scrolled, we’ll just set `needs_composite` so the browser has to re-raster from scratch:
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  # ...
@@ -13492,7 +13464,7 @@ class Tab:
 
 There’s one more subtlety to scrolling. After we scroll, we want to *clamp* the scroll position, to prevent the user scrolling past the last thing on the page. Right now `clamp_scroll` uses the window height to determine the maximum scroll amount; let’s move that function inside `Frame` so it can use the current frame’s height:
 
-```
+```py
 class Frame:
  def scrolldown(self):
  self.scroll = self.clamp_scroll(self.scroll + SCROLL_STEP)
@@ -13505,7 +13477,7 @@ class Frame:
 
 Make sure to use the `clamp_scroll` method everywhere. For example, in `scroll_to`:
 
-```
+```py
 class Frame:
  def scroll_to(self, elt):
  # ...
@@ -13522,14 +13494,14 @@ There are also a number of accessibility hover interactions that we need to supp
 
 We’ll make a subclass of `AccessibilityNode` to store this information:
 
-```
+```py
 class FrameAccessibilityNode(AccessibilityNode):
  pass
 ```
 
 We’ll create one of those below each `iframe` node:
 
-```
+```py
 class AccessibilityNode:
  def build_internal(self, child_node):
  if isinstance(child_node, Element) \
@@ -13540,7 +13512,7 @@ class AccessibilityNode:
 
 Hit testing `FrameAccessibilityNodes` will use the frame’s bounds to ignore clicks outside the frame bounds, and adjust clicks against the frame’s coordinates (note how we subtract off the zoomed border of the frame):
 
-```
+```py
 class FrameAccessibilityNode(AccessibilityNode):
  def __init__(self, node, parent=None):
  super().__init__(node, parent)
@@ -13561,7 +13533,7 @@ class FrameAccessibilityNode(AccessibilityNode):
 
 Hit testing should now work, but the bounds of the hovered node when drawn to the screen are still wrong. For that, we’ll need a method that returns the absolute screen rect of an `AccessibilityNode`. And that method in turn needs parent pointers to walk up the accessibility tree, so let’s add that first:
 
-```
+```py
 class AccessibilityNode:
  def __init__(self, node, parent=None):
  # ...
@@ -13579,7 +13551,7 @@ class AccessibilityNode:
 
 And now we’re ready for the method to map to absolute coordinates. This loops over all bounds `Rect`s and maps them up to the root. Note that there is a special case for `FrameAccessibilityNode`, because its self-bounds are in the coordinate space of the frame containing the iframe.
 
-```
+```py
 class AccessibilityNode:
  def absolute_bounds(self):
  abs_bounds = []
@@ -13598,7 +13570,7 @@ class AccessibilityNode:
 
 This method calls `map_to_parent` to adjust the bounds. For most accessibility nodes we don’t need to do anything, because they are in the same coordinate space as their parent:
 
-```
+```py
 class AccessibilityNode:
  def map_to_parent(self, rect):
  pass
@@ -13606,7 +13578,7 @@ class AccessibilityNode:
 
 A `FrameAccessibilityNode`, on the other hand, adjusts for the iframe’s postion and clipping:
 
-```
+```py
 class FrameAccessibilityNode(AccessibilityNode):
  def map_to_parent(self, rect):
  bounds = self.bounds[0]
@@ -13630,7 +13602,7 @@ Figure 7: Multiple frames within the same tab can share a single `JSContext`.
 
 For two frames’ JavaScript environments to interact, we’ll need to put them in the same `JSContext`. So, instead of each `Frame` having a `JSContext` of its own, we’ll want to store `JSContext`s on the `Tab`, in a dictionary that maps origins to JavaScript contexts:
 
-```
+```py
 class Tab:
  def __init__(self, browser, tab_height):
  # ...
@@ -13645,7 +13617,7 @@ class Tab:
 
 Each `Frame` will then ask the `Tab` for its JavaScript context:
 
-```
+```py
 class Frame:
  def load(self, url, payload=None):
  # ...
@@ -13655,7 +13627,7 @@ class Frame:
 
 So we’ve got multiple pages’ scripts using one JavaScript context. But now we’ve got to keep their variables in their own namespaces somehow. The key is going to be the `window` global, of type `Window`. In the browser, this refers to the [global object](https://developer.mozilla.org/en-US/docs/Glossary/Global_object), and instead of writing a global variable like `a`, you can always write `window.a` instead.There are [various proposals](https://github.com/tc39/proposal-shadowrealm) to expose multiple global namespaces as a JavaScript API. It would definitely be convenient to have that capability in this chapter, to avoid having to write `window` everywhere! To keep our implementation simple, in our browser, scripts will always need to reference variable and functions via `window`.This also means that all global variables in a script need to do the same, even if they are not browser APIs. We’ll need to do the same in our runtime:
 
-```
+```py
 window.console = { log: function(x) { call_python("log", x); } }
 
 // ...
@@ -13667,7 +13639,7 @@ window.Node = function(handle) { this.handle = handle; }
 
 Do the same for every function or variable in the `runtime.js` file. If you miss one, you’ll get errors like this:
 
-```
+```py
 dukpy.JSRuntimeError: ReferenceError: identifier 'Node'
     undefined
     duk_js_var.c:1258
@@ -13676,7 +13648,7 @@ dukpy.JSRuntimeError: ReferenceError: identifier 'Node'
 
 If you see this error, it means you need to find where you need to write `window.Node` instead of `Node`. You’ll also need to modify `EVENT_DISPATCH_JS` to prefix classes with `window`:
 
-```
+```py
 EVENT_DISPATCH_JS = \
  "new window.Node(dukpy.handle)" + \
  ".dispatchEvent(new window.Event(dukpy.type))"
@@ -13688,7 +13660,7 @@ To get multiple frames’ scripts to play nice inside one JavaScript context, we
 
 So to begin with, let’s define the `Window` class when we create a `JSContext`:
 
-```
+```py
 class JSContext:
  def __init__(self, tab, url_origin):
  self.url_origin = url_origin
@@ -13698,7 +13670,7 @@ class JSContext:
 
 Now, when a frame is created and wants to use a `JSContext`, it needs to ask for a `window` object to be created first:
 
-```
+```py
 class JSContext:
  def add_window(self, frame):
  code = "var window_{} = new Window({});".format(
@@ -13715,7 +13687,7 @@ class Frame:
 
 Before running any JavaScript, we’ll want to change which window the `window` global refers to:
 
-```
+```py
 class JSContext:
  def wrap(self, script, window_id):
  return "window = window_{}; {}".format(window_id, script)
@@ -13723,7 +13695,7 @@ class JSContext:
 
 We can use this to, for example, set up the initial runtime environment for each `Frame`:
 
-```
+```py
 class JSContext:
  def add_window(self, frame):
  # ...
@@ -13732,7 +13704,7 @@ class JSContext:
 
 We’ll need to call `wrap` any time we use `evaljs`, which also means we’ll need to add a window ID argument to a lot of methods. For example, in `run` we’ll add a `window_id` parameter:
 
-```
+```py
 class JSContext:
  def run(self, script, code, window_id):
  try:
@@ -13744,7 +13716,7 @@ class JSContext:
 
 And we’ll pass that argument from the `load` method:
 
-```
+```py
 class Frame:
  def load(self, url, payload=None):
  for script in scripts:
@@ -13756,7 +13728,7 @@ class Frame:
 
 The same holds for various dispatching APIs. For example, to dispatch an event, we’ll need the `window_id`:
 
-```
+```py
 class JSContext:
  def dispatch_event(self, type, elt, window_id):
  # ...
@@ -13767,7 +13739,7 @@ class JSContext:
 
 Likewise, we’ll need to pass a window ID argument in `click`, `submit_form`, and `keypress`; I’ve omitted those code fragments. Note that you should have modified your `runtime.js` file to store the `LISTENERS` on the `window` object, meaning each `Frame` will have its own set of event listeners to dispatch to:
 
-```
+```py
 window.LISTENERS = {}
 
 // ...
@@ -13788,7 +13760,7 @@ Do the same for `requestAnimationFrame`, passing around a window ID and wrapping
 
 For calls *from* JavaScript into the browser, we’ll need JavaScript to pass in the window ID it’s calling from:
 
-```
+```py
 window.document = { querySelectorAll: function(s) {
  var handles = call_python("querySelectorAll", s, window._id);
  return handles.map(function(h) { return new window.Node(h) });
@@ -13797,7 +13769,7 @@ window.document = { querySelectorAll: function(s) {
 
 Then on the browser side we can use that window ID to get the `Frame` object:
 
-```
+```py
 class JSContext:
  def querySelectorAll(self, selector_text, window_id):
  frame = self.tab.window_id_to_frame[window_id]
@@ -13822,7 +13794,7 @@ We’ve now managed to run multiple `Frame`s’ worth of JavaScript in a single 
 
 The simplest way two frames can interact is that they can get access to each other’s state via the `parent` attribute on the `Window` object. If the two frames have the same origin, that lets one frame call methods, access variables, and modify browser state for the other frame. Because we’ve had these same-origin frames share a `JSContext`, this isn’t too hard to implement. Basically, we’ll need a way to go from a window ID to its parent frame’s window ID:
 
-```
+```py
 class JSContext:
  # ...
  def parent(self, window_id):
@@ -13835,7 +13807,7 @@ class JSContext:
 
 On the JavaScript side, we now need to look up the `Window` object given its window ID. There are lots of ways you could do this, but the easiest is to have a global map:
 
-```
+```py
 class JSContext:
  def __init__(self, tab, url_origin):
  # ...
@@ -13844,7 +13816,7 @@ class JSContext:
 
 We’ll add each window to the global map as it’s created:
 
-```
+```py
 class JSContext:
  def add_window(self, frame):
  # ...
@@ -13854,7 +13826,7 @@ class JSContext:
 
 Now `window.parent` can look up the correct `Window` object in this global map:
 
-```
+```py
 Object.defineProperty(Window.prototype, 'parent', {
  configurable: true,
  get: function() {
@@ -13870,7 +13842,7 @@ Object.defineProperty(Window.prototype, 'parent', {
 
 Note that it’s possible for the lookup in `WINDOWS` to fail, if the parent frame is not in the same origin as the current one and therefore isn’t running in the same `JSContext`. In that case, this code returns a fresh `Window` object with that id. But iframes are not allowed to access each others’ documents across origins (or call various other APIs that are unsafe), so add a method that checks for this situation and raises an exception:
 
-```
+```py
 class JSContext:
  def throw_if_cross_origin(self, frame):
  if frame.url.origin() != self.url_origin:
@@ -13880,7 +13852,7 @@ class JSContext:
 
 Then use this method in all `JSContext` methods that access documents:Note that in a real browser this is woefully inadequate security. A real browser would need to very carefully lock down the entire `runtime.js` code and audit every single JavaScript API with a fine-toothed comb.
 
-```
+```py
 class JSContext:
  def querySelectorAll(self, selector_text, window_id):
  frame = self.tab.window_id_to_frame[window_id]
@@ -13907,13 +13879,13 @@ So same-origin iframes can communicate via `parent`. But what about cross-origin
 
 Message-passing in JavaScript works like this: you call the [`postMessage` API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) on the `Window` object you’d like to talk to, with the message itself as the first parameter and `*` as the second:The second parameter has to do with origin restrictions; see Exercise 15-8.
 
-```
+```py
 window.parent.postMessage("...", '*')
 ```
 
 This will send the first argumentIn a real browser, you can also pass data that is not a string, such as numbers and objects. This works via a *serialization* algorithm called [structured cloning](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), which converts most JavaScript objects (though not, for example, DOM nodes) to a sequence of bytes that the receiver frame can convert back into a JavaScript object. DukPy doesn’t support structured cloning natively for objects, so our browser won’t support this either. to the parent frame, which can receive the message by handling the `message` event on its `Window` object:
 
-```
+```py
 window.addEventListener("message", function(e) {
  console.log(e.data);
 });
@@ -13923,13 +13895,13 @@ Note that in this second code snippet, `window` is the receiving `Window`, a dif
 
 Let’s implement `postMessage`, starting on the *receiver* side. Since this event happens on the `Window`, not on a `Node`, we’ll need a new `WINDOW_LISTENERS` array:
 
-```
+```py
 window.WINDOW_LISTENERS = {}
 ```
 
 Each listener will be called with a `MessageEvent` object:
 
-```
+```py
 window.MessageEvent = function(data) {
  this.type = "message";
  this.data = data;
@@ -13938,7 +13910,7 @@ window.MessageEvent = function(data) {
 
 The event listener and dispatching code is the same as for `Node`, except it’s on `Window` and uses `WINDOW_LISTENERS`. You can just duplicate those methods:
 
-```
+```py
 Window.prototype.addEventListener = function(type, listener) {
  // ...
 }
@@ -13950,7 +13922,7 @@ Window.prototype.dispatchEvent = function(evt) {
 
 That’s everything on the receiver side; now let’s do the sender side. First, let’s implement the `postMessage` API itself. Note that `this` is the receiver or target window:
 
-```
+```py
 Window.prototype.postMessage = function(message, origin) {
  call_python("postMessage", this._id, message, origin)
 }
@@ -13958,7 +13930,7 @@ Window.prototype.postMessage = function(message, origin) {
 
 In the browser, `postMessage` schedules a task on the `Tab`:
 
-```
+```py
 class JSContext:
  def postMessage(self, target_window_id, message, origin):
  task = Task(self.tab.post_message,
@@ -13970,7 +13942,7 @@ Scheduling the task is necessary because `postMessage` is an asynchronous API; s
 
 The task finds the target frame and calls a dispatch method:
 
-```
+```py
 class Tab:
  def post_message(self, message, target_window_id):
  frame = self.window_id_to_frame[target_window_id]
@@ -13980,7 +13952,7 @@ class Tab:
 
 Which then calls into the JavaScript `dispatchEvent` method we just wrote:
 
-```
+```py
 POST_MESSAGE_DISPATCH_JS = \
  "window.dispatchEvent(new window.MessageEvent(dukpy.data))"
 
@@ -14098,7 +14070,7 @@ Click on this *formatted* **text** to edit it, including rich text!
 
 Let’s implement the most basic possible version of `contenteditable` in our browser—it’s a useful feature and also a good test of invalidation. To begin with, we need to make elements with a `contenteditable` property focusable:Actually, in real browsers, `contenteditable` can be set to `true` or `false`, and `false` is useful in case you want to have a non-editable element inside an editable one. But I’m not going to implement that in our browser.
 
-```
+```py
 def is_focusable(node):
  # ...
  elif "contenteditable" in node.attributes:
@@ -14108,7 +14080,7 @@ def is_focusable(node):
 
 Once we’re focused on an editable node, typing should edit it. A real browser would handle cursor movement and all kinds of complications, but I’ll keep it simple and just add each character to the last text node in the editable element. First we need to find that text node:
 
-```
+```py
 class Frame:
  def keypress(self, char):
  # ...
@@ -14127,7 +14099,7 @@ class Frame:
 
 Note that if the editable element has no text children, we create a new one. Then we add the typed character to this element:
 
-```
+```py
 class Frame:
  def keypress(self, char):
  elif self.tab.focus and \
@@ -14139,7 +14111,7 @@ class Frame:
 
 This is enough to make editing work, but it’s convenient to also draw a cursor to confirm that the element is focused and show where edits will go. Let’s do that in `BlockLayout`:
 
-```
+```py
 class BlockLayout:
  def paint(self):
  # ...
@@ -14159,7 +14131,7 @@ class BlockLayout:
 
 Here, `DrawCursor` is just a wrapper around `DrawLine`:
 
-```
+```py
 def DrawCursor(elt, offset):
  x = elt.x + offset
  return DrawLine(x, elt.y, x, elt.y + elt.height, "red", 1)
@@ -14167,7 +14139,7 @@ def DrawCursor(elt, offset):
 
 We might as well also use this wrapper in `InputLayout`:
 
-```
+```py
 class InputLayout(EmbedLayout):
  def paint(self):
  if self.node.is_focused and self.node.tag == "input":
@@ -14196,7 +14168,7 @@ The principle of incremental performance is part of what makes browsers a good p
 
 If we want to implement this caching-and-invalidation idea, the first roadblock is that our browser rebuilds the layout tree from scratch every time the layout phase runs:
 
-```
+```py
 class Frame:
  def render(self):
  if self.needs_layout:
@@ -14218,7 +14190,7 @@ But before jumping right to coding, let’s review how layout objects are create
 
 Let’s start with `DocumentLayout`. It’s created in `render`, and its two parameters, `nodes` and `self`, are the same every time. This means that identical `DocumentLayout`s are created each time.This wouldn’t be true if the `DocumentLayout` constructor had side-effects or read global state, but it doesn’t do that. That’s wasteful; let’s create the `DocumentLayout` just once, in `load`:
 
-```
+```py
 class Frame:
  def load(self, url, payload=None):
  # ...
@@ -14233,7 +14205,7 @@ class Frame:
 
 Moving on, let’s look at where `DocumentLayout` constructs a `BlockLayout`:
 
-```
+```py
 class DocumentLayout:
  def layout(self, width, zoom):
  child = BlockLayout(self.node, self, None, self.frame)
@@ -14242,7 +14214,7 @@ class DocumentLayout:
 
 Once again, the constructor parameters cannot change, so again we can skip reconstructing this layout object, like so:
 
-```
+```py
 class DocumentLayout:
  def layout(self, width, zoom):
  if not self.children:
@@ -14254,7 +14226,7 @@ class DocumentLayout:
 
 But don’t run your browser with these changes just yet! By reusing layout objects, we end up running `layout` multiple times on the same object. That’s not how `layout` is intended to work, and it causes all sorts of weird behavior. For example, after the `DocumentLayout` creates its child `BlockLayout`, it *appends* it to the `children` array:
 
-```
+```py
 class DocumentLayout:
  def layout(self, width, zoom):
  # ...
@@ -14268,7 +14240,7 @@ The issue here is called *idempotence*: repeated calls to `layout` shouldn’t r
 
 We’ll need to fix any non-idempotent method calls. In `DocumentLayout`, we can switch from `append` to assignment:
 
-```
+```py
 class DocumentLayout:
  def layout(self, width, zoom):
  # ...
@@ -14278,7 +14250,7 @@ class DocumentLayout:
 
 `BlockLayout` also calls `append` on its `children` array. We can fix that by resetting the `children` array in `layout`. I’ll put separate reset code in the block and inline cases:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  if mode == "block":
@@ -14308,7 +14280,7 @@ HTTP also features a [notion of idempotency](https://developer.mozilla.org/en-US
 
 So far, we’re only reusing two layout objects: the `DocumentLayout`, and the root `BlockLayout`. Let’s look at the other `BlockLayout`s, created here:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  self.children = []
@@ -14326,7 +14298,7 @@ This code is a little more complicated than the code that creates the root `Bloc
 
 Recall that idempotency means that calling a function again *with the same inputs and dependencies* yields the same result. Here, the inputs can change, so we can only avoid redundant re-execution *if the node’s `children` field hasn’t changed*. So we need a way of knowing whether that `children` field has changed. We’re going to use a dirty flag:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -14339,7 +14311,7 @@ Every dirty flag *protects* a certain field; this one protects a `BlockLayout`�
 
 So let’s analyze the `children_dirty` flag in this way. Dirty flags have to be set if any *dependencies* of the fields they protect change. In this case, the dirty flag protects the `children` field of a `BlockLayout`, which in turn depends on the `children` field of the associated `Element`. That means that any time an `Element`’s `children` field is modified, we need to set the dirty flag for the associated `BlockLayout`:
 
-```
+```py
 class JSContext:
  def innerHTML_set(self, handle, s, window_id):
  # ...
@@ -14351,7 +14323,7 @@ class JSContext:
 
 Likewise, we need to set the dirty flag any time we edit a `contenteditable` element, since that can also affect the `children` of a node:
 
-```
+```py
 class Frame:
  def keypress(self, char):
  elif self.tab.focus and \
@@ -14367,7 +14339,7 @@ It’s important that *all* dependencies of the protected field set the dirty bi
 
 Anyway, now that we’re setting the dirty flag, the next step is checking it before using the protected field. `BlockLayout` uses its `children` field in three places: to recursively call `layout` on all its children, to compute its `height`, and to `paint` itself. Let’s add a check in each place:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -14388,7 +14360,7 @@ It’s tempting to skip these assertions, since they should never be triggered, 
 
 Finally, when the field is recomputed we need to reset the dirty flag. Here, we reset the flag when we’ve recomputed the `children` array:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  if mode == "block":
@@ -14403,7 +14375,7 @@ Now that we have all three parts of the dirty flag done, you should be able to r
 
 Now that the `children_dirty` flag works correctly, we can rely on it to avoid redundant work. If `children` isn’t dirty, we don’t need to recreate the `BlockLayout` children:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  if mode == "block":
@@ -14422,7 +14394,7 @@ Dirty flags like `children_dirty` are the traditional approach to layout invalid
 
 A better approach exists. First of all, let’s try to combine the dirty flag and the field it protects into a single object:
 
-```
+```py
 class ProtectedField:
  def __init__(self):
  self.value = None
@@ -14431,7 +14403,7 @@ class ProtectedField:
 
 That clarifies which dirty flag protects which field. Let’s replace our existing dirty flag with a `ProtectedField`:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -14441,7 +14413,7 @@ class BlockLayout:
 
 Next, let’s add methods for each step of the dirty flag life cycle. I’ll say that we `mark` a protected field to set its dirty flag:
 
-```
+```py
 class ProtectedField:
  def mark(self):
  if self.dirty: return
@@ -14450,7 +14422,7 @@ class ProtectedField:
 
 Note the early return: marking an already dirty field doesn’t do anything. That’ll become relevant later. Now call `mark` in `innerHTML_set` and `keypress`:
 
-```
+```py
 class JSContext:
  def innerHTML_set(self, handle, s, window_id):
  # ...
@@ -14466,7 +14438,7 @@ class Frame:
 
 Before “`get`”-ting a `ProtectedField`’s value, let’s check the dirty flag:
 
-```
+```py
 class ProtectedField:
  def get(self):
  assert not self.dirty
@@ -14475,7 +14447,7 @@ class ProtectedField:
 
 Now we can use `get` to read the `children` field in `layout` and in lots of other places besides:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -14490,7 +14462,7 @@ The nice thing about `get` is that it makes the dirty flag operations automatic,
 
 Finally, to reset the dirty flag, let’s make the caller pass in a new value when “`set`”-ting the field. This guarantees that the dirty flag and the value are updated together:
 
-```
+```py
 class ProtectedField:
  def set(self, value):
  self.value = value
@@ -14499,7 +14471,7 @@ class ProtectedField:
 
 Unfortunately, using `set` will require a bit of refactoring. For example, in `BlockLayout`, we’ll need to build the children array in a local variable and then `set` the `children` field at the end:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  if mode == "block":
@@ -14522,7 +14494,7 @@ But the benefit is that `set`, much like `get`, automates the dirty flag operati
 
 Let’s leverage the `ProtectedField` class to avoid recreating all of the `LineLayout`s and their children every time inline layout happens. It all starts here:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  if mode == "block":
@@ -14539,7 +14511,7 @@ Converting all of those fields into `ProtectedField`s will be a challenging proj
 
 Zoom is initially set in `DocumentLayout`:
 
-```
+```py
 class DocumentLayout:
  def __init__(self, node, frame):
  # ...
@@ -14554,7 +14526,7 @@ class DocumentLayout:
 
 Each `BlockLayout` also has its own `zoom` field, which we can protect:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -14564,7 +14536,7 @@ class BlockLayout:
 
 However, in `BlockLayout`, the `zoom` value comes from its parent’s `zoom` field. We might be tempted to write something like this:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  parent_zoom = self.parent.zoom.get()
@@ -14576,7 +14548,7 @@ However, recall that with dirty flags we must always think about invalidating th
 
 We mark a field’s dirty flag when its dependency changes. For example, `innerHTML_set` and `keypress` change the HTML tree, which the layout tree’s `children` field depends on, so those handlers call `mark` on the `children` field. Since a child’s `zoom` field depends on its parents’ `zoom` field, we need to mark all the children when the `zoom` field changes. So in `DocumentLayout`, we have to do:
 
-```
+```py
 class DocumentLayout:
  def layout(self, width, zoom):
  # ...
@@ -14587,7 +14559,7 @@ class DocumentLayout:
 
 Similarly, in `BlockLayout`, which has multiple children, we must do:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -14599,7 +14571,7 @@ But now we’re back to manually calling methods and trying to make sure we don�
 
 To do that, each `ProtectedField` will need to track all fields that depend on it, called its `invalidations`:
 
-```
+```py
 class ProtectedField:
  def __init__(self):
  # ...
@@ -14608,7 +14580,7 @@ class ProtectedField:
 
 For example, we can add the child’s `zoom` field to its parent’s `zoom` field’s `invalidations`:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -14617,7 +14589,7 @@ class BlockLayout:
 
 Then, to automate the `mark` call, let’s add a `notify` method to mark each invalidation:
 
-```
+```py
 class ProtectedField:
  def notify(self):
  for field in self.invalidations:
@@ -14626,7 +14598,7 @@ class ProtectedField:
 
 Then `set` can automatically call `notify`:
 
-```
+```py
 class ProtectedField:
  def set(self, value):
  self.notify()
@@ -14636,7 +14608,7 @@ class ProtectedField:
 
 That’s progress, but it’s still possible to forget to add the invalidation in the first place. We can automate it a little further. Think: why *does* the child’s `zoom` need to depend on its parent’s? It’s because we `get` the parent’s `zoom` when computing the child’s. So adding the invalidation can happen as part of `get`! Let’s make a variant of `get` called `read` with a `notify` parameter for the field to invalidate if the field being read changes:
 
-```
+```py
 class ProtectedField:
  def read(self, notify):
  self.invalidations.add(notify)
@@ -14645,7 +14617,7 @@ class ProtectedField:
 
 Now the `zoom` computation just needs to use `read`, and all of the marking and dependency logic will be handled automatically:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  parent_zoom = self.parent.zoom.read(notify=self.zoom)
@@ -14654,7 +14626,7 @@ class BlockLayout:
 
 In fact, this pattern where we just copy our parent’s value is pretty common, so let’s add a shortcut for it:
 
-```
+```py
 class ProtectedField:
  def copy(self, field):
  self.set(field.read(notify=self))
@@ -14667,7 +14639,7 @@ class BlockLayout:
 
 `BlockLayout` also reads from the `zoom` field inside the `input`, `image`, `iframe`, `word`, and `add_inline_child` methods, which are all part of computing the `children` field. In those methods, we can use `read` to both get the zoom value and also invalidate the `children` field if the zoom value ever changes:
 
-```
+```py
 class BlockLayout:
  def input(self, node):
  zoom = self.zoom.read(notify=self.children)
@@ -14684,7 +14656,7 @@ Real browsers don’t use automatic dependency-tracking like `ProtectedField` (f
 
 Another field that line wrapping depends on is `width`. Let’s convert that to a `ProtectedField`, using the new `read` method along the way. Like `zoom`, `width` is initially set in `DocumentLayout`:
 
-```
+```py
 class DocumentLayout:
  def __init__(self, node, frame):
  # ...
@@ -14699,7 +14671,7 @@ class DocumentLayout:
 
 Then, `BlockLayout` copies it from the parent:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -14714,7 +14686,7 @@ class BlockLayout:
 
 The `width` field is read during line wrapping. For example, `add_inline_child` needs it to determine whether to add a new line. We’ll use `read` to set up that dependency:
 
-```
+```py
 class BlockLayout:
  def add_inline_child(self, node, w, child_class,
  frame, word=None):
@@ -14726,7 +14698,7 @@ class BlockLayout:
 
 While we’re here, note that the decision for whether or not to add a new line also depends on `w`, which is an input to `add_inline_child`. If you look through `add_inline_child`’s callers, you’ll see that most of the time, this argument just depends on `zoom`, but in `word` it depends on a font object:
 
-```
+```py
 class BlockLayout:
  def word(self, node, word):
  zoom = self.zoom.read(notify=self.children)
@@ -14738,7 +14710,7 @@ class BlockLayout:
 
 Note that the font depends on the node’s `style`, which can change, for example via the `style_set` function. To handle this, we’ll need to protect `style`:
 
-```
+```py
 class Element:
  def __init__(self, tag, attributes, parent):
  # ...
@@ -14754,7 +14726,7 @@ class Text:
 
 The `style` field is computed in the `style` method, which computes a new `style` dictionary over multiple phases. Let’s build that new dictionary in a local variable, and `set` it at the end:
 
-```
+```py
 def style(node, rules, frame):
  old_style = node.style.value
  new_style = {}
@@ -14767,7 +14739,7 @@ def style(node, rules, frame):
 
 Inside `style`, one code path reads from the parent node’s style. We need to mark dependencies in these cases:
 
-```
+```py
 def style(node, rules, frame):
  for property, default_value in INHERITED_PROPERTIES.items():
  if node.parent:
@@ -14779,7 +14751,7 @@ def style(node, rules, frame):
 
 Then `style_set` can mark the `style` field:We would ideally make the `style` attribute a protected field, and have the `style` field depend on it, but I’m taking a short-cut in the interest of simplicity.
 
-```
+```py
 class JSContext:
  def style_set(self, handle, s, window_id):
  # ...
@@ -14788,7 +14760,7 @@ class JSContext:
 
 Finally, in `word` (and also in similar code in `add_inline_child`) we can depend on the `style` field:
 
-```
+```py
 class BlockLayout:
  def word(self, node, word):
  # ...
@@ -14801,7 +14773,7 @@ Make sure all other uses of the `style` field use either `read` or `get`; it sho
 
 We’ve now protected all of the fields read during line wrapping. That means the `children` field’s dirty flag now correctly tracks whether line-wrapping can be skipped. Let’s make use of that:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -14815,7 +14787,7 @@ class BlockLayout:
 
 We also need to make sure we now only modify `children` via `set`. That’s a problem for `add_inline_child` and `new_line`, which currently `append` to the `children` field. There are a couple of possible fixes, but in the interests of expediency,Perhaps the nicest design would thread a local `children` variable through all of the methods involved in line layout, similar to `tree_to_list`. I’m going to use a second, unprotected field, `temp_children`, to build the list of children, and then `set` it as the new value of the `children` field at the end:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -14832,7 +14804,7 @@ class BlockLayout:
 
 Note that I reset `temp_children` once we’re done with it, to make sure that no other part of the code accidentally uses it. This way, `new_line` can modify `temp_children`, which will eventually become the value of `children`:
 
-```
+```py
 class BlockLayout:
  def new_line(self):
  self.previous_word = None
@@ -14845,7 +14817,7 @@ class BlockLayout:
 
 You’ll want to do something similar in `add_inline_child`:
 
-```
+```py
 class BlockLayout:
  def add_inline_child(self, node, w, child_class,
  frame, word=None):
@@ -14856,7 +14828,7 @@ class BlockLayout:
 
 Thanks to these fixes, our browser now avoids rebuilding any part of the layout tree unless it changes, and that should make re-layout somewhat faster. If you’ve been going through and adding the appropriate `read` and `get` calls, your browser should be close to working. There’s one tricky case: `tree_to_list`, which might deal with both protected and unprotected `children` fields. I fixed this with a type test:
 
-```
+```py
 def tree_to_list(tree, list):
  # ...
  children = tree.children
@@ -14877,7 +14849,7 @@ In real browsers, the layout phase is sometimes split in two, first constructing
 
 At this point, `BlockLayout` has a protected `width` field, but other layout object types do not. Let’s fix that, because we’ll need it later. `LineLayout` is pretty easy:
 
-```
+```py
 class LineLayout:
  def __init__(self, node, parent, previous):
  # ...
@@ -14892,7 +14864,7 @@ class LineLayout:
 
 In `TextLayout`, we again need to handle `font` (and hence have `width` depend on `style`):
 
-```
+```py
 class TextLayout:
  def __init__(self, node, word, parent, previous):
  # ...
@@ -14910,7 +14882,7 @@ class TextLayout:
 
 In `EmbedLayout`, we just need to protect the `width` field:
 
-```
+```py
 class EmbedLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -14922,7 +14894,7 @@ There’s also a reference to `width` in the `layout` method for computing `x` p
 
 Finally, there are the various types of replaced content. In `InputLayout`, the width only depends on the zoom level:
 
-```
+```py
 class InputLayout(EmbedLayout):
  def layout(self):
  # ...
@@ -14933,7 +14905,7 @@ class InputLayout(EmbedLayout):
 
 `IframeLayout` and `ImageLayout` are very similar, with the width depending on the zoom level and also the element’s `width` and `height` attributes. So, we’ll need to invalidate the `width` field if those attributes are changed from JavaScript:
 
-```
+```py
 class JSContext:
  def setAttribute(self, handle, attr, value, window_id):
  # ...
@@ -14954,7 +14926,7 @@ While we’re here, let’s take a moment to protect all of the other layout fie
 
 As with `width`, let’s start with `DocumentLayout` and `BlockLayout`. First, `x` and `y` positions. In `DocumentLayout`, just use `set`:
 
-```
+```py
 class DocumentLayout:
  def __init__(self, node, frame):
  # ...
@@ -14971,7 +14943,7 @@ class DocumentLayout:
 
 A `BlockLayout`’s `x` position is just its parent’s `x` position, so we can just `copy` it over:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -14986,7 +14958,7 @@ class BlockLayout:
 
 However, the `y` position sometimes refers to the `previous` sibling:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -15005,7 +14977,7 @@ class BlockLayout:
 
 Let’s also do `height`s. For `DocumentLayout`, we just read the child’s height:
 
-```
+```py
 class DocumentLayout:
  def __init__(self, node, frame):
  # ...
@@ -15019,7 +14991,7 @@ class DocumentLayout:
 
 `BlockLayout` is similar, except it loops over multiple children:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -15052,7 +15024,7 @@ We need to protect `LineLayout`s’, `TextLayout`s’, and `EmbedLayout`s’ fie
 
 Let’s start with `TextLayout`:
 
-```
+```py
 class TextLayout:
  def __init__(self, node, word, parent, previous):
  # ...
@@ -15067,7 +15039,7 @@ class TextLayout:
 
 We’ll need to compute these fields in `layout`. All of the font-related ones are fairly straightforward:
 
-```
+```py
 class TextLayout:
  def layout(self):
  # ...
@@ -15093,7 +15065,7 @@ Note that I’ve changed `width` to read the `font` field instead of directly re
 
 We also need to compute the *x* position of a `TextLayout`. That can use the previous sibling’s font, *x* position, and width:
 
-```
+```py
 class TextLayout:
  def layout(self):
  # ...
@@ -15109,7 +15081,7 @@ class TextLayout:
 
 `EmbedLayout` is basically identical. As for its subclasses, here’s `InputLayout`:
 
-```
+```py
 class InputLayout(EmbedLayout):
  def layout(self):
  super().layout()
@@ -15126,7 +15098,7 @@ class InputLayout(EmbedLayout):
 
 And here’s `ImageLayout`; it has an `img_height` field, which I’m going to treat as an intermediate step in computing `height` and not protect:
 
-```
+```py
 class ImageLayout(EmbedLayout):
  def layout(self):
  # ...
@@ -15140,7 +15112,7 @@ class ImageLayout(EmbedLayout):
 
 Finally, here’s how `IframeLayout` computes its height, which is straightforward:
 
-```
+```py
 class IframeLayout(EmbedLayout):
  def layout(self):
  # ...
@@ -15154,7 +15126,7 @@ class IframeLayout(EmbedLayout):
 
 We also need to invalidate the `height` field if the `height` attribute changes:
 
-```
+```py
 class JSContext:
  def setAttribute(self, handle, attr, value, window_id):
  if isinstance(obj, IframeLayout) or \
@@ -15166,7 +15138,7 @@ class JSContext:
 
 So that covers all of the inline layout objects. All that’s left is `LineLayout`. Here are `x` and `y`:
 
-```
+```py
 class LineLayout:
  def __init__(self, node, parent, previous):
  # ...
@@ -15190,7 +15162,7 @@ However, `height` is a bit complicated: it computes the maximum ascent and desce
 
 Let’s do that, starting with declaring the protected fields:
 
-```
+```py
 class LineLayout:
  def __init__(self, node, parent, previous):
  # ...
@@ -15200,7 +15172,7 @@ class LineLayout:
 
 Then, in `layout`, we’ll first handle the case of no children:
 
-```
+```py
 class LineLayout:
  def layout(self):
  # ...
@@ -15213,7 +15185,7 @@ Note that we don’t need to `read` the `children` field because in `LineLayout`
 
 Next, let’s compute the maximum ascent and descent:
 
-```
+```py
 class LineLayout:
  def layout(self):
  # ...
@@ -15230,7 +15202,7 @@ class LineLayout:
 
 Next, we can recompute the `y` position of each child:
 
-```
+```py
 class LineLayout:
  def layout(self):
  # ...
@@ -15243,7 +15215,7 @@ class LineLayout:
 
 Finally, we recompute the line’s height:
 
-```
+```py
 class LineLayout:
  def layout(self):
  # ...
@@ -15260,7 +15232,7 @@ Just before writing this section, IThis is Chris speaking. spent *weeks* weeding
 
 We’ve got quite a number of layout fields now, so let’s see how much invalidation is actually going on. Add a `print` statement inside the `set` method on `ProtectedField`s to see which fields are getting recomputed:
 
-```
+```py
 class ProtectedField:
  def set(self, value):
  if self.value != None:
@@ -15274,7 +15246,7 @@ The `if` check avoids printing during initial page layout, so it will only show 
 
 Try editing some text with `contenteditable` on a large web page (like this chapter)—you’ll see a *screenful* of output, thousands of lines of printed nonsense. It’s a little hard to understand why, so let’s add a nice printable form for `ProtectedField`s, plus a new `name` parameter for debugging purposes:Note that I print the node, not the layout object, because layout objects’ printable forms print layout field values, which might be dirty and unreadable.
 
-```
+```py
 class ProtectedField:
  def __init__(self, obj, name):
  self.obj = obj
@@ -15289,7 +15261,7 @@ class ProtectedField:
 
 Name all of your `ProtectedField`s, like this:
 
-```
+```py
 class DocumentLayout:
  def __init__(self, node, frame):
  # ...
@@ -15302,7 +15274,7 @@ class DocumentLayout:
 
 If you look at your output again, you should now see two phases. First, there’s a lot of `style` re-computation:
 
-```
+```py
 Change ProtectedField(<body>, style)
 Change ProtectedField(<header>, style)
 Change ProtectedField(<h1 class="title">, style)
@@ -15315,7 +15287,7 @@ Change ProtectedField(' ·\n', style)
 
 Then, we recompute four layout fields repeatedly:
 
-```
+```py
 Change ProtectedField(<html lang="en-US" xml:lang="en-US">, zoom)
 Change ProtectedField(<html lang="en-US" xml:lang="en-US">, zoom)
 Change ProtectedField(<head>, zoom)
@@ -15330,7 +15302,7 @@ Change ProtectedField(<header>, y)
 
 Let’s fix these. First, let’s tackle `style`. The reason `style` is being recomputed repeatedly is just that we recompute it even if it isn’t dirty. Let’s skip if it’s not:
 
-```
+```py
 def style(node, rules, frame):
  if node.style.dirty:
  # ...
@@ -15341,7 +15313,7 @@ def style(node, rules, frame):
 
 There should now be barely any style re-computation at all. But what about those layout field re-computations? Why are those happening? Well, the very first field being recomputed here is `zoom`, which itself traces back to `DocumentLayout`:
 
-```
+```py
 class DocumentLayout:
  def layout(self, width, zoom):
  self.zoom.set(zoom)
@@ -15352,7 +15324,7 @@ Every time we lay out the page, we `set` the zoom parameter, and we have to do t
 
 What makes this all wasteful is that `zoom` usually doesn’t change. So we should notify dependants only if the value didn’t change:
 
-```
+```py
 class ProtectedField:
  def set(self, value):
  if value != self.value:
@@ -15362,7 +15334,7 @@ class ProtectedField:
 
 This change is safe, because if the new value is the same as the old value, any downstream computations don’t actually need to change. This small tweak should reduce the number of field changes down to the minimum:
 
-```
+```py
 Change ProtectedField(<html lang="en-US" xml:lang="en-US">, zoom)
 Change ProtectedField(<div class="demo" ...>, children)
 Change ProtectedField(<div class="demo" ...>, height)
@@ -15390,7 +15362,7 @@ The basic idea revolves around the question: do we even need to call `layout` on
 
 There’s no dirty flag yet for the last condition, so let’s add one. I’ll call it `has_dirty_descendants` because it tracks whether any descendant has a dirty `ProtectedField`:In some code bases, you will see these called *ancestor* dirty flags instead. It’s the same thing, just following the flow of dirty bits instead of the flow of control.
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -15401,7 +15373,7 @@ Add this to every other kind of layout object, too.
 
 Now we need to set the `has_dirty_descendants` flag if any dirty flag is set. We can do that with an additional (and optionalIt’s optional because only `ProtectedField`s on layout objects need this feature.) `parent` parameter to a `ProtectedField`.
 
-```
+```py
 class ProtectedField:
  def __init__(self, obj, name, parent=None):
  # ...
@@ -15410,7 +15382,7 @@ class ProtectedField:
 
 Make sure to pass this parameter for each `ProtectedField` in each layout object type. Here’s `BlockLayout`, for example:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ... 
@@ -15424,7 +15396,7 @@ class BlockLayout:
 
 Then, whenever `mark` or `notify` is called, we set the descendant bits by walking the `parent` chain:
 
-```
+```py
 class ProtectedField:
  def set_ancestor_dirty_bits(self):
  parent = self.parent
@@ -15441,7 +15413,7 @@ Note that the `while` loop exits early if the descendants bit is already set. Th
 
 We’ll need to clear the descendant bits after `layout`:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -15453,7 +15425,7 @@ class BlockLayout:
 
 Now that we have descendant dirty flags, let’s use them to skip `layout`, including recursive calls:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  if not self.layout_needed(): return
@@ -15462,7 +15434,7 @@ class BlockLayout:
 
 Here, the `layout_needed` method just checks all of the dirty bits:
 
-```
+```py
 class BlockLayout:
  def layout_needed(self):
  if self.zoom.dirty: return True
@@ -15477,7 +15449,7 @@ class BlockLayout:
 
 Do the same for every other type of layout object. In `DocumentLayout`, you do need to be a little careful, since it receives the frame width and zoom level as an argument; you have to `mark` those fields of `DocumentLayout` if the corresponding `Frame` variables change:We need to mark the root layout object’s `width` because the `frame_width` is passed into `DocumentLayout`’s `layout` method as the `width` parameter. We could have protected the `frame_width` field instead, and then this `mark` would happen automatically; I’m skipping that for expediency, but it would have been a bit safer.
 
-```
+```py
 class IframeLayout(EmbedLayout):
  def layout(self):
  if self.node.frame and self.node.frame.loaded:
@@ -15487,7 +15459,7 @@ class IframeLayout(EmbedLayout):
 
 The `zoom` level changes in `Tab`:
 
-```
+```py
 class Tab:
  def zoom_by(self, increment):
  # ...
@@ -15516,7 +15488,7 @@ Unfortunately, in the process of adding invalidation, we have inadvertently brok
 
 Ultimately the core problem here is *over*-invalidation caused by `ProtectedField`s that are too coarse-grained. The `children` field, for example, doesn’t depend on the whole `style` dictionary, just a few font-related fields in it. We need `style` to be a dictionary of `ProtectedField`s, not a `ProtectedField` of a dictionary:
 
-```
+```py
 class Element:
  def __init__(self, tag, attributes, parent):
  # ...
@@ -15529,7 +15501,7 @@ class Element:
 
 Make the same change in `Text`. The `CSS_PROPERTIES` dictionary contains each CSS property that we support, plus their default value:
 
-```
+```py
 CSS_PROPERTIES = {
  "font-size": "inherit", "font-weight": "inherit",
  "font-style": "inherit", "color": "inherit",
@@ -15543,7 +15515,7 @@ CSS_PROPERTIES = {
 
 When setting the `style` property from JavaScript, I’ll invalidate all of the fields by calling a new `dirty_style` function:
 
-```
+```py
 def dirty_style(node):
  for property, value in node.style.items():
  value.mark()
@@ -15557,7 +15529,7 @@ class JSContext:
 
 But that’s not all. There is also other code that invalidates style, in particular code that can affect a pseudo-class such as `:focus`.
 
-```
+```py
 class Frame:
  def focus_element(self, node):
  # ...
@@ -15571,7 +15543,7 @@ class Frame:
 
 Similarly, in `style`, we will need to recompute a node’s style if *any* of their style properties are dirty:
 
-```
+```py
 def style(node, rules, frame):
  needs_style = any([field.dirty for field in node.style.values()])
  if needs_style:
@@ -15582,7 +15554,7 @@ def style(node, rules, frame):
 
 To match the existing code, I’ll make `old_style` and `new_style` just map properties to values:
 
-```
+```py
 def style(node, rules, frame):
  if needs_style:
  old_style = dict([
@@ -15595,7 +15567,7 @@ def style(node, rules, frame):
 
 Then, when we resolve inheritance, we specifically have one field of our style depend on one field of the parent’s style:
 
-```
+```py
 def style(node, rules, frame):
  if needs_style:
  for property, default_value in INHERITED_PROPERTIES.items():
@@ -15608,7 +15580,7 @@ def style(node, rules, frame):
 
 Likewise when resolving percentage font sizes:
 
-```
+```py
 def style(node, rules, frame):
  if needs_style:
  if new_style["font-size"].endswith("%"):
@@ -15620,7 +15592,7 @@ def style(node, rules, frame):
 
 Then, once the `new_style` is all computed, we individually set every field of the node’s `style`:
 
-```
+```py
 def style(node, rules, frame):
  if needs_style:
  # ...
@@ -15630,7 +15602,7 @@ def style(node, rules, frame):
 
 Now we just need to update the rest of the browser to use the granular style fields. Mostly, this means replacing `style.get()[property]` with `style[property].get()`:
 
-```
+```py
 def paint_visual_effects(node, cmds, rect):
  opacity = float(node.style["opacity"].get())
  blend_mode = node.style["mix-blend-mode"].get()
@@ -15645,7 +15617,7 @@ def paint_visual_effects(node, cmds, rect):
 
 However, the `font` method needs a little bit of work. Until now, we’ve read the node’s `style` and passed that to `font`:
 
-```
+```py
 class BlockLayout:
  def word(self, node, word):
  zoom = self.children.read(self.zoom)
@@ -15656,7 +15628,7 @@ class BlockLayout:
 
 That won’t work anymore, because now we need to read three different properties of `style`. To keep things compact, I’m going to rewrite `font` to pass in the field to invalidate as an argument:
 
-```
+```py
 def font(css_style, zoom, notify):
  weight = css_style['font-weight'].read(notify)
  style = css_style['font-style'].read(notify)
@@ -15670,7 +15642,7 @@ def font(css_style, zoom, notify):
 
 Now we can simply pass `self.children` in for the `notify` parameter when requesting a font during line breaking:
 
-```
+```py
 class BlockLayout:
  def word(self, node, word):
  zoom = self.zoom.read(notify=self.children)
@@ -15680,7 +15652,7 @@ class BlockLayout:
 
 Likewise, we pass in the `font` field if that’s what we’re computing:
 
-```
+```py
 class TextLayout:
  def layout(self):
  if self.font.dirty:
@@ -15693,7 +15665,7 @@ Make sure to update all other uses of the `font` method to this new interface. T
 
 Finally, now that we’ve added granular invalidation to `style`, we can invalidate just the animating property when handling animations:
 
-```
+```py
 class Tab:
  def run_animation_frame(self, scroll):
  for (window_id, frame) in self.window_id_to_frame.items():
@@ -15722,7 +15694,7 @@ Figure 5: A dependency diagram for the layout fields in our browser. Simplified 
 
 An easy first step is explicitly listing the dependencies of each `ProtectedField`. We can make this an optional constructor parameter:
 
-```
+```py
 class ProtectedField:
  def __init__(self, obj, name, parent=None, dependencies=None):
  # ...
@@ -15733,7 +15705,7 @@ class ProtectedField:
 
 Moreover, if the dependencies are passed in the constructor, we can “freeze” the `ProtectedField`, so that `read` no longer adds new dependencies, just checks that they were declared:
 
-```
+```py
 class ProtectedField:
  def __init__(self, obj, name, parent=None, dependencies=None):
  # ...
@@ -15753,7 +15725,7 @@ class ProtectedField:
 
 For example, in `DocumentLayout`, we can now be explicit about the fact that its fields have no external dependencies, and thus have to be `mark`ed explicitly:I didn’t even notice that myself until I wrote this section!
 
-```
+```py
 class DocumentLayout:
  def __init__(self, node, frame):
  # ...
@@ -15768,7 +15740,7 @@ But note that `height` is missing the dependencies parameter. A `DocumentLayout`
 
 We can also freeze the `zoom`, `width`, `x`, and `y` fields in `BlockLayout`. For `y`, the dependencies differ based on whether or not the layout object has a previous sibling:
 
-```
+```py
 class BlockLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -15783,7 +15755,7 @@ class BlockLayout:
 
 We can’t freeze `height` for `BlockLayout`, for the same reason as `DocumentLayout`, in the constructor. But we *can* freeze it as soon as the `children` field is computed. Let’s add a `set_dependencies` method to do that:This is dynamic, just like calls to `read`, but at least we’re centralizing dependencies in one place. Plus, listing the dependencies explicitly and then checking them later is a kind of [defense in depth](https://en.wikipedia.org/wiki/Defense_in_depth_(computing)) against invalidation bugs.
 
-```
+```py
 class ProtectedField:
  def set_dependencies(self, dependencies):
  for dependency in dependencies:
@@ -15793,7 +15765,7 @@ class ProtectedField:
 
 Now we can freeze `height` in `DocumentLayout`:
 
-```
+```py
 class DocumentLayout:
  def layout(self, width, zoom):
  if not self.children:
@@ -15803,7 +15775,7 @@ class DocumentLayout:
 
 Similarly, in `BlockLayout`:
 
-```
+```py
 class BlockLayout:
  def layout(self):
  # ...
@@ -15829,7 +15801,7 @@ class BlockLayout:
 
 The other layout objects can also freeze their fields. In `TextLayout`, `EmbedLayout`, and its subclasses we can freeze everything:
 
-```
+```py
 class TextLayout:
  def __init__(self, node, word, parent, previous):
  # ...
@@ -15861,7 +15833,7 @@ class TextLayout:
 
 In `LineLayout`, due to the somewhat complicated way a line is created and then laid out, we need to delay freezing `ascent` and `descent` until the first time `layout` is called:
 
-```
+```py
 class LineLayout:
  def __init__(self, node, parent, previous):
  # ...
@@ -15882,7 +15854,7 @@ class LineLayout:
 
 The last layout class is `EmbedLayout`. The dependencies there are straightforward except for two things: first, just like for `TextLayout`, `x` depends on the previous `x` if present, and second, `height` depends on `width` because of aspect ratios:
 
-```
+```py
 class EmbedLayout:
  def __init__(self, node, parent, previous, frame):
  # ...
@@ -15915,7 +15887,7 @@ class EmbedLayout:
 
 We can even freeze all of the style fields! The only complication is that `innerHTML` changes an element’s parent, so let’s create the style dictionary dynamically. Initialize it to `None` in the constructor:
 
-```
+```py
 class Element:
  def __init__(self, tag, attributes, parent):
  # ...
@@ -15929,7 +15901,7 @@ class Text:
 
 Then set it the first time `style` is called:
 
-```
+```py
 def style(node, rules, frame):
  if not node.style:
  init_style(node)
@@ -15937,7 +15909,7 @@ def style(node, rules, frame):
 
 Inside `init_style`, we need to freeze the dependencies of each style field. That’s easy: only inherited fields have any dependencies:
 
-```
+```py
 def init_style(node):
  node.style = dict([
  (property, ProtectedField(node, property, None,
