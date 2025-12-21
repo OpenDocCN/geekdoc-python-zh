@@ -38,4 +38,5 @@
 +   [Tiny Python 2.7 笔记](docs/tiny-py-es6-nb/README.md)
 +   [Tornado 概览](docs/trnd-ovw/README.md)
 +   [Twisted 与异步编程入门](docs/twisted-async-prog/README.md)
++   [网络浏览器工程](docs/web-brsr-engi/README.md)
 +   [Web.py Cookbook 简体中文版](docs/webpy-cb/README.md)
