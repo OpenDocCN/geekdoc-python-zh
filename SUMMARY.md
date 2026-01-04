@@ -1,5 +1,6 @@
 +   [编程小白的第一本 Python 入门书](docs/1st-py-intro-bk/README.md)
 +   [AskPython 博客中文翻译](docs/askpython/README.md)
++   [Python 整洁架构指南](docs/cln-arch-py/README.md)
 +   [Django 之歌：简易博客搭建教程](docs/dj-simp-blog-tut/README.md)
 +   [Django Girls 學習指南](docs/djgirl-taipei-tut/README.md)
 +   [Flask 大型教程](docs/flask-mega-tut/README.md)
