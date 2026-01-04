@@ -1,0 +1,84 @@
+- en: About
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 原文：[https://www.thedigitalcatbooks.com/pages/about.html](https://www.thedigitalcatbooks.com/pages/about.html)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '*“We are like dwarfs standing on the shoulders of giants, so that we can see
+    more than they, and things at a greater distance; not by virtue of any sharpness
+    of sight on our part, or any physical distinction, but because we are carried
+    high and raised up by their giant size.”* (Bernard of Chartres)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: About me
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: My name is Leonardo Giordani. I was born in Italy in 1977, a year that gave
+    to the world also Star Wars, bash, Apple ][, BSD, finger, Zork, Dire Straits,
+    The Police, Rumours, The Silmarillion.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I'm interested in operating systems and computer languages, photography, fantasy
+    and science fiction, video- and boardgames, guitar playing, climbing, horseback
+    riding, Aikido, light saber combat, rollerskating, drawing, painting, bookbinding,
+    mathematics, and cryptography.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I programmed in Z80 and x86 Assembly, GW-Basic, Logo, Borland Turbo Pascal,
+    Prolog, C, C++, PHP, Lisp, Ada, Objective-C, bash, Python, Erlang, Clojure, Scala.
+    I'm currently working as an infrastructure engineer for the film industry.
+  prefs: []
+  type: TYPE_NORMAL
+- en: About this site
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: In 2018 I published my first book, *Clean Architectures in Python*, that was
+    born as an extended version of a post that I published on my blog [The Digital
+    Cat](https://www.thedigitalcatonline.com/). The book was initially created on
+    Leanpub with a pay-what-you-want scheme, but eventually I also decided to publish
+    it online to make it easier to access and to share.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the last two years I tried several different toolchains to write the online
+    content and eventually ended up using the same system that I use for the blog,
+    that is using the [Mau](https://github.com/Project-Mau) markup language together
+    with the [Pelican](https://getpelican.com) blog engine.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I have another book in the works, and I hope I will be able to expand some other
+    blog posts into full featured book, that give me the freedom to discuss a topic
+    in depth without the length constraints of the standard blog post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: License
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: The content of this site released under Creative Commons Attribution-ShareAlike
+    4.0 International (CC BY-SA 4.0). I strongly believe that shared knowledge, in
+    every field, is the only way to achieve real progress.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Typos, errors, and bugs
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: What you find on this website is by no means always correct. Feel free to submit
+    corrections through the [GitHub Issues page](https://github.com/TheDigitalCatBooks/source/issues)
+    for site-wide issues, or using the specific repository of each book. I won't always
+    answer immediately but I assure you that I read all the issues and will eventually
+    fix them.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Contact me
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: '[Twitter](https://twitter.com/thedigicat)'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
