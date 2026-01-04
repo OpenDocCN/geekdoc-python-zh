@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Chapter 4 - Add a web application</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Chapter 4 - Add a web application</h1>
+<blockquote>原文：<a href="https://www.thedigitalcatbooks.com/pycabook-chapter-04/">https://www.thedigitalcatbooks.com/pycabook-chapter-04/</a></blockquote>
+    <blockquote><p>For your information, Hairdo, a major network is interested in me.</p><cite>Groundhog Day, 1993</cite></blockquote><p>In this chapter, I will go through the creation of an HTTP endpoint for the room list use case. An HTTP endpoint is a URL exposed by a Web server that runs a specific logic and returns values in a standard format.</p><p>I will follow the REST recommendation, so the endpoint will return a JSON payload. REST is however not part of the clean architecture, which means that you can choose to model your URLs and the format of returned data according to whatever scheme you prefer.</p><p>To expose the HTTP endpoint we need a web server written in Python, and in this case, I chose Flask. Flask is a lightweight web server with a modular structure that provides just the parts that the user needs. In particular, we will not use any database/ORM, since we already implemented our own repository layer.</p><h2 id="flask-setup">Flask setup</h2><p>Let us start updating the requirements files. The file <code>requirements/prod.txt</code> shall mention Flask, as this package contains a script that runs a local webserver that we can use to expose the endpoint</p><div class="code code-text"><div class="title"><code>requirements/prod.txt</code></div><div class="content"><div class="highlight"><pre><span/>Flask
+</pre></div>
+</div></div><p>The file <code>requirements/test.txt</code> will contain the pytest extension to work with Flask (more on this later)</p><div class="code code-text"><div class="title"><code>requirements/test.txt</code></div><div class="content"><div class="highlight"><pre><span/>-r prod.txt
+pytest
+tox
+coverage
+pytest-cov
+pytest-flask
+</pre></div>
+</div></div><div class="admonition note"><i class="fa fa-github"/><div class="content"><div class="title">Source code</div><div><p><a href="https://github.com/pycabook/rentomatic/tree/ed2-c04-s01">https://github.com/pycabook/rentomatic/tree/ed2-c04-s01</a></p></div></div></div><p>Remember to run <code>pip install -r requirements/dev.txt</code> again after those changes to install the new packages in your virtual environment.</p><p>The setup of a Flask application is not complex, but there are a lot of concepts involved, and since this is not a tutorial on Flask I will run quickly through these steps. I will provide links to the Flask documentation for every concept, though. If you want to dig a bit deeper in this matter you can read my series of posts <a href="https://www.thedigitalcatonline.com/blog/2020/07/05/flask-project-setup-tdd-docker-postgres-and-more-part-1/">Flask Project Setup: TDD, Docker, Postgres and more</a>.</p><p>The Flask application can be configured using a plain Python object (<a href="http://flask.pocoo.org/docs/latest/api/#flask.Config.from_object">documentation</a>), so I created the file <code>application/config.py</code> that contains this code</p><div class="code code-python"><div class="title"><code>application/config.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">Config</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">"""Base configuration"""</span>
+
+
+<span class="k">class</span> <span class="nc">ProductionConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="sd">"""Production configuration"""</span>
+
+
+<span class="k">class</span> <span class="nc">DevelopmentConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="sd">"""Development configuration"""</span>
+
+
+<span class="k">class</span> <span class="nc">TestingConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="sd">"""Testing configuration"""</span>
+
+    <span class="n">TESTING</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div></div><p>Read <a href="http://flask.pocoo.org/docs/latest/config/">this page</a> to know more about Flask configuration parameters.</p><p>Now we need a function that initialises the Flask application (<a href="http://flask.pocoo.org/docs/latest/patterns/appfactories/">documentation</a>), configures it, and registers the blueprints (<a href="http://flask.pocoo.org/docs/latest/blueprints/">documentation</a>). The file <code>application/app.py</code> contains the following code, which is an app factory</p><div class="code code-python"><div class="title"><code>application/app.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="kn">from</span> <span class="nn">application.rest</span> <span class="kn">import</span> <span class="n">room</span>
+
+
+<span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">config_name</span><span class="p">):</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="n">config_module</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"application.config.</span><span class="si">{</span><span class="n">config_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2">Config"</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">config_module</span><span class="p">)</span>
+	
+    <span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">blueprint</span><span class="p">)</span>
+	
+    <span class="k">return</span> <span class="n">app</span>
+</pre></div>
+</div></div><div class="admonition note"><i class="fa fa-github"/><div class="content"><div class="title">Source code</div><div><p><a href="https://github.com/pycabook/rentomatic/tree/ed2-c04-s02">https://github.com/pycabook/rentomatic/tree/ed2-c04-s02</a></p></div></div></div><h2 id="test-and-create-an-http-endpoint">Test and create an HTTP endpoint</h2><p>Before we create the proper setup of the webserver, we want to create the endpoint that will be exposed. Endpoints are ultimately functions that are run when a user sends a request to a certain URL, so we can still work with TDD, as the final goal is to have code that produces certain results.</p><p>The problem we have testing an endpoint is that we need the webserver to be up and running when we hit the test URLs. The webserver itself is an external system so we won't test it, but the code that provides the endpoint is part of our application<sup>[<a id="fr--3563573" href="#fd--3563573">1</a>]</sup>. It is actually a gateway, that is an interface that allows an HTTP framework to access the use cases.</p><p>The extension <code>pytest-flask</code> allows us to run Flask, simulate HTTP requests, and test the HTTP responses. This extension hides a lot of automation, so it might be considered a bit "magic" at a first glance. When you install it some fixtures like <code>client</code> are available automatically, so you don't need to import them. Moreover, it tries to access another fixture named <code>app</code> that you have to define. This is thus the first thing to do.</p><p>Fixtures can be defined directly in your test file, but if we want a fixture to be globally available the best place to define it is the file <code>conftest.py</code> which is automatically loaded by pytest. As you can see there is a great deal of automation, and if you are not aware of it you might be surprised by the results, or frustrated by the errors.</p><div class="code code-python"><div class="title"><code>tests/conftest.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="kn">from</span> <span class="nn">application.app</span> <span class="kn">import</span> <span class="n">create_app</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">app</span><span class="p">():</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">(</span><span class="s2">"testing"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">app</span>
+</pre></div>
+</div></div><p>The function <code>app</code> runs the app factory to create a Flask app, using the configuration <code>testing</code>, which sets the flag <code>TESTING</code> to <code>True</code>. You can find the description of these flags in the <a href="http://flask.pocoo.org/docs/1.0/config/">official documentation</a>.</p><p>At this point, we can write the test for our endpoint.</p><div class="code code-python"><div class="title"><code>tests/rest/test_room.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">mock</span>
+
+<span class="kn">from</span> <span class="nn">rentomatic.domain.room</span> <span class="kn">import</span> <span class="n">Room</span>
+
+<span class="n">room_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"3251a5bd-86be-428d-8ae9-6e51a8048c33"</span><span class="p">,</span>
+    <span class="s2">"size"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"price"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"longitude"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.09998975</span><span class="p">,</span>
+    <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">51.75436293</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">rooms</span> <span class="o">=</span> <span class="p">[</span><span class="n">Room</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">room_dict</span><span class="p">)]</span>
+
+
+<span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">"application.rest.room.room_list_use_case"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_get</span><span class="p">(</span><span class="n">mock_use_case</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+    <span class="n">mock_use_case</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">rooms</span>
+
+    <span class="n">http_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/rooms"</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">http_response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"UTF-8"</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="n">room_dict</span><span class="p">]</span>
+    <span class="n">mock_use_case</span><span class="o">.</span><span class="n">assert_called</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">http_response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+    <span class="k">assert</span> <span class="n">http_response</span><span class="o">.</span><span class="n">mimetype</span> <span class="o">==</span> <span class="s2">"application/json"</span>
+</pre></div>
+</div></div><p>Let's comment it section by section.</p><div class="code code-python"><div class="title"><code>tests/rest/test_room.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">mock</span>
+
+<span class="kn">from</span> <span class="nn">rentomatic.domain.room</span> <span class="kn">import</span> <span class="n">Room</span>
+
+<span class="n">room_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"3251a5bd-86be-428d-8ae9-6e51a8048c33"</span><span class="p">,</span>
+    <span class="s2">"size"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"price"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"longitude"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.09998975</span><span class="p">,</span>
+    <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">51.75436293</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">rooms</span> <span class="o">=</span> <span class="p">[</span><span class="n">Room</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">room_dict</span><span class="p">)]</span>
+</pre></div>
+</div></div><p>The first part contains some imports and sets up a room from a dictionary. This way we can later directly compare the content of the initial dictionary with the result of the API endpoint. Remember that the API returns JSON content, and we can easily convert JSON data into simple Python structures, so starting from a dictionary will come in handy.</p><div class="code code-python"><div class="title"><code>tests/rest/test_room.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">"application.rest.room.room_list_use_case"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_get</span><span class="p">(</span><span class="n">mock_use_case</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+</pre></div>
+</div></div><p>This is the only test that we have for the time being. During the whole test, we mock the use case, as we are not interested in running it, as it has been already tested elsewhere. We are however interested in checking the arguments passed to the use case, and a mock can provide this information. The test receives the mock from the decorator <code>patch</code> and the fixture <code>client</code>, which is one of the fixtures provided by <code>pytest-flask</code>. The fixture automatically loads <code>app</code>, which we defined in <code>conftest.py</code>, and is an object that simulates an HTTP client that can access the API endpoints and store the responses of the server.</p><div class="code code-python"><div class="title"><code>tests/rest/test_room.py</code></div><div class="content"><div class="highlight"><pre><span/>    <span class="n">mock_use_case</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">rooms</span>
+
+    <span class="n">http_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/rooms"</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">http_response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"UTF-8"</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="n">room_dict</span><span class="p">]</span>
+    <span class="n">mock_use_case</span><span class="o">.</span><span class="n">assert_called</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">http_response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+    <span class="k">assert</span> <span class="n">http_response</span><span class="o">.</span><span class="n">mimetype</span> <span class="o">==</span> <span class="s2">"application/json"</span>
+</pre></div>
+</div></div><p>The first line initialises the mock use case, instructing it to return the fixed <code>rooms</code> variable that we created previously. The central part of the test is the line where we <code>get</code> the API endpoint, which sends an HTTP GET request and collects the server's response.</p><p>After this, we check that the data contained in the response is a JSON that contains the data in the structure <code>room_dict</code>, that the method use_case has been called, that the HTTP response status code is 200, and last that the server sends the correct MIME type back.</p><p>It's time to write the endpoint, where we will finally see all the pieces of the architecture working together, as they did in the little CLI program that we wrote previously. Let me show you a template for the minimal Flask endpoint we can create</p><div class="code code-python"><div class="content"><div class="highlight"><pre><span/><span class="n">blueprint</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s1">'room'</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@blueprint</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/rooms'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">room_list</span><span class="p">():</span>
+    <span class="p">[</span><span class="n">LOGIC</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">([</span><span class="n">JSON</span> <span class="n">DATA</span><span class="p">],</span>
+                    <span class="n">mimetype</span><span class="o">=</span><span class="s1">'application/json'</span><span class="p">,</span>
+                    <span class="n">status</span><span class="o">=</span><span class="p">[</span><span class="n">STATUS</span><span class="p">])</span>
+</pre></div>
+</div></div><p>As you can see the structure is really simple. Apart from setting the blueprint, which is the way Flask registers endpoints, we create a simple function that runs the endpoint, and we decorate it assigning the enpoint <code>/rooms</code> that serves <code>GET</code> requests. The function will run some logic and eventually return a <code>Response</code> that contains JSON data, the correct MIME type, and an HTTP status that represents the success or failure of the logic.</p><p>The above template becomes the following code</p><div class="code code-python"><div class="title"><code>application/rest/room.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">Response</span>
+
+<span class="kn">from</span> <span class="nn">rentomatic.repository.memrepo</span> <span class="kn">import</span> <span class="n">MemRepo</span>
+<span class="kn">from</span> <span class="nn">rentomatic.use_cases.room_list</span> <span class="kn">import</span> <span class="n">room_list_use_case</span>
+<span class="kn">from</span> <span class="nn">rentomatic.serializers.room</span> <span class="kn">import</span> <span class="n">RoomJsonEncoder</span>
+
+<span class="n">blueprint</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s2">"room"</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">rooms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"f853578c-fc0f-4e65-81b8-566c5dffa35a"</span><span class="p">,</span>
+        <span class="s2">"size"</span><span class="p">:</span> <span class="mi">215</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span>
+        <span class="s2">"longitude"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.09998975</span><span class="p">,</span>
+        <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">51.75436293</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"fe2c3195-aeff-487a-a08f-e0bdc0ec6e9a"</span><span class="p">,</span>
+        <span class="s2">"size"</span><span class="p">:</span> <span class="mi">405</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">66</span><span class="p">,</span>
+        <span class="s2">"longitude"</span><span class="p">:</span> <span class="mf">0.18228006</span><span class="p">,</span>
+        <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">51.74640997</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"913694c6-435a-4366-ba0d-da5334a611b2"</span><span class="p">,</span>
+        <span class="s2">"size"</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+        <span class="s2">"longitude"</span><span class="p">:</span> <span class="mf">0.27891577</span><span class="p">,</span>
+        <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">51.45994069</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"eed76e77-55c1-41ce-985d-ca49bf6c0585"</span><span class="p">,</span>
+        <span class="s2">"size"</span><span class="p">:</span> <span class="mi">93</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span>
+        <span class="s2">"longitude"</span><span class="p">:</span> <span class="mf">0.33894476</span><span class="p">,</span>
+        <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">51.39916678</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+
+
+<span class="nd">@blueprint</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/rooms"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"GET"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">room_list</span><span class="p">():</span>
+    <span class="n">repo</span> <span class="o">=</span> <span class="n">MemRepo</span><span class="p">(</span><span class="n">rooms</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">room_list_use_case</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">RoomJsonEncoder</span><span class="p">),</span>
+        <span class="n">mimetype</span><span class="o">=</span><span class="s2">"application/json"</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div></div><div class="admonition note"><i class="fa fa-github"/><div class="content"><div class="title">Source code</div><div><p><a href="https://github.com/pycabook/rentomatic/tree/ed2-c04-s03">https://github.com/pycabook/rentomatic/tree/ed2-c04-s03</a></p></div></div></div><p>Please note that I initialised the memory storage with the same list used for the script <code>cli.py</code>. Again, the need of initialising the storage with data (even with an empty list) is due to the limitations of the storage <code>MemRepo</code>. The code that runs the use case is</p><div class="code code-python"><div class="title"><code>application/rest/room.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="k">def</span> <span class="nf">room_list</span><span class="p">():</span>
+    <span class="n">repo</span> <span class="o">=</span> <span class="n">MemRepo</span><span class="p">(</span><span class="n">rooms</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">room_list_use_case</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
+</pre></div>
+</div></div><p>which is exactly the same code that we used in the command-line interface. The last part of the code creates a proper HTTP response, serializing the result of the use case using <code>RoomJsonEncoder</code>, and setting the HTTP status to 200 (success)</p><div class="code code-python"><div class="title"><code>application/rest/room.py</code></div><div class="content"><div class="highlight"><pre><span/>    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">RoomJsonEncoder</span><span class="p">),</span>
+        <span class="n">mimetype</span><span class="o">=</span><span class="s2">"application/json"</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div></div><p>This shows you the power of the clean architecture in a nutshell. Writing a CLI interface or a Web service is different only in the presentation layer, not in the logic, which is the same, as it is contained in the use case.</p><p>Now that we defined the endpoint, we can finalise the configuration of the webserver, so that we can access the endpoint with a browser. This is not strictly part of the clean architecture, but as I did with the CLI interface I want you to see the final result, to get the whole picture and also to enjoy the effort you put in following the whole discussion up to this point.</p><h2 id="wsgi">WSGI</h2><p>Python web applications expose a common interface called <a href="https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface">Web Server Gateway Interface</a> or WSGI. So to run the Flask development web server, we have to define a <code>wsgi.py</code> file in the main folder of the project, i.e. in the same directory of the file <code>cli.py</code></p><div class="code code-python"><div class="title"><code>wsgi.py</code></div><div class="content"><div class="highlight"><pre><span/><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">application.app</span> <span class="kn">import</span> <span class="n">create_app</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"FLASK_CONFIG"</span><span class="p">])</span>
+</pre></div>
+</div></div><div class="admonition note"><i class="fa fa-github"/><div class="content"><div class="title">Source code</div><div><p><a href="https://github.com/pycabook/rentomatic/tree/ed2-c04-s04">https://github.com/pycabook/rentomatic/tree/ed2-c04-s04</a></p></div></div></div><p>When you run the Flask Command Line Interface (<a href="http://flask.pocoo.org/docs/1.0/cli/">documentation</a>), it automatically looks for a file named <code>wsgi.py</code> and loads it, expecting it to contain a variable named <code>app</code> that is an instance of the object <code>Flask</code>. As the function <code>create_app</code> is a factory we just need to execute it.</p><p>At this point, you can execute <code>FLASK_CONFIG="development" flask run</code> in the directory that contains this file and you should see a nice message like</p><div class="code code-text"><div class="content"><div class="highlight"><pre><span/> * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+</pre></div>
+</div></div><p>At this point, you can point your browser to <a href="http://127.0.0.1:5000/rooms">http://127.0.0.1:5000/rooms</a> and enjoy the JSON data returned by the first endpoint of your web application.</p><hr/><p>I hope you can now appreciate the power of the layered architecture that we created. We definitely wrote a lot of code to "just" print out a list of models, but the code we wrote is a skeleton that can easily be extended and modified. It is also fully tested, which is a part of the implementation that many software projects struggle with.</p><p>The use case I presented is purposely very simple. It doesn't require any input and it cannot return error conditions, so the code we wrote completely ignored input validation and error management. These topics are however extremely important, so we need to discuss how a clean architecture can deal with them.</p><div id="_footnotes"><div class="footnote" id="fd--3563573"><a href="#fr--3563573">1</a><p>We could, in theory, create a pure component that receives parameters and returns a JSON object, and then wrap this component into an endpoint. This way, the component would be strictly part of the internal system and the endpoint of the external one, but both would have to be created in the Gateway layer. This looks overkill, at least for the simple example we are discussing here, so I will keep them together and test them as a single component.</p></div></div>
+      
+</body>
+</html>
