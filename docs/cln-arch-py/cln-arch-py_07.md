@@ -62,9 +62,9 @@ class RoomListRequest:
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s01`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s01)*
 
-*响应对象也非常简单，因为目前我们只需要返回一个成功的结果。与请求不同，响应不与任何特定用例相关联，因此测试文件可以命名为 `tests/test_responses.py`*
+响应对象也非常简单，因为目前我们只需要返回一个成功的结果。与请求不同，响应不与任何特定用例相关联，因此测试文件可以命名为 `tests/test_responses.py`
 
-*`tests/test_responses.py`*
+`tests/test_responses.py`
 
 ```py
 *from rentomatic.responses import ResponseSuccess
@@ -73,9 +73,9 @@ def test_response_success_is_true():
     assert bool(ResponseSuccess()) is True* 
 ```
 
-*实际的响应对象位于文件 `rentomatic/responses.py` 中*
+实际的响应对象位于文件 `rentomatic/responses.py` 中
 
-*`rentomatic/responses.py`*
+`rentomatic/responses.py`
 
 ```py
 *class ResponseSuccess:
@@ -86,17 +86,17 @@ def test_response_success_is_true():
         return True* 
 ```
 
-**源代码**
+源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s02`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s02)**
 
-**有了这两个对象，我们为用例输入和输出的更丰富管理奠定了基础，尤其是在错误条件的情况下。**
+有了这两个对象，我们为用例输入和输出的更丰富管理奠定了基础，尤其是在错误条件的情况下。
 
-## **用例中的请求和响应**
+## 用例中的请求和响应
 
-**让我们将我们开发的请求和响应对象实现到用例中。为此，我们需要更改用例，使其接受请求并返回响应。`tests/use_cases/test_room_list.py` 的新版本如下**
+让我们将我们开发的请求和响应对象实现到用例中。为此，我们需要更改用例，使其接受请求并返回响应。`tests/use_cases/test_room_list.py` 的新版本如下
 
-**`tests/use_cases/test_room_list.py`**
+`tests/use_cases/test_room_list.py`
 
 ```py
 **import pytest
@@ -156,9 +156,9 @@ def test_room_list_without_parameters(domain_rooms):
     assert response.value == domain_rooms** 
 ```
 
-**用例中的更改很小。`rentomatic/use_cases/room_list.py` 文件的新版本如下**
+用例中的更改很小。`rentomatic/use_cases/room_list.py` 文件的新版本如下
 
-**`rentomatic/use_cases/room_list.py`**
+`rentomatic/use_cases/room_list.py`
 
 ```py
 **from rentomatic.responses import ResponseSuccess
@@ -172,13 +172,13 @@ def room_list_use_case(repo, request):
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s03`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s03)***
 
-***现在我们有一个标准的方式来打包输入和输出值，上述模式适用于我们创建的每个用例。然而，我们仍然缺少一些功能，因为到目前为止，请求和响应尚未用于执行错误管理。***
+现在我们有一个标准的方式来打包输入和输出值，上述模式适用于我们创建的每个用例。然而，我们仍然缺少一些功能，因为到目前为止，请求和响应尚未用于执行错误管理。
 
-## ***请求验证***
+## 请求验证
 
-***我们要添加到用例中的参数 `filters` 允许调用者使用类似 `<attribute>__<operator>` 的符号添加条件，以缩小模型列表操作的结果。例如，指定 `filters={'price__lt': 100}` 应返回所有价格低于 100 的结果。***
+我们要添加到用例中的参数 `filters` 允许调用者使用类似 `<attribute>__<operator>` 的符号添加条件，以缩小模型列表操作的结果。例如，指定 `filters={'price__lt': 100}` 应返回所有价格低于 100 的结果。
 
-***由于模型 `Room` 有许多属性，可能的过滤器数量非常高。为了简化起见，我将考虑以下情况：***
+由于模型 `Room` 有许多属性，可能的过滤器数量非常高。为了简化起见，我将考虑以下情况：
 
 +   ***属性 `code` 只支持 `__eq`，如果存在，则找到具有特定代码的房间***
 
@@ -186,13 +186,13 @@ def room_list_use_case(repo, request):
 
 +   ***所有其他属性都不能用于过滤器***
 
-***这里的核心思想是，请求是根据用例定制的，因此它们可以包含验证用于实例化的参数的逻辑。请求在到达用例之前是有效或无效的，因此后者不需要检查输入值是否有适当的值或格式。***
+这里的核心思想是，请求是根据用例定制的，因此它们可以包含验证用于实例化的参数的逻辑。请求在到达用例之前是有效或无效的，因此后者不需要检查输入值是否有适当的值或格式。
 
-***这也意味着构建请求可能会导致两个不同的对象，一个是有效的，一个是无效的。因此，我决定将现有的类`RoomListRequest`拆分为`RoomListValidRequest`和`RoomListInvalidRequest`，创建一个返回适当对象的工厂函数。***
+这也意味着构建请求可能会导致两个不同的对象，一个是有效的，一个是无效的。因此，我决定将现有的类`RoomListRequest`拆分为`RoomListValidRequest`和`RoomListInvalidRequest`，创建一个返回适当对象的工厂函数。
 
-***首先，我将修改现有的测试以使用工厂模式。***
+首先，我将修改现有的测试以使用工厂模式。
 
-***`tests/requests/test_room_list.py`***
+`tests/requests/test_room_list.py`
 
 ```py
 ***from rentomatic.requests.room_list import build_room_list_request
@@ -210,9 +210,9 @@ def test_build_room_list_request_with_empty_filters():
     assert bool(request) is True*** 
 ```
 
-***接下来，我将测试传递错误的对象类型作为`filters`或使用不正确的键会导致无效请求***
+接下来，我将测试传递错误的对象类型作为`filters`或使用不正确的键会导致无效请求
 
-***`tests/requests/test_room_list.py`***
+`tests/requests/test_room_list.py`
 
 ```py
 ***def test_build_room_list_request_with_invalid_filters_parameter():
@@ -230,9 +230,9 @@ def test_build_room_list_request_with_incorrect_filter_keys():
     assert bool(request) is False*** 
 ```
 
-***最后，我将测试支持的和不支持的键***
+最后，我将测试支持的和不支持的键
 
-***`tests/requests/test_room_list.py`***
+`tests/requests/test_room_list.py`
 
 ```py
 ***import pytest
@@ -261,11 +261,11 @@ def test_build_room_list_request_rejected_filters(key):
     assert bool(request) is False*** 
 ```
 
-***请注意，我使用了装饰器`pytest.mark.parametrize`来在多个值上运行相同的测试。***
+请注意，我使用了装饰器`pytest.mark.parametrize`来在多个值上运行相同的测试。
 
-***遵循 TDD（测试驱动开发）方法，逐个添加这些测试并编写通过它们的代码，我得到了以下代码***
+遵循 TDD（测试驱动开发）方法，逐个添加这些测试并编写通过它们的代码，我得到了以下代码
 
-***`rentomatic/requests/room_list.py`***
+`rentomatic/requests/room_list.py`
 
 ```py
 ***from collections.abc import Mapping
@@ -311,9 +311,9 @@ def build_room_list_request(filters=None):
     return RoomListValidRequest(filters=filters)*** 
 ```
 
-***引入工厂导致一个用例测试失败。该测试的新版本是***
+引入工厂导致一个用例测试失败。该测试的新版本是
 
-***`tests/use_cases/test_room_list.py`***
+`tests/use_cases/test_room_list.py`
 
 ```py
 ***...
@@ -339,13 +339,13 @@ def test_room_list_without_parameters(domain_rooms):
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s04`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s04)****
 
-## ***响应和失败***
+## 响应和失败
 
-***在用例代码执行过程中可能会发生各种错误。验证错误，正如我们在上一节中讨论的，但还有业务逻辑错误或来自仓库层或其他与用例交互的外部系统的错误。无论错误是什么，用例都应该始终返回一个具有已知结构（响应）的对象，因此我们需要一个新的对象，它为不同类型的失败提供良好的支持。***
+在用例代码执行过程中可能会发生各种错误。验证错误，正如我们在上一节中讨论的，但还有业务逻辑错误或来自仓库层或其他与用例交互的外部系统的错误。无论错误是什么，用例都应该始终返回一个具有已知结构（响应）的对象，因此我们需要一个新的对象，它为不同类型的失败提供良好的支持。
 
-***对于请求，没有唯一的方法提供这样的对象，以下代码只是可能的解决方案之一。首先，在必要的导入之后，我测试了响应具有布尔值***
+对于请求，没有唯一的方法提供这样的对象，以下代码只是可能的解决方案之一。首先，在必要的导入之后，我测试了响应具有布尔值
 
-***`tests/test_responses.py`***
+`tests/test_responses.py`
 
 ```py
 ***from rentomatic.responses import (
@@ -373,9 +373,9 @@ def test_response_failure_is_false():
     assert bool(response) is False*** 
 ```
 
-***然后我测试了响应的结构，检查`type`和`value`。`ResponseFailure`对象也应该有一个属性`message`***
+然后我测试了响应的结构，检查`type`和`value`。`ResponseFailure`对象也应该有一个属性`message`
 
-***`tests/test_responses.py`***
+`tests/test_responses.py`
 
 ```py
 ***def test_response_success_has_type_and_value():
@@ -397,9 +397,9 @@ def test_response_failure_has_type_and_message():
     }*** 
 ```
 
-***剩余的测试都是关于`ResponseFailure`的。首先，一个测试来检查它是否可以用异常初始化***
+剩余的测试都是关于`ResponseFailure`的。首先，一个测试来检查它是否可以用异常初始化
 
-***`tests/test_responses.py`***
+`tests/test_responses.py`
 
 ```py
 ***def test_response_failure_initialisation_with_exception():
@@ -412,9 +412,9 @@ def test_response_failure_has_type_and_message():
     assert response.message == "Exception: Just an error message"*** 
 ```
 
-***由于我们希望能够直接从无效请求构建响应，获取其中包含的所有错误，我们需要测试这种情况***
+由于我们希望能够直接从无效请求构建响应，获取其中包含的所有错误，我们需要测试这种情况
 
-***`tests/test_responses.py`***
+`tests/test_responses.py`
 
 ```py
 ***def test_response_failure_from_empty_invalid_request():
@@ -437,9 +437,9 @@ def test_response_failure_from_invalid_request_with_errors():
     assert response.message == "path: Is mandatory\npath: can't be blank"*** 
 ```
 
-***让我们编写使测试通过的类***
+让我们编写使测试通过的类
 
-***`rentomatic/responses.py`***
+`rentomatic/responses.py`
 
 ```py
 ***class ResponseTypes:
@@ -485,21 +485,21 @@ def build_response_from_invalid_request(invalid_request):
     return ResponseFailure(ResponseTypes.PARAMETERS_ERROR, message)*** 
 ```
 
-***通过 `_format_message()` 方法，我们使类能够接受字符串消息和 Python 异常，这在处理可能引发我们不知道或不想管理的异常的外部库时非常有用。***
+通过 `_format_message()` 方法，我们使类能够接受字符串消息和 Python 异常，这在处理可能引发我们不知道或不想管理的异常的外部库时非常有用。
 
-***类 `ResponseTypes` 中包含的错误类型与 HTTP 错误非常相似，这将在我们稍后从 Web 框架返回响应时很有用。`PARAMETERS_ERROR` 表示请求传入的输入参数有问题。`RESOURCE_ERROR` 表示过程正确结束，但请求的资源不可用，例如从数据存储中读取特定值时。最后，`SYSTEM_ERROR` 表示过程本身出现问题，并将主要用于在 Python 代码中引发异常。***
+类 `ResponseTypes` 中包含的错误类型与 HTTP 错误非常相似，这将在我们稍后从 Web 框架返回响应时很有用。`PARAMETERS_ERROR` 表示请求传入的输入参数有问题。`RESOURCE_ERROR` 表示过程正确结束，但请求的资源不可用，例如从数据存储中读取特定值时。最后，`SYSTEM_ERROR` 表示过程本身出现问题，并将主要用于在 Python 代码中引发异常。
 
 ****源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s05`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s05)****
 
-## ***用例中的错误管理***
+## 用例中的错误管理
 
-***我们请求和响应的实现最终完成，因此我们现在可以实施用例的最后一个版本。函数 `room_list_use_case` 仍然缺少对传入请求的适当验证，并且在出错时没有返回合适的响应。***
+我们请求和响应的实现最终完成，因此我们现在可以实施用例的最后一个版本。函数 `room_list_use_case` 仍然缺少对传入请求的适当验证，并且在出错时没有返回合适的响应。
 
-***测试 `test_room_list_without_parameters` 必须匹配新的 API，所以我向 `assert_called_with` 添加了 `filters=None`***
+测试 `test_room_list_without_parameters` 必须匹配新的 API，所以我向 `assert_called_with` 添加了 `filters=None`
 
-***`tests/use_cases/test_room_list.py`***
+`tests/use_cases/test_room_list.py`
 
 ```py
 ***def test_room_list_without_parameters(domain_rooms):
@@ -515,9 +515,9 @@ def build_response_from_invalid_request(invalid_request):
     assert response.value == domain_rooms*** 
 ```
 
-***我们可以添加三个新测试来检查当 `filters` 不是 `None` 时用例的行为。第一个测试检查用于创建请求的字典中 `filters` 键的值在调用存储库时是否实际使用。后两个测试检查当存储库引发异常或请求格式不正确时用例的行为。***
+我们可以添加三个新测试来检查当 `filters` 不是 `None` 时用例的行为。第一个测试检查用于创建请求的字典中 `filters` 键的值在调用存储库时是否实际使用。后两个测试检查当存储库引发异常或请求格式不正确时用例的行为。
 
-***`tests/use_cases/test_room_list.py`***
+`tests/use_cases/test_room_list.py`
 
 ```py
 ***import pytest
@@ -572,9 +572,9 @@ def test_room_list_handles_bad_request():
     }*** 
 ```
 
-***现在将用例更改为包含新的用例实现，使所有测试通过***
+现在将用例更改为包含新的用例实现，使所有测试通过
 
-***`rentomatic/use_cases/room_list.py`***
+`rentomatic/use_cases/room_list.py`
 
 ```py
 ***from rentomatic.responses import (
@@ -594,31 +594,31 @@ def room_list_use_case(repo, request):
         return ResponseFailure(ResponseTypes.SYSTEM_ERROR, exc)*** 
 ```
 
-***如你所见，用例首先检查请求是否有效。如果不是，它将返回一个使用相同请求对象构建的 `ResponseFailure`。然后实现实际的业务逻辑，调用存储库并返回一个成功的响应。如果在这一阶段出现问题，异常将被捕获并以适当的格式返回 `ResponseFailure`。***
+如你所见，用例首先检查请求是否有效。如果不是，它将返回一个使用相同请求对象构建的 `ResponseFailure`。然后实现实际的业务逻辑，调用存储库并返回一个成功的响应。如果在这一阶段出现问题，异常将被捕获并以适当的格式返回 `ResponseFailure`。
 
 ****源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s06`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s06)****
 
-## ***集成外部系统***
+## 集成外部系统
 
-***我想指出由模拟表示的一个大问题。***
+我想指出由模拟表示的一个大问题。
 
-***由于我们正在使用模拟测试外部系统，如存储库，目前没有测试失败，但尝试运行 Flask 开发服务器肯定会返回一个错误。实际上，存储库和 HTTP 服务器都没有与新 API 保持同步，但如果它们被正确编写，单元测试无法显示这一点。这就是为什么我们需要集成测试的原因，因为依赖于特定版本 API 的外部系统只在该点运行，这可能会引发由模拟掩盖的问题。***
+由于我们正在使用模拟测试外部系统，如存储库，目前没有测试失败，但尝试运行 Flask 开发服务器肯定会返回一个错误。实际上，存储库和 HTTP 服务器都没有与新 API 保持同步，但如果它们被正确编写，单元测试无法显示这一点。这就是为什么我们需要集成测试的原因，因为依赖于特定版本 API 的外部系统只在该点运行，这可能会引发由模拟掩盖的问题。
 
-***对于这个简单的项目，我的集成测试由 Flask 开发服务器表示，此时会崩溃。如果你运行 `FLASK_CONFIG="development" flask run` 并用你的浏览器打开 [`127.0.0.1:5000/rooms`](http://127.0.0.1:5000/rooms)，你将得到一个内部服务器错误，并在命令行中抛出这个异常***
+对于这个简单的项目，我的集成测试由 Flask 开发服务器表示，此时会崩溃。如果你运行 `FLASK_CONFIG="development" flask run` 并用你的浏览器打开 [`127.0.0.1:5000/rooms`](http://127.0.0.1:5000/rooms)，你将得到一个内部服务器错误，并在命令行中抛出这个异常
 
 ```py
 ***TypeError: room_list_use_case() missing 1 required positional argument: 'request'*** 
 ```
 
-***相同的错误由 CLI 接口返回。在引入请求和响应之后，我们没有更改 REST 端点，这是外部世界和用例之间的一个连接。鉴于用例的 API 已更改，我们需要更改调用用例的端点的代码。***
+相同的错误由 CLI 接口返回。在引入请求和响应之后，我们没有更改 REST 端点，这是外部世界和用例之间的一个连接。鉴于用例的 API 已更改，我们需要更改调用用例的端点的代码。
 
-### ***HTTP 服务器***
+### HTTP 服务器
 
-***如上异常所示，REST 端点中调用用例时使用了错误的参数。新的测试版本是***
+如上异常所示，REST 端点中调用用例时使用了错误的参数。新的测试版本是
 
-***`tests/rest/test_room.py`***
+`tests/rest/test_room.py`
 
 ```py
 ***import json
@@ -702,13 +702,13 @@ def test_get_response_failures(
     assert http_response.status_code == expected_status_code*** 
 ```
 
-***`test_get` 函数已经存在，但已更改以反映对请求和响应的使用。第一个更改是模拟中的用例必须返回一个适当的响应***
+`test_get` 函数已经存在，但已更改以反映对请求和响应的使用。第一个更改是模拟中的用例必须返回一个适当的响应
 
 ```py
 ***mock_use_case.return_value = ResponseSuccess(rooms)*** 
 ```
 
-***第二个是关于用例调用的断言。它应该使用格式正确的请求来调用，但由于我们无法比较请求，我们需要一种方法来查看调用参数。这可以通过***
+第二个是关于用例调用的断言。它应该使用格式正确的请求来调用，但由于我们无法比较请求，我们需要一种方法来查看调用参数。这可以通过
 
 ```py
 ***mock_use_case.assert_called()
@@ -716,17 +716,17 @@ args, kwargs = mock_use_case.call_args
 assert args[1].filters == {}*** 
 ```
 
-***因为用例应该接收一个带有空过滤器的请求作为参数。***
+因为用例应该接收一个带有空过滤器的请求作为参数。
 
-***`test_get_with_filters` 函数执行相同的操作，但将查询字符串传递给 `/rooms` URL，这需要不同的断言***
+`test_get_with_filters` 函数执行相同的操作，但将查询字符串传递给 `/rooms` URL，这需要不同的断言
 
 ```py
 ***assert args[1].filters == {'price__gt': '2', 'price__lt': '6'}*** 
 ```
 
-***测试通过了新版本的端点 `room_list`***
+测试通过了新版本的端点 `room_list`
 
-***`application/rest/room.py`***
+`application/rest/room.py`
 
 ```py
 ***import json
@@ -803,27 +803,27 @@ def room_list():
     )*** 
 ```
 
-***请注意，我在这里使用了一个名为 `request_object` 的变量来避免与 `pytest-flask` 提供的固定值 `request` 冲突。虽然 `request` 包含浏览器发送给网络框架的 HTTP 请求，但 `request_object` 是我们发送给用例的请求。***
+请注意，我在这里使用了一个名为 `request_object` 的变量来避免与 `pytest-flask` 提供的固定值 `request` 冲突。虽然 `request` 包含浏览器发送给网络框架的 HTTP 请求，但 `request_object` 是我们发送给用例的请求。
 
 ****源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s07`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s07)****
 
-### ***The repository***
+### The repository
 
-***如果我们现在运行 Flask 开发网络服务器并尝试访问 `/rooms` 端点，我们将得到一个友好的响应，说明***
+如果我们现在运行 Flask 开发网络服务器并尝试访问 `/rooms` 端点，我们将得到一个友好的响应，说明
 
 ```py
 ***{"type": "SystemError", "message": "TypeError: list() got an unexpected keyword argument 'filters'"}*** 
 ```
 
-***如果你查看 HTTP 响应^([1]), 你可以看到一个 HTTP 500 错误，这正好是我们`SystemError`用例错误的映射，它反过来又表示一个 Python 异常，该异常位于错误的`message`部分。***
+如果你查看 HTTP 响应^([1]), 你可以看到一个 HTTP 500 错误，这正好是我们`SystemError`用例错误的映射，它反过来又表示一个 Python 异常，该异常位于错误的`message`部分。
 
-***这个错误来自仓库，它尚未迁移到新 API。因此，我们需要将`MemRepo`类的`list`方法修改为接受`filters`参数并相应地执行。请注意这一点。过滤器可能已经被视为业务逻辑的一部分并在用例中实现，但我们决定利用存储系统可以做到的事情，因此我们将过滤移动到外部系统中。这是一个合理的决定，因为数据库通常可以很好地执行过滤和排序。尽管我们目前使用的内存存储不是数据库，但我们正在准备使用真正的外部存储。***
+这个错误来自仓库，它尚未迁移到新 API。因此，我们需要将`MemRepo`类的`list`方法修改为接受`filters`参数并相应地执行。请注意这一点。过滤器可能已经被视为业务逻辑的一部分并在用例中实现，但我们决定利用存储系统可以做到的事情，因此我们将过滤移动到外部系统中。这是一个合理的决定，因为数据库通常可以很好地执行过滤和排序。尽管我们目前使用的内存存储不是数据库，但我们正在准备使用真正的外部存储。
 
-***仓库测试的新版本是***
+仓库测试的新版本是
 
-***`tests/repository/test_memrepo.py`***
+`tests/repository/test_memrepo.py`
 
 ```py
 ***import pytest
@@ -923,13 +923,13 @@ def test_repository_list_with_price_between_filter(room_dicts):
     assert rooms[0].code == "913694c6-435a-4366-ba0d-da5334a611b2"*** 
 ```
 
-***正如你所见，我添加了许多测试。每个被接受的过滤器（`code__eq`、`price__eq`、`price__lt`、`price__gt`，见`rentomatic/requests/room_list.py`）都有一个测试，还有一个尝试同时使用两个不同过滤器的最终测试。***
+正如你所见，我添加了许多测试。每个被接受的过滤器（`code__eq`、`price__eq`、`price__lt`、`price__gt`，见`rentomatic/requests/room_list.py`）都有一个测试，还有一个尝试同时使用两个不同过滤器的最终测试。
 
-***再次提醒，这将是存储提供的 API，而不是用例提供的 API。两者匹配是一个设计决策，但实际效果可能会有所不同。***
+再次提醒，这将是存储提供的 API，而不是用例提供的 API。两者匹配是一个设计决策，但实际效果可能会有所不同。
 
-***仓库的新版本是***
+仓库的新版本是
 
-***`rentomatic/repository/memrepo.py`***
+`rentomatic/repository/memrepo.py`
 
 ```py
 ***from rentomatic.domain.room import Room
@@ -966,17 +966,17 @@ class MemRepo:
         return result*** 
 ```
 
-***此时，你可以使用`FLASK_CONFIG="development" flask run`启动 Flask 开发 web 服务器，并在[`localhost:5000/rooms`](http://localhost:5000/rooms)获取你所有房间的列表。你还可以在 URL 中使用过滤器，例如[`localhost:5000/rooms?filter_code__eq=f853578c-fc0f-4e65-81b8-566c5dffa35a`](http://localhost:5000/rooms?filter_code__eq=f853578c-fc0f-4e65-81b8-566c5dffa35a)，它返回给定代码的房间，或者[`localhost:5000/rooms?filter_price__lt=50`](http://localhost:5000/rooms?filter_price__lt=50)，它返回所有价格低于 50 的房间。***
+此时，你可以使用`FLASK_CONFIG="development" flask run`启动 Flask 开发 web 服务器，并在[`localhost:5000/rooms`](http://localhost:5000/rooms)获取你所有房间的列表。你还可以在 URL 中使用过滤器，例如[`localhost:5000/rooms?filter_code__eq=f853578c-fc0f-4e65-81b8-566c5dffa35a`](http://localhost:5000/rooms?filter_code__eq=f853578c-fc0f-4e65-81b8-566c5dffa35a)，它返回给定代码的房间，或者[`localhost:5000/rooms?filter_price__lt=50`](http://localhost:5000/rooms?filter_price__lt=50)，它返回所有价格低于 50 的房间。
 
 ****源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s08`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s08)****
 
-### ***命令行界面***
+### 命令行界面
 
-***在这个阶段，修复 CLI 非常简单，因为我们只需要模仿我们对 HTTP 服务器所做的那样，只是不需要考虑过滤器，因为它们不是命令行工具的一部分。***
+在这个阶段，修复 CLI 非常简单，因为我们只需要模仿我们对 HTTP 服务器所做的那样，只是不需要考虑过滤器，因为它们不是命令行工具的一部分。
 
-***`cli.py`***
+`cli.py`
 
 ```py
 ***#!/usr/bin/env python
@@ -1027,11 +1027,11 @@ print([room.to_dict() for room in response.value])***
 
 [`github.com/pycabook/rentomatic/tree/ed2-c05-s09`](https://github.com/pycabook/rentomatic/tree/ed2-c05-s09)****
 
-* * *
+ * 
 
-***我们现在有一个非常健壮的系统来管理输入验证和错误条件，并且它足够通用，可以用于任何可能的用例。显然，我们可以自由地添加新的错误类型，以增加我们管理失败时的粒度，但当前版本已经涵盖了用例内部可能发生的所有情况。***
+我们现在有一个非常健壮的系统来管理输入验证和错误条件，并且它足够通用，可以用于任何可能的用例。显然，我们可以自由地添加新的错误类型，以增加我们管理失败时的粒度，但当前版本已经涵盖了用例内部可能发生的所有情况。
 
-***在下一章中，我们将探讨基于真实数据库引擎的仓库，展示如何使用 PostgreSQL 作为数据库进行外部系统的集成测试。在后续章节中，我将展示干净的架构如何使我们能够非常容易地在不同的外部系统之间切换，将系统迁移到 MongoDB。***
+在下一章中，我们将探讨基于真实数据库引擎的仓库，展示如何使用 PostgreSQL 作为数据库进行外部系统的集成测试。在后续章节中，我将展示干净的架构如何使我们能够非常容易地在不同的外部系统之间切换，将系统迁移到 MongoDB。
 
 ***1
 

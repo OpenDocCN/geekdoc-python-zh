@@ -405,7 +405,7 @@ Creating production_db_1    ... done*
 
 注意函数`init_postgres`的名称和命令`init-postgres`的名称之间的变化。你只需要运行这个命令一次，但重复执行不会影响数据库。
 
-*我们可以通过连接到数据库来检查这个命令做了什么。我们可以通过在数据库容器中执行 `psql` 来做到这一点。*
+我们可以通过连接到数据库来检查这个命令做了什么。我们可以通过在数据库容器中执行 `psql` 来做到这一点。
 
 ```py
 *$ ./manage.py compose exec db psql -U postgres
@@ -415,7 +415,7 @@ Type "help" for help.
 postgres=#* 
 ```
 
-*请注意，我们需要指定用户 `-U postgres`。这是我们通过 `config/production.json` 中的变量 `POSTGRES_USER` 创建的用户。一旦登录，我们可以使用命令 `\l` 来查看可用的数据库。*
+请注意，我们需要指定用户 `-U postgres`。这是我们通过 `config/production.json` 中的变量 `POSTGRES_USER` 创建的用户。一旦登录，我们可以使用命令 `\l` 来查看可用的数据库。
 
 ```py
 *postgres=# \l
@@ -433,9 +433,9 @@ postgres=#*
 postgres=#* 
 ```
 
-*请注意，`template0` 和 `template1` 这两个数据库是 Postgres 创建的系统数据库（参见[文档](https://www.postgresql.org/docs/current/manage-ag-templatedbs.html)），`postgres` 是 Docker 容器创建的默认数据库（默认名称为 `postgres`，但在此情况下它来自 `config/production.json` 中的环境变量 `POSTGRES_DB`），而 `application` 是通过 `./manage.py init-postgres` 创建的数据库（来自 `APPLICATION_DB`）。*
+请注意，`template0` 和 `template1` 这两个数据库是 Postgres 创建的系统数据库（参见[文档](https://www.postgresql.org/docs/current/manage-ag-templatedbs.html)），`postgres` 是 Docker 容器创建的默认数据库（默认名称为 `postgres`，但在此情况下它来自 `config/production.json` 中的环境变量 `POSTGRES_DB`），而 `application` 是通过 `./manage.py init-postgres` 创建的数据库（来自 `APPLICATION_DB`）。
 
-*我们可以使用命令 `\c` 连接到数据库。*
+我们可以使用命令 `\c` 连接到数据库。
 
 ```py
 *postgres=# \c application 
@@ -443,22 +443,22 @@ You are now connected to database "application" as user "postgres".
 application=#* 
 ```
 
-*请注意，提示符会根据当前数据库的名称而改变。最后，我们可以使用 `\dt` 列出可用的表。*
+请注意，提示符会根据当前数据库的名称而改变。最后，我们可以使用 `\dt` 列出可用的表。
 
 ```py
 *application=# \dt
 Did not find any relations.* 
 ```
 
-*正如你所见，还没有任何表。这并不奇怪，因为我们没有做任何使 Postres 了解我们创建的模型的事情。请记住，我们在这里所做的一切都是在外部系统中完成的，并且它并没有直接与实体相连。*
+正如你所见，还没有任何表。这并不奇怪，因为我们没有做任何使 Postres 了解我们创建的模型的事情。请记住，我们在这里所做的一切都是在外部系统中完成的，并且它并没有直接与实体相连。
 
-*正如你所记得的，我们将实体映射到存储对象，因为我们使用的是 Postgres，所以我们利用了 SQLAlchemy 类，所以现在我们需要创建与它们相对应的数据库表。*
+正如你所记得的，我们将实体映射到存储对象，因为我们使用的是 Postgres，所以我们利用了 SQLAlchemy 类，所以现在我们需要创建与它们相对应的数据库表。
 
-### *迁移*
+### 迁移
 
-*我们需要一种方法来创建与我们在 `rentomatic/repository/postgres_objects.py` 中定义的对象相对应的表。当我们使用像 SQLAlchemy 这样的 ORM 时，最佳策略是创建和运行迁移，为此我们可以使用 [Alembic](https://alembic.sqlalchemy.org/)。*
+我们需要一种方法来创建与我们在 `rentomatic/repository/postgres_objects.py` 中定义的对象相对应的表。当我们使用像 SQLAlchemy 这样的 ORM 时，最佳策略是创建和运行迁移，为此我们可以使用 [Alembic](https://alembic.sqlalchemy.org/)。
 
-*如果你仍然通过 `psql` 连接，请使用 `\q` 退出，然后编辑 `requirements/prod.txt` 并添加 `alembic`。*
+如果你仍然通过 `psql` 连接，请使用 `\q` 退出，然后编辑 `requirements/prod.txt` 并添加 `alembic`。
 
 ```py
 *Flask
@@ -469,21 +469,21 @@ gunicorn
 alembic* 
 ```
 
-*像往常一样，请记住运行 `pip install -r requirements/dev.txt` 来更新虚拟环境。*
+像往常一样，请记住运行 `pip install -r requirements/dev.txt` 来更新虚拟环境。
 
-*Alembic 能够连接到数据库并运行 Python 脚本（称为“迁移”），以根据 SQLAlchemy 模型更改表。然而，为了做到这一点，我们需要提供用户名、密码、主机名和数据库名称以供 Alembic 访问数据库。我们还需要提供 Alembic 访问代表模型的 Python 类的权限。*
+Alembic 能够连接到数据库并运行 Python 脚本（称为“迁移”），以根据 SQLAlchemy 模型更改表。然而，为了做到这一点，我们需要提供用户名、密码、主机名和数据库名称以供 Alembic 访问数据库。我们还需要提供 Alembic 访问代表模型的 Python 类的权限。
 
-*首先，让我们初始化 Alembic。在项目的主要目录（`manage.py` 存储的地方）运行*
+首先，让我们初始化 Alembic。在项目的主要目录（`manage.py` 存储的地方）运行
 
 ```py
 *$ alembic init migrations* 
 ```
 
-*它将创建一个名为 `migrations` 的目录，该目录包含 Alembic 的配置文件，以及将在 `migrations/versions` 中创建的迁移。它还将创建一个名为 `alembic.ini` 的文件，其中包含配置值。`migrations` 的名称完全是任意的，所以如果你更喜欢，可以自由使用不同的名称。*
+它将创建一个名为 `migrations` 的目录，该目录包含 Alembic 的配置文件，以及将在 `migrations/versions` 中创建的迁移。它还将创建一个名为 `alembic.ini` 的文件，其中包含配置值。`migrations` 的名称完全是任意的，所以如果你更喜欢，可以自由使用不同的名称。
 
-*我们需要调整的特定文件是 `migrations/env.py`，以便 Alembic 了解我们的模型和数据库。添加高亮行*
+我们需要调整的特定文件是 `migrations/env.py`，以便 Alembic 了解我们的模型和数据库。添加高亮行
 
-*migrations/env.py*
+migrations/env.py
 
 ```py
 *import os 
@@ -519,11 +519,11 @@ target_metadata = Base.metadata
 # ... etc.* 
 ```
 
-*通过 `config.set_section_option` 我们将相关的配置值添加到主 Alembic INI 文件部分 (`config.config_ini_section`)，并从环境变量中提取它们。我们还在导入包含 SQLAlchemy 对象的文件。您可以在 [`alembic.sqlalchemy.org/en/latest/api/config.html`](https://alembic.sqlalchemy.org/en/latest/api/config.html) 找到有关此过程的文档。*
+通过 `config.set_section_option` 我们将相关的配置值添加到主 Alembic INI 文件部分 (`config.config_ini_section`)，并从环境变量中提取它们。我们还在导入包含 SQLAlchemy 对象的文件。您可以在 [`alembic.sqlalchemy.org/en/latest/api/config.html`](https://alembic.sqlalchemy.org/en/latest/api/config.html) 找到有关此过程的文档。
 
-*完成此操作后，我们需要将 INI 文件更改为使用新变量*
+完成此操作后，我们需要将 INI 文件更改为使用新变量
 
-*alembic.ini*
+alembic.ini
 
 ```py
 *# the output encoding used when revision files
@@ -537,9 +537,9 @@ sqlalchemy.url = postgresql://%(POSTGRES_USER)s:%(POSTGRES_PASSWORD)s@%(POSTGRES
 # detail and examples* 
 ```
 
-*`%(VARNAME)s` 语法是 `ConfigParser`（见 [文档](https://docs.python.org/3.8/library/configparser.html#configparser.BasicInterpolation)）使用的基本变量插值。*
+`%(VARNAME)s` 语法是 `ConfigParser`（见 [文档](https://docs.python.org/3.8/library/configparser.html#configparser.BasicInterpolation)）使用的基本变量插值。
 
-*此时，我们可以运行 Alembic 来迁移我们的数据库。在许多情况下，您可以使用 Alembic 的自动生成功能来生成迁移，这就是我们创建初始模型的方法。Alembic 命令是带有 `--autogenerate` 标志的 `revision`，但我们需要在命令行中传递环境变量。这显然是 `migrate.py` 的工作，但让我们首先运行它看看数据库会发生什么。稍后我们将创建一个更好的设置来避免手动传递变量。*
+此时，我们可以运行 Alembic 来迁移我们的数据库。在许多情况下，您可以使用 Alembic 的自动生成功能来生成迁移，这就是我们创建初始模型的方法。Alembic 命令是带有 `--autogenerate` 标志的 `revision`，但我们需要在命令行中传递环境变量。这显然是 `migrate.py` 的工作，但让我们首先运行它看看数据库会发生什么。稍后我们将创建一个更好的设置来避免手动传递变量。
 
 ```py
 *$ POSTGRES_USER=postgres\
@@ -549,9 +549,9 @@ sqlalchemy.url = postgresql://%(POSTGRES_USER)s:%(POSTGRES_PASSWORD)s@%(POSTGRES
   alembic revision --autogenerate -m "Initial"* 
 ```
 
-*这将生成文件 `migrations/versions/4d4c19952a36_initial.py`。请注意，您的初始哈希值将不同。如果您想，您可以打开该文件，看看 Alembic 如何生成表和创建列。*
+这将生成文件 `migrations/versions/4d4c19952a36_initial.py`。请注意，您的初始哈希值将不同。如果您想，您可以打开该文件，看看 Alembic 如何生成表和创建列。
 
-*到目前为止，我们已经创建了迁移，但我们仍然需要将其应用到数据库中。确保您正在运行 Docker 容器（否则运行 `./manage.py compose up -d`），因为 Alembic 将连接到数据库，并运行*
+到目前为止，我们已经创建了迁移，但我们仍然需要将其应用到数据库中。确保您正在运行 Docker 容器（否则运行 `./manage.py compose up -d`），因为 Alembic 将连接到数据库，并运行
 
 ```py
 *$ POSTGRES_USER=postgres\
@@ -561,7 +561,7 @@ sqlalchemy.url = postgresql://%(POSTGRES_USER)s:%(POSTGRES_PASSWORD)s@%(POSTGRES
   alembic upgrade head* 
 ```
 
-*此时，我们可以连接到数据库并检查现有的表*
+此时，我们可以连接到数据库并检查现有的表
 
 ```py
 *$ ./manage.py compose exec db psql -U postgres -d application
@@ -579,9 +579,9 @@ application=# \dt
 application=#* 
 ```
 
-*请注意，我使用了 `psql` 的 `-d` 选项直接连接到数据库 `application`。如您所见，现在我们有两个表。第一个 `alembic_version` 是一个简单的表，Alembic 使用它来跟踪数据库的状态，而 `room` 是将包含我们的 `Room` 实体的表。*
+请注意，我使用了 `psql` 的 `-d` 选项直接连接到数据库 `application`。如您所见，现在我们有两个表。第一个 `alembic_version` 是一个简单的表，Alembic 使用它来跟踪数据库的状态，而 `room` 是将包含我们的 `Room` 实体的表。
 
-*我们可以再次检查 Alembic 版本*
+我们可以再次检查 Alembic 版本
 
 ```py
 *application=# select * from alembic_version;
@@ -591,9 +591,9 @@ application=#*
 (1 row)* 
 ```
 
-*如我之前提到的，分配给迁移的哈希值在您的案例中将是不同的，但您在这个表中看到的价值应该与迁移脚本的名称一致。*
+如我之前提到的，分配给迁移的哈希值在您的案例中将是不同的，但您在这个表中看到的价值应该与迁移脚本的名称一致。
 
-*我们还可以看到 `room` 表的结构*
+我们还可以看到 `room` 表的结构
 
 ```py
 *application=# \d room
@@ -610,7 +610,7 @@ Indexes:
     "room_pkey" PRIMARY KEY, btree (id)* 
 ```
 
-*显然，该表中还没有包含任何行*
+显然，该表中还没有包含任何行
 
 ```py
 *application=# select * from room;
@@ -619,16 +619,16 @@ Indexes:
 (0 rows)* 
 ```
 
-*确实，如果您用浏览器打开 [`localhost:8080/rooms`](http://localhost:8080/rooms)，您将看到一个成功的响应，但没有数据。*
+确实，如果您用浏览器打开 [`localhost:8080/rooms`](http://localhost:8080/rooms)，您将看到一个成功的响应，但没有数据。
 
-*为了查看一些数据，我们需要将一些内容写入数据库。这通常是通过网页应用程序中的表单和特定端点来完成的，但为了简化，在这种情况下，我们只需手动将数据添加到数据库中。*
+为了查看一些数据，我们需要将一些内容写入数据库。这通常是通过网页应用程序中的表单和特定端点来完成的，但为了简化，在这种情况下，我们只需手动将数据添加到数据库中。
 
 ```py
 *application=# INSERT INTO room(code, size, price, longitude, latitude) VALUES ('f853578c-fc0f-4e65-81b8-566c5dffa35a', 215, 39, -0.09998975, 51.75436293);
 INSERT 0 1* 
 ```
 
-*您可以通过 `SELECT` 验证表中是否包含新的房间*
+您可以通过 `SELECT` 验证表中是否包含新的房间
 
 ```py
 *application=# SELECT * FROM room;
@@ -638,14 +638,14 @@ INSERT 0 1*
 (1 row)* 
 ```
 
-*使用浏览器打开或刷新[`localhost:8080/rooms`](http://localhost:8080/rooms)以查看我们用例返回的值。*
+使用浏览器打开或刷新[`localhost:8080/rooms`](http://localhost:8080/rooms)以查看我们用例返回的值。
 
-**源代码**
+源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c08-s02`](https://github.com/pycabook/rentomatic/tree/ed2-c08-s02)
 
-* * *
+ * 
 
-**本章总结了清洁架构示例的概述。我们从零开始，创建了领域模型、序列化器、用例、内存存储系统、命令行界面和 HTTP 端点。然后，我们通过一个非常通用的请求/响应管理代码改进了整个系统，该代码为错误提供了健壮的支持。最后，我们实现了两个新的存储系统，使用了关系型数据库和非关系型数据库。**
+本章总结了清洁架构示例的概述。我们从零开始，创建了领域模型、序列化器、用例、内存存储系统、命令行界面和 HTTP 端点。然后，我们通过一个非常通用的请求/响应管理代码改进了整个系统，该代码为错误提供了健壮的支持。最后，我们实现了两个新的存储系统，使用了关系型数据库和非关系型数据库。
 
-**这绝对不是一个小成就。我们的架构覆盖了一个非常小的用例，但它是健壮的并且经过了全面测试。无论我们在处理数据、数据库、请求等方面可能发现的任何错误，都可以比没有测试的系统更快地隔离和驯服。此外，解耦哲学不仅使我们能够为多个存储系统提供支持，而且能够快速实现新的访问协议，或为我们对象实现新的序列化方式。**
+这绝对不是一个小成就。我们的架构覆盖了一个非常小的用例，但它是健壮的并且经过了全面测试。无论我们在处理数据、数据库、请求等方面可能发现的任何错误，都可以比没有测试的系统更快地隔离和驯服。此外，解耦哲学不仅使我们能够为多个存储系统提供支持，而且能够快速实现新的访问协议，或为我们对象实现新的序列化方式。

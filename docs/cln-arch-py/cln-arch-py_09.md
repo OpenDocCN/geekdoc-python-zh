@@ -101,11 +101,11 @@ pymongo
 
 [`github.com/pycabook/rentomatic/tree/ed2-c07-s01`](https://github.com/pycabook/rentomatic/tree/ed2-c07-s01)*
 
-## *Docker Compose 配置*
+## Docker Compose 配置
 
-*我们需要向测试 Docker Compose 配置中添加一个临时的 MongoDB 容器。MongoDB 镜像只需要 `MONGO_INITDB_ROOT_USERNAME` 和 `MONGO_INITDB_ROOT_PASSWORD` 这两个变量，因为它不会创建任何初始数据库。正如我们为 PostgreSQL 容器所做的那样，我们分配了一个特定的端口，该端口将不同于标准端口，以便在运行其他容器的同时执行测试。*
+我们需要向测试 Docker Compose 配置中添加一个临时的 MongoDB 容器。MongoDB 镜像只需要 `MONGO_INITDB_ROOT_USERNAME` 和 `MONGO_INITDB_ROOT_PASSWORD` 这两个变量，因为它不会创建任何初始数据库。正如我们为 PostgreSQL 容器所做的那样，我们分配了一个特定的端口，该端口将不同于标准端口，以便在运行其他容器的同时执行测试。
 
-*`docker/testing.yml`*
+`docker/testing.yml`
 
 ```py
 *version: '3.8'
@@ -132,11 +132,11 @@ services:
 
 [`github.com/pycabook/rentomatic/tree/ed2-c07-s02`](https://github.com/pycabook/rentomatic/tree/ed2-c07-s02)**
 
-## **应用程序配置**
+## 应用程序配置
 
-**Docker Compose、测试框架和应用程序本身都通过一个单一的 JSON 文件进行配置，我们需要更新该文件以包含我们想要用于 MongoDB 的实际值**
+Docker Compose、测试框架和应用程序本身都通过一个单一的 JSON 文件进行配置，我们需要更新该文件以包含我们想要用于 MongoDB 的实际值
 
-**`config/testing.json`**
+`config/testing.json`
 
 ```py
 **[
@@ -191,19 +191,19 @@ services:
 ]** 
 ```
 
-**由于 MongoDB 的标准端口是 27017，我选择了 27018 进行测试。请记住，这只是一个例子。在实际场景中，我们可能会有多个环境和多个测试设置，在这种情况下，我们可能希望为容器分配一个随机端口，并使用 Python 提取该值并将其传递给应用程序。**
+由于 MongoDB 的标准端口是 27017，我选择了 27018 进行测试。请记住，这只是一个例子。在实际场景中，我们可能会有多个环境和多个测试设置，在这种情况下，我们可能希望为容器分配一个随机端口，并使用 Python 提取该值并将其传递给应用程序。
 
-**请注意，我选择使用相同的变量`APPLICATION_DB`来命名 PostgreSQL 和 MongoDB 数据库。再次强调，这只是一个简单的例子，在更复杂的场景中，您的结果可能会有所不同。**
+请注意，我选择使用相同的变量`APPLICATION_DB`来命名 PostgreSQL 和 MongoDB 数据库。再次强调，这只是一个简单的例子，在更复杂的场景中，您的结果可能会有所不同。
 
 ***源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c07-s03`](https://github.com/pycabook/rentomatic/tree/ed2-c07-s03)***
 
-## ***集成测试***
+## 集成测试
 
-***集成测试是我们为 Postgres 编写的测试的镜像，因为我们覆盖的是相同的用例。如果您在同一个系统中使用多个数据库，您可能希望处理不同的用例，因此在实际情况下，这可能是一个更复杂的步骤。然而，您可能完全有理由只想简单地支持多个数据库，让您的客户可以选择将其连接到系统中，在这种情况下，您将做与我这里完全相同的事情，复制并调整相同的测试套件。***
+集成测试是我们为 Postgres 编写的测试的镜像，因为我们覆盖的是相同的用例。如果您在同一个系统中使用多个数据库，您可能希望处理不同的用例，因此在实际情况下，这可能是一个更复杂的步骤。然而，您可能完全有理由只想简单地支持多个数据库，让您的客户可以选择将其连接到系统中，在这种情况下，您将做与我这里完全相同的事情，复制并调整相同的测试套件。
 
-***`tests/repository/mongodb/test_mongorepo.py`***
+`tests/repository/mongodb/test_mongorepo.py`
 
 ```py
 ***import pytest
@@ -294,17 +294,17 @@ def test_repository_list_with_price_as_string(
     }*** 
 ```
 
-***我添加了一个名为`test_repository_list_with_price_as_string`的测试，用于检查当过滤器中的价格以字符串形式表达时会发生什么。通过实验 MongoDB shell，我发现在这种情况下查询没有工作，所以我包括了这个测试以确保实现没有忘记处理这种条件。***
+我添加了一个名为`test_repository_list_with_price_as_string`的测试，用于检查当过滤器中的价格以字符串形式表达时会发生什么。通过实验 MongoDB shell，我发现在这种情况下查询没有工作，所以我包括了这个测试以确保实现没有忘记处理这种条件。
 
 ****源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c07-s04`](https://github.com/pycabook/rentomatic/tree/ed2-c07-s04)****
 
-## ***MongoDB 仓库***
+## MongoDB 仓库
 
-***显然，`MongoRepo`类与 Postgres 接口不同，因为 PyMongo 库与 SQLAlchemy 不同，NoSQL 数据库的结构与关系型数据库的结构不同。文件`rentomatic/repository/mongorepo.py`是***
+显然，`MongoRepo`类与 Postgres 接口不同，因为 PyMongo 库与 SQLAlchemy 不同，NoSQL 数据库的结构与关系型数据库的结构不同。文件`rentomatic/repository/mongorepo.py`是
 
-***`rentomatic/repository/mongorepo.py`***
+`rentomatic/repository/mongorepo.py`
 
 ```py
 ***import pymongo
@@ -358,14 +358,14 @@ class MongoRepo:
         return self._create_room_objects(result)*** 
 ```
 
-***这种做法利用了 Rent-o-matic 项目和 MongoDB 系统过滤器之间的相似性 footnote:[两个系统之间的相似性并非偶然，因为我写关于清洁架构的第一篇文章时正在学习 MongoDB，所以我显然受到了它的影响。].***
+这种做法利用了 Rent-o-matic 项目和 MongoDB 系统过滤器之间的相似性 footnote:[两个系统之间的相似性并非偶然，因为我写关于清洁架构的第一篇文章时正在学习 MongoDB，所以我显然受到了它的影响。].
 
 ****源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c07-s05`](https://github.com/pycabook/rentomatic/tree/ed2-c07-s05)****
 
-* * *
+ * 
 
-***我认为这一非常简短的章节清楚地展示了分层方法和适当测试设置的优势。到目前为止，我们已经实现并测试了一个面向两个非常不同的数据库（如 PostgreSQL 和 MongoDB）的接口，但这两个接口都可以由相同的使用案例使用，这最终意味着相同的 API 端点。***
+我认为这一非常简短的章节清楚地展示了分层方法和适当测试设置的优势。到目前为止，我们已经实现并测试了一个面向两个非常不同的数据库（如 PostgreSQL 和 MongoDB）的接口，但这两个接口都可以由相同的使用案例使用，这最终意味着相同的 API 端点。
 
-***尽管我们已经正确测试了与这些外部系统的集成，但我们仍然没有一种方法可以在我们所说的生产就绪环境中运行整个系统，也就是说，以一种可以暴露给外部用户的方式。在下一章中，我将向您展示我们如何利用用于测试的相同设置来运行 Flask、PostgreSQL 以及我们创建的使用案例，使其可以在生产中使用。***
+尽管我们已经正确测试了与这些外部系统的集成，但我们仍然没有一种方法可以在我们所说的生产就绪环境中运行整个系统，也就是说，以一种可以暴露给外部用户的方式。在下一章中，我将向您展示我们如何利用用于测试的相同设置来运行 Flask、PostgreSQL 以及我们创建的使用案例，使其可以在生产中使用。

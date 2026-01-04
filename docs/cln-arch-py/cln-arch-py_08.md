@@ -185,17 +185,17 @@ tests/repository/postgres/test_postgresrepo.py::test_dummy SKIPPED
 =================== 35 passed, 1 skipped in 0.27s ======================= 
 ```
 
-*源代码*
+源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c06-s01`](https://github.com/pycabook/rentomatic/tree/ed2-c06-s01)*
 
-## *创建 SQLAlchemy 类*
+## 创建 SQLAlchemy 类
 
-*创建和填充测试数据库的初始数据将是测试套件的一部分，但我们需要定义数据库中将包含的表。这正是 SQLAlchemy 的 ORM 发挥作用的地方，我们将用 Python 对象来定义这些表。*
+创建和填充测试数据库的初始数据将是测试套件的一部分，但我们需要定义数据库中将包含的表。这正是 SQLAlchemy 的 ORM 发挥作用的地方，我们将用 Python 对象来定义这些表。
 
-*将包 `SQLAlchemy` 和 `psycopg2` 添加到需求文件 `prod.txt` 中*
+将包 `SQLAlchemy` 和 `psycopg2` 添加到需求文件 `prod.txt` 中
 
-*`requirements/prod.txt`*
+`requirements/prod.txt`
 
 ```py
 *Flask
@@ -203,15 +203,15 @@ SQLAlchemy
 psycopg2* 
 ```
 
-*并更新已安装的包*
+并更新已安装的包
 
 ```py
 *$ pip install -r requirements/dev.txt* 
 ```
 
-*创建一个名为 `rentomatic/repository/postgres_objects.py` 的文件，并包含以下内容*
+创建一个名为 `rentomatic/repository/postgres_objects.py` 的文件，并包含以下内容
 
-*`rentomatic/repository/postgres_objects.py`*
+`rentomatic/repository/postgres_objects.py`
 
 ```py
 *from sqlalchemy import Column, Integer, String, Float
@@ -231,7 +231,7 @@ class Room(Base):
     latitude = Column(Float)* 
 ```
 
-*让我们逐节注释它*
+让我们逐节注释它
 
 ```py
 *from sqlalchemy import Column, Integer, String, Float
@@ -240,7 +240,7 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()* 
 ```
 
-*我们需要从 SQLAlchemy 包导入许多内容来设置数据库和创建表。记住，SQLAlchemy 有一个声明式方法，因此我们需要实例化对象 `Base`，然后使用它作为声明表/对象的起点。*
+我们需要从 SQLAlchemy 包导入许多内容来设置数据库和创建表。记住，SQLAlchemy 有一个声明式方法，因此我们需要实例化对象 `Base`，然后使用它作为声明表/对象的起点。
 
 ```py
 *class Room(Base):
@@ -255,25 +255,25 @@ Base = declarative_base()*
     latitude = Column(Float)* 
 ```
 
-*这是代表数据库中房间的类。重要的是要理解这并不是我们在业务逻辑中使用的类，而是定义我们将用于映射`Room`实体的 SQL 数据库中的表的类。因此，这个类的结构是由存储层的需要决定的，而不是由用例决定的。例如，你可能希望将`longitude`和`latitude`存储在 JSON 字段中，以便更容易地扩展，而不改变域模型的定义。在 Rent-o-matic 项目的简单情况下，这两个类几乎重叠，但一般来说并不是这样。*
+这是代表数据库中房间的类。重要的是要理解这并不是我们在业务逻辑中使用的类，而是定义我们将用于映射`Room`实体的 SQL 数据库中的表的类。因此，这个类的结构是由存储层的需要决定的，而不是由用例决定的。例如，你可能希望将`longitude`和`latitude`存储在 JSON 字段中，以便更容易地扩展，而不改变域模型的定义。在 Rent-o-matic 项目的简单情况下，这两个类几乎重叠，但一般来说并不是这样。
 
-*显然，这意味着你必须保持存储层和域层的一致性，并且你需要自己管理迁移。你可以使用像 Alembic 这样的工具，但迁移不会直接来自域模型的变化。*
+显然，这意味着你必须保持存储层和域层的一致性，并且你需要自己管理迁移。你可以使用像 Alembic 这样的工具，但迁移不会直接来自域模型的变化。
 
 **源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c06-s02`](https://github.com/pycabook/rentomatic/tree/ed2-c06-s02)**
 
-## **编排管理**
+## 编排管理
 
-**当我们运行集成测试时，Postgres 数据库引擎必须在后台已经运行并配置好，例如，使用一个干净的数据库，准备好使用。此外，当所有测试执行完毕后，数据库应该被删除，数据库引擎应该停止。**
+当我们运行集成测试时，Postgres 数据库引擎必须在后台已经运行并配置好，例如，使用一个干净的数据库，准备好使用。此外，当所有测试执行完毕后，数据库应该被删除，数据库引擎应该停止。
 
-**这对于 Docker 来说是一个完美的任务，它可以在最小配置的情况下独立运行复杂的系统。在这里我们有选择：我们可能希望使用外部脚本来编排数据库的创建和销毁，或者尝试在测试套件中实现一切。第一种解决方案是许多框架所使用的，也是我在一系列文章[Flask 项目设置：TDD、Docker、Postgres 等](https://www.thedigitalcatonline.com/blog/2020/07/05/flask-project-setup-tdd-docker-postgres-and-more-part-1/)中探索的，因此在本章中，我将展示该解决方案的实现。**
+这对于 Docker 来说是一个完美的任务，它可以在最小配置的情况下独立运行复杂的系统。在这里我们有选择：我们可能希望使用外部脚本来编排数据库的创建和销毁，或者尝试在测试套件中实现一切。第一种解决方案是许多框架所使用的，也是我在一系列文章[Flask 项目设置：TDD、Docker、Postgres 等](https://www.thedigitalcatonline.com/blog/2020/07/05/flask-project-setup-tdd-docker-postgres-and-more-part-1/)中探索的，因此在本章中，我将展示该解决方案的实现。
 
-**正如我在提到的文章中解释的那样，计划是创建一个管理脚本，该脚本启动和关闭所需的容器，并在其中运行测试。管理脚本也可以用来运行应用程序本身，或者创建开发环境，但在这个例子中，我将简化它，只管理测试。我强烈建议你阅读那些文章，如果你想了解我将使用的设置背后的整体情况。**
+正如我在提到的文章中解释的那样，计划是创建一个管理脚本，该脚本启动和关闭所需的容器，并在其中运行测试。管理脚本也可以用来运行应用程序本身，或者创建开发环境，但在这个例子中，我将简化它，只管理测试。我强烈建议你阅读那些文章，如果你想了解我将使用的设置背后的整体情况。
 
-**如果我们计划使用 Docker Compose，我们首先要做的是将需求添加到`requirements/test.txt`中**
+如果我们计划使用 Docker Compose，我们首先要做的是将需求添加到`requirements/test.txt`中
 
-**`requirements/test.txt`**
+`requirements/test.txt`
 
 ```py
 **-r prod.txt
@@ -285,9 +285,9 @@ pytest-flask
 docker-compose** 
 ```
 
-**并运行`pip install -r requirements/dev.txt`来安装它。管理脚本如下**
+并运行`pip install -r requirements/dev.txt`来安装它。管理脚本如下
 
-**`manage.py`**
+`manage.py`
 
 ```py
 **#! /usr/bin/env python
@@ -409,7 +409,7 @@ if __name__ == "__main__":
     cli()** 
 ```
 
-**让我们逐块看看它做了什么。**
+让我们逐块看看它做了什么。
 
 ```py
 **#! /usr/bin/env python
@@ -431,7 +431,7 @@ APPLICATION_CONFIG_PATH = "config"
 DOCKER_PATH = "docker"** 
 ```
 
-**一些 Docker 容器（例如我们很快将要使用的 PostgreSQL 容器）依赖于环境变量来进行初始设置，因此如果它们尚未初始化，我们需要定义一个函数来设置环境变量。我们还定义了一些配置文件的路径。**
+一些 Docker 容器（例如我们很快将要使用的 PostgreSQL 容器）依赖于环境变量来进行初始设置，因此如果它们尚未初始化，我们需要定义一个函数来设置环境变量。我们还定义了一些配置文件的路径。
 
 ```py
 **def app_config_file(config):
@@ -457,7 +457,7 @@ def configure_app(config):
         setenv(key, value)** 
 ```
 
-**由于原则上我预计至少会有开发、测试和生产不同的配置，我引入了`app_config_file`和`docker_compose_file`，它们会返回我们正在工作的特定环境的文件。函数`read_json_configuration`已被从`configure_app`中分离出来，因为它将被测试导入以初始化数据库存储库。**
+由于原则上我预计至少会有开发、测试和生产不同的配置，我引入了`app_config_file`和`docker_compose_file`，它们会返回我们正在工作的特定环境的文件。函数`read_json_configuration`已被从`configure_app`中分离出来，因为它将被测试导入以初始化数据库存储库。
 
 ```py
 **@click.group()
@@ -487,7 +487,7 @@ def docker_compose_cmdline(commands_string=None):
     return command_line** 
 ```
 
-**这是一个简单的函数，它创建 Docker Compose 命令行，这样我们就不需要在编排容器时重复长列表的选项。**
+这是一个简单的函数，它创建 Docker Compose 命令行，这样我们就不需要在编排容器时重复长列表的选项。
 
 ```py
 **def run_sql(statements):
@@ -514,7 +514,7 @@ def wait_for_logs(cmdline, message):
         logs = subprocess.check_output(cmdline)** 
 ```
 
-**函数`run_sql`允许我们在运行的 Postgres 数据库上运行 SQL 命令，当我们要创建空测试数据库时将非常有用。第二个函数`wait_for_logs`是一种简单的方式来监控 Postgres 容器，并确保它已准备好使用。每次你以编程方式启动容器时，你都需要意识到它们在准备好使用之前有一个启动时间，并相应地行动。**
+函数`run_sql`允许我们在运行的 Postgres 数据库上运行 SQL 命令，当我们要创建空测试数据库时将非常有用。第二个函数`wait_for_logs`是一种简单的方式来监控 Postgres 容器，并确保它已准备好使用。每次你以编程方式启动容器时，你都需要意识到它们在准备好使用之前有一个启动时间，并相应地行动。
 
 ```py
 **@cli.command()
@@ -547,15 +547,15 @@ if __name__ == "__main__":
     cli()** 
 ```
 
-**这是我们定义的最后一个函数，也是我们管理脚本提供的唯一命令。首先，应用程序使用名称`testing`进行配置，这意味着我们将使用`config/testing.json`配置文件和`docker/testing.yml`Docker Compose 文件。所有这些名称和路径都只是来自这个管理脚本任意设置的惯例，因此你显然可以以不同的方式组织你的项目。**
+这是我们定义的最后一个函数，也是我们管理脚本提供的唯一命令。首先，应用程序使用名称`testing`进行配置，这意味着我们将使用`config/testing.json`配置文件和`docker/testing.yml`Docker Compose 文件。所有这些名称和路径都只是来自这个管理脚本任意设置的惯例，因此你显然可以以不同的方式组织你的项目。
 
-**该函数随后根据 Docker Compose 文件启动容器，运行`docker-compose up -d`。它等待日志消息表明数据库已准备好接受连接，并运行创建测试数据库的 SQL 命令。**
+该函数随后根据 Docker Compose 文件启动容器，运行`docker-compose up -d`。它等待日志消息表明数据库已准备好接受连接，并运行创建测试数据库的 SQL 命令。
 
-**之后，它使用默认选项运行 Pytest，并添加我们将在命令行上提供的所有选项，最后拆除 Docker Compose 容器。**
+之后，它使用默认选项运行 Pytest，并添加我们将在命令行上提供的所有选项，最后拆除 Docker Compose 容器。
 
-**为了完成设置，我们需要为 Docker Compose 定义一个配置文件**
+为了完成设置，我们需要为 Docker Compose 定义一个配置文件
 
-**`docker/testing.yml`**
+`docker/testing.yml`
 
 ```py
 **version: '3.8'
@@ -571,9 +571,9 @@ services:
       - "${POSTGRES_PORT}:5432"** 
 ```
 
-**最后是一个 JSON 配置文件**
+最后是一个 JSON 配置文件
 
-**`config/testing.json`**
+`config/testing.json`
 
 ```py
 **[
@@ -612,23 +612,23 @@ services:
 ]** 
 ```
 
-**关于此配置的一些注意事项。首先，它定义了`FLASK_ENV`和`FLASK_CONFIG`。第一个，你可能还记得，是一个内部 Flask 变量，它只能是`development`或`production`，并且与内部调试器相关联。第二个是我们用来使用`application/config.py`中的对象配置 Flask 应用程序的变量。为了测试目的，我们将`FLASK_ENV`设置为`production`，因为我们不需要内部调试器，并将`FLASK_CONFIG`设置为`testing`，这将导致应用程序使用`TestingConfig`类进行配置。这个类将内部 Flask 参数`TESTING`设置为`True`。**
+关于此配置的一些注意事项。首先，它定义了`FLASK_ENV`和`FLASK_CONFIG`。第一个，你可能还记得，是一个内部 Flask 变量，它只能是`development`或`production`，并且与内部调试器相关联。第二个是我们用来使用`application/config.py`中的对象配置 Flask 应用程序的变量。为了测试目的，我们将`FLASK_ENV`设置为`production`，因为我们不需要内部调试器，并将`FLASK_CONFIG`设置为`testing`，这将导致应用程序使用`TestingConfig`类进行配置。这个类将内部 Flask 参数`TESTING`设置为`True`。
 
-**其余的 JSON 配置初始化了以`POSTGRES_`为前缀的变量。这些是 Postgres Docker 容器所需的变量。当容器运行时，它将自动创建一个名为`POSTGRES_DB`指定的数据库。它还创建了一个用户和密码，使用`POSTGRES_USER`和`POSTGRES_PASSWORD`中指定的值。**
+其余的 JSON 配置初始化了以`POSTGRES_`为前缀的变量。这些是 Postgres Docker 容器所需的变量。当容器运行时，它将自动创建一个名为`POSTGRES_DB`指定的数据库。它还创建了一个用户和密码，使用`POSTGRES_USER`和`POSTGRES_PASSWORD`中指定的值。
 
-**最后，我引入了`APPLICATION_DB`变量，因为我想要创建一个特定的数据库，而不是默认的数据库。默认端口`POSTGRES_PORT`已从标准值 5432 更改为 5433，以避免与机器上已运行的任何数据库（无论是本地还是容器化）冲突。如您在 Docker Compose 配置文件中所见，这仅更改了容器的外部映射，而不是数据库引擎在容器内部实际使用的端口。**
+最后，我引入了`APPLICATION_DB`变量，因为我想要创建一个特定的数据库，而不是默认的数据库。默认端口`POSTGRES_PORT`已从标准值 5432 更改为 5433，以避免与机器上已运行的任何数据库（无论是本地还是容器化）冲突。如您在 Docker Compose 配置文件中所见，这仅更改了容器的外部映射，而不是数据库引擎在容器内部实际使用的端口。
 
-**有了所有这些文件，我们就准备好开始设计我们的测试了。**
+有了所有这些文件，我们就准备好开始设计我们的测试了。
 
 ***源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c06-s03`](https://github.com/pycabook/rentomatic/tree/ed2-c06-s03)*
 
-## ***数据库固定值***
+## 数据库固定值
 
-***由于我们在 JSON 文件中定义了数据库的配置，我们需要一个固定值来加载相同的配置，这样我们就可以在测试期间连接到数据库。由于我们已经在管理脚本中有了`read_json_configuration`函数，我们只需要将其包装起来。这是一个不是特定于 Postgres 存储库的固定值，所以我将在`tests/conftest.py`中介绍它***
+由于我们在 JSON 文件中定义了数据库的配置，我们需要一个固定值来加载相同的配置，这样我们就可以在测试期间连接到数据库。由于我们已经在管理脚本中有了`read_json_configuration`函数，我们只需要将其包装起来。这是一个不是特定于 Postgres 存储库的固定值，所以我将在`tests/conftest.py`中介绍它
 
-***`tests/conftest.py`***
+`tests/conftest.py`
 
 ```py
 ***from manage import read_json_configuration
@@ -640,11 +640,11 @@ def app_configuration():
     return read_json_configuration("testing")*** 
 ```
 
-***如您所见，为了简单起见，我硬编码了配置文件的名称。另一种解决方案可能是在管理脚本中创建一个包含应用程序配置的环境变量，并从这里读取它。***
+如您所见，为了简单起见，我硬编码了配置文件的名称。另一种解决方案可能是在管理脚本中创建一个包含应用程序配置的环境变量，并从这里读取它。
 
-***其余的固定值包含特定于 Postgres 的代码，因此最好将这些代码分离到更具体的文件`conftest.py`中***
+其余的固定值包含特定于 Postgres 的代码，因此最好将这些代码分离到更具体的文件`conftest.py`中
 
-***`tests/repository/postgres/conftest.py`***
+`tests/repository/postgres/conftest.py`
 
 ```py
 ***import sqlalchemy
@@ -726,13 +726,13 @@ def pg_session(pg_session_empty, pg_test_data):
     pg_session_empty.query(Room).delete()*** 
 ```
 
-***第一个测试固定项`pg_session_empty`创建了一个到空初始数据库的会话，而`pg_test_data`定义了我们将要加载到数据库中的值。由于我们不会修改这组值，我们不需要创建测试固定项，但这是使其对其他测试固定项和测试都可用的一种更简单的方法。最后一个测试固定项`pg_session`使用测试数据填充数据库，这些数据是 Postgres 对象，我们创建了它们来映射这些对象。请注意，这些不是实体，而是我们创建来映射它们的 Postgres 对象。***
+第一个测试固定项`pg_session_empty`创建了一个到空初始数据库的会话，而`pg_test_data`定义了我们将要加载到数据库中的值。由于我们不会修改这组值，我们不需要创建测试固定项，但这是使其对其他测试固定项和测试都可用的一种更简单的方法。最后一个测试固定项`pg_session`使用测试数据填充数据库，这些数据是 Postgres 对象，我们创建了它们来映射这些对象。请注意，这些不是实体，而是我们创建来映射它们的 Postgres 对象。
 
-***请注意，最后一个测试固定项具有`function`作用域，因此它对每个测试都会运行。因此，在`yield`返回后，我们删除所有房间，使数据库的状态与测试之前完全相同。一般来说，你应该总是在测试后进行清理。我们正在测试的端点不会写入数据库，所以在这个特定情况下，实际上没有必要进行清理，但我更喜欢从零开始实现一个完整的解决方案。***
+请注意，最后一个测试固定项具有`function`作用域，因此它对每个测试都会运行。因此，在`yield`返回后，我们删除所有房间，使数据库的状态与测试之前完全相同。一般来说，你应该总是在测试后进行清理。我们正在测试的端点不会写入数据库，所以在这个特定情况下，实际上没有必要进行清理，但我更喜欢从零开始实现一个完整的解决方案。
 
-***我们可以通过更改`test_dummy`函数，使其获取`Room`表的全部行，并验证查询返回 4 个值来测试整个设置。***
+我们可以通过更改`test_dummy`函数，使其获取`Room`表的全部行，并验证查询返回 4 个值来测试整个设置。
 
-***`tests/repository/postgres/test_postgresrepo.py`的新版本是***
+`tests/repository/postgres/test_postgresrepo.py`的新版本是
 
 ```py
 ***import pytest
@@ -744,7 +744,7 @@ def test_dummy(pg_session):
     assert len(pg_session.query(Room).all()) == 4*** 
 ```
 
-***在这个阶段，你可以运行带有集成测试的测试套件。你应该会注意到当 pytest 执行`test_dummy`函数时会有明显的延迟，因为 Docker 需要一些时间来启动数据库容器并准备数据***
+在这个阶段，你可以运行带有集成测试的测试套件。你应该会注意到当 pytest 执行`test_dummy`函数时会有明显的延迟，因为 Docker 需要一些时间来启动数据库容器并准备数据
 
 ```py
 ***$ ./manage.py test -- --integration
@@ -763,19 +763,19 @@ tests/repository/postgres/test_postgresrepo.py::test_dummy PASSED
 ========================= 36 passed in 0.26s ============================*** 
 ```
 
-***请注意，要传递`--integration`选项，我们需要使用`--`，否则 Click 会将该选项视为属于脚本`./manage.py`的一部分，而不是将其作为 pytest 参数传递。***
+请注意，要传递`--integration`选项，我们需要使用`--`，否则 Click 会将该选项视为属于脚本`./manage.py`的一部分，而不是将其作为 pytest 参数传递。
 
 ****源代码
 
 [`github.com/pycabook/rentomatic/tree/ed2-c06-s04`](https://github.com/pycabook/rentomatic/tree/ed2-c06-s04)****
 
-## ***集成测试***
+## 集成测试
 
-***在这个阶段，我们可以在`test_postgresrepo.py`文件中创建真正的测试，替换`test_dummy`函数。所有测试都接收`app_configuration`、`pg_session`和`pg_test_data`测试固定项。第一个测试固定项允许我们使用适当的参数初始化`PostgresRepo`类。第二个使用测试数据创建数据库，这些数据随后包含在第三个测试固定项中。***
+在这个阶段，我们可以在`test_postgresrepo.py`文件中创建真正的测试，替换`test_dummy`函数。所有测试都接收`app_configuration`、`pg_session`和`pg_test_data`测试固定项。第一个测试固定项允许我们使用适当的参数初始化`PostgresRepo`类。第二个使用测试数据创建数据库，这些数据随后包含在第三个测试固定项中。
 
-***这个存储库的测试基本上是创建用于`MemRepo`的测试的副本，这并不奇怪。通常，你想要测试完全相同的条件，无论存储系统是什么。然而，在章节的末尾，我们将看到，尽管这些文件最初是相同的，但当我们发现来自特定实现（内存存储、PostgreSQL 等）的 bug 或边缘情况时，它们可以以不同的方式发展。***
+这个存储库的测试基本上是创建用于`MemRepo`的测试的副本，这并不奇怪。通常，你想要测试完全相同的条件，无论存储系统是什么。然而，在章节的末尾，我们将看到，尽管这些文件最初是相同的，但当我们发现来自特定实现（内存存储、PostgreSQL 等）的 bug 或边缘情况时，它们可以以不同的方式发展。
 
-***`tests/repository/postgres/test_postgresrepo.py`***
+`tests/repository/postgres/test_postgresrepo.py`
 
 ```py
 ***import pytest
@@ -853,9 +853,9 @@ def test_repository_list_with_price_between_filter(
     assert repo_rooms[0].code == "913694c6-435a-4366-ba0d-da5334a611b2"*** 
 ```
 
-***记住，我是一次介绍一个这些测试的，并且我没有展示完整的 TDD 工作流程，只是为了简洁起见。`PostgresRepo`类的代码是按照严格的 TDD 方法开发的，我建议你也这样做。生成的代码放在`rentomatic/repository/postgresrepo.py`，与我们在其中创建了`postgres_objects.py`文件的同一个目录中。***
+记住，我是一次介绍一个这些测试的，并且我没有展示完整的 TDD 工作流程，只是为了简洁起见。`PostgresRepo`类的代码是按照严格的 TDD 方法开发的，我建议你也这样做。生成的代码放在`rentomatic/repository/postgresrepo.py`，与我们在其中创建了`postgres_objects.py`文件的同一个目录中。
 
-***`rentomatic/repository/postgresrepo.py`***
+`rentomatic/repository/postgresrepo.py`
 
 ```py
 ***from sqlalchemy import create_engine
@@ -918,15 +918,15 @@ class PostgresRepo:
 
 [`github.com/pycabook/rentomatic/tree/ed2-c06-s05`](https://github.com/pycabook/rentomatic/tree/ed2-c06-s05)****
 
-***你可能注意到`PostgresRepo`与`MemRepo`非常相似。这是因为我们在这里处理的案例，即`Room`对象列表，相当简单，所以我不会期望内存数据库和现成的生产级关系型数据库之间有太大的差异。随着用例变得更加复杂，你将需要开始利用你使用的引擎提供的功能，例如`list`方法可能会演变成非常不同的形式。***
+你可能注意到`PostgresRepo`与`MemRepo`非常相似。这是因为我们在这里处理的案例，即`Room`对象列表，相当简单，所以我不会期望内存数据库和现成的生产级关系型数据库之间有太大的差异。随着用例变得更加复杂，你将需要开始利用你使用的引擎提供的功能，例如`list`方法可能会演变成非常不同的形式。
 
-***请注意，`list`方法返回领域模型，这是允许的，因为存储库是在架构的外层之一实现的。***
+请注意，`list`方法返回领域模型，这是允许的，因为存储库是在架构的外层之一实现的。
 
-* * *
+ * 
 
-***正如你所见，虽然设置一个合适的集成测试环境并不简单，但我们的架构为了与真实存储库一起工作所需要的变化非常有限。我认为这是清洁架构核心分层方法灵活性的良好证明。***
+正如你所见，虽然设置一个合适的集成测试环境并不简单，但我们的架构为了与真实存储库一起工作所需要的变化非常有限。我认为这是清洁架构核心分层方法灵活性的良好证明。
 
-***由于本章将集成测试的设置与引入新的存储库结合起来，所以我将在下一章专门介绍一个基于 MongoDB 的存储库，使用与本章相同的结构。支持多个数据库（在这种情况下甚至包括关系型和非关系型）并不是一个不常见的模式，因为它允许你使用最适合每个用例的方法。***
+由于本章将集成测试的设置与引入新的存储库结合起来，所以我将在下一章专门介绍一个基于 MongoDB 的存储库，使用与本章相同的结构。支持多个数据库（在这种情况下甚至包括关系型和非关系型）并不是一个不常见的模式，因为它允许你使用最适合每个用例的方法。
 
 ***1
 
