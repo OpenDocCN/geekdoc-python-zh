@@ -1,84 +1,123 @@
 - en: About
+  id: totrans-0
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 关于
 - en: 原文：[https://www.thedigitalcatbooks.com/pages/about.html](https://www.thedigitalcatbooks.com/pages/about.html)
+  id: totrans-1
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 原文：[https://www.thedigitalcatbooks.com/pages/about.html](https://www.thedigitalcatbooks.com/pages/about.html)
 - en: '*“We are like dwarfs standing on the shoulders of giants, so that we can see
     more than they, and things at a greater distance; not by virtue of any sharpness
     of sight on our part, or any physical distinction, but because we are carried
     high and raised up by their giant size.”* (Bernard of Chartres)'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '*“我们就像站在巨人的肩膀上的矮人，所以我们能看到他们看不到的东西，看到更远的东西；不是因为我们有敏锐的视力或任何身体上的区别，而是因为我们被他们巨大的身躯高高举起。”*
+    (夏尔·德·夏特尔斯)'
 - en: About me
+  id: totrans-3
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于我
 - en: My name is Leonardo Giordani. I was born in Italy in 1977, a year that gave
     to the world also Star Wars, bash, Apple ][, BSD, finger, Zork, Dire Straits,
     The Police, Rumours, The Silmarillion.
+  id: totrans-4
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的名字是 Leonardo Giordani。我于 1977 年出生在意大利，这一年也向世界介绍了《星球大战》、bash、Apple ][、BSD、finger、Zork、Dire
+    Straits、The Police、Rumours、The Silmarillion。
 - en: I'm interested in operating systems and computer languages, photography, fantasy
     and science fiction, video- and boardgames, guitar playing, climbing, horseback
     riding, Aikido, light saber combat, rollerskating, drawing, painting, bookbinding,
     mathematics, and cryptography.
+  id: totrans-5
   prefs: []
   type: TYPE_NORMAL
+  zh: 我对操作系统和计算机语言、摄影、奇幻和科幻、视频和桌面游戏、弹吉他、攀岩、骑马、合气道、光剑格斗、滑旱冰、绘画、绘画、装订、数学和密码学感兴趣。
 - en: I programmed in Z80 and x86 Assembly, GW-Basic, Logo, Borland Turbo Pascal,
     Prolog, C, C++, PHP, Lisp, Ada, Objective-C, bash, Python, Erlang, Clojure, Scala.
     I'm currently working as an infrastructure engineer for the film industry.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我曾使用过 Z80 和 x86 汇编语言、GW-Basic、Logo、Borland Turbo Pascal、Prolog、C、C++、PHP、Lisp、Ada、Objective-C、bash、Python、Erlang、Clojure、Scala
+    编程。我目前作为电影行业的基础设施工程师工作。
 - en: About this site
+  id: totrans-7
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于本站
 - en: In 2018 I published my first book, *Clean Architectures in Python*, that was
     born as an extended version of a post that I published on my blog [The Digital
     Cat](https://www.thedigitalcatonline.com/). The book was initially created on
     Leanpub with a pay-what-you-want scheme, but eventually I also decided to publish
     it online to make it easier to access and to share.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 2018 年，我出版了我的第一本书，*Python 中的清洁架构*，这本书最初是我在我博客 [The Digital Cat](https://www.thedigitalcatonline.com/)
+    上发表的一篇帖子的扩展版本。这本书最初是在 Leanpub 上以“你想要多少就付多少”的方案创建的，但最终我也决定在线发布，以便更容易访问和分享。
 - en: In the last two years I tried several different toolchains to write the online
     content and eventually ended up using the same system that I use for the blog,
     that is using the [Mau](https://github.com/Project-Mau) markup language together
     with the [Pelican](https://getpelican.com) blog engine.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去两年中，我尝试了多种不同的工具链来编写在线内容，最终我使用了与我博客相同的系统，即使用 [Mau](https://github.com/Project-Mau)
+    标记语言以及 [Pelican](https://getpelican.com) 博客引擎。
 - en: I have another book in the works, and I hope I will be able to expand some other
     blog posts into full featured book, that give me the freedom to discuss a topic
     in depth without the length constraints of the standard blog post.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在编写另一本书，我希望能够将一些博客文章扩展成功能齐全的书籍，这样我就可以在不受标准博客文章长度限制的情况下深入讨论一个主题。
 - en: License
+  id: totrans-11
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 许可证
 - en: The content of this site released under Creative Commons Attribution-ShareAlike
     4.0 International (CC BY-SA 4.0). I strongly believe that shared knowledge, in
     every field, is the only way to achieve real progress.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 本站内容根据 Creative Commons Attribution-ShareAlike 4.0 国际许可协议（CC BY-SA 4.0）发布。我坚信，在每一个领域，共享知识是取得真正进步的唯一途径。
 - en: Typos, errors, and bugs
+  id: totrans-13
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 错别字、错误和漏洞
 - en: What you find on this website is by no means always correct. Feel free to submit
     corrections through the [GitHub Issues page](https://github.com/TheDigitalCatBooks/source/issues)
     for site-wide issues, or using the specific repository of each book. I won't always
     answer immediately but I assure you that I read all the issues and will eventually
     fix them.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 你在这个网站上找到的内容并不总是正确的。请随时通过 [GitHub Issues 页面](https://github.com/TheDigitalCatBooks/source/issues)提交网站范围的修正，或使用每本书的特定仓库。我不总是立即回答，但我向你保证，我会阅读所有的问题，并最终修复它们。
 - en: Contact me
+  id: totrans-15
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 联系我
 - en: '[Twitter](https://twitter.com/thedigicat)'
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Twitter](https://twitter.com/thedigicat)'

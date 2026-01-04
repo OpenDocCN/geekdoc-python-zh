@@ -1,23 +1,32 @@
 - en: Chapter 7 - Integration with a real external system - MongoDB
+  id: totrans-0
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 第七章 - 与真实外部系统的集成 - MongoDB
 - en: 原文：[https://www.thedigitalcatbooks.com/pycabook-chapter-07/](https://www.thedigitalcatbooks.com/pycabook-chapter-07/)
+  id: totrans-1
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 原文：[https://www.thedigitalcatbooks.com/pycabook-chapter-07/](https://www.thedigitalcatbooks.com/pycabook-chapter-07/)
 - en: There's, uh, another example.
+  id: totrans-2
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 嘿，还有另一个例子。
 - en: ''
+  id: totrans-3
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Jurassic Park, 1993
+  id: totrans-4
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 《侏罗纪公园》，1993
 - en: The previous chapter showed how to integrate a real external system with the
     core of the clean architecture. Unfortunately I also had to introduce a lot of
     code to manage the integration tests and to globally move forward to a proper
@@ -26,34 +35,51 @@
     to MongoDB is the perfect way to show how flexible the clean architecture is,
     and how easy it is to introduce different approaches like a non-relational database
     instead of a relational one.
+  id: totrans-5
   prefs: []
   type: TYPE_NORMAL
+  zh: 上一章展示了如何将真实的外部系统与清晰架构的核心集成。不幸的是，我不得不引入大量的代码来管理集成测试，并全局推进到一个合适的设置。在本章中，我将利用我们刚刚完成的工作，仅展示与外部系统严格相关的部分。将数据库从
+    PostgreSQL 更换为 MongoDB 是展示清晰架构的灵活性以及引入不同方法（如非关系型数据库而非关系型数据库）的简便性的完美方式。
 - en: Fixtures
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Fixtures
 - en: Thanks to the flexibility of clean architecture, providing support for multiple
     storage systems is a breeze. In this section, I will implement the class `MongoRepo`
     that provides an interface towards MongoDB, a well-known NoSQL database. We will
     follow the same testing strategy we used for PostgreSQL, with a Docker container
     that runs the database and docker-compose that orchestrates the whole system.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 感谢清晰架构的灵活性，为多个存储系统提供支持变得轻而易举。在本节中，我将实现一个名为 `MongoRepo` 的类，它为 MongoDB（一个知名的 NoSQL
+    数据库）提供了一个接口。我们将遵循与 PostgreSQL 相同的测试策略，使用运行数据库的 Docker 容器和 docker-compose 来编排整个系统。
 - en: You will appreciate the benefits of the complex testing structure that I created
     in the previous chapter. That structure allows me to reuse some of the fixtures
     now that I want to implement tests for a new storage system.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 你将欣赏我在上一章中创建的复杂测试结构的优势。该结构允许我现在想要为新的存储系统实现测试时重用一些 fixtures。
 - en: Let's start defining the file `tests/repository/mongodb/conftest.py`, which
     will contains pytest fixtures for MongoDB, mirroring the file we created for PostgreSQL
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们开始定义文件 `tests/repository/mongodb/conftest.py`，该文件将包含 MongoDB 的 pytest fixtures，类似于我们为
+    PostgreSQL 创建的文件。
 - en: '`tests/repository/mongodb/conftest.py`'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '`tests/repository/mongodb/conftest.py`'
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: As you can see these functions are very similar to the ones that we defined
     for Postgres. The function `mg_database_empty` is tasked to create the MongoDB
     client and the empty database, and to dispose them after the `yield`. The fixture
@@ -61,88 +87,135 @@
     fills the empty database with it. While the SQLAlchemy package works through a
     session, PyMongo library creates a client and uses it directly, but the overall
     structure is the same.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 如你所见，这些函数与我们为 Postgres 定义的函数非常相似。函数 `mg_database_empty` 负责创建 MongoDB 客户端和空数据库，并在
+    `yield` 之后销毁它们。fixture `mg_test_data` 提供与 `pg_test_data` 相同的数据，而 `mg_database`
+    则用这些数据填充空数据库。虽然 SQLAlchemy 包通过会话工作，但 PyMongo 库创建一个客户端并直接使用它，但整体结构是相同的。
 - en: Since we are importing the PyMongo library we need to change the production
     requirements
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于我们正在导入 PyMongo 库，我们需要更改生产需求。
 - en: '`requirements/prod.txt`'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '`requirements/prod.txt`'
 - en: '[PRE1]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: and run `pip install -r requirements/dev.txt`.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 运行 `pip install -r requirements/dev.txt`.
 - en: '*Source code'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '*源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s01](https://github.com/pycabook/rentomatic/tree/ed2-c07-s01)*'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s01](https://github.com/pycabook/rentomatic/tree/ed2-c07-s01)*'
 - en: '*Docker Compose configuration*'
+  id: totrans-19
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '*Docker Compose 配置*'
 - en: '*We need to add an ephemeral MongoDB container to the testing Docker Compose
     configuration. The MongoDB image needs only the variables `MONGO_INITDB_ROOT_USERNAME`
     and `MONGO_INITDB_ROOT_PASSWORD` as it doesn''t create any initial database. As
     we did for the PostgreSQL container we assign a specific port that will be different
     from the standard one, to allow tests to be executed while other containers are
     running.*'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '*我们需要向测试 Docker Compose 配置中添加一个临时的 MongoDB 容器。MongoDB 镜像只需要 `MONGO_INITDB_ROOT_USERNAME`
+    和 `MONGO_INITDB_ROOT_PASSWORD` 这两个变量，因为它不会创建任何初始数据库。正如我们为 PostgreSQL 容器所做的那样，我们分配了一个特定的端口，该端口将不同于标准端口，以便在运行其他容器的同时执行测试。*'
 - en: '*`docker/testing.yml`*'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '*`docker/testing.yml`*'
 - en: '[PRE2]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '**Source code'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s02](https://github.com/pycabook/rentomatic/tree/ed2-c07-s02)**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s02](https://github.com/pycabook/rentomatic/tree/ed2-c07-s02)**'
 - en: '**Application configuration**'
+  id: totrans-25
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '**应用程序配置**'
 - en: '**Docker Compose, the testing framework, and the application itself are configured
     through a single JSON file, that we need to update with the actual values we want
     to use for MongoDB**'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Docker Compose、测试框架和应用程序本身都通过一个单一的JSON文件进行配置，我们需要更新该文件以包含我们想要用于MongoDB的实际值**'
 - en: '**`config/testing.json`**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**`config/testing.json`**'
 - en: '[PRE3]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '**Since the standard port from MongoDB is 27017 I chose 27018 for the tests.
     Remember that this is just an example, however. In a real scenario we might have
     multiple environments and also multiple setups for our testing, and in that case
     we might want to assign a random port to the container and use Python to extract
     the value and pass it to the application.**'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**由于MongoDB的标准端口是27017，我选择了27018进行测试。请记住，这只是一个例子。在实际场景中，我们可能会有多个环境和多个测试设置，在这种情况下，我们可能希望为容器分配一个随机端口，并使用Python提取该值并将其传递给应用程序。**'
 - en: '**Please also note that I chose to use the same variable `APPLICATION_DB` for
     the name of the PostgreSQL and MongoDB databases. Again, this is a simple example,
     and your mileage my vary in more complex scenarios.**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**请注意，我选择使用相同的变量`APPLICATION_DB`来命名PostgreSQL和MongoDB数据库。再次强调，这只是一个简单的例子，在更复杂的场景中，您的结果可能会有所不同。**'
 - en: '***Source code'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '***源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s03](https://github.com/pycabook/rentomatic/tree/ed2-c07-s03)***'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s03](https://github.com/pycabook/rentomatic/tree/ed2-c07-s03)***'
 - en: '***Integration tests***'
+  id: totrans-33
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '***集成测试***'
 - en: '***The integration tests are a mirror of the ones we wrote for Postgres, as
     we are covering the same use case. If you use multiple databases in the same system
     you probably want to serve different use cases, so in a real case this might probably
@@ -150,69 +223,102 @@
     want to simply provide support for multiple databases that your client can choose
     to plug into the system, and in that case you will do exactly what I did here,
     copying and adjusting the same test battery.***'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '***集成测试是我们为Postgres编写的测试的镜像，因为我们覆盖的是相同的用例。如果您在同一个系统中使用多个数据库，您可能希望处理不同的用例，因此在实际情况下，这可能是一个更复杂的步骤。然而，您可能完全有理由只想简单地支持多个数据库，让您的客户可以选择将其连接到系统中，在这种情况下，您将做与我这里完全相同的事情，复制并调整相同的测试套件。***'
 - en: '***`tests/repository/mongodb/test_mongorepo.py`***'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/repository/mongodb/test_mongorepo.py`***'
 - en: '[PRE4]'
+  id: totrans-36
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '***I added a test called `test_repository_list_with_price_as_string` that checks
     what happens when the price in the filter is expressed as a string. Experimenting
     with the MongoDB shell I found that in this case the query wasn''t working, so
     I included the test to be sure the implementation didn''t forget to manage this
     condition.***'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我添加了一个名为`test_repository_list_with_price_as_string`的测试，用于检查当过滤器中的价格以字符串形式表达时会发生什么。通过实验MongoDB
+    shell，我发现在这种情况下查询没有工作，所以我包括了这个测试以确保实现没有忘记处理这种条件。***'
 - en: '****Source code'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s04](https://github.com/pycabook/rentomatic/tree/ed2-c07-s04)****'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s04](https://github.com/pycabook/rentomatic/tree/ed2-c07-s04)****'
 - en: '***The MongoDB repository***'
+  id: totrans-40
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '***MongoDB仓库***'
 - en: '***The `MongoRepo` class is obviously not the same as the Postgres interface,
     as the PyMongo library is different from SQLAlchemy, and the structure of a NoSQL
     database differs from the one of a relational one. The file `rentomatic/repository/mongorepo.py`
     is***'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '***显然，`MongoRepo`类与Postgres接口不同，因为PyMongo库与SQLAlchemy不同，NoSQL数据库的结构与关系型数据库的结构不同。文件`rentomatic/repository/mongorepo.py`是***'
 - en: '***`rentomatic/repository/mongorepo.py`***'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`rentomatic/repository/mongorepo.py`***'
 - en: '[PRE5]'
+  id: totrans-43
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: '***which makes use of the similarity between the filters of the Rent-o-matic
     project and the ones of the MongoDB systemfootnote:[The similitude between the
     two systems is not accidental, as I was studying MongoDB at the time I wrote the
     first article about clean architectures, so I was obviously influenced by it.].***'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '***这种做法利用了Rent-o-matic项目和MongoDB系统过滤器之间的相似性footnote:[两个系统之间的相似性并非偶然，因为我写关于清洁架构的第一篇文章时正在学习MongoDB，所以我显然受到了它的影响。].***'
 - en: '****Source code'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s05](https://github.com/pycabook/rentomatic/tree/ed2-c07-s05)****'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c07-s05](https://github.com/pycabook/rentomatic/tree/ed2-c07-s05)****'
 - en: '* * *'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: '***I think this very brief chapter clearly showed the merits of a layered approach
     and of a proper testing setup. So far we implemented and tested an interface towards
     two very different databases like PostgreSQL and MongoDB, but both interfaces
     are usable by the same use case, which ultimately means the same API endpoint.***'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我认为这一非常简短的章节清楚地展示了分层方法和适当测试设置的优势。到目前为止，我们已经实现并测试了一个面向两个非常不同的数据库（如PostgreSQL和MongoDB）的接口，但这两个接口都可以由相同的使用案例使用，这最终意味着相同的API端点。***'
 - en: '***While we properly tested the integration with these external systems, we
     still don''t have a way to run the whole system in what we call a production-ready
     environment, that is in a way that can be exposed to external users. In the next
     chapter I will show you how we can leverage the same setup we used for the tests
     to run Flask, PostgreSQL, and the use case we created in a way that can be used
     in production.***'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '***尽管我们已经正确测试了与这些外部系统的集成，但我们仍然没有一种方法可以在我们所说的生产就绪环境中运行整个系统，也就是说，以一种可以暴露给外部用户的方式。在下一章中，我将向您展示我们如何利用用于测试的相同设置来运行Flask、PostgreSQL以及我们创建的使用案例，使其可以在生产中使用。***'

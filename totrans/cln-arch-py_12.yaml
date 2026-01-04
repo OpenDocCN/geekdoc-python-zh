@@ -1,26 +1,37 @@
 - en: Colophon
+  id: totrans-0
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 印刷说明
 - en: 原文：[https://www.thedigitalcatbooks.com/pycabook-colophon/](https://www.thedigitalcatbooks.com/pycabook-colophon/)
+  id: totrans-1
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 原文：[https://www.thedigitalcatbooks.com/pycabook-colophon/](https://www.thedigitalcatbooks.com/pycabook-colophon/)
 - en: In conclusion, it should be noted...
+  id: totrans-2
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 最后，应该注意的是...
 - en: ''
+  id: totrans-3
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Young Frankenstein, 1974
+  id: totrans-4
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 年轻的弗兰肯斯坦，1974年
 - en: Writing a book is a giant effort.
+  id: totrans-5
   prefs: []
   type: TYPE_NORMAL
+  zh: 写一本书是一项巨大的努力。
 - en: I don't want this to sound like an excuse for the many errors that I forgot
     to fix or introduced. I merely want to state that what you read is the product
     of many many hours spent thinking how to explain a certain concept, debating with
@@ -28,16 +39,22 @@
     the code I wrote on the project and the Git commits with what is in the book.
     And since you read it until this point, I want to sincerely thank you for taking
     part in this adventure.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我不希望这听起来像是对我忘记修复或引入的许多错误的一个借口。我只想说明，你所阅读的内容是我花费了无数个小时思考如何解释某个概念、与自己争论段落是否应该放在另一个段落之前，以及不断尝试将我在项目上写的代码和Git提交与书中的内容相协调的结果。既然你读到这一点，我想真诚地感谢你参与这次冒险。
 - en: I didn't follow every advice I received, but I carefully read all the issues
     and messages that people sent me. I'm sorry I didn't manage to put in the book
     everything I wanted or everything you suggested. I have no commitment with an
     editor, but a certain point even a self-published book has to be called done.
     There will be more editions, I hope, so I just postponed the work. In the meanwhile,
     why don't you write a blog post on the clean architecture?
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我并没有遵循我收到的所有建议，但我仔细阅读了人们给我发送的所有问题和信息。很抱歉我没有能够把我想写的所有内容或你建议的所有内容都放入书中。我与编辑没有承诺，但某个时候，即使是自出版的书也必须被称为完成。我希望会有更多的版本，所以我只是推迟了这项工作。在此期间，你为什么不写一篇关于清洁架构的博客文章呢？
 - en: Thanks for reading my book!
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 感谢阅读我的书！

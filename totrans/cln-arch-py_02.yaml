@@ -1,36 +1,49 @@
 - en: About the book
+  id: totrans-0
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 关于本书
 - en: 原文：[https://www.thedigitalcatbooks.com/pycabook-about-the-book/](https://www.thedigitalcatbooks.com/pycabook-about-the-book/)
+  id: totrans-1
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 原文：[https://www.thedigitalcatbooks.com/pycabook-about-the-book/](https://www.thedigitalcatbooks.com/pycabook-about-the-book/)
 - en: We'll put the band back together, do a few gigs, we get some bread. Bang! Five
     thousand bucks.
+  id: totrans-2
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我们将重新组合乐队，进行几场演出，我们就能赚点钱。砰！五千美元。
 - en: ''
+  id: totrans-3
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: The Blues Brothers, 1980
+  id: totrans-4
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 《布鲁斯兄弟》，1980年
 - en: In 2015 I was introduced to the clean architecture by a colleague of mine, Roberto
     Ciatti. I started working with him following a strict Test-Driven Development
     (TDD) approach and learning or better understanding many things I now consider
     pillars of my programming knowledge.
+  id: totrans-5
   prefs: []
   type: TYPE_NORMAL
+  zh: 2015年，我的同事Roberto Ciatti向我介绍了清洁架构。我开始严格遵循测试驱动开发（TDD）的方法与他一起工作，并学习或更好地理解了许多我现在认为是我编程知识支柱的东西。
 - en: 'Unfortunately the project was cancelled, but the clean architecture concepts
     stuck with me, so I revisited them for a simple open source project I started
     working on at the time. Meanwhile I read "Object Oriented Software Engineering:
     A Use-Case Driven Approach" by Ivar Jacobson^([[1](#fd--5444573)]).'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，项目被取消了，但清洁架构的概念一直留在了我的心中，所以我重新审视了当时开始的一个简单开源项目。同时，我阅读了Ivar Jacobson的《面向对象软件工程：一种用例驱动的方法》。
 - en: 'In 2013 I started writing a personal blog, [The Digital Cat](https://www.thedigitalcatonline.com/),
     and after having published many Python-related posts I began working on a post
     to show other programmers the beauty of the clean architecture concepts: "Clean
@@ -40,33 +53,44 @@
     that many things I had written needed to be corrected, clarified, or simply updated.
     So I thought that a book could be the best way to present the whole picture effectively,
     and here we are.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 2013年，我开始写个人博客《数字猫》（[The Digital Cat](https://www.thedigitalcatonline.com/)），在发表了大量与Python相关的帖子后，我开始撰写一篇展示清洁架构之美给其他程序员看的帖子：“Python中的清洁架构：一步一步的示例”，于2016年发布，受到了Python社区的欢迎。在接下来的几年里，我考虑扩展这篇帖子，但我找不到时间去做，同时我意识到我写的一些东西需要纠正、澄清或简单地更新。所以我认为一本书可能是有效地展示整个图景的最佳方式，就这样我们有了这本书。
 - en: In 2020, after having delayed it for a long time, I decided to review the whole
     book, updating it and clarifying parts that weren't particularly well written.
     I also decided to remove the part on TDD. While I believe every programmer should
     understand TDD, the topic of the book is different, so I updated the material
     and published it on my blog.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 2020年，在推迟了很久之后，我决定审查整本书，更新并澄清了一些写得不太好的部分。我还决定删除关于TDD的部分。虽然我相信每个程序员都应该理解TDD，但本书的主题是不同的，所以我更新了材料，并在我的博客上发布了它。
 - en: This book is the product of many hours spent thinking, experimenting, studying,
     and making mistakes. I couldn't have written it without the help of many people,
     some of whose names I don't know, who provided free documentation, free software,
     free help. Thanks everybody! I also want to specifically say thanks to many readers
     who came back to me with suggestions, corrections, or simply with appreciation
     messages. Thanks all!
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这本书是我投入许多时间思考、实验、学习和犯错误的结果。没有许多人的帮助，我无法完成它，其中一些人的名字我不知道，他们提供了免费的文档、免费的软件和免费的帮助。谢谢大家！我还想特别感谢许多给我提出建议、纠正或只是发送感谢信息的读者。谢谢所有人！
 - en: Prerequisites and structure of the book
+  id: totrans-10
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 本书的前提和结构
 - en: To fully appreciate the book you need to know Python and be familiar with TDD,
     in particular with unit testing and mocks. Please refer to the series [TDD in
     Python with pytest](https://www.thedigitalcatonline.com/blog/2020/09/10/tdd-in-python-with-pytest-part-1/)
     published on my blog if you need to refresh your knowledge about these topics.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 要完全欣赏这本书，你需要了解Python，并熟悉TDD，特别是单元测试和模拟。如果您需要刷新这些主题的知识，请参考我博客上发布的系列文章[TDD in
+    Python with pytest](https://www.thedigitalcatonline.com/blog/2020/09/10/tdd-in-python-with-pytest-part-1/)。
 - en: After the two introductory parts that you are reading, chapter 1 goes through
     a **10,000 feet overview** of a system designed with a clean architecture, while
     chapter 2 briefly discusses the **components** and the ideas behind this software
@@ -76,95 +100,139 @@
     in the previous chapters. Chapters 6 and 7 show how to plug **different database
     systems** to the web service created previously, and chapter 8 wraps up the example
     showing how to run the application with a **production-ready configuration**.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在阅读完两个引言部分之后，第一章对采用整洁架构设计的系统进行了**10,000英尺的概述**，而第二章简要讨论了该软件架构的**组件**及其背后的理念。第三章探讨了整洁架构的**具体示例**，第四章在此基础上扩展了示例，并添加了**Web应用程序**。第五章讨论了**错误管理**以及之前章节中开发的Python代码的改进。第六章和第七章展示了如何将**不同的数据库系统**连接到之前创建的Web服务，而第八章总结了示例，展示了如何使用**生产就绪配置**运行应用程序。
 - en: Typographic conventions
+  id: totrans-13
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 排版约定
 - en: This book uses Python, so the majority of the code samples will be in this language,
     either `inline` or in a specific code block like this
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 本书使用Python，因此大多数代码示例都将使用这种语言，无论是`内联`还是像这样特定的代码块
 - en: '`some/path/file_name.py`'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '`some/path/file_name.py`'
 - en: '[PRE0]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Note that the path of the file that contains the code is printed just before
     the source code. Code blocks don't include line numbers, as the part of code that
     are being discussed are usually repeated in the text. This also makes it possible
     to copy the code from the PDF directly.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，包含代码的文件的路径在源代码之前打印出来。代码块不包含行号，因为通常讨论的代码部分会在文本中重复。这也使得可以直接从PDF中复制代码。
 - en: Shell commands are presented with a generic prompt `$`
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 以通用提示符`$`呈现Shell命令
 - en: '[PRE1]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: which means that you will copy and execute the string starting from `command`.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这意味着您将从`command`开始复制并执行字符串。
 - en: I will also use two different asides to link the code repository and to mark
     important principles.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 我还会使用两个不同的边栏来链接代码仓库并标记重要的原则。
 - en: This box provides a link to the commit or the tag that contains the code that
     was presented
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 此框提供了一个链接到包含所展示代码的提交或标签。
 - en: '*Source code'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '*源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/master](https://github.com/pycabook/rentomatic/tree/master)*'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/master](https://github.com/pycabook/rentomatic/tree/master)*'
 - en: '*This box highlights a concept explained in detail in the current chapter*'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '*此框突出显示当前章节中详细解释的概念*'
 - en: '**Concept'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**概念**'
 - en: This recaps an important concept that is explained in the text.**
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 这总结了文本中解释的重要概念。**
 - en: '**Why this book comes for free**'
+  id: totrans-28
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '**为什么这本书是免费的**'
 - en: '**The first reason I started writing a technical blog was to share with others
     my discoveries, and to save them the hassle of going through processes I had already
     cracked. Moreover, I always enjoy the fact that explaining something forces me
     to better understand that topic, and writing requires even more study to get things
     clear in my mind, before attempting to introduce other people to the subject.**'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我开始写技术博客的第一个原因是为了与他人分享我的发现，并节省他们通过我已经解决的问题的过程。此外，我总是很享受解释某事强迫我更好地理解这个主题的事实，而写作则需要更多的研究来在我脑海中清晰地理解事物，然后再尝试向其他人介绍这个主题。**'
 - en: '**Much of what I know comes from personal investigations, but without the work
     of people who shared their knowledge for free I would not have been able to make
     much progress. The Free Software Movement didn''t start with Internet, and I got
     a taste of it during the 80s and 90s, but the World Wide Web undeniably gave an
     impressive boost to the speed and quality of this knowledge sharing.**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我所知的大部分知识都来自个人调查，但没有那些免费分享知识的人的工作，我就无法取得太多进步。自由软件运动并非始于互联网，我在80年代和90年代就尝到了它的味道，但不可否认，万维网极大地提高了知识共享的速度和质量。**'
 - en: '**So this book is a way to say thanks to everybody gave their time to write
     blog posts, free books, software, and to organise conferences, groups, meetups.
     This is why I teach people at conferences, this is why I write a technical blog,
     this is the reason behind this book.**'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '**因此，这本书是一种方式，向所有花时间写博客文章、免费书籍、软件以及组织会议、小组、聚会的人表示感谢。这就是为什么我在会议上教人们，这就是我写技术博客的原因，这也是这本书背后的原因。**'
 - en: '**That said, if you want to acknowledge my effort with money, feel free. Anyone
     who publishes a book or travels to conferences incurs expenses, and any help is
     welcome. However, the best thing you can do is to become part of this process
     of shared knowledge; experiment, learn and share what you learn. If you''d like
     to contribute financially you can purchase the book on [Leanpub](https://leanpub.com/clean-architectures-in-python).**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**话虽如此，如果你想用金钱来认可我的努力，请随意。任何出版书籍或参加会议的人都会产生费用，任何帮助都受欢迎。然而，你能做的最好的事情就是成为这个共享知识过程的一部分；实验、学习和分享你所学的知识。如果你想从经济上做出贡献，你可以在[Leanpub](https://leanpub.com/clean-architectures-in-python)上购买这本书。**'
 - en: '**Submitting issues or patches**'
+  id: totrans-33
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '**提交问题或补丁**'
 - en: '**This book is not a collaborative effort. It is the product of my work, and
     it expresses my personal view on some topics, and also follows my way of teaching.
     Both however can be improved, and they might also be wrong, so I am open to suggestions,
@@ -173,58 +241,78 @@
     or of the projects presented in the book. I will answer or fix issues as soon
     as possible, and if needed I will publish a new version of the book with the correction.
     Thanks!**'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**这本书不是协作成果。它是我的作品，表达了我对某些主题的个人观点，也遵循了我的教学方法。然而，两者都可以改进，也可能有错误，所以我欢迎建议，并乐意接收关于错误或任何请求澄清的报告。请自由使用[书仓库](https://github.com/pycabook/pycabook/issues)的GitHub问题或书中介绍的项目。我会尽快回答或修复问题，如果需要，我会发布带有更正的新版本的书。谢谢！**'
 - en: '**About the author**'
+  id: totrans-35
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '**关于作者**'
 - en: '**My name is Leonardo Giordani, I was born in 1977, a year that gave to the
     world Star Wars, bash, Apple II, BSD, Dire Straits, The Silmarillion, among many
     other things. I''m interested in operating systems and computer languages, photography,
     fantasy and science fiction, video and board games, guitar playing, and (too)
     many other things.**'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我的名字是莱昂纳多·约尔达尼，我于1977年出生，这一年给世界带来了《星球大战》、《bash》、《Apple II》、《BSD》、《Dire Straits》、《精灵宝钻》等许多事物。我对操作系统和计算机语言、摄影、奇幻和科幻、视频和桌面游戏、弹吉他以及（太多）其他事物感兴趣。**'
 - en: '**I studied and used several programming languages, among them my favourite
     are the Motorola 68k Assembly, C, and Python. I love mathematics and cryptography.
     I''m mainly interested in open source software, and I like both the theoretical
     and practical aspects of computer science.**'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我研究并使用过几种编程语言，其中我最喜欢的有Motorola 68k汇编语言、C和Python。我喜欢数学和密码学。我主要对开源软件感兴趣，我喜欢计算机科学的理论和实践方面。**'
 - en: '**For 13 years I have been a C/Python programmer and devops for a satellite
     imagery company, and I am currently one of the lead developers at [WeGotPOP](https://www.wegotpop.com),
     a UK company based in London and New York that creates innovative software for
     film productions.**'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我已经做了13年的C/Python程序员和卫星图像公司的devops，目前我是位于伦敦和纽约的英国公司[WeGotPOP](https://www.wegotpop.com)的主要开发者之一，该公司为电影制作创造创新软件。**'
 - en: '**In 2013 I started publishing some technical thoughts on my blog, [The Digital
     Cat](https://www.thedigitalcatonline.com), and in 2018 I published the first edition
     of the book you are currently reading.**'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '**2013年，我开始在我的博客[The Digital Cat](https://www.thedigitalcatonline.com)上发布一些技术思考，2018年我出版了你现在正在阅读的这本书的第一版。**'
 - en: '**Changes in the second edition**'
+  id: totrans-40
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '**第二版的变化**'
 - en: '**New edition, new typos! I''m pretty sure this is the major change I introduced
     with this edition.**'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '**新版本，新错误！我相当确信这是我在这次版本中引入的主要变化。**'
 - en: '**Jokes aside, this second edition contains many changes, but the core example
     is the same, and while the code changed a little (I use dataclasses and introduced
     a management script to orchestrate tests) nothing revolutionary happened from
     that point of view.**'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '**开个玩笑，第二版有很多变化，但核心示例保持不变，从那个角度看，代码只是略有变化（我使用了dataclasses并引入了一个管理脚本来编排测试），并没有发生革命性的变化。**'
 - en: '**So, if you already read the first edition, you might want to have a look
     at chapters 6, 7, and 8, where I reworked the way I manage integration tests and
     the production-ready setup of the project. If you haven''t read the first edition
     I hope you will appreciate the effort I made to introduce the clean architecture
     with a narrated example in chapter 1, before I start discussing the architecture
     in more detail and show you some code.**'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '**所以，如果你已经阅读了第一版，你可能想看看第6、7、8章，我在那里重新思考了管理集成测试和项目生产就绪设置的方式。如果你还没有阅读第一版，我希望你会欣赏我在第1章中用叙述的例子引入干净架构的努力，在那之后我开始更详细地讨论架构并展示一些代码。**'
 - en: '**The biggest change that readers of the first edition might notice in the
     content is that I removed the part on TDD and focused only on the clean architecture.
     What I wrote on TDD has become a series of 5 posts on my blog, that I reference
@@ -232,8 +320,10 @@
     only the subject matter. This probably means that the book is not suitable for
     complete beginners any more, but since the resources are out there I don''t feel
     too guilty.**'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '**第一版读者可能会注意到内容上的最大变化是，我移除了TDD的部分，只关注了干净的架构。我在TDD上写的内容已经变成了我博客上的5篇帖子，我在书中引用了它们，但这次我更愿意忠于标题，只讨论主题。这可能意味着这本书不再适合完全的初学者了，但既然资源已经存在，我并不觉得有太多的罪恶感。**'
 - en: '**I also experimented with different toolchains. The first edition was created
     directly with [Leanpub''s Markua](https://leanpub.com/markua/read) language, which
     gave me all I needed to start. While working on the second edition, though, I
@@ -244,30 +334,43 @@
     the wall of Latex, which is obscure black magic to say the least. I spent a great
     amount of time hacking templates and Python filters to get more or less what I
     wanted, but I wasn''t happy.**'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我还尝试了不同的工具链。第一版是直接使用[Leanpub的Markua](https://leanpub.com/markua/read)语言创建的，这给了我开始所需的一切。然而，在编写第二版时，由于缺少诸如警告和源代码片段的文件名以及配置选项的普遍缺乏，我逐渐感到不满意。我认为Leanpub做得很好，但Markua并没有提供我需要的所有功能。所以我尝试了[Pandoc](https://pandoc.org/)，我立刻遇到了LaTeX的障碍，至少可以说它是一种神秘的黑色魔法。我花了很多时间修改模板和Python过滤器，以获得我想要的大概效果，但我不满意。**'
 - en: '**Eventually I discovered [AsciiDoc](https://asciidoc.org/) and that looked
     like the perfect solution. I actually published the first version of the second
     edition with this toolchain, and I was blown away by AsciiDoc in comparison with
     Markdown. Unfortunately I had a lot of issues trying to customise the standard
     template, and not knowing Ruby worsened my experience. After a while I got to
     a decent version (which I published), but I kept thinking that I wanted more.**'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '**最终我发现了[AsciiDoc](https://asciidoc.org/)，这看起来像是完美的解决方案。我实际上就是用这个工具链发布了第二版的第一个版本，与Markdown相比，我被AsciiDoc深深吸引。不幸的是，我在尝试自定义标准模板时遇到了很多问题，而且不知道Ruby让我的体验变得更糟。过了一段时间，我得到了一个相当不错的版本（我已经发布了），但我一直想着我还想要更多。**'
 - en: '**So I decided to try to write my own parser and here we go. This version of
     the book has been written using Mau, which is available at [https://github.com/Project-Mau](https://github.com/Project-Mau),
     and Pelican ([https://getpelican.com](https://getpelican.com)), which I already
     successfully use for my blog. I''m in the process of writing a Mau Visitor that
     converts the source code into Markua, so that I can use Leanpub''s tools to produce
     a PDF.**'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '**所以我决定尝试编写自己的解析器，就这样开始了。这本书的版本是使用Mau编写的，它可以在[https://github.com/Project-Mau](https://github.com/Project-Mau)找到，以及Pelican
+    ([https://getpelican.com](https://getpelican.com))，我已经成功地用它来写我的博客。我正在编写一个Mau访问者，它将源代码转换为Markua，这样我就可以使用Leanpub的工具来生成PDF。**'
 - en: '**I hope you will enjoy the effort I put into this new edition!**'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我希望你会喜欢我在这新版本中投入的努力！**'
 - en: '**[1](#fr--5444573)'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '**[1](#fr--5444573)**'
 - en: '[https://www.amazon.com/Object-Oriented-Software-Engineering-Approach/dp/0201544350](https://www.amazon.com/Object-Oriented-Software-Engineering-Approach/dp/0201544350)**'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://www.amazon.com/Object-Oriented-Software-Engineering-Approach/dp/0201544350](https://www.amazon.com/Object-Oriented-Software-Engineering-Approach/dp/0201544350)**'

@@ -1,42 +1,57 @@
 - en: Chapter 5 - Error management
+  id: totrans-0
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 第五章 - 错误管理
 - en: 原文：[https://www.thedigitalcatbooks.com/pycabook-chapter-05/](https://www.thedigitalcatbooks.com/pycabook-chapter-05/)
+  id: totrans-1
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 原文：[https://www.thedigitalcatbooks.com/pycabook-chapter-05/](https://www.thedigitalcatbooks.com/pycabook-chapter-05/)
 - en: You sent them out there and you didn't even warn them! Why didn't you warn them,
     Burke?
+  id: totrans-2
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 你把他们派出去，甚至都没有警告他们！为什么你没有警告他们，伯克？
 - en: ''
+  id: totrans-3
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Aliens, 1986
+  id: totrans-4
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 外星人，1986
 - en: In every software project, a great part of the code is dedicated to error management,
     and this code has to be rock solid. Error management is a complex topic, and there
     is always a corner case that we left out, or a condition that we supposed could
     never fail, while it does.
+  id: totrans-5
   prefs: []
   type: TYPE_NORMAL
+  zh: 在每一个软件项目中，大部分代码都致力于错误管理，并且这部分代码必须坚如磐石。错误管理是一个复杂的话题，我们总会遗漏一些角落案例，或者假设某些条件永远不会失败，而实际上却发生了。
 - en: In a clean architecture, the main process is the creation of use cases and their
     execution. This is, therefore, the main source of errors, and the use cases layer
     is where we have to implement the error management. Errors can obviously come
     from the domain models layer, but since those models are created by the use cases
     the errors that are not managed by the models themselves automatically become
     errors of the use cases.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在整洁架构中，主要过程是用例的创建和执行。因此，这是错误的主要来源，我们必须在用例层实现错误管理。显然，错误也可能来自领域模型层，但由于这些模型是由用例创建的，因此那些没有由模型本身管理的错误自动成为用例的错误。
 - en: Request and responses
+  id: totrans-7
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 请求和响应
 - en: We can divide the error management code into two different areas. The first
     one represents and manages **requests**, that is, the input data that reaches
     our use case. The second one covers the way we return results from the use case
@@ -45,302 +60,462 @@
     considering the way data can be passed to and received from use cases, and how
     to manage errors. This has nothing to do with the possible use of this architecture
     to expose an HTTP API.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以将错误管理代码分为两个不同的区域。第一个区域表示和管理**请求**，即达到我们用例的输入数据。第二个区域涵盖了通过**响应**从用例返回结果的方式，即输出数据。这两个概念不应该与
+    HTTP 请求和响应混淆，尽管它们有相似之处。我们现在正在考虑数据如何传递到和从用例接收，以及如何管理错误。这与使用此架构公开 HTTP API 的可能用途无关。
 - en: Request and response objects are an important part of a clean architecture,
     as they transport call parameters, inputs and results from outside the application
     into the use cases layer.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 请求和响应对象是整洁架构的重要组成部分，因为它们将调用参数、输入和结果从应用程序外部传输到用例层。
 - en: More specifically, requests are objects created from incoming API calls, thus
     they shall deal with things like incorrect values, missing parameters, wrong formats,
     and so on. Responses, on the other hand, have to contain the actual results of
     the API calls, but shall also be able to represent error cases and deliver rich
     information on what happened.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 更具体地说，请求是由传入的 API 调用创建的对象，因此它们必须处理诸如值不正确、缺少参数、格式错误等问题。另一方面，响应必须包含 API 调用的实际结果，但也能够表示错误情况并提供关于发生情况丰富的信息。
 - en: The actual implementation of request and response objects is completely free,
     the clean architecture says nothing about them. The decision on how to pack and
     represent data is up to us.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 请求和响应对象的实际实现完全自由，整洁架构对此没有任何说明。如何打包和表示数据的决定取决于我们。
 - en: To start working on possible errors and understand how to manage them, I will
     expand `room_list_use_case` to support filters that can be used to select a subset
     of the `Room` objects in storage.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了开始处理可能的错误并理解如何管理它们，我将扩展 `room_list_use_case` 以支持可以用来选择存储中 `Room` 对象子集的过滤器。
 - en: 'The filters could be, for example, represented by a dictionary that contains
     attributes of the model `Room` and the logic to apply to them. Once we accept
     such a rich structure, we open our use case to all sorts of errors: attributes
     that do not exist in the model, thresholds of the wrong type, filters that make
     the storage layer crash, and so on. All these considerations have to be taken
     into account by the use case.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 过滤器可以，例如，通过一个包含模型 `Room` 属性及其逻辑的字典来表示。一旦我们接受这样的丰富结构，我们就会面临各种错误：模型中不存在的属性、错误类型的阈值、导致存储层崩溃的过滤器等等。所有这些考虑都必须由用例来考虑。
 - en: Basic structure
+  id: totrans-14
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 基本结构
 - en: We can implement structured requests before we expand the use case to accept
     filters. We just need a class `RoomListRequest` that can be initialised without
     parameters, so let us create the file `tests/requests/test_room_list.py` and put
     there a test for this object.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们将用例扩展以接受过滤器之前，我们可以实现结构化请求。我们只需要一个可以无参数初始化的类 `RoomListRequest`，因此让我们创建文件 `tests/requests/test_room_list.py`
+    并在其中放置对该对象的测试。
 - en: '`tests/requests/test_room_list.py`'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '`tests/requests/test_room_list.py`'
 - en: '[PRE0]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: While at the moment this request object is basically empty, it will come in
     handy as soon as we start having parameters for the list use case. The code of
     the class `RoomListRequest` is the following
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然目前这个请求对象基本上是空的，但一旦我们开始为列表用例添加参数，它就会变得非常有用。类 `RoomListRequest` 的代码如下
 - en: '`rentomatic/requests/room_list.py`'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '`rentomatic/requests/room_list.py`'
 - en: '[PRE1]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '*Source code'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '*源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s01](https://github.com/pycabook/rentomatic/tree/ed2-c05-s01)*'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s01](https://github.com/pycabook/rentomatic/tree/ed2-c05-s01)*'
 - en: '*The response object is also very simple since for the moment we just need
     to return a successful result. Unlike the request, the response is not linked
     to any particular use case, so the test file can be named `tests/test_responses.py`*'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '*响应对象也非常简单，因为目前我们只需要返回一个成功的结果。与请求不同，响应不与任何特定用例相关联，因此测试文件可以命名为 `tests/test_responses.py`*'
 - en: '*`tests/test_responses.py`*'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '*`tests/test_responses.py`*'
 - en: '[PRE2]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '*and the actual response object is in the file `rentomatic/responses.py`*'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '*实际的响应对象位于文件 `rentomatic/responses.py` 中*'
 - en: '*`rentomatic/responses.py`*'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '*`rentomatic/responses.py`*'
 - en: '[PRE3]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '**Source code'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**源代码**'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s02](https://github.com/pycabook/rentomatic/tree/ed2-c05-s02)**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s02](https://github.com/pycabook/rentomatic/tree/ed2-c05-s02)**'
 - en: '**With these two objects, we just laid the foundations for richer management
     of input and outputs of the use case, especially in the case of error conditions.**'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '**有了这两个对象，我们为用例输入和输出的更丰富管理奠定了基础，尤其是在错误条件的情况下。**'
 - en: '**Requests and responses in a use case**'
+  id: totrans-32
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '**用例中的请求和响应**'
 - en: '**Let''s implement the request and response objects that we developed into
     the use case. To do this, we need to change the use case so that it accepts a
     request and return a response. The new version of `tests/use_cases/test_room_list.py`
     is the following**'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '**让我们将我们开发的请求和响应对象实现到用例中。为此，我们需要更改用例，使其接受请求并返回响应。`tests/use_cases/test_room_list.py`
+    的新版本如下**'
 - en: '**`tests/use_cases/test_room_list.py`**'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**`tests/use_cases/test_room_list.py`**'
 - en: '[PRE4]'
+  id: totrans-35
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '**And the changes in the use case are minimal. The new version of the file
     `rentomatic/use_cases/room_list.py` is the following**'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '**用例中的更改很小。`rentomatic/use_cases/room_list.py` 文件的新版本如下**'
 - en: '**`rentomatic/use_cases/room_list.py`**'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '**`rentomatic/use_cases/room_list.py`**'
 - en: '[PRE5]'
+  id: totrans-38
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: '***Source code'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '***源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s03](https://github.com/pycabook/rentomatic/tree/ed2-c05-s03)***'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s03](https://github.com/pycabook/rentomatic/tree/ed2-c05-s03)***'
 - en: '***Now we have a standard way to pack input and output values, and the above
     pattern is valid for every use case we can create. We are still missing some features,
     however, because so far requests and responses are not used to perform error management.***'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '***现在我们有一个标准的方式来打包输入和输出值，上述模式适用于我们创建的每个用例。然而，我们仍然缺少一些功能，因为到目前为止，请求和响应尚未用于执行错误管理。***'
 - en: '***Request validation***'
+  id: totrans-42
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '***请求验证***'
 - en: '***The parameter `filters` that we want to add to the use case allows the caller
     to add conditions to narrow the results of the model list operation, using a notation
     like `<attribute>__<operator>`. For example, specifying `filters={''price__lt'':
     100}` should return all the results with a price lower than 100\.***'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我们要添加到用例中的参数 `filters` 允许调用者使用类似 `<attribute>__<operator>` 的符号添加条件，以缩小模型列表操作的结果。例如，指定
+    `filters={''price__lt'': 100}` 应返回所有价格低于 100 的结果。***'
 - en: '***Since the model `Room` has many attributes, the number of possible filters
     is very high. For simplicity''s sake, I will consider the following cases:***'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '***由于模型 `Room` 有许多属性，可能的过滤器数量非常高。为了简化起见，我将考虑以下情况：***'
 - en: '***The attribute `code` supports only `__eq`, which finds the room with the
     specific code if it exists***'
+  id: totrans-45
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '***属性 `code` 只支持 `__eq`，如果存在，则找到具有特定代码的房间***'
 - en: '***The attribute `price` supports `__eq`, `__lt`, and `__gt`***'
+  id: totrans-46
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '***属性 `price` 支持 `__eq`、`__lt` 和 `__gt`***'
 - en: '***All other attributes cannot be used in filters***'
+  id: totrans-47
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '***所有其他属性都不能用于过滤器***'
 - en: '***The core idea here is that requests are customised for use cases, so they
     can contain the logic that validates the arguments used to instantiate them. The
     request is valid or invalid before it reaches the use case, so it is not the responsibility
     of the latter to check that the input values have proper values or a proper format.***'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '***这里的核心思想是，请求是根据用例定制的，因此它们可以包含验证用于实例化的参数的逻辑。请求在到达用例之前是有效或无效的，因此后者不需要检查输入值是否有适当的值或格式。***'
 - en: '***This also means that building a request might result in two different objects,
     a valid one or an invalid one. For this reason, I decided to split the existing
     class `RoomListRequest` into `RoomListValidRequest` and `RoomListInvalidRequest`,
     creating a factory function that returns the proper object.***'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '***这也意味着构建请求可能会导致两个不同的对象，一个是有效的，一个是无效的。因此，我决定将现有的类`RoomListRequest`拆分为`RoomListValidRequest`和`RoomListInvalidRequest`，创建一个返回适当对象的工厂函数。***'
 - en: '***The first thing to do is to change the existing tests to use the factory.***'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '***首先，我将修改现有的测试以使用工厂模式。***'
 - en: '***`tests/requests/test_room_list.py`***'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/requests/test_room_list.py`***'
 - en: '[PRE6]'
+  id: totrans-52
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: '***Next, I will test that passing the wrong type of object as `filters` or
     that using incorrect keys results in an invalid request***'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '***接下来，我将测试传递错误的对象类型作为`filters`或使用不正确的键会导致无效请求***'
 - en: '***`tests/requests/test_room_list.py`***'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/requests/test_room_list.py`***'
 - en: '[PRE7]'
+  id: totrans-55
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: '***Last, I will test the supported and unsupported keys***'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '***最后，我将测试支持的和不支持的键***'
 - en: '***`tests/requests/test_room_list.py`***'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/requests/test_room_list.py`***'
 - en: '[PRE8]'
+  id: totrans-58
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: '***Note that I used the decorator `pytest.mark.parametrize` to run the same
     test on multiple values.***'
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: '***请注意，我使用了装饰器`pytest.mark.parametrize`来在多个值上运行相同的测试。***'
 - en: '***Following the TDD approach, adding those tests one by one and writing the
     code that passes them, I come up with the following code***'
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: '***遵循TDD（测试驱动开发）方法，逐个添加这些测试并编写通过它们的代码，我得到了以下代码***'
 - en: '***`rentomatic/requests/room_list.py`***'
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`rentomatic/requests/room_list.py`***'
 - en: '[PRE9]'
+  id: totrans-62
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE9]'
 - en: '***The introduction of the factory makes one use case test fails. The new version
     of that test is***'
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: '***引入工厂导致一个用例测试失败。该测试的新版本是***'
 - en: '***`tests/use_cases/test_room_list.py`***'
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/use_cases/test_room_list.py`***'
 - en: '[PRE10]'
+  id: totrans-65
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE10]'
 - en: '****Source code'
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s04](https://github.com/pycabook/rentomatic/tree/ed2-c05-s04)****'
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s04](https://github.com/pycabook/rentomatic/tree/ed2-c05-s04)****'
 - en: '***Responses and failures***'
+  id: totrans-68
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '***响应和失败***'
 - en: '***There is a wide range of errors that can happen while the use case code
     is executed. Validation errors, as we just discussed in the previous section,
     but also business logic errors or errors that come from the repository layer or
     other external systems that the use case interfaces with. Whatever the error,
     the use case shall always return an object with a known structure (the response),
     so we need a new object that provides good support for different types of failures.***'
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: '***在用例代码执行过程中可能会发生各种错误。验证错误，正如我们在上一节中讨论的，但还有业务逻辑错误或来自仓库层或其他与用例交互的外部系统的错误。无论错误是什么，用例都应该始终返回一个具有已知结构（响应）的对象，因此我们需要一个新的对象，它为不同类型的失败提供良好的支持。***'
 - en: '***As happened for the requests there is no unique way to provide such an object,
     and the following code is just one of the possible solutions. First of all, after
     some necessary imports, I test that responses have a boolean value***'
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: '***对于请求，没有唯一的方法提供这样的对象，以下代码只是可能的解决方案之一。首先，在必要的导入之后，我测试了响应具有布尔值***'
 - en: '***`tests/test_responses.py`***'
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/test_responses.py`***'
 - en: '[PRE11]'
+  id: totrans-72
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE11]'
 - en: '***Then I test the structure of responses, checking `type` and `value`. `ResponseFailure`
     objects should also have an attribute `message`***'
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: '***然后我测试了响应的结构，检查`type`和`value`。`ResponseFailure`对象也应该有一个属性`message`***'
 - en: '***`tests/test_responses.py`***'
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/test_responses.py`***'
 - en: '[PRE12]'
+  id: totrans-75
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE12]'
 - en: '***The remaining tests are all about `ResponseFailure`. First, a test to check
     that it can be initialised with an exception***'
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: '***剩余的测试都是关于`ResponseFailure`的。首先，一个测试来检查它是否可以用异常初始化***'
 - en: '***`tests/test_responses.py`***'
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/test_responses.py`***'
 - en: '[PRE13]'
+  id: totrans-78
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE13]'
 - en: '***Since we want to be able to build a response directly from an invalid request,
     getting all the errors contained in the latter, we need to test that case***'
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: '***由于我们希望能够直接从无效请求构建响应，获取其中包含的所有错误，我们需要测试这种情况***'
 - en: '***`tests/test_responses.py`***'
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/test_responses.py`***'
 - en: '[PRE14]'
+  id: totrans-81
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE14]'
 - en: '***Let''s write the classes that make the tests pass***'
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: '***让我们编写使测试通过的类***'
 - en: '***`rentomatic/responses.py`***'
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`rentomatic/responses.py`***'
 - en: '[PRE15]'
+  id: totrans-84
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE15]'
 - en: '***Through the method `_format_message()` we enable the class to accept both
     string messages and Python exceptions, which is very handy when dealing with external
     libraries that can raise exceptions we do not know or do not want to manage.***'
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: '***通过 `_format_message()` 方法，我们使类能够接受字符串消息和 Python 异常，这在处理可能引发我们不知道或不想管理的异常的外部库时非常有用。***'
 - en: '***The error types contained in the class `ResponseTypes` are very similar
     to HTTP errors, and this will be useful later when we will return responses from
     the web framework. `PARAMETERS_ERROR` signals that something was wrong in the
@@ -349,77 +524,119 @@
     reading a specific value from a data storage. Last, `SYSTEM_ERROR` signals that
     something went wrong with the process itself, and will be used mostly to signal
     an exception in the Python code.***'
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: '***类 `ResponseTypes` 中包含的错误类型与 HTTP 错误非常相似，这将在我们稍后从 Web 框架返回响应时很有用。`PARAMETERS_ERROR`
+    表示请求传入的输入参数有问题。`RESOURCE_ERROR` 表示过程正确结束，但请求的资源不可用，例如从数据存储中读取特定值时。最后，`SYSTEM_ERROR`
+    表示过程本身出现问题，并将主要用于在 Python 代码中引发异常。***'
 - en: '****Source code'
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s05](https://github.com/pycabook/rentomatic/tree/ed2-c05-s05)****'
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s05](https://github.com/pycabook/rentomatic/tree/ed2-c05-s05)****'
 - en: '***Error management in a use case***'
+  id: totrans-89
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '***用例中的错误管理***'
 - en: '***Our implementation of requests and responses is finally complete, so we
     can now implement the last version of our use case. The function `room_list_use_case`
     is still missing a proper validation of the incoming request, and is not returning
     a suitable response in case something went wrong.***'
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我们请求和响应的实现最终完成，因此我们现在可以实施用例的最后一个版本。函数 `room_list_use_case` 仍然缺少对传入请求的适当验证，并且在出错时没有返回合适的响应。***'
 - en: '***The test `test_room_list_without_parameters` must match the new API, so
     I added `filters=None` to `assert_called_with`***'
+  id: totrans-91
   prefs: []
   type: TYPE_NORMAL
+  zh: '***测试 `test_room_list_without_parameters` 必须匹配新的 API，所以我向 `assert_called_with`
+    添加了 `filters=None`***'
 - en: '***`tests/use_cases/test_room_list.py`***'
+  id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/use_cases/test_room_list.py`***'
 - en: '[PRE16]'
+  id: totrans-93
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE16]'
 - en: '***There are three new tests that we can add to check the behaviour of the
     use case when `filters` is not `None`. The first one checks that the value of
     the key `filters` in the dictionary used to create the request is actually used
     when calling the repository. These last two tests check the behaviour of the use
     case when the repository raises an exception or when the request is badly formatted.***'
+  id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我们可以添加三个新测试来检查当 `filters` 不是 `None` 时用例的行为。第一个测试检查用于创建请求的字典中 `filters` 键的值在调用存储库时是否实际使用。后两个测试检查当存储库引发异常或请求格式不正确时用例的行为。***'
 - en: '***`tests/use_cases/test_room_list.py`***'
+  id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/use_cases/test_room_list.py`***'
 - en: '[PRE17]'
+  id: totrans-96
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE17]'
 - en: '***Now change the use case to contain the new use case implementation that
     makes all the tests pass***'
+  id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: '***现在将用例更改为包含新的用例实现，使所有测试通过***'
 - en: '***`rentomatic/use_cases/room_list.py`***'
+  id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`rentomatic/use_cases/room_list.py`***'
 - en: '[PRE18]'
+  id: totrans-99
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE18]'
 - en: '***As you can see, the first thing that the use case does is to check if the
     request is valid. Otherwise, it returns a `ResponseFailure` built with the same
     request object. Then the actual business logic is implemented, calling the repository
     and returning a successful response. If something goes wrong in this phase the
     exception is caught and returned as an aptly formatted `ResponseFailure`.***'
+  id: totrans-100
   prefs: []
   type: TYPE_NORMAL
+  zh: '***如你所见，用例首先检查请求是否有效。如果不是，它将返回一个使用相同请求对象构建的 `ResponseFailure`。然后实现实际的业务逻辑，调用存储库并返回一个成功的响应。如果在这一阶段出现问题，异常将被捕获并以适当的格式返回
+    `ResponseFailure`。***'
 - en: '****Source code'
+  id: totrans-101
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s06](https://github.com/pycabook/rentomatic/tree/ed2-c05-s06)****'
+  id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s06](https://github.com/pycabook/rentomatic/tree/ed2-c05-s06)****'
 - en: '***Integrating external systems***'
+  id: totrans-103
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: '***集成外部系统***'
 - en: '***I want to point out a big problem represented by mocks.***'
+  id: totrans-104
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我想指出由模拟表示的一个大问题。***'
 - en: '***As we are testing objects using mocks for external systems, like the repository,
     no tests fail at the moment, but trying to run the Flask development server will
     certainly return an error. As a matter of fact, neither the repository nor the
@@ -427,103 +644,156 @@
     if they are properly written. This is the reason why we need integration tests,
     since external systems that rely on a certain version of the API are running only
     at that point, and this can raise issues that were masked by mocks.***'
+  id: totrans-105
   prefs: []
   type: TYPE_NORMAL
+  zh: '***由于我们正在使用模拟测试外部系统，如存储库，目前没有测试失败，但尝试运行 Flask 开发服务器肯定会返回一个错误。实际上，存储库和 HTTP
+    服务器都没有与新 API 保持同步，但如果它们被正确编写，单元测试无法显示这一点。这就是为什么我们需要集成测试的原因，因为依赖于特定版本 API 的外部系统只在该点运行，这可能会引发由模拟掩盖的问题。***'
 - en: '***For this simple project, my integration test is represented by the Flask
     development server, which at this point crashes. If you run `FLASK_CONFIG="development"
     flask run` and open [http://127.0.0.1:5000/rooms](http://127.0.0.1:5000/rooms)
     with your browser you will get and Internal Server Error, and on the command line
     this exception***'
+  id: totrans-106
   prefs: []
   type: TYPE_NORMAL
+  zh: '***对于这个简单的项目，我的集成测试由 Flask 开发服务器表示，此时会崩溃。如果你运行 `FLASK_CONFIG="development"
+    flask run` 并用你的浏览器打开 [http://127.0.0.1:5000/rooms](http://127.0.0.1:5000/rooms)，你将得到一个内部服务器错误，并在命令行中抛出这个异常***'
 - en: '[PRE19]'
+  id: totrans-107
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE19]'
 - en: '***The same error is returned by the CLI interface. After the introduction
     of requests and responses we didn''t change the REST endpoint, which is one of
     the connections between the external world and the use case. Given that the API
     of the use case changed, we need to change the code of the endpoints that call
     the use case.***'
+  id: totrans-108
   prefs: []
   type: TYPE_NORMAL
+  zh: '***相同的错误由 CLI 接口返回。在引入请求和响应之后，我们没有更改 REST 端点，这是外部世界和用例之间的一个连接。鉴于用例的 API 已更改，我们需要更改调用用例的端点的代码。***'
 - en: '***The HTTP server***'
+  id: totrans-109
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '***HTTP 服务器***'
 - en: '***As we can see from the exception above the use case is called with the wrong
     parameters in the REST endpoint. The new version of the test is***'
+  id: totrans-110
   prefs: []
   type: TYPE_NORMAL
+  zh: '***如上异常所示，REST 端点中调用用例时使用了错误的参数。新的测试版本是***'
 - en: '***`tests/rest/test_room.py`***'
+  id: totrans-111
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/rest/test_room.py`***'
 - en: '[PRE20]'
+  id: totrans-112
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE20]'
 - en: '***The function `test_get` was already present but has been changed to reflect
     the use of requests and responses. The first change is that the use case in the
     mock has to return a proper response***'
+  id: totrans-113
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`test_get` 函数已经存在，但已更改以反映对请求和响应的使用。第一个更改是模拟中的用例必须返回一个适当的响应***'
 - en: '[PRE21]'
+  id: totrans-114
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE21]'
 - en: '***and the second is the assertion on the call of the use case. It should be
     called with a properly formatted request, but since we can''t compare requests,
     we need a way to look into the call arguments. This can be done with***'
+  id: totrans-115
   prefs: []
   type: TYPE_NORMAL
+  zh: '***第二个是关于用例调用的断言。它应该使用格式正确的请求来调用，但由于我们无法比较请求，我们需要一种方法来查看调用参数。这可以通过***'
 - en: '[PRE22]'
+  id: totrans-116
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE22]'
 - en: '***as the use case should receive a request with empty filters as an argument.***'
+  id: totrans-117
   prefs: []
   type: TYPE_NORMAL
+  zh: '***因为用例应该接收一个带有空过滤器的请求作为参数。***'
 - en: '***The function `test_get_with_filters` performs the same operation but passing
     a query string to the URL `/rooms`, which requires a different assertion***'
+  id: totrans-118
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`test_get_with_filters` 函数执行相同的操作，但将查询字符串传递给 `/rooms` URL，这需要不同的断言***'
 - en: '[PRE23]'
+  id: totrans-119
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE23]'
 - en: '***Both the tests pass with a new version of the endpoint `room_list`***'
+  id: totrans-120
   prefs: []
   type: TYPE_NORMAL
+  zh: '***测试通过了新版本的端点 `room_list`***'
 - en: '***`application/rest/room.py`***'
+  id: totrans-121
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`application/rest/room.py`***'
 - en: '[PRE24]'
+  id: totrans-122
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE24]'
 - en: '***Please note that I''m using a variable named `request_object` here to avoid
     clashing with the fixture `request` provided by `pytest-flask`. While `request`
     contains the HTTP request sent to the web framework by the browser, `request_object`
     is the request we send to the use case.***'
+  id: totrans-123
   prefs: []
   type: TYPE_NORMAL
+  zh: '***请注意，我在这里使用了一个名为 `request_object` 的变量来避免与 `pytest-flask` 提供的固定值 `request`
+    冲突。虽然 `request` 包含浏览器发送给网络框架的 HTTP 请求，但 `request_object` 是我们发送给用例的请求。***'
 - en: '****Source code'
+  id: totrans-124
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s07](https://github.com/pycabook/rentomatic/tree/ed2-c05-s07)****'
+  id: totrans-125
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s07](https://github.com/pycabook/rentomatic/tree/ed2-c05-s07)****'
 - en: '***The repository***'
+  id: totrans-126
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '***The repository***'
 - en: '***If we run the Flask development webserver now and try to access the endpoint
     `/rooms`, we will get a nice response that says***'
+  id: totrans-127
   prefs: []
   type: TYPE_NORMAL
+  zh: '***如果我们现在运行 Flask 开发网络服务器并尝试访问 `/rooms` 端点，我们将得到一个友好的响应，说明***'
 - en: '[PRE25]'
+  id: totrans-128
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE25]'
 - en: '***and if you look at the HTTP response^([[1](#fd-32054710)]) you can see an
     HTTP 500 error, which is exactly the mapping of our `SystemError` use case error,
     which in turn signals a Python exception, which is in the `message` part of the
     error.***'
+  id: totrans-129
   prefs: []
   type: TYPE_NORMAL
+  zh: '***如果你查看HTTP响应^([[1](#fd-32054710)]), 你可以看到一个HTTP 500错误，这正好是我们`SystemError`用例错误的映射，它反过来又表示一个Python异常，该异常位于错误的`message`部分。***'
 - en: '***This error comes from the repository, which has not been migrated to the
     new API. We need then to change the method `list` of the class `MemRepo` to accept
     the parameter `filters` and to act accordingly. Pay attention to this point. The
@@ -533,91 +803,138 @@
     as databases can usually perform filtering and ordering very well. Even though
     the in-memory storage we are currently using is not a database, we are preparing
     to use a real external storage.***'
+  id: totrans-130
   prefs: []
   type: TYPE_NORMAL
+  zh: '***这个错误来自仓库，它尚未迁移到新API。因此，我们需要将`MemRepo`类的`list`方法修改为接受`filters`参数并相应地执行。请注意这一点。过滤器可能已经被视为业务逻辑的一部分并在用例中实现，但我们决定利用存储系统可以做到的事情，因此我们将过滤移动到外部系统中。这是一个合理的决定，因为数据库通常可以很好地执行过滤和排序。尽管我们目前使用的内存存储不是数据库，但我们正在准备使用真正的外部存储。***'
 - en: '***The new version of repository tests is***'
+  id: totrans-131
   prefs: []
   type: TYPE_NORMAL
+  zh: '***仓库测试的新版本是***'
 - en: '***`tests/repository/test_memrepo.py`***'
+  id: totrans-132
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/repository/test_memrepo.py`***'
 - en: '[PRE26]'
+  id: totrans-133
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE26]'
 - en: '***As you can see, I added many tests. One test for each of the four accepted
     filters (`code__eq`, `price__eq`, `price__lt`, `price__gt`, see `rentomatic/requests/room_list.py`),
     and one final test that tries two different filters at the same time.***'
+  id: totrans-134
   prefs: []
   type: TYPE_NORMAL
+  zh: '***正如你所见，我添加了许多测试。每个被接受的过滤器（`code__eq`、`price__eq`、`price__lt`、`price__gt`，见`rentomatic/requests/room_list.py`）都有一个测试，还有一个尝试同时使用两个不同过滤器的最终测试。***'
 - en: '***Again, keep in mind that this is the API exposed by the storage, not the
     one exposed by the use case. The fact that the two match is a design decision,
     but your mileage may vary.***'
+  id: totrans-135
   prefs: []
   type: TYPE_NORMAL
+  zh: '***再次提醒，这将是存储提供的API，而不是用例提供的API。两者匹配是一个设计决策，但实际效果可能会有所不同。***'
 - en: '***The new version of the repository is***'
+  id: totrans-136
   prefs: []
   type: TYPE_NORMAL
+  zh: '***仓库的新版本是***'
 - en: '***`rentomatic/repository/memrepo.py`***'
+  id: totrans-137
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`rentomatic/repository/memrepo.py`***'
 - en: '[PRE27]'
+  id: totrans-138
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE27]'
 - en: '***At this point, you can start the Flask development webserver with `FLASK_CONFIG="development"
     flask run`, and get the list of all your rooms at [http://localhost:5000/rooms](http://localhost:5000/rooms).
     You can also use filters in the URL, like [http://localhost:5000/rooms?filter_code__eq=f853578c-fc0f-4e65-81b8-566c5dffa35a](http://localhost:5000/rooms?filter_code__eq=f853578c-fc0f-4e65-81b8-566c5dffa35a)
     which returns the room with the given code or [http://localhost:5000/rooms?filter_price__lt=50](http://localhost:5000/rooms?filter_price__lt=50)
     which returns all the rooms with a price less than 50.***'
+  id: totrans-139
   prefs: []
   type: TYPE_NORMAL
+  zh: '***此时，你可以使用`FLASK_CONFIG="development" flask run`启动Flask开发web服务器，并在[http://localhost:5000/rooms](http://localhost:5000/rooms)获取你所有房间的列表。你还可以在URL中使用过滤器，例如[http://localhost:5000/rooms?filter_code__eq=f853578c-fc0f-4e65-81b8-566c5dffa35a](http://localhost:5000/rooms?filter_code__eq=f853578c-fc0f-4e65-81b8-566c5dffa35a)，它返回给定代码的房间，或者[http://localhost:5000/rooms?filter_price__lt=50](http://localhost:5000/rooms?filter_price__lt=50)，它返回所有价格低于50的房间。***'
 - en: '****Source code'
+  id: totrans-140
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s08](https://github.com/pycabook/rentomatic/tree/ed2-c05-s08)****'
+  id: totrans-141
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s08](https://github.com/pycabook/rentomatic/tree/ed2-c05-s08)****'
 - en: '***The CLI***'
+  id: totrans-142
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '***命令行界面***'
 - en: '***At this point fixing the CLI is extremely simple, as we just need to imitate
     what we did for the HTTP server, only without considering the filters as they
     were not part of the command line tool.***'
+  id: totrans-143
   prefs: []
   type: TYPE_NORMAL
+  zh: '***在这个阶段，修复CLI非常简单，因为我们只需要模仿我们对HTTP服务器所做的那样，只是不需要考虑过滤器，因为它们不是命令行工具的一部分。***'
 - en: '***`cli.py`***'
+  id: totrans-144
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`cli.py`***'
 - en: '[PRE28]'
+  id: totrans-145
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE28]'
 - en: '****Source code'
+  id: totrans-146
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s09](https://github.com/pycabook/rentomatic/tree/ed2-c05-s09)****'
+  id: totrans-147
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c05-s09](https://github.com/pycabook/rentomatic/tree/ed2-c05-s09)****'
 - en: '* * *'
+  id: totrans-148
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: '***We now have a very robust system to manage input validation and error conditions,
     and it is generic enough to be used with any possible use case. Obviously, we
     are free to add new types of errors to increase the granularity with which we
     manage failures, but the present version already covers everything that can happen
     inside a use case.***'
+  id: totrans-149
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我们现在有一个非常健壮的系统来管理输入验证和错误条件，并且它足够通用，可以用于任何可能的用例。显然，我们可以自由地添加新的错误类型，以增加我们管理失败时的粒度，但当前版本已经涵盖了用例内部可能发生的所有情况。***'
 - en: '***In the next chapter, we will have a look at repositories based on real database
     engines, showing how to test external systems with integration tests, using PostgreSQL
     as a database. In a later chapter I will show how the clean architecture allows
     us to switch very easily between different external systems, moving the system
     to MongoDB.***'
+  id: totrans-150
   prefs: []
   type: TYPE_NORMAL
+  zh: '***在下一章中，我们将探讨基于真实数据库引擎的仓库，展示如何使用 PostgreSQL 作为数据库进行外部系统的集成测试。在后续章节中，我将展示干净的架构如何使我们能够非常容易地在不同的外部系统之间切换，将系统迁移到
+    MongoDB。***'
 - en: '***[1](#fr-32054710)'
+  id: totrans-151
   prefs: []
   type: TYPE_NORMAL
+  zh: '***[1](#fr-32054710)'
 - en: For example using the browser developer tools. In Chrome and Firefox, press
     F12 and open the Network tab, then refresh the page.***
+  id: totrans-152
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，使用浏览器开发者工具。在 Chrome 和 Firefox 中，按 F12 并打开网络标签页，然后刷新页面。***

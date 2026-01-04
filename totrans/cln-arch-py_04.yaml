@@ -1,91 +1,122 @@
 - en: Chapter 2 - Components of a clean architecture
+  id: totrans-0
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 第二章 - 清洁架构的组成部分
 - en: 原文：[https://www.thedigitalcatbooks.com/pycabook-chapter-02/](https://www.thedigitalcatbooks.com/pycabook-chapter-02/)
+  id: totrans-1
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '[https://www.thedigitalcatbooks.com/pycabook-chapter-02/](https://www.thedigitalcatbooks.com/pycabook-chapter-02/)'
 - en: Components of a clean architecture
+  id: totrans-2
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 清洁架构的组成部分
 - en: Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine...
     out of a DeLorean?
+  id: totrans-3
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 等一下，等一下，医生，你是说您用一辆德洛瑞安车造了一台时光机吗？
 - en: ''
+  id: totrans-4
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Back to the Future, 1985
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 《回到未来》，1985年
 - en: In this chapter I will analyse the set of software design principles collectively
     known as "clean architecture". While this specific name has been introduced by
     Robert Martin, the concepts it pushes are part of software engineering, and have
     been successfully used for decades.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本章中，我将分析一组被称为“清洁架构”的软件设计原则。虽然这个特定的名称是由罗伯特·马丁提出的，但它所推动的概念是软件工程的一部分，并且几十年来已经成功应用。
 - en: Before we dive into a possible implementation of them, which is the core of
     this book, we need to analyse more in depth the structure of the clean architecture
     and the components you can find in the system designed following it.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们深入探讨它们的可能实现之前，这是本书的核心，我们需要更深入地分析清洁架构的结构以及遵循该架构设计的系统中可以找到的组件。
 - en: Divide et impera
+  id: totrans-8
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 分而治之
 - en: One of the main goals of a well designed system is to achieve control. From
     this point of view, a software system is not different from a human working community,
     like an office or a factory. In such environments there are workers who exchange
     data or physical objects to create and deliver a final product, be it an object
     or a service. Workers need information and resources to perform their own job,
     but most of all they need to have a clear picture of their responsibilities.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个设计良好的系统的主要目标之一是达到控制。从这个角度来看，软件系统与一个人类工作社区，如办公室或工厂，没有区别。在这样的环境中，有工人交换数据或物理对象以创造和交付最终产品，无论是物体还是服务。工人需要信息和资源来完成自己的工作，但最重要的是，他们需要对自己的责任有一个清晰的了解。
 - en: While in a human society we value initiative and creativity, however, in a machine
     such as a software system, components shouldn't be able to do anything that is
     not clearly stated when the system is designed. Software is not alive, and despite
     the impressive achievements of artificial intelligence in the latter years, I
     still believe there is a spark in a human being that cannot be reproduced by code
     alone.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然在人类社会我们重视主动性和创造力，然而，在一个软件系统这样的机器中，组件不应该能够做在设计系统时没有明确说明的事情。软件不是活物，尽管人工智能在近年来的成就令人印象深刻，但我仍然相信人类身上有一种火花是代码无法单独复制的。
 - en: Whatever our position on AIs, I think we all agree that a system works better
     if responsibilities are clear. Whether we are dealing with software or human communities,
     it is always dangerous to be unclear about what a component can or should do,
     as areas of influence and control naturally overlap. This can lead to all sorts
     of issues, from simple inefficiencies to complete deadlocks.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论我们对人工智能的看法如何，我认为我们都会同意，如果责任明确，系统的工作效果会更好。无论是处理软件还是人类社区，对组件可以或应该做什么不清楚总是危险的，因为影响和控制区域自然会重叠。这可能导致各种问题，从简单的低效到完全的僵局。
 - en: A good way to increase order and control in a system is to split it into subsystems,
     establishing clear and rigid borders between them, to regulate the data exchange.
     This is an extension of a political concept (divide et impera) which states that
     it is simpler to rule a set of interconnected small systems than a single complex
     one.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在系统中增加秩序和控制的一个好方法是将其拆分为子系统，在它们之间建立清晰和刚性的边界，以规范数据交换。这是政治概念（分而治之）的扩展，该概念指出，统治一组相互连接的小系统比统治一个单一的复杂系统要简单。
 - en: In the system we designed in the previous chapter, it is always clear what a
     component expects to receive when called into play, and it is also impossible
     (or at least, forbidden) to exchange data in a way that breaks the structure of
     the system.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们上一章设计的系统中，组件在被调用时期望接收的内容总是清晰的，而且以破坏系统结构的方式交换数据是不可能的（或者至少是被禁止的）。
 - en: You have to remember that a software system is not exactly like a factory or
     an office. Whenever we discuss machines we have to consider both the way they
     work (run time) and the way they have been built or will be modified (development
     time). In principle, computers don't care where data comes from and where it goes.
     Humans, on the other hand, who have to build and maintain the system, need a clear
     picture of the data flow to avoid introducing bugs or killing performances.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 你必须记住，软件系统并不完全像工厂或办公室。每当讨论机器时，我们必须考虑它们的工作方式（运行时）以及它们被构建或将要修改的方式（开发时）。原则上，计算机并不关心数据从哪里来以及到哪里去。另一方面，人类需要构建和维护系统，需要清晰地了解数据流，以避免引入错误或降低性能。
 - en: Data types
+  id: totrans-15
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 数据类型
 - en: 'An important part in a system is played by data types, that is the way we encapsulate
     and transmit information. In particular, when we discuss software systems, we
     need to make sure that types that are shared by different systems are known to
@@ -96,8 +127,10 @@
     readers. If all English speakers in the world suddenly decided to forget the language
     and replace it with Italian I should write the book from scratch (but with definitely
     less effort).'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在系统中，数据类型扮演着重要的角色，即我们封装和传输信息的方式。特别是，当我们讨论软件系统时，我们需要确保不同系统之间共享的类型为所有系统所知。数据类型和格式的知识实际上是一种耦合。想想人类语言：如果你必须与听众交谈，你必须使用他们理解的语言，这使你与听众耦合。这本书（暂定）是用英语写的，这意味着我与英语读者耦合。如果世界上所有的英语使用者突然决定忘记这种语言，并用意大利语来代替，我应该从头开始写这本书（但肯定要少费劲）。
 - en: When we consider a software system, thus, we need to understand which part defines
     the types and the data format (the "language"), and ensure that the resulting
     dependencies don't get in the way of the implementer. In the previous chapter
@@ -107,15 +140,19 @@
     calling them "details" doesn't mean they are not important or that they are trivial
     to implement, but that replacing them with different implementations does not
     affect the core of the system (business logic).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，当我们考虑软件系统时，我们需要了解哪个部分定义了类型和数据格式（“语言”），并确保产生的依赖关系不会妨碍实施者。在前一章中，我们发现系统中有一些组件应该被视为最重要的，并代表系统的核心（用例），而其他组件则不那么中心，通常被认为是实现细节。再次提醒，称它们为“细节”并不意味着它们不重要，或者它们是容易实现的，而是用不同的实现来替换它们不会影响系统的核心（业务逻辑）。
 - en: So, there is a hierarchy of components that spawns from the dependencies between
     them. Some components are defined at the very beginning of the design and do not
     depend on any other component, while others will come later and depend on them.
     When data types are involved, the resulting dependencies cannot break this hierarchy,
     as this would re-introduce a coupling between components that we want to avoid.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，存在一个由它们之间的依赖关系产生的组件层次结构。一些组件在设计初期就定义了，并且不依赖于任何其他组件，而其他组件则会在之后出现并依赖于它们。当涉及到数据类型时，产生的依赖关系不能打破这个层次结构，因为这会重新引入我们想要避免的组件之间的耦合。
 - en: 'Let''s go back to the initial example of a shop that buys items from a wholesale,
     displays them on shelves, and sells them to customers. There is a clear dependency
     between two components here: the component called "shop" depends on the component
@@ -123,8 +160,10 @@
     The size of the shelves in the shop, in turn, depends on the size of the items
     (types), which is defined by the wholesale, and this follows the dependency we
     already established.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们回到最初的例子，一个从批发商那里购买商品，将它们陈列在货架上，然后卖给顾客的商店。这里有两个组件之间存在明显的依赖关系：称为“商店”的组件依赖于称为“批发商”的组件，因为数据（“商品”）从后者流向前者。反过来，商店货架的大小取决于商品的大小（类型），这是由批发商定义的，这遵循我们已建立的依赖关系。
 - en: If the size of the items was defined by the shop, suddenly there would be another
     dependency opposing the one we already established, making the wholesale depend
     on the shop. Please note that when it comes to software systems this is not a
@@ -132,12 +171,16 @@
     second one happens at the language level at compile time. At any rate, having
     two opposite dependencies is definitely confusing, and makes it hard to replace
     "peripheral" components such as the shop.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果物品的大小由商店定义，那么突然之间就会出现另一个与我们已建立的依赖相反的依赖，使得批发依赖于商店。请注意，当涉及到软件系统时，这并不是一个循环依赖，因为第一个是概念依赖，而第二个是在编译时在语言级别发生的。无论如何，有两个相反的依赖肯定很令人困惑，并且使得替换“外围”组件，如商店变得困难。
 - en: The main four layers
+  id: totrans-21
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 主要的四层
 - en: The clean architecture tries to capture both the *conceptual hierarchy* of components
     and the *type hierarchy* through a layered approach. In a clean architecture the
     components of the system are categorised and belong to a specific layer, with
@@ -145,26 +188,36 @@
     to different layers. In particular, a clean architecture is a spherical structure,
     with inner (lower) layers completely encompassed by outer (higher) ones, and the
     former being oblivious of the existence of the latter.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 整洁架构试图通过分层方法同时捕捉组件的*概念层次结构*和*类型层次结构*。在整洁架构中，系统的组件被分类并属于特定的层，具有关于属于同一层或不同层的组件之间通信的规则。特别是，整洁架构是一个球形结构，内部（低级）层完全被外部（高级）层包围，前者对后者的存在一无所知。
 - en: '![width=60%](../Images/49e9c9db3a93c2df1483766a867e48f1.png)The basic layers
     of the clean architecture'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '![width=60%](../Images/49e9c9db3a93c2df1483766a867e48f1.png)整洁架构的基本层'
 - en: Remember that in computer science, the words "lower" and "higher" almost always
     refer to the level of abstraction, and not to the importance of a component for
     the system. Each part of a system is important, otherwise it would not be there.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 记住，在计算机科学中，“低级”和“高级”这两个词几乎总是指抽象级别，而不是系统组件的重要性。系统的每个部分都很重要，否则它就不会存在。
 - en: Let's have a look at the main layers depicted in the figure, keeping in mind
     that a specific implementation may require to create new layers or to split some
     of these into multiple ones.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们看看图中展示的主要层，同时记住，特定的实现可能需要创建新的层或将其中一些层拆分为多个层。
 - en: Entities
+  id: totrans-26
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 实体
 - en: This layer of the clean architecture contains a representation of the domain
     models, that is everything your system needs to interact with and is sufficiently
     complex to require a specific representation. For example, strings in Python are
@@ -173,11 +226,15 @@
     a tool to analyse medieval manuscripts, however, you might need to isolate sentences
     and their features, and at this point it might be reasonable to define a specific
     entity.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个整洁架构的层包含了对领域模型的表示，即系统需要与之交互的任何东西，并且足够复杂，需要特定的表示。例如，Python中的字符串是复杂且功能强大的对象。它们提供了许多内置方法，所以通常，为它们创建领域模型是无用的。然而，如果你的项目是一个分析中世纪手稿的工具，那么你可能需要隔离句子及其特征，在这种情况下，定义一个特定的实体可能是合理的。
 - en: '![width=60%](../Images/2ccf8c8658b7ed391c5abc9d583d25d8.png)Entities'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '![width=60%](../Images/2ccf8c8658b7ed391c5abc9d583d25d8.png)实体'
 - en: Since we work in Python, this layer will likely contain classes, with methods
     that simplify the interaction with them. It is very important, however, to understand
     that the models in this layer are different from the usual models of frameworks
@@ -185,57 +242,77 @@
     be directly saved or queried using their own methods, they don't contain methods
     to dump themselves to JSON strings, they are not connected with any presentation
     layer. They are so-called lightweight models.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于我们使用Python，这个层可能包含类，其中包含简化与它们交互的方法。然而，理解这个层中的模型与Django等框架的常规模型不同非常重要。这些模型与存储系统没有连接，因此不能直接使用它们自己的方法保存或查询，它们不包含将自身导出到JSON字符串的方法，它们与任何表示层都没有连接。它们是所谓的轻量级模型。
 - en: This is the inmost layer. Entities have mutual knowledge since they live in
     the same layer, so the architecture allows them to interact directly. This means
     that one of the Python classes that represent an entity can use another one directly,
     instantiating it and calling its methods. Entities don't know anything that lives
     in outer layers, though. They cannot call the database, access methods provided
     by the presentation framework, or instantiate use cases.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是最内层。实体由于生活在同一层，因此它们相互了解，因此架构允许它们直接交互。这意味着代表实体的Python类之一可以直接使用另一个，实例化它并调用其方法。尽管如此，实体对生活在外层的任何事物一无所知。它们不能调用数据库，访问由表示框架提供的访问方法，或实例化用例。
 - en: The entities layer provides a solid foundation of types that the outer layers
     can use to exchange data, and they can be considered the vocabulary of your business.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 实体层为外层提供了一个坚实的类型基础，外层可以使用它来交换数据，它们可以被认为是您业务的词汇表。
 - en: Use cases
+  id: totrans-32
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 用例
 - en: As we said before the most important part of a clean system are use cases, as
     they implement the business rules, which are the core reason of existence of the
     system itself. Use cases are the processes that happen in your application, where
     you use your domain models to work on real data. Examples can be a user logging
     in, a search with specific filters being performed, or a bank transaction happening
     when the user wants to buy the content of the cart.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如我们之前所说的，一个干净系统的最重要部分是使用用例，因为它们实现了业务规则，这是系统本身存在的核心原因。用例是在您的应用程序中发生的流程，您使用领域模型来处理真实数据。例子可以是用户登录，执行具有特定过滤器的搜索，或者当用户想要购买购物车中的内容时发生的银行交易。
 - en: '![width=60%](../Images/1fc8a1768485caa478e1c21f3ecf06b1.png)Use cases'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '![width=60%](../Images/1fc8a1768485caa478e1c21f3ecf06b1.png)用例'
 - en: Use cases should be as small as possible. It is very important to isolate small
     actions into separate use cases, as this makes the whole system easier to test,
     understand and maintain. Use cases have full access to the entities layer, so
     they can instantiate and use them directly. They can also call each other, and
     it is common to create complex use cases composing simple ones.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 用例应该尽可能小。将小动作隔离到单独的用例中非常重要，因为这使得整个系统更容易测试、理解和维护。用例可以完全访问实体层，因此它们可以直接实例化和使用它们。它们也可以相互调用，并且创建由简单用例组成的复杂用例是常见的。
 - en: Gateways
+  id: totrans-36
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 网关
 - en: This layer contains components that define interfaces for external systems,
     that is a common access model to services that do not implement the business rules.
     The classic example is that of a data storage, which internal details can be very
     different across implementations. These implementations share a common interface,
     otherwise they would not be implementations of the same concept, and the gateway's
     task is to expose it.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 这一层包含定义外部系统接口的组件，即对不实现业务规则的服务的通用访问模型。经典的例子是数据存储，其内部细节在不同的实现中可能非常不同。这些实现共享一个公共接口，否则它们就不会是同一概念的实施，网关的任务就是暴露它。
 - en: '![width=60%](../Images/30c518a668581fa350b5612b9aedb163.png)Gateways'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '![width=60%](../Images/30c518a668581fa350b5612b9aedb163.png)网关'
 - en: If you recall the simple example I started with, this is where the database
     interface would live. Gateways have access to entities, so the interface can freely
     receive and return objects which type has been defined in that layer, as they
@@ -244,12 +321,16 @@
     be done by the external system itself. The gateways layer is intimately connected
     with the external systems one, which is why the two are separated by a dashed
     line.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您回想起我一开始给出的简单例子，这就是数据库接口所在的位置。网关可以访问实体，因此接口可以自由接收和返回在该层定义的类型对象，就像它们可以自由访问用例一样。然而，网关用于屏蔽外部系统的实现，因此网关很少调用用例，因为这可以通过外部系统本身完成。网关层与外部系统层紧密相连，这就是为什么两者之间用虚线分开的原因。
 - en: External systems
+  id: totrans-40
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 外部系统
 - en: This part of the architecture is populated by components that implement the
     interfaces defined in the previous layer. The same interface might be implemented
     by one or more concrete components, as your system might want to support multiple
@@ -257,11 +338,16 @@
     to expose some use cases both through an HTTP API and a command line interface,
     or you want to provide support for different types of storage according to some
     configuration value.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 架构的这一部分由实现上一层定义的接口的组件组成。同一个接口可能由一个或多个具体组件实现，因为您的系统可能需要同时支持该接口的多个实现。例如，您可能希望通过HTTP
+    API和命令行界面公开一些用例，或者根据某些配置值提供对不同类型存储的支持。
 - en: '![width=60%](../Images/86c76130c19d591cc7f3afa3af33a4cf.png)External systems'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '![宽度=60%](../Images/86c76130c19d591cc7f3afa3af33a4cf.png)外部系统'
 - en: Please remember that the "external" adjective doesn't always mean that the system
     is developed by others, or that it is a complex system like a web framework or
     a database. The word has a topological meaning, which shows that the system we
@@ -270,8 +356,10 @@
     in-house to send notifications to the clients of a certain service, but this is
     again just a presentation layer, unless our business is specifically centred around
     creating notification systems.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 请记住，“外部”这个形容词并不总是意味着系统是由他人开发的，或者它是一个像Web框架或数据库这样的复杂系统。这个词具有拓扑意义，表明我们正在讨论的系统是架构核心的边缘，也就是说它不实现业务逻辑。因此，我们可能希望使用内部开发的短信系统向某个服务的客户发送通知，但这又仅仅是一个表示层，除非我们的业务专门围绕创建通知系统展开。
 - en: External systems have full access to gateways, use cases, and entities. While
     it is easy to understand the relationship with gateways, which are created to
     wrap specific systems, it might be less clear what external systems should do
@@ -281,8 +369,10 @@
     examples of interactions with an external system that runs a use case directly.
     As for entities, an external system can directly process them, for example to
     return them in a JSON payload, or to map input data into a domain model.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 外部系统可以完全访问网关、用例和实体。虽然理解与网关的关系比较容易，因为网关是为了包装特定的系统而创建的，但对于外部系统应该对用例和实体做什么可能不太清楚。至于用例，外部系统通常是触发它们的系统的一部分，是用户运行业务逻辑的方式。用户点击按钮、访问URL或运行命令，都是与直接运行用例的外部系统交互的典型例子。至于实体，外部系统可以直接处理它们，例如在JSON有效负载中返回它们，或将输入数据映射到领域模型中。
 - en: I want to point out a difference between external systems that are used by use
     cases and external systems that want to call use cases. In the first case the
     direction of the communication is outwards, and we know that in the clean architecture
@@ -290,19 +380,25 @@
     from a use case we always need an interface. When the external system wants to
     call use cases, instead, the direction of the communication is inwards, and this
     is allowed directly, as external layers have full access to the internal ones.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想指出用例使用的外部系统和想要调用用例的外部系统之间的区别。在前一种情况下，通信的方向是外向的，我们知道在干净的架构中，没有接口我们不能向外传递。因此，当我们从用例访问外部系统时，我们总是需要一个接口。相反，当外部系统想要调用用例时，通信的方向是内向的，这是直接允许的，因为外部层可以完全访问内部层。
 - en: This, practically speaking, translates into two extreme cases, well represented
     by a database and a web framework. When a use case accesses a storage system there
     should be a loose coupling between the two, which is why we wrap the storage with
     an interface and assume that in the use case. When the web framework calls a use
     case, instead, the code of the endpoint doesn't need any interface to access it.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，这转化为两种极端情况，数据库和Web框架得到了很好的体现。当用例访问存储系统时，两者之间应该有松散的耦合，这就是为什么我们用接口包装存储并在用例中假设。相反，当Web框架调用用例时，端点的代码不需要任何接口来访问它。
 - en: Communication between layers
+  id: totrans-47
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 层之间的通信
 - en: The deeper a layer is in this architecture, the more abstract the content is.
     The inner layers contain representations of business concepts, while the outer
     layers contain specific details about the real-life implementation. The communication
@@ -310,36 +406,50 @@
     to communicate with elements that have been assigned to other layers you have
     to follow one simple rule. This rule is the most important thing in a clean architecture,
     possibly being the core expression of the clean architecture itself.
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个架构中，层越深，内容就越抽象。内层包含业务概念的表示，而外层包含关于现实生活实现的特定细节。同一层中存在的元素之间的通信是不受限制的，但当你想要与分配给其他层的元素通信时，你必须遵循一个简单的规则。这个规则是清洁架构中最重要的东西，可能是清洁架构本身的核心理念。
 - en: '**The Golden Rule: talk inwards with simple structures, talk outwards through
     interfaces.**'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '**黄金法则：内部使用简单结构进行交流，外部通过接口进行交流。**'
 - en: Your elements should talk inwards, that is pass data to more abstract elements,
     using basic structures, that is entities and everything provided by the programming
     language you are using.
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 你的元素应该向内部交流，也就是说，通过基本结构（即实体和编程语言提供的所有内容）将数据传递给更抽象的元素。
 - en: '![width=60%](../Images/4a280b20aebe60dc2f41880546b9f700.png)The golden rule
     of the clean architecture'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '![宽度=60%](../Images/4a280b20aebe60dc2f41880546b9f700.png)清洁架构的黄金法则'
 - en: Your elements should talk outwards using interfaces, that is using only the
     expected API of a component, without referring to a specific implementation. When
     an outer layer is created, elements living there will plug themselves into those
     interfaces and provide a practical implementation.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 你的元素应该使用接口向外交流，也就是说，只使用组件的预期API，而不引用特定的实现。当创建外部层时，那里的元素将自动连接到这些接口并提供实际实现。
 - en: APIs and shades of grey
+  id: totrans-53
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: API和灰色地带
 - en: The word API is of uttermost importance in a clean architecture. Every layer
     may be accessed by elements living in inner layers by an API, that is a fixed^([[1](#fd-48200913)])
     collection of entry points (methods or objects).
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 在清洁架构中，API这个词至关重要。内层的每个元素都可以通过API访问，即一个固定的^([[1](#fd-48200913)])入口点集合（方法或对象）。
 - en: The separation between layers and the content of each layer is not always fixed
     and immutable. A well-designed system shall also cope with practical world issues
     such as performances, for example, or other specific needs. When designing an
@@ -347,15 +457,19 @@
     even more important when you "bend" the rules. Many issues do not have a black-or-white
     answer, and many decisions are "shades of grey", that is it is up to you to justify
     why you put something in a given place.
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 层之间的分离以及每一层的具体内容并不总是固定不变的。一个设计良好的系统还应该应对实际世界的问题，例如性能或其他特定需求。在设计架构时，了解“什么在哪里以及为什么”非常重要，当你“弯曲”规则时，这一点尤为重要。许多问题没有黑白分明的答案，许多决策都是“灰色地带”，也就是说，你必须证明为什么将某物放在特定的位置。
 - en: Keep in mind, however, that you should not break the *structure* of the clean
     architecture, and be particularly very strict about the data flow. If you break
     the data flow, you are basically invalidating the whole structure. You should
     try as hard as possible not to introduce solutions that are based on a break in
     the data flow, but realistically speaking, if this saves money, do it.
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，记住，你不应该打破清洁架构的*结构*，并且对数据流要特别严格。如果你打破了数据流，你基本上就使整个结构无效。你应该尽可能地不引入基于数据流中断的解决方案，但现实地说，如果这样做能节省金钱，那就做吧。
 - en: If you do it, there should be a giant warning in your code and your documentation
     explaining why you did it. If you access an outer layer breaking the interface
     paradigm usually it is because of some performance issues, as the layered structure
@@ -363,8 +477,10 @@
     tell other programmers that this happened, because if someone wants to replace
     the external layer with something different, they should know that there is direct
     access which is implementation-specific.
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你这样做，你的代码和文档中应该有一个巨大的警告，解释你为什么这样做。如果你访问了打破接口范式的外部层，通常是因为一些性能问题，因为分层结构可能会在元素之间的通信中增加一些开销。你应该清楚地告诉其他程序员这种情况发生了，因为如果有人想用不同的东西替换外部层，他们应该知道存在直接访问，这是特定于实现的。
 - en: For the sake of example, let's say that a use case is accessing the storage
     layer through an interface, but this turns out to be too slow. You decide then
     to access directly the API of the specific database you are using, but this breaks
@@ -373,16 +489,24 @@
     database you are using with a different one, they have to be aware of this, as
     the new database probably won't provide the same API entry point with the same
     data.
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了举例，假设一个用例是通过接口访问存储层，但结果发现这太慢了。然后你决定直接访问你正在使用的特定数据库的API，但这样做打破了数据流，因为现在内部层（用例）正在访问外部层（外部接口）。如果将来有人想用不同的数据库替换你正在使用的数据库，他们必须意识到这一点，因为新的数据库可能不会提供相同的API入口点以及相同的数据。
 - en: If you end up breaking the data flow consistently maybe you should consider
     removing one layer of abstraction, merging the two layers that you are linking.
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你一直打破数据流，可能你应该考虑移除一层抽象，合并你正在链接的两个层。
 - en: '[1](#fr-48200913)'
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1](#fr-48200913)'
 - en: Here "fixed" means "the same among every implementation". An API may obviously
     change in time.
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里，“固定”意味着“在每种实现中都是相同的”。显然，API可能会随时间而改变。

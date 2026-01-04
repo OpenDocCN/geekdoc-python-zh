@@ -1,271 +1,411 @@
 - en: Chapter 3 - A basic example
+  id: totrans-0
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 第3章 - 基本示例
 - en: 原文：[https://www.thedigitalcatbooks.com/pycabook-chapter-03/](https://www.thedigitalcatbooks.com/pycabook-chapter-03/)
+  id: totrans-1
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 原文：[https://www.thedigitalcatbooks.com/pycabook-chapter-03/](https://www.thedigitalcatbooks.com/pycabook-chapter-03/)
 - en: 'Joshua/WOPR: Wouldn''t you prefer a good game of chess?'
+  id: totrans-2
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 约书亚/WOPR：你不想玩一局好棋吗？
 - en: ''
+  id: totrans-3
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: 'David: Later. Let''s play Global Thermonuclear War.'
+  id: totrans-4
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 大卫：稍后。让我们玩全球热核战争。
 - en: ''
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Wargames, 1983
+  id: totrans-6
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 1983年，战争游戏
 - en: The goal of the "Rent-o-Matic" project is to create a simple search engine for
     a room renting company. Objects in the dataset (rooms) are described by some attributes
     and the search engine shall allow the user to set some filters to narrow the search.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: “Rent-o-Matic”项目的目标是创建一个简单的房间租赁公司搜索引擎。数据集中的对象（房间）由一些属性描述，搜索引擎应允许用户设置一些过滤器以缩小搜索范围。
 - en: 'A room is stored in the system through the following values:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 系统中存储房间通过以下值：
 - en: A unique identifier
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 唯一标识符
 - en: A size in square meters
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 平方米大小的面积
 - en: A renting price in Euro/day
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 每日欧元租金
 - en: Latitude and longitude
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 纬度和经度
 - en: The description is purposely minimal so that we can focus on the architectural
     problems and how to solve them. The concepts that I will show are then easily
     extendable to more complex cases.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 描述故意保持最小化，这样我们就可以专注于架构问题和如何解决它们。我将展示的概念可以很容易地扩展到更复杂的情况。
 - en: As pushed by the clean architecture model, we are interested in separating the
     different layers of the system. Remember that there are multiple ways to implement
     the clean architecture concepts, and the code you can come up with strongly depends
     on what your language of choice allows you to do. The following is an example
     of clean architecture in Python, and the implementation of the models, use cases
     and other components that I will show is just one of the possible solutions.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 如同干净的架构模型所推动的，我们感兴趣的是分离系统的不同层。记住，实现干净架构概念的方法有很多种，你可以编写的代码强烈取决于你选择的语言允许你做什么。以下是一个Python中干净架构的示例，我将展示的模型、用例和其他组件的实现只是可能的解决方案之一。
 - en: Project setup
+  id: totrans-15
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 项目设置
 - en: Clone the [project repository](https://github.com/pycabook/rentomatic) and move
     to the branch `second-edition`. The full solution is contained in the branch `second-edition-top`,
     and the tags I will mention are there. I strongly advise to code along and to
     resort to my tags only to spot errors.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 克隆[项目仓库](https://github.com/pycabook/rentomatic)并切换到`second-edition`分支。完整解决方案包含在`second-edition-top`分支中，我将会提到的标签也都在那里。我强烈建议你边编码边工作，并且只有在发现错误时才使用我的标签。
 - en: '[PRE0]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Create a virtual environment following your preferred process and install the
     requirements
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 按照你喜欢的流程创建一个虚拟环境并安装需求
 - en: '[PRE1]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: You should at this point be able to run
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 到目前为止，你应该能够运行
 - en: '[PRE2]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: and get an output like
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 并得到如下输出
 - en: '[PRE3]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: Later in the project you might want to see the output of the coverage check,
     so you can activate it with
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 在项目的后期，你可能想查看覆盖率检查的输出，因此你可以通过以下方式激活它
 - en: '[PRE4]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: In this chapter, I will not explicitly state when I run the test suite, as I
     consider it part of the standard workflow. Every time we write a test you should
     run the suite and check that you get an error (or more), and the code that I give
     as a solution should make the test suite pass. You are free to try to implement
     your own code before copying my solution, obviously.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本章中，我不会明确指出何时运行测试套件，因为我认为它是标准工作流程的一部分。每次我们编写测试时，都应该运行套件并检查你是否得到了错误（或更多），而我提供的解决方案应该使测试套件通过。显然，你可以在复制我的解决方案之前尝试实现自己的代码。
 - en: You may notice that I configured the project to use black with an unorthodox
     line length of 75\. I chose that number trying to find a visually pleasant way
     to present code in the book, avoiding wrapped lines that can make the code difficult
     to read.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可能会注意到，我配置了项目使用黑色，并且使用非传统的行长度75。我选择这个数字是为了找到一种视觉上令人愉悦的方式来在书中展示代码，避免折行，因为折行可能会使代码难以阅读。
 - en: '*Source code'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '*源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/second-edition](https://github.com/pycabook/rentomatic/tree/second-edition)*'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/second-edition](https://github.com/pycabook/rentomatic/tree/second-edition)*'
 - en: '*Domain models*'
+  id: totrans-30
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '*领域模型*'
 - en: '*Let us start with a simple definition of the model `Room`. As said before,
     the clean architecture models are very lightweight, or at least they are lighter
     than their counterparts in common web frameworks.*'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '*让我们从一个简单的`Room`模型定义开始。正如之前所说，干净的架构模型非常轻量级，或者至少它们比常见的Web框架中的对应模型更轻量级。*'
 - en: '*Following the TDD methodology, the first thing that I write are the tests.
     This test ensures that the model can be initialised with the correct values*'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '*遵循TDD方法论，我首先编写的是测试。这个测试确保模型可以用正确的值初始化*'
 - en: '*`tests/domain/test_room.py`*'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '*`tests/domain/test_room.py`*'
 - en: '[PRE5]'
+  id: totrans-34
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: '*Remember to create an empty file `__init__.py` in every subdirectory of `tests/`
     that you create, in this case `tests/domain/__init__.py`.*'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '*记住，在创建的每个`tests/`子目录中创建一个空的`__init__.py`文件，在这个例子中是`tests/domain/__init__.py`。*'
 - en: '*Now let''s write the class `Room` in the file `rentomatic/domain/room.py`.*'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '*现在让我们在文件`rentomatic/domain/room.py`中编写`Room`类。*'
 - en: '*`rentomatic/domain/room.py`*'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '*`rentomatic/domain/room.py`*'
 - en: '[PRE6]'
+  id: totrans-38
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: '**Source code'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '**源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s01](https://github.com/pycabook/rentomatic/tree/ed2-c03-s01)**'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s01](https://github.com/pycabook/rentomatic/tree/ed2-c03-s01)**'
 - en: '**The model is very simple and requires little explanation. I''m using dataclasses
     as they are a compact way to implement simple models like this, but you are free
     to use standard classes and to implement the method `__init__` explicitly.**'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '**该模型非常简单，不需要太多解释。我使用dataclasses，因为它们是实现这种简单模型的一种紧凑方式，但你也可以自由地使用标准类并显式实现`__init__`方法。**'
 - en: '**Given that we will receive data to initialise this model from other layers,
     and that this data is likely to be a dictionary, it is useful to create a method
     that allows us to initialise the model from this type of structure. The code can
     go into the same file we created before, and is**'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '**鉴于我们将从其他层接收初始化此模型的数据，并且这些数据很可能是字典类型，创建一个允许我们从这种结构初始化模型的方法是有用的。代码可以放在我们之前创建的同一文件中，并且是**'
 - en: '**`tests/domain/test_room.py`**'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '**`tests/domain/test_room.py`**'
 - en: '[PRE7]'
+  id: totrans-44
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: '**A simple implementation of it is then**'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '**它的简单实现如下**'
 - en: '**`rentomatic/domain/room.py`**'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '**`rentomatic/domain/room.py`**'
 - en: '[PRE8]'
+  id: totrans-47
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: '***Source code'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '***源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s02](https://github.com/pycabook/rentomatic/tree/ed2-c03-s02)***'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s02](https://github.com/pycabook/rentomatic/tree/ed2-c03-s02)***'
 - en: '***For the same reason mentioned before, it is useful to be able to convert
     the model into a dictionary, so that we can easily serialise it into JSON or similar
     language-agnostic formats. The test for the method `to_dict` goes again in `tests/domain/test_room.py`***'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '***出于与之前提到相同的原因，能够将模型转换为字典是有用的，这样我们就可以轻松地将它序列化为JSON或类似的语言无关格式。`to_dict`方法的测试再次放在`tests/domain/test_room.py`中***'
 - en: '***`tests/domain/test_room.py`***'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/domain/test_room.py`***'
 - en: '[PRE9]'
+  id: totrans-52
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE9]'
 - en: '***and the implementation is trivial using dataclasses***'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '***使用dataclasses的实现是微不足道的***'
 - en: '***`rentomatic/domain/room.py`***'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`rentomatic/domain/room.py`***'
 - en: '[PRE10]'
+  id: totrans-55
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE10]'
 - en: '***If you are not using dataclasses you need to explicitly create the dictionary,
     but that doesn''t pose any challenge either. Note that this is not yet a serialisation
     of the object, as the result is still a Python data structure and not a string.***'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '***如果你不使用dataclasses，你需要显式创建字典，但这也不构成任何挑战。请注意，这还不是对象的序列化，因为结果仍然是一个Python数据结构，而不是字符串。***'
 - en: '****Source code'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s03](https://github.com/pycabook/rentomatic/tree/ed2-c03-s03)****'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s03](https://github.com/pycabook/rentomatic/tree/ed2-c03-s03)****'
 - en: '***It is also very useful to be able to compare instances of a model. The test
     goes in the same file as the previous test***'
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: '***能够比较模型实例也是非常有用的。测试与之前的测试放在同一个文件中***'
 - en: '***`tests/domain/test_room.py`***'
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/domain/test_room.py`***'
 - en: '[PRE11]'
+  id: totrans-61
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE11]'
 - en: '***Again, dataclasses make this very simple, as they provide an implementation
     of `__eq__` out of the box. If you implement the class without using dataclasses
     you have to define this method to make it pass the test.***'
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: '***再次，dataclasses使这变得非常简单，因为它们提供了`__eq__`的实现。如果你不使用dataclasses实现类，你必须定义这个方法以使其通过测试。***'
 - en: '****Source code'
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s04](https://github.com/pycabook/rentomatic/tree/ed2-c03-s04)****'
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s04](https://github.com/pycabook/rentomatic/tree/ed2-c03-s04)****'
 - en: '***Serializers***'
+  id: totrans-65
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '***序列化器***'
 - en: '***Outer layers can use the model `Room`, but if you want to return the model
     as a result of an API call you need a serializer.***'
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '***外层可以使用`Room`模型，但如果你想在API调用中将模型作为结果返回，你需要一个序列化器。***'
 - en: '***The typical serialization format is JSON, as this is a broadly accepted
     standard for web-based APIs. The serializer is not part of the model but is an
     external specialized class that receives the model instance and produces a representation
     of its structure and values.***'
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: '***典型的序列化格式是JSON，因为这是基于Web的API广泛接受的标准化格式。序列化器不是模型的一部分，而是一个外部专用类，它接收模型实例并生成其结构和值的表示。***'
 - en: '***This is the test for the JSON serialization of our class `Room`***'
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: '***这是对我们`Room`类JSON序列化的测试***'
 - en: '***`tests/serializers/test_room.py`***'
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/serializers/test_room.py`***'
 - en: '[PRE12]'
+  id: totrans-70
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE12]'
 - en: '***Here we create the object `Room` and write the expected JSON output (please
     note that the double curly braces are used to avoid clashes with the f-string
     formatter). Then we dump the object `Room` to a JSON string and compare the two.
@@ -273,24 +413,36 @@
     with the order of the attributes. Comparing Python dictionaries, indeed, doesn''t
     consider the order of the dictionary fields, while comparing strings obviously
     does.***'
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: '***在这里，我们创建`Room`对象并写入预期的JSON输出（请注意，使用双大括号是为了避免与f-string格式化器的冲突）。然后我们将`Room`对象序列化为JSON字符串并比较两者。为了比较两者，我们再次将它们加载到Python字典中，以避免属性顺序的问题。实际上，比较Python字典时并不考虑字典字段的顺序，而比较字符串显然是考虑顺序的。***'
 - en: '***Put in the file `rentomatic/serializers/room.py` the code that makes the
     test pass***'
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: '***在文件`rentomatic/serializers/room.py`中放入使测试通过的代码***'
 - en: '***`rentomatic/serializers/room.py`***'
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`rentomatic/serializers/room.py`***'
 - en: '[PRE13]'
+  id: totrans-74
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE13]'
 - en: '****Source code'
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s05](https://github.com/pycabook/rentomatic/tree/ed2-c03-s05)****'
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s05](https://github.com/pycabook/rentomatic/tree/ed2-c03-s05)****'
 - en: '***Providing a class that inherits from `json.JSONEncoder` let us use the syntax
     `json_room = json.dumps(room, cls=RoomJsonEncoder)` to serialize the model. Note
     that we are not using the method `as_dict`, as the UUID code is not directly JSON
@@ -298,77 +450,107 @@
     two classes, which in my opinion is acceptable, being covered by tests. If you
     prefer, however, you can call the method `as_dict` and then adjust the code field
     converting it with `str`.***'
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: '***提供一个从`json.JSONEncoder`继承的类，让我们可以使用`json_room = json.dumps(room, cls=RoomJsonEncoder)`的语法来序列化模型。请注意，我们没有使用`as_dict`方法，因为UUID代码不能直接序列化为JSON。这意味着在两个类中存在一定程度的代码重复，在我看来这是可以接受的，因为它们被测试所覆盖。如果您愿意，您也可以调用`as_dict`方法，然后调整代码字段，将其转换为`str`。***'
 - en: '***Use cases***'
+  id: totrans-78
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '***用例***'
 - en: '***It''s time to implement the actual business logic that runs inside our application.
     Use cases are the places where this happens, and they might or might not be directly
     linked to the external API of the system.***'
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: '***现在是时候实现我们应用程序内部实际运行的业务逻辑了。用例是这种情况发生的地方，它们可能与系统的外部API直接相关，也可能不直接相关。***'
 - en: '***The simplest use case we can create is one that fetches all the rooms stored
     in the repository and returns them. In this first part, we will not implement
     the filters to narrow the search. That code will be introduced in the next chapter
     when we will discuss error management.***'
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我们可以创建的最简单的用例是获取存储在仓库中的所有房间并返回它们的用例。在这个第一部分，我们不会实现用于缩小搜索范围的过滤器。这部分代码将在下一章介绍，届时我们将讨论错误管理。***'
 - en: '***The repository is our storage component, and according to the clean architecture
     it will be implemented in an outer level (external systems). We will access it
     as an interface, which in Python means that we will receive an object that we
     expect will expose a certain API. From the testing point of view the best way
     to run code that accesses an interface is to mock the latter. Put this code in
     the file `tests/use_cases/test_room_list.py`***'
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: '***仓库是我们的存储组件，根据清洁架构，它将在外部级别（外部系统）实现。我们将通过接口访问它，在Python中这意味着我们将接收一个我们期望会公开一定API的对象。从测试的角度来看，运行访问接口的代码的最佳方式是模拟后者。将此代码放入文件`tests/use_cases/test_room_list.py`***'
 - en: '***I will make use of pytest''s powerful fixtures, but I will not introduce
     them. I highly recommend reading the [official documentation](https://docs.pytest.org/en/stable/fixture.html),
     which is very good and covers many different use cases.***'
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我将利用pytest强大的固定功能，但不会介绍它们。我强烈推荐阅读[官方文档](https://docs.pytest.org/en/stable/fixture.html)，它非常好，涵盖了多种不同的用例。***'
 - en: '***`tests/use_cases/test_room_list.py`***'
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/use_cases/test_room_list.py`***'
 - en: '[PRE14]'
+  id: totrans-84
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE14]'
 - en: '***The test is straightforward. First, we mock the repository so that it provides
     a method `list` that returns the list of models we created above the test. Then
     we initialise the use case with the repository and execute it, collecting the
     result. The first thing we check is that the repository method was called without
     any parameter, and the second is the effective correctness of the result.***'
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: '**测试很简单。首先，我们模拟仓库，使其提供一个返回我们上面测试中创建的模型列表的`list`方法。然后我们使用仓库初始化用例并执行它，收集结果。我们首先检查仓库方法是否被无参数调用，其次是结果的正确性。**'
 - en: '***Calling the method `list` of the repository is an outgoing query action
     that the use case is supposed to perform, and according to the unit testing rules,
     we should not test outgoing queries. We should, however, test how our system runs
     the outgoing query, that is the parameters used to run the query.***'
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: '**调用仓库的`list`方法是用例应该执行的一个出站查询动作，根据单元测试规则，我们不应该测试出站查询。然而，我们应该测试我们的系统如何运行出站查询，即运行查询使用的参数。**'
 - en: '***Put the implementation of the use case in the file `rentomatic/use_cases/room_list.py`***'
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: '**将用例的实现放在文件`rentomatic/use_cases/room_list.py`中**'
 - en: '***`rentomatic/use_cases/room_list.py`***'
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: '**`rentomatic/use_cases/room_list.py`**'
 - en: '[PRE15]'
+  id: totrans-89
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE15]'
 - en: '***Such a solution might seem too simple, so let''s discuss it. First of all,
     this use case is just a wrapper around a specific function of the repository,
     and it doesn''t contain any error check, which is something we didn''t take into
     account yet. In the next chapter, we will discuss requests and responses, and
     the use case will become slightly more complicated.***'
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: '**这样的解决方案可能看起来过于简单，所以让我们来讨论一下。首先，这个用例只是围绕仓库的特定函数的一个包装器，并且它不包含任何错误检查，这是我们还没有考虑到的。在下一章中，我们将讨论请求和响应，用例将变得稍微复杂一些。**'
 - en: '***The next thing you might notice is that I used a simple function. In the
     first edition of this book I used a class for the use case, and thanks to the
     nudge of a couple of readers I started to question my choice, so I want to briefly
     discuss the options you have.***'
+  id: totrans-91
   prefs: []
   type: TYPE_NORMAL
+  zh: '**你可能注意到的下一件事是我使用了一个简单的函数。在本书的第一版中，我用类来表示用例，并且感谢几位读者的提醒，我开始质疑我的选择，所以我想简要讨论一下你的选择。**'
 - en: '***The use case represents the business logic, a process, which means that
     the simplest implementation you can have in a programming language is a function:
     some code that receives input arguments and returns output data. A class is however
@@ -376,8 +558,10 @@
     as in many other cases, the question is if you should use a function or a class,
     and my answer is that it depends on the degree of complexity of the algorithm
     that you are implementing.***'
+  id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: '**用例表示业务逻辑，一个过程，这意味着在编程语言中最简单的实现是一个函数：一些接收输入参数并返回输出数据的代码。然而，类也是一个选项，因为本质上它是一组变量和函数的集合。所以，就像在许多其他情况下一样，问题是你是否应该使用函数或类，我的回答是这取决于你正在实现的算法的复杂程度。**'
 - en: '***Your business logic might be complicated, and require the connection with
     several external systems, though, each one with a specific initialisation, while
     in this simple case I just pass in the repository. So, in principle, I don''t
@@ -386,25 +570,35 @@
     can perform the same job, which is the mistake I made in the previous version
     of this code. Remember that code has to be maintained, so the simpler it is, the
     better.***'
+  id: totrans-93
   prefs: []
   type: TYPE_NORMAL
+  zh: '**你的业务逻辑可能很复杂，需要与几个外部系统连接，尽管每个系统都有特定的初始化，但在这种简单的情况下，我只是传递了仓库。所以，原则上，我不认为使用类来表示用例有什么错误，如果你需要为你的算法提供更多结构，但要注意不要在更简单的解决方案（函数）可以完成相同工作的场合使用它们，这是我在代码的前一个版本中犯的错误。记住，代码需要维护，所以越简单越好。**'
 - en: '****Source code'
+  id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: '**源代码**'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s06](https://github.com/pycabook/rentomatic/tree/ed2-c03-s06)****'
+  id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s06](https://github.com/pycabook/rentomatic/tree/ed2-c03-s06)****'
 - en: '***The storage system***'
+  id: totrans-96
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**存储系统**'
 - en: '***During the development of the use case, we assumed it would receive an object
     that contains the data and exposes a `list` function. This object is generally
     nicknamed "repository", being the source of information for the use case. It has
     nothing to do with the Git repository, though, so be careful not to mix the two
     nomenclatures.***'
+  id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: '***在开发用例的过程中，我们假设它会接收一个包含数据和暴露`list`函数的对象。这个对象通常被称为“仓库”，它是用例的信息来源。不过，它与Git仓库无关，所以请注意不要混淆这两个术语。***'
 - en: '***The storage lives in the fourth layer of the clean architecture, the external
     systems. The elements in this layer are accessed by internal elements through
     an interface, which in Python just translates to exposing a given set of methods
@@ -413,8 +607,10 @@
     in a framework or by a tool like SQLAlchemy. The repository provides only the
     endpoints that the application needs, with an interface which is tailored to the
     specific business problems the application implements.***'
+  id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: '***存储位于清洁架构的第四层，即外部系统。这一层的元素通过一个接口被内部元素访问，在Python中这仅仅意味着暴露一组特定的方法（在这种情况下只有`list`）。值得注意的是，在清洁架构中，仓库提供的抽象级别高于在框架中ORM提供的，或者由像SQLAlchemy这样的工具提供的。仓库只提供应用程序需要的端点，并且接口是根据应用程序实现的具体业务问题定制的。***'
 - en: '***To clarify the matter in terms of concrete technologies, SQLAlchemy is a
     wonderful tool to abstract the access to an SQL database, so the internal implementation
     of the repository could use it to access a PostgreSQL database, for example. But
@@ -422,176 +618,260 @@
     reduced set of functions that the use cases call to get the data, and the internal
     implementation can use a wide range of solutions to achieve the same goal, from
     raw SQL queries to a complex system of remote calls through a RabbitMQ network.***'
+  id: totrans-99
   prefs: []
   type: TYPE_NORMAL
+  zh: '***为了具体说明问题，以SQLAlchemy为例，它是一个抽象访问SQL数据库的出色工具，因此仓库的内部实现可以使用它来访问PostgreSQL数据库等。但层的外部API并不是SQLAlchemy提供的。API是一组减少的函数，用例通过这些函数调用以获取数据，而内部实现可以使用广泛的解决方案来实现相同的目标，从原始SQL查询到通过RabbitMQ网络进行的复杂远程调用系统。***'
 - en: '***A very important feature of the repository is that it can return domain
     models, and this is in line with what framework ORMs usually do. The elements
     in the third layer have access to all the elements defined in the internal layers,
     which means that domain models and use cases can be called and used directly from
     the repository.***'
+  id: totrans-100
   prefs: []
   type: TYPE_NORMAL
+  zh: '***仓库的一个重要特性是它可以返回领域模型，这与框架ORM通常的做法一致。第三层的元素可以访问内部层中定义的所有元素，这意味着领域模型和用例可以直接从仓库中调用和使用。***'
 - en: '***For the sake of this simple example, we will not deploy and use a real database
     system. Given what we said, we are free to implement the repository with the system
     that better suits our needs, and in this case I want to keep everything simple.
     We will thus create a very simple in-memory storage system loaded with some predefined
     data.***'
+  id: totrans-101
   prefs: []
   type: TYPE_NORMAL
+  zh: '***为了这个简单的示例，我们不会部署和使用真实的数据库系统。根据我们所说的，我们可以自由地使用最适合我们需求的系统来实现仓库，在这种情况下，我想保持一切简单。因此，我们将创建一个非常简单的内存存储系统，并加载一些预定义的数据。***'
 - en: '***The first thing to do is to write some tests that document the public API
     of the repository. The file containing the tests is `tests/repository/test_memrepo.py`.***'
+  id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: '***首先需要编写一些测试来记录仓库的公共API。包含测试的文件是`tests/repository/test_memrepo.py`。***'
 - en: '***`tests/repository/test_memrepo.py`***'
+  id: totrans-103
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`tests/repository/test_memrepo.py`***'
 - en: '[PRE16]'
+  id: totrans-104
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE16]'
 - en: '***In this case, we need a single test that checks the behaviour of the method
     `list`. The implementation that passes the test goes in the file `rentomatic/repository/memrepo.py`***'
+  id: totrans-105
   prefs: []
   type: TYPE_NORMAL
+  zh: '***在这种情况下，我们需要一个单独的测试来检查`list`方法的行为。通过测试的实现将放入文件`rentomatic/repository/memrepo.py`中。***'
 - en: '***`rentomatic/repository/memrepo.py`***'
+  id: totrans-106
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`rentomatic/repository/memrepo.py`***'
 - en: '[PRE17]'
+  id: totrans-107
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE17]'
 - en: '****Source code'
+  id: totrans-108
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s07](https://github.com/pycabook/rentomatic/tree/ed2-c03-s07)****'
+  id: totrans-109
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s07](https://github.com/pycabook/rentomatic/tree/ed2-c03-s07)****'
 - en: '***You can easily imagine this class being the wrapper around a real database
     or any other storage type. While the code might become more complex, its basic
     structure would remain the same, with a single public method `list`. I will dig
     into database repositories in a later chapter.***'
+  id: totrans-110
   prefs: []
   type: TYPE_NORMAL
+  zh: '***你可以轻松想象这个类是围绕真实数据库或其他任何存储类型的包装器。虽然代码可能会变得更加复杂，但其基本结构将保持不变，只有一个公共方法 `list`。我将在后面的章节中深入探讨数据库仓库。***'
 - en: '***A command-line interface***'
+  id: totrans-111
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '***命令行界面***'
 - en: '***So far we created the domain models, the serializers, the use cases and
     the repository, but we are still missing a system that glues everything together.
     This system has to get the call parameters from the user, initialise a use case
     with a repository, run the use case that fetches the domain models from the repository,
     and return them to the user.***'
+  id: totrans-112
   prefs: []
   type: TYPE_NORMAL
+  zh: '***到目前为止，我们已经创建了域模型、序列化器、用例和仓库，但我们仍然缺少一个将一切粘合在一起的系统。这个系统必须从用户那里获取调用参数，使用仓库初始化一个用例，运行从仓库获取域模型的用例，并将它们返回给用户。***'
 - en: '***Let''s see now how the architecture that we just created can interact with
     an external system like a CLI. The power of a clean architecture is that the external
     systems are pluggable, which means that we can defer the decision about the detail
     of the system we want to use. In this case, we want to give the user an interface
     to query the system and to get a list of the rooms contained in the storage system,
     and the simplest choice is a command-line tool.***'
+  id: totrans-113
   prefs: []
   type: TYPE_NORMAL
+  zh: '***现在让我们看看我们刚刚创建的架构如何与外部系统（如CLI）交互。清晰架构的力量在于外部系统是可插拔的，这意味着我们可以推迟关于我们想要使用的系统细节的决定。在这种情况下，我们想要给用户提供一个查询系统并获取存储系统中包含的房间列表的界面，最简单的选择是命令行工具。***'
 - en: '***Later we will create a REST endpoint and we will expose it through a Web
     server, and it will be clear why the architecture that we created is so powerful.***'
+  id: totrans-114
   prefs: []
   type: TYPE_NORMAL
+  zh: '***稍后我们将创建一个REST端点，并通过Web服务器将其公开，那时就会清楚我们创建的架构为何如此强大。***'
 - en: '***For the time being, create a file `cli.py` in the same directory that contains
     `setup.cfg`. This is a simple Python script that doesn''t need any specific option
     to run, as it just queries the storage for all the domain models contained there.
     The content of the file is the following***'
+  id: totrans-115
   prefs: []
   type: TYPE_NORMAL
+  zh: '***目前，在包含 `setup.cfg` 的同一目录中创建一个名为 `cli.py` 的文件。这是一个简单的Python脚本，不需要任何特定选项即可运行，因为它只是查询存储中包含的所有域模型。文件内容如下***'
 - en: '***`cli.py`***'
+  id: totrans-116
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`cli.py`***'
 - en: '[PRE18]'
+  id: totrans-117
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE18]'
 - en: '****Source code'
+  id: totrans-118
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s08](https://github.com/pycabook/rentomatic/tree/ed2-c03-s08)****'
+  id: totrans-119
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s08](https://github.com/pycabook/rentomatic/tree/ed2-c03-s08)****'
 - en: '***You can execute this file with `python cli.py` or, if you prefer, run `chmod
     +x cli.py` (which makes it executable) and then run it with `./cli.py` directly.
     The expected result is an empty list***'
+  id: totrans-120
   prefs: []
   type: TYPE_NORMAL
+  zh: '***你可以使用 `python cli.py` 执行此文件，或者如果你更喜欢，运行 `chmod +x cli.py`（使其可执行）然后直接使用 `./cli.py`
+    运行它。预期的结果是空列表***'
 - en: '[PRE19]'
+  id: totrans-121
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE19]'
 - en: '***which is correct as the class `MemRepo` in the file `cli.py` has been initialised
     with an empty list. The simple in-memory storage that we use has no persistence,
     so every time we create it we have to load some data in it. This has been done
     to keep the storage layer simple, but keep in mind that if the storage was a proper
     database this part of the code would connect to it but there would be no need
     to load data in it.***'
+  id: totrans-122
   prefs: []
   type: TYPE_NORMAL
+  zh: '***这是正确的，因为文件 `cli.py` 中的类 `MemRepo` 已经使用空列表初始化。我们使用的简单内存存储没有持久性，所以每次我们创建它时都必须在其中加载一些数据。这样做是为了保持存储层简单，但请记住，如果存储是一个真正的数据库，这部分代码将连接到它，但不需要在其中加载数据。***'
 - en: '***The most important part of the script is***'
+  id: totrans-123
   prefs: []
   type: TYPE_NORMAL
+  zh: '***脚本最重要的部分是***'
 - en: '***`cli.py`***'
+  id: totrans-124
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`cli.py`***'
 - en: '[PRE20]'
+  id: totrans-125
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE20]'
 - en: '***which initialises the repository and runs the use case. This is in general
     how you end up using your clean architecture and whatever external system you
     will plug into it. You initialise other systems, run the use case passing the
     interfaces, and you collect the results.***'
+  id: totrans-126
   prefs: []
   type: TYPE_NORMAL
+  zh: '***这初始化了仓库并运行了用例。这通常是使用你的清晰架构以及你将连接到它的任何外部系统的方式。你初始化其他系统，传递接口运行用例，并收集结果。***'
 - en: '***For the sake of demonstration, let''s define some data in the file and load
     them in the repository***'
+  id: totrans-127
   prefs: []
   type: TYPE_NORMAL
+  zh: '***为了演示，让我们在文件中定义一些数据并将它们加载到仓库中***'
 - en: '***`cli.py`***'
+  id: totrans-128
   prefs: []
   type: TYPE_NORMAL
+  zh: '***`cli.py`***'
 - en: '[PRE21]'
+  id: totrans-129
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE21]'
 - en: '****Source code'
+  id: totrans-130
   prefs: []
   type: TYPE_NORMAL
+  zh: '****源代码'
 - en: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s09](https://github.com/pycabook/rentomatic/tree/ed2-c03-s09)****'
+  id: totrans-131
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/pycabook/rentomatic/tree/ed2-c03-s09](https://github.com/pycabook/rentomatic/tree/ed2-c03-s09)****'
 - en: '***Again, remember that we need to hardcode data due to the trivial nature
     of our storage, and not to the architecture of the system. Note that I changed
     the instruction `print` as the repository returns domain models and printing them
     would result in a list of strings like `<rentomatic.domain.room.Room object at
     0x7fb815ec04e0>`, which is not really helpful.***'
+  id: totrans-132
   prefs: []
   type: TYPE_NORMAL
+  zh: '***再次提醒，由于我们存储的简单性质，我们需要硬编码数据，而不是系统的架构。请注意，我将指令`print`改为，因为存储库返回领域模型，打印它们将导致如`<rentomatic.domain.room.Room
+    object at 0x7fb815ec04e0>`这样的字符串列表，这实际上并不太有帮助。***'
 - en: '***If you run the command line tool now, you will get a richer result than
     before***'
+  id: totrans-133
   prefs: []
   type: TYPE_NORMAL
+  zh: '***如果你现在运行命令行工具，你将得到比之前更丰富的结果***'
 - en: '[PRE22]'
+  id: totrans-134
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE22]'
 - en: '***Please note that I formatted the output above to be more readable, but the
     actual output will be on a single line.***'
+  id: totrans-135
   prefs: []
   type: TYPE_NORMAL
+  zh: '***请注意，我已将上面的输出格式化以使其更易于阅读，但实际输出将位于一行上。***'
 - en: '* * *'
+  id: totrans-136
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: '***What we saw in this chapter is the core of the clean architecture in action.***'
+  id: totrans-137
   prefs: []
   type: TYPE_NORMAL
+  zh: '***在本章中我们所看到的是清洁架构的核心所在。***'
 - en: '***We explored the standard layers of entities (the class `Room`), use cases
     (the function `room_list_use_case`), gateways and external systems (the class
     `MemRepo`) and we could start to appreciate the advantages of their separation
     into layers.***'
+  id: totrans-138
   prefs: []
   type: TYPE_NORMAL
+  zh: '***我们探索了实体的标准层（类`Room`），用例（函数`room_list_use_case`），网关和外部系统（类`MemRepo`），并开始欣赏它们分离成层的优势。***'
 - en: '***Arguably, what we designed is very limited, which is why I will dedicate
     the rest of the book to showing how to enhance what we have to deal with more
     complicated cases. We will discuss a **Web interface** in chapter 4, a **richer
     query language** and **error management** in chapter 5, and the **integration
     with real external systems** like databases in chapters 6, 7, and 8.***'
+  id: totrans-139
   prefs: []
   type: TYPE_NORMAL
+  zh: '***可以说，我们所设计的非常有限，这就是为什么我将把本书的其余部分用于展示如何增强我们处理更复杂情况的能力。我们将在第4章讨论**Web界面**，在第5章讨论**更丰富的查询语言**和**错误管理**，在第6、7和8章讨论与真实外部系统（如数据库）的**集成**。***'

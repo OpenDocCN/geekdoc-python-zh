@@ -1,23 +1,32 @@
 - en: Changelog
+  id: totrans-0
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 更新日志
 - en: 原文：[https://www.thedigitalcatbooks.com/pycabook-changelog/](https://www.thedigitalcatbooks.com/pycabook-changelog/)
+  id: totrans-1
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 原文：[https://www.thedigitalcatbooks.com/pycabook-changelog/](https://www.thedigitalcatbooks.com/pycabook-changelog/)
 - en: What's the last thing you do remember? Hmm?
+  id: totrans-2
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 你最后记得的是什么？嗯？
 - en: ''
+  id: totrans-3
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Alien, 1979
+  id: totrans-4
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 外星人，1979
 - en: I will track here changes between releases of the book, following [Semantic
     Versioning](https://semver.org/). A change in the **major** number means an incompatible
     change, that is a big rewrite of the book, also known as 2nd edition, 3rd edition,
@@ -25,252 +34,372 @@
     added to the content, like a new section or chapter. A change in the **patch**
     number signals minor fixes like typos in the text or the code, rewording of sentences,
     and so on.
+  id: totrans-5
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将在这里跟踪书籍发布之间的变化，遵循 [语义版本控制](https://semver.org/)。主版本号的变化意味着不兼容的变化，即书籍的大幅重写，也称为第
+    2 版、第 3 版等。次版本号的变化意味着内容中添加了某些重要内容，如新章节或部分。补丁号的变化表示文本或代码中的小修复，如错别字、句子改写等。
 - en: '**Current version**: 2.1.2'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**当前版本**：2.1.2'
 - en: Version 2.1.2 (2022-01-06)
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 2.1.2 (2022-01-06)
 - en: A fix in the Mau code prevents footnotes clashes in the Markua visitor when
     merging multiple files
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在 Mau 代码中的一项修复防止了在合并多个文件时 Markua 访问者中的脚注冲突
 - en: Version 2.1.1 (2021-10-19)
+  id: totrans-9
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 2.1.1 (2021-10-19)
 - en: A global review of footnotes and links to adapt them to Mau v2.0
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 对脚注和链接进行全局审查，以适应 Mau v2.0
 - en: Version 2.1.0 (2021-08-20)
+  id: totrans-11
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 2.1.0 (2021-08-20)
 - en: This version is written in Mau but converted into Markua to publish the PDF
     using Leanpub's processing chain.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 本版本是用 Mau 编写的，但转换为 Markua 以使用 Leanpub 的处理链发布 PDF。
 - en: Chapter 8 has been improved with migrations that correctly create the tables
     in the production database.
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 第 8 章通过迁移得到了改进，这些迁移可以正确地在生产数据库中创建表格。
 - en: '[Maxim Ivanov](https://github.com/ivanovmg) corrected many bugs both in the
     book and in the code repository, and fixed several inconsistencies between the
     two. An impressive job, thank you so much for your help!'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Maxim Ivanov](https://github.com/ivanovmg) 在书籍和代码仓库中修复了许多错误，并解决了两者之间的一些不一致性。了不起的工作，非常感谢您的帮助！'
 - en: GitHub user [robveijk](https://github.com/robveijk) spotted a mention to a file
     that is not included in the second edition. Thanks!
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [robveijk](https://github.com/robveijk) 发现了一个提及的文件并未包含在第二版中。谢谢！
 - en: GitHub user [mathisheeren](https://github.com/mathisheeren) corrected a typo.
     Thank you!
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [mathisheeren](https://github.com/mathisheeren) 修正了一个错别字。谢谢！
 - en: GitHub user [4myhw](https://github.com/4myhw) found a broken link and fixed
     the wrong use of `self` instead of `cls` in the code. Thanks!
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [4myhw](https://github.com/4myhw) 发现了一个损坏的链接，并修复了代码中使用 `self` 而不是
+    `cls` 的错误。谢谢！
 - en: Several people, in particular [Jakob Waibel](https://github.com/JakWai01) spotted
     a typo in the name of Robert Martin. Thanks to all, and apologies to Mr. Martin.
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 几个人，特别是 [Jakob Waibel](https://github.com/JakWai01) 发现了罗伯特·马丁的名字中的错别字。感谢所有人，并对马丁先生表示歉意。
 - en: GitHub user [1110sillabo](https://github.com/1110sillabo) pointed out the PDF
     creation wasn't perfect with the toolchain based on AsciiDoctor, which was fixed
     going back to Lanpub's Markua.
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [1110sillabo](https://github.com/1110sillabo) 指出，基于 AsciiDoctor 的工具链创建
+    PDF 时并不完美，已通过回到 Lanpub 的 Markua 进行修复。
 - en: '[Giovanni Natale](https://github.com/gnatale) found several issues both in
     the code and in the text and kindly submitted suggestions and fixes. Thanks!'
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Giovanni Natale](https://github.com/gnatale) 在代码和文本中发现了几个问题，并友好地提交了建议和修复。谢谢！'
 - en: Version 2.0.1 (2021-02-14)
+  id: totrans-21
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 2.0.1 (2021-02-14)
 - en: GitHub users [1110sillabo](https://github.com/1110sillabo) and the tireless
     [Faust Gertz](https://github.com/soulfulfaust) kindly submitted some PRs to fix
     typos. Thanks!
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [1110sillabo](https://github.com/1110sillabo) 和不知疲倦的 [Faust Gertz](https://github.com/soulfulfaust)
+    友好地提交了一些 PR 来修复错别字。谢谢！
 - en: First version converted from Mau sources into Asciidoctor
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 首个版本从 Mau 源转换为 Asciidoctor
 - en: Version 2.0.0 (2020-12-30)
+  id: totrans-24
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 2.0.0 (2020-12-30)
 - en: Major rework of the structure of the book
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 书籍结构的重大重构
 - en: HTML version
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: HTML 版本
 - en: Introductory example with an overview of the components of the system
+  id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 介绍性示例，概述了系统组件
 - en: Some nice figures
+  id: totrans-28
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 一些不错的图表
 - en: Management script to orchestrate Docker
+  id: totrans-29
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 管理脚本以编排 Docker
 - en: Many typos added in random places
+  id: totrans-30
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在随机位置添加了许多错别字
 - en: Version 1.0.12 (2020-04-13)
+  id: totrans-31
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.12 (2020-04-13)
 - en: GitHub user [Vlad Blazhko](https://github.com/pisarik) found a bug in the project
     `fileinfo` and added a fix and a test condition. As a result, I expanded the chapter
     on mocks with a small section describing what he did. Many thanks Vlad!
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [Vlad Blazhko](https://github.com/pisarik) 在项目 `fileinfo` 中发现了一个错误，并添加了一个修复和一个测试条件。因此，我扩展了关于模拟的章节，增加了一个小节来描述他所做的工作。非常感谢
+    Vlad！
 - en: Version 1.0.11 (2020-02-15)
+  id: totrans-33
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.11 (2020-02-15)
 - en: GitHub user [lrfuentesw](https://github.com/lrfuentesw) spotted an error in
     the memory repository. Price filters with a string value were not working because
     they were not converted into integers. Thank you!
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [lrfuentesw](https://github.com/lrfuentesw) 在内存仓库中发现了错误。字符串值的定价过滤器没有工作，因为它们没有被转换为整数。谢谢！
 - en: Version 1.0.10 (2019-09-23)
+  id: totrans-35
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.10 (2019-09-23)
 - en: GitHub user [Ramces Chirino](https://github.com/chirinosky) submitted a mega
     PR fixing many grammatical corrections. Thanks!
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [Ramces Chirino](https://github.com/chirinosky) 提交了一个大型的 PR，修复了许多语法错误。谢谢！
 - en: Version 1.0.9 (2019-04-12)
+  id: totrans-37
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.9 (2019-04-12)
 - en: GitHub user [plankington](https://github.com/plankington) fixed some typos.
     Thank you!
+  id: totrans-38
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [plankington](https://github.com/plankington) 修复了一些错误。谢谢！
 - en: Version 1.0.8 (2019-03-19)
+  id: totrans-39
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.8 (2019-03-19)
 - en: GitHub users [Faust Gertz](https://github.com/faustgertz) and [Michael "Irish"
     O'Neill](https://github.com/IrishPrime) spotted a bug in the code of the example
     `calc`, chapter 1 of part 1\. Thanks!
+  id: totrans-40
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [Faust Gertz](https://github.com/faustgertz) 和 [Michael "Irish" O'Neill](https://github.com/IrishPrime)
+    在第 1 部分的第 1 章的示例 `calc` 代码中发现了错误。谢谢！
 - en: GitHub user [Ahmed Ragab](https://github.com/Ragabov) fixed some typos. Thank
     you so much!
+  id: totrans-41
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [Ahmed Ragab](https://github.com/Ragabov) 修复了一些错误。非常感谢！
 - en: Version 1.0.7 (2019-03-02)
+  id: totrans-42
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.7 (2019-03-02)
 - en: GitHub user [penguindustin](https://github.com/penguindustin) suggested adding
     `pipenv` in the tools section as it is officially recommended by the Python packaging
     User Guide. Thanks!
+  id: totrans-43
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [penguindustin](https://github.com/penguindustin) 建议在工具部分添加 `pipenv`，因为它在
+    Python 打包用户指南中被官方推荐。谢谢！
 - en: GitHub user [godiedelrio](https://github.com/godiedelrio) spotted an error in
     the file `rentomatic/rentomatic/repository/postgresrepo.py`. The code returned
     the result of the query without converting the single objects into domain entities.
     This was not spotted by tests as I haven't introduced tests that check for the
     nature of the returned objects yet.
+  id: totrans-44
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GitHub 用户 [godiedelrio](https://github.com/godiedelrio) 在文件 `rentomatic/rentomatic/repository/postgresrepo.py`
+    中发现了一个错误。代码在查询结果返回时没有将单个对象转换为领域实体。由于我还没有引入检查返回对象性质的测试，因此这个错误没有被测试发现。
 - en: Version 1.0.6 (2019-02-06)
+  id: totrans-45
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.6 (2019-02-06)
 - en: The tireless [Eric Smith](https://github.com/genericmoniker) fixed typos and
     grammar in Part 2, Chapter 4\. Thank you so much.
+  id: totrans-46
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 无私的 [Eric Smith](https://github.com/genericmoniker) 在第 2 部分的第 4 章中修复了错误和语法。非常感谢。
 - en: Version 1.0.5 (2019-01-28)
+  id: totrans-47
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.5 (2019-01-28)
 - en: '[Eric Smith](https://github.com/genericmoniker) and [Faust Gertz](https://github.com/faustgertz)
     fixed many typos in part 2\. Thanks both for your help.'
+  id: totrans-48
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Eric Smith](https://github.com/genericmoniker) 和 [Faust Gertz](https://github.com/faustgertz)
+    在第 2 部分中修复了许多错误。谢谢你们两位的帮助。'
 - en: Version 1.0.4 (2019-01-22)
+  id: totrans-49
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.4 (2019-01-22)
 - en: '[Grant Moore](https://github.com/grantmoore3d) and [Hans Chen](https://github.com/hanschen)
     corrected two typos. Thank you!'
+  id: totrans-50
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Grant Moore](https://github.com/grantmoore3d) 和 [Hans Chen](https://github.com/hanschen)
+    修正了两个错误。谢谢你们！'
 - en: Version 1.0.3 (2019-01-11)
+  id: totrans-51
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.3 (2019-01-11)
 - en: '[Eric Smith](https://github.com/genericmoniker) fixed more typos and corrected
     some phrasing in Chapter 3 of Part 1\. Thanks Eric!'
+  id: totrans-52
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Eric Smith](https://github.com/genericmoniker) 修复了更多错误，并在第 1 部分的第 3 章中纠正了一些措辞。谢谢
+    Eric！'
 - en: Version 1.0.2 (2019-01-09)
+  id: totrans-53
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.2 (2019-01-09)
 - en: '[Max H. Gerlach](https://github.com/maxhgerlach) spotted and fixed more typos.
     Thanks again Max!'
+  id: totrans-54
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Max H. Gerlach](https://github.com/maxhgerlach) 发现并修复了更多错误。再次感谢 Max！'
 - en: Version 1.0.1 (2019-01-01)
+  id: totrans-55
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.1 (2019-01-01)
 - en: '[Max H. Gerlach](https://github.com/maxhgerlach), [Paul Schwendenman](https://github.com/paul-schwendenman),
     and [Eric Smith](https://github.com/genericmoniker) kindly fixed many typos and
     grammar mistakes. Thank you very much!'
+  id: totrans-56
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Max H. Gerlach](https://github.com/maxhgerlach)、[Paul Schwendenman](https://github.com/paul-schwendenman)
+    和 [Eric Smith](https://github.com/genericmoniker) 乐于修复了许多错误和语法错误。非常感谢！'
 - en: Version 1.0.0 (2018-12-25)
+  id: totrans-57
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 版本 1.0.0 (2018-12-25)
 - en: Initial release
+  id: totrans-58
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 初次发布
