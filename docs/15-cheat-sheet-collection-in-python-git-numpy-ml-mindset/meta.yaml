@@ -1,0 +1,4072 @@
+groups:
+- md: "# Python Cheat Sheet - Keywords\n\n\"A puzzle a day to learn, code, and play\"\
+    \ → Visit [finxter.com](https://finxter.com)\n\n| Keyword | Description | Code\
+    \ example |\n| :--- | :--- | :--- |\n| **False, True** | Data values from the\
+    \ data type Boolean | `False == (1 > 2)`, `True == (2 > 1)` |\n| **and, or, not**\
+    \ | Logical operators:<br>(x and y) → both x and y must be True<br>(x or y) →\
+    \ either x or y must be True<br>(not x) → x must be false | `x, y = True, False`<br>`(x\
+    \ or y) == True` # True<br>`(x and y) == False` # True<br>`(not y) == True` #\
+    \ True |\n| **break** | Ends loop prematurely | `while(True):`<br>`    break #\
+    \ no infinite loop`<br>`print(\"hello world\")` |\n| **continue** | Finishes current\
+    \ loop iteration | `while(True):`<br>`    continue`<br>`print(\"43\") # dead code`\
+    \ |\n| **class** | Defines a new class → a real-world concept<br>(object oriented\
+    \ programming) | `class Beer:`<br>`    def __init__(self):`<br>`        self.content\
+    \ = 1.0`<br>`    def drink(self):`<br>`        self.content = 0.0`<br><br>`becks\
+    \ = Beer() # constructor - create class`<br>`becks.drink() # beer empty: b.content\
+    \ == 0` |\n| **def** | Defines a new function or class method. For latter,<br>first\
+    \ parameter (\"self\") points to the class object.<br>When calling class method,\
+    \ first parameter is implicit. | |\n| **if, elif, else** | Conditional program\
+    \ execution: program starts with<br>\"if\" branch, tries the \"elif\" branches,\
+    \ and finishes with<br>\"else\" branch (until one branch evaluates to True). |\
+    \ `x = int(input(\"your value: \"))`<br>`if x > 3: print(\"Big\")`<br>`elif x\
+    \ == 3: print(\"Medium\")`<br>`else: print(\"Small\")` |\n| **for, while** | #\
+    \ For loop declaration<br>`for i in [0,1,2]:`<br>`    print(i)` | # While loop\
+    \ - same semantics<br>`j = 0`<br>`while j < 3:`<br>`    print(j)`<br>`    j =\
+    \ j + 1` |\n| **in** | Checks whether element is in sequence | `42 in [2, 39,\
+    \ 42] # True` |\n| **is** | Checks whether both elements point to the same<br>object\
+    \ | `y = x = 3`<br>`x is y # True`<br>`[3] is [3] # False` |\n| **None** | Empty\
+    \ value constant | `def f():`<br>`    x = 2`<br>`f() is None # True` |\n| **lambda**\
+    \ | Function with no name (anonymous function) | `(lambda x: x + 3)(3) # returns\
+    \ 6` |\n| **return** | Terminates execution of the function and passes the<br>flow\
+    \ of execution to the caller. An optional value after<br>the return keyword specifies\
+    \ the function result. | `def incrementor(x):`<br>`    return x + 1`<br>`incrementor(4)\
+    \ # returns 5` |\n\n# Python Cheat Sheet - Basic Data Types\n\n\"A puzzle a day\
+    \ to learn, code, and play\" → Visit [finxter.com](https://finxter.com)\n\n| |\
+    \ Description | Example |\n|---|---|---|\n| **Boolean** | The Boolean data type\
+    \ is a truth value, either True or False.<br><br>The Boolean operators ordered\
+    \ by priority:<br>not x → “if x is False, then x, else y”<br>x and y → “if x is\
+    \ False, then x, else y”<br>x or y → “if x is False, then y, else x”<br><br>These\
+    \ comparison operators evaluate to True:<br>1 < 2 and 0 <= 1 and 3 > 2 and 2 >=2\
+    \ and<br>1 == 1 and 1 != 0 # True | python\n## 1. Boolean Operations\nx, y = True,\
+    \ False\nprint(x and not y) # True\nprint(not x and y or x) # True\n\n## 2. If\
+    \ condition evaluates to False\nif None or 0 or 0.0 or '' or [] or {} or set():\n\
+    \    # None, 0, 0.0, empty strings, or empty\n    # container types are evaluated\
+    \ to False\n    print(\"Dead code\") # Not reached\n |\n| **Integer, Float** |\
+    \ An integer is a positive or negative number without floating point (e.g. 3).\
+    \ A float is a positive or negative number with floating point precision (e.g.\
+    \ 3.14159265359).<br><br>The ‘//’ operator performs integer division. The result\
+    \ is an integer value that is rounded towards the smaller integer number (e.g.\
+    \ 3 // 2 == 1). | python\n## 3. Arithmetic Operations\nx, y = 3, 2\nprint(x +\
+    \ y) # = 5\nprint(x - y) # = 1\nprint(x * y) # = 6\nprint(x / y) # = 1.5\nprint(x\
+    \ // y) # = 1\nprint(x % y) # = 1\nprint(-x) # = -3\nprint(abs(-x)) # = 3\nprint(int(3.9))\
+    \ # = 3\nprint(float(3)) # = 3.0\nprint(x ** y) # = 9\n |\n| **String** | Python\
+    \ Strings are sequences of characters.<br><br>The four main ways to create strings\
+    \ are the following.<br><br>1. Single quotes<br>'Yes'<br>2. Double quotes<br>\"\
+    Yes\"<br>3. Triple quotes (multi-line)<br>\"\"\"Yes<br>We Can\"\"\"<br>4. String\
+    \ method<br>str(5) == '5' # True<br>5. Concatenation<br>\"Ma\" + \"hatma\" # 'Mahatma'<br><br>These\
+    \ are whitespace characters in strings.<br>• Newline \\n<br>• Space \\s<br>• Tab\
+    \ \\t | python\n## 4. Indexing and Slicing\ns = \"The youngest pope was 11 years\
+    \ old\"\nprint(s[0])       # 'T'\nprint(s[1:3])     # 'he'\nprint(s[-3:-1])  \
+    \ # 'ol'\nprint(s[-3:])     # 'old'\nx = s.split()     # creates string array\
+    \ of words\nprint(x[-3] + \" \" + x[-1] + \" \" + x[2] + \"s\")\n            \
+    \      # '11 old popes'\n\n## 5. Most Important String Methods\ny = \"    This\
+    \ is lazy\\t\\n   \"\nprint(y.strip()) # Remove Whitespace: 'This is lazy'\nprint(\"\
+    DrDre\".lower()) # Lowercase: 'drdre'\nprint(\"attention\".upper()) # Uppercase:\
+    \ 'ATTENTION'\nprint(\"smartphone\".startswith(\"smart\")) # True\nprint(\"smartphone\"\
+    .endswith(\"phone\")) # True\nprint(\"another\".find(\"other\")) # Match index:\
+    \ 2\nprint(\"cheat\".replace(\"ch\", \"m\")) # 'meat'\nprint(','.join([\"F\",\
+    \ \"B\", \"I\"])) # 'F,B,I'\nprint(len(\"Rumpelstiltskin\")) # String length:\
+    \ 15\nprint(\"ear\" in \"earth\") # Contains: True\n |\n\n# Python Cheat Sheet\
+    \ - Complex Data Types\n\n\"A puzzle a day to learn, code, and play\" → Visit\
+    \ [finxter.com](https://finxter.com)\n\n| | Description | Example |\n|---|---|---|\n\
+    | **List** | A container data type that stores a sequence of elements. Unlike\
+    \ strings, lists are mutable: modification possible. | `l = [1, 2, 2]`\n`print(len(l))\
+    \ # 3` |\n| **Adding elements** | Add elements to a list with (i) append, (ii)\
+    \ insert, or (iii) list concatenation. The append operation is very fast. | `[1,\
+    \ 2, 2].append(4) # [1, 2, 2, 4]`\n`[1, 2, 4].insert(2,2) # [1, 2, 2, 4]`\n`[1,\
+    \ 2, 2] + [4] # [1, 2, 2, 4]` |\n| **Removal** | Removing an element can be slower.\
+    \ | `[1, 2, 2, 4].remove(1) # [2, 2, 4]` |\n| **Reversing** | This reverses the\
+    \ order of list elements. | `[1, 2, 3].reverse() # [3, 2, 1]` |\n| **Sorting**\
+    \ | Sorts a list. The computational complexity of sorting is O(n log n) for n\
+    \ list elements. | `[2, 4, 2].sort() # [2, 2, 4]` |\n| **Indexing** | Finds the\
+    \ first occurrence of an element in the list & returns its index. Can be slow\
+    \ as the whole list is traversed. | `[2, 2, 4].index(2) # index of element 4 is\
+    \ \"0\"`\n`[2, 2, 4].index(2,1) # index of element 2 after pos 1 is \"1\"` |\n\
+    | **Stack** | Python lists can be used intuitively as stack via the two list operations\
+    \ append() and pop(). | `stack = [3]`\n`stack.append(42) # [3, 42]`\n`stack.pop()\
+    \ # 42 (stack: [3])`\n`stack.pop() # 3 (stack: [])` |\n| **Set** | A set is an\
+    \ unordered collection of elements. Each can exist only once. | `basket = {'apple',\
+    \ 'eggs', 'banana', 'orange'}`\n`same = set(['apple', 'eggs', 'banana', 'orange'])`\
+    \ |\n| **Dictionary** | The dictionary is a useful data structure for storing\
+    \ (key, value) pairs. | `calories = {'apple' : 52, 'banana' : 89, 'choco' : 546}`\
+    \ |\n| **Reading and writing elements** | Read and write elements by specifying\
+    \ the key within the brackets. Use the keys() and values() functions to access\
+    \ all keys and values of the dictionary. | `print(calories['apple'] < calories['choco'])\
+    \ # True`\n`calories['cappu'] = 74`\n`print(calories['banana'] < calories['cappu'])\
+    \ # False`\n`print('apple' in calories.keys()) # True`\n`print(52 in calories.values())\
+    \ # True` |\n| **Dictionary Looping** | You can loop over the (key, value) pairs\
+    \ of a dictionary with the items() method. | `for k, v in calories.items():`\n\
+    `    print(k) if v > 500 else None # 'chocolate'` |\n| **Membership operator**\
+    \ | Check with the 'in' keyword whether the set, list, or dictionary contains\
+    \ an element. Set containment is faster than list containment. | `basket = {'apple',\
+    \ 'eggs', 'banana', 'orange'}`\n`print('eggs' in basket) # True`\n`print('mushroom'\
+    \ in basket) # False` |\n| **List and Set Comprehension** | List comprehension\
+    \ is the concise Python way to create lists. Use brackets plus an expression,\
+    \ followed by a for clause. Close with zero or more for or if clauses. Set comprehension\
+    \ is similar to list comprehension. | `# List comprehension`\n`l = [('Hi ' + x)\
+    \ for x in ['Alice', 'Bob', 'Pete']]`\n`print(l) # ['Hi Alice', 'Hi Bob', 'Hi\
+    \ Pete']`\n`l2 = [x * y for x in range(3) for y in range(3) if x>y]`\n`print(l2)\
+    \ # [0, 0, 2]`\n`# Set comprehension`\n`squares = { x**2 for x in [0,2,4] if x\
+    \ < 4 } # {0, 4}` |"
+  mdcn: "# Python 速查表 - 关键字\n\n“每日一题，学习、编码、畅玩” → 访问 [finxter.com](https://finxter.com)\n\
+    \n| 关键字 | 描述 | 代码示例 |\n| :--- | :--- | :--- |\n| **False, True** | 布尔数据类型的数据值\
+    \ | `False == (1 > 2)`, `True == (2 > 1)` |\n| **and, or, not** | 逻辑运算符：<br>(x\
+    \ and y) → x 和 y 都必须为 True<br>(x or y) → x 或 y 必须为 True<br>(not x) → x 必须为 False\
+    \ | `x, y = True, False`<br>`(x or y) == True` # True<br>`(x and y) == False`\
+    \ # True<br>`(not y) == True` # True |\n| **break** | 提前结束循环 | `while(True):`<br>`\
+    \    break # 避免无限循环`<br>`print(\"hello world\")` |\n| **continue** | 结束当前循环迭代\
+    \ | `while(True):`<br>`    continue`<br>`print(\"43\") # 死代码` |\n| **class** |\
+    \ 定义一个新类 → 一个现实世界的概念<br>（面向对象编程） | `class Beer:`<br>`    def __init__(self):`<br>`\
+    \        self.content = 1.0`<br>`    def drink(self):`<br>`        self.content\
+    \ = 0.0`<br><br>`becks = Beer() # 构造函数 - 创建类`<br>`becks.drink() # 啤酒喝完：b.content\
+    \ == 0` |\n| **def** | 定义一个新函数或类方法。对于后者，<br>第一个参数（“self”）指向类对象。<br>调用类方法时，第一个参数是隐式的。\
+    \ | |\n| **if, elif, else** | 条件程序执行：程序从<br>“if”分支开始，尝试“elif”分支，最后以<br>“else”分支结束（直到某个分支求值为\
+    \ True）。 | `x = int(input(\"your value: \"))`<br>`if x > 3: print(\"Big\")`<br>`elif\
+    \ x == 3: print(\"Medium\")`<br>`else: print(\"Small\")` |\n| **for, while** |\
+    \ # For 循环声明<br>`for i in [0,1,2]:`<br>`    print(i)` | # While 循环 - 语义相同<br>`j\
+    \ = 0`<br>`while j < 3:`<br>`    print(j)`<br>`    j = j + 1` |\n| **in** | 检查元素是否在序列中\
+    \ | `42 in [2, 39, 42] # True` |\n| **is** | 检查两个元素是否指向同一个<br>对象 | `y = x = 3`<br>`x\
+    \ is y # True`<br>`[3] is [3] # False` |\n| **None** | 空值常量 | `def f():`<br>`\
+    \    x = 2`<br>`f() is None # True` |\n| **lambda** | 无名函数（匿名函数） | `(lambda x:\
+    \ x + 3)(3) # 返回 6` |\n| **return** | 终止函数的执行，并将<br>执行流程传递给调用者。return 关键字后的<br>可选值指定函数结果。\
+    \ | `def incrementor(x):`<br>`    return x + 1`<br>`incrementor(4) # 返回 5` |\n\
+    \n# Python 速查表 - 基本数据类型\n\n“每日一题，学习、编码、畅玩” → 访问 [finxter.com](https://finxter.com)\n\
+    \n| | 描述 | 示例 |\n|---|---|---|\n| **布尔型** | 布尔数据类型是一个真值，要么是 True，要么是 False。<br><br>按优先级排序的布尔运算符：<br>not\
+    \ x → “如果 x 为 False，则结果为 x，否则为 y”<br>x and y → “如果 x 为 False，则结果为 x，否则为 y”<br>x\
+    \ or y → “如果 x 为 False，则结果为 y，否则为 x”<br><br>以下比较运算符求值为 True：<br>1 < 2 and 0 <=\
+    \ 1 and 3 > 2 and 2 >=2 and<br>1 == 1 and 1 != 0 # True | python\n## 1. 布尔运算\n\
+    x, y = True, False\nprint(x and not y) # True\nprint(not x and y or x) # True\n\
+    \n## 2. 如果条件求值为 False\nif None or 0 or 0.0 or '' or [] or {} or set():\n    #\
+    \ None, 0, 0.0, 空字符串或空\n    # 容器类型求值为 False\n    print(\"Dead code\") # 不会执行\n\
+    \ |\n| **整数、浮点数** | 整数是没有浮点数的正数或负数（例如 3）。浮点数是具有浮点精度的正数或负数（例如 3.14159265359）。<br><br>‘//’\
+    \ 运算符执行整数除法。结果是一个向较小整数方向舍入的整数值（例如 3 // 2 == 1）。 | python\n## 3. 算术运算\nx, y = 3,\
+    \ 2\nprint(x + y) # = 5\nprint(x - y) # = 1\nprint(x * y) # = 6\nprint(x / y)\
+    \ # = 1.5\nprint(x // y) # = 1\nprint(x % y) # = 1\nprint(-x) # = -3\nprint(abs(-x))\
+    \ # = 3\nprint(int(3.9)) # = 3\nprint(float(3)) # = 3.0\nprint(x ** y) # = 9\n\
+    \ |\n| **字符串** | Python 字符串是字符序列。<br><br>创建字符串的四种主要方式如下。<br><br>1. 单引号<br>'Yes'<br>2.\
+    \ 双引号<br>\"Yes\"<br>3. 三引号（多行）<br>\"\"\"Yes<br>We Can\"\"\"<br>4. 字符串方法<br>str(5)\
+    \ == '5' # True<br>5. 连接<br>\"Ma\" + \"hatma\" # 'Mahatma'<br><br>以下是字符串中的空白字符。<br>•\
+    \ 换行符 \\n<br>• 空格 \\s<br>• 制表符 \\t | python\n## 4. 索引和切片\ns = \"The youngest pope\
+    \ was 11 years old\"\nprint(s[0])       # 'T'\nprint(s[1:3])     # 'he'\nprint(s[-3:-1])\
+    \   # 'ol'\nprint(s[-3:])     # 'old'\nx = s.split()     # 创建单词字符串数组\nprint(x[-3]\
+    \ + \" \" + x[-1] + \" \" + x[2] + \"s\")\n                  # '11 old popes'\n\
+    \n## 5. 最重要的字符串方法\ny = \"    This is lazy\\t\\n   \"\nprint(y.strip()) # 移除空白：'This\
+    \ is lazy'\nprint(\"DrDre\".lower()) # 转为小写：'drdre'\nprint(\"attention\".upper())\
+    \ # 转为大写：'ATTENTION'\nprint(\"smartphone\".startswith(\"smart\")) # True\nprint(\"\
+    smartphone\".endswith(\"phone\")) # True\nprint(\"another\".find(\"other\")) #\
+    \ 匹配索引：2\nprint(\"cheat\".replace(\"ch\", \"m\")) # 'meat'\nprint(','.join([\"\
+    F\", \"B\", \"I\"])) # 'F,B,I'\nprint(len(\"Rumpelstiltskin\")) # 字符串长度：15\nprint(\"\
+    ear\" in \"earth\") # 包含：True\n |\n\n# Python 速查表 - 复合数据类型\n\n“每日一题，学习、编码、畅玩”\
+    \ → 访问 [finxter.com](https://finxter.com)\n\n| | 描述 | 示例 |\n|---|---|---|\n| **列表**\
+    \ | 存储元素序列的容器数据类型。与字符串不同，列表是可变的：可以修改。 | `l = [1, 2, 2]`\n`print(len(l)) # 3` |\n\
+    | **添加元素** | 使用 (i) append、(ii) insert 或 (iii) 列表连接向列表添加元素。append 操作非常快。 | `[1,\
+    \ 2, 2].append(4) # [1, 2, 2, 4]`\n`[1, 2, 4].insert(2,2) # [1, 2, 2, 4]`\n`[1,\
+    \ 2, 2] + [4] # [1, 2, 2, 4]` |\n| **移除** | 移除元素可能较慢。 | `[1, 2, 2, 4].remove(1)\
+    \ # [2, 2, 4]` |\n| **反转** | 反转列表元素的顺序。 | `[1, 2, 3].reverse() # [3, 2, 1]` |\n\
+    | **排序** | 对列表进行排序。对于 n 个列表元素，排序的计算复杂度为 O(n log n)。 | `[2, 4, 2].sort() # [2,\
+    \ 2, 4]` |\n| **索引** | 查找列表中元素首次出现的位置并返回其索引。由于需要遍历整个列表，可能较慢。 | `[2, 2, 4].index(2)\
+    \ # 元素 4 的索引是 \"0\"`\n`[2, 2, 4].index(2,1) # 位置 1 之后元素 2 的索引是 \"1\"` |\n| **栈**\
+    \ | Python 列表可以通过 append() 和 pop() 两个列表操作直观地用作栈。 | `stack = [3]`\n`stack.append(42)\
+    \ # [3, 42]`\n`stack.pop() # 42 (栈：[3])`\n`stack.pop() # 3 (栈：[])` |\n| **集合**\
+    \ | 集合是元素的无序集合。每个元素只能存在一次。 | `basket = {'apple', 'eggs', 'banana', 'orange'}`\n\
+    `same = set(['apple', 'eggs', 'banana', 'orange'])` |\n| **字典** | 字典是存储（键，值）对的有用数据结构。\
+    \ | `calories = {'apple' : 52, 'banana' : 89, 'choco' : 546}` |\n| **读写元素** |\
+    \ 通过在括号内指定键来读写元素。使用 keys() 和 values() 函数访问字典的所有键和值。 | `print(calories['apple']\
+    \ < calories['choco']) # True`\n`calories['cappu'] = 74`\n`print(calories['banana']\
+    \ < calories['cappu']) # False`\n`print('apple' in calories.keys()) # True`\n\
+    `print(52 in calories.values()) # True` |\n| **字典循环** | 你可以使用 items() 方法遍历字典的（键，值）对。\
+    \ | `for k, v in calories.items():`\n`    print(k) if v > 500 else None # 'chocolate'`\
+    \ |\n| **成员运算符** | 使用 'in' 关键字检查集合、列表或字典是否包含某个元素。集合包含检查比列表包含检查更快。 | `basket =\
+    \ {'apple', 'eggs', 'banana', 'orange'}`\n`print('eggs' in basket) # True`\n`print('mushroom'\
+    \ in basket) # False` |\n| **列表和集合推导式** | 列表推导式是创建列表的简洁 Python 方式。使用方括号加一个表达式，后跟一个\
+    \ for 子句。以零个或多个 for 或 if 子句结束。集合推导式类似于列表推导式。 | `# 列表推导式`\n`l = [('Hi ' + x) for\
+    \ x in ['Alice', 'Bob', 'Pete']]`\n`print(l) # ['Hi Alice', 'Hi Bob', 'Hi Pete']`\n\
+    `l2 = [x * y for x in range(3) for y in range(3) if x>y]`\n`print(l2) # [0, 0,\
+    \ 2]`\n`# 集合推导式`\n`squares = { x**2 for x in [0,2,4] if x < 4 } # {0, 4}` |"
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    # # Python Cheat Sheet - Keywords
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | Keyword | Description | Code example |
+
+    | :--- | :--- | :--- |
+
+    | **False, True** | Data values from the data type Boolean | `False == (1 > 2)`,
+    `True == (2 > 1)` |
+
+    | **and, or, not** | Logical operators:<br>(x and y) → both x and y must be True<br>(x
+    or y) → either x or y must be True<br>(not x) → x must be false | `x, y = True,
+    False`<br>`(x or y) == True` # True<br>`(x and y) == False` # True<br>`(not y)
+    == True` # True |
+
+    | **break** | Ends loop prematurely | `while(True):`<br>`    break # no infinite
+    loop`<br>`print("hello world")` |
+
+    | **continue** | Finishes current loop iteration | `while(True):`<br>`    continue`<br>`print("43")
+    # dead code` |
+
+    | **class** | Defines a new class → a real-world concept<br>(object oriented programming)
+    | `class Beer:`<br>`    def __init__(self):`<br>`        self.content = 1.0`<br>`    def
+    drink(self):`<br>`        self.content = 0.0`<br><br>`becks = Beer() # constructor
+    - create class`<br>`becks.drink() # beer empty: b.content == 0` |
+
+    | **def** | Defines a new function or class method. For latter,<br>first parameter
+    ("self") points to the class object.<br>When calling class method, first parameter
+    is implicit. | |
+
+    | **if, elif, else** | Conditional program execution: program starts with<br>"if"
+    branch, tries the "elif" branches, and finishes with<br>"else" branch (until one
+    branch evaluates to True). | `x = int(input("your value: "))`<br>`if x > 3: print("Big")`<br>`elif
+    x == 3: print("Medium")`<br>`else: print("Small")` |
+
+    | **for, while** | # For loop declaration<br>`for i in [0,1,2]:`<br>`    print(i)`
+    | # While loop - same semantics<br>`j = 0`<br>`while j < 3:`<br>`    print(j)`<br>`    j
+    = j + 1` |
+
+    | **in** | Checks whether element is in sequence | `42 in [2, 39, 42] # True`
+    |
+
+    | **is** | Checks whether both elements point to the same<br>object | `y = x =
+    3`<br>`x is y # True`<br>`[3] is [3] # False` |
+
+    | **None** | Empty value constant | `def f():`<br>`    x = 2`<br>`f() is None
+    # True` |
+
+    | **lambda** | Function with no name (anonymous function) | `(lambda x: x + 3)(3)
+    # returns 6` |
+
+    | **return** | Terminates execution of the function and passes the<br>flow of
+    execution to the caller. An optional value after<br>the return keyword specifies
+    the function result. | `def incrementor(x):`<br>`    return x + 1`<br>`incrementor(4)
+    # returns 5` |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_0_0.png)'
+  - "[PAGE 1]\n\n# # Python Cheat Sheet - Basic Data Types\n\n“A puzzle a day to learn,\
+    \ code, and play” → Visit [finxter.com](https://finxter.com)\n\n| | Description\
+    \ | Example |\n|---|---|---|\n| **Boolean** | The Boolean data type is a truth\
+    \ value, either True or False.<br><br>The Boolean operators ordered by priority:<br>not\
+    \ x → “if x is False, then x, else y”<br>x and y → “if x is False, then x, else\
+    \ y”<br>x or y → “if x is False, then y, else x”<br><br>These comparison operators\
+    \ evaluate to True:<br>1 < 2 and 0 <= 1 and 3 > 2 and 2 >=2 and<br>1 == 1 and\
+    \ 1 != 0 # True | python\n## 1. Boolean Operations\nx, y = True, False\nprint(x\
+    \ and not y) # True\nprint(not x and y or x) # True\n\n## 2. If condition evaluates\
+    \ to False\nif None or 0 or 0.0 or '' or [] or {} or set():\n    # None, 0, 0.0,\
+    \ empty strings, or empty\n    # container types are evaluated to False\n    print(\"\
+    Dead code\") # Not reached\n |\n| **Integer, Float** | An integer is a positive\
+    \ or negative number without floating point (e.g. 3). A float is a positive or\
+    \ negative number with floating point precision (e.g. 3.14159265359).<br><br>The\
+    \ ‘//’ operator performs integer division. The result is an integer value that\
+    \ is rounded towards the smaller integer number (e.g. 3 // 2 == 1). | python\n\
+    ## 3. Arithmetic Operations\nx, y = 3, 2\nprint(x + y) # = 5\nprint(x - y) # =\
+    \ 1\nprint(x * y) # = 6\nprint(x / y) # = 1.5\nprint(x // y) # = 1\nprint(x %\
+    \ y) # = 1s\nprint(-x) # = -3\nprint(abs(-x)) # = 3\nprint(int(3.9)) # = 3\nprint(float(3))\
+    \ # = 3.0\nprint(x ** y) # = 9\n |\n| **String** | Python Strings are sequences\
+    \ of characters.<br><br>The four main ways to create strings are the following.<br><br>1.\
+    \ Single quotes<br>'Yes'<br>2. Double quotes<br>\"Yes\"<br>3. Triple quotes (multi-line)<br>\"\
+    \"\"Yes<br>We Can\"\"\"<br>4. String method<br>str(5) == '5' # True<br>5. Concatenation<br>\"\
+    Ma\" + \"hatma\" # 'Mahatma'<br><br>These are whitespace characters in strings.<br>•\
+    \ Newline \\n<br>• Space \\s<br>• Tab \\t | python\n## 4. Indexing and Slicing\n\
+    s = \"The youngest pope was 11 years old\"\nprint(s[0])       # 'T'\nprint(s[1:3])\
+    \     # 'he'\nprint(s[-3:-1])   # 'ol'\nprint(s[-3:])     # 'old'\nx = s.split()\
+    \     # creates string array of words\nprint(x[-3] + \" \" + x[-1] + \" \" + x[2]\
+    \ + \"s\")\n                  # '11 old popes'\n\n## 5. Most Important String\
+    \ Methods\ny = \"    This is lazy\\t\\n   \"\nprint(y.strip()) # Remove Whitespace:\
+    \ 'This is lazy'\nprint(\"DrDre\".lower()) # Lowercase: 'drdre'\nprint(\"attention\"\
+    .upper()) # Uppercase: 'ATTENTION'\nprint(\"smartphone\".startswith(\"smart\"\
+    )) # True\nprint(\"smartphone\".endswith(\"phone\")) # True\nprint(\"another\"\
+    .find(\"other\")) # Match index: 2\nprint(\"cheat\".replace(\"ch\", \"m\")) #\
+    \ 'meat'\nprint(','.join([\"F\", \"B\", \"I\"])) # 'F,B,I'\nprint(len(\"Rumpelstiltskin\"\
+    )) # String length: 15\nprint(\"ear\" in \"earth\") # Contains: True\n |\n\n![](img/3302642dac9e1022b8a65373dea5984a_1_0.png)"
+  - '[PAGE 2]
+
+
+    # Python Cheat Sheet - Complex Data Types
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | | Description | Example |
+
+    |---|---|---|
+
+    | **List** | A container data type that stores a sequence of elements. Unlike
+    strings, lists are mutable: modification possible. | `l = [1, 2, 2]`
+
+    `print(len(l)) # 3` |
+
+    | **Adding elements** | Add elements to a list with (i) append, (ii) insert, or
+    (iii) list concatenation. The append operation is very fast. | `[1, 2, 2].append(4)
+    # [1, 2, 2, 4]`
+
+    `[1, 2, 4].insert(2,2) # [1, 2, 2, 4]`
+
+    `[1, 2, 2] + [4] # [1, 2, 2, 4]` |
+
+    | **Removal** | Removing an element can be slower. | `[1, 2, 2, 4].remove(1) #
+    [2, 2, 4]` |
+
+    | **Reversing** | This reverses the order of list elements. | `[1, 2, 3].reverse()
+    # [3, 2, 1]` |
+
+    | **Sorting** | Sorts a list. The computational complexity of sorting is O(n log
+    n) for n list elements. | `[2, 4, 2].sort() # [2, 2, 4]` |
+
+    | **Indexing** | Finds the first occurence of an element in the list & returns
+    its index. Can be slow as the whole list is traversed. | `[2, 2, 4].index(2) #
+    index of element 4 is "0"`
+
+    `[2, 2, 4].index(2,1) # index of element 2 after pos 1 is "1"` |
+
+    | **Stack** | Python lists can be used intuitively as stack via the two list operations
+    append() and pop(). | `stack = [3]`
+
+    `stack.append(42) # [3, 42]`
+
+    `stack.pop() # 42 (stack: [3])`
+
+    `stack.pop() # 3 (stack: [])` |
+
+    | **Set** | A set is an unordered collection of elements. Each can exist only
+    once. | `basket = {''apple'', ''eggs'', ''banana'', ''orange''}`
+
+    `same = set([''apple'', ''eggs'', ''banana'', ''orange''])` |
+
+    | **Dictionary** | The dictionary is a useful data structure for storing (key,
+    value) pairs. | `calories = {''apple'' : 52, ''banana'' : 89, ''choco'' : 546}`
+    |
+
+    | **Reading and writing elements** | Read and write elements by specifying the
+    key within the brackets. Use the keys() and values() functions to access all keys
+    and values of the dictionary. | `print(calories[''apple''] < calories[''choco''])
+    # True`
+
+    `calories[''cappu''] = 74`
+
+    `print(calories[''banana''] < calories[''cappu'']) # False`
+
+    `print(''apple'' in calories.keys()) # True`
+
+    `print(52 in calories.values()) # True` |
+
+    | **Dictionary Looping** | You can loop over the (key, value) pairs of a dictionary
+    with the items() method. | `for k, v in calories.items():`
+
+    `    print(k) if v > 500 else None # ''chocolate''` |
+
+    | **Membership operator** | Check with the ''in'' keyword whether the set, list,
+    or dictionary contains an element. Set containment is faster than list containment.
+    | `basket = {''apple'', ''eggs'', ''banana'', ''orange''}`
+
+    `print(''eggs'' in basket) # True`
+
+    `print(''mushroom'' in basket) # False` |
+
+    | **List and Set Comprehension** | List comprehension is the concise Python way
+    to create lists. Use brackets plus an expression, followed by a for clause. Close
+    with zero or more for or if clauses. Set comprehension is similar to list comprehension.
+    | `# List comprehension`
+
+    `l = [(''Hi '' + x) for x in [''Alice'', ''Bob'', ''Pete'']]`
+
+    `print(l) # [''Hi Alice'', ''Hi Bob'', ''Hi Pete'']`
+
+    `l2 = [x * y for x in range(3) for y in range(3) if x>y]`
+
+    `print(l2) # [0, 0, 2]`
+
+    `# Set comprehension`
+
+    `squares = { x**2 for x in [0,2,4] if x < 4 } # {0, 4}` |'
+- md: "# Python Cheat Sheet - Classes\n\n“A puzzle a day to learn, code, and play”\
+    \ → Visit [finxter.com](https://finxter.com)\n\n| | Description | Example |\n\
+    |---|---|---|\n| **Classes** | A class encapsulates data and functionality - data\
+    \ as attributes, and functionality as methods. It is a blueprint to create concrete\
+    \ instances in the memory. | python\nclass Dog:\n    \"\"\" Blueprint of a dog\
+    \ \"\"\"\n\n    # class variable shared by all instances\n    species = [\"canis\
+    \ lupus\"]\n\n    def __init__(self, name, color):\n        self.name = name\n\
+    \        self.state = \"sleeping\"\n        self.color = color\n\n    def command(self,\
+    \ x):\n        if x == self.name:\n            self.bark(2)\n        elif x ==\
+    \ \"sit\":\n            self.state = \"sit\"\n        else:\n            self.state\
+    \ = \"wag tail\"\n\n    def bark(self, freq):\n        for i in range(freq):\n\
+    \            print(\"[\" + self.name\n                  + \"]: Woof!\")\n\n\n\
+    ![Diagram showing Class vs Instances](image_placeholder_1)\n\npython\nbello =\
+    \ Dog(\"bello\", \"black\")\nalice = Dog(\"alice\", \"white\")\n\nprint(bello.color)\
+    \ # black\nprint(alice.color) # white\n\nbello.bark(1) # [bello]: Woof!\n\nalice.command(\"\
+    sit\")\nprint(\"[alice]: \" + alice.state)\n# [alice]: sit\n\nbello.command(\"\
+    no\")\nprint(\"[bello]: \" + bello.state)\n# [bello]: wag tail\n\nalice.command(\"\
+    alice\")\n# [alice]: Woof!\n# [alice]: Woof!\n\nbello.species += [\"wulf\"]\n\
+    print(len(bello.species)\n      == len(alice.species)) # True (!)\n |\n| **Instance**\
+    \ | You are an instance of the class human. An instance is a concrete implementation\
+    \ of a class: all attributes of an instance have a fixed value. Your hair is blond,\
+    \ brown, or black - but never unspecified.\n\nEach instance has its own attributes\
+    \ independent of other instances. Yet, class variables are different. These are\
+    \ data values associated with the class, not the instances. Hence, all instance\
+    \ share the same class variable **species** in the example. | |\n| **Self** |\
+    \ The first argument when defining any method is always the **self** argument.\
+    \ This argument specifies the instance on which you call the method.\n\n**self**\
+    \ gives the Python interpreter the information about the concrete instance. To\
+    \ *define* a method, you use **self** to modify the instance attributes. But to\
+    \ *call* an instance method, you do not need to specify **self**. | |\n| **Creation**\
+    \ | You can create classes “on the fly” and use them as logical units to store\
+    \ complex data types.\n\npython\nclass Employee():\n    pass\nemployee = Employee()\n\
+    employee.salary = 122000\nemployee.firstname = \"alice\"\nemployee.lastname =\
+    \ \"wonderland\"\n\nprint(employee.firstname + \" \"\n      + employee.lastname\
+    \ + \" \"\n      + str(employee.salary) + \"$\")\n# alice wonderland 122000$\n\
+    \ | |\n\n# Python Cheat Sheet - Functions and Tricks\n\n“A puzzle a day to learn,\
+    \ code, and play” → Visit [finxter.com](https://finxter.com)\n\n| | Description\
+    \ | Example | Result |\n|---|---|---|---|\n| **ADVANCED** | | | |\n| map(func,\
+    \ iter) | Executes the function on all elements of the iterable | list(map(lambda\
+    \ x: x[0], ['red', 'green', 'blue'])) | ['r', 'g', 'b'] |\n| map(func, i1, ...,\
+    \ ik) | Executes the function on all k elements of the k iterables | list(map(lambda\
+    \ x, y: str(x) + ' ' + y + 's' , [0, 2, 2], ['apple', 'orange', 'banana'])) |\
+    \ ['0 apples', '2 oranges', '2 bananas'] |\n| string.join(iter) | Concatenates\
+    \ iterable elements separated by string | ' marries '.join(list(['Alice', 'Bob']))\
+    \ | 'Alice marries Bob' |\n| **FUNCTIONS** | | | |\n| filter(func, iterable) |\
+    \ Filters out elements in iterable for which function returns False (or 0) | list(filter(lambda\
+    \ x: True if x>17 else False, [1, 15, 17, 18])) | [18] |\n| string.strip() | Removes\
+    \ leading and trailing whitespaces of string | print(\"\\n \\t 42 \\t \".strip())\
+    \ | 42 |\n| sorted(iter) | Sorts iterable in ascending order | sorted([8, 3, 2,\
+    \ 42, 5]) | [2, 3, 5, 8, 42] |\n| sorted(iter, key=key) | Sorts according to the\
+    \ key function in ascending order | sorted([8, 3, 2, 42, 5], key=lambda x: 0 if\
+    \ x==42 else x) | [42, 2, 3, 5, 8] |\n| help(func) | Returns documentation of\
+    \ func | help(str.upper()) | '... to uppercase.' |\n| zip(i1, i2, ...) | Groups\
+    \ the i-th elements of iterators i1, i2, ... together | list(zip(['Alice', 'Anna'],\
+    \ ['Bob', 'Jon', 'Frank'])) | [('Alice', 'Bob'), ('Anna', 'Jon')] |\n| Unzip |\
+    \ Equal to: 1) unpack the zipped list, 2) zip the result | list(zip(*[('Alice',\
+    \ 'Bob'), ('Anna', 'Jon')])) | [('Alice', 'Anna'), ('Bob', 'Jon')] |\n| enumerate(iter)\
+    \ | Assigns a counter value to each element of the iterable | list(enumerate(['Alice',\
+    \ 'Bob', 'Jon'])) | [(0, 'Alice'), (1, 'Bob'), (2, 'Jon')] |\n| **TRICKS** | |\
+    \ | |\n| python -m http.server <P> | Share files between PC and phone? Run command\
+    \ in PC's shell. <P> is any port number 0–65535. Type <IP address of PC>:<P> in\
+    \ the phone's browser. You can now browse the files in the PC directory. | | |\n\
+    | Read comic | import antigravity | Open the comic series xkcd in your web browser\
+    \ | |\n| Zen of Python | import this | '...Beautiful is better than ugly. Explicit\
+    \ is ...' | |\n| Swapping numbers | Swapping variables is a breeze in Python.\
+    \ No offense, Java! | a, b = 'Jane', 'Alice'<br>a, b = b, a | a = 'Alice'<br>b\
+    \ = 'Jane' |\n| Unpacking arguments | Use a sequence as function arguments via\
+    \ asterisk operator *. Use a dictionary (key, value) via double asterisk operator\
+    \ ** | def f(x, y, z): return x + y * z<br>f(*[1, 3, 4])<br>f(**{'z' : 4, 'x'\
+    \ : 1, 'y' : 3}) | 13<br>13 |\n| Extended Unpacking | Use unpacking for multiple\
+    \ assignment feature in Python | a, *b = [1, 2, 3, 4, 5] | a = 1<br>b = [2, 3,\
+    \ 4, 5] |\n| Merge two dictionaries | Use unpacking to merge two dictionaries\
+    \ into a single one | x={'Alice' : 18}<br>y={'Bob' : 27, 'Ann' : 22}<br>z = {**x,\
+    \ **y} | z = {'Alice': 18, 'Bob': 27, 'Ann': 22} |\n\n![](img/3302642dac9e1022b8a65373dea5984a_4_0.png)\n\
+    \n# Python Cheat Sheet: 14 Interview Questions\n\n“A puzzle a day to learn, code,\
+    \ and play” →\n\n*FREE* Python Email Course @ http://bit.ly/free-python-course\n\
+    \n| Question | Code | Question | Code |\n| :--- | :--- | :--- | :--- |\n| Check\
+    \ if list contains integer x | `l = [3, 3, 4, 5, 2, 111, 5]`<br>`print(111 in\
+    \ l) # True` | Get missing number in [1...100] | `def get_missing_number(lst):`<br>`\
+    \    return set(range(lst[len(lst)-1]+1)) - set(l)`<br>`l = list(range(1,100))`<br>`l.remove(50)`<br>`print(get_missing_number(l))\
+    \ # 50` |\n| Find duplicate number in integer list | `def find_duplicates(elements):`<br>`\
+    \    duplicates, seen = set(), set()`<br>`    for element in elements:`<br>` \
+    \       if element in seen:`<br>`            duplicates.add(element)`<br>`   \
+    \     seen.add(element)`<br>`    return list(duplicates)` | Compute the intersection\
+    \ of two lists | `def intersect(lst1, lst2):`<br>`    res, lst2_copy = [], lst2[:]`<br>`\
+    \    for el in lst1:`<br>`        if el in lst2_copy:`<br>`            res.append(el)`<br>`\
+    \            lst2_copy.remove(el)`<br>`    return res` |\n| Check if two strings\
+    \ are anagrams | `def is_anagram(s1, s2):`<br>`    return set(s1) == set(s2)`<br>`print(is_anagram(\"\
+    elvis\", \"lives\")) # True` | Find max and min in unsorted list | `l = [4, 3,\
+    \ 6, 3, 4, 888, 1, -11, 22, 3]`<br>`print(max(l)) # 888`<br>`print(min(l)) # -11`\
+    \ |\n| Remove all duplicates from list | `lst = list(range(10)) + list(range(10))`<br>`lst\
+    \ = list(set(lst))`<br>`print(lst)`<br>`# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]` | Reverse\
+    \ string using recursion | `def reverse(string):`<br>`    if len(string)<=1: return\
+    \ string`<br>`    return reverse(string[1:])+string[0]`<br>`print(reverse(\"hello\"\
+    )) # olleh` |\n| Find pairs of integers in list so that their sum is equal to\
+    \ integer x | `def find_pairs(l, x):`<br>`    pairs = []`<br>`    for (i, el_1)\
+    \ in enumerate(l):`<br>`        for (j, el_2) in enumerate(l[i+1:]):`<br>`   \
+    \         if el_1 + el_2 == x:`<br>`                pairs.append((el_1, el_2))`<br>`\
+    \    return pairs` | Compute the first n Fibonacci numbers | `a, b = 0, 1`<br>`n\
+    \ = 10`<br>`for i in range(n):`<br>`    print(b)`<br>`    a, b = b, a+b`<br>`#\
+    \ 1, 1, 2, 3, 5, 8, ...` |\n| Check if a string is a palindrome | `def is_palindrome(phrase):`<br>`\
+    \    return phrase == phrase[::-1]`<br>`print(is_palindrome(\"anna\")) # True`\
+    \ | Sort list with Quicksort algorithm | `def qsort(L):`<br>`    if L == []: return\
+    \ []`<br>`    return qsort([x for x in L[1:] if x< L[0]]) + L[0:1] +`<br>`qsort([x\
+    \ for x in L[1:] if x>=L[0]])`<br>`lst = [44, 33, 22, 5, 77, 55, 999]`<br>`print(qsort(lst))`<br>`#\
+    \ [5, 22, 33, 44, 55, 77, 999]` |\n| Use list as stack, array, and queue | `#\
+    \ as a list ...`<br>`l = [3, 4]`<br>`l += [5, 6] # l = [3, 4, 5, 6]`<br>`# ...\
+    \ as a stack ...`<br>`l.append(10) # l = [4, 5, 6, 10]`<br>`l.pop() # l = [4,\
+    \ 5, 6]`<br>`# ... and as a queue`<br>`l.insert(0, 5) # l = [5, 4, 5, 6]`<br>`l.pop()\
+    \ # l = [5, 4, 5]` | Find all permutations of string | `def get_permutations(w):`<br>`\
+    \    if len(w)<=1:`<br>`        return set(w)`<br>`    smaller = get_permutations(w[1:])`<br>`\
+    \    perms = set()`<br>`    for x in smaller:`<br>`        for pos in range(0,len(x)+1):`<br>`\
+    \            perm = x[:pos] + w[0] + x[pos:]`<br>`            perms.add(perm)`<br>`\
+    \    return perms`<br>`print(get_permutations(\"nan\"))`<br>`# {'nna', 'ann',\
+    \ 'nan'}` |\n\n![](img/3302642dac9e1022b8a65373dea5984a_5_0.png)"
+  mdcn: "# Python 速查表 - 类\n\n“每日一题，学习、编码、畅玩” → 访问 [finxter.com](https://finxter.com)\n\
+    \n| | 描述 | 示例 |\n|---|---|---|\n| **类** | 类封装了数据和功能——数据作为属性，功能作为方法。它是在内存中创建具体实例的蓝图。\
+    \ | python\nclass Dog:\n    \"\"\" 一只狗的蓝图 \"\"\"\n\n    # 所有实例共享的类变量\n    species\
+    \ = [\"canis lupus\"]\n\n    def __init__(self, name, color):\n        self.name\
+    \ = name\n        self.state = \"sleeping\"\n        self.color = color\n\n  \
+    \  def command(self, x):\n        if x == self.name:\n            self.bark(2)\n\
+    \        elif x == \"sit\":\n            self.state = \"sit\"\n        else:\n\
+    \            self.state = \"wag tail\"\n\n    def bark(self, freq):\n        for\
+    \ i in range(freq):\n            print(\"[\" + self.name\n                  +\
+    \ \"]: Woof!\")\n\n\n![展示类与实例的图表](image_placeholder_1)\n\npython\nbello = Dog(\"\
+    bello\", \"black\")\nalice = Dog(\"alice\", \"white\")\n\nprint(bello.color) #\
+    \ black\nprint(alice.color) # white\n\nbello.bark(1) # [bello]: Woof!\n\nalice.command(\"\
+    sit\")\nprint(\"[alice]: \" + alice.state)\n# [alice]: sit\n\nbello.command(\"\
+    no\")\nprint(\"[bello]: \" + bello.state)\n# [bello]: wag tail\n\nalice.command(\"\
+    alice\")\n# [alice]: Woof!\n# [alice]: Woof!\n\nbello.species += [\"wulf\"]\n\
+    print(len(bello.species)\n      == len(alice.species)) # True (!)\n |\n| **实例**\
+    \ | 你是人类这个类的一个实例。实例是类的具体实现：实例的所有属性都有一个固定的值。你的头发是金色、棕色或黑色——但绝不是未指定的。\n\n每个实例都有独立于其他实例的自己的属性。然而，类变量则不同。这些是与类相关联的数据值，而不是与实例相关联。因此，在示例中，所有实例共享相同的类变量\
+    \ **species**。 | |\n| **Self** | 定义任何方法时的第一个参数总是 **self** 参数。此参数指定调用该方法的实例。\n\n\
+    **self** 向 Python 解释器提供有关具体实例的信息。要*定义*一个方法，你使用 **self** 来修改实例属性。但要*调用*一个实例方法，你不需要指定\
+    \ **self**。 | |\n| **创建** | 你可以“动态”创建类，并将它们用作存储复杂数据类型的逻辑单元。\n\npython\nclass Employee():\n\
+    \    pass\nemployee = Employee()\nemployee.salary = 122000\nemployee.firstname\
+    \ = \"alice\"\nemployee.lastname = \"wonderland\"\n\nprint(employee.firstname\
+    \ + \" \"\n      + employee.lastname + \" \"\n      + str(employee.salary) + \"\
+    $\")\n# alice wonderland 122000$\n | |\n\n# Python 速查表：函数与技巧\n\n“每日一题，学习、编码、畅玩”\
+    \ → 访问 [finxter.com](https://finxter.com)\n\n| | 描述 | 示例 | 结果 |\n|---|---|---|---|\n\
+    | **高级** | | | |\n| map(func, iter) | 对可迭代对象的所有元素执行函数 | list(map(lambda x: x[0],\
+    \ ['red', 'green', 'blue'])) | ['r', 'g', 'b'] |\n| map(func, i1, ..., ik) | 对\
+    \ k 个可迭代对象的所有 k 个元素执行函数 | list(map(lambda x, y: str(x) + ' ' + y + 's' , [0, 2,\
+    \ 2], ['apple', 'orange', 'banana'])) | ['0 apples', '2 oranges', '2 bananas']\
+    \ |\n| string.join(iter) | 连接由字符串分隔的可迭代元素 | ' marries '.join(list(['Alice', 'Bob']))\
+    \ | 'Alice marries Bob' |\n| **函数** | | | |\n| filter(func, iterable) | 过滤掉可迭代对象中函数返回\
+    \ False (或 0) 的元素 | list(filter(lambda x: True if x>17 else False, [1, 15, 17,\
+    \ 18])) | [18] |\n| string.strip() | 移除字符串的前导和尾随空白字符 | print(\"\\n \\t 42 \\t\
+    \ \".strip()) | 42 |\n| sorted(iter) | 按升序对可迭代对象排序 | sorted([8, 3, 2, 42, 5])\
+    \ | [2, 3, 5, 8, 42] |\n| sorted(iter, key=key) | 根据键函数按升序排序 | sorted([8, 3, 2,\
+    \ 42, 5], key=lambda x: 0 if x==42 else x) | [42, 2, 3, 5, 8] |\n| help(func)\
+    \ | 返回 func 的文档 | help(str.upper()) | '... to uppercase.' |\n| zip(i1, i2, ...)\
+    \ | 将迭代器 i1, i2, ... 的第 i 个元素分组在一起 | list(zip(['Alice', 'Anna'], ['Bob', 'Jon',\
+    \ 'Frank'])) | [('Alice', 'Bob'), ('Anna', 'Jon')] |\n| 解包 | 等同于：1) 解包已打包的列表，2)\
+    \ 对结果进行打包 | list(zip(*[('Alice', 'Bob'), ('Anna', 'Jon')])) | [('Alice', 'Anna'),\
+    \ ('Bob', 'Jon')] |\n| enumerate(iter) | 为可迭代对象的每个元素分配一个计数器值 | list(enumerate(['Alice',\
+    \ 'Bob', 'Jon'])) | [(0, 'Alice'), (1, 'Bob'), (2, 'Jon')] |\n| **技巧** | | | |\n\
+    | python -m http.server <P> | 在 PC 和手机之间共享文件？在 PC 的 shell 中运行命令。<P> 是 0–65535\
+    \ 之间的任意端口号。在手机浏览器中输入 <PC 的 IP 地址>:<P>。你现在可以浏览 PC 目录中的文件了。 | | |\n| 阅读漫画 | import\
+    \ antigravity | 在你的网络浏览器中打开漫画系列 xkcd | |\n| Python 之禅 | import this | '...Beautiful\
+    \ is better than ugly. Explicit is ...' | |\n| 交换数字 | 在 Python 中交换变量是小菜一碟。无意冒犯，Java！\
+    \ | a, b = 'Jane', 'Alice'<br>a, b = b, a | a = 'Alice'<br>b = 'Jane' |\n| 解包参数\
+    \ | 通过星号运算符 * 使用序列作为函数参数。通过双星号运算符 ** 使用字典（键，值） | def f(x, y, z): return x + y\
+    \ * z<br>f(*[1, 3, 4])<br>f(**{'z' : 4, 'x' : 1, 'y' : 3}) | 13<br>13 |\n| 扩展解包\
+    \ | 使用解包实现 Python 中的多重赋值特性 | a, *b = [1, 2, 3, 4, 5] | a = 1<br>b = [2, 3, 4,\
+    \ 5] |\n| 合并两个字典 | 使用解包将两个字典合并为一个 | x={'Alice' : 18}<br>y={'Bob' : 27, 'Ann' :\
+    \ 22}<br>z = {**x, **y} | z = {'Alice': 18, 'Bob': 27, 'Ann': 22} |\n\n![](img/3302642dac9e1022b8a65373dea5984a_4_0.png)\n\
+    \n# Python 速查表：14 个面试问题\n\n“每日一题，学习、编码、畅玩” →\n\n*免费* Python 邮件课程 @ http://bit.ly/free-python-course\n\
+    \n| 问题 | 代码 | 问题 | 代码 |\n| :--- | :--- | :--- | :--- |\n| 检查列表是否包含整数 x | `l =\
+    \ [3, 3, 4, 5, 2, 111, 5]`<br>`print(111 in l) # True` | 获取 [1...100] 中缺失的数字 |\
+    \ `def get_missing_number(lst):`<br>`    return set(range(lst[len(lst)-1]+1))\
+    \ - set(l)`<br>`l = list(range(1,100))`<br>`l.remove(50)`<br>`print(get_missing_number(l))\
+    \ # 50` |\n| 在整数列表中查找重复数字 | `def find_duplicates(elements):`<br>`    duplicates,\
+    \ seen = set(), set()`<br>`    for element in elements:`<br>`        if element\
+    \ in seen:`<br>`            duplicates.add(element)`<br>`        seen.add(element)`<br>`\
+    \    return list(duplicates)` | 计算两个列表的交集 | `def intersect(lst1, lst2):`<br>`\
+    \    res, lst2_copy = [], lst2[:]`<br>`    for el in lst1:`<br>`        if el\
+    \ in lst2_copy:`<br>`            res.append(el)`<br>`            lst2_copy.remove(el)`<br>`\
+    \    return res` |\n| 检查两个字符串是否是变位词 | `def is_anagram(s1, s2):`<br>`    return\
+    \ set(s1) == set(s2)`<br>`print(is_anagram(\"elvis\", \"lives\")) # True` | 在未排序列表中查找最大值和最小值\
+    \ | `l = [4, 3, 6, 3, 4, 888, 1, -11, 22, 3]`<br>`print(max(l)) # 888`<br>`print(min(l))\
+    \ # -11` |\n| 从列表中移除所有重复项 | `lst = list(range(10)) + list(range(10))`<br>`lst\
+    \ = list(set(lst))`<br>`print(lst)`<br>`# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]` | 使用递归反转字符串\
+    \ | `def reverse(string):`<br>`    if len(string)<=1: return string`<br>`    return\
+    \ reverse(string[1:])+string[0]`<br>`print(reverse(\"hello\")) # olleh` |\n| 在列表中查找和为整数\
+    \ x 的整数对 | `def find_pairs(l, x):`<br>`    pairs = []`<br>`    for (i, el_1) in\
+    \ enumerate(l):`<br>`        for (j, el_2) in enumerate(l[i+1:]):`<br>`      \
+    \      if el_1 + el_2 == x:`<br>`                pairs.append((el_1, el_2))`<br>`\
+    \    return pairs` | 计算前 n 个斐波那契数 | `a, b = 0, 1`<br>`n = 10`<br>`for i in range(n):`<br>`\
+    \    print(b)`<br>`    a, b = b, a+b`<br>`# 1, 1, 2, 3, 5, 8, ...` |\n| 检查字符串是否是回文\
+    \ | `def is_palindrome(phrase):`<br>`    return phrase == phrase[::-1]`<br>`print(is_palindrome(\"\
+    anna\")) # True` | 使用快速排序算法对列表排序 | `def qsort(L):`<br>`    if L == []: return\
+    \ []`<br>`    return qsort([x for x in L[1:] if x< L[0]]) + L[0:1] +`<br>`qsort([x\
+    \ for x in L[1:] if x>=L[0]])`<br>`lst = [44, 33, 22, 5, 77, 55, 999]`<br>`print(qsort(lst))`<br>`#\
+    \ [5, 22, 33, 44, 55, 77, 999]` |\n| 将列表用作栈、数组和队列 | `# 作为列表 ...`<br>`l = [3, 4]`<br>`l\
+    \ += [5, 6] # l = [3, 4, 5, 6]`<br>`# ... 作为栈 ...`<br>`l.append(10) # l = [4,\
+    \ 5, 6, 10]`<br>`l.pop() # l = [4, 5, 6]`<br>`# ... 以及作为队列`<br>`l.insert(0, 5)\
+    \ # l = [5, 4, 5, 6]`<br>`l.pop() # l = [5, 4, 5]` | 查找字符串的所有排列 | `def get_permutations(w):`<br>`\
+    \    if len(w)<=1:`<br>`        return set(w)`<br>`    smaller = get_permutations(w[1:])`<br>`\
+    \    perms = set()`<br>`    for x in smaller:`<br>`        for pos in range(0,len(x)+1):`<br>`\
+    \            perm = x[:pos] + w[0] + x[pos:]`<br>`            perms.add(perm)`<br>`\
+    \    return perms`<br>`print(get_permutations(\"nan\"))`<br>`# {'nna', 'ann',\
+    \ 'nan'}` |\n\n![](img/3302642dac9e1022b8a65373dea5984a_5_0.png)"
+  merge: 0
+  raw:
+  - "[PAGE 3]\n\n# Python Cheat Sheet - Classes\n\n“A puzzle a day to learn, code,\
+    \ and play” → Visit [finxter.com](https://finxter.com)\n\n| | Description | Example\
+    \ |\n|---|---|---|\n| **Classes** | A class encapsulates data and functionality\
+    \ - data as attributes, and functionality as methods. It is a blueprint to create\
+    \ concrete instances in the memory. | python\nclass Dog:\n    \"\"\" Blueprint\
+    \ of a dog \"\"\"\n\n    # class variable shared by all instances\n    species\
+    \ = [\"canis lupus\"]\n\n    def __init__(self, name, color):\n        self.name\
+    \ = name\n        self.state = \"sleeping\"\n        self.color = color\n\n  \
+    \  def command(self, x):\n        if x == self.name:\n            self.bark(2)\n\
+    \        elif x == \"sit\":\n            self.state = \"sit\"\n        else:\n\
+    \            self.state = \"wag tail\"\n\n    def bark(self, freq):\n        for\
+    \ i in range(freq):\n            print(\"[\" + self.name\n                  +\
+    \ \"]: Woof!\")\n\n\n![Diagram showing Class vs Instances](image_placeholder_1)\n\
+    \npython\nbello = Dog(\"bello\", \"black\")\nalice = Dog(\"alice\", \"white\"\
+    )\n\nprint(bello.color) # black\nprint(alice.color) # white\n\nbello.bark(1) #\
+    \ [bello]: Woof!\n\nalice.command(\"sit\")\nprint(\"[alice]: \" + alice.state)\n\
+    # [alice]: sit\n\nbello.command(\"no\")\nprint(\"[bello]: \" + bello.state)\n\
+    # [bello]: wag tail\n\nalice.command(\"alice\")\n# [alice]: Woof!\n# [alice]:\
+    \ Woof!\n\nbello.species += [\"wulf\"]\nprint(len(bello.species)\n      == len(alice.species))\
+    \ # True (!)\n |\n| **Instance** | You are an instance of the class human. An\
+    \ instance is a concrete implementation of a class: all attributes of an instance\
+    \ have a fixed value. Your hair is blond, brown, or black - but never unspecified.\n\
+    \nEach instance has its own attributes independent of other instances. Yet, class\
+    \ variables are different. These are data values associated with the class, not\
+    \ the instances. Hence, all instance share the same class variable **species**\
+    \ in the example. | |\n| **Self** | The first argument when defining any method\
+    \ is always the **self** argument. This argument specifies the instance on which\
+    \ you call the method.\n\n**self** gives the Python interpreter the information\
+    \ about the concrete instance. To *define* a method, you use **self** to modify\
+    \ the instance attributes. But to *call* an instance method, you do not need to\
+    \ specify **self**. | |\n| **Creation** | You can create classes “on the fly”\
+    \ and use them as logical units to store complex data types.\n\npython\nclass\
+    \ Employee():\n    pass\nemployee = Employee()\nemployee.salary = 122000\nemployee.firstname\
+    \ = \"alice\"\nemployee.lastname = \"wonderland\"\n\nprint(employee.firstname\
+    \ + \" \"\n      + employee.lastname + \" \"\n      + str(employee.salary) + \"\
+    $\")\n# alice wonderland 122000$\n | |"
+  - '[PAGE 4]
+
+
+    # # Python Cheat Sheet - Functions and Tricks
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | | Description | Example | Result |
+
+    |---|---|---|---|
+
+    | **ADVANCED** | | | |
+
+    | map(func, iter) | Executes the function on all elements of the iterable | list(map(lambda
+    x: x[0], [''red'', ''green'', ''blue''])) | [''r'', ''g'', ''b''] |
+
+    | map(func, i1, ..., ik) | Executes the function on all k elements of the k iterables
+    | list(map(lambda x, y: str(x) + '' '' + y + ''s'' , [0, 2, 2], [''apple'', ''orange'',
+    ''banana''])) | [''0 apples'', ''2 oranges'', ''2 bananas''] |
+
+    | string.join(iter) | Concatenates iterable elements separated by string | ''
+    marries ''.join(list([''Alice'', ''Bob''])) | ''Alice marries Bob'' |
+
+    | **FUNCTIONS** | | | |
+
+    | filter(func, iterable) | Filters out elements in iterable for which function
+    returns False (or 0) | list(filter(lambda x: True if x>17 else False, [1, 15,
+    17, 18])) | [18] |
+
+    | string.strip() | Removes leading and trailing whitespaces of string | print("\n
+    \t 42 \t ".strip()) | 42 |
+
+    | sorted(iter) | Sorts iterable in ascending order | sorted([8, 3, 2, 42, 5])
+    | [2, 3, 5, 8, 42] |
+
+    | sorted(iter, key=key) | Sorts according to the key function in ascending order
+    | sorted([8, 3, 2, 42, 5], key=lambda x: 0 if x==42 else x) | [42, 2, 3, 5, 8]
+    |
+
+    | help(func) | Returns documentation of func | help(str.upper()) | ''... to uppercase.''
+    |
+
+    | zip(i1, i2, ...) | Groups the i-th elements of iterators i1, i2, ... together
+    | list(zip([''Alice'', ''Anna''], [''Bob'', ''Jon'', ''Frank''])) | [(''Alice'',
+    ''Bob''), (''Anna'', ''Jon'')] |
+
+    | Unzip | Equal to: 1) unpack the zipped list, 2) zip the result | list(zip(*[(''Alice'',
+    ''Bob''), (''Anna'', ''Jon'')])) | [(''Alice'', ''Anna''), (''Bob'', ''Jon'')]
+    |
+
+    | enumerate(iter) | Assigns a counter value to each element of the iterable |
+    list(enumerate([''Alice'', ''Bob'', ''Jon''])) | [(0, ''Alice''), (1, ''Bob''),
+    (2, ''Jon'')] |
+
+    | **TRICKS** | | | |
+
+    | python -m http.server <P> | Share files between PC and phone? Run command in
+    PC''s shell. <P> is any port number 0–65535. Type <IP address of PC>:<P> in the
+    phone''s browser. You can now browse the files in the PC directory. | | |
+
+    | Read comic | import antigravity | Open the comic series xkcd in your web browser
+    | |
+
+    | Zen of Python | import this | ''...Beautiful is better than ugly. Explicit is
+    ...'' | |
+
+    | Swapping numbers | Swapping variables is a breeze in Python. No offense, Java!
+    | a, b = ''Jane'', ''Alice''<br>a, b = b, a | a = ''Alice''<br>b = ''Jane'' |
+
+    | Unpacking arguments | Use a sequence as function arguments via asterisk operator
+    *. Use a dictionary (key, value) via double asterisk operator ** | def f(x, y,
+    z): return x + y * z<br>f(*[1, 3, 4])<br>f(**{''z'' : 4, ''x'' : 1, ''y'' : 3})
+    | 13<br>13 |
+
+    | Extended Unpacking | Use unpacking for multiple assignment feature in Python
+    | a, *b = [1, 2, 3, 4, 5] | a = 1<br>b = [2, 3, 4, 5] |
+
+    | Merge two dictionaries | Use unpacking to merge two dictionaries into a single
+    one | x={''Alice'' : 18}<br>y={''Bob'' : 27, ''Ann'' : 22}<br>z = {**x, **y} |
+    z = {''Alice'': 18, ''Bob'': 27, ''Ann'': 22} |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_4_0.png)'
+  - '[PAGE 5]
+
+
+    # # Python Cheat Sheet: 14 Interview Questions
+
+
+    “A puzzle a day to learn, code, and play” →
+
+
+    *FREE* Python Email Course @ http://bit.ly/free-python-course
+
+
+    | Question | Code | Question | Code |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Check if list contains integer x | `l = [3, 3, 4, 5, 2, 111, 5]`<br>`print(111
+    in l) # True` | Get missing number in [1...100] | `def get_missing_number(lst):`<br>`    return
+    set(range(lst[len(lst)-1]+1)) - set(l)`<br>`l = list(range(1,100))`<br>`l.remove(50)`<br>`print(get_missing_number(l))
+    # 50` |
+
+    | Find duplicate number in integer list | `def find_duplicates(elements):`<br>`    duplicates,
+    seen = set(), set()`<br>`    for element in elements:`<br>`        if element
+    in seen:`<br>`            duplicates.add(element)`<br>`        seen.add(element)`<br>`    return
+    list(duplicates)` | Compute the intersection of two lists | `def intersect(lst1,
+    lst2):`<br>`    res, lst2_copy = [], lst2[:]`<br>`    for el in lst1:`<br>`        if
+    el in lst2_copy:`<br>`            res.append(el)`<br>`            lst2_copy.remove(el)`<br>`    return
+    res` |
+
+    | Check if two strings are anagrams | `def is_anagram(s1, s2):`<br>`    return
+    set(s1) == set(s2)`<br>`print(is_anagram("elvis", "lives")) # True` | Find max
+    and min in unsorted list | `l = [4, 3, 6, 3, 4, 888, 1, -11, 22, 3]`<br>`print(max(l))
+    # 888`<br>`print(min(l)) # -11` |
+
+    | Remove all duplicates from list | `lst = list(range(10)) + list(range(10))`<br>`lst
+    = list(set(lst))`<br>`print(lst)`<br>`# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]` | Reverse
+    string using recursion | `def reverse(string):`<br>`    if len(string)<=1: return
+    string`<br>`    return reverse(string[1:])+string[0]`<br>`print(reverse("hello"))
+    # olleh` |
+
+    | Find pairs of integers in list so that their sum is equal to integer x | `def
+    find_pairs(l, x):`<br>`    pairs = []`<br>`    for (i, el_1) in enumerate(l):`<br>`        for
+    (j, el_2) in enumerate(l[i+1:]):`<br>`            if el_1 + el_2 == x:`<br>`                pairs.append((el_1,
+    el_2))`<br>`    return pairs` | Compute the first n Fibonacci numbers | `a, b
+    = 0, 1`<br>`n = 10`<br>`for i in range(n):`<br>`    print(b)`<br>`    a, b = b,
+    a+b`<br>`# 1, 1, 2, 3, 5, 8, ...` |
+
+    | Check if a string is a palindrome | `def is_palindrome(phrase):`<br>`    return
+    phrase == phrase[::-1]`<br>`print(is_palindrome("anna")) # True` | Sort list with
+    Quicksort algorithm | `def qsort(L):`<br>`    if L == []: return []`<br>`    return
+    qsort([x for x in L[1:] if x< L[0]]) + L[0:1] +`<br>`qsort([x for x in L[1:] if
+    x>=L[0]])`<br>`lst = [44, 33, 22, 5, 77, 55, 999]`<br>`print(qsort(lst))`<br>`#
+    [5, 22, 33, 44, 55, 77, 999]` |
+
+    | Use list as stack, array, and queue | `# as a list ...`<br>`l = [3, 4]`<br>`l
+    += [5, 6] # l = [3, 4, 5, 6]`<br>`# ... as a stack ...`<br>`l.append(10) # l =
+    [4, 5, 6, 10]`<br>`l.pop() # l = [4, 5, 6]`<br>`# ... and as a queue`<br>`l.insert(0,
+    5) # l = [5, 4, 5, 6]`<br>`l.pop() # l = [5, 4, 5]` | Find all permutations of
+    string | `def get_permutations(w):`<br>`    if len(w)<=1:`<br>`        return
+    set(w)`<br>`    smaller = get_permutations(w[1:])`<br>`    perms = set()`<br>`    for
+    x in smaller:`<br>`        for pos in range(0,len(x)+1):`<br>`            perm
+    = x[:pos] + w[0] + x[pos:]`<br>`            perms.add(perm)`<br>`    return perms`<br>`print(get_permutations("nan"))`<br>`#
+    {''nna'', ''ann'', ''nan''}` |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_5_0.png)'
+- md: "# Python Cheat Sheet: NumPy\n\n\"A puzzle a day to learn, code, and play\"\
+    \ → Visit [finxter.com](https://finxter.com)\n\n| Name | Description | Example\
+    \ |\n| :--- | :--- | :--- |\n| `a.shape` | The shape attribute of NumPy array\
+    \ a keeps a tuple of integers. Each integer describes the number of elements of\
+    \ the axis. | `a = np.array([[1,2],[1,1],[0,0]])`<br>`print(np.shape(a))`<br>#\
+    \ (3, 2) |\n| `a.ndim` | The ndim attribute is equal to the length of the shape\
+    \ tuple. | `print(np.ndim(a))`<br># 2 |\n| `*` | The asterisk (star) operator\
+    \ performs the Hadamard product, i.e., multiplies two matrices with equal shape\
+    \ element-wise. | `a = np.array([[2, 0], [0, 2]])`<br>`b = np.array([[1, 1], [1,\
+    \ 1]])`<br>`print(a*b)`<br># [[2 0] [0 2]] |\n| `np.matmul(a,b)`, `a@b` | The\
+    \ standard matrix multiplication operator. Equivalent to the @ operator. | `print(np.matmul(a,b))`<br>#\
+    \ [[2 2] [2 2]] |\n| `np.arange([start, ]stop, [step, ])` | Creates a new 1D numpy\
+    \ array with evenly spaced values | `print(np.arange(0,10,2))`<br># [0 2 4 6 8]\
+    \ |\n| `np.linspace(start, stop, num=50)` | Creates a new 1D numpy array with\
+    \ evenly spread elements within the given interval | `print(np.linspace(0,10,3))`<br>#\
+    \ [ 0. 5. 10.] |\n| `np.average(a)` | Averages over all the values in the numpy\
+    \ array | `a = np.array([[2, 0], [0, 2]])`<br>`print(np.average(a))`<br># 1.0\
+    \ |\n| `<slice> = <val>` | Replace the `<slice>` as selected by the slicing operator\
+    \ with the value `<val>`. | `a = np.array([0, 1, 0, 0, 0])`<br>`a[::2] = 2`<br>`print(a)`<br>#\
+    \ [2 1 2 0 2] |\n| `np.var(a)` | Calculates the variance of a numpy array. | `a\
+    \ = np.array([2, 6])`<br>`print(np.var(a))`<br># 4.0 |\n| `np.std(a)` | Calculates\
+    \ the standard deviation of a numpy array | `print(np.std(a))`<br># 2.0 |\n| `np.diff(a)`\
+    \ | Calculates the difference between subsequent values in NumPy array a | `fibs\
+    \ = np.array([0, 1, 1, 2, 3, 5])`<br>`print(np.diff(fibs, n=1))`<br># [1 0 1 1\
+    \ 2] |\n| `np.cumsum(a)` | Calculates the cumulative sum of the elements in NumPy\
+    \ array a. | `print(np.cumsum(np.arange(5)))`<br># [ 0 1 3 6 10] |\n| `np.sort(a)`\
+    \ | Creates a new NumPy array with the values from a (ascending). | `a = np.array([10,3,7,1,0])`<br>`print(np.sort(a))`<br>#\
+    \ [ 0 1 3 7 10] |\n| `np.argsort(a)` | Returns the indices of a NumPy array so\
+    \ that the indexed values would be sorted. | `a = np.array([10,3,7,1,0])`<br>`print(np.argsort(a))`<br>#\
+    \ [4 3 1 2 0] |\n| `np.max(a)` | Returns the maximal value of NumPy array a. |\
+    \ `a = np.array([10,3,7,1,0])`<br>`print(np.max(a))`<br># 10 |\n| `np.argmax(a)`\
+    \ | Returns the index of the element with maximal value in the NumPy array a.\
+    \ | `a = np.array([10,3,7,1,0])`<br>`print(np.argmax(a))`<br># 0 |\n| `np.nonzero(a)`\
+    \ | Returns the indices of the nonzero elements in NumPy array a. | `a = np.array([10,3,7,1,0])`<br>`print(np.nonzero(a))`<br>#\
+    \ [0 1 2 3] |\n\n# Python Cheat Sheet: Object Orientation Terms\n\n\"A puzzle\
+    \ a day to learn, code, and play\" → Visit [finxter.com](https://finxter.com)\n\
+    \n| Term | Description | Example |\n| :--- | :--- | :--- |\n| **Class** | A blueprint\
+    \ to create **objects**. It defines the data (**attributes**) and functionality\
+    \ (**methods**) of the objects. You can access both attributes and methods via\
+    \ the dot notation. | ```python\nclass Dog:\n    # class attribute\n    is_hairy\
+    \ = True\n\n    # constructor\n    def __init__(self, name):\n        # instance\
+    \ attribute\n        self.name = name\n\n    # method\n    def bark(self):\n \
+    \       print(\"Wuff\")\n\n\nbello = Dog(\"bello\")\nparis = Dog(\"paris\")\n\n\
+    print(bello.name)\n\"bello\"\n\nprint(paris.name)\n\"paris\"\n``` |\n| **Object**\
+    \ (=instance) | A piece of encapsulated data with functionality in your Python\
+    \ program that is built according to a **class** definition. Often, an object\
+    \ corresponds to a thing in the real world. An example is the object \"Obama\"\
+    \ that is created according to the class definition \"Person\". An object consists\
+    \ of an arbitrary number of **attributes** and **methods**, **encapsulated** within\
+    \ a single unit. | |\n| **Instantiation** | The process of creating an **object**\
+    \ of a **class**. This is done with the constructor method `__init__(self, ...)`.\
+    \ | |\n| **Method** | A subset of the overall functionality of an **object**.\
+    \ The method is defined similarly to a function (using the keyword \"def\") in\
+    \ the **class** definition. An object can have an arbitrary number of methods.\
+    \ | |\n| **Self** | The first argument when defining any method is always the\
+    \ `self` argument. This argument specifies the **instance** on which you call\
+    \ the **method**. `self` gives the Python interpreter the information about the\
+    \ concrete instance. To *define* a method, you use `self` to modify the instance\
+    \ attributes. But to *call* an instance method, you do not need to specify `self`.\
+    \ | |\n| **Encapsulation** | Binding together data and functionality that manipulates\
+    \ the data. | ```python\nclass Cat:\n    # method overloading\n    def miau(self,\
+    \ times=1):\n        print(\"miau \" * times)\n\n\nfifi = Cat()\n\nfifi.miau()\n\
+    \"miau \"\n\nfifi.miau(5)\n\"miau miau miau miau miau \"\n\n# Dynamic attribute\n\
+    fifi.likes = \"mice\"\nprint(fifi.likes)\n\"mice\"\n``` |\n| **Attribute** | A\
+    \ variable defined for a **class** (**class attribute**) or for an **object**\
+    \ (**instance attribute**). You use attributes to package data into enclosed units\
+    \ (class or instance). | |\n| **Class attribute** | (=class variable, static variable,\
+    \ static attribute) A variable that is created statically in the **class** definition\
+    \ and that is shared by all class **objects**. | |\n| **Instance attribute** (=instance\
+    \ variable) | A variable that holds data that belongs only to a single instance.\
+    \ Other instances do not share this variable (in contrast to **class attributes**).\
+    \ In most cases, you create an instance attribute `x` in the constructor when\
+    \ creating the instance itself using the `self` keywords (e.g. `self.x = <val>`).\
+    \ | |\n| **Dynamic attribute** | An **instance attribute** that is defined dynamically\
+    \ during the execution of the program and that is not defined within any **method**.\
+    \ For example, you can simply add a new attribute `neew` to any **object** `o`\
+    \ by calling `o.neew = <val>`. | |\n| **Method overloading** | You may want to\
+    \ define a method in a way so that there are multiple options to call it. For\
+    \ example for class `X`, you define a **method** `f(...)` that can be called in\
+    \ three ways: `f(a)`, `f(a,b)`, or `f(a,b,c)`. To this end, you can define the\
+    \ method with default parameters (e.g. `f(a, b=None, c=None)`). | |\n| **Inheritance**\
+    \ | **Class** A can inherit certain characteristics (like **attributes** or **methods**)\
+    \ from class B. For example, the class \"Dog\" may inherit the attribute \"number_of_legs\"\
+    \ from the class \"Animal\". In this case, you would define the inherited class\
+    \ \"Dog\" as follows: `\"class Dog(Animal): ...\"` | ```python\n# Inheritance\n\
+    class Persian_Cat(Cat):\n    classification = \"Persian\"\n\nmimi = Persian_Cat()\n\
+    print(mimi.miau(3))\n\"miau miau miau \"\n\nprint(mimi.classification)\n``` |\n\
+    \n# [Test Sheet] Help Alice Find Her Coding Dad!\n\nfinxter „Continuous Improvement\
+    \ in Your Coffee Break Python!“\n\n# [Cheat Sheet] 6 Pillar Machine Learning Algorithms\n\
+    \nComplete Course: https://academy.finxter.com/\n\n## Linear Regression\n\nhttps://blog.finxter.com/logistic-regression-in-one-line-python/\n\
+    \n## K-Means Clustering\n\nhttps://blog.finxter.com/tutorial-how-to-run-k-means-clustering-in-1-line-of-python/\n\
+    \n## K Nearest Neighbors\n\nhttps://blog.finxter.com/k-nearest-neighbors-as-a-python-one-liner/\n\
+    \n## Support Vector Machine Classification\n\nhttps://blog.finxter.com/support-vector-machines-python/\n\
+    \n## Decision Tree Classification\n\nhttps://blog.finxter.com/decision-tree-learning-in-one-line-python/\n\
+    \n## Multilayer Perceptron\n\nhttps://blog.finxter.com/tutorial-how-to-create-your-first-neural-network-in-1-line-of-python-code/\n\
+    \nfinxter\n\n„Continuous Improvement in Your Coffee Break Python!“"
+  mdcn: "# Python 速查表：NumPy\n\n“每日一题，学习、编码、娱乐” → 访问 [finxter.com](https://finxter.com)\n\
+    \n| 名称 | 描述 | 示例 |\n| :--- | :--- | :--- |\n| `a.shape` | NumPy 数组 `a` 的 `shape`\
+    \ 属性是一个整数元组。每个整数描述对应轴的元素数量。 | `a = np.array([[1,2],[1,1],[0,0]])`<br>`print(np.shape(a))`<br>#\
+    \ (3, 2) |\n| `a.ndim` | `ndim` 属性等于 `shape` 元组的长度。 | `print(np.ndim(a))`<br>#\
+    \ 2 |\n| `*` | 星号（`*`）运算符执行哈达玛积，即逐元素地乘以两个形状相同的矩阵。 | `a = np.array([[2, 0], [0,\
+    \ 2]])`<br>`b = np.array([[1, 1], [1, 1]])`<br>`print(a*b)`<br># [[2 0] [0 2]]\
+    \ |\n| `np.matmul(a,b)`, `a@b` | 标准矩阵乘法运算符。等同于 `@` 运算符。 | `print(np.matmul(a,b))`<br>#\
+    \ [[2 2] [2 2]] |\n| `np.arange([start, ]stop, [step, ])` | 创建一个新的、具有均匀间隔值的一维\
+    \ NumPy 数组。 | `print(np.arange(0,10,2))`<br># [0 2 4 6 8] |\n| `np.linspace(start,\
+    \ stop, num=50)` | 创建一个新的、在给定区间内均匀分布元素的一维 NumPy 数组。 | `print(np.linspace(0,10,3))`<br>#\
+    \ [ 0. 5. 10.] |\n| `np.average(a)` | 计算 NumPy 数组中所有值的平均值。 | `a = np.array([[2,\
+    \ 0], [0, 2]])`<br>`print(np.average(a))`<br># 1.0 |\n| `<slice> = <val>` | 将切片运算符选中的\
+    \ `<slice>` 替换为值 `<val>`。 | `a = np.array([0, 1, 0, 0, 0])`<br>`a[::2] = 2`<br>`print(a)`<br>#\
+    \ [2 1 2 0 2] |\n| `np.var(a)` | 计算 NumPy 数组的方差。 | `a = np.array([2, 6])`<br>`print(np.var(a))`<br>#\
+    \ 4.0 |\n| `np.std(a)` | 计算 NumPy 数组的标准差。 | `print(np.std(a))`<br># 2.0 |\n| `np.diff(a)`\
+    \ | 计算 NumPy 数组 `a` 中连续值之间的差值。 | `fibs = np.array([0, 1, 1, 2, 3, 5])`<br>`print(np.diff(fibs,\
+    \ n=1))`<br># [1 0 1 1 2] |\n| `np.cumsum(a)` | 计算 NumPy 数组 `a` 中元素的累积和。 | `print(np.cumsum(np.arange(5)))`<br>#\
+    \ [ 0 1 3 6 10] |\n| `np.sort(a)` | 创建一个新的 NumPy 数组，其值来自 `a`（升序排列）。 | `a = np.array([10,3,7,1,0])`<br>`print(np.sort(a))`<br>#\
+    \ [ 0 1 3 7 10] |\n| `np.argsort(a)` | 返回 NumPy 数组的索引，使得索引后的值会被排序。 | `a = np.array([10,3,7,1,0])`<br>`print(np.argsort(a))`<br>#\
+    \ [4 3 1 2 0] |\n| `np.max(a)` | 返回 NumPy 数组 `a` 的最大值。 | `a = np.array([10,3,7,1,0])`<br>`print(np.max(a))`<br>#\
+    \ 10 |\n| `np.argmax(a)` | 返回 NumPy 数组 `a` 中最大值元素的索引。 | `a = np.array([10,3,7,1,0])`<br>`print(np.argmax(a))`<br>#\
+    \ 0 |\n| `np.nonzero(a)` | 返回 NumPy 数组 `a` 中非零元素的索引。 | `a = np.array([10,3,7,1,0])`<br>`print(np.nonzero(a))`<br>#\
+    \ [0 1 2 3] |\n\n# Python 速查表：面向对象术语\n\n“每日一题，学习、编码、娱乐” → 访问 [finxter.com](https://finxter.com)\n\
+    \n| 术语 | 描述 | 示例 |\n| :--- | :--- | :--- |\n| **类** | 创建**对象**的蓝图。它定义了对象的数据（**属性**）和功能（**方法**）。你可以通过点号表示法访问属性和方法。\
+    \ | ```python\nclass Dog:\n    # 类属性\n    is_hairy = True\n\n    # 构造函数\n    def\
+    \ __init__(self, name):\n        # 实例属性\n        self.name = name\n\n    # 方法\n\
+    \    def bark(self):\n        print(\"Wuff\")\n\n\nbello = Dog(\"bello\")\nparis\
+    \ = Dog(\"paris\")\n\nprint(bello.name)\n\"bello\"\n\nprint(paris.name)\n\"paris\"\
+    \n``` |\n| **对象**（=实例） | Python 程序中根据**类**定义构建的、封装了数据和功能的一段代码。通常，一个对象对应现实世界中的一个事物。例如，根据类定义“Person”创建的对象“Obama”。一个对象由任意数量的**属性**和**方法****封装**在一个单元中。\
+    \ | |\n| **实例化** | 创建**类**的**对象**的过程。这通过构造函数方法 `__init__(self, ...)` 完成。 | |\n\
+    | **方法** | **对象**整体功能的一个子集。方法在**类**定义中类似于函数（使用关键字“def”）进行定义。一个对象可以有任意数量的方法。 |\
+    \ |\n| **Self** | 定义任何方法时的第一个参数始终是 `self` 参数。此参数指定调用**方法**的**实例**。`self` 为 Python\
+    \ 解释器提供有关具体实例的信息。要*定义*一个方法，你使用 `self` 来修改实例属性。但要*调用*实例方法，你不需要指定 `self`。 | |\n\
+    | **封装** | 将数据和操作数据的功能绑定在一起。 | ```python\nclass Cat:\n    # 方法重载\n    def miau(self,\
+    \ times=1):\n        print(\"miau \" * times)\n\n\nfifi = Cat()\n\nfifi.miau()\n\
+    \"miau \"\n\nfifi.miau(5)\n\"miau miau miau miau miau \"\n\n# 动态属性\nfifi.likes\
+    \ = \"mice\"\nprint(fifi.likes)\n\"mice\"\n``` |\n| **属性** | 为**类**（**类属性**）或**对象**（**实例属性**）定义的变量。你使用属性将数据打包到封闭单元（类或实例）中。\
+    \ | |\n| **类属性** | （=类变量，静态变量，静态属性）在**类**定义中静态创建的变量，由所有类**对象**共享。 | |\n| **实例属性**（=实例变量）\
+    \ | 仅属于单个实例的数据变量。其他实例不共享此变量（与**类属性**相反）。在大多数情况下，你在创建实例本身时在构造函数中使用 `self` 关键字（例如\
+    \ `self.x = <val>`）创建实例属性 `x`。 | |\n| **动态属性** | 在程序执行期间动态定义的**实例属性**，未在任何**方法**中定义。例如，你可以通过调用\
+    \ `o.neew = <val>` 简单地向任何**对象** `o` 添加一个新属性 `neew`。 | |\n| **方法重载** | 你可能希望以一种有多种调用选项的方式定义一个方法。例如，对于类\
+    \ `X`，你定义一个**方法** `f(...)`，可以通过三种方式调用：`f(a)`、`f(a,b)` 或 `f(a,b,c)`。为此，你可以使用默认参数定义该方法（例如\
+    \ `f(a, b=None, c=None)`）。 | |\n| **继承** | **类** A 可以从类 B 继承某些特性（如**属性**或**方法**）。例如，类“Dog”可以从类“Animal”继承属性“number_of_legs”。在这种情况下，你将定义继承类“Dog”如下：`\"\
+    class Dog(Animal): ...\"` | ```python\n# 继承\nclass Persian_Cat(Cat):\n    classification\
+    \ = \"Persian\"\n\nmimi = Persian_Cat()\nprint(mimi.miau(3))\n\"miau miau miau\
+    \ \"\n\nprint(mimi.classification)\n``` |\n\n# [测试表] 帮助爱丽丝找到她的编程爸爸！\n\nfinxter\
+    \ „在你的咖啡休息时间持续提升 Python！“\n\n# [速查表] 6 大支柱机器学习算法\n\n完整课程：https://academy.finxter.com/\n\
+    \n## 线性回归\n\nhttps://blog.finxter.com/logistic-regression-in-one-line-python/\n\
+    \n## K-均值聚类\n\nhttps://blog.finxter.com/tutorial-how-to-run-k-means-clustering-in-1-line-of-python/\n\
+    \n## K 近邻\n\nhttps://blog.finxter.com/k-nearest-neighbors-as-a-python-one-liner/\n\
+    \n## 支持向量机分类\n\nhttps://blog.finxter.com/support-vector-machines-python/\n\n##\
+    \ 决策树分类\n\nhttps://blog.finxter.com/decision-tree-learning-in-one-line-python/\n\
+    \n## 多层感知器\n\nhttps://blog.finxter.com/tutorial-how-to-create-your-first-neural-network-in-1-line-of-python-code/\n\
+    \nfinxter\n\n„在你的咖啡休息时间持续提升 Python！“"
+  merge: 0
+  raw:
+  - '[PAGE 6]
+
+
+    # # Python Cheat Sheet: NumPy
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | Name | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | `a.shape` | The shape attribute of NumPy array a keeps a tuple of integers.
+    Each integer describes the number of elements of the axis. | `a = np.array([[1,2],[1,1],[0,0]])`<br>`print(np.shape(a))`<br>#
+    (3, 2) |
+
+    | `a.ndim` | The ndim attribute is equal to the length of the shape tuple. | `print(np.ndim(a))`<br>#
+    2 |
+
+    | `*` | The asterisk (star) operator performs the Hadamard product, i.e., multiplies
+    two matrices with equal shape element-wise. | `a = np.array([[2, 0], [0, 2]])`<br>`b
+    = np.array([[1, 1], [1, 1]])`<br>`print(a*b)`<br># [[2 0] [0 2]] |
+
+    | `np.matmul(a,b)`, `a@b` | The standard matrix multiplication operator. Equivalent
+    to the @ operator. | `print(np.matmul(a,b))`<br># [[2 2] [2 2]] |
+
+    | `np.arange([start, ]stop, [step, ])` | Creates a new 1D numpy array with evenly
+    spaced values | `print(np.arange(0,10,2))`<br># [0 2 4 6 8] |
+
+    | `np.linspace(start, stop, num=50)` | Creates a new 1D numpy array with evenly
+    spread elements within the given interval | `print(np.linspace(0,10,3))`<br>#
+    [ 0. 5. 10.] |
+
+    | `np.average(a)` | Averages over all the values in the numpy array | `a = np.array([[2,
+    0], [0, 2]])`<br>`print(np.average(a))`<br># 1.0 |
+
+    | `<slice> = <val>` | Replace the `<slice>` as selected by the slicing operator
+    with the value `<val>`. | `a = np.array([0, 1, 0, 0, 0])`<br>`a[::2] = 2`<br>`print(a)`<br>#
+    [2 1 2 0 2] |
+
+    | `np.var(a)` | Calculates the variance of a numpy array. | `a = np.array([2,
+    6])`<br>`print(np.var(a))`<br># 4.0 |
+
+    | `np.std(a)` | Calculates the standard deviation of a numpy array | `print(np.std(a))`<br>#
+    2.0 |
+
+    | `np.diff(a)` | Calculates the difference between subsequent values in NumPy
+    array a | `fibs = np.array([0, 1, 1, 2, 3, 5])`<br>`print(np.diff(fibs, n=1))`<br>#
+    [1 0 1 1 2] |
+
+    | `np.cumsum(a)` | Calculates the cumulative sum of the elements in NumPy array
+    a. | `print(np.cumsum(np.arange(5)))`<br># [ 0 1 3 6 10] |
+
+    | `np.sort(a)` | Creates a new NumPy array with the values from a (ascending).
+    | `a = np.array([10,3,7,1,0])`<br>`print(np.sort(a))`<br># [ 0 1 3 7 10] |
+
+    | `np.argsort(a)` | Returns the indices of a NumPy array so that the indexed values
+    would be sorted. | `a = np.array([10,3,7,1,0])`<br>`print(np.argsort(a))`<br>#
+    [4 3 1 2 0] |
+
+    | `np.max(a)` | Returns the maximal value of NumPy array a. | `a = np.array([10,3,7,1,0])`<br>`print(np.max(a))`<br>#
+    10 |
+
+    | `np.argmax(a)` | Returns the index of the element with maximal value in the
+    NumPy array a. | `a = np.array([10,3,7,1,0])`<br>`print(np.argmax(a))`<br># 0
+    |
+
+    | `np.nonzero(a)` | Returns the indices of the nonzero elements in NumPy array
+    a. | `a = np.array([10,3,7,1,0])`<br>`print(np.nonzero(a))`<br># [0 1 2 3] |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_6_0.png)'
+  - "[PAGE 7]\n\n# Python Cheat Sheet: Object Orientation Terms\n\n“A puzzle a day\
+    \ to learn, code, and play” → Visit [finxter.com](https://finxter.com)\n\n| Term\
+    \ | Description | Example |\n| :--- | :--- | :--- |\n| **Class** | A blueprint\
+    \ to create **objects**. It defines the data (**attributes**) and functionality\
+    \ (**methods**) of the objects. You can access both attributes and methods via\
+    \ the dot notation. | python\nclass Dog:\n    # class attribute\n    is_hairy\
+    \ = True\n\n    # constructor\n    def __init__(self, name):\n        # instance\
+    \ attribute\n        self.name = name\n\n    # method\n    def bark(self):\n \
+    \       print(\"Wuff\")\n\n\npython\nbello = Dog(\"bello\")\nparis = Dog(\"paris\"\
+    )\n\nprint(bello.name)\n\"bello\"\n\nprint(paris.name)\n\"paris\"\n |\n| **Object**\
+    \ (=instance) | A piece of encapsulated data with functionality in your Python\
+    \ program that is built according to a **class** definition. Often, an object\
+    \ corresponds to a thing in the real world. An example is the object \"Obama\"\
+    \ that is created according to the class definition \"Person\". An object consists\
+    \ of an arbitrary number of **attributes** and **methods**, **encapsulated** within\
+    \ a single unit. | |\n| **Instantiation** | The process of creating an **object**\
+    \ of a **class**. This is done with the constructor method `__init__(self, ...)`.\
+    \ | |\n| **Method** | A subset of the overall functionality of an **object**.\
+    \ The method is defined similarly to a function (using the keyword \"def\") in\
+    \ the **class** definition. An object can have an arbitrary number of methods.\
+    \ | |\n| **Self** | The first argument when defining any method is always the\
+    \ `self` argument. This argument specifies the **instance** on which you call\
+    \ the **method**.\n\n`self` gives the Python interpreter the information about\
+    \ the concrete instance. To *define* a method, you use `self` to modify the instance\
+    \ attributes. But to *call* an instance method, you do not need to specify `self`.\
+    \ | |\n| **Encapsulation** | Binding together data and functionality that manipulates\
+    \ the data. | python\nclass Cat:\n    # method overloading\n    def miau(self,\
+    \ times=1):\n        print(\"miau \" * times)\n\n\npython\nfifi = Cat()\n\nfifi.miau()\n\
+    \"miau \"\n\nfifi.miau(5)\n\"miau miau miau miau miau \"\n\n# Dynamic attribute\n\
+    fifi.likes = \"mice\"\nprint(fifi.likes)\n\"mice\"\n |\n| **Attribute** | A variable\
+    \ defined for a **class** (**class attribute**) or for an **object** (**instance\
+    \ attribute**). You use attributes to package data into enclosed units (class\
+    \ or instance). | |\n| **Class attribute** | (=class variable, static variable,\
+    \ static attribute) A variable that is created statically in the **class** definition\
+    \ and that is shared by all class **objects**. | |\n| **Instance attribute** (=instance\
+    \ variable) | A variable that holds data that belongs only to a single instance.\
+    \ Other instances do not share this variable (in contrast to **class attributes**).\
+    \ In most cases, you create an instance attribute `x` in the constructor when\
+    \ creating the instance itself using the `self` keywords (e.g. `self.x = <val>`).\
+    \ | |\n| **Dynamic attribute** | An **instance attribute** that is defined dynamically\
+    \ during the execution of the program and that is not defined within any **method**.\
+    \ For example, you can simply add a new attribute `neew` to any **object** `o`\
+    \ by calling `o.neew = <val>`. | |\n| **Method overloading** | You may want to\
+    \ define a method in a way so that there are multiple options to call it. For\
+    \ example for class `X`, you define a **method** `f(...)` that can be called in\
+    \ three ways: `f(a)`, `f(a,b)`, or `f(a,b,c)`. To this end, you can define the\
+    \ method with default parameters (e.g. `f(a, b=None, c=None)`). | |\n| **Inheritance**\
+    \ | **Class** A can inherit certain characteristics (like **attributes** or **methods**)\
+    \ from class B. For example, the class \"Dog\" may inherit the attribute \"number_of_legs\"\
+    \ from the class \"Animal\". In this case, you would define the inherited class\
+    \ \"Dog\" as follows: `\"class Dog(Animal): ...\"` | python\n# Inheritance\nclass\
+    \ Persian_Cat(Cat):\n    classification = \"Persian\"\n\nmimi = Persian_Cat()\n\
+    print(mimi.miau(3))\n\"miau miau miau \"\n\nprint(mimi.classification)\n |\n\n\
+    ![](img/3302642dac9e1022b8a65373dea5984a_7_0.png)"
+  - '[PAGE 8]
+
+
+    # [Test Sheet] Help Alice Find Her Coding Dad!
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_8_0.png)
+
+
+    finxter „Continuous Improvement in Your Coffee Break Python!“'
+  - '[PAGE 9]
+
+
+    # [Cheat Sheet] 6 Pillar Machine Learning Algorithms
+
+
+    Complete Course: https://academy.finxter.com/
+
+
+    # Linear Regression
+
+
+    https://blog.finxter.com/logistic-regression-in-one-line-python/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_0.png)
+
+
+    # K-Means Clustering
+
+
+    https://blog.finxter.com/tutorial-how-to-run-k-means-clustering-in-1-line-of-python/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_1.png)
+
+
+    # K Nearest Neighbors
+
+
+    https://blog.finxter.com/k-nearest-neighbors-as-a-python-one-liner/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_2.png)
+
+
+    # Support Vector Machine Classification
+
+
+    https://blog.finxter.com/support-vector-machines-python/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_3.png)
+
+
+    # Decision Tree Classification
+
+
+    https://blog.finxter.com/decision-tree-learning-in-one-line-python/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_4.png)
+
+
+    # Multilayer Perceptron
+
+
+    https://blog.finxter.com/tutorial-how-to-create-your-first-neural-network-in-1-line-of-python-code/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_5.png)
+
+
+    finxter
+
+
+    „Continuous Improvement in Your Coffee Break Python!“'
+- md: "## The Simple Git Cheat Sheet – A Helpful Illustrated Guide\n\n### The Centralized\
+    \ Git Workflow\n\n- Every coder has own copy of project\n- Independence of workflow\n\
+    - No advanced branching and merging needed\n\n![](img/3302642dac9e1022b8a65373dea5984a_10_0.png)\n\
+    \n#### Git Master Branch\n\n##### Remote Repository: Master Branch\n\n![](img/3302642dac9e1022b8a65373dea5984a_10_1.png)\n\
+    \n###### Alice\n\n![](img/3302642dac9e1022b8a65373dea5984a_10_2.png)\n\n######\
+    \ Bob\n\n```bash\ngit init\n```\n\nCreate new repository\n\n```bash\ngit clone\
+    \ alice@host:/path/repos\n```\n\nClone repository\n\n```bash\ngit add main.py\n\
+    ```\n\nAdd file „main.py“ to project\n\n```bash\ngit clone bob@host:/path/repos\n\
+    ```\n\n```bash\ngit commit -m \"new file\"\n```\n\nCommit change and add message\
+    \ „new file“ to the master branch\n\n```bash\ngit push origin master\n```\n\n\
+    Send master branch to remote repository\n\n```bash\ngit pull\n```\n\nUpdate local\
+    \ repository with master branch\n\n```bash\ngit add *\n```\n\nAdd all changes\
+    \ to master\n\n```bash\ngit rm main.py\n```\n\nRemove file „main.py“ from master\
+    \ branch\n\n```bash\ngit commit -m \"add 2, rem 1\"\n```\n\nCommit change and\
+    \ add message to the master\n\n```bash\ngit push origin master\n```\n\nSend master\
+    \ branch to remote repository\n\n![](img/3302642dac9e1022b8a65373dea5984a_10_3.png)\n\
+    \n„A Puzzle A Day to Learn, Code, and Play!“\n\n## [Machine Learning Cheat Sheet]\
+    \ Support Vector Machines\n\nBased on Article: https://blog.finxter.com/support-vector-machines-python/\n\
+    \n> Main idea: Maximize width of separator zone → increases „margin of safety“\
+    \ for classification\n\n![](img/3302642dac9e1022b8a65373dea5984a_11_0.png)\n\n\
+    ### What are basic SVM properties?\n\n| Support Vector Machines | |\n|---|---|\n\
+    | Alternatives: | SVM, support-vector networks |\n| Learning: | Classification,\
+    \ Regression |\n| Advantages: | Robust for high-dimensional space<br>Memory efficient\
+    \ (only uses support vectors)<br>Flexible and customizable |\n| Disadvantages:\
+    \ | Danger of overfitting in high-dimensional space<br>No classification probabilities\
+    \ like Decision trees |\n| Boundary: | Linear and Non-linear |\n\n### What's the\
+    \ explanation of the code example?\n\n**Explanation: A Study Recommendation System\
+    \ with SVM**\n\n- NumPy array holds labeled training data (one row per user and\
+    \ one column per feature).\n- Features: skill level in maths, language, and creativity.\n\
+    - Labels: last column is recommended study field.\n- 3D data → SVM separates data\
+    \ using 2D planes (the linear separator) rather than 1D lines.\n- One-liner:\n\
+    \    1. Create model using constructor of scikit-learn's svm.SVC class (SVC =\
+    \ support vector classification).\n    2. Call fit function to perform training\
+    \ based on labeled training data.\n- Results: call predict function on new observations\n\
+    \    - student_0 (skills maths=3, language=3, and creativity=6) → SVM predicts\
+    \ \"art\"\n    - student_1 (maths=8, language=1, and creativity=1) → SVM predicts\
+    \ \"computer science\"\n- Final output of one-liner:\n\n### What's the most basic\
+    \ Python code example?\n\n```python\n## Dependencies\nfrom sklearn import svm\n\
+    import numpy as np\n\n## Data: student scores in (math, language, creativity)\n\
+    ## --> study field\nX = np.array([[9, 5, 6, \"computer science\"],\n         \
+    \     [10, 1, 2, \"computer science\"],\n              [1, 8, 1, \"literature\"\
+    ],\n              [4, 9, 3, \"literature\"],\n              [0, 1, 10, \"art\"\
+    ],\n              [5, 7, 9, \"art\"]])\n\n## One-liner\nsvm = svm.SVC().fit(X[:,:-1],\
+    \ X[:,-1])\n\n## Result & puzzle\nstudent_0 = svm.predict([[3, 3, 6]])\nprint(student_0)\n\
+    \nstudent_1 = svm.predict([[8, 1, 1]])\nprint(student_1)\n```\n\n```python\n##\
+    \ Result & puzzle\nstudent_0 = svm.predict([[3, 3, 6]])\nprint(student_0)\n# ['art']\n\
+    \nstudent_1 = svm.predict([[8, 1, 1]])\nprint(student_1)\n## ['computer science']\n\
+    ```\n\nfinxter\n\n„A Puzzle A Day to Learn, Code, and Play!“\n\n## Python Cheat\
+    \ Sheet: List Methods\n\n“A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)\n\
+    \n| Method | Description | Example |\n| :--- | :--- | :--- |\n| `lst.append(x)`\
+    \ | Appends element `x` to the list `lst`. | `>>> l = []`<br>`>>> l.append(42)`<br>`>>>\
+    \ l.append(21)`<br>`[42, 21]` |\n| `lst.clear()` | Removes all elements from the\
+    \ list `lst`—which becomes empty. | `>>> lst = [1, 2, 3, 4, 5]`<br>`>>> lst.clear()`<br>`[]`\
+    \ |\n| `lst.copy()` | Returns a copy of the list `lst`. Copies only the list,\
+    \ not the elements in the list (shallow copy). | `>>> lst = [1, 2, 3]`<br>`>>>\
+    \ lst.copy()`<br>`[1, 2, 3]` |\n| `lst.count(x)` | Counts the number of occurrences\
+    \ of element `x` in the list `lst`. | `>>> lst = [1, 2, 42, 2, 1, 42, 42]`<br>`>>>\
+    \ lst.count(42)`<br>`3`<br>`>>> lst.count(2)`<br>`2` |\n| `lst.extend(iter)` |\
+    \ Adds all elements of an iterable `iter` (e.g. another list) to the list `lst`.\
+    \ | `>>> lst = [1, 2, 3]`<br>`>>> lst.extend([4, 5, 6])`<br>`[1, 2, 3, 4, 5, 6]`\
+    \ |\n| `lst.index(x)` | Returns the position (index) of the first occurrence of\
+    \ value `x` in the list `lst`. | `>>> lst = [\"Alice\", 42, \"Bob\", 99]`<br>`>>>\
+    \ lst.index(\"Alice\")`<br>`0`<br>`>>> lst.index(99, 1, 3)`<br>`ValueError: 99\
+    \ is not in list` |\n| `lst.insert(i, x)` | Inserts element `x` at position (index)\
+    \ `i` in the list `lst`. | `>>> lst = [1, 2, 3, 4]`<br>`>>> lst.insert(3, 99)`<br>`[1,\
+    \ 2, 3, 99, 4]` |\n| `lst.pop()` | Removes and returns the final element of the\
+    \ list `lst`. | `>>> lst = [1, 2, 3]`<br>`>>> lst.pop()`<br>`3`<br>`>>> lst`<br>`[1,\
+    \ 2]` |\n| `lst.remove(x)` | Removes and returns the first occurrence of element\
+    \ `x` in the list `lst`. | `>>> lst = [1, 2, 99, 4, 99]`<br>`>>> lst.remove(99)`<br>`>>>\
+    \ lst`<br>`[1, 2, 4, 99]` |\n| `lst.reverse()` | Reverses the order of elements\
+    \ in the list `lst`. | `>>> lst = [1, 2, 3, 4]`<br>`>>> lst.reverse()`<br>`>>>\
+    \ lst`<br>`[4, 3, 2, 1]` |\n| `lst.sort()` | Sorts the elements in the list `lst`\
+    \ in ascending order. | `>>> lst = [88, 12, 42, 11, 2]`<br>`>>> lst.sort()`<br>`#\
+    \ [2, 11, 12, 42, 88]`<br>`>>> lst.sort(key=lambda x: str(x)[0])`<br>`# [11, 12,\
+    \ 2, 42, 88]` |\n\n![](img/3302642dac9e1022b8a65373dea5984a_12_0.png)\n\n## The\
+    \ Ultimate Python Cheat Sheet\n\n### Keywords\n\n| Keyword | Description | Code\
+    \ Examples |\n| :--- | :--- | :--- |\n| False, True | Boolean data type | `False\
+    \ == (1 > 2)`<br>`True == (2 > 1)` |\n| and, or, not | Logical operators<br>→\
+    \ Both are true<br>→ Either is true<br>→ Flips Boolean | `True and True` # True<br>`True\
+    \ or False` # True<br>`not False` # True |\n| break | Ends loop prematurely |\
+    \ `while True:`<br>`    break # finite loop` |\n| continue | Finishes current\
+    \ loop iteration | `while True:`<br>`    continue`<br>`    print(\"42\") # dead\
+    \ code` |\n| class | Defines new class | `class Coffee:`<br>`    # Define your\
+    \ class` |\n| def | Defines a new function or class method. | `def hi():`<br>`\
+    \    print('hi')` |\n| if, elif, else | Conditional execution:<br>- \"if condition\
+    \ == True?\"<br>- \"elif\" condition == True?<br>- Fallback: else branch | `x\
+    \ = int(input(\"ur val:\"))`<br>`if x > 3: print(\"Big\")`<br>`elif x == 3: print(\"\
+    3\")`<br>`else: print(\"Small\")` |\n| for, while | # For loop<br>for i in [0,1,2]:<br>\
+    \    print(i) | # While loop does same<br>`j = 0`<br>`while j < 3:`<br>`    print(j);\
+    \ j = j + 1` |\n| in | Sequence membership | `42 in [2, 39, 42] # True` |\n| is\
+    \ | Same object memory location | `y = x = 3`<br>`x is y # True`<br>`[3] is [3]\
+    \ # False` |\n| None | Empty value constant | `print() is None # True` |\n| lambda\
+    \ | Anonymous function | `(lambda x: x+3)(3) # 6`<br>`'Mahatma'` |\n| return |\
+    \ Terminates function. Optional return value defines function result. | `def increment(x):`<br>`\
+    \    return x + 1`<br>`increment(4) # returns 5` |\n\n### Basic Data Structures\n\
+    \n| Type | Description | Code Examples |\n| :--- | :--- | :--- |\n| Boolean |\
+    \ The Boolean data type is either True or False. Boolean operators are ordered\
+    \ by priority: not → and → or | `## Evaluates to True:`<br>`1<2 and 0<1 and 3>2\
+    \ and 2>=2 and 1==1`<br>`and 1!=0`<br><br>`## Evaluates to False:`<br>`bool(None\
+    \ or 0 or 0.0 or '' or [] or {}) or set()`<br><br>`Rule: None, 0, 0.0, empty strings,\
+    \ or empty container types evaluate to False` |\n| Integer, Float | An integer\
+    \ is a positive or negative number without decimal point such as 3.<br><br>A float\
+    \ is a positive or negative number with floating point precision such as 3.1415926.<br><br>Integer\
+    \ division rounds toward the smaller integer (example: 3//2=1). | `## Arithmetic\
+    \ Operations`<br>`x, y = 3, 2`<br>`print(x + y) # = 5`<br>`print(x - y) # = 1`<br>`print(x\
+    \ * y) # = 6`<br>`print(x / y) # = 1.5`<br>`print(x // y) # = 1`<br>`print(x %\
+    \ y) # = 1`<br>`print(-x) # = -3`<br>`print(abs(-x)) # = 3`<br>`print(int(3.9))\
+    \ # = 3`<br>`print(float(3)) # = 3.0`<br>`print(x ** y) # = 9` |\n| String | Python\
+    \ Strings are sequences of characters.<br><br>String Creation Methods:<br>1. Single\
+    \ quotes<br>>>> 'Yes'<br>2. Double quotes<br>>>> \"Yes\"<br>3. Triple quotes (multi-line)<br>>>>\
+    \ \"\"\"Yes<br>We Can\"\"\"<br>4. String method<br>>>> str(5) == '5'<br>True<br>5.\
+    \ Concatenation<br>>>> 'Ma' + 'hatma'<br>'Mahatma'<br><br>Whitespace chars:<br>Newline\
+    \ \\n,<br>Space \\s,<br>Tab \\t | `## Indexing and Slicing`<br>`s = \"The youngest\
+    \ pope was 11 years\"`<br>`s[0] # 'T'`<br>`s[1:3] # 'he'`<br>`s[-3:-1] # 'ar'`<br>`s[-3:]\
+    \ # 'ars'`<br><br>`x = s.split()`<br>`x[-2] + \" \" + x[2] + \"s\" # '11 popes'`<br><br>`##\
+    \ String Methods`<br>`y = \"    Hello world!\\n    \"`<br>`y.strip() # Remove\
+    \ Whitespace`<br>`\"Hi\".lower() # Lowercase: 'hi'`<br>`\"hi\".upper() # Uppercase:\
+    \ 'HI'`<br>`\"hello\".startswith(\"he\") # True`<br>`\"hello\".endswith(\"lo\"\
+    ) # True`<br>`\"hello\".find(\"ll\") # Match at 2`<br>`\"cheat\".replace(\"ch\"\
+    , \"m\") # 'meat'`<br>`''.join([\"F\", \"B\", \"I\"]) # 'FBI'`<br>`len(\"hello\
+    \ world\") # Length: 15`<br>`\"ear\" in \"earth\" # True` |\n\n### Complex Data\
+    \ Structures\n\n| Type | Description | Example |\n| :--- | :--- | :--- |\n| List\
+    \ | Stores a sequence of elements. Unlike strings, you can modify list objects\
+    \ (they're mutable). | `l = [1, 2, 2]`<br>`print(len(l)) # 3` |\n| Adding elements\
+    \ | Add elements to a list with (i) append, (ii) insert, or (iii) list concatenation.\
+    \ | `[1, 2].append(4) # [1, 2, 4]`<br>`[1, 4].insert(1,9) # [1, 9, 4]`<br>`[1,\
+    \ 2] + [4] # [1, 2, 4]` |\n| Removal | Slow for lists | `[1, 2, 2, 4].remove(1)\
+    \ # [2, 2, 4]` |\n| Reversing | Reverses list order | `[1, 2, 3].reverse() # [3,\
+    \ 2, 1]` |\n| Sorting | Sorts list using fast Timsort | `[2, 4, 2].sort() # [2,\
+    \ 2, 4]` |\n| Indexing | Finds the first occurrence of an element & returns index.\
+    \ Slow worst case for whole list traversal. | `[2, 2, 4].index(2)`<br>`# index\
+    \ of item 2 is 0`<br>`[2, 2, 4].index(2,1)`<br>`# index of item 2 after pos 1\
+    \ is 1` |\n| Stack | Use Python lists via the list operations append() and pop()\
+    \ | `stack = [3]`<br>`stack.append(42) # [3, 42]`<br>`stack.pop() # 42 (stack:\
+    \ [3])`<br>`stack.pop() # 3 (stack: [])` |\n| Set | An unordered collection of\
+    \ unique elements (at-most-once) → fast membership O(1) | `basket = {'apple',\
+    \ 'eggs',`<br>`          'banana', 'orange'}`<br>`same = set(['apple', 'eggs',`<br>`\
+    \            'banana', 'orange'])` |\n\n| Type | Description | Example |\n| :---\
+    \ | :--- | :--- |\n| Dictionary | Useful data structure for storing (key, value)\
+    \ pairs | `cal = {'apple' : 52, 'banana' : 89,`<br>`        'choco' : 546} # calories`\
+    \ |\n| Reading and writing elements | Read and write elements by specifying the\
+    \ key within the brackets. Use the **keys()** and **values()** functions to access\
+    \ all keys and values of the dictionary | `print(cal['apple'] < cal['choco'])`<br>`#\
+    \ True`<br>`cal['cappu'] = 74`<br>`print(cal['banana'] < cal['cappu'])`<br>`#\
+    \ False`<br>`print('apple' in cal.keys()) # True`<br>`print(52 in cal.values())\
+    \ # True` |\n| Dictionary Iteration | You can access the (key, value) pairs of\
+    \ a dictionary with the **items()** method. | `for k, v in cal.items():`<br>`\
+    \    print(k if v > 500 else '')`<br>`# 'choco'` |\n| Membership operator | Check\
+    \ with the **in** keyword if set, list, or dictionary contains an element. Set\
+    \ membership is faster than list membership | `basket = {'apple', 'eggs',`<br>`\
+    \          'banana', 'orange'}`<br>`print('eggs' in basket) # True`<br>`print('mushroom'\
+    \ in basket) # False` |\n| List & set comprehension | List comprehension is the\
+    \ concise Python way to create lists. Use brackets plus an expression, followed\
+    \ by a for clause. Close with zero or more if or for clauses. Set comprehension\
+    \ works similar to list comprehension. | `l = ['hi ' + x for x in ['Alice',`<br>`\
+    \     'Bob', 'Pete']]`<br>`# ['Hi Alice', 'Hi Bob', 'Hi Pete']`<br><br>`12 = [x\
+    \ * y for x in range(3) for y`<br>`     in range(3) if x>y] # [0, 0, 2]`<br><br>`squares\
+    \ = { x**2 for x in [0,2,4]`<br>`           if x < 4 } # {0, 4}` |"
+  mdcn: "## 简易 Git 速查表 – 实用图解指南\n\n### 集中式 Git 工作流\n\n-   每位开发者都拥有项目的独立副本\n-   工作流相互独立\n\
+    -   无需高级的分支与合并操作\n\n![](img/3302642dac9e1022b8a65373dea5984a_10_0.png)\n\n####\
+    \ Git 主分支\n\n##### 远程仓库：主分支\n\n![](img/3302642dac9e1022b8a65373dea5984a_10_1.png)\n\
+    \n###### Alice\n\n![](img/3302642dac9e1022b8a65373dea5984a_10_2.png)\n\n######\
+    \ Bob\n\n```bash\ngit init\n```\n\n创建新仓库\n\n```bash\ngit clone alice@host:/path/repos\n\
+    ```\n\n克隆仓库\n\n```bash\ngit add main.py\n```\n\n将文件 „main.py“ 添加到项目\n\n```bash\n\
+    git clone bob@host:/path/repos\n```\n\n```bash\ngit commit -m \"new file\"\n```\n\
+    \n提交更改，并向主分支添加消息 „new file“\n\n```bash\ngit push origin master\n```\n\n将主分支发送到远程仓库\n\
+    \n```bash\ngit pull\n```\n\n使用主分支更新本地仓库\n\n```bash\ngit add *\n```\n\n将所有更改添加到主分支\n\
+    \n```bash\ngit rm main.py\n```\n\n从主分支移除文件 „main.py“\n\n```bash\ngit commit -m\
+    \ \"add 2, rem 1\"\n```\n\n提交更改，并向主分支添加消息\n\n```bash\ngit push origin master\n\
+    ```\n\n将主分支发送到远程仓库\n\n![](img/3302642dac9e1022b8a65373dea5984a_10_3.png)\n\n„每日一题，学习、编码、玩乐！“\n\
+    \n## [机器学习速查表] 支持向量机\n\n基于文章：https://blog.finxter.com/support-vector-machines-python/\n\
+    \n> 核心思想：最大化分隔区域的宽度 → 增加分类的 „安全边际“\n\n![](img/3302642dac9e1022b8a65373dea5984a_11_0.png)\n\
+    \n### 支持向量机的基本属性是什么？\n\n| 支持向量机 | |\n|---|---|\n| 别名： | SVM，支持向量网络 |\n| 学习类型：\
+    \ | 分类，回归 |\n| 优点： | 对高维空间具有鲁棒性<br>内存效率高（仅使用支持向量）<br>灵活且可定制 |\n| 缺点： | 在高维空间中有过拟合的风险<br>无法像决策树那样提供分类概率\
+    \ |\n| 边界： | 线性与非线性 |\n\n### 代码示例的解释是什么？\n\n**解释：基于 SVM 的学习推荐系统**\n\n-   NumPy\
+    \ 数组存储带标签的训练数据（每行代表一个用户，每列代表一个特征）。\n-   特征：数学、语言和创造力的技能水平。\n-   标签：最后一列是推荐的学习领域。\n\
+    -   三维数据 → SVM 使用二维平面（线性分隔器）而非一维直线来分离数据。\n-   单行代码：\n    1.  使用 scikit-learn 的\
+    \ svm.SVC 类的构造函数创建模型（SVC = 支持向量分类）。\n    2.  调用 fit 函数，基于带标签的训练数据执行训练。\n-   结果：对新观测值调用\
+    \ predict 函数\n    -   student_0（技能：数学=3，语言=3，创造力=6）→ SVM 预测为 „艺术“\n    -   student_1（数学=8，语言=1，创造力=1）→\
+    \ SVM 预测为 „计算机科学“\n-   单行代码的最终输出：\n\n### 最基本的 Python 代码示例是什么？\n\n```python\n##\
+    \ 依赖项\nfrom sklearn import svm\nimport numpy as np\n\n## 数据：学生在（数学、语言、创造力）上的分数\n\
+    ## --> 学习领域\nX = np.array([[9, 5, 6, \"computer science\"],\n              [10,\
+    \ 1, 2, \"computer science\"],\n              [1, 8, 1, \"literature\"],\n   \
+    \           [4, 9, 3, \"literature\"],\n              [0, 1, 10, \"art\"],\n \
+    \             [5, 7, 9, \"art\"]])\n\n## 单行代码\nsvm = svm.SVC().fit(X[:,:-1], X[:,-1])\n\
+    \n## 结果与谜题\nstudent_0 = svm.predict([[3, 3, 6]])\nprint(student_0)\n\nstudent_1\
+    \ = svm.predict([[8, 1, 1]])\nprint(student_1)\n```\n\n```python\n## 结果与谜题\nstudent_0\
+    \ = svm.predict([[3, 3, 6]])\nprint(student_0)\n# ['art']\n\nstudent_1 = svm.predict([[8,\
+    \ 1, 1]])\nprint(student_1)\n## ['computer science']\n```\n\nfinxter\n\n„每日一题，学习、编码、玩乐！“\n\
+    \n## Python 速查表：列表方法\n\n“每日一题，学习、编码、玩乐” → 访问 [finxter.com](https://finxter.com)\n\
+    \n| 方法 | 描述 | 示例 |\n| :--- | :--- | :--- |\n| `lst.append(x)` | 将元素 `x` 追加到列表\
+    \ `lst`。 | `>>> l = []`<br>`>>> l.append(42)`<br>`>>> l.append(21)`<br>`[42, 21]`\
+    \ |\n| `lst.clear()` | 移除列表 `lst` 中的所有元素——列表变为空。 | `>>> lst = [1, 2, 3, 4, 5]`<br>`>>>\
+    \ lst.clear()`<br>`[]` |\n| `lst.copy()` | 返回列表 `lst` 的副本。仅复制列表本身，不复制列表中的元素（浅拷贝）。\
+    \ | `>>> lst = [1, 2, 3]`<br>`>>> lst.copy()`<br>`[1, 2, 3]` |\n| `lst.count(x)`\
+    \ | 统计元素 `x` 在列表 `lst` 中出现的次数。 | `>>> lst = [1, 2, 42, 2, 1, 42, 42]`<br>`>>>\
+    \ lst.count(42)`<br>`3`<br>`>>> lst.count(2)`<br>`2` |\n| `lst.extend(iter)` |\
+    \ 将可迭代对象 `iter`（例如另一个列表）的所有元素添加到列表 `lst`。 | `>>> lst = [1, 2, 3]`<br>`>>> lst.extend([4,\
+    \ 5, 6])`<br>`[1, 2, 3, 4, 5, 6]` |\n| `lst.index(x)` | 返回值 `x` 在列表 `lst` 中首次出现的位置（索引）。\
+    \ | `>>> lst = [\"Alice\", 42, \"Bob\", 99]`<br>`>>> lst.index(\"Alice\")`<br>`0`<br>`>>>\
+    \ lst.index(99, 1, 3)`<br>`ValueError: 99 is not in list` |\n| `lst.insert(i,\
+    \ x)` | 在列表 `lst` 的位置（索引）`i` 处插入元素 `x`。 | `>>> lst = [1, 2, 3, 4]`<br>`>>> lst.insert(3,\
+    \ 99)`<br>`[1, 2, 3, 99, 4]` |\n| `lst.pop()` | 移除并返回列表 `lst` 的最后一个元素。 | `>>>\
+    \ lst = [1, 2, 3]`<br>`>>> lst.pop()`<br>`3`<br>`>>> lst`<br>`[1, 2]` |\n| `lst.remove(x)`\
+    \ | 移除并返回列表 `lst` 中元素 `x` 的首次出现。 | `>>> lst = [1, 2, 99, 4, 99]`<br>`>>> lst.remove(99)`<br>`>>>\
+    \ lst`<br>`[1, 2, 4, 99]` |\n| `lst.reverse()` | 反转列表 `lst` 中元素的顺序。 | `>>> lst\
+    \ = [1, 2, 3, 4]`<br>`>>> lst.reverse()`<br>`>>> lst`<br>`[4, 3, 2, 1]` |\n| `lst.sort()`\
+    \ | 将列表 `lst` 中的元素按升序排序。 | `>>> lst = [88, 12, 42, 11, 2]`<br>`>>> lst.sort()`<br>`#\
+    \ [2, 11, 12, 42, 88]`<br>`>>> lst.sort(key=lambda x: str(x)[0])`<br>`# [11, 12,\
+    \ 2, 42, 88]` |\n\n![](img/3302642dac9e1022b8a65373dea5984a_12_0.png)\n\n## 终极\
+    \ Python 速查表\n\n### 关键字\n\n| 关键字 | 描述 | 代码示例 |\n| :--- | :--- | :--- |\n| False,\
+    \ True | 布尔数据类型 | `False == (1 > 2)`<br>`True == (2 > 1)` |\n| and, or, not |\
+    \ 逻辑运算符<br>→ 两者都为真<br>→ 任一为真<br>→ 翻转布尔值 | `True and True` # True<br>`True or False`\
+    \ # True<br>`not False` # True |\n| break | 提前结束循环 | `while True:`<br>`    break\
+    \ # 有限循环` |\n| continue | 结束当前循环迭代 | `while True:`<br>`    continue`<br>`    print(\"\
+    42\") # 死代码` |\n| class | 定义新类 | `class Coffee:`<br>`    # 定义你的类` |\n| def | 定义新函数或类方法。\
+    \ | `def hi():`<br>`    print('hi')` |\n| if, elif, else | 条件执行：<br>- “if 条件 ==\
+    \ True?”<br>- “elif” 条件 == True?<br>- 回退：else 分支 | `x = int(input(\"ur val:\"\
+    ))`<br>`if x > 3: print(\"Big\")`<br>`elif x == 3: print(\"3\")`<br>`else: print(\"\
+    Small\")` |\n| for, while | # For 循环<br>for i in [0,1,2]:<br>    print(i) | #\
+    \ While 循环做同样的事<br>`j = 0`<br>`while j < 3:`<br>`    print(j); j = j + 1` |\n\
+    | in | 序列成员关系 | `42 in [2, 39, 42] # True` |\n| is | 同一对象内存位置 | `y = x = 3`<br>`x\
+    \ is y # True`<br>`[3] is [3] # False` |\n| None | 空值常量 | `print() is None # True`\
+    \ |\n| lambda | 匿名函数 | `(lambda x: x+3)(3) # 6`<br>`'Mahatma'` |\n| return | 终止函数。可选的返回值定义函数结果。\
+    \ | `def increment(x):`<br>`    return x + 1`<br>`increment(4) # 返回 5` |\n\n###\
+    \ 基本数据结构\n\n| 类型 | 描述 | 代码示例 |\n| :--- | :--- | :--- |\n| 布尔 | 布尔数据类型为 True 或\
+    \ False。布尔运算符按优先级排序：not → and → or | `## 求值为 True：`<br>`1<2 and 0<1 and 3>2 and\
+    \ 2>=2 and 1==1`<br>`and 1!=0`<br><br>`## 求值为 False：`<br>`bool(None or 0 or 0.0\
+    \ or '' or [] or {}) or set()`<br><br>`规则：None, 0, 0.0, 空字符串或空容器类型求值为 False` |\n\
+    | 整数，浮点数 | 整数是没有小数点的正数或负数，例如 3。<br><br>浮点数是具有浮点精度的正数或负数，例如 3.1415926。<br><br>整数除法向较小的整数方向舍入（例如：3//2=1）。\
+    \ | `## 算术运算`<br>`x, y = 3, 2`<br>`print(x + y) # = 5`<br>`print(x - y) # = 1`<br>`print(x\
+    \ * y) # = 6`<br>`print(x / y) # = 1.5`<br>`print(x // y) # = 1`<br>`print(x %\
+    \ y) # = 1`<br>`print(-x) # = -3`<br>`print(abs(-x)) # = 3`<br>`print(int(3.9))\
+    \ # = 3`<br>`print(float(3)) # = 3.0`<br>`print(x ** y) # = 9` |\n| 字符串 | Python\
+    \ 字符串是字符序列。<br><br>字符串创建方法：<br>1. 单引号<br>>>> 'Yes'<br>2. 双引号<br>>>> \"Yes\"<br>3.\
+    \ 三引号（多行）<br>>>> \"\"\"Yes<br>We Can\"\"\"<br>4. 字符串方法<br>>>> str(5) == '5'<br>True<br>5.\
+    \ 连接<br>>>> 'Ma' + 'hatma'<br>'Mahatma'<br><br>空白字符：<br>换行符 \\n,<br>空格 \\s,<br>制表符\
+    \ \\t | `## 索引和切片`<br>`s = \"The youngest pope was 11 years\"`<br>`s[0] # 'T'`<br>`s[1:3]\
+    \ # 'he'`<br>`s[-3:-1] # 'ar'`<br>`s[-3:] # 'ars'`<br><br>`x = s.split()`<br>`x[-2]\
+    \ + \" \" + x[2] + \"s\" # '11 popes'`<br><br>`## 字符串方法`<br>`y = \"    Hello world!\\\
+    n    \"`<br>`y.strip() # 移除空白`<br>`\"Hi\".lower() # 小写：'hi'`<br>`\"hi\".upper()\
+    \ # 大写：'HI'`<br>`\"hello\".startswith(\"he\") # True`<br>`\"hello\".endswith(\"\
+    lo\") # True`<br>`\"hello\".find(\"ll\") # 匹配位置 2`<br>`\"cheat\".replace(\"ch\"\
+    , \"m\") # 'meat'`<br>`''.join([\"F\", \"B\", \"I\"]) # 'FBI'`<br>`len(\"hello\
+    \ world\") # 长度：15`<br>`\"ear\" in \"earth\" # True` |\n\n### 复杂数据结构\n\n| 类型 |\
+    \ 描述 | 示例 |\n| :--- | :--- | :--- |\n| 列表 | 存储元素序列。与字符串不同，你可以修改列表对象（它们是可变的）。 |\
+    \ `l = [1, 2, 2]`<br>`print(len(l)) # 3` |\n| 添加元素 | 使用 (i) append, (ii) insert,\
+    \ 或 (iii) 列表连接向列表添加元素。 | `[1, 2].append(4) # [1, 2, 4]`<br>`[1, 4].insert(1,9)\
+    \ # [1, 9, 4]`<br>`[1, 2] + [4] # [1, 2, 4]` |\n| 移除 | 对列表来说较慢 | `[1, 2, 2, 4].remove(1)\
+    \ # [2, 2, 4]` |\n| 反转 | 反转列表顺序 | `[1, 2, 3].reverse() # [3, 2, 1]` |\n| 排序 |\
+    \ 使用快速的 Timsort 对列表排序 | `[2, 4, 2].sort() # [2, 2, 4]` |\n| 索引 | 查找元素的首次出现并返回索引。最坏情况需遍历整个列表，速度较慢。\
+    \ | `[2, 2, 4].index(2)`<br>`# 项目 2 的索引是 0`<br>`[2, 2, 4].index(2,1)`<br>`# 位置\
+    \ 1 之后项目 2 的索引是 1` |\n| 栈 | 通过列表操作 append() 和 pop() 使用 Python 列表 | `stack = [3]`<br>`stack.append(42)\
+    \ # [3, 42]`<br>`stack.pop() # 42 (栈: [3])`<br>`stack.pop() # 3 (栈: [])` |\n|\
+    \ 集合 | 唯一元素的无序集合（最多出现一次）→ 快速成员关系检查 O(1) | `basket = {'apple', 'eggs',`<br>`  \
+    \        'banana', 'orange'}`<br>`same = set(['apple', 'eggs',`<br>`         \
+    \   'banana', 'orange'])` |\n\n| 类型 | 描述 | 示例 |\n| :--- | :--- | :--- |\n| 字典\
+    \ | 存储（键，值）对的有用数据结构 | `cal = {'apple' : 52, 'banana' : 89,`<br>`        'choco'\
+    \ : 546} # 卡路里` |\n| 读写元素 | 通过在括号内指定键来读写元素。使用 **keys()** 和 **values()** 函数访问字典的所有键和值\
+    \ | `print(cal['apple'] < cal['choco'])`<br>`# True`<br>`cal['cappu'] = 74`<br>`print(cal['banana']\
+    \ < cal['cappu'])`<br>`# False`<br>`print('apple' in cal.keys()) # True`<br>`print(52\
+    \ in cal.values()) # True` |\n| 字典迭代 | 你可以使用 **items()** 方法访问字典的（键，值）对。 | `for\
+    \ k, v in cal.items():`<br>`    print(k if v > 500 else '')`<br>`# 'choco'` |\n\
+    | 成员关系运算符 | 使用 **in** 关键字检查集合、列表或字典是否包含某个元素。集合的成员关系检查比列表快 | `basket = {'apple',\
+    \ 'eggs',`<br>`          'banana', 'orange'}`<br>`print('eggs' in basket) # True`<br>`print('mushroom'\
+    \ in basket) # False` |\n| 列表与集合推导式 | 列表推导式是创建列表的简洁 Python 方式。使用方括号加一个表达式，后跟一个\
+    \ for 子句。以零个或多个 if 或 for 子句结束。集合推导式的工作方式与列表推导式类似。 | `l = ['hi ' + x for x in ['Alice',`<br>`\
+    \     'Bob', 'Pete']]`<br>`# ['Hi Alice', 'Hi Bob', 'Hi Pete']`<br><br>`12 = [x\
+    \ * y for x in range(3) for y`<br>`     in range(3) if x>y] # [0, 0, 2]`<br><br>`squares\
+    \ = { x**2 for x in [0,2,4]`<br>`           if x < 4 } # {0, 4}` |"
+  merge: 0
+  raw:
+  - '[PAGE 10]
+
+
+    # # The Simple Git Cheat Sheet – A Helpful Illustrated Guide
+
+
+    # ## The Centralized Git Workflow
+
+
+    +   - Every coder has own copy of project
+
+    - Independence of workflow
+
+    - No advanced branching and merging needed
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_10_0.png)
+
+
+    # ### Git Master Branch
+
+
+    # #### Remote Repository: Master Branch
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_10_1.png)
+
+
+    # ##### Alice
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_10_2.png)
+
+
+    # ##### Bob
+
+
+    ```
+
+    bash
+
+    git init
+
+    ```
+
+
+    Create new repository
+
+
+    ```
+
+    bash
+
+    git clone alice@host:/path/repos
+
+    ```
+
+
+    Clone repository
+
+
+    ```
+
+    bash
+
+    git add main.py
+
+    ```
+
+
+    Add file „main.py“ to project
+
+
+    ```
+
+    bash
+
+    git clone bob@host:/path/repos
+
+    ```
+
+
+    ```
+
+    bash
+
+    git commit -m "new file"
+
+    ```
+
+
+    Commit change and add message „new file“ to the master branch
+
+
+    ```
+
+    bash
+
+    git push origin master
+
+    ```
+
+
+    Send master branch to remote repository
+
+
+    ```
+
+    bash
+
+    git pull
+
+    ```
+
+
+    Update local repository with master branch
+
+
+    ```
+
+    bash
+
+    git add *
+
+    ```
+
+
+    Add all changes to master
+
+
+    ```
+
+    bash
+
+    git rm main.py
+
+    ```
+
+
+    Remove file „main.py“ from master branch
+
+
+    ```
+
+    bash
+
+    git commit -m "add 2, rem 1"
+
+    ```
+
+
+    Commit change and add message to the master
+
+
+    ```
+
+    bash
+
+    git push origin master
+
+    ```
+
+
+    Send master branch to remote repository
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_10_3.png)
+
+
+    „A Puzzle A Day to Learn, Code, and Play!“'
+  - "[PAGE 11]\n\n# [Machine Learning Cheat Sheet] Support Vector Machines\n\nBased\
+    \ on Article: https://blog.finxter.com/support-vector-machines-python/\n\n> Main\
+    \ idea: Maximize width of separator zone → increases „margin of safety“ for classification\n\
+    \n![](img/3302642dac9e1022b8a65373dea5984a_11_0.png)\n\n# What are basic SVM properties?\n\
+    \n| Support Vector Machines | |\n|---|---|\n| Alternatives: | SVM, support-vector\
+    \ networks |\n| Learning: | Classification, Regression |\n| Advantages: | Robust\
+    \ for high-dimensional space<br>Memory efficient (only uses support vectors)<br>Flexible\
+    \ and customizable |\n| Disadvantages: | Danger of overfitting in high-dimensional\
+    \ space<br>No classification probabilities like Decision trees |\n| Boundary:\
+    \ | Linear and Non-linear |\n\n# What's the explanation of the code example?\n\
+    \n**Explanation: A Study Recommendation System with SVM**\n\n+   - NumPy array\
+    \ holds labeled training data (one row per user and one column per feature).\n\
+    - Features: skill level in maths, language, and creativity.\n- Labels: last column\
+    \ is recommended study field.\n- 3D data → SVM separates data using 2D planes\
+    \ (the linear separator) rather than 1D lines.\n- One-liner:\n    1. Create model\
+    \ using constructor of scikit-learn's svm.SVC class (SVC = support vector classification).\n\
+    \    2. Call fit function to perform training based on labeled training data.\n\
+    - Results: call predict function on new observations\n    - student_0 (skills\
+    \ maths=3, language=3, and creativity=6) → SVM predicts \"art\"\n    - student_1\
+    \ (maths=8, language=1, and creativity=1) → SVM predicts \"computer science\"\n\
+    - Final output of one-liner:\n\n# What's the most basic Python code example?\n\
+    \n```\n## Dependencies\nfrom sklearn import svm\nimport numpy as np\n\n## Data:\
+    \ student scores in (math, language, creativity)\n## --> study field\nX = np.array([[9,\
+    \ 5, 6, \"computer science\"],\n              [10, 1, 2, \"computer science\"\
+    ],\n              [1, 8, 1, \"literature\"],\n              [4, 9, 3, \"literature\"\
+    ],\n              [0, 1, 10, \"art\"],\n              [5, 7, 9, \"art\"]])\n\n\
+    ## One-liner\nsvm = svm.SVC().fit(X[:,:-1], X[:,-1])\n\n## Result & puzzle\nstudent_0\
+    \ = svm.predict([[3, 3, 6]])\nprint(student_0)\n\nstudent_1 = svm.predict([[8,\
+    \ 1, 1]])\nprint(student_1)\n```\n\n```\n## Result & puzzle\nstudent_0 = svm.predict([[3,\
+    \ 3, 6]])\nprint(student_0)\n# ['art']\n\nstudent_1 = svm.predict([[8, 1, 1]])\n\
+    print(student_1)\n## ['computer science']\n```\n\nfinxter\n\n„A Puzzle A Day to\
+    \ Learn, Code, and Play!“"
+  - '[PAGE 12]
+
+
+    # Python Cheat Sheet: List Methods
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | Method | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | `lst.append(x)` | Appends element `x` to the list `lst`. | `>>> l = []`
+
+    `>>> l.append(42)`
+
+    `>>> l.append(21)`
+
+    `[42, 21]` |
+
+    | `lst.clear()` | Removes all elements from the list `lst`—which becomes empty.
+    | `>>> lst = [1, 2, 3, 4, 5]`
+
+    `>>> lst.clear()`
+
+    `[]` |
+
+    | `lst.copy()` | Returns a copy of the list `lst`. Copies only the list, not the
+    elements in the list (shallow copy). | `>>> lst = [1, 2, 3]`
+
+    `>>> lst.copy()`
+
+    `[1, 2, 3]` |
+
+    | `lst.count(x)` | Counts the number of occurrences of element `x` in the list
+    `lst`. | `>>> lst = [1, 2, 42, 2, 1, 42, 42]`
+
+    `>>> lst.count(42)`
+
+    `3`
+
+    `>>> lst.count(2)`
+
+    `2` |
+
+    | `lst.extend(iter)` | Adds all elements of an iterable `iter` (e.g. another list)
+    to the list `lst`. | `>>> lst = [1, 2, 3]`
+
+    `>>> lst.extend([4, 5, 6])`
+
+    `[1, 2, 3, 4, 5, 6]` |
+
+    | `lst.index(x)` | Returns the position (index) of the first occurrence of value
+    `x` in the list `lst`. | `>>> lst = ["Alice", 42, "Bob", 99]`
+
+    `>>> lst.index("Alice")`
+
+    `0`
+
+    `>>> lst.index(99, 1, 3)`
+
+    `ValueError: 99 is not in list` |
+
+    | `lst.insert(i, x)` | Inserts element `x` at position (index) `i` in the list
+    `lst`. | `>>> lst = [1, 2, 3, 4]`
+
+    `>>> lst.insert(3, 99)`
+
+    `[1, 2, 3, 99, 4]` |
+
+    | `lst.pop()` | Removes and returns the final element of the list `lst`. | `>>>
+    lst = [1, 2, 3]`
+
+    `>>> lst.pop()`
+
+    `3`
+
+    `>>> lst`
+
+    `[1, 2]` |
+
+    | `lst.remove(x)` | Removes and returns the first occurrence of element `x` in
+    the list `lst`. | `>>> lst = [1, 2, 99, 4, 99]`
+
+    `>>> lst.remove(99)`
+
+    `>>> lst`
+
+    `[1, 2, 4, 99]` |
+
+    | `lst.reverse()` | Reverses the order of elements in the list `lst`. | `>>> lst
+    = [1, 2, 3, 4]`
+
+    `>>> lst.reverse()`
+
+    `>>> lst`
+
+    `[4, 3, 2, 1]` |
+
+    | `lst.sort()` | Sorts the elements in the list `lst` in ascending order. | `>>>
+    lst = [88, 12, 42, 11, 2]`
+
+    `>>> lst.sort()`
+
+    `# [2, 11, 12, 42, 88]`
+
+    `>>> lst.sort(key=lambda x: str(x)[0])`
+
+    `# [11, 12, 2, 42, 88]` |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_12_0.png)'
+  - '[PAGE 13]
+
+
+    # The Ultimate Python Cheat Sheet
+
+
+    # Keywords
+
+
+    | Keyword | Description | Code Examples |
+
+    | :--- | :--- | :--- |
+
+    | False, True | Boolean data type | `False == (1 > 2)`<br>`True == (2 > 1)` |
+
+    | and, or, not | Logical operators<br>→ Both are true<br>→ Either is true<br>→
+    Flips Boolean | `True and True` # True<br>`True or False` # True<br>`not False`
+    # True |
+
+    | break | Ends loop prematurely | `while True:`<br>`    break # finite loop` |
+
+    | continue | Finishes current loop iteration | `while True:`<br>`    continue`<br>`    print("42")
+    # dead code` |
+
+    | class | Defines new class | `class Coffee:`<br>`    # Define your class` |
+
+    | def | Defines a new function or class method. | `def hi():`<br>`    print(''hi'')`
+    |
+
+    | if, elif, else | Conditional execution:<br>- "if condition == True?"<br>- "elif"
+    condition == True?<br>- Fallback: else branch | `x = int(input("ur val:"))`<br>`if
+    x > 3: print("Big")`<br>`elif x == 3: print("3")`<br>`else: print("Small")` |
+
+    | for, while | # For loop<br>for i in [0,1,2]:<br>    print(i) | # While loop
+    does same<br>`j = 0`<br>`while j < 3:`<br>`    print(j); j = j + 1` |
+
+    | in | Sequence membership | `42 in [2, 39, 42] # True` |
+
+    | is | Same object memory location | `y = x = 3`<br>`x is y # True`<br>`[3] is
+    [3] # False` |
+
+    | None | Empty value constant | `print() is None # True` |
+
+    | lambda | Anonymous function | `(lambda x: x+3)(3) # 6`<br>`''Mahatma''` |
+
+    | return | Terminates function. Optional return value defines function result.
+    | `def increment(x):`<br>`    return x + 1`<br>`increment(4) # returns 5` |
+
+
+    # Basic Data Structures
+
+
+    | Type | Description | Code Examples |
+
+    | :--- | :--- | :--- |
+
+    | Boolean | The Boolean data type is either True or False. Boolean operators are
+    ordered by priority: not → and → or | `## Evaluates to True:`<br>`1<2 and 0<1
+    and 3>2 and 2>=2 and 1==1`<br>`and 1!=0`<br><br>`## Evaluates to False:`<br>`bool(None
+    or 0 or 0.0 or '''' or [] or {}) or set()`<br><br>`Rule: None, 0, 0.0, empty strings,
+    or empty container types evaluate to False` |
+
+    | Integer, Float | An integer is a positive or negative number without decimal
+    point such as 3.<br><br>A float is a positive or negative number with floating
+    point precision such as 3.1415926.<br><br>Integer division rounds toward the smaller
+    integer (example: 3//2=1). | `## Arithmetic Operations`<br>`x, y = 3, 2`<br>`print(x
+    + y) # = 5`<br>`print(x - y) # = 1`<br>`print(x * y) # = 6`<br>`print(x / y) #
+    = 1.5`<br>`print(x // y) # = 1`<br>`print(x % y) # = 1`<br>`print(-x) # = -3`<br>`print(abs(-x))
+    # = 3`<br>`print(int(3.9)) # = 3`<br>`print(float(3)) # = 3.0`<br>`print(x **
+    y) # = 9` |
+
+    | String | Python Strings are sequences of characters.<br><br>String Creation
+    Methods:<br>1. Single quotes<br>>>> ''Yes''<br>2. Double quotes<br>>>> "Yes"<br>3.
+    Triple quotes (multi-line)<br>>>> """Yes<br>We Can"""<br>4. String method<br>>>>
+    str(5) == ''5''<br>True<br>5. Concatenation<br>>>> ''Ma'' + ''hatma''<br>''Mahatma''<br><br>Whitespace
+    chars:<br>Newline \n,<br>Space \s,<br>Tab \t | `## Indexing and Slicing`<br>`s
+    = "The youngest pope was 11 years"`<br>`s[0] # ''T''`<br>`s[1:3] # ''he''`<br>`s[-3:-1]
+    # ''ar''`<br>`s[-3:] # ''ars''`<br><br>`x = s.split()`<br>`x[-2] + " " + x[2]
+    + "s" # ''11 popes''`<br><br>`## String Methods`<br>`y = "    Hello world!\n    "`<br>`y.strip()
+    # Remove Whitespace`<br>`"Hi".lower() # Lowercase: ''hi''`<br>`"hi".upper() #
+    Uppercase: ''HI''`<br>`"hello".startswith("he") # True`<br>`"hello".endswith("lo")
+    # True`<br>`"hello".find("ll") # Match at 2`<br>`"cheat".replace("ch", "m") #
+    ''meat''`<br>`''''.join(["F", "B", "I"]) # ''FBI''`<br>`len("hello world") # Length:
+    15`<br>`"ear" in "earth" # True` |
+
+
+    # Complex Data Structures
+
+
+    | Type | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | List | Stores a sequence of elements. Unlike strings, you can modify list objects
+    (they''re mutable). | `l = [1, 2, 2]`<br>`print(len(l)) # 3` |
+
+    | Adding elements | Add elements to a list with (i) append, (ii) insert, or (iii)
+    list concatenation. | `[1, 2].append(4) # [1, 2, 4]`<br>`[1, 4].insert(1,9) #
+    [1, 9, 4]`<br>`[1, 2] + [4] # [1, 2, 4]` |
+
+    | Removal | Slow for lists | `[1, 2, 2, 4].remove(1) # [2, 2, 4]` |
+
+    | Reversing | Reverses list order | `[1, 2, 3].reverse() # [3, 2, 1]` |
+
+    | Sorting | Sorts list using fast Timsort | `[2, 4, 2].sort() # [2, 2, 4]` |
+
+    | Indexing | Finds the first occurrence of an element & returns index. Slow worst
+    case for whole list traversal. | `[2, 2, 4].index(2)`<br>`# index of item 2 is
+    0`<br>`[2, 2, 4].index(2,1)`<br>`# index of item 2 after pos 1 is 1` |
+
+    | Stack | Use Python lists via the list operations append() and pop() | `stack
+    = [3]`<br>`stack.append(42) # [3, 42]`<br>`stack.pop() # 42 (stack: [3])`<br>`stack.pop()
+    # 3 (stack: [])` |
+
+    | Set | An unordered collection of unique elements (at-most-once) → fast membership
+    O(1) | `basket = {''apple'', ''eggs'',`<br>`          ''banana'', ''orange''}`<br>`same
+    = set([''apple'', ''eggs'',`<br>`            ''banana'', ''orange''])` |
+
+
+    | Type | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | Dictionary | Useful data structure for storing (key, value) pairs | `cal = {''apple''
+    : 52, ''banana'' : 89,`<br>`        ''choco'' : 546} # calories` |
+
+    | Reading and writing elements | Read and write elements by specifying the key
+    within the brackets. Use the **keys()** and **values()** functions to access all
+    keys and values of the dictionary | `print(cal[''apple''] < cal[''choco''])`<br>`#
+    True`<br>`cal[''cappu''] = 74`<br>`print(cal[''banana''] < cal[''cappu''])`<br>`#
+    False`<br>`print(''apple'' in cal.keys()) # True`<br>`print(52 in cal.values())
+    # True` |
+
+    | Dictionary Iteration | You can access the (key, value) pairs of a dictionary
+    with the **items()** method. | `for k, v in cal.items():`<br>`    print(k if v
+    > 500 else '''')`<br>`# ''choco''` |
+
+    | Membership operator | Check with the **in** keyword if set, list, or dictionary
+    contains an element. Set membership is faster than list membership | `basket =
+    {''apple'', ''eggs'',`<br>`          ''banana'', ''orange''}`<br>`print(''eggs''
+    in basket) # True`<br>`print(''mushroom'' in basket) # False` |
+
+    | List & set comprehension | List comprehension is the concise Python way to create
+    lists. Use brackets plus an expression, followed by a for clause. Close with zero
+    or more if or for clauses. Set comprehension works similar to list comprehension.
+    | `l = [''hi '' + x for x in [''Alice'',`<br>`     ''Bob'', ''Pete'']]`<br>`#
+    [''Hi Alice'', ''Hi Bob'', ''Hi Pete'']`<br><br>`12 = [x * y for x in range(3)
+    for y`<br>`     in range(3) if x>y] # [0, 0, 2]`<br><br>`squares = { x**2 for
+    x in [0,2,4]`<br>`           if x < 4 } # {0, 4}` |'
+- md: '## finxter Book: Simplicity – The Finer Art of Creating Software
+
+
+    Complexity
+
+
+    > “A whole, made up of parts—difficult to analyze, understand, or explain”.
+
+
+    Complexity appears in
+
+    - Project Lifecycle
+
+    - Code Development
+
+    - Algorithmic Theory
+
+    - Processes
+
+    - Social Networks
+
+    - Learning & Your Daily Life
+
+
+    → Complexity reduces productivity and focus. It’ll consume your precious time.
+    Keep it simple!
+
+
+    80/20 Principle
+
+
+    Majority of effects come from the minority of causes.
+
+
+    Pareto Tips
+
+
+    1. Figure out your success metrics.
+
+    2. Figure out your big goals in life.
+
+    3. Look for ways to achieve the same things with fewer resources.
+
+    4. Reflect on your own successes
+
+    5. Reflect on your own failures
+
+    6. Read more books in your industry.
+
+    7. Spend much of your time improving and tweaking existing products
+
+    8. Smile.
+
+    9. Don’t do things that reduce value
+
+
+    Maximize Success Metric:
+
+    #lines of code written
+
+
+    Minimum Viable Product (MVP)
+
+
+    A minimum viable product in the software sense is code that is stripped from all
+    features to focus on the core functionality.
+
+
+    How to MVP?
+
+
+    - Formulate hypothesis
+
+    - Omit needless features
+
+    - Split test to validate each new feature
+
+    - Focus on product-market fit
+
+    - Seek high-value and low-cost features
+
+
+    Clean Code Principles
+
+
+    1. You Ain’t Going to Need It
+
+    2. The Principle of Least Surprise
+
+    3. Don’t Repeat Yourself
+
+    4. Code For People Not Machines
+
+    5. Stand on the Shoulders of Giants
+
+    6. Use the Right Names
+
+    7. Single-Responsibility Principle
+
+    8. Use Comments
+
+    9. Avoid Unnecessary Comments
+
+    10. Be Consistent
+
+    11. Test
+
+    12. Think in Big Pictures
+
+    13. Only Talk to Your Friends
+
+    14. Refactor
+
+    15. Don’t Overengineer
+
+    16. Don’t Overuse Indentation
+
+    17. Small is Beautiful
+
+    18. Use Metrics
+
+    19. Boy Scout Rule: Leave Camp Cleaner Than You Found It
+
+
+    Unix Philosophy
+
+
+    1. Simple’s Better Than Complex
+
+    2. Small is Beautiful (Again)
+
+    3. Make Each Program Do One Thing Well
+
+    4. Build a Prototype First
+
+    5. Portability Over Efficiency
+
+    6. Store Data in Flat Text Files
+
+    7. Use Software Leverage
+
+    8. Avoid Captive User Interfaces
+
+    9. Program = Filter
+
+    10. Worse is Better
+
+    11. Clean > Clever Code
+
+    12. Design Connected Programs
+
+    13. Make Your Code Robust
+
+    14. Repair What You Can — But Fail Early and Noisily
+
+    15. Write Programs to Write Programs
+
+
+    Premature Optimization
+
+
+    > “Programmers waste enormous amounts of time thinking about [...] the speed of
+    noncritical parts of their programs. We should forget about small efficiencies,
+    say about 97 % of the time: premature optimization is the root of all evil.” —
+    Donald Knuth
+
+
+    Performance Tuning 101
+
+
+    1. Measure, then improve
+
+    2. Focus on the slow 20%
+
+    3. Algorithmic optimization wins
+
+    4. All hail to the cache
+
+    5. Solve an easier problem version
+
+    6. Know when to stop
+
+
+    Flow
+
+
+    > “... the source code of ultimate human performance” – Kotler
+
+
+    Flow Tips for Coders
+
+
+    1. Always work on an explicit practical code project
+
+    2. Work on fun projects that fulfill your purpose
+
+    3. Perform from your strengths
+
+    4. Big chunks of coding time
+
+    5. Reduce distractions: smartphone + social
+
+    6. Sleep a lot, eat healthily, read quality books, and exercise → garbage in,
+    garbage out!
+
+
+    How to Achieve Flow? (1) clear goals, (2) immediate feedback, and (3) balance
+    opportunity & capacity.
+
+
+    Less Is More in Design
+
+
+    How to Simplify Design?
+
+
+    1. Use whitespace
+
+    2. Remove design elements
+
+    3. Remove features
+
+    4. Reduce variation of fonts, font types, colors
+
+    5. Be consistent across UIs
+
+
+    Focus
+
+
+    You can take raw resources and move them from a state of high entropy into a state
+    of low entropy—using focused effort towards the attainment of a greater plan.
+
+
+    3-Step Approach of Efficient Software Creation
+
+
+    1. Plan your code
+
+    2. Apply focused effort to make it real.
+
+    3. Seek feedback
+
+
+    Subscribe to the 11x FREE Python Cheat Sheet Course: https://blog.finxter.com/python-cheat-sheets/'
+  mdcn: '## finxter 书籍：简约——创造软件的精妙艺术
+
+
+    复杂性
+
+
+    > “一个由部分组成的整体——难以分析、理解或解释”。
+
+
+    复杂性出现在
+
+    - 项目生命周期
+
+    - 代码开发
+
+    - 算法理论
+
+    - 流程
+
+    - 社交网络
+
+    - 学习与日常生活
+
+
+    → 复杂性会降低生产力和专注力。它会消耗你宝贵的时间。保持简单！
+
+
+    80/20 法则
+
+
+    大多数结果源于少数原因。
+
+
+    帕累托建议
+
+
+    1.  确定你的成功指标。
+
+    2.  明确你人生中的宏大目标。
+
+    3.  寻找用更少资源实现相同目标的方法。
+
+    4.  反思你自己的成功。
+
+    5.  反思你自己的失败。
+
+    6.  多阅读你所在行业的书籍。
+
+    7.  将大部分时间用于改进和调整现有产品。
+
+    8.  微笑。
+
+    9.  不做降低价值的事情。
+
+
+    最大化成功指标：
+
+    #编写的代码行数
+
+
+    最小可行产品（MVP）
+
+
+    软件意义上的最小可行产品是指剥离了所有功能，专注于核心功能的代码。
+
+
+    如何进行 MVP？
+
+
+    - 提出假设
+
+    - 省略不必要的功能
+
+    - 进行拆分测试以验证每个新功能
+
+    - 专注于产品市场契合度
+
+    - 寻求高价值、低成本的功能
+
+
+    整洁代码原则
+
+
+    1.  你不会需要它
+
+    2.  最小惊讶原则
+
+    3.  不要重复自己
+
+    4.  为人类而非机器编写代码
+
+    5.  站在巨人的肩膀上
+
+    6.  使用恰当的名称
+
+    7.  单一职责原则
+
+    8.  使用注释
+
+    9.  避免不必要的注释
+
+    10. 保持一致性
+
+    11. 测试
+
+    12. 从大局思考
+
+    13. 只与你的朋友交谈
+
+    14. 重构
+
+    15. 不要过度工程化
+
+    16. 不要过度使用缩进
+
+    17. 小即是美
+
+    18. 使用度量指标
+
+    19. 童子军规则：离开营地时比你来时更干净
+
+
+    Unix 哲学
+
+
+    1.  简单胜于复杂
+
+    2.  小即是美（再次强调）
+
+    3.  让每个程序做好一件事
+
+    4.  先构建原型
+
+    5.  可移植性优于效率
+
+    6.  将数据存储在纯文本文件中
+
+    7.  利用软件杠杆
+
+    8.  避免强制用户界面
+
+    9.  程序 = 过滤器
+
+    10. 更坏即是更好
+
+    11. 整洁 > 聪明的代码
+
+    12. 设计相互连接的程序
+
+    13. 使你的代码健壮
+
+    14. 修复你能修复的——但要尽早且大声地失败
+
+    15. 编写用于编写程序的程序
+
+
+    过早优化
+
+
+    > “程序员浪费大量时间思考他们程序中非关键部分的运行速度。我们应该忘记小的效率提升，大约 97% 的时间都应如此：过早优化是万恶之源。” —— 唐纳德·克努特
+
+
+    性能调优入门
+
+
+    1.  先测量，再改进
+
+    2.  专注于慢的 20%
+
+    3.  算法优化是王道
+
+    4.  缓存至上
+
+    5.  解决更简单的问题版本
+
+    6.  知道何时停止
+
+
+    心流
+
+
+    > “……人类巅峰表现的源代码” – Kotler
+
+
+    程序员的心流技巧
+
+
+    1.  始终从事一个明确的实际代码项目
+
+    2.  从事能实现你目标的有趣项目
+
+    3.  发挥你的优势
+
+    4.  大块的编码时间
+
+    5.  减少干扰：智能手机 + 社交媒体
+
+    6.  多睡觉，健康饮食，阅读优质书籍，锻炼身体 → 垃圾进，垃圾出！
+
+
+    如何达到心流？（1）明确的目标，（2）即时反馈，以及（3）机会与能力的平衡。
+
+
+    设计中的少即是多
+
+
+    如何简化设计？
+
+
+    1.  使用留白
+
+    2.  移除设计元素
+
+    3.  移除功能
+
+    4.  减少字体、字体类型、颜色的变化
+
+    5.  在所有界面中保持一致
+
+
+    专注
+
+
+    你可以获取原始资源，并通过专注于实现更大计划的努力，将其从高熵状态转变为低熵状态。
+
+
+    高效软件创建的三步法
+
+
+    1.  规划你的代码
+
+    2.  集中精力将其变为现实。
+
+    3.  寻求反馈
+
+
+    订阅 11 个免费的 Python 速查表课程：https://blog.finxter.com/python-cheat-sheets/'
+  merge: 0
+  raw:
+  - '[PAGE 14]
+
+
+    # finxter Book: Simplicity – The Finer Art of Creating Software
+
+
+    Complexity
+
+
+    > “A whole, made up of parts—difficult to analyze, understand, or explain”.
+
+
+    Complexity appears in
+
+    - Project Lifecycle
+
+    - Code Development
+
+    - Algorithmic Theory
+
+    - Processes
+
+    - Social Networks
+
+    - Learning & Your Daily Life
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_0.png)
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_1.png)
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_2.png)
+
+
+    → Complexity reduces productivity and focus. It’ll consume your precious time.
+    Keep it simple!
+
+
+    80/20 Principle
+
+
+    Majority of effects come from the minority of causes.
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_3.png)
+
+
+    Pareto Tips
+
+
+    +   1. Figure out your success metrics.
+
+    2. Figure out your big goals in life.
+
+    3. Look for ways to achieve the same things with fewer resources.
+
+    4. Reflect on your own successes
+
+    5. Reflect on your own failures
+
+    6. Read more books in your industry.
+
+    7. Spend much of your time improving and tweaking existing products
+
+    8. Smile.
+
+    9. Don’t do things that reduce value
+
+
+    Maximize Success Metric:
+
+    #lines of code written
+
+
+    Minimum Viable Product (MVP)
+
+
+    A minimum viable product in the software sense is code that is stripped from all
+    features to focus on the core functionality.
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_4.png)
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_5.png)
+
+
+    How to MVP?
+
+
+    +   - Formulate hypothesis
+
+    - Omit needless features
+
+    - Split test to validate each new feature
+
+    - Focus on product-market fit
+
+    - Seek high-value and low-cost features
+
+
+    Clean Code Principles
+
+
+    +   1. You Ain’t Going to Need It
+
+    2. The Principle of Least Surprise
+
+    3. Don’t Repeat Yourself
+
+    4. Code For People Not Machines
+
+    5. Stand on the Shoulders of Giants
+
+    6. Use the Right Names
+
+    7. Single-Responsibility Principle
+
+    8. Use Comments
+
+    9. Avoid Unnecessary Comments
+
+    10. Be Consistent
+
+    11. Test
+
+    12. Think in Big Pictures
+
+    13. Only Talk to Your Friends
+
+    14. Refactor
+
+    15. Don’t Overengineer
+
+    16. Don’t Overuse Indentation
+
+    17. Small is Beautiful
+
+    18. Use Metrics
+
+    19. Boy Scout Rule: Leave Camp Cleaner Than You Found It
+
+
+    Unix Philosophy
+
+
+    +   1. Simple’s Better Than Complex
+
+    2. Small is Beautiful (Again)
+
+    3. Make Each Program Do One Thing Well
+
+    4. Build a Prototype First
+
+    5. Portability Over Efficiency
+
+    6. Store Data in Flat Text Files
+
+    7. Use Software Leverage
+
+    8. Avoid Captive User Interfaces
+
+    9. Program = Filter
+
+    10. Worse is Better
+
+    11. Clean > Clever Code
+
+    12. Design Connected Programs
+
+    13. Make Your Code Robust
+
+    14. Repair What You Can — But Fail Early and Noisily
+
+    15. Write Programs to Write Programs
+
+
+    Premature Optimization
+
+
+    > “Programmers waste enormous amounts of time thinking about [...] the speed of
+    noncritical parts of their programs. We should forget about small efficiencies,
+    say about 97 % of the time: premature optimization is the root of all evil.” —
+    Donald Knuth
+
+
+    Performance Tuning 101
+
+
+    +   1. Measure, then improve
+
+    2. Focus on the slow 20%
+
+    3. Algorithmic optimization wins
+
+    4. All hail to the cache
+
+    5. Solve an easier problem version
+
+    6. Know when to stop
+
+
+    Flow
+
+
+    > “... the source code of ultimate human performance” – Kotler
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_6.png)
+
+
+    Flow Tips for Coders
+
+
+    +   1. Always work on an explicit practical code project
+
+    2. Work on fun projects that fulfill your purpose
+
+    3. Perform from your strengths
+
+    4. Big chunks of coding time
+
+    5. Reduce distractions: smartphone + social
+
+    6. Sleep a lot, eat healthily, read quality books, and exercise → garbage in,
+    garbage out!
+
+
+    How to Achieve Flow? (1) clear goals, (2) immediate feedback, and (3) balance
+    opportunity & capacity.
+
+
+    Less Is More in Design
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_7.png)
+
+
+    How to Simplify Design?
+
+
+    +   1. Use whitespace
+
+    2. Remove design elements
+
+    3. Remove features
+
+    4. Reduce variation of fonts, font types, colors
+
+    5. Be consistent across UIs
+
+
+    Focus
+
+
+    You can take raw resources and move them from a state of high entropy into a state
+    of low entropy—using focused effort towards the attainment of a greater plan.
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_8.png)
+
+
+    3-Step Approach of Efficient Software Creation
+
+
+    +   1. Plan your code
+
+    2. Apply focused effort to make it real.
+
+    3. Seek feedback
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_9.png)
+
+
+    Subscribe to the 11x FREE Python Cheat Sheet Course: https://blog.finxter.com/python-cheat-sheets/'
+pages:
+- img_proc: true
+  md: '# # Python Cheat Sheet - Keywords
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | Keyword | Description | Code example |
+
+    | :--- | :--- | :--- |
+
+    | **False, True** | Data values from the data type Boolean | `False == (1 > 2)`,
+    `True == (2 > 1)` |
+
+    | **and, or, not** | Logical operators:<br>(x and y) → both x and y must be True<br>(x
+    or y) → either x or y must be True<br>(not x) → x must be false | `x, y = True,
+    False`<br>`(x or y) == True` # True<br>`(x and y) == False` # True<br>`(not y)
+    == True` # True |
+
+    | **break** | Ends loop prematurely | `while(True):`<br>`    break # no infinite
+    loop`<br>`print("hello world")` |
+
+    | **continue** | Finishes current loop iteration | `while(True):`<br>`    continue`<br>`print("43")
+    # dead code` |
+
+    | **class** | Defines a new class → a real-world concept<br>(object oriented programming)
+    | `class Beer:`<br>`    def __init__(self):`<br>`        self.content = 1.0`<br>`    def
+    drink(self):`<br>`        self.content = 0.0`<br><br>`becks = Beer() # constructor
+    - create class`<br>`becks.drink() # beer empty: b.content == 0` |
+
+    | **def** | Defines a new function or class method. For latter,<br>first parameter
+    ("self") points to the class object.<br>When calling class method, first parameter
+    is implicit. | |
+
+    | **if, elif, else** | Conditional program execution: program starts with<br>"if"
+    branch, tries the "elif" branches, and finishes with<br>"else" branch (until one
+    branch evaluates to True). | `x = int(input("your value: "))`<br>`if x > 3: print("Big")`<br>`elif
+    x == 3: print("Medium")`<br>`else: print("Small")` |
+
+    | **for, while** | # For loop declaration<br>`for i in [0,1,2]:`<br>`    print(i)`
+    | # While loop - same semantics<br>`j = 0`<br>`while j < 3:`<br>`    print(j)`<br>`    j
+    = j + 1` |
+
+    | **in** | Checks whether element is in sequence | `42 in [2, 39, 42] # True`
+    |
+
+    | **is** | Checks whether both elements point to the same<br>object | `y = x =
+    3`<br>`x is y # True`<br>`[3] is [3] # False` |
+
+    | **None** | Empty value constant | `def f():`<br>`    x = 2`<br>`f() is None
+    # True` |
+
+    | **lambda** | Function with no name (anonymous function) | `(lambda x: x + 3)(3)
+    # returns 6` |
+
+    | **return** | Terminates execution of the function and passes the<br>flow of
+    execution to the caller. An optional value after<br>the return keyword specifies
+    the function result. | `def incrementor(x):`<br>`    return x + 1`<br>`incrementor(4)
+    # returns 5` |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_0_0.png)'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: "# # Python Cheat Sheet - Basic Data Types\n\n“A puzzle a day to learn, code,\
+    \ and play” → Visit [finxter.com](https://finxter.com)\n\n| | Description | Example\
+    \ |\n|---|---|---|\n| **Boolean** | The Boolean data type is a truth value, either\
+    \ True or False.<br><br>The Boolean operators ordered by priority:<br>not x →\
+    \ “if x is False, then x, else y”<br>x and y → “if x is False, then x, else y”<br>x\
+    \ or y → “if x is False, then y, else x”<br><br>These comparison operators evaluate\
+    \ to True:<br>1 < 2 and 0 <= 1 and 3 > 2 and 2 >=2 and<br>1 == 1 and 1 != 0 #\
+    \ True | python\n## 1. Boolean Operations\nx, y = True, False\nprint(x and not\
+    \ y) # True\nprint(not x and y or x) # True\n\n## 2. If condition evaluates to\
+    \ False\nif None or 0 or 0.0 or '' or [] or {} or set():\n    # None, 0, 0.0,\
+    \ empty strings, or empty\n    # container types are evaluated to False\n    print(\"\
+    Dead code\") # Not reached\n |\n| **Integer, Float** | An integer is a positive\
+    \ or negative number without floating point (e.g. 3). A float is a positive or\
+    \ negative number with floating point precision (e.g. 3.14159265359).<br><br>The\
+    \ ‘//’ operator performs integer division. The result is an integer value that\
+    \ is rounded towards the smaller integer number (e.g. 3 // 2 == 1). | python\n\
+    ## 3. Arithmetic Operations\nx, y = 3, 2\nprint(x + y) # = 5\nprint(x - y) # =\
+    \ 1\nprint(x * y) # = 6\nprint(x / y) # = 1.5\nprint(x // y) # = 1\nprint(x %\
+    \ y) # = 1s\nprint(-x) # = -3\nprint(abs(-x)) # = 3\nprint(int(3.9)) # = 3\nprint(float(3))\
+    \ # = 3.0\nprint(x ** y) # = 9\n |\n| **String** | Python Strings are sequences\
+    \ of characters.<br><br>The four main ways to create strings are the following.<br><br>1.\
+    \ Single quotes<br>'Yes'<br>2. Double quotes<br>\"Yes\"<br>3. Triple quotes (multi-line)<br>\"\
+    \"\"Yes<br>We Can\"\"\"<br>4. String method<br>str(5) == '5' # True<br>5. Concatenation<br>\"\
+    Ma\" + \"hatma\" # 'Mahatma'<br><br>These are whitespace characters in strings.<br>•\
+    \ Newline \\n<br>• Space \\s<br>• Tab \\t | python\n## 4. Indexing and Slicing\n\
+    s = \"The youngest pope was 11 years old\"\nprint(s[0])       # 'T'\nprint(s[1:3])\
+    \     # 'he'\nprint(s[-3:-1])   # 'ol'\nprint(s[-3:])     # 'old'\nx = s.split()\
+    \     # creates string array of words\nprint(x[-3] + \" \" + x[-1] + \" \" + x[2]\
+    \ + \"s\")\n                  # '11 old popes'\n\n## 5. Most Important String\
+    \ Methods\ny = \"    This is lazy\\t\\n   \"\nprint(y.strip()) # Remove Whitespace:\
+    \ 'This is lazy'\nprint(\"DrDre\".lower()) # Lowercase: 'drdre'\nprint(\"attention\"\
+    .upper()) # Uppercase: 'ATTENTION'\nprint(\"smartphone\".startswith(\"smart\"\
+    )) # True\nprint(\"smartphone\".endswith(\"phone\")) # True\nprint(\"another\"\
+    .find(\"other\")) # Match index: 2\nprint(\"cheat\".replace(\"ch\", \"m\")) #\
+    \ 'meat'\nprint(','.join([\"F\", \"B\", \"I\"])) # 'F,B,I'\nprint(len(\"Rumpelstiltskin\"\
+    )) # String length: 15\nprint(\"ear\" in \"earth\") # Contains: True\n |\n\n![](img/3302642dac9e1022b8a65373dea5984a_1_0.png)"
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: '# Python Cheat Sheet - Complex Data Types
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | | Description | Example |
+
+    |---|---|---|
+
+    | **List** | A container data type that stores a sequence of elements. Unlike
+    strings, lists are mutable: modification possible. | `l = [1, 2, 2]`
+
+    `print(len(l)) # 3` |
+
+    | **Adding elements** | Add elements to a list with (i) append, (ii) insert, or
+    (iii) list concatenation. The append operation is very fast. | `[1, 2, 2].append(4)
+    # [1, 2, 2, 4]`
+
+    `[1, 2, 4].insert(2,2) # [1, 2, 2, 4]`
+
+    `[1, 2, 2] + [4] # [1, 2, 2, 4]` |
+
+    | **Removal** | Removing an element can be slower. | `[1, 2, 2, 4].remove(1) #
+    [2, 2, 4]` |
+
+    | **Reversing** | This reverses the order of list elements. | `[1, 2, 3].reverse()
+    # [3, 2, 1]` |
+
+    | **Sorting** | Sorts a list. The computational complexity of sorting is O(n log
+    n) for n list elements. | `[2, 4, 2].sort() # [2, 2, 4]` |
+
+    | **Indexing** | Finds the first occurence of an element in the list & returns
+    its index. Can be slow as the whole list is traversed. | `[2, 2, 4].index(2) #
+    index of element 4 is "0"`
+
+    `[2, 2, 4].index(2,1) # index of element 2 after pos 1 is "1"` |
+
+    | **Stack** | Python lists can be used intuitively as stack via the two list operations
+    append() and pop(). | `stack = [3]`
+
+    `stack.append(42) # [3, 42]`
+
+    `stack.pop() # 42 (stack: [3])`
+
+    `stack.pop() # 3 (stack: [])` |
+
+    | **Set** | A set is an unordered collection of elements. Each can exist only
+    once. | `basket = {''apple'', ''eggs'', ''banana'', ''orange''}`
+
+    `same = set([''apple'', ''eggs'', ''banana'', ''orange''])` |
+
+    | **Dictionary** | The dictionary is a useful data structure for storing (key,
+    value) pairs. | `calories = {''apple'' : 52, ''banana'' : 89, ''choco'' : 546}`
+    |
+
+    | **Reading and writing elements** | Read and write elements by specifying the
+    key within the brackets. Use the keys() and values() functions to access all keys
+    and values of the dictionary. | `print(calories[''apple''] < calories[''choco''])
+    # True`
+
+    `calories[''cappu''] = 74`
+
+    `print(calories[''banana''] < calories[''cappu'']) # False`
+
+    `print(''apple'' in calories.keys()) # True`
+
+    `print(52 in calories.values()) # True` |
+
+    | **Dictionary Looping** | You can loop over the (key, value) pairs of a dictionary
+    with the items() method. | `for k, v in calories.items():`
+
+    `    print(k) if v > 500 else None # ''chocolate''` |
+
+    | **Membership operator** | Check with the ''in'' keyword whether the set, list,
+    or dictionary contains an element. Set containment is faster than list containment.
+    | `basket = {''apple'', ''eggs'', ''banana'', ''orange''}`
+
+    `print(''eggs'' in basket) # True`
+
+    `print(''mushroom'' in basket) # False` |
+
+    | **List and Set Comprehension** | List comprehension is the concise Python way
+    to create lists. Use brackets plus an expression, followed by a for clause. Close
+    with zero or more for or if clauses. Set comprehension is similar to list comprehension.
+    | `# List comprehension`
+
+    `l = [(''Hi '' + x) for x in [''Alice'', ''Bob'', ''Pete'']]`
+
+    `print(l) # [''Hi Alice'', ''Hi Bob'', ''Hi Pete'']`
+
+    `l2 = [x * y for x in range(3) for y in range(3) if x>y]`
+
+    `print(l2) # [0, 0, 2]`
+
+    `# Set comprehension`
+
+    `squares = { x**2 for x in [0,2,4] if x < 4 } # {0, 4}` |'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: "# Python Cheat Sheet - Classes\n\n“A puzzle a day to learn, code, and play”\
+    \ → Visit [finxter.com](https://finxter.com)\n\n| | Description | Example |\n\
+    |---|---|---|\n| **Classes** | A class encapsulates data and functionality - data\
+    \ as attributes, and functionality as methods. It is a blueprint to create concrete\
+    \ instances in the memory. | python\nclass Dog:\n    \"\"\" Blueprint of a dog\
+    \ \"\"\"\n\n    # class variable shared by all instances\n    species = [\"canis\
+    \ lupus\"]\n\n    def __init__(self, name, color):\n        self.name = name\n\
+    \        self.state = \"sleeping\"\n        self.color = color\n\n    def command(self,\
+    \ x):\n        if x == self.name:\n            self.bark(2)\n        elif x ==\
+    \ \"sit\":\n            self.state = \"sit\"\n        else:\n            self.state\
+    \ = \"wag tail\"\n\n    def bark(self, freq):\n        for i in range(freq):\n\
+    \            print(\"[\" + self.name\n                  + \"]: Woof!\")\n\n\n\
+    ![Diagram showing Class vs Instances](image_placeholder_1)\n\npython\nbello =\
+    \ Dog(\"bello\", \"black\")\nalice = Dog(\"alice\", \"white\")\n\nprint(bello.color)\
+    \ # black\nprint(alice.color) # white\n\nbello.bark(1) # [bello]: Woof!\n\nalice.command(\"\
+    sit\")\nprint(\"[alice]: \" + alice.state)\n# [alice]: sit\n\nbello.command(\"\
+    no\")\nprint(\"[bello]: \" + bello.state)\n# [bello]: wag tail\n\nalice.command(\"\
+    alice\")\n# [alice]: Woof!\n# [alice]: Woof!\n\nbello.species += [\"wulf\"]\n\
+    print(len(bello.species)\n      == len(alice.species)) # True (!)\n |\n| **Instance**\
+    \ | You are an instance of the class human. An instance is a concrete implementation\
+    \ of a class: all attributes of an instance have a fixed value. Your hair is blond,\
+    \ brown, or black - but never unspecified.\n\nEach instance has its own attributes\
+    \ independent of other instances. Yet, class variables are different. These are\
+    \ data values associated with the class, not the instances. Hence, all instance\
+    \ share the same class variable **species** in the example. | |\n| **Self** |\
+    \ The first argument when defining any method is always the **self** argument.\
+    \ This argument specifies the instance on which you call the method.\n\n**self**\
+    \ gives the Python interpreter the information about the concrete instance. To\
+    \ *define* a method, you use **self** to modify the instance attributes. But to\
+    \ *call* an instance method, you do not need to specify **self**. | |\n| **Creation**\
+    \ | You can create classes “on the fly” and use them as logical units to store\
+    \ complex data types.\n\npython\nclass Employee():\n    pass\nemployee = Employee()\n\
+    employee.salary = 122000\nemployee.firstname = \"alice\"\nemployee.lastname =\
+    \ \"wonderland\"\n\nprint(employee.firstname + \" \"\n      + employee.lastname\
+    \ + \" \"\n      + str(employee.salary) + \"$\")\n# alice wonderland 122000$\n\
+    \ | |"
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: '# # Python Cheat Sheet - Functions and Tricks
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | | Description | Example | Result |
+
+    |---|---|---|---|
+
+    | **ADVANCED** | | | |
+
+    | map(func, iter) | Executes the function on all elements of the iterable | list(map(lambda
+    x: x[0], [''red'', ''green'', ''blue''])) | [''r'', ''g'', ''b''] |
+
+    | map(func, i1, ..., ik) | Executes the function on all k elements of the k iterables
+    | list(map(lambda x, y: str(x) + '' '' + y + ''s'' , [0, 2, 2], [''apple'', ''orange'',
+    ''banana''])) | [''0 apples'', ''2 oranges'', ''2 bananas''] |
+
+    | string.join(iter) | Concatenates iterable elements separated by string | ''
+    marries ''.join(list([''Alice'', ''Bob''])) | ''Alice marries Bob'' |
+
+    | **FUNCTIONS** | | | |
+
+    | filter(func, iterable) | Filters out elements in iterable for which function
+    returns False (or 0) | list(filter(lambda x: True if x>17 else False, [1, 15,
+    17, 18])) | [18] |
+
+    | string.strip() | Removes leading and trailing whitespaces of string | print("\n
+    \t 42 \t ".strip()) | 42 |
+
+    | sorted(iter) | Sorts iterable in ascending order | sorted([8, 3, 2, 42, 5])
+    | [2, 3, 5, 8, 42] |
+
+    | sorted(iter, key=key) | Sorts according to the key function in ascending order
+    | sorted([8, 3, 2, 42, 5], key=lambda x: 0 if x==42 else x) | [42, 2, 3, 5, 8]
+    |
+
+    | help(func) | Returns documentation of func | help(str.upper()) | ''... to uppercase.''
+    |
+
+    | zip(i1, i2, ...) | Groups the i-th elements of iterators i1, i2, ... together
+    | list(zip([''Alice'', ''Anna''], [''Bob'', ''Jon'', ''Frank''])) | [(''Alice'',
+    ''Bob''), (''Anna'', ''Jon'')] |
+
+    | Unzip | Equal to: 1) unpack the zipped list, 2) zip the result | list(zip(*[(''Alice'',
+    ''Bob''), (''Anna'', ''Jon'')])) | [(''Alice'', ''Anna''), (''Bob'', ''Jon'')]
+    |
+
+    | enumerate(iter) | Assigns a counter value to each element of the iterable |
+    list(enumerate([''Alice'', ''Bob'', ''Jon''])) | [(0, ''Alice''), (1, ''Bob''),
+    (2, ''Jon'')] |
+
+    | **TRICKS** | | | |
+
+    | python -m http.server <P> | Share files between PC and phone? Run command in
+    PC''s shell. <P> is any port number 0–65535. Type <IP address of PC>:<P> in the
+    phone''s browser. You can now browse the files in the PC directory. | | |
+
+    | Read comic | import antigravity | Open the comic series xkcd in your web browser
+    | |
+
+    | Zen of Python | import this | ''...Beautiful is better than ugly. Explicit is
+    ...'' | |
+
+    | Swapping numbers | Swapping variables is a breeze in Python. No offense, Java!
+    | a, b = ''Jane'', ''Alice''<br>a, b = b, a | a = ''Alice''<br>b = ''Jane'' |
+
+    | Unpacking arguments | Use a sequence as function arguments via asterisk operator
+    *. Use a dictionary (key, value) via double asterisk operator ** | def f(x, y,
+    z): return x + y * z<br>f(*[1, 3, 4])<br>f(**{''z'' : 4, ''x'' : 1, ''y'' : 3})
+    | 13<br>13 |
+
+    | Extended Unpacking | Use unpacking for multiple assignment feature in Python
+    | a, *b = [1, 2, 3, 4, 5] | a = 1<br>b = [2, 3, 4, 5] |
+
+    | Merge two dictionaries | Use unpacking to merge two dictionaries into a single
+    one | x={''Alice'' : 18}<br>y={''Bob'' : 27, ''Ann'' : 22}<br>z = {**x, **y} |
+    z = {''Alice'': 18, ''Bob'': 27, ''Ann'': 22} |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_4_0.png)'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: '# # Python Cheat Sheet: 14 Interview Questions
+
+
+    “A puzzle a day to learn, code, and play” →
+
+
+    *FREE* Python Email Course @ http://bit.ly/free-python-course
+
+
+    | Question | Code | Question | Code |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Check if list contains integer x | `l = [3, 3, 4, 5, 2, 111, 5]`<br>`print(111
+    in l) # True` | Get missing number in [1...100] | `def get_missing_number(lst):`<br>`    return
+    set(range(lst[len(lst)-1]+1)) - set(l)`<br>`l = list(range(1,100))`<br>`l.remove(50)`<br>`print(get_missing_number(l))
+    # 50` |
+
+    | Find duplicate number in integer list | `def find_duplicates(elements):`<br>`    duplicates,
+    seen = set(), set()`<br>`    for element in elements:`<br>`        if element
+    in seen:`<br>`            duplicates.add(element)`<br>`        seen.add(element)`<br>`    return
+    list(duplicates)` | Compute the intersection of two lists | `def intersect(lst1,
+    lst2):`<br>`    res, lst2_copy = [], lst2[:]`<br>`    for el in lst1:`<br>`        if
+    el in lst2_copy:`<br>`            res.append(el)`<br>`            lst2_copy.remove(el)`<br>`    return
+    res` |
+
+    | Check if two strings are anagrams | `def is_anagram(s1, s2):`<br>`    return
+    set(s1) == set(s2)`<br>`print(is_anagram("elvis", "lives")) # True` | Find max
+    and min in unsorted list | `l = [4, 3, 6, 3, 4, 888, 1, -11, 22, 3]`<br>`print(max(l))
+    # 888`<br>`print(min(l)) # -11` |
+
+    | Remove all duplicates from list | `lst = list(range(10)) + list(range(10))`<br>`lst
+    = list(set(lst))`<br>`print(lst)`<br>`# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]` | Reverse
+    string using recursion | `def reverse(string):`<br>`    if len(string)<=1: return
+    string`<br>`    return reverse(string[1:])+string[0]`<br>`print(reverse("hello"))
+    # olleh` |
+
+    | Find pairs of integers in list so that their sum is equal to integer x | `def
+    find_pairs(l, x):`<br>`    pairs = []`<br>`    for (i, el_1) in enumerate(l):`<br>`        for
+    (j, el_2) in enumerate(l[i+1:]):`<br>`            if el_1 + el_2 == x:`<br>`                pairs.append((el_1,
+    el_2))`<br>`    return pairs` | Compute the first n Fibonacci numbers | `a, b
+    = 0, 1`<br>`n = 10`<br>`for i in range(n):`<br>`    print(b)`<br>`    a, b = b,
+    a+b`<br>`# 1, 1, 2, 3, 5, 8, ...` |
+
+    | Check if a string is a palindrome | `def is_palindrome(phrase):`<br>`    return
+    phrase == phrase[::-1]`<br>`print(is_palindrome("anna")) # True` | Sort list with
+    Quicksort algorithm | `def qsort(L):`<br>`    if L == []: return []`<br>`    return
+    qsort([x for x in L[1:] if x< L[0]]) + L[0:1] +`<br>`qsort([x for x in L[1:] if
+    x>=L[0]])`<br>`lst = [44, 33, 22, 5, 77, 55, 999]`<br>`print(qsort(lst))`<br>`#
+    [5, 22, 33, 44, 55, 77, 999]` |
+
+    | Use list as stack, array, and queue | `# as a list ...`<br>`l = [3, 4]`<br>`l
+    += [5, 6] # l = [3, 4, 5, 6]`<br>`# ... as a stack ...`<br>`l.append(10) # l =
+    [4, 5, 6, 10]`<br>`l.pop() # l = [4, 5, 6]`<br>`# ... and as a queue`<br>`l.insert(0,
+    5) # l = [5, 4, 5, 6]`<br>`l.pop() # l = [5, 4, 5]` | Find all permutations of
+    string | `def get_permutations(w):`<br>`    if len(w)<=1:`<br>`        return
+    set(w)`<br>`    smaller = get_permutations(w[1:])`<br>`    perms = set()`<br>`    for
+    x in smaller:`<br>`        for pos in range(0,len(x)+1):`<br>`            perm
+    = x[:pos] + w[0] + x[pos:]`<br>`            perms.add(perm)`<br>`    return perms`<br>`print(get_permutations("nan"))`<br>`#
+    {''nna'', ''ann'', ''nan''}` |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_5_0.png)'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: '# # Python Cheat Sheet: NumPy
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | Name | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | `a.shape` | The shape attribute of NumPy array a keeps a tuple of integers.
+    Each integer describes the number of elements of the axis. | `a = np.array([[1,2],[1,1],[0,0]])`<br>`print(np.shape(a))`<br>#
+    (3, 2) |
+
+    | `a.ndim` | The ndim attribute is equal to the length of the shape tuple. | `print(np.ndim(a))`<br>#
+    2 |
+
+    | `*` | The asterisk (star) operator performs the Hadamard product, i.e., multiplies
+    two matrices with equal shape element-wise. | `a = np.array([[2, 0], [0, 2]])`<br>`b
+    = np.array([[1, 1], [1, 1]])`<br>`print(a*b)`<br># [[2 0] [0 2]] |
+
+    | `np.matmul(a,b)`, `a@b` | The standard matrix multiplication operator. Equivalent
+    to the @ operator. | `print(np.matmul(a,b))`<br># [[2 2] [2 2]] |
+
+    | `np.arange([start, ]stop, [step, ])` | Creates a new 1D numpy array with evenly
+    spaced values | `print(np.arange(0,10,2))`<br># [0 2 4 6 8] |
+
+    | `np.linspace(start, stop, num=50)` | Creates a new 1D numpy array with evenly
+    spread elements within the given interval | `print(np.linspace(0,10,3))`<br>#
+    [ 0. 5. 10.] |
+
+    | `np.average(a)` | Averages over all the values in the numpy array | `a = np.array([[2,
+    0], [0, 2]])`<br>`print(np.average(a))`<br># 1.0 |
+
+    | `<slice> = <val>` | Replace the `<slice>` as selected by the slicing operator
+    with the value `<val>`. | `a = np.array([0, 1, 0, 0, 0])`<br>`a[::2] = 2`<br>`print(a)`<br>#
+    [2 1 2 0 2] |
+
+    | `np.var(a)` | Calculates the variance of a numpy array. | `a = np.array([2,
+    6])`<br>`print(np.var(a))`<br># 4.0 |
+
+    | `np.std(a)` | Calculates the standard deviation of a numpy array | `print(np.std(a))`<br>#
+    2.0 |
+
+    | `np.diff(a)` | Calculates the difference between subsequent values in NumPy
+    array a | `fibs = np.array([0, 1, 1, 2, 3, 5])`<br>`print(np.diff(fibs, n=1))`<br>#
+    [1 0 1 1 2] |
+
+    | `np.cumsum(a)` | Calculates the cumulative sum of the elements in NumPy array
+    a. | `print(np.cumsum(np.arange(5)))`<br># [ 0 1 3 6 10] |
+
+    | `np.sort(a)` | Creates a new NumPy array with the values from a (ascending).
+    | `a = np.array([10,3,7,1,0])`<br>`print(np.sort(a))`<br># [ 0 1 3 7 10] |
+
+    | `np.argsort(a)` | Returns the indices of a NumPy array so that the indexed values
+    would be sorted. | `a = np.array([10,3,7,1,0])`<br>`print(np.argsort(a))`<br>#
+    [4 3 1 2 0] |
+
+    | `np.max(a)` | Returns the maximal value of NumPy array a. | `a = np.array([10,3,7,1,0])`<br>`print(np.max(a))`<br>#
+    10 |
+
+    | `np.argmax(a)` | Returns the index of the element with maximal value in the
+    NumPy array a. | `a = np.array([10,3,7,1,0])`<br>`print(np.argmax(a))`<br># 0
+    |
+
+    | `np.nonzero(a)` | Returns the indices of the nonzero elements in NumPy array
+    a. | `a = np.array([10,3,7,1,0])`<br>`print(np.nonzero(a))`<br># [0 1 2 3] |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_6_0.png)'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: "# Python Cheat Sheet: Object Orientation Terms\n\n“A puzzle a day to learn,\
+    \ code, and play” → Visit [finxter.com](https://finxter.com)\n\n| Term | Description\
+    \ | Example |\n| :--- | :--- | :--- |\n| **Class** | A blueprint to create **objects**.\
+    \ It defines the data (**attributes**) and functionality (**methods**) of the\
+    \ objects. You can access both attributes and methods via the dot notation. |\
+    \ python\nclass Dog:\n    # class attribute\n    is_hairy = True\n\n    # constructor\n\
+    \    def __init__(self, name):\n        # instance attribute\n        self.name\
+    \ = name\n\n    # method\n    def bark(self):\n        print(\"Wuff\")\n\n\npython\n\
+    bello = Dog(\"bello\")\nparis = Dog(\"paris\")\n\nprint(bello.name)\n\"bello\"\
+    \n\nprint(paris.name)\n\"paris\"\n |\n| **Object** (=instance) | A piece of encapsulated\
+    \ data with functionality in your Python program that is built according to a\
+    \ **class** definition. Often, an object corresponds to a thing in the real world.\
+    \ An example is the object \"Obama\" that is created according to the class definition\
+    \ \"Person\". An object consists of an arbitrary number of **attributes** and\
+    \ **methods**, **encapsulated** within a single unit. | |\n| **Instantiation**\
+    \ | The process of creating an **object** of a **class**. This is done with the\
+    \ constructor method `__init__(self, ...)`. | |\n| **Method** | A subset of the\
+    \ overall functionality of an **object**. The method is defined similarly to a\
+    \ function (using the keyword \"def\") in the **class** definition. An object\
+    \ can have an arbitrary number of methods. | |\n| **Self** | The first argument\
+    \ when defining any method is always the `self` argument. This argument specifies\
+    \ the **instance** on which you call the **method**.\n\n`self` gives the Python\
+    \ interpreter the information about the concrete instance. To *define* a method,\
+    \ you use `self` to modify the instance attributes. But to *call* an instance\
+    \ method, you do not need to specify `self`. | |\n| **Encapsulation** | Binding\
+    \ together data and functionality that manipulates the data. | python\nclass Cat:\n\
+    \    # method overloading\n    def miau(self, times=1):\n        print(\"miau\
+    \ \" * times)\n\n\npython\nfifi = Cat()\n\nfifi.miau()\n\"miau \"\n\nfifi.miau(5)\n\
+    \"miau miau miau miau miau \"\n\n# Dynamic attribute\nfifi.likes = \"mice\"\n\
+    print(fifi.likes)\n\"mice\"\n |\n| **Attribute** | A variable defined for a **class**\
+    \ (**class attribute**) or for an **object** (**instance attribute**). You use\
+    \ attributes to package data into enclosed units (class or instance). | |\n| **Class\
+    \ attribute** | (=class variable, static variable, static attribute) A variable\
+    \ that is created statically in the **class** definition and that is shared by\
+    \ all class **objects**. | |\n| **Instance attribute** (=instance variable) |\
+    \ A variable that holds data that belongs only to a single instance. Other instances\
+    \ do not share this variable (in contrast to **class attributes**). In most cases,\
+    \ you create an instance attribute `x` in the constructor when creating the instance\
+    \ itself using the `self` keywords (e.g. `self.x = <val>`). | |\n| **Dynamic attribute**\
+    \ | An **instance attribute** that is defined dynamically during the execution\
+    \ of the program and that is not defined within any **method**. For example, you\
+    \ can simply add a new attribute `neew` to any **object** `o` by calling `o.neew\
+    \ = <val>`. | |\n| **Method overloading** | You may want to define a method in\
+    \ a way so that there are multiple options to call it. For example for class `X`,\
+    \ you define a **method** `f(...)` that can be called in three ways: `f(a)`, `f(a,b)`,\
+    \ or `f(a,b,c)`. To this end, you can define the method with default parameters\
+    \ (e.g. `f(a, b=None, c=None)`). | |\n| **Inheritance** | **Class** A can inherit\
+    \ certain characteristics (like **attributes** or **methods**) from class B. For\
+    \ example, the class \"Dog\" may inherit the attribute \"number_of_legs\" from\
+    \ the class \"Animal\". In this case, you would define the inherited class \"\
+    Dog\" as follows: `\"class Dog(Animal): ...\"` | python\n# Inheritance\nclass\
+    \ Persian_Cat(Cat):\n    classification = \"Persian\"\n\nmimi = Persian_Cat()\n\
+    print(mimi.miau(3))\n\"miau miau miau \"\n\nprint(mimi.classification)\n |\n\n\
+    ![](img/3302642dac9e1022b8a65373dea5984a_7_0.png)"
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: '# [Test Sheet] Help Alice Find Her Coding Dad!
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_8_0.png)
+
+
+    finxter „Continuous Improvement in Your Coffee Break Python!“'
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: '# [Cheat Sheet] 6 Pillar Machine Learning Algorithms
+
+
+    Complete Course: https://academy.finxter.com/
+
+
+    # Linear Regression
+
+
+    https://blog.finxter.com/logistic-regression-in-one-line-python/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_0.png)
+
+
+    # K-Means Clustering
+
+
+    https://blog.finxter.com/tutorial-how-to-run-k-means-clustering-in-1-line-of-python/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_1.png)
+
+
+    # K Nearest Neighbors
+
+
+    https://blog.finxter.com/k-nearest-neighbors-as-a-python-one-liner/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_2.png)
+
+
+    # Support Vector Machine Classification
+
+
+    https://blog.finxter.com/support-vector-machines-python/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_3.png)
+
+
+    # Decision Tree Classification
+
+
+    https://blog.finxter.com/decision-tree-learning-in-one-line-python/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_4.png)
+
+
+    # Multilayer Perceptron
+
+
+    https://blog.finxter.com/tutorial-how-to-create-your-first-neural-network-in-1-line-of-python-code/
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_9_5.png)
+
+
+    finxter
+
+
+    „Continuous Improvement in Your Coffee Break Python!“'
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: '# # The Simple Git Cheat Sheet – A Helpful Illustrated Guide
+
+
+    # ## The Centralized Git Workflow
+
+
+    +   - Every coder has own copy of project
+
+    - Independence of workflow
+
+    - No advanced branching and merging needed
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_10_0.png)
+
+
+    # ### Git Master Branch
+
+
+    # #### Remote Repository: Master Branch
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_10_1.png)
+
+
+    # ##### Alice
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_10_2.png)
+
+
+    # ##### Bob
+
+
+    ```
+
+    bash
+
+    git init
+
+    ```
+
+
+    Create new repository
+
+
+    ```
+
+    bash
+
+    git clone alice@host:/path/repos
+
+    ```
+
+
+    Clone repository
+
+
+    ```
+
+    bash
+
+    git add main.py
+
+    ```
+
+
+    Add file „main.py“ to project
+
+
+    ```
+
+    bash
+
+    git clone bob@host:/path/repos
+
+    ```
+
+
+    ```
+
+    bash
+
+    git commit -m "new file"
+
+    ```
+
+
+    Commit change and add message „new file“ to the master branch
+
+
+    ```
+
+    bash
+
+    git push origin master
+
+    ```
+
+
+    Send master branch to remote repository
+
+
+    ```
+
+    bash
+
+    git pull
+
+    ```
+
+
+    Update local repository with master branch
+
+
+    ```
+
+    bash
+
+    git add *
+
+    ```
+
+
+    Add all changes to master
+
+
+    ```
+
+    bash
+
+    git rm main.py
+
+    ```
+
+
+    Remove file „main.py“ from master branch
+
+
+    ```
+
+    bash
+
+    git commit -m "add 2, rem 1"
+
+    ```
+
+
+    Commit change and add message to the master
+
+
+    ```
+
+    bash
+
+    git push origin master
+
+    ```
+
+
+    Send master branch to remote repository
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_10_3.png)
+
+
+    „A Puzzle A Day to Learn, Code, and Play!“'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: "# [Machine Learning Cheat Sheet] Support Vector Machines\n\nBased on Article:\
+    \ https://blog.finxter.com/support-vector-machines-python/\n\n> Main idea: Maximize\
+    \ width of separator zone → increases „margin of safety“ for classification\n\n\
+    ![](img/3302642dac9e1022b8a65373dea5984a_11_0.png)\n\n# What are basic SVM properties?\n\
+    \n| Support Vector Machines | |\n|---|---|\n| Alternatives: | SVM, support-vector\
+    \ networks |\n| Learning: | Classification, Regression |\n| Advantages: | Robust\
+    \ for high-dimensional space<br>Memory efficient (only uses support vectors)<br>Flexible\
+    \ and customizable |\n| Disadvantages: | Danger of overfitting in high-dimensional\
+    \ space<br>No classification probabilities like Decision trees |\n| Boundary:\
+    \ | Linear and Non-linear |\n\n# What's the explanation of the code example?\n\
+    \n**Explanation: A Study Recommendation System with SVM**\n\n+   - NumPy array\
+    \ holds labeled training data (one row per user and one column per feature).\n\
+    - Features: skill level in maths, language, and creativity.\n- Labels: last column\
+    \ is recommended study field.\n- 3D data → SVM separates data using 2D planes\
+    \ (the linear separator) rather than 1D lines.\n- One-liner:\n    1. Create model\
+    \ using constructor of scikit-learn's svm.SVC class (SVC = support vector classification).\n\
+    \    2. Call fit function to perform training based on labeled training data.\n\
+    - Results: call predict function on new observations\n    - student_0 (skills\
+    \ maths=3, language=3, and creativity=6) → SVM predicts \"art\"\n    - student_1\
+    \ (maths=8, language=1, and creativity=1) → SVM predicts \"computer science\"\n\
+    - Final output of one-liner:\n\n# What's the most basic Python code example?\n\
+    \n```\n## Dependencies\nfrom sklearn import svm\nimport numpy as np\n\n## Data:\
+    \ student scores in (math, language, creativity)\n## --> study field\nX = np.array([[9,\
+    \ 5, 6, \"computer science\"],\n              [10, 1, 2, \"computer science\"\
+    ],\n              [1, 8, 1, \"literature\"],\n              [4, 9, 3, \"literature\"\
+    ],\n              [0, 1, 10, \"art\"],\n              [5, 7, 9, \"art\"]])\n\n\
+    ## One-liner\nsvm = svm.SVC().fit(X[:,:-1], X[:,-1])\n\n## Result & puzzle\nstudent_0\
+    \ = svm.predict([[3, 3, 6]])\nprint(student_0)\n\nstudent_1 = svm.predict([[8,\
+    \ 1, 1]])\nprint(student_1)\n```\n\n```\n## Result & puzzle\nstudent_0 = svm.predict([[3,\
+    \ 3, 6]])\nprint(student_0)\n# ['art']\n\nstudent_1 = svm.predict([[8, 1, 1]])\n\
+    print(student_1)\n## ['computer science']\n```\n\nfinxter\n\n„A Puzzle A Day to\
+    \ Learn, Code, and Play!“"
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: '# Python Cheat Sheet: List Methods
+
+
+    “A puzzle a day to learn, code, and play” → Visit [finxter.com](https://finxter.com)
+
+
+    | Method | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | `lst.append(x)` | Appends element `x` to the list `lst`. | `>>> l = []`
+
+    `>>> l.append(42)`
+
+    `>>> l.append(21)`
+
+    `[42, 21]` |
+
+    | `lst.clear()` | Removes all elements from the list `lst`—which becomes empty.
+    | `>>> lst = [1, 2, 3, 4, 5]`
+
+    `>>> lst.clear()`
+
+    `[]` |
+
+    | `lst.copy()` | Returns a copy of the list `lst`. Copies only the list, not the
+    elements in the list (shallow copy). | `>>> lst = [1, 2, 3]`
+
+    `>>> lst.copy()`
+
+    `[1, 2, 3]` |
+
+    | `lst.count(x)` | Counts the number of occurrences of element `x` in the list
+    `lst`. | `>>> lst = [1, 2, 42, 2, 1, 42, 42]`
+
+    `>>> lst.count(42)`
+
+    `3`
+
+    `>>> lst.count(2)`
+
+    `2` |
+
+    | `lst.extend(iter)` | Adds all elements of an iterable `iter` (e.g. another list)
+    to the list `lst`. | `>>> lst = [1, 2, 3]`
+
+    `>>> lst.extend([4, 5, 6])`
+
+    `[1, 2, 3, 4, 5, 6]` |
+
+    | `lst.index(x)` | Returns the position (index) of the first occurrence of value
+    `x` in the list `lst`. | `>>> lst = ["Alice", 42, "Bob", 99]`
+
+    `>>> lst.index("Alice")`
+
+    `0`
+
+    `>>> lst.index(99, 1, 3)`
+
+    `ValueError: 99 is not in list` |
+
+    | `lst.insert(i, x)` | Inserts element `x` at position (index) `i` in the list
+    `lst`. | `>>> lst = [1, 2, 3, 4]`
+
+    `>>> lst.insert(3, 99)`
+
+    `[1, 2, 3, 99, 4]` |
+
+    | `lst.pop()` | Removes and returns the final element of the list `lst`. | `>>>
+    lst = [1, 2, 3]`
+
+    `>>> lst.pop()`
+
+    `3`
+
+    `>>> lst`
+
+    `[1, 2]` |
+
+    | `lst.remove(x)` | Removes and returns the first occurrence of element `x` in
+    the list `lst`. | `>>> lst = [1, 2, 99, 4, 99]`
+
+    `>>> lst.remove(99)`
+
+    `>>> lst`
+
+    `[1, 2, 4, 99]` |
+
+    | `lst.reverse()` | Reverses the order of elements in the list `lst`. | `>>> lst
+    = [1, 2, 3, 4]`
+
+    `>>> lst.reverse()`
+
+    `>>> lst`
+
+    `[4, 3, 2, 1]` |
+
+    | `lst.sort()` | Sorts the elements in the list `lst` in ascending order. | `>>>
+    lst = [88, 12, 42, 11, 2]`
+
+    `>>> lst.sort()`
+
+    `# [2, 11, 12, 42, 88]`
+
+    `>>> lst.sort(key=lambda x: str(x)[0])`
+
+    `# [11, 12, 2, 42, 88]` |
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_12_0.png)'
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: '# The Ultimate Python Cheat Sheet
+
+
+    # Keywords
+
+
+    | Keyword | Description | Code Examples |
+
+    | :--- | :--- | :--- |
+
+    | False, True | Boolean data type | `False == (1 > 2)`<br>`True == (2 > 1)` |
+
+    | and, or, not | Logical operators<br>→ Both are true<br>→ Either is true<br>→
+    Flips Boolean | `True and True` # True<br>`True or False` # True<br>`not False`
+    # True |
+
+    | break | Ends loop prematurely | `while True:`<br>`    break # finite loop` |
+
+    | continue | Finishes current loop iteration | `while True:`<br>`    continue`<br>`    print("42")
+    # dead code` |
+
+    | class | Defines new class | `class Coffee:`<br>`    # Define your class` |
+
+    | def | Defines a new function or class method. | `def hi():`<br>`    print(''hi'')`
+    |
+
+    | if, elif, else | Conditional execution:<br>- "if condition == True?"<br>- "elif"
+    condition == True?<br>- Fallback: else branch | `x = int(input("ur val:"))`<br>`if
+    x > 3: print("Big")`<br>`elif x == 3: print("3")`<br>`else: print("Small")` |
+
+    | for, while | # For loop<br>for i in [0,1,2]:<br>    print(i) | # While loop
+    does same<br>`j = 0`<br>`while j < 3:`<br>`    print(j); j = j + 1` |
+
+    | in | Sequence membership | `42 in [2, 39, 42] # True` |
+
+    | is | Same object memory location | `y = x = 3`<br>`x is y # True`<br>`[3] is
+    [3] # False` |
+
+    | None | Empty value constant | `print() is None # True` |
+
+    | lambda | Anonymous function | `(lambda x: x+3)(3) # 6`<br>`''Mahatma''` |
+
+    | return | Terminates function. Optional return value defines function result.
+    | `def increment(x):`<br>`    return x + 1`<br>`increment(4) # returns 5` |
+
+
+    # Basic Data Structures
+
+
+    | Type | Description | Code Examples |
+
+    | :--- | :--- | :--- |
+
+    | Boolean | The Boolean data type is either True or False. Boolean operators are
+    ordered by priority: not → and → or | `## Evaluates to True:`<br>`1<2 and 0<1
+    and 3>2 and 2>=2 and 1==1`<br>`and 1!=0`<br><br>`## Evaluates to False:`<br>`bool(None
+    or 0 or 0.0 or '''' or [] or {}) or set()`<br><br>`Rule: None, 0, 0.0, empty strings,
+    or empty container types evaluate to False` |
+
+    | Integer, Float | An integer is a positive or negative number without decimal
+    point such as 3.<br><br>A float is a positive or negative number with floating
+    point precision such as 3.1415926.<br><br>Integer division rounds toward the smaller
+    integer (example: 3//2=1). | `## Arithmetic Operations`<br>`x, y = 3, 2`<br>`print(x
+    + y) # = 5`<br>`print(x - y) # = 1`<br>`print(x * y) # = 6`<br>`print(x / y) #
+    = 1.5`<br>`print(x // y) # = 1`<br>`print(x % y) # = 1`<br>`print(-x) # = -3`<br>`print(abs(-x))
+    # = 3`<br>`print(int(3.9)) # = 3`<br>`print(float(3)) # = 3.0`<br>`print(x **
+    y) # = 9` |
+
+    | String | Python Strings are sequences of characters.<br><br>String Creation
+    Methods:<br>1. Single quotes<br>>>> ''Yes''<br>2. Double quotes<br>>>> "Yes"<br>3.
+    Triple quotes (multi-line)<br>>>> """Yes<br>We Can"""<br>4. String method<br>>>>
+    str(5) == ''5''<br>True<br>5. Concatenation<br>>>> ''Ma'' + ''hatma''<br>''Mahatma''<br><br>Whitespace
+    chars:<br>Newline \n,<br>Space \s,<br>Tab \t | `## Indexing and Slicing`<br>`s
+    = "The youngest pope was 11 years"`<br>`s[0] # ''T''`<br>`s[1:3] # ''he''`<br>`s[-3:-1]
+    # ''ar''`<br>`s[-3:] # ''ars''`<br><br>`x = s.split()`<br>`x[-2] + " " + x[2]
+    + "s" # ''11 popes''`<br><br>`## String Methods`<br>`y = "    Hello world!\n    "`<br>`y.strip()
+    # Remove Whitespace`<br>`"Hi".lower() # Lowercase: ''hi''`<br>`"hi".upper() #
+    Uppercase: ''HI''`<br>`"hello".startswith("he") # True`<br>`"hello".endswith("lo")
+    # True`<br>`"hello".find("ll") # Match at 2`<br>`"cheat".replace("ch", "m") #
+    ''meat''`<br>`''''.join(["F", "B", "I"]) # ''FBI''`<br>`len("hello world") # Length:
+    15`<br>`"ear" in "earth" # True` |
+
+
+    # Complex Data Structures
+
+
+    | Type | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | List | Stores a sequence of elements. Unlike strings, you can modify list objects
+    (they''re mutable). | `l = [1, 2, 2]`<br>`print(len(l)) # 3` |
+
+    | Adding elements | Add elements to a list with (i) append, (ii) insert, or (iii)
+    list concatenation. | `[1, 2].append(4) # [1, 2, 4]`<br>`[1, 4].insert(1,9) #
+    [1, 9, 4]`<br>`[1, 2] + [4] # [1, 2, 4]` |
+
+    | Removal | Slow for lists | `[1, 2, 2, 4].remove(1) # [2, 2, 4]` |
+
+    | Reversing | Reverses list order | `[1, 2, 3].reverse() # [3, 2, 1]` |
+
+    | Sorting | Sorts list using fast Timsort | `[2, 4, 2].sort() # [2, 2, 4]` |
+
+    | Indexing | Finds the first occurrence of an element & returns index. Slow worst
+    case for whole list traversal. | `[2, 2, 4].index(2)`<br>`# index of item 2 is
+    0`<br>`[2, 2, 4].index(2,1)`<br>`# index of item 2 after pos 1 is 1` |
+
+    | Stack | Use Python lists via the list operations append() and pop() | `stack
+    = [3]`<br>`stack.append(42) # [3, 42]`<br>`stack.pop() # 42 (stack: [3])`<br>`stack.pop()
+    # 3 (stack: [])` |
+
+    | Set | An unordered collection of unique elements (at-most-once) → fast membership
+    O(1) | `basket = {''apple'', ''eggs'',`<br>`          ''banana'', ''orange''}`<br>`same
+    = set([''apple'', ''eggs'',`<br>`            ''banana'', ''orange''])` |
+
+
+    | Type | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | Dictionary | Useful data structure for storing (key, value) pairs | `cal = {''apple''
+    : 52, ''banana'' : 89,`<br>`        ''choco'' : 546} # calories` |
+
+    | Reading and writing elements | Read and write elements by specifying the key
+    within the brackets. Use the **keys()** and **values()** functions to access all
+    keys and values of the dictionary | `print(cal[''apple''] < cal[''choco''])`<br>`#
+    True`<br>`cal[''cappu''] = 74`<br>`print(cal[''banana''] < cal[''cappu''])`<br>`#
+    False`<br>`print(''apple'' in cal.keys()) # True`<br>`print(52 in cal.values())
+    # True` |
+
+    | Dictionary Iteration | You can access the (key, value) pairs of a dictionary
+    with the **items()** method. | `for k, v in cal.items():`<br>`    print(k if v
+    > 500 else '''')`<br>`# ''choco''` |
+
+    | Membership operator | Check with the **in** keyword if set, list, or dictionary
+    contains an element. Set membership is faster than list membership | `basket =
+    {''apple'', ''eggs'',`<br>`          ''banana'', ''orange''}`<br>`print(''eggs''
+    in basket) # True`<br>`print(''mushroom'' in basket) # False` |
+
+    | List & set comprehension | List comprehension is the concise Python way to create
+    lists. Use brackets plus an expression, followed by a for clause. Close with zero
+    or more if or for clauses. Set comprehension works similar to list comprehension.
+    | `l = [''hi '' + x for x in [''Alice'',`<br>`     ''Bob'', ''Pete'']]`<br>`#
+    [''Hi Alice'', ''Hi Bob'', ''Hi Pete'']`<br><br>`12 = [x * y for x in range(3)
+    for y`<br>`     in range(3) if x>y] # [0, 0, 2]`<br><br>`squares = { x**2 for
+    x in [0,2,4]`<br>`           if x < 4 } # {0, 4}` |'
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: '# finxter Book: Simplicity – The Finer Art of Creating Software
+
+
+    Complexity
+
+
+    > “A whole, made up of parts—difficult to analyze, understand, or explain”.
+
+
+    Complexity appears in
+
+    - Project Lifecycle
+
+    - Code Development
+
+    - Algorithmic Theory
+
+    - Processes
+
+    - Social Networks
+
+    - Learning & Your Daily Life
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_0.png)
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_1.png)
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_2.png)
+
+
+    → Complexity reduces productivity and focus. It’ll consume your precious time.
+    Keep it simple!
+
+
+    80/20 Principle
+
+
+    Majority of effects come from the minority of causes.
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_3.png)
+
+
+    Pareto Tips
+
+
+    +   1. Figure out your success metrics.
+
+    2. Figure out your big goals in life.
+
+    3. Look for ways to achieve the same things with fewer resources.
+
+    4. Reflect on your own successes
+
+    5. Reflect on your own failures
+
+    6. Read more books in your industry.
+
+    7. Spend much of your time improving and tweaking existing products
+
+    8. Smile.
+
+    9. Don’t do things that reduce value
+
+
+    Maximize Success Metric:
+
+    #lines of code written
+
+
+    Minimum Viable Product (MVP)
+
+
+    A minimum viable product in the software sense is code that is stripped from all
+    features to focus on the core functionality.
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_4.png)
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_5.png)
+
+
+    How to MVP?
+
+
+    +   - Formulate hypothesis
+
+    - Omit needless features
+
+    - Split test to validate each new feature
+
+    - Focus on product-market fit
+
+    - Seek high-value and low-cost features
+
+
+    Clean Code Principles
+
+
+    +   1. You Ain’t Going to Need It
+
+    2. The Principle of Least Surprise
+
+    3. Don’t Repeat Yourself
+
+    4. Code For People Not Machines
+
+    5. Stand on the Shoulders of Giants
+
+    6. Use the Right Names
+
+    7. Single-Responsibility Principle
+
+    8. Use Comments
+
+    9. Avoid Unnecessary Comments
+
+    10. Be Consistent
+
+    11. Test
+
+    12. Think in Big Pictures
+
+    13. Only Talk to Your Friends
+
+    14. Refactor
+
+    15. Don’t Overengineer
+
+    16. Don’t Overuse Indentation
+
+    17. Small is Beautiful
+
+    18. Use Metrics
+
+    19. Boy Scout Rule: Leave Camp Cleaner Than You Found It
+
+
+    Unix Philosophy
+
+
+    +   1. Simple’s Better Than Complex
+
+    2. Small is Beautiful (Again)
+
+    3. Make Each Program Do One Thing Well
+
+    4. Build a Prototype First
+
+    5. Portability Over Efficiency
+
+    6. Store Data in Flat Text Files
+
+    7. Use Software Leverage
+
+    8. Avoid Captive User Interfaces
+
+    9. Program = Filter
+
+    10. Worse is Better
+
+    11. Clean > Clever Code
+
+    12. Design Connected Programs
+
+    13. Make Your Code Robust
+
+    14. Repair What You Can — But Fail Early and Noisily
+
+    15. Write Programs to Write Programs
+
+
+    Premature Optimization
+
+
+    > “Programmers waste enormous amounts of time thinking about [...] the speed of
+    noncritical parts of their programs. We should forget about small efficiencies,
+    say about 97 % of the time: premature optimization is the root of all evil.” —
+    Donald Knuth
+
+
+    Performance Tuning 101
+
+
+    +   1. Measure, then improve
+
+    2. Focus on the slow 20%
+
+    3. Algorithmic optimization wins
+
+    4. All hail to the cache
+
+    5. Solve an easier problem version
+
+    6. Know when to stop
+
+
+    Flow
+
+
+    > “... the source code of ultimate human performance” – Kotler
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_6.png)
+
+
+    Flow Tips for Coders
+
+
+    +   1. Always work on an explicit practical code project
+
+    2. Work on fun projects that fulfill your purpose
+
+    3. Perform from your strengths
+
+    4. Big chunks of coding time
+
+    5. Reduce distractions: smartphone + social
+
+    6. Sleep a lot, eat healthily, read quality books, and exercise → garbage in,
+    garbage out!
+
+
+    How to Achieve Flow? (1) clear goals, (2) immediate feedback, and (3) balance
+    opportunity & capacity.
+
+
+    Less Is More in Design
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_7.png)
+
+
+    How to Simplify Design?
+
+
+    +   1. Use whitespace
+
+    2. Remove design elements
+
+    3. Remove features
+
+    4. Reduce variation of fonts, font types, colors
+
+    5. Be consistent across UIs
+
+
+    Focus
+
+
+    You can take raw resources and move them from a state of high entropy into a state
+    of low entropy—using focused effort towards the attainment of a greater plan.
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_8.png)
+
+
+    3-Step Approach of Efficient Software Creation
+
+
+    +   1. Plan your code
+
+    2. Apply focused effort to make it real.
+
+    3. Seek feedback
+
+
+    ![](img/3302642dac9e1022b8a65373dea5984a_14_9.png)
+
+
+    Subscribe to the 11x FREE Python Cheat Sheet Course: https://blog.finxter.com/python-cheat-sheets/'
+  merge: -1
+  pgno: 14
+toc:
+- - '#'
+  - Python 速查表 - 关键字
+- - '#'
+  - Python 速查表 - 基本数据类型
+- - '##'
+  - 1. 布尔运算
+- - '##'
+  - 2. 如果条件求值为 False
+- - '##'
+  - 3. 算术运算
+- - '##'
+  - 4. 索引和切片
+- - '##'
+  - 5. 最重要的字符串方法
+- - '#'
+  - Python 速查表 - 复合数据类型
+- - '#'
+  - Python 速查表 - 类
+- - '#'
+  - Python 速查表：函数与技巧
+- - '#'
+  - Python 速查表：14 个面试问题
+- - '#'
+  - Python 速查表：NumPy
+- - '#'
+  - Python 速查表：面向对象术语
+- - '#'
+  - 动态属性
+- - '#'
+  - 继承
+- - '#'
+  - '[速查表] 6 大支柱机器学习算法'
+- - '##'
+  - 线性回归
+- - '##'
+  - K-均值聚类
+- - '##'
+  - K 近邻
+- - '##'
+  - 支持向量机分类
+- - '##'
+  - 决策树分类
+- - '##'
+  - 多层感知器
+- - '##'
+  - 简易 Git 速查表 – 实用图解指南
+- - '###'
+  - 集中式 Git 工作流
+- - '####'
+  - Git 主分支
+- - '#####'
+  - 远程仓库：主分支
+- - '######'
+  - Alice
+- - '######'
+  - Bob
+- - '##'
+  - '[机器学习速查表] 支持向量机'
+- - '###'
+  - 支持向量机的基本属性是什么？
+- - '###'
+  - 代码示例的解释是什么？
+- - '###'
+  - 最基本的 Python 代码示例是什么？
+- - '##'
+  - 依赖项
+- - '##'
+  - 数据：学生在（数学、语言、创造力）上的分数
+- - '##'
+  - --> 学习领域
+- - '##'
+  - 单行代码
+- - '##'
+  - 结果与谜题
+- - '#'
+  - '[''art'']'
+- - '##'
+  - '[''computer science'']'
+- - '##'
+  - Python 速查表：列表方法
+- - '##'
+  - 终极 Python 速查表
+- - '###'
+  - 关键字
+- - '###'
+  - 基本数据结构
+- - '###'
+  - 复杂数据结构
+- - '##'
+  - finxter 书籍：简约——创造软件的精妙艺术
