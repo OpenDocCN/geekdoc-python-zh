@@ -1,0 +1,2807 @@
+groups:
+- md: "Kinjalk Gupta\n\n## Learn Python From 100+ Examples\n\nCopyright © 2021 by\
+    \ Kinjalk Gupta\n\nAll rights reserved. No part of this book may be reproduced\
+    \ or used in any manner without written permission of the copyright owner except\
+    \ for the use of quotations in a book review. For more information, address: kinjalkg01@gmail.com\n\
+    \nFIRST EDITION\n\n## Chapter 1 Getting Started\n\n### 1. What is Python?\n\n\
+    Python is an interpreted, high-level and general-purpose programming language.\
+    \ It can be used for a number of tasks such as AI/ML, building desktop, mobile\
+    \ and web apps, writing automated scripts and many more things.\n\nThere are two\
+    \ versions -\n\n- Python 2 - Will be outdated after 2020\n- Python 3 - Will be\
+    \ used for future\n\n### 2. Installing Python\n\nHead over to python.org and install\
+    \ Python\n\nMake sure you tick the checkbox that says \"Add Python 3.x.x to Path\"\
+    \n\n### 3. Python Interpreter\n\nOpen CMD and type Python(Windows) or Python3(Linux)\
+    \ and hit enter\n\nAn expression is a piece of code which produces a value.\n\n\
+    ### 4. Code Editor\n\nWe can use Editor or IDE\n\nIDE has additional features:\n\
+    \n- 1. Auto completion\n- 2. Debugging\n- 3. Testing\n\nEditor - VSCode, Atom,\
+    \ Sublime\n\nIDE - Pycharm\n\n### 5. Hello World\n\nCreate a file with an extension\
+    \ \".py\".\nWhenever we call a function we write ()\nWrite print(\"Hello World\"\
+    )\nPress ctrl + `\nThis will open command line/terminal, now type python name_of_the_file.py\
+    \ and hit enter\n\n### 6. Python extension\n\nThis will convert VSCode to a powerful\
+    \ IDE and will add the following features\n\n- 1. Linting\n- 2. Autocompletion\n\
+    - 3. Unit Testing\n- 4. Debugging\n- 5. Code Formatting\n- 6. Code Snippets\n\n\
+    ### 7. Linting\n\nFinding potential errors\n\n### 8. Formatting Code\n\nPEP -\
+    \ Python Enhancement Proposals\n\nMost popular one is pep8\nPress cmd+shift+p\
+    \ and search Format and install autopep 8\n\n### 9. Running python code\n\nOpen\
+    \ the extension panel and search \"code runner\"\n\n### 10. Python Implementation\n\
+    \nDefault python Implementation - Cpython\nOther Implementations\n- Jython - written\
+    \ in Java\n- IronPython - written in C\n- PyPy - Subset of python\n\n### 11. How\
+    \ Python Code is executed\n\nC compiler is a program that knows how to compile\
+    \ c code to machine code (0s and 1s)\nMachine code is specific to type of C program\
+    \ compiled on windows won't work on mac\nJava converts it to java byte code which\
+    \ is not machine dependent\nJVM converts this byte code to machine code\n\nC#\
+    \ and python have taken the same route\n\n## Chapter 2 Primitive Types\n\n###\
+    \ 1. Variables\n\n```\nstudents_count = 1000  # int\n\nrating = 4.99  # float\n\
+    \nis_published = False  # boolean (can be true or false)\n\ncourse_name = \"Python\
+    \ Programming\"  # string\n\nprint(students_count)\n```\n\n### 2. Variable Names\n\
+    \nVariable name should be descriptive\n\nLower case letters to name a variable\n\
+    \nUse underscore to separate multiple words\n\nPut a space around equal signs\n\
+    \n### 3. Strings\n\nWe can either use single quotes or double quotes according\
+    \ to our preference.\n\nFor writing multi line strings use triple quotes\n\n```\n\
+    course = \"Python Programming\"\n\nmessage =\"\"\"\n\nHi John,\n\nBlah blah blah\n\
+    \n\"\"\"\n\ncourse = \"Python Programming\"\n\nprint(len(course))  # 18\n\nprint(course[0])\
+    \  # P\n\nprint(course[-1])  # g\n```\n\n```\n# Character at the end index is\
+    \ not included (Pyt) slice a string\nprint(course[0:3])\nprint(course[:])\n```\n\
+    \n### 4. Escape sequences\n\n\\ is an Escape Character\n\" is an Escape Sequence\n\
+    \n```\ncourse = \"Python \\nProgramming\"\nprint(course)\n```\n\n### 5. Formatted\
+    \ Strings\n\n```\nfirst = 'Kinjalk'\nlast = 'Gupta'\n\nfull = f\"{len(first)}\
+    \ {last}\"\nprint(full)\n```\n\n### 6. String Methods\n\n```\ncourse = \"Python\
+    \ Programming\"\n\nprint(course.upper())  # PYTHON PROGRAMMING\n\nprint(course.lower())\
+    \  # python programming\n\nprint(course.title())  # Python Programming\n\nprint(course.strip())\n\
+    \n# if string is not found it will return -1 , returns  an index\n\nprint(course.find(\"\
+    P\"))\n\nprint(course.replace(\"P\", \"j\"))\n\n# ALL these written new strings\n\
+    \nprint(course)\n\nprint(\"Pro\" in course)  # returns boolean\n```\n\n### 7.\
+    \ Numbers\n\n```\n# augmented operators\n\nx = 10\n\nx = x+10\n\nx += 10\n```\n\
+    \n### 8. Working With Numbers\n\n```\nprint(round(2.9))\n\nprint(abs(-2))\n\n\
+    print(math.ceil(2.3))\n\nprint(math.floor(2.3))\n```\n\n### 9. Type Conversion\n\
+    \n```\nx = int(input(\"x: \"))\n\nprint(type(x))\n\ny = x+1\n```\n\nFalsy Values\n\
+    \n- \"\"\n- 0\n- none\n\nTruthy Values\n\nAnything else will be true\n\n## Chapter\
+    \ 3 Control Flow\n\n### 1. Comparison operators\n\n- >\n- <\n- >=\n- <=\n\n###\
+    \ 2. Conditional Statements\n\n```\ntemp = 15\n\nif temp >= 30:\n    print(\"\
+    it's warm\")\n\nelif temp >= 20:\n    print(\"it's nice\")\n\nelse:\n    print(\"\
+    it's cold\")\n\nprint(\"Done\")\n```\n\n### 3. Ternary Operator\n\n```\nage =\
+    \ 17\n\nif age >= 18:\n    message = \"Eligible\"\n\nelse:\n    message = \"Not\
+    \ Eligible\"\n\nprint(message)\n```\n\n```\nmessage = \"Eligible\" if age >= 18\
+    \ else \"Not eligible\"\nprint(message)\n```\n\n### 4. Logical Operators\n\n```\n\
+    high_income = True\ngood_credit = False\nstudent = True\n\nif (high_income or\
+    \ good_credit) and not student:\n    print(\"eligible\")\nelse:\n    print(\"\
+    Not eligible\")\n```\n\n### 5. Short Circuit Evaluation\n\n### 6. Chaining Comparison\
+    \ Operators\n\n```\nage = 22\n\nif age >= 18 and age <= 65:\n    print(\"Eligible\"\
+    )\n\nif 18 <= age <= 65:\n    print(\"Eligible\")\n```\n\n### 7. For Loops\n\n\
+    ```\nfor number in range(3):\n    print(\"Attempt\", number+1, (number+1)*\".\"\
+    )\n\nfor number in range(1, 4):\n    print(\"Attempt\", number, (number)*\".\"\
+    )\n```\n\n### 8. For Else Loops\n\n```\nsuccessful = False\n\nfor number in range(3):\n\
+    \    print(\"Attempt\")\n\n    if successful:\n        print(\"Successful\")\n\
+    \        break\nelse:\n    print(\"Attempted 3 times and failed\")\n```\n\n###\
+    \ 9. Nested Loops\n\n```\nfor x in range(5):\n    for y in range(3):\n       \
+    \ print(f\"{x}, {y}\")\n```\n\n### 10. Iterables\n\n```\nprint(type(range(5)))\n\
+    # range objects are iterable\nfor x in \"Python\":\n    print(x)\n\nfor x in [2,\
+    \ 4, 5, 6]:\n    print(x)\n```\n\n### 11. While Loops\n\n```\nnumber = 100\n\n\
+    while number > 0:\n    print(number)\n    number //= 2\n\ncommand = ''\n\nwhile\
+    \ command.lower() != \"quit\":\n    command = input(\">\")\n    print(\"ECHO\"\
+    , command)\n```\n\n### 12. Infinite Loops\n\n```\nwhile True:\n    command = input(\"\
+    >\")\n    if command.lower() == \"quit\":\n        break\n    print(\"ECHO\",\
+    \ command)\n```\n\n## Chapter 4 Functions\n\n### 1. Functions\n\nA function is\
+    \ a reusable chunk of code which we can call as many times as we want.\n\n```\n\
+    def greet():\n    print(\"Hi there\")\n    print(\"Welcome aboard\")\n\ngreet()\n\
+    ```\n\n### 2. Arguments\n\nParameter is the input we define in the program.\n\
+    Argument is the actual value which we pass.\n\n```\ndef greet(first_name, last_name):\n\
+    \    print(f\"Hi there {first_name} {last_name}\")\n    print(\"Welcome aboard\"\
+    )\n\ngreet(\"Kinjalk\", \"G\")\n```\n\n### 3. Types of Functions\n\n- A. That\
+    \ performs a task\n- B. That returns a value\n\n```\ndef get_greeting(first_name,\
+    \ last_name):\n    return f\"Hi there {first_name} {last_name}\"\n\nmsg = get_greeting(\"\
+    k\", \"g\")\nprint(msg)\n\ndef greet(first_name, last_name):\n    print(f\"Hi\
+    \ there {first_name} {last_name}\")\n\nprint(greet(\"Kinjalk\", \"G\"))\n```\n\
+    \n### 4. Keyword arguments\n\n```\ndef increment(number, by):\n    return number\
+    \ + by\n\nprint(increment(2, by=5))\n```\n\n### 5. Default Arguments\n\n```\n\
+    def increment(number, by=1):\n    return number + by\n\nprint(increment(2, 3))\n\
+    ```\n\n### 6. Xargs\n\n```\ndef multiply(*numbers):\n    # here numbers is a tuple\n\
+    \    product = 1\n    for n in numbers:\n        product *= n\n    return product\n\
+    \nprint(multiply(3, 5, 6, 5))\n```\n\n### 7. Xxargs\n\n```\ndef save_user(**user):\n\
+    \    # returns a dictionary\n    print(user[\"name\"])\n\nsave_user(id=1, name=\"\
+    john\", age=22)\n```\n\n### 8. Scope\n\n```\ndef greet(name):\n    global message\
+    \  # global variables are evil\n    message = \"b\"\n    print(message)\n\ngreet(\"\
+    kinjalk\")\nprint(message)\n```\n\n## Chapter 5 Data Structure\n\n### 1. Lists\n\
+    \n```\nletters = [\"a\", \"b\"]\n\nmatrix = [\n    [0, 1],\n    [2, 3],\n    [3,\
+    \ 5] ]\n\nzeros = [0] * 5\n\ncombined = letters + zeros\n\nnumbers = list(range(20))\n\
+    \nchars = list(\"Hello World\")\n\nprint(letters)\nprint(matrix)\nprint(zeros)\n\
+    print(combined)\nprint(numbers)\nprint(chars)\nprint(len(chars))\n```\n\n### 2.\
+    \ Accessing Items\n\n```\nletters = [\"a\", \"b\", \"c\"]\nprint(letters[0])\n\
+    print(letters[-1])\nletters[0] = \"g\"\nprint(letters)\n\nletters = [\"a\", \"\
+    b\", \"c\", 'd', 'e']\nprint(letters[0:3])\nprint(letters[::2])\n\nnumbers = list(range(20))\n\
+    print(numbers[::2])\n\nnumbers = list(range(20))\nprint(numbers[::-1])\n```\n\n\
+    ### 3. Unpacking List\n\n```\nnumbers = [5, 2, 3, 5, 6, 6, 7, 8, 9]\nfirst, second,\
+    \ *others = numbers\nprint(first)\nprint(others)\n```"
+  mdcn: "Kinjalk Gupta\n\n## 通过100多个示例学习Python\n\n版权所有 © 2021 Kinjalk Gupta\n\n保留所有权利。未经版权所有者书面许可，不得以任何方式复制或使用本书的任何部分，但书评中引用的使用除外。更多信息，请联系：kinjalkg01@gmail.com\n\
+    \n第一版\n\n## 第1章 入门\n\n### 1. 什么是Python？\n\nPython是一种解释型、高级、通用的编程语言。它可用于多种任务，例如人工智能/机器学习、构建桌面、移动和Web应用程序、编写自动化脚本等等。\n\
+    \n有两个版本 -\n\n- Python 2 - 2020年后将过时\n- Python 3 - 将用于未来\n\n### 2. 安装Python\n\n\
+    前往python.org并安装Python\n\n确保勾选“Add Python 3.x.x to Path”复选框\n\n### 3. Python解释器\n\
+    \n打开CMD并输入Python(Windows)或Python3(Linux)，然后按回车键\n\n表达式是产生值的一段代码。\n\n### 4. 代码编辑器\n\
+    \n我们可以使用编辑器或IDE\n\nIDE具有额外的功能：\n\n- 1. 自动补全\n- 2. 调试\n- 3. 测试\n\n编辑器 - VSCode,\
+    \ Atom, Sublime\n\nIDE - Pycharm\n\n### 5. Hello World\n\n创建一个扩展名为“.py”的文件。\n\
+    每当我们调用一个函数时，我们写()\n写print(\"Hello World\")\n按ctrl + `\n这将打开命令行/终端，现在输入python name_of_the_file.py并按回车键\n\
+    \n### 6. Python扩展\n\n这将把VSCode转换为一个强大的IDE，并添加以下功能\n\n- 1. 代码检查\n- 2. 自动补全\n- 3.\
+    \ 单元测试\n- 4. 调试\n- 5. 代码格式化\n- 6. 代码片段\n\n### 7. 代码检查\n\n查找潜在错误\n\n### 8. 格式化代码\n\
+    \nPEP - Python增强提案\n\n最流行的是pep8\n按cmd+shift+p并搜索Format，然后安装autopep 8\n\n### 9.\
+    \ 运行python代码\n\n打开扩展面板并搜索“code runner”\n\n### 10. Python实现\n\n默认的python实现 - Cpython\n\
+    其他实现\n- Jython - 用Java编写\n- IronPython - 用C编写\n- PyPy - Python的子集\n\n### 11. Python代码如何执行\n\
+    \nC编译器是一个知道如何将c代码编译成机器码（0和1）的程序\n机器码特定于编译它的C程序类型，在windows上编译的程序在mac上无法运行\nJava将其转换为不依赖于机器的java字节码\n\
+    JVM将此字节码转换为机器码\n\nC#和python采用了相同的路线\n\n## 第2章 基本类型\n\n### 1. 变量\n\n```\nstudents_count\
+    \ = 1000  # int\n\nrating = 4.99  # float\n\nis_published = False  # boolean (can\
+    \ be true or false)\n\ncourse_name = \"Python Programming\"  # string\n\nprint(students_count)\n\
+    ```\n\n### 2. 变量名\n\n变量名应具有描述性\n\n使用小写字母命名变量\n\n使用下划线分隔多个单词\n\n在等号周围留空格\n\n###\
+    \ 3. 字符串\n\n我们可以根据自己的喜好使用单引号或双引号。\n\n要编写多行字符串，请使用三引号\n\n```\ncourse = \"Python\
+    \ Programming\"\n\nmessage =\"\"\"\n\nHi John,\n\nBlah blah blah\n\n\"\"\"\n\n\
+    course = \"Python Programming\"\n\nprint(len(course))  # 18\n\nprint(course[0])\
+    \  # P\n\nprint(course[-1])  # g\n```\n\n```\n# 末尾索引处的字符不包含在内 (Pyt) 切片字符串\nprint(course[0:3])\n\
+    print(course[:])\n```\n\n### 4. 转义序列\n\n\\ 是转义字符\n\" 是转义序列\n\n```\ncourse = \"\
+    Python \\nProgramming\"\nprint(course)\n```\n\n### 5. 格式化字符串\n\n```\nfirst = 'Kinjalk'\n\
+    last = 'Gupta'\n\nfull = f\"{len(first)} {last}\"\nprint(full)\n```\n\n### 6.\
+    \ 字符串方法\n\n```\ncourse = \"Python Programming\"\n\nprint(course.upper())  # PYTHON\
+    \ PROGRAMMING\n\nprint(course.lower())  # python programming\n\nprint(course.title())\
+    \  # Python Programming\n\nprint(course.strip())\n\n# 如果未找到字符串，它将返回 -1，返回一个索引\n\
+    \nprint(course.find(\"P\"))\n\nprint(course.replace(\"P\", \"j\"))\n\n# 所有这些都创建了新的字符串\n\
+    \nprint(course)\n\nprint(\"Pro\" in course)  # 返回布尔值\n```\n\n### 7. 数字\n\n```\n\
+    # 增强运算符\n\nx = 10\n\nx = x+10\n\nx += 10\n```\n\n### 8. 处理数字\n\n```\nprint(round(2.9))\n\
+    \nprint(abs(-2))\n\nprint(math.ceil(2.3))\n\nprint(math.floor(2.3))\n```\n\n###\
+    \ 9. 类型转换\n\n```\nx = int(input(\"x: \"))\n\nprint(type(x))\n\ny = x+1\n```\n\n\
+    假值\n\n- \"\"\n- 0\n- none\n\n真值\n\n其他任何值都将为真\n\n## 第3章 控制流\n\n### 1. 比较运算符\n\n\
+    - >\n- <\n- >=\n- <=\n\n### 2. 条件语句\n\n```\ntemp = 15\n\nif temp >= 30:\n    print(\"\
+    it's warm\")\n\nelif temp >= 20:\n    print(\"it's nice\")\n\nelse:\n    print(\"\
+    it's cold\")\n\nprint(\"Done\")\n```\n\n### 3. 三元运算符\n\n```\nage = 17\n\nif age\
+    \ >= 18:\n    message = \"Eligible\"\n\nelse:\n    message = \"Not Eligible\"\n\
+    \nprint(message)\n```\n\n```\nmessage = \"Eligible\" if age >= 18 else \"Not eligible\"\
+    \nprint(message)\n```\n\n### 4. 逻辑运算符\n\n```\nhigh_income = True\ngood_credit\
+    \ = False\nstudent = True\n\nif (high_income or good_credit) and not student:\n\
+    \    print(\"eligible\")\nelse:\n    print(\"Not eligible\")\n```\n\n### 5. 短路求值\n\
+    \n### 6. 链式比较运算符\n\n```\nage = 22\n\nif age >= 18 and age <= 65:\n    print(\"\
+    Eligible\")\n\nif 18 <= age <= 65:\n    print(\"Eligible\")\n```\n\n### 7. For循环\n\
+    \n```\nfor number in range(3):\n    print(\"Attempt\", number+1, (number+1)*\"\
+    .\")\n\nfor number in range(1, 4):\n    print(\"Attempt\", number, (number)*\"\
+    .\")\n```\n\n### 8. For Else循环\n\n```\nsuccessful = False\n\nfor number in range(3):\n\
+    \    print(\"Attempt\")\n\n    if successful:\n        print(\"Successful\")\n\
+    \        break\nelse:\n    print(\"Attempted 3 times and failed\")\n```\n\n###\
+    \ 9. 嵌套循环\n\n```\nfor x in range(5):\n    for y in range(3):\n        print(f\"\
+    {x}, {y}\")\n```\n\n### 10. 可迭代对象\n\n```\nprint(type(range(5)))\n# range对象是可迭代的\n\
+    for x in \"Python\":\n    print(x)\n\nfor x in [2, 4, 5, 6]:\n    print(x)\n```\n\
+    \n### 11. While循环\n\n```\nnumber = 100\n\nwhile number > 0:\n    print(number)\n\
+    \    number //= 2\n\ncommand = ''\n\nwhile command.lower() != \"quit\":\n    command\
+    \ = input(\">\")\n    print(\"ECHO\", command)\n```\n\n### 12. 无限循环\n\n```\nwhile\
+    \ True:\n    command = input(\">\")\n    if command.lower() == \"quit\":\n   \
+    \     break\n    print(\"ECHO\", command)\n```\n\n## 第4章 函数\n\n### 1. 函数\n\n函数是一个可重用的代码块，我们可以根据需要多次调用它。\n\
+    \n```\ndef greet():\n    print(\"Hi there\")\n    print(\"Welcome aboard\")\n\n\
+    greet()\n```\n\n### 2. 参数\n\n参数是我们在程序中定义的输入。\n实参是我们传递的实际值。\n\n```\ndef greet(first_name,\
+    \ last_name):\n    print(f\"Hi there {first_name} {last_name}\")\n    print(\"\
+    Welcome aboard\")\n\ngreet(\"Kinjalk\", \"G\")\n```\n\n### 3. 函数类型\n\n- A. 执行任务的函数\n\
+    - B. 返回值的函数\n\n```\ndef get_greeting(first_name, last_name):\n    return f\"Hi\
+    \ there {first_name} {last_name}\"\n\nmsg = get_greeting(\"k\", \"g\")\nprint(msg)\n\
+    \ndef greet(first_name, last_name):\n    print(f\"Hi there {first_name} {last_name}\"\
+    )\n\nprint(greet(\"Kinjalk\", \"G\"))\n```\n\n### 4. 关键字参数\n\n```\ndef increment(number,\
+    \ by):\n    return number + by\n\nprint(increment(2, by=5))\n```\n\n### 5. 默认参数\n\
+    \n```\ndef increment(number, by=1):\n    return number + by\n\nprint(increment(2,\
+    \ 3))\n```\n\n### 6. Xargs\n\n```\ndef multiply(*numbers):\n    # 这里numbers是一个元组\n\
+    \    product = 1\n    for n in numbers:\n        product *= n\n    return product\n\
+    \nprint(multiply(3, 5, 6, 5))\n```\n\n### 7. Xxargs\n\n```\ndef save_user(**user):\n\
+    \    # 返回一个字典\n    print(user[\"name\"])\n\nsave_user(id=1, name=\"john\", age=22)\n\
+    ```\n\n### 8. 作用域\n\n```\ndef greet(name):\n    global message  # 全局变量是邪恶的\n \
+    \   message = \"b\"\n    print(message)\n\ngreet(\"kinjalk\")\nprint(message)\n\
+    ```\n\n## 第5章 数据结构\n\n### 1. 列表\n\n```\nletters = [\"a\", \"b\"]\n\nmatrix = [\n\
+    \    [0, 1],\n    [2, 3],\n    [3, 5] ]\n\nzeros = [0] * 5\n\ncombined = letters\
+    \ + zeros\n\nnumbers = list(range(20))\n\nchars = list(\"Hello World\")\n\nprint(letters)\n\
+    print(matrix)\nprint(zeros)\nprint(combined)\nprint(numbers)\nprint(chars)\nprint(len(chars))\n\
+    ```\n\n### 2. 访问元素\n\n```\nletters = [\"a\", \"b\", \"c\"]\nprint(letters[0])\n\
+    print(letters[-1])\nletters[0] = \"g\"\nprint(letters)\n\nletters = [\"a\", \"\
+    b\", \"c\", 'd', 'e']\nprint(letters[0:3])\nprint(letters[::2])\n\nnumbers = list(range(20))\n\
+    print(numbers[::2])\n\nnumbers = list(range(20))\nprint(numbers[::-1])\n```\n\n\
+    ### 3. 解包列表\n\n```\nnumbers = [5, 2, 3, 5, 6, 6, 7, 8, 9]\nfirst, second, *others\
+    \ = numbers\nprint(first)\nprint(others)\n```"
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    Kinjalk Gupta
+
+
+    # Learn Python From 100+ Examples'
+  - '[PAGE 1]
+
+
+    Copyright © 2021 by Kinjalk Gupta
+
+
+    All rights reserved. No part of this book may be reproduced or used in any manner
+    without written permission of the copyright owner except for the use of quotations
+    in a book review. For more information, address: kinjalkg01@gmail.com
+
+
+    FIRST EDITION'
+  - '[PAGE 2]
+
+
+    # # Chapter 1 Getting Started
+
+
+    # ## 1. What is Python?
+
+
+    Python is an interpreted, high-level and general-purpose programming language.
+    It can be used for a number of tasks such as AI/ML, building desktop, mobile and
+    web apps, writing automated scripts and many more things.
+
+
+    There are to versions -
+
+
+    Python 2 - Will be outdated after 2020
+
+
+    Python 3 - Will be used for future
+
+
+    # ## 2. Installing Python
+
+
+    Head over to python.org and install Python
+
+
+    Make sure you tick the checkbox that says "Add Python 3.x.x to Path"
+
+
+    # ## 3. Python Interpreter
+
+
+    Open CMD and type Python(Windows) or Python3(Linux) and hit enter
+
+
+    An expression is a piece of code which produces a value.
+
+
+    # ## 4. Code Editor
+
+
+    We can use Editor or IDE
+
+
+    IDE has additional features:
+
+
+    +   1. Auto completion 2.Debugging 3.Testing
+
+
+    Editor - VSCode, Atom, Sublime'
+  - '[PAGE 3]
+
+
+    IDE - Pycharm
+
+
+    # 5. Hello World
+
+
+    Create a file with an extension ".py".
+
+    Whenever we call a function we write ()
+
+    Write print("Hello World")
+
+    Press ctrl + `
+
+    This will open command line/terminal, now type python name_of_the_file.py and
+    hit enter
+
+
+    # 6. Python extension
+
+
+    This will convert VSCode to a powerful IDE and will add the following features
+
+
+    +   1. Linting
+
+    2. Autocompletion
+
+    3. Unit Testing
+
+    4. Debugging
+
+    5. Code Formatting
+
+    6. Code Snippets
+
+
+    # 7. Linting
+
+
+    Finding potential errors
+
+
+    # 8. Formatting Code
+
+
+    PEP - Python Enhancement Proposals'
+  - '[PAGE 4]
+
+
+    Most popular one is pep8
+
+    Press cmd+shfit+p and search Format and install autopep 8
+
+
+    # 9. Running python code
+
+
+    Open the extension panel and search "code runner"
+
+
+    # 10. Python Implementation
+
+
+    Default python Implementation - Cpython
+
+    Other Implementations
+
+    Jython - written in Java
+
+    IronPython - written C
+
+    PyPy - Subset of python
+
+
+    # 11. How Python Code is executed
+
+
+    C compiler is a program that knows how to compile c code to machine code (0s and
+    1s)
+
+    Machine code is specific to type of C program compiled on windows won''t work
+    on mac
+
+    Java converts it to java byte code which is not machine dependent
+
+    JVM converts this byte code to machine code'
+  - '[PAGE 5]
+
+
+    C# and python have taken the same route
+
+
+    # Chapter 2 Primitive Types
+
+
+    # 1. Variables
+
+
+    ```
+
+    students_count = 1000  # int
+
+
+    rating = 4.99  # float
+
+
+    is_published = False  # boolean (can be true or false)
+
+
+    course_name = "Python Programming"  # string
+
+
+    print(students_count)
+
+    ```
+
+
+    # 2. Variable Names
+
+
+    Variable name should be descriptive
+
+
+    Lower case letters to name a variable
+
+
+    Use underscore to separate multiple words
+
+
+    Put a space around equal signs
+
+
+    # 3. Strings
+
+
+    We can either use single quotes or double quotes according to our preference.
+
+
+    For writing multi line strings use triple quotes
+
+
+    ```
+
+    course = "Python Programmig"
+
+
+    message ="""
+
+
+    Hi John,
+
+
+    Blah blah blah
+
+
+    """
+
+
+    course = "Python Programming"
+
+
+    print(len(course))  # 18
+
+
+    print(course[0])  # P
+
+
+    print(course[-1])  # g
+
+    ```'
+  - '[PAGE 6]
+
+
+    ```
+
+    # Character at the end index is not included (Pyt) slice a string
+
+    print(course[0:3])
+
+    print(course[:])
+
+    ```
+
+
+    # 4. Escape sequences
+
+
+    \ is an Escape Character
+
+    " is an Escape Sequence
+
+
+    ```
+
+    course = "Python \nProgramming"
+
+    print(course)
+
+    ```
+
+
+    # 5. Formatted Strings
+
+
+    ```
+
+    first = ''Kinjalk''
+
+    last = ''Gupta''
+
+
+    full = f"{len(first)} {last}"
+
+    print(full)
+
+    ```
+
+
+    # 6. String Methods
+
+
+    ```
+
+    course = "Python Programming"
+
+
+    print(course.upper())  # PYTHON PROGRAMMING
+
+
+    print(course.lower())  # python programming
+
+
+    print(course.title())  # Python Programming
+
+
+    print(course.strip())
+
+
+    # if string is not found it will return -1 , returns  an index
+
+
+    print(course.find("P"))
+
+
+    print(course.replace("P", "j"))
+
+
+    # ALL these written new strings
+
+
+    print(course)
+
+
+    print("Pro" in course)  # returns boolean
+
+    ```'
+  - '[PAGE 7]
+
+
+    # 7. Numbers
+
+
+    ```
+
+    # augumented operators
+
+
+    x = 10
+
+
+    x = x+10
+
+
+    X += 10
+
+    ```
+
+
+    # 8. Working With Numbers
+
+
+    ```
+
+    print(round(2.9))
+
+
+    print(abs(-2))
+
+
+    print(math.ceil(2.3))
+
+
+    print(math.floor(2.3))
+
+    ```
+
+
+    # 9. Type Conversion
+
+
+    ```
+
+    x = int(input("x: "))
+
+
+    print(type(x))
+
+
+    y = x+1
+
+    ```
+
+
+    Falsy Values
+
+
+    ""
+
+
+    0
+
+
+    none
+
+
+    Truthy Values'
+  - "[PAGE 8]\n\nAnything else will be true\n\n# Chapter 3 Control Flow\n\n# 1. Comparison\
+    \ operators\n\n+   > \n< \n>= \n<=\n\n# 2. Conditional Statements\n\n```\ntemp\
+    \ = 15\n\nif temp >= 30:\n    print(\"it's warm\")\n\nelif temp >= 20:\n    print(\"\
+    it's nice\")\n\nelse:\n    print(\"it's cold\")\n\nprint(\"Done\")\n```\n\n# 3.\
+    \ Ternary Operator\n\n```\nage = 17\n\nif age >= 18:\n    message = \"Eligible\"\
+    \n\nelse:\n    message = \"Not Eligible\"\n\nprint(message)\n```"
+  - "[PAGE 9]\n\n```\nmessage = \"Eligible\" if age >= 18 else \"Not eligible\"\n\
+    print(message)\n```\n\n# 4. Logical Operators\n\n```\nhigh_income = True\ngood_credit\
+    \ = False\nstudent = True\n\nif (high_income or good_credit) and not student:\n\
+    \    print(\"eligible\")\nelse:\n    print(\"Not eligible\")\n```\n\n# 5. Short\
+    \ Circuit Evaluation\n6. Chaining Comparison Operators\n\n```\nage = 22\n\nif\
+    \ age >= 18 and age <= 65:\n    print(\"Eligible\")\n\nif 18 <= age <= 65:\n \
+    \   print(\"Eligible\")\n```\n\n# 7. For Loops\n\n```\nfor number in range(3):\n\
+    ```"
+  - "[PAGE 10]\n\n```\nprint(\"Attempt\", number+1, (number+1)*\".\")\n\nfor number\
+    \ in range(1, 4):\n    print(\"Attempt\", number, (number)*\".\")\n```\n\n# 8.\
+    \ For Else Loops\n\n```\nsuccessful = False\n\nfor number in range(3):\n    print(\"\
+    Attempt\")\n\n    if successful:\n        print(\"Successful\")\n        break\n\
+    else:\n    print(\"Attempted 3 times and failed\")\n```\n\n# 9. Nested Loops\n\
+    \n```\nfor x in range(5):\n    for y in range(3):\n        print(f\"{x}, {y}\"\
+    )\n```\n\n# 10. Iterables\n\n```\nprint(type(range(5)))\n# range objects are iterable\n\
+    for x in \"Python\":\n```"
+  - "[PAGE 11]\n\n```\nprint(x)\n\nfor x in [2, 4, 5, 6]:\n    print(x)\n```\n\n#\
+    \ 11. While Loops\n\n```\nnumber = 100\n\nwhile number > 0:\n    print(number)\n\
+    \    number //= 2\n\ncommand = ''\n\nwhile command.lower() != \"quit\":\n    command\
+    \ = input(\">\")\n    print(\"ECHO\", command)\n```\n\n# 12. Infinite Loops\n\n\
+    ```\nwhile True:\n    command = input(\">\")\n    if command.lower() == \"quit\"\
+    :\n        break\n    print(\"ECHO\", command)\n```\n\n# Chapter 4 Functions\n\
+    \n# 1. Functions"
+  - "[PAGE 12]\n\nA function is a reusable chunk of code which we can call as many\
+    \ times as we want.\n\n```\ndef greet():\n    print(\"Hi there\")\n    print(\"\
+    Welcome aboard\")\n\ngreet()\n```\n\n# 2. Arguments\n\nParameter is the input\
+    \ we define in the program.\nArgument is the actual value which we pass.\n\n```\n\
+    def greet(first_name, last_name):\n    print(f\"Hi there {first_name} {last_name}\"\
+    )\n    print(\"Welcome aboard\")\n\ngreet(\"Kinjalk\", \"G\")\n```\n\n# 3. Types\
+    \ of Functions\n\n+   A. That performs a task\nB. That returns a value\n\n```\n\
+    def get_greeting(first_name, last_name):\n    return f\"Hi there {first_name}\
+    \ {last_name}\"\n\nmsg = get_greeting(\"k\", \"g\")\nprint(msg)\n\ndef greet(first_name,\
+    \ last_name):\n```"
+  - "[PAGE 13]\n\n```\nprint(f\"Hi there {first_name} {last_name}\")\n\nprint(greet(\"\
+    Kinjalk\", \"G\"))\n```\n\n# 4. Keyword arguments\n\n```\ndef increment(number,\
+    \ by):\n    return number + by\n\nprint(increment(2, by=5))\n```\n\n# 5. Default\
+    \ Arguments\n\n```\ndef increment(number, by=1):\n    return number + by\n\nprint(increment(2,\
+    \ 3))\n```\n\n# 6. Xargs\n\n```\ndef multiply(*numbers):\n    # here numbers is\
+    \ a tuple\n    product = 1\n    for n in numbers:\n        product *= n\n    return\
+    \ product\n\nprint(multiply(3, 5, 6, 5))\n```\n\n# 7. Xxargs\n\n```\ndef save_user(**user):\n\
+    \    # returns a dictionary\n```"
+  - "[PAGE 14]\n\n```\nprint(user[\"name\"])\n\nsave_user(id=1, name=\"john\", age=22)\n\
+    ```\n\n# 8. Scope\n\n```\ndef greet(name):\n    global message  # global variables\
+    \ are evil\n    message = \"b\"\n    print(message)\n\ngreet(\"kinjalk\")\nprint(message)\n\
+    ```\n\n# Chapter 5 Data Structure\n\n# 1. Lists\n\n```\nletters = [\"a\", \"b\"\
+    ]\n\nmatrix = [\n    [0, 1],\n    [2, 3],\n    [3, 5] ]\n\nzeros = [0] * 5\n\n\
+    combined = letters + zeros\n\nnumbers = list(range(20))\n\nchars = list(\"Hello\
+    \ World\")\n\nprint(letters)\n```"
+  - '[PAGE 15]
+
+
+    ```
+
+    print(matrix)
+
+    print(zeros)
+
+    print(combined)
+
+    print(numbers)
+
+    print(chars)
+
+    print(len(chars))
+
+    ```
+
+
+    # 2. Accessing Items
+
+
+    ```
+
+    letters = ["a", "b", "c"]
+
+    print(letters[0])
+
+    print(letters[-1])
+
+    letters[0] = "g"
+
+    print(letters)
+
+
+    letters = ["a", "b", "c", ''d'', ''e'']
+
+    print(letters[0:3])
+
+    print(letters[::2])
+
+
+    numbers = list(range(20))
+
+    print(numbers[::2])
+
+
+    numbers = list(range(20))
+
+    print(numbers[::-1])
+
+    ```
+
+
+    # 3. Unpacking List
+
+
+    ```
+
+    numbers = [5, 2, 3, 5, 6, 6, 7, 8, 9]
+
+    first, second, *others = numbers
+
+    print(first)
+
+    print(others)
+
+    ```'
+- md: "## 4. Looping Over Lists\n\n```python\nletters = [\"a\", \"b\", \"c\"]\n\n\
+    for index, item in enumerate(letters):\n    print(index, item)\n\n# enumerate\
+    \ function returns an enumerate object which is iterable. In each iteration it\
+    \ returns a tuple and we can unpack it in the for loop\n```\n\n## 5. Adding or\
+    \ Removing Items\n\n```python\n# When a function is a part of a class then we\
+    \ refer to it as a Method\n\nletters = [\"a\", \"b\", \"c\"]\n\n# Add\nletters.append(\"\
+    d\")  # At the end of the list\nprint(letters)\nletters.insert(0, '-')  # At a\
+    \ specific index\nprint(letters)\n\n# Removing\nletters.pop(0)  # Specifying the\
+    \ index\nprint(letters)\nletters.remove('b')\nprint(letters)\nletters.clear()\n\
+    ```\n\n## 6. Sorting Lists\n\n```python\nletters = [\"a\", \"b\", \"c\"]\nprint(letters.index(\"\
+    d\"))\nprint(letters.count('a'))\n```\n\n## 7. Sorting Lists\n\n```python\nnumbers\
+    \ = [3, 51, 2, 8, 4]\nnumbers.sort()\nprint(numbers)\n```\n\n```python\nnumbers\
+    \ = [3, 51, 2, 8, 4]\nnumbers.sort(reverse=True)\nprint(numbers)\n```\n\n```python\n\
+    n = sorted(numbers) # returns a new a list\nprint(n)\n```\n\n```python\nitems\
+    \ = [\n    (\"Product1\", 10),\n    (\"Product2\", 9),\n    (\"product3\", 13),\n\
+    \    (\"product3\", 28),\n    (\"product3\", 3)\n]\n```\n\n```python\ndef sort_item(item):\n\
+    \    return item[1]\n```\n\n```python\nitems.sort(key=sort_item)\nprint(items)\n\
+    ```\n\n## 8. Lambda Functions\n\n```python\nitems = [\n    (\"Product1\", 10),\n\
+    \    (\"Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n  \
+    \  (\"product3\", 3)\n]\n\nitems.sort(key=lambda item: item[1])\nprint(items)\n\
+    ```\n\n## 9. Map Function\n\n```python\nitems=[\n    (\"Product1\", 10),\n   \
+    \ (\"Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"\
+    product3\", 3)\n]\n\n# Will apply the lambda function on all items in the list\n\
+    prices=list(map(lambda item: item[1], items))\nprint(prices)\n```\n\n## 10. Filter\
+    \ Functions\n\n```python\nitems=[\n    (\"Product1\", 10),\n    (\"Product2\"\
+    , 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\", 3)\n\
+    ]\n\nx=list(filter(lambda item: item[1] >= 10, items))\nprint(x)\n```\n\n## 11.\
+    \ List Comprehensions\n\n```python\nitems=[\n    (\"Product1\", 10),\n    (\"\
+    Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\"\
+    , 3)\n]\n\nx=[item[1] for item in items]\nprint(x)\n\ny=[item for item in items\
+    \ if item[1] >= 10]\nprint(y)\n```\n\n## 12. Zip Function\n\n```python\nlist1=[1,\
+    \ 2, 3, 4]\nlist2=[10, 20, 40]\n\nprint(list(zip(list1, list2)))\n```\n\n## 13.\
+    \ Stacks\n\n```python\n# LIFO - Last in First out\n\nbrowsing_session=[]\n\nbrowsing_session.append(1)\n\
+    \nbrowsing_session.append(2)\n\nbrowsing_session.append(3)\n\nprint(browsing_session)\n\
+    \n\n\nbrowsing_session.pop()\n\nbrowsing_session.pop()\n\nbrowsing_session.pop()\n\
+    \nif not browsing_session:\n    print(browsing_session[-1])\n```\n\n## 14. Queues\n\
+    \n```python\n# FIFO - First in First out\n\nfrom collections import deque\n\n\n\
+    \nqueue=deque([])\n\nqueue.append(1)\n\nqueue.append(2)\n\nqueue.popleft()\n\n\
+    queue.popleft()\n\n\n\nprint(queue)\n```\n\n## 15. Tuple\n\n```python\npoint=(1,)\n\
+    \nprint(point)\n\npoint1=(1, 2) * 3\n\nprint(point1)\n\nprint(point1[0:2])\n```\n\
+    \n## 16. Swapping Variable\n\n```python\nx=10\n\ny=11\n\nz=x\n\nx=y\n\ny=z\n\n\
+    print(x)\n\nprint(y)\n\nx, y=y, x  # We are defining a tuple and unpacking it\n\
+    \n# x, y = (y, x)\n```\n\n## 17. Arrays\n\n```python\nfrom array import array\n\
+    \n# Takes a typecode\n\nnumbers=array('i', [1, 2, 3])\n\nnumbers[0]=5\n```\n\n\
+    ## 18. Set\n\n```python\nnumbers=[1, 1, 2, 3, 5]\n\nfirst=set(numbers)\n\nsecond={15,\
+    \ 7, 5}\n\n# print(first)\n# print(second)\n\nprint(first | second)  # All the\
+    \ items that are in either the first or second set\nprint(first & second)  # that\
+    \ exists in both the sets\n# This first set has additional numbers that are not\
+    \ in the second set\nprint(first - second)\nprint(first ^ second)  # that exists\
+    \ in first or second set but not both\n```\n\n## 19. Dictionary\n\n```python\n\
+    point={\"x\": 1, \"y\": 2}\npoint1=dict(x=1, y=2)\nprint(point1[\"y\"])\npoint1[\"\
+    z\"]=20\n# print(point1[\"a\"])\nprint(point1.get(\"a\", \"doesn't exist\"))\n\
+    del point['x']\nfor key in point1:\n    print(key, point1[key])\n\nfor key, value\
+    \ in point1.items():\n    print(key, value)\n```\n\n## 20. Dictionary Comprehension\n\
+    \n```python\nl={x*2 for x in range(5)}  # set\nprint(l)\n\nl={x: x*2 for x in\
+    \ range(5)}  # dict\n\nprint(l)\n\nl=(x*2 for x in range(5))  # tuple, returns\
+    \ a Generator object\n\nprint(l)\n```\n\n## 21. Generator object\n\n```python\n\
+    from sys import getsizeof\n\nl=(x*2 for x in range(10000))\nprint(getsizeof(l))\n\
+    \nl=[x*2 for x in range(10000)]\nprint(getsizeof(l))\n```\n\n## 22. Unpacking\
+    \ Operator\n\n```python\nvalues=[*range(5)]\nprint(values)\n\nstring=[*\"Hello\"\
+    ]\nprint(string)\n\ncombined=[values, string]  # [[0, 1, 2, 3, 4], ['H', 'e',\
+    \ 'l', 'l', 'o']]\ncombined=[*values, *string]  # [0, 1, 2, 3, 4, 'H', 'e', 'l',\
+    \ 'l', 'o']\nprint(combined)\n\nfirst={\"x\": 1}\nsecond={\"x\": 10, \"y\": 2}\n\
+    combined={**first, **second}\nprint(combined)\n```\n\n## 23. Exercise\n\nWrite\
+    \ some code which provides you the letter with the highest occurrence in a sentence.\n\
+    \n```python\nfrom pprint import pprint\n\nsentence=\"This is a common interview\
+    \ question\"\n\ncount={}\n\nfor char in sentence:\n    count[char]=count.get(char,\
+    \ 0) + 1\n\npprint(count, width=1)\n\nfrequency_sorted=sorted(count.items(),\n\
+    key=lambda kv: kv[1],\nreverse=True)\n\nprint(frequency_sorted[0])\n```\n\n##\
+    \ Chapter 6 Exception\n\n## 1. Exceptions\n\n```python\ntry:\n    age=int(input(\"\
+    Age: \"))\nexcept ValueError as error:\n    print(error)\n    print(\"You didn't\
+    \ enter a valid age\")\nelse:\n    print(\"No exceptions were thrown\")\n    print(\"\
+    Execution continues\")\n```\n\n## 2. Handling Multiple exceptions\n\n```python\n\
+    try:\n    age=int(input(\"Age: \"))\n    xfactor=10/age\nexcept ValueError as\
+    \ error:\n    print(error)\n    print(\"You didn't enter a valid age\")\nexcept\
+    \ ZeroDivisionError:\n    print(\"Age can not be zero\")\nelse:\n    print(\"\
+    No exceptions were thrown\")\nprint(\"Execution continues\")\n#--------------------------------------------------\n\
+    try:\n    age=int(input(\"Age: \"))\n    xfactor=10/age\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didn't enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nprint(\"Execution continues\")\n```\n\n## 3. Cleaning Up\n\n\
+    ```python\ntry:\n    file=open(\"app.py\")\n    age=int(input(\"Age: \"))\n  \
+    \  xfactor=10/age\n\nexcept (ValueError, ZeroDivisionError):\n    print(\"You\
+    \ didn't enter a valid age\")\nelse:\n    print(\"No exceptions were thrown\"\
+    )\nfinally:\n    file.close()\n```\n\n## 4. The With Statement\n\n```python\n\
+    try:\n    # Automatically release external resources\n    with open(\"app.py\"\
+    ) as file, open(\"another.txt\") as target:\n        print(\"File opened\")\n\
+    \    age=int(input(\"Age: \"))\n    xfactor=10/age\n\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didn't enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nfinally:\n    file.close()\n\n# if an object has __exit__ and\
+    \ __enter__ methods , it supports context management protocol\n```\n\n## 5. Raising\
+    \ Exceptions\n\n```python\ndef calculate_xfactor(age):\n    if age <= 0:\n   \
+    \     raise ValueError(\"Age cannot be 0 or less\")\n    return 10/age\n\nprint(calculate_xfactor(1))\n\
+    ```\n\n## 6. Cost Of raising Exceptions\n\n```python\nfrom timeit import timeit\n\
+    \ncode1=\"\"\"\ndef calculate_xfactor(age):\n    if age <= 0:\n        raise ValueError(\"\
+    Age cannot be 0 or less\")\n    return 10/age\n\ntry:\n    print(calculate_xfactor(-1))\n\
+    except ValueError as error:\n    pass\n\"\"\"\n\ncode2=\"\"\"\ndef calculate_xfactor(age):\n\
+    \    if age <= 0:\n        return None\n    return 10/age\n\nxfactor = calculate_xfactor(-1)\n\
+    \nif xfactor == None:\n    pass\n\"\"\"\n\nprint(timeit(code1, number=10000))\n\
+    print(timeit(code2, number=10000))\n```\n\n## Chapter 7 Classes\n\n## 1. Classes\n\
+    \nClasses are used to define new types or\n\nClass is a blueprint for creating\
+    \ new objects\n\nAn object is an instance of a class\n\n## 2. Creating Classes\n\
+    \n```python\nclass Point:  # Pascal naming convention\n    def draw(self):\n \
+    \       print(\"draw\")\n\npoint1=Point()\nprint(type(Point()))  # <class '__main__.Point'>\n\
+    point1.draw()\nprint(isinstance(point1, int))\n```\n\n## 3. Constructor\n\n```python\n\
+    class Point:  # Pascal naming convention\n    def __init__(self, x, y):  # Magic\
+    \ or dunder method, self is a reference to the current object\n        self.x\
+    \ = x\n        self.y = y\n\n    def draw(self):\n        print(f\"Point ({self.x},{self.y})\"\
+    )\n\npoint1 = Point(5, 8)\npoint1.draw()\nprint(point1.x)\n```\n\n## 4. Class\
+    \ vs. Instance Attributes\n\n```python\nclass Point:  # Pascal naming convention\n\
+    \    default_color = \"red\"\n\n    def __init__(self, x, y):  # Magic or dunder\
+    \ method, self is a reference to a current object\n        self.x = x\n      \
+    \  self.y = y\n\n    def draw(self):\n        print(f\"Point ({self.x},{self.y})\"\
+    )\n\nPoint.default_color = \"yellow\"\n\npoint1 = Point(5, 8)\nprint(point1.default_color)\n\
+    print(Point.default_color)\n```"
+  mdcn: "## 4. 遍历列表\n\n```python\nletters = [\"a\", \"b\", \"c\"]\n\nfor index, item\
+    \ in enumerate(letters):\n    print(index, item)\n\n# enumerate 函数返回一个可迭代的 enumerate\
+    \ 对象。在每次迭代中，它返回一个元组，我们可以在 for 循环中解包它\n```\n\n## 5. 添加或删除元素\n\n```python\n# 当一个函数是类的一部分时，我们称它为方法\n\
+    \nletters = [\"a\", \"b\", \"c\"]\n\n# 添加\nletters.append(\"d\")  # 在列表末尾添加\n\
+    print(letters)\nletters.insert(0, '-')  # 在指定索引处添加\nprint(letters)\n\n# 删除\nletters.pop(0)\
+    \  # 指定索引删除\nprint(letters)\nletters.remove('b')\nprint(letters)\nletters.clear()\n\
+    ```\n\n## 6. 列表排序\n\n```python\nletters = [\"a\", \"b\", \"c\"]\nprint(letters.index(\"\
+    d\"))\nprint(letters.count('a'))\n```\n\n## 7. 列表排序\n\n```python\nnumbers = [3,\
+    \ 51, 2, 8, 4]\nnumbers.sort()\nprint(numbers)\n```\n\n```python\nnumbers = [3,\
+    \ 51, 2, 8, 4]\nnumbers.sort(reverse=True)\nprint(numbers)\n```\n\n```python\n\
+    n = sorted(numbers) # 返回一个新列表\nprint(n)\n```\n\n```python\nitems = [\n    (\"\
+    Product1\", 10),\n    (\"Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\"\
+    , 28),\n    (\"product3\", 3)\n]\n```\n\n```python\ndef sort_item(item):\n   \
+    \ return item[1]\n```\n\n```python\nitems.sort(key=sort_item)\nprint(items)\n\
+    ```\n\n## 8. Lambda 函数\n\n```python\nitems = [\n    (\"Product1\", 10),\n    (\"\
+    Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\"\
+    , 3)\n]\n\nitems.sort(key=lambda item: item[1])\nprint(items)\n```\n\n## 9. Map\
+    \ 函数\n\n```python\nitems=[\n    (\"Product1\", 10),\n    (\"Product2\", 9),\n\
+    \    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\", 3)\n]\n\n\
+    # 将 lambda 函数应用于列表中的所有元素\nprices=list(map(lambda item: item[1], items))\nprint(prices)\n\
+    ```\n\n## 10. Filter 函数\n\n```python\nitems=[\n    (\"Product1\", 10),\n    (\"\
+    Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\"\
+    , 3)\n]\n\nx=list(filter(lambda item: item[1] >= 10, items))\nprint(x)\n```\n\n\
+    ## 11. 列表推导式\n\n```python\nitems=[\n    (\"Product1\", 10),\n    (\"Product2\"\
+    , 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\", 3)\n\
+    ]\n\nx=[item[1] for item in items]\nprint(x)\n\ny=[item for item in items if item[1]\
+    \ >= 10]\nprint(y)\n```\n\n## 12. Zip 函数\n\n```python\nlist1=[1, 2, 3, 4]\nlist2=[10,\
+    \ 20, 40]\n\nprint(list(zip(list1, list2)))\n```\n\n## 13. 栈\n\n```python\n# LIFO\
+    \ - 后进先出\n\nbrowsing_session=[]\n\nbrowsing_session.append(1)\n\nbrowsing_session.append(2)\n\
+    \nbrowsing_session.append(3)\n\nprint(browsing_session)\n\n\n\nbrowsing_session.pop()\n\
+    \nbrowsing_session.pop()\n\nbrowsing_session.pop()\n\nif not browsing_session:\n\
+    \    print(browsing_session[-1])\n```\n\n## 14. 队列\n\n```python\n# FIFO - 先进先出\n\
+    \nfrom collections import deque\n\n\n\nqueue=deque([])\n\nqueue.append(1)\n\n\
+    queue.append(2)\n\nqueue.popleft()\n\nqueue.popleft()\n\n\n\nprint(queue)\n```\n\
+    \n## 15. 元组\n\n```python\npoint=(1,)\n\nprint(point)\n\npoint1=(1, 2) * 3\n\n\
+    print(point1)\n\nprint(point1[0:2])\n```\n\n## 16. 交换变量\n\n```python\nx=10\n\n\
+    y=11\n\nz=x\n\nx=y\n\ny=z\n\nprint(x)\n\nprint(y)\n\nx, y=y, x  # 我们定义一个元组并解包它\n\
+    \n# x, y = (y, x)\n```\n\n## 17. 数组\n\n```python\nfrom array import array\n\n\
+    # 接受一个类型码\n\nnumbers=array('i', [1, 2, 3])\n\nnumbers[0]=5\n```\n\n## 18. 集合\n\
+    \n```python\nnumbers=[1, 1, 2, 3, 5]\n\nfirst=set(numbers)\n\nsecond={15, 7, 5}\n\
+    \n# print(first)\n# print(second)\n\nprint(first | second)  # 在第一个或第二个集合中的所有元素\n\
+    print(first & second)  # 同时存在于两个集合中的元素\n# 这个第一个集合包含第二个集合中没有的额外数字\nprint(first\
+    \ - second)\nprint(first ^ second)  # 存在于第一个或第二个集合中，但不同时存在于两个集合中的元素\n```\n\n##\
+    \ 19. 字典\n\n```python\npoint={\"x\": 1, \"y\": 2}\npoint1=dict(x=1, y=2)\nprint(point1[\"\
+    y\"])\npoint1[\"z\"]=20\n# print(point1[\"a\"])\nprint(point1.get(\"a\", \"doesn't\
+    \ exist\"))\ndel point['x']\nfor key in point1:\n    print(key, point1[key])\n\
+    \nfor key, value in point1.items():\n    print(key, value)\n```\n\n## 20. 字典推导式\n\
+    \n```python\nl={x*2 for x in range(5)}  # 集合\nprint(l)\n\nl={x: x*2 for x in range(5)}\
+    \  # 字典\n\nprint(l)\n\nl=(x*2 for x in range(5))  # 元组，返回一个生成器对象\n\nprint(l)\n\
+    ```\n\n## 21. 生成器对象\n\n```python\nfrom sys import getsizeof\n\nl=(x*2 for x in\
+    \ range(10000))\nprint(getsizeof(l))\n\nl=[x*2 for x in range(10000)]\nprint(getsizeof(l))\n\
+    ```\n\n## 22. 解包运算符\n\n```python\nvalues=[*range(5)]\nprint(values)\n\nstring=[*\"\
+    Hello\"]\nprint(string)\n\ncombined=[values, string]  # [[0, 1, 2, 3, 4], ['H',\
+    \ 'e', 'l', 'l', 'o']]\ncombined=[*values, *string]  # [0, 1, 2, 3, 4, 'H', 'e',\
+    \ 'l', 'l', 'o']\nprint(combined)\n\nfirst={\"x\": 1}\nsecond={\"x\": 10, \"y\"\
+    : 2}\ncombined={**first, **second}\nprint(combined)\n```\n\n## 23. 练习\n\n编写一些代码，找出句子中出现次数最多的字母。\n\
+    \n```python\nfrom pprint import pprint\n\nsentence=\"This is a common interview\
+    \ question\"\n\ncount={}\n\nfor char in sentence:\n    count[char]=count.get(char,\
+    \ 0) + 1\n\npprint(count, width=1)\n\nfrequency_sorted=sorted(count.items(),\n\
+    key=lambda kv: kv[1],\nreverse=True)\n\nprint(frequency_sorted[0])\n```\n\n##\
+    \ 第6章 异常\n\n## 1. 异常\n\n```python\ntry:\n    age=int(input(\"Age: \"))\nexcept\
+    \ ValueError as error:\n    print(error)\n    print(\"You didn't enter a valid\
+    \ age\")\nelse:\n    print(\"No exceptions were thrown\")\n    print(\"Execution\
+    \ continues\")\n```\n\n## 2. 处理多个异常\n\n```python\ntry:\n    age=int(input(\"Age:\
+    \ \"))\n    xfactor=10/age\nexcept ValueError as error:\n    print(error)\n  \
+    \  print(\"You didn't enter a valid age\")\nexcept ZeroDivisionError:\n    print(\"\
+    Age can not be zero\")\nelse:\n    print(\"No exceptions were thrown\")\nprint(\"\
+    Execution continues\")\n#--------------------------------------------------\n\
+    try:\n    age=int(input(\"Age: \"))\n    xfactor=10/age\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didn't enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nprint(\"Execution continues\")\n```\n\n## 3. 清理资源\n\n```python\n\
+    try:\n    file=open(\"app.py\")\n    age=int(input(\"Age: \"))\n    xfactor=10/age\n\
+    \nexcept (ValueError, ZeroDivisionError):\n    print(\"You didn't enter a valid\
+    \ age\")\nelse:\n    print(\"No exceptions were thrown\")\nfinally:\n    file.close()\n\
+    ```\n\n## 4. With 语句\n\n```python\ntry:\n    # 自动释放外部资源\n    with open(\"app.py\"\
+    ) as file, open(\"another.txt\") as target:\n        print(\"File opened\")\n\
+    \    age=int(input(\"Age: \"))\n    xfactor=10/age\n\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didn't enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nfinally:\n    file.close()\n\n# 如果一个对象有 __exit__ 和 __enter__\
+    \ 方法，它就支持上下文管理协议\n```\n\n## 5. 抛出异常\n\n```python\ndef calculate_xfactor(age):\n\
+    \    if age <= 0:\n        raise ValueError(\"Age cannot be 0 or less\")\n   \
+    \ return 10/age\n\nprint(calculate_xfactor(1))\n```\n\n## 6. 抛出异常的代价\n\n```python\n\
+    from timeit import timeit\n\ncode1=\"\"\"\ndef calculate_xfactor(age):\n    if\
+    \ age <= 0:\n        raise ValueError(\"Age cannot be 0 or less\")\n    return\
+    \ 10/age\n\ntry:\n    print(calculate_xfactor(-1))\nexcept ValueError as error:\n\
+    \    pass\n\"\"\"\n\ncode2=\"\"\"\ndef calculate_xfactor(age):\n    if age <=\
+    \ 0:\n        return None\n    return 10/age\n\nxfactor = calculate_xfactor(-1)\n\
+    \nif xfactor == None:\n    pass\n\"\"\"\n\nprint(timeit(code1, number=10000))\n\
+    print(timeit(code2, number=10000))\n```\n\n## 第7章 类\n\n## 1. 类\n\n类用于定义新的类型或\n\
+    \n类是创建新对象的蓝图\n\n对象是类的一个实例\n\n## 2. 创建类\n\n```python\nclass Point:  # 帕斯卡命名约定\n\
+    \    def draw(self):\n        print(\"draw\")\n\npoint1=Point()\nprint(type(Point()))\
+    \  # <class '__main__.Point'>\npoint1.draw()\nprint(isinstance(point1, int))\n\
+    ```\n\n## 3. 构造函数\n\n```python\nclass Point:  # 帕斯卡命名约定\n    def __init__(self,\
+    \ x, y):  # 魔术方法或双下划线方法，self 是对当前对象的引用\n        self.x = x\n        self.y = y\n\
+    \n    def draw(self):\n        print(f\"Point ({self.x},{self.y})\")\n\npoint1\
+    \ = Point(5, 8)\npoint1.draw()\nprint(point1.x)\n```\n\n## 4. 类属性与实例属性\n\n```python\n\
+    class Point:  # 帕斯卡命名约定\n    default_color = \"red\"\n\n    def __init__(self,\
+    \ x, y):  # 魔术方法或双下划线方法，self 是对当前对象的引用\n        self.x = x\n        self.y = y\n\
+    \n    def draw(self):\n        print(f\"Point ({self.x},{self.y})\")\n\nPoint.default_color\
+    \ = \"yellow\"\n\npoint1 = Point(5, 8)\nprint(point1.default_color)\nprint(Point.default_color)\n\
+    ```"
+  merge: 0
+  raw:
+  - "[PAGE 16]\n\n```\n# first = numbers[0]\n# second = numbers[1]\n# third = numbers[2]\n\
+    ```\n\n# 4. Looping Over Lists\n\n```\nletters = [\"a\", \"b\", \"c\"]\n\nfor\
+    \ index, item in enumerate(letters):\n    print(index, item)\n\n#enumerate function\
+    \ returns an enumerate object which is iterable. In each iteration it returns\
+    \ a tuple and we can unpack it in the for loop\n```\n\n# 5. Adding or Removing\
+    \ Items\n\n```\nWhen a function is a part of a class then we refer to it as a\
+    \ Method\n\nletters = [\"a\", \"b\", \"c\"]\n\n# Add\nletters.append(\"d\")  #\
+    \ At the end of the list\nprint(letters)\nletters.insert(0, '-')  # At a specific\
+    \ index\nprint(letters)\n\n# Removing\nletters.pop(0)  # Specifying the index\n\
+    print(letters)\nletters.remove('b')\nprint(letters)\nletters.clear()\n```\n\n\
+    # 6. Sorting Lists"
+  - "[PAGE 17]\n\n```\nletters = [\"a\", \"b\", \"c\"]\nprint(letters.index(\"d\"\
+    ))\nprint(letters.count('a'))\n```\n\n# 7. Sorting Lists\n\n```\nnumbers = [3,\
+    \ 51, 2, 8, 4]\nnumbers.sort()\nprint(numbers)\n```\n\n```\nnumbers = [3, 51,\
+    \ 2, 8, 4]\nnumbers.sort(reverse=True)\nprint(numbers)\n```\n\n```\nn = sorted(numbers)\
+    \ # returns a new a list\nprint(n)\n```\n\n```\nitems = [\n    (\"Product1\",\
+    \ 10),\n    (\"Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n\
+    \    (\"product3\", 3)\n]\n```\n\n```\ndef sort_item(item):\n    return item[1]\n\
+    ```\n\n```\nitems.sort(key=sort_item)\nprint(items)\n```"
+  - "[PAGE 18]\n\n# 8. Lambda Functions\n\n```\nitems = [\n    (\"Product1\", 10),\n\
+    \    (\"Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n  \
+    \  (\"product3\", 3)\n]\n\nitems.sort(key=lambda item: item[1])\nprint(items)\n\
+    ```\n\n# 9. Map Function\n\n```\nitems=[\n    (\"Product1\", 10),\n    (\"Product2\"\
+    , 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\", 3)\n\
+    ]\n\n# Will aplay the labda funciton on all items in the list\nprices=list(map(lambda\
+    \ item: item[1], items))\nprint(prices)\n```\n\n# 10. Filter Functions\n\n```\n\
+    items=[\n    (\"Product1\", 10),\n    (\"Product2\", 9),\n```"
+  - "[PAGE 19]\n\n```\npython\n(\"product3\", 13),\n(\"product3\", 28),\n(\"product3\"\
+    , 3)\n]\n\nx=list(filter(lambda item: item[1] >= 10, items))\nprint(x)\n```\n\n\
+    # 11. List Comprehensions\n\n```\npython\nitems=[\n    (\"Product1\", 10),\n \
+    \   (\"Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n   \
+    \ (\"product3\", 3)\n]\n\nx=[item[1] for item in items]\nprint(x)\n\ny=[item for\
+    \ item in items if item[1] >= 10]\nprint(y)\n```\n\n# 12. Zip Function\n\n```\n\
+    python\nlist1=[1, 2, 3, 4]\nlist2=[10, 20, 40]\n\nprint(list(zip(list1, list2)))\n\
+    ```"
+  - "[PAGE 20]\n\n# 13. Stacks\n\n```\nLiFo - Last in First out\n\nbrowsing_session=[]\n\
+    \nbrowsing_session.append(1)\n\nbrowsing_session.append(2)\n\nbrowsing_session.append(3)\n\
+    \nprint(browsing_session)\n\n\n\nbrowsing_session.pop()\n\nbrowsing_session.pop()\n\
+    \nbrowsing_session.pop()\n\nif not browsing_session:\n    print(browsing_session[-1])\n\
+    ```\n\n# 14. Queues\n\n```\nFiFo - First in First out\n\nfrom collections import\
+    \ deque\n\n\n\nqueue=deque([])\n\nqueue.append(1)\n\nqueue.append(2)\n\nqueue.popleft()\n\
+    \nqueue.popleft()\n\n\n\nprint(queue)\n```\n\n# 15. Tuple\n\n```\npoint=(1,)\n\
+    \nprint(point)\n```"
+  - '[PAGE 21]
+
+
+    ```
+
+    point1=(1, 2) * 3
+
+
+    print(point1)
+
+
+    print(point1[0:2])
+
+    ```
+
+
+    # 16. Swapping Variable
+
+
+    ```
+
+    x=10
+
+
+    y=11
+
+
+    z=x
+
+
+    x=y
+
+
+    y=z
+
+
+    print(x)
+
+
+    print(y)
+
+
+    x, y=y, x  # We are defining a tuple and unpacking it
+
+
+    # x, y = (y, x)
+
+    ```
+
+
+    # 17. Arrays
+
+
+    ```
+
+    from array import array
+
+
+    # Takes a typecode
+
+
+    numbers=array(''i'', [1, 2, 3])
+
+
+    numbers[0]=5
+
+    ```
+
+
+    # 18. Set
+
+
+    ```
+
+    numbers=[1, 1, 2, 3, 5]
+
+
+    first=set(numbers)
+
+    ```'
+  - "[PAGE 22]\n\n```\nsecond={15, 7, 5}\n\n# print(first)\n# print(second)\n\nprint(first\
+    \ | second)  # All the items that are in either the first or second set\nprint(first\
+    \ & second)  # that exists in both the sets\n# This first set has additional numbers\
+    \ that are not in the second set\nprint(first - second)\nprint(first ^ second)\
+    \  # that exists in first or second set but not both\n```\n\n# 19. Dictionary\n\
+    \n```\npoint={\"x\": 1, \"y\": 2}\npoint1=dict(x=1, y=2)\nprint(point1[\"y\"])\n\
+    point1[\"z\"]=20\n# print(point1[\"a\"])\nprint(point1.get(\"a\", \"doesn't exist\"\
+    ))\ndel point['x']\nfor key in point1:\n    print(key, point1[key])\n\nfor key,\
+    \ value in point1.items():\n    print(key, value)\n```\n\n# 20. Dictionary Comprehension\n\
+    \n```\nl={x*2 for x in range(5)}  # set\nprint(l)\n```"
+  - '[PAGE 23]
+
+
+    ```
+
+    l={x: x*2 for x in range(5)}  # dict
+
+
+    print(l)
+
+
+    l=(x*2 for x in range(5))  # tuple, returns a Generator object
+
+
+    print(l)
+
+    ```
+
+
+    # 21. Generator object
+
+
+    ```
+
+    from sys import getsizeof
+
+
+    l=(x*2 for x in range(10000))
+
+    print(getsizeof(l))
+
+
+    l=[x*2 for x in range(10000)]
+
+    print(getsizeof(l))
+
+    ```
+
+
+    # 22. Unpacking Operator
+
+
+    ```
+
+    values=[*range(5)]
+
+    print(values)
+
+
+    string=[*"Hello"]
+
+    print(string)
+
+
+    combined=[values, string]  # [[0, 1, 2, 3, 4], [''H'', ''e'', ''l'', ''l'', ''o'']]
+
+    combined=[*values, *string]  # [0, 1, 2, 3, 4, ''H'', ''e'', ''l'', ''l'', ''o'']
+
+    print(combined)
+
+
+    first={"x": 1}
+
+    second={"x": 10, "y": 2}
+
+    combined={**first, **second}
+
+    print(combined)
+
+    ```'
+  - "[PAGE 24]\n\n# 23. Exercise\n\nWrite some code which provides you the letter\
+    \ with the highest occurrence in a sentence.\n\n```\nfrom pprint import pprint\n\
+    \nsentence=\"This is a common interview question\"\n\ncount={}\n\nfor char in\
+    \ sentence:\n    count[char]=count.get(char, 0) + 1\n\npprint(count, width=1)\n\
+    \nfrequency_sorted=sorted(count.items(),\nkey=lambda kv: kv[1],\nreverse=True)\n\
+    \nprint(frequency_sorted[0])\n```\n\n# Chapter 6 Exception\n\n# 1. Exceptions\n\
+    \n```\ntry:\n    age=int(input(\"Age: \"))\nexcept ValueError as error:\n    print(error)\n\
+    \    print(\"You didnt enter a valid age\")\nelse:\n```"
+  - "[PAGE 25]\n\n```\nprint(\"No exceptions were thrown\")\nprint(\"Execution continues\"\
+    )\n```\n\n# 2. Handling Multiple exceptions\n\n```\ntry:\n    age=int(input(\"\
+    Age: \"))\n    xfactor=10/age\nexcept ValueError as error:\n    print(error)\n\
+    \    print(\"You didnt enter a valid age\")\nexcept ZeroDivisionError:\n    print(\"\
+    Age can not be zero\")\nelse:\n    print(\"No exceptions were thrown\")\nprint(\"\
+    Execution continues\")\n#--------------------------------------------------\n\
+    try:\n    age=int(input(\"Age: \"))\n    xfactor=10/age\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didnt enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nprint(\"Execution continues\")\n```\n\n# 3. Cleaning Up\n\n\
+    ```\ntry:\n    file=open(\"app.py\")\n    age=int(input(\"Age: \"))\n```"
+  - "[PAGE 26]\n\n```\nxfactor=10/age\n\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didnt enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nfinally:\n    file.close()\n```\n\n# 4. The With Statement\n\
+    \n```\ntry:\n    # Automatically realease external resources\n    with open(\"\
+    app.py\") as file, open(\"another.txt\") as target:\n        print(\"File opened\"\
+    )\n    age=int(input(\"Age: \"))\n    xfactor=10/age\n\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didnt enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nfinally:\n    file.close()\n\n# if an object has __exit__ and\
+    \ __enter__ methods , it supports context management protocol\n```\n\n# 5. Raising\
+    \ Exceptions"
+  - "[PAGE 27]\n\n```\npython\ndef calculate_xfactor(age):\n    if age <= 0:\n   \
+    \     raise ValueError(\"Age cannot be 0 or less\")\n    return 10/age\n\nprint(calculate_xfactor(1))\n\
+    ```\n\n# 6. Cost Of raising Exceptions\n\n```\npython\nfrom timeit import timeit\n\
+    \ncode1=\"\"\"\ndef calculate_xfactor(age):\n    if age <= 0:\n        raise ValueError(\"\
+    Age cannot be 0 or less\")\n    return 10/age\n\ntry:\n    print(calculate_xfactor(-1))\n\
+    except ValueError as error:\n    pass\n\"\"\"\n\ncode2=\"\"\"\ndef calculate_xfactor(age):\n\
+    \    if age <= 0:\n        return None\n    return 10/age\n\"\"\"\n```"
+  - "[PAGE 28]\n\n```\nxfactor = calculate_xfactor(-1)\n\nif xfactor == None:\n  \
+    \  pass\n\"\"\"\n\nprint(timeit(code1, number=10000))\nprint(timeit(code2, number=10000))\n\
+    ```\n\n# Chapter 7 Classes\n\n# 1.Classes\n\nClasses are used to define new types\
+    \ or\n\nClass is a blueprint for creating new objects\n\nAn object is an instance\
+    \ of a class\n\n# 2. Creating Classes\n\n```\nclass Point:  # Pascal naming convention\n\
+    \    def draw(self):\n        print(\"draw\")\n\npoint1=Point()\nprint(type(Point()))\
+    \  # <class '__main__.Point'>\npoint1.draw()\nprint(isinstance(point1, int))\n\
+    ```\n\n# 3. Constructor\n\n```\nclass Point:  # Pascal naming convention\n```"
+  - "[PAGE 29]\n\n```\npython\ndef __init__(self, x, y):  # Magic or dunder method,\
+    \ self is a reference to the current object\n    self.x = x\n    self.y = y\n\n\
+    def draw(self):\n    print(f\"Point ({self.x},{self.y})\")\n\npoint1 = Point(5,\
+    \ 8)\npoint1.draw()\nprint(point1.x)\n```\n\n# 4. Class vs. Instance Attributes\n\
+    \n```\npython\nclass Point:  # Pascal naming convention\n    default_color = \"\
+    red\"\n\n    def __init__(self, x, y):  # Magic or dunder method, self is a reference\
+    \ to a current object\n        self.x = x\n        self.y = y\n\n    def draw(self):\n\
+    \        print(f\"Point ({self.x},{self.y})\")\n\nPoint.default_color = \"yellow\"\
+    \n\npoint1 = Point(5, 8)\nprint(point1.default_color)\nprint(Point.default_color)\n\
+    ```"
+- md: "point1.draw()\n\npoint2 = Point(45, 58)\n\nprint(point2.default_color)\n\n\
+    point2.draw()\n\n## 5. Class vs. Instance Methods\n\n```python\nclass Point:\n\
+    \    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n   \
+    \ def draw(self):\n        print(f\"Point ({self.x},{self.y})\")\n\n    @classmethod\n\
+    \    def zero(cls):\n        return cls(0, 0)\n\npoint1 = Point(5, 8)\npoint1.draw()\n\
+    print(point1.x)\n\nzero = Point.zero()\nzero.draw()\n```\n\n## 6. Magic Methods\n\
+    \n```python\nclass Point:\n    def __init__(self, x, y):\n        self.x = x\n\
+    \        self.y = y\n\n    def __str__(self):\n        return f\"{self.x}, {self.y}\"\
+    \n\n    def draw(self):\n        print(f\"(Point {self.x}, {self.y})\")\n\npoint\
+    \ = Point(1, 2)\nprint(point)\nprint(str(point))\n```\n\n## 7. Comparing Objects\n\
+    \n```python\nclass Point:\n    def __init__(self, x, y):\n        self.x = x\n\
+    \        self.y = y\n\n    def __eq__(self, other):\n        return self.x ==\
+    \ other.x and self.y == other.y\n\n    def __gt__(self, other):\n        return\
+    \ self.x > other.x and self.y > other.y\n\npoint = Point(1, 2)\nother = Point(2,\
+    \ 4)\n\nprint(point == other)\nprint(point < other)\n```\n\n## 8. Performing Arithmetic\
+    \ Operations\n\n```python\nclass Point:\n    def __init__(self, x, y):\n     \
+    \   self.x = x\n        self.y = y\n\n    def __eq__(self, other):\n        return\
+    \ self.x == other.x and self.y == other.y\n\n    def __gt__(self, other):\n  \
+    \      return self.x > other.x and self.y > other.y\n\n    def __add__(self, other):\n\
+    \        return Point(self.x + other.x, self.y + other.y)\n\npoint = Point(1,\
+    \ 2)\nother = Point(2, 4)\nprint(point == other)\nprint(point < other)\nsum =\
+    \ point + other\nprint(sum.y)\n```\n\n## 9. Making Custom Containers\n\n```python\n\
+    class TagCloud:\n    def __init__(self):\n        self.tags = {}\n\n    def add(self,\
+    \ tag):\n        self.tags[tag.lower()] = self.tags.get(tag.lower(), 0) + 1\n\n\
+    \    def __getitem__(self, tag):\n        return self.tags.get(tag.lower(), 0)\n\
+    \n    def __setitem__(self, tag, count):\n        self.tags[tag.lower()] = count\n\
+    \n    def __len__(self):\n        return len(self.tags)\n\n    def __iter__(self):\n\
+    \        return iter(self.tags)\n\ncloud = TagCloud()\ncloud.add(\"python\")\n\
+    cloud.add(\"python\")\ncloud.add(\"pytHon\")\ncloud[\"Programming\"] = 10\nprint(len(cloud))\n\
+    print(cloud[\"Python\"])\nprint(cloud.tags)\nfor item in cloud:\n    print(item)\n\
+    ```\n\n## 10. Private Members\n\n```python\nclass TagCloud:\n    def __init__(self):\n\
+    \        self.__tags = {}  # Private members\n\n    def add(self, tag):\n    \
+    \    self.__tags[tag.lower()] = self.__tags.get(tag.lower(), 0) + 1\n\n    def\
+    \ __getitem__(self, tag):\n        return self.__tags.get(tag.lower(), 0)\n\n\
+    \    def __setitem__(self, tag, count):\n        self.__tags[tag.lower()] = count\n\
+    \n    def __len__(self):\n        return len(self.__tags)\n\n    def __iter__(self):\n\
+    \        return iter(self.__tags)\n\ncloud = TagCloud()\ncloud.add(\"python\"\
+    )\ncloud.add(\"python\")\ncloud.add(\"pytHon\")\ncloud[\"Bubbles\"] = 1000000\n\
+    print(len(cloud))\nprint(cloud[\"Python\"])\n# print(cloud.__tags)\nfor item in\
+    \ cloud:\n    print(item)\nprint(cloud.__dict__)\n\nprint(cloud._TagCloud__tags)\n\
+    ```\n\n## 11. Properties\n\n```python\nclass Product:\n    def __init__(self,\
+    \ price):\n        self.set_price(price)\n\n    def get_price(self):\n       \
+    \ return self.__price\n\n    def set_price(self, value):\n        if value < 0:\n\
+    \            raise ValueError(\"Price cannot be negative\")\n        self.__price\
+    \ = value\n\nproduct = Product(50)\nprint(product.get_price())\n# Unpythonic code\n\
+    \nclass Product:\n    def __init__(self, price):\n        self.price = price\n\
+    \n    @property\n    def price(self):\n        return self.__price\n\n    @price.setter\n\
+    \    def price(self, value):\n        if value < 0:\n            raise ValueError(\"\
+    Price cannot be negative\")\n        self.__price = value\n\nproduct = Product(50)\n\
+    product.price = 23\nprint(product.price)\n# Property is an attribute outside but\
+    \ internally it has two methods, a getter and a setter\n```\n\n## 12. Inheritance\n\
+    \n```python\nclass Animal:\n    def __init__(self):\n        self.age = 1\n\n\
+    \    def eat(self):\n        print(\"Eat\")\n\n# Animal: Parent, Base\n# Mammal:\
+    \ Child, Sub\n\nclass Mammal(Animal):\n    def walk(self):\n        print(\"walk\"\
+    )\n\nclass Fish(Animal):\n    def swim(self):\n        print(\"walk\")\n\nm =\
+    \ Mammal()\n\nm.eat()\n\nm.walk()\n\nprint(m.age)\n```\n\n## 13. Object Class\n\
+    \n## 14. Method Overriding\n\n```python\nclass Animal:\n    def __init__(self):\n\
+    \        print(\"Animal Constructor\")\n        self.age = 1\n\n    def eat(self):\n\
+    \        print(\"Eat\")\n\nclass Mammal(Animal):\n    def __init__(self):\n  \
+    \      super().__init__()\n        print(\"Mammal Constructor\")\n        self.weight\
+    \ = 2\n\n    def walk(self):\n        print(\"walk\")\n\nm = Mammal()\n\nprint(m.age)\n\
+    \nprint(m.weight)\n```\n\n## 15. Multi-Level Inheritance\n\n```python\nclass Animal:\n\
+    \    def eat(self):\n        print(\"eat\")\n\nclass Bird(Animal):\n    def fly(self):\n\
+    \        print(\"fly\")\n\nclass Chicken(Bird):\n    pass\n```\n\n## 16. Multiple\
+    \ Inheritance\n\n```python\nclass Employee:\n    def greet(self):\n        print(\"\
+    Employee greet\")\n\nclass Person:\n    def greet(self):\n        print(\"Person\
+    \ greet\")\n\nclass Manager(Employee, Person):\n    pass\n\nmanager = Manager()\n\
+    \nmanager.greet()\n\nclass Flyer:\n    def fly(self):\n        pass\n\nclass Swimmer:\n\
+    \    def swim(self):\n        pass\n\nclass FlyingFish(Flyer, Swimmer):\n    pass\n\
+    ```\n\n## 17. A Good Example Of Inheritance\n\n```python\nclass InvalidOperationError(Exception):\n\
+    \    pass\n\nclass Stream:\n    def __init__(self):\n        self.opened = False\n\
+    \n    def open(self):\n        if self.opened:\n            raise InvalidOperationError(\"\
+    Stream is already opened\")\n        self.opened = True\n\n    def close(self):\n\
+    \        if not self.opened:\n            raise InvalidOperationError(\"Stream\
+    \ is already closed\")\n        self.opened = False\n\nclass FileStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a file\")\n\nclass NetworkStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a network\")\n```\n\n\
+    ## 18. Abstract Base Classes\n\n```python\nfrom abc import ABC, abstractmethod\n\
+    \nclass InvalidOperationError(Exception):\n    pass\n\nclass Stream(ABC):\n  \
+    \  def __init__(self):\n        self.opened = False\n\n    def open(self):\n \
+    \       if self.opened:\n            raise InvalidOperationError(\"Stream is already\
+    \ opened\")\n        self.opened = True\n\n    def close(self):\n        if not\
+    \ self.opened:\n            raise InvalidOperationError(\"Stream is already closed\"\
+    )\n        self.opened = False\n\n    @abstractmethod\n    def read(self):\n \
+    \       pass\n\nclass FileStream(Stream):\n    def read(self):\n        print(\"\
+    Reading data from a file\")\n\nclass NetworkStream(Stream):\n    def read(self):\n\
+    \        print(\"Reading data from a network\")\n\nclass VideoStream(Stream):\n\
+    \    pass\n\nstream = Stream()\nn = VideoStream()\n```\n\n## 19. Polymorphism\n\
+    \n```python\nfrom abc import ABC, abstractmethod\n\nclass UIControl(ABC):\n  \
+    \  @abstractmethod\n    def draw(self):\n        pass\n\nclass DropDownList(UIControl):\n\
+    \    def draw(self):\n        print(\"DropDownlist\")\n\nclass TextBox(UIControl):\n\
+    \    def draw(self):\n        print(\"TextBox\")\n\ndef draw(*controls):\n   \
+    \ for control in controls:\n        control.draw()\n\nddl = DropDownList()\ntextbox\
+    \ = TextBox()\ndraw(ddl, textbox)\n```\n\n## 20. Duck Typing\n\n## 21. Extending\
+    \ Built-In Types\n\n```python\nclass Text(str):\n    def duplicate(self):\n  \
+    \      return self + self\n\ntext = Text(\"Python\")\nprint(text.duplicate())\n\
+    \nclass TrackableList(list):\n    def append(self, object):\n        print(\"\
+    Append called\")\n        super().append(object)\n\nlist = TrackableList()\nlist.append(\"\
+    I\")\n```\n\n## 22. Data Types\n\n```python\nfrom collections import namedtuple\n\
+    \nPoint = namedtuple(\"Point\", [\"x\", \"y\"])\np1 = Point(x=1, y=2)\np2 = Point(x=5,\
+    \ y=6)\nprint(p2 == p1)\n# They are immutable\n```\n\n# Chapter 8 Modules\n\n\
+    ## 1. Modules\n\n```python\nfrom sales import calc_shipping, calc_tax  # importing\
+    \ specific functions\nimport sales  # importing entire module as an object\n\n\
+    sales.calc_shipping()\nsales.calc_tax()\ncalc_shipping()\ncalc_tax()\n```\n\n\
+    ## 2. Packages\n\n```python\nimport ecommerce.sales\n\nfrom ecommerce.sales import\
+    \ calc_shipping\n\nfrom ecommerce import sales\n\necommerce.sales.calc_tax()\n\
+    ```\n\n## 3. Intra-Package Reference\n\n```python\nfrom ecommerce.customer import\
+    \ contact  # Absolute reference\n\nfrom ..customer import contact  # relative\
+    \ reference\n\ndef calc_tax():\n    pass\n```\n\n## 4. Dir Function\n\n```python\n\
+    from ecommerce.shopping import sales\n\nprint(dir(sales))\n\nprint(sales.__name__)\
+    \  # ecommerce.shopping.sales\n\nprint(sales.__package__)  # ecommerce.shopping\n\
+    \n# c:\\Users\\kimjlk\\Desktop\\Hello World\\ecommerce\\shopping\\sales.py\n\n\
+    print(sales.__file__)\n```\n\n## 5. Executing Modules as Scripts"
+  mdcn: "point1.draw()\n\npoint2 = Point(45, 58)\n\nprint(point2.default_color)\n\n\
+    point2.draw()\n\n## 5. 类与实例方法\n\n```python\nclass Point:\n    def __init__(self,\
+    \ x, y):\n        self.x = x\n        self.y = y\n\n    def draw(self):\n    \
+    \    print(f\"Point ({self.x},{self.y})\")\n\n    @classmethod\n    def zero(cls):\n\
+    \        return cls(0, 0)\n\npoint1 = Point(5, 8)\npoint1.draw()\nprint(point1.x)\n\
+    \nzero = Point.zero()\nzero.draw()\n```\n\n## 6. 魔术方法\n\n```python\nclass Point:\n\
+    \    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n   \
+    \ def __str__(self):\n        return f\"{self.x}, {self.y}\"\n\n    def draw(self):\n\
+    \        print(f\"(Point {self.x}, {self.y})\")\n\npoint = Point(1, 2)\nprint(point)\n\
+    print(str(point))\n```\n\n## 7. 对象比较\n\n```python\nclass Point:\n    def __init__(self,\
+    \ x, y):\n        self.x = x\n        self.y = y\n\n    def __eq__(self, other):\n\
+    \        return self.x == other.x and self.y == other.y\n\n    def __gt__(self,\
+    \ other):\n        return self.x > other.x and self.y > other.y\n\npoint = Point(1,\
+    \ 2)\nother = Point(2, 4)\n\nprint(point == other)\nprint(point < other)\n```\n\
+    \n## 8. 执行算术运算\n\n```python\nclass Point:\n    def __init__(self, x, y):\n   \
+    \     self.x = x\n        self.y = y\n\n    def __eq__(self, other):\n       \
+    \ return self.x == other.x and self.y == other.y\n\n    def __gt__(self, other):\n\
+    \        return self.x > other.x and self.y > other.y\n\n    def __add__(self,\
+    \ other):\n        return Point(self.x + other.x, self.y + other.y)\n\npoint =\
+    \ Point(1, 2)\nother = Point(2, 4)\nprint(point == other)\nprint(point < other)\n\
+    sum = point + other\nprint(sum.y)\n```\n\n## 9. 创建自定义容器\n\n```python\nclass TagCloud:\n\
+    \    def __init__(self):\n        self.tags = {}\n\n    def add(self, tag):\n\
+    \        self.tags[tag.lower()] = self.tags.get(tag.lower(), 0) + 1\n\n    def\
+    \ __getitem__(self, tag):\n        return self.tags.get(tag.lower(), 0)\n\n  \
+    \  def __setitem__(self, tag, count):\n        self.tags[tag.lower()] = count\n\
+    \n    def __len__(self):\n        return len(self.tags)\n\n    def __iter__(self):\n\
+    \        return iter(self.tags)\n\ncloud = TagCloud()\ncloud.add(\"python\")\n\
+    cloud.add(\"python\")\ncloud.add(\"pytHon\")\ncloud[\"Programming\"] = 10\nprint(len(cloud))\n\
+    print(cloud[\"Python\"])\nprint(cloud.tags)\nfor item in cloud:\n    print(item)\n\
+    ```\n\n## 10. 私有成员\n\n```python\nclass TagCloud:\n    def __init__(self):\n  \
+    \      self.__tags = {}  # 私有成员\n\n    def add(self, tag):\n        self.__tags[tag.lower()]\
+    \ = self.__tags.get(tag.lower(), 0) + 1\n\n    def __getitem__(self, tag):\n \
+    \       return self.__tags.get(tag.lower(), 0)\n\n    def __setitem__(self, tag,\
+    \ count):\n        self.__tags[tag.lower()] = count\n\n    def __len__(self):\n\
+    \        return len(self.__tags)\n\n    def __iter__(self):\n        return iter(self.__tags)\n\
+    \ncloud = TagCloud()\ncloud.add(\"python\")\ncloud.add(\"python\")\ncloud.add(\"\
+    pytHon\")\ncloud[\"Bubbles\"] = 1000000\nprint(len(cloud))\nprint(cloud[\"Python\"\
+    ])\n# print(cloud.__tags)\nfor item in cloud:\n    print(item)\nprint(cloud.__dict__)\n\
+    \nprint(cloud._TagCloud__tags)\n```\n\n## 11. 属性\n\n```python\nclass Product:\n\
+    \    def __init__(self, price):\n        self.set_price(price)\n\n    def get_price(self):\n\
+    \        return self.__price\n\n    def set_price(self, value):\n        if value\
+    \ < 0:\n            raise ValueError(\"Price cannot be negative\")\n        self.__price\
+    \ = value\n\nproduct = Product(50)\nprint(product.get_price())\n# 非Python风格的代码\n\
+    \nclass Product:\n    def __init__(self, price):\n        self.price = price\n\
+    \n    @property\n    def price(self):\n        return self.__price\n\n    @price.setter\n\
+    \    def price(self, value):\n        if value < 0:\n            raise ValueError(\"\
+    Price cannot be negative\")\n        self.__price = value\n\nproduct = Product(50)\n\
+    product.price = 23\nprint(product.price)\n# 属性在外部是一个属性，但内部有两个方法，一个getter和一个setter\n\
+    ```\n\n## 12. 继承\n\n```python\nclass Animal:\n    def __init__(self):\n      \
+    \  self.age = 1\n\n    def eat(self):\n        print(\"Eat\")\n\n# Animal: 父类，基类\n\
+    # Mammal: 子类，派生类\n\nclass Mammal(Animal):\n    def walk(self):\n        print(\"\
+    walk\")\n\nclass Fish(Animal):\n    def swim(self):\n        print(\"walk\")\n\
+    \nm = Mammal()\n\nm.eat()\n\nm.walk()\n\nprint(m.age)\n```\n\n## 13. 对象类\n\n##\
+    \ 14. 方法重写\n\n```python\nclass Animal:\n    def __init__(self):\n        print(\"\
+    Animal Constructor\")\n        self.age = 1\n\n    def eat(self):\n        print(\"\
+    Eat\")\n\nclass Mammal(Animal):\n    def __init__(self):\n        super().__init__()\n\
+    \        print(\"Mammal Constructor\")\n        self.weight = 2\n\n    def walk(self):\n\
+    \        print(\"walk\")\n\nm = Mammal()\n\nprint(m.age)\n\nprint(m.weight)\n\
+    ```\n\n## 15. 多级继承\n\n```python\nclass Animal:\n    def eat(self):\n        print(\"\
+    eat\")\n\nclass Bird(Animal):\n    def fly(self):\n        print(\"fly\")\n\n\
+    class Chicken(Bird):\n    pass\n```\n\n## 16. 多重继承\n\n```python\nclass Employee:\n\
+    \    def greet(self):\n        print(\"Employee greet\")\n\nclass Person:\n  \
+    \  def greet(self):\n        print(\"Person greet\")\n\nclass Manager(Employee,\
+    \ Person):\n    pass\n\nmanager = Manager()\n\nmanager.greet()\n\nclass Flyer:\n\
+    \    def fly(self):\n        pass\n\nclass Swimmer:\n    def swim(self):\n   \
+    \     pass\n\nclass FlyingFish(Flyer, Swimmer):\n    pass\n```\n\n## 17. 继承的一个好例子\n\
+    \n```python\nclass InvalidOperationError(Exception):\n    pass\n\nclass Stream:\n\
+    \    def __init__(self):\n        self.opened = False\n\n    def open(self):\n\
+    \        if self.opened:\n            raise InvalidOperationError(\"Stream is\
+    \ already opened\")\n        self.opened = True\n\n    def close(self):\n    \
+    \    if not self.opened:\n            raise InvalidOperationError(\"Stream is\
+    \ already closed\")\n        self.opened = False\n\nclass FileStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a file\")\n\nclass NetworkStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a network\")\n```\n\n\
+    ## 18. 抽象基类\n\n```python\nfrom abc import ABC, abstractmethod\n\nclass InvalidOperationError(Exception):\n\
+    \    pass\n\nclass Stream(ABC):\n    def __init__(self):\n        self.opened\
+    \ = False\n\n    def open(self):\n        if self.opened:\n            raise InvalidOperationError(\"\
+    Stream is already opened\")\n        self.opened = True\n\n    def close(self):\n\
+    \        if not self.opened:\n            raise InvalidOperationError(\"Stream\
+    \ is already closed\")\n        self.opened = False\n\n    @abstractmethod\n \
+    \   def read(self):\n        pass\n\nclass FileStream(Stream):\n    def read(self):\n\
+    \        print(\"Reading data from a file\")\n\nclass NetworkStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a network\")\n\nclass\
+    \ VideoStream(Stream):\n    pass\n\nstream = Stream()\nn = VideoStream()\n```\n\
+    \n## 19. 多态\n\n```python\nfrom abc import ABC, abstractmethod\n\nclass UIControl(ABC):\n\
+    \    @abstractmethod\n    def draw(self):\n        pass\n\nclass DropDownList(UIControl):\n\
+    \    def draw(self):\n        print(\"DropDownlist\")\n\nclass TextBox(UIControl):\n\
+    \    def draw(self):\n        print(\"TextBox\")\n\ndef draw(*controls):\n   \
+    \ for control in controls:\n        control.draw()\n\nddl = DropDownList()\ntextbox\
+    \ = TextBox()\ndraw(ddl, textbox)\n```\n\n## 20. 鸭子类型\n\n## 21. 扩展内置类型\n\n```python\n\
+    class Text(str):\n    def duplicate(self):\n        return self + self\n\ntext\
+    \ = Text(\"Python\")\nprint(text.duplicate())\n\nclass TrackableList(list):\n\
+    \    def append(self, object):\n        print(\"Append called\")\n        super().append(object)\n\
+    \nlist = TrackableList()\nlist.append(\"I\")\n```\n\n## 22. 数据类型\n\n```python\n\
+    from collections import namedtuple\n\nPoint = namedtuple(\"Point\", [\"x\", \"\
+    y\"])\np1 = Point(x=1, y=2)\np2 = Point(x=5, y=6)\nprint(p2 == p1)\n# 它们是不可变的\n\
+    ```\n\n# 第8章 模块\n\n## 1. 模块\n\n```python\nfrom sales import calc_shipping, calc_tax\
+    \  # 导入特定函数\nimport sales  # 将整个模块作为对象导入\n\nsales.calc_shipping()\nsales.calc_tax()\n\
+    calc_shipping()\ncalc_tax()\n```\n\n## 2. 包\n\n```python\nimport ecommerce.sales\n\
+    \nfrom ecommerce.sales import calc_shipping\n\nfrom ecommerce import sales\n\n\
+    ecommerce.sales.calc_tax()\n```\n\n## 3. 包内引用\n\n```python\nfrom ecommerce.customer\
+    \ import contact  # 绝对引用\n\nfrom ..customer import contact  # 相对引用\n\ndef calc_tax():\n\
+    \    pass\n```\n\n## 4. Dir函数\n\n```python\nfrom ecommerce.shopping import sales\n\
+    \nprint(dir(sales))\n\nprint(sales.__name__)  # ecommerce.shopping.sales\n\nprint(sales.__package__)\
+    \  # ecommerce.shopping\n\n# c:\\Users\\kimjlk\\Desktop\\Hello World\\ecommerce\\\
+    shopping\\sales.py\n\nprint(sales.__file__)\n```\n\n## 5. 将模块作为脚本执行"
+  merge: 0
+  raw:
+  - "[PAGE 30]\n\n```\npoint1.draw()\n\npoint2=Point(45, 58)\n\nprint(point2.default_color)\n\
+    \npoint2.draw()\n```\n\n# 5. Class vs. Instance Methods\n\n```\nclass Point:\n\
+    \    def __init__(self, x, y):\n        self.x=x\n        self.y=y\n\n    def\
+    \ draw(self):\n        print(f\"Point ({self.x},{self.y})\")\n\n    @ classmethod\n\
+    \    def zero(cls):\n        return cls(0, 0)\n\npoint1=Point(5, 8)\npoint1.draw()\n\
+    print(point1.x)\n\nzero=Point.zero()\nzero.draw()\n```\n\n# 6. Magic Methods"
+  - "[PAGE 31]\n\n```\nclass Point:\n    def __init__(self, x, y):\n        self.x=x\n\
+    \        self.y=y\n\n    def __str__(self):\n        return f\"{self.x}, {self.y}\"\
+    \n\n    def draw(self):\n        print(f\"(Point {self.x}, {self.y})\")\n\npoint=Point(1,\
+    \ 2)\nprint(point)\nprint(str(point))\n```\n\n# 7. Comparing Objects\n\n```\n\
+    class Point:\n    def __init__(self, x, y):\n        self.x=x\n        self.y=y\n\
+    \n    def __eq__(self, other):\n        return self.x == other.x and self.y ==\
+    \ other.y\n\n    def __gt__(self, other):\n        return self.x > other.x and\
+    \ self.y > other.y\n\npoint=Point(1, 2)\nother=Point(2, 4)\n```"
+  - "[PAGE 32]\n\n```\nprint(point == other)\nprint(point < other)\n```\n\n# 8. Performing\
+    \ Arithmetic Operations\n\n```\nclass Point:\n    def __init__(self, x, y):\n\
+    \        self.x=x\n        self.y=y\n\n    def __eq__(self, other):\n        return\
+    \ self.x == other.x and self.y == other.y\n\n    def __gt__(self, other):\n  \
+    \      return self.x > other.x and self.y > other.y\n\n    def __add__(self, other):\n\
+    \        return Point(self.x + other.x, self.y + other.y)\n\npoint=Point(1, 2)\n\
+    other=Point(2, 4)\nprint(point == other)\nprint(point < other)\nsum=point + other\n\
+    print(sum.y)\n```\n\n# 9. Making Custom Containers\n\n```\nclass TagCloud:\n \
+    \   def __init__(self):\n        self.tags={}\n```"
+  - "[PAGE 33]\n\n```\ndef add(self, tag):\n    self.tags[tag.lower()]=self.tags.get(tag.lower(),\
+    \ 0) + 1\n\ndef __getitem__(self, tag):\n    return self.tags.get(tag.lower(),\
+    \ 0)\n\ndef __setitem__(self, tag, count):\n    self.tags[tag.lower()]=count\n\
+    \ndef __len__(self):\n    return len(self.tags)\n\ndef __iter__(self):\n    return\
+    \ iter(self.tags)\n\ncloud=TagCloud()\ncloud.add(\"python\")\ncloud.add(\"python\"\
+    )\ncloud.add(\"pytHon\")\ncloud[\"Programming\"]=10\nprint(len(cloud))\nprint(cloud[\"\
+    Python\"])\nprint(cloud.tags)\nfor item in cloud:\n    print(item)\n```\n\n# 10.\
+    \ Private Members\n\n```\nclass TagCloud:\n```"
+  - "[PAGE 34]\n\n```\ndef __init__(self):\n    self.__tags = {}  # Private members\n\
+    \ndef add(self, tag):\n    self.__tags[tag.lower()] = self.__tags.get(tag.lower(),\
+    \ 0) + 1\n\ndef __getitem__(self, tag):\n    return self.__tags.get(tag.lower(),\
+    \ 0)\n\ndef __setitem__(self, tag, count):\n    self.__tags[tag.lower()] = count\n\
+    \ndef __len__(self):\n    return len(self.__tags)\n\ndef __iter__(self):\n   \
+    \ return iter(self.__tags)\n```\n\n```\ncloud = TagCloud()\ncloud.add(\"python\"\
+    )\ncloud.add(\"python\")\ncloud.add(\"pytHon\")\ncloud[\"Bubbles\"] = 1000000\n\
+    print(len(cloud))\nprint(cloud[\"Python\"])\n# print(cloud.__tags)\nfor item in\
+    \ cloud:\n    print(item)\nprint(cloud.__dict__)\n```"
+  - "[PAGE 35]\n\n```\nprint(cloud._TagCloud__tags)\n```\n\n# 11. Properties\n\n```\n\
+    class Product:\n    def __init__(self, price):\n        self.set_price(price)\n\
+    \n    def get_price(self):\n        return self.__price\n\n    def set_price(self,\
+    \ value):\n        if value < 0:\n            raise ValueError(\"Price cannot\
+    \ be negative\")\n        self.__price = value\n\nproduct = Product(50)\nprint(product.get_price())\n\
+    # Unpythonic code\n\nclass Product:\n    def __init__(self, price):\n        self.price\
+    \ = price\n\n    @property\n    def price(self):\n        return self.__price\n\
+    \n    @price.setter\n```"
+  - "[PAGE 36]\n\n```\ndef price(self, value):\n    if value < 0:\n        raise ValueError(\"\
+    Price cannot be negative\")\n    self.__price = value\n\nproduct = Product(50)\n\
+    product.price = 23\nprint(product.price)\n# Property is an attribute outside but\
+    \ internally it has two mehods ,a getter and a setter\n```\n\n# 12. Inheritance\n\
+    \n```\nclass Animal:\n    def __init__(self):\n        self.age = 1\n\n    def\
+    \ eat(self):\n        print(\"Eat\")\n\n# Animal: Parent, Base\n# Mammal: Child\
+    \ , Sub\n\nclass Mammal(Animal):\n    def walk(self):\n        print(\"walk\"\
+    )\n\nclass Fish(Animal):\n```"
+  - "[PAGE 37]\n\n```\ndef swim(self):\n    print(\"walk\")\n\nm = Mammal()\n\nm.eat()\n\
+    \nm.walk()\n\nprint(m.age)\n```\n\n# 13. Object Class\n\n# 14. Method Overriding\n\
+    \n```\nclass Animal:\n    def __init__(self):\n        print(\"Animal Costructor\"\
+    )\n        self.age = 1\n\n    def eat(self):\n        print(\"Eat\")\n\nclass\
+    \ Mammal(Animal):\n    def __init__(self):\n        super().__init__()\n     \
+    \   print(\"Mammal Constructor\")\n        self.weight = 2\n\n    def walk(self):\n\
+    \        print(\"walk\")\n```"
+  - "[PAGE 38]\n\n```\nm = Mammal()\n\nprint(m.age)\n\nprint(m.weight)\n```\n\n# 15.\
+    \ Multi-Level Inheritance\n\n```\nclass Animal:\n    def eat(self):\n        print(\"\
+    eat\")\n\nclass Bird(Animal):\n    def fly(self):\n        print(\"fly\")\n\n\
+    class Chicken(Bird):\n    pass\n```\n\n# 16. Multiple Inheritance\n\n```\nclass\
+    \ Employee:\n    def greet(self):\n        print(\"Employee greet\")\n\nclass\
+    \ Person:\n    def greet(self):\n        print(\"Person greet\")\n\nclass Manager(Employee,\
+    \ Person):\n    pass\n```"
+  - "[PAGE 39]\n\n```\nmanager = Manager()\n\nmanager.greet()\n\nclass Flyer:\n  \
+    \  def fly(self):\n        pass\n\nclass Swimmer:\n    def swim(self):\n     \
+    \   pass\n\nclass FlyingFish(Flyer, Swimmer):\n    pass\n```\n\n# 17. A Good Example\
+    \ Of Inheritance\n\n```\nclass InvalidOperationError(Exception):\n    pass\n\n\
+    class Stream:\n    def __init__(self):\n        self.opened = False\n\n    def\
+    \ open(self):\n        if self.opened:\n            raise InvalidOperationError(\"\
+    Stream is already opened\")\n        self.opened = True\n\n    def close(self):\n\
+    ```"
+  - "[PAGE 40]\n\n```\npython\nif not self.opened:\n    raise InvalidOperationError(\"\
+    Stream is already closed\")\n\nself.opened = False\n\nclass FileStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a file\")\n\nclass NetworkStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a network\")\n```\n\n\
+    # 18. Abstract Base Classes\n\n```\npython\nfrom abc import ABC, abstractmethod\n\
+    \nclass InvalidOperationError(Exception):\n    pass\n\nclass Stream(ABC):\n  \
+    \  def __init__(self):\n        self.opened = False\n\n    def open(self):\n \
+    \       if self.opened:\n            raise InvalidOperationError(\"Stream is already\
+    \ opened\")\n        self.opened = True\n\n    def close(self):\n```"
+  - "[PAGE 41]\n\n```\nif not self.opened:\n    raise InvalidOperationError(\"Stream\
+    \ is already closed\")\n\nself.opened = False\n\n@abstractmethod\ndef read(self):\n\
+    \    pass\n```\n\n```\nclass FileStream(Stream):\n    def read(self):\n      \
+    \  print(\"Reading data from a file\")\n```\n\n```\nclass NetworkStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a network\")\n```\n\n\
+    ```\nclass VideoStream(Stream):\n    pass\n```\n\n```\nstream = Stream()\nn =\
+    \ VideoStream()\n```\n\n# 19. Polymorphism\n\n```\nfrom abc import ABC, abstractmethod\n\
+    \nclass UIControl(ABC):\n    @abstractmethod\n    def draw(self):\n        pass\n\
+    ```"
+  - "[PAGE 42]\n\n```\npython\nclass DropDownList(UIControl):\n    def draw(self):\n\
+    \        print(\"DropDownlist\")\n\nclass TextBox(UIControl):\n    def draw(self):\n\
+    \        print(\"TextBox\")\n\ndef draw(*controls):\n    for control in controls:\n\
+    \        control.draw()\n\nddl = DropDownList()\ntextbox = TextBox()\ndraw(ddl,\
+    \ textbox)\n```\n\n# 20. Duck Typing\n\n# 21. Extending Built-In Types\n\n```\n\
+    python\nclass Text(str):\n    def duplicate(self):\n        return self + self\n\
+    \ntext = Text(\"Python\")\nprint(text.duplicate())\n```"
+  - "[PAGE 43]\n\n```\nclass TrackableList(list):\n    def append(self, object):\n\
+    \        print(\"Append called\")\n        super().append(object)\n\nlist = TrackableList()\n\
+    list.append(\"I\")\n```\n\n# 22. Data Types\n\n```\nfrom collections import namedtuple\n\
+    \nPoint = namedtuple(\"Point\", [\"x\", \"y\"])\np1 = Point(x=1, y=2)\np2 = Point(x=5,\
+    \ y=6)\nprint(p2 == p1)\n# They are immutable\n```\n\n# Chapter 8 Modules\n\n\
+    # 1. Modules\n\n```\nfrom sales import calc_shipping, calc_tax  # importing specific\
+    \ functions\nimport sales  # importing entire module as an object\n\nsales.calc_shipping()\n\
+    sales.calc_tax()\ncalc_shipping()\ncalc_tax()\n```"
+  - "[PAGE 44]\n\n# 2. Packages\n\n```\nimport ecommerce.sales\n\nfrom ecommerce.sales\
+    \ import calc_shipping\n\nfrom ecommerce import sales\n\n\n\necommerce.sales.calc_tax()\n\
+    ```\n\n# 3. Intra-Package Reference\n\n```\nfrom ecommerce.customer import contact\
+    \  # Absolute reference\n\nfrom ..customer import contact  # relative reference\n\
+    \n\n\ndef calc_tax():\n    pass\n```\n\n# 4. Dir Function\n\n```\nfrom ecommerce.shopping\
+    \ import sales\n\n\nprint(dir(sales))\n\nprint(sales.__name__)  # ecommerce.shopping.sales\n\
+    \nprint(sales.__package__)  # ecommerce.shopping\n\n# c:\\Users\\kimjlk\\Desktop\\\
+    Hello World\\ecommerce\\shopping\\sales.py\n\nprint(sales.__file__)\n```\n\n#\
+    \ 5. Executing Modules as Scripts"
+- md: "if __name__ == \"__main__\":\n    print(\"Sales started\")"
+  mdcn: "if __name__ == \"__main__\":\n    print(\"Sales started\")"
+  merge: 0
+  raw:
+  - "[PAGE 45]\n\n```\nif __name__ == \"__main__\":\n    print(\"Sales started\")\n\
+    ```"
+pages:
+- img_proc: true
+  md: 'Kinjalk Gupta
+
+
+    # Learn Python From 100+ Examples'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: 'Copyright © 2021 by Kinjalk Gupta
+
+
+    All rights reserved. No part of this book may be reproduced or used in any manner
+    without written permission of the copyright owner except for the use of quotations
+    in a book review. For more information, address: kinjalkg01@gmail.com
+
+
+    FIRST EDITION'
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: '# # Chapter 1 Getting Started
+
+
+    # ## 1. What is Python?
+
+
+    Python is an interpreted, high-level and general-purpose programming language.
+    It can be used for a number of tasks such as AI/ML, building desktop, mobile and
+    web apps, writing automated scripts and many more things.
+
+
+    There are to versions -
+
+
+    Python 2 - Will be outdated after 2020
+
+
+    Python 3 - Will be used for future
+
+
+    # ## 2. Installing Python
+
+
+    Head over to python.org and install Python
+
+
+    Make sure you tick the checkbox that says "Add Python 3.x.x to Path"
+
+
+    # ## 3. Python Interpreter
+
+
+    Open CMD and type Python(Windows) or Python3(Linux) and hit enter
+
+
+    An expression is a piece of code which produces a value.
+
+
+    # ## 4. Code Editor
+
+
+    We can use Editor or IDE
+
+
+    IDE has additional features:
+
+
+    +   1. Auto completion 2.Debugging 3.Testing
+
+
+    Editor - VSCode, Atom, Sublime'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: 'IDE - Pycharm
+
+
+    # 5. Hello World
+
+
+    Create a file with an extension ".py".
+
+    Whenever we call a function we write ()
+
+    Write print("Hello World")
+
+    Press ctrl + `
+
+    This will open command line/terminal, now type python name_of_the_file.py and
+    hit enter
+
+
+    # 6. Python extension
+
+
+    This will convert VSCode to a powerful IDE and will add the following features
+
+
+    +   1. Linting
+
+    2. Autocompletion
+
+    3. Unit Testing
+
+    4. Debugging
+
+    5. Code Formatting
+
+    6. Code Snippets
+
+
+    # 7. Linting
+
+
+    Finding potential errors
+
+
+    # 8. Formatting Code
+
+
+    PEP - Python Enhancement Proposals'
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: 'Most popular one is pep8
+
+    Press cmd+shfit+p and search Format and install autopep 8
+
+
+    # 9. Running python code
+
+
+    Open the extension panel and search "code runner"
+
+
+    # 10. Python Implementation
+
+
+    Default python Implementation - Cpython
+
+    Other Implementations
+
+    Jython - written in Java
+
+    IronPython - written C
+
+    PyPy - Subset of python
+
+
+    # 11. How Python Code is executed
+
+
+    C compiler is a program that knows how to compile c code to machine code (0s and
+    1s)
+
+    Machine code is specific to type of C program compiled on windows won''t work
+    on mac
+
+    Java converts it to java byte code which is not machine dependent
+
+    JVM converts this byte code to machine code'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: 'C# and python have taken the same route
+
+
+    # Chapter 2 Primitive Types
+
+
+    # 1. Variables
+
+
+    ```
+
+    students_count = 1000  # int
+
+
+    rating = 4.99  # float
+
+
+    is_published = False  # boolean (can be true or false)
+
+
+    course_name = "Python Programming"  # string
+
+
+    print(students_count)
+
+    ```
+
+
+    # 2. Variable Names
+
+
+    Variable name should be descriptive
+
+
+    Lower case letters to name a variable
+
+
+    Use underscore to separate multiple words
+
+
+    Put a space around equal signs
+
+
+    # 3. Strings
+
+
+    We can either use single quotes or double quotes according to our preference.
+
+
+    For writing multi line strings use triple quotes
+
+
+    ```
+
+    course = "Python Programmig"
+
+
+    message ="""
+
+
+    Hi John,
+
+
+    Blah blah blah
+
+
+    """
+
+
+    course = "Python Programming"
+
+
+    print(len(course))  # 18
+
+
+    print(course[0])  # P
+
+
+    print(course[-1])  # g
+
+    ```'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: '```
+
+    # Character at the end index is not included (Pyt) slice a string
+
+    print(course[0:3])
+
+    print(course[:])
+
+    ```
+
+
+    # 4. Escape sequences
+
+
+    \ is an Escape Character
+
+    " is an Escape Sequence
+
+
+    ```
+
+    course = "Python \nProgramming"
+
+    print(course)
+
+    ```
+
+
+    # 5. Formatted Strings
+
+
+    ```
+
+    first = ''Kinjalk''
+
+    last = ''Gupta''
+
+
+    full = f"{len(first)} {last}"
+
+    print(full)
+
+    ```
+
+
+    # 6. String Methods
+
+
+    ```
+
+    course = "Python Programming"
+
+
+    print(course.upper())  # PYTHON PROGRAMMING
+
+
+    print(course.lower())  # python programming
+
+
+    print(course.title())  # Python Programming
+
+
+    print(course.strip())
+
+
+    # if string is not found it will return -1 , returns  an index
+
+
+    print(course.find("P"))
+
+
+    print(course.replace("P", "j"))
+
+
+    # ALL these written new strings
+
+
+    print(course)
+
+
+    print("Pro" in course)  # returns boolean
+
+    ```'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: '# 7. Numbers
+
+
+    ```
+
+    # augumented operators
+
+
+    x = 10
+
+
+    x = x+10
+
+
+    X += 10
+
+    ```
+
+
+    # 8. Working With Numbers
+
+
+    ```
+
+    print(round(2.9))
+
+
+    print(abs(-2))
+
+
+    print(math.ceil(2.3))
+
+
+    print(math.floor(2.3))
+
+    ```
+
+
+    # 9. Type Conversion
+
+
+    ```
+
+    x = int(input("x: "))
+
+
+    print(type(x))
+
+
+    y = x+1
+
+    ```
+
+
+    Falsy Values
+
+
+    ""
+
+
+    0
+
+
+    none
+
+
+    Truthy Values'
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: "Anything else will be true\n\n# Chapter 3 Control Flow\n\n# 1. Comparison operators\n\
+    \n+   > \n< \n>= \n<=\n\n# 2. Conditional Statements\n\n```\ntemp = 15\n\nif temp\
+    \ >= 30:\n    print(\"it's warm\")\n\nelif temp >= 20:\n    print(\"it's nice\"\
+    )\n\nelse:\n    print(\"it's cold\")\n\nprint(\"Done\")\n```\n\n# 3. Ternary Operator\n\
+    \n```\nage = 17\n\nif age >= 18:\n    message = \"Eligible\"\n\nelse:\n    message\
+    \ = \"Not Eligible\"\n\nprint(message)\n```"
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: "```\nmessage = \"Eligible\" if age >= 18 else \"Not eligible\"\nprint(message)\n\
+    ```\n\n# 4. Logical Operators\n\n```\nhigh_income = True\ngood_credit = False\n\
+    student = True\n\nif (high_income or good_credit) and not student:\n    print(\"\
+    eligible\")\nelse:\n    print(\"Not eligible\")\n```\n\n# 5. Short Circuit Evaluation\n\
+    6. Chaining Comparison Operators\n\n```\nage = 22\n\nif age >= 18 and age <= 65:\n\
+    \    print(\"Eligible\")\n\nif 18 <= age <= 65:\n    print(\"Eligible\")\n```\n\
+    \n# 7. For Loops\n\n```\nfor number in range(3):\n```"
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: "```\nprint(\"Attempt\", number+1, (number+1)*\".\")\n\nfor number in range(1,\
+    \ 4):\n    print(\"Attempt\", number, (number)*\".\")\n```\n\n# 8. For Else Loops\n\
+    \n```\nsuccessful = False\n\nfor number in range(3):\n    print(\"Attempt\")\n\
+    \n    if successful:\n        print(\"Successful\")\n        break\nelse:\n  \
+    \  print(\"Attempted 3 times and failed\")\n```\n\n# 9. Nested Loops\n\n```\n\
+    for x in range(5):\n    for y in range(3):\n        print(f\"{x}, {y}\")\n```\n\
+    \n# 10. Iterables\n\n```\nprint(type(range(5)))\n# range objects are iterable\n\
+    for x in \"Python\":\n```"
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: "```\nprint(x)\n\nfor x in [2, 4, 5, 6]:\n    print(x)\n```\n\n# 11. While Loops\n\
+    \n```\nnumber = 100\n\nwhile number > 0:\n    print(number)\n    number //= 2\n\
+    \ncommand = ''\n\nwhile command.lower() != \"quit\":\n    command = input(\">\"\
+    )\n    print(\"ECHO\", command)\n```\n\n# 12. Infinite Loops\n\n```\nwhile True:\n\
+    \    command = input(\">\")\n    if command.lower() == \"quit\":\n        break\n\
+    \    print(\"ECHO\", command)\n```\n\n# Chapter 4 Functions\n\n# 1. Functions"
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: "A function is a reusable chunk of code which we can call as many times as we\
+    \ want.\n\n```\ndef greet():\n    print(\"Hi there\")\n    print(\"Welcome aboard\"\
+    )\n\ngreet()\n```\n\n# 2. Arguments\n\nParameter is the input we define in the\
+    \ program.\nArgument is the actual value which we pass.\n\n```\ndef greet(first_name,\
+    \ last_name):\n    print(f\"Hi there {first_name} {last_name}\")\n    print(\"\
+    Welcome aboard\")\n\ngreet(\"Kinjalk\", \"G\")\n```\n\n# 3. Types of Functions\n\
+    \n+   A. That performs a task\nB. That returns a value\n\n```\ndef get_greeting(first_name,\
+    \ last_name):\n    return f\"Hi there {first_name} {last_name}\"\n\nmsg = get_greeting(\"\
+    k\", \"g\")\nprint(msg)\n\ndef greet(first_name, last_name):\n```"
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: "```\nprint(f\"Hi there {first_name} {last_name}\")\n\nprint(greet(\"Kinjalk\"\
+    , \"G\"))\n```\n\n# 4. Keyword arguments\n\n```\ndef increment(number, by):\n\
+    \    return number + by\n\nprint(increment(2, by=5))\n```\n\n# 5. Default Arguments\n\
+    \n```\ndef increment(number, by=1):\n    return number + by\n\nprint(increment(2,\
+    \ 3))\n```\n\n# 6. Xargs\n\n```\ndef multiply(*numbers):\n    # here numbers is\
+    \ a tuple\n    product = 1\n    for n in numbers:\n        product *= n\n    return\
+    \ product\n\nprint(multiply(3, 5, 6, 5))\n```\n\n# 7. Xxargs\n\n```\ndef save_user(**user):\n\
+    \    # returns a dictionary\n```"
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: "```\nprint(user[\"name\"])\n\nsave_user(id=1, name=\"john\", age=22)\n```\n\
+    \n# 8. Scope\n\n```\ndef greet(name):\n    global message  # global variables\
+    \ are evil\n    message = \"b\"\n    print(message)\n\ngreet(\"kinjalk\")\nprint(message)\n\
+    ```\n\n# Chapter 5 Data Structure\n\n# 1. Lists\n\n```\nletters = [\"a\", \"b\"\
+    ]\n\nmatrix = [\n    [0, 1],\n    [2, 3],\n    [3, 5] ]\n\nzeros = [0] * 5\n\n\
+    combined = letters + zeros\n\nnumbers = list(range(20))\n\nchars = list(\"Hello\
+    \ World\")\n\nprint(letters)\n```"
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: '```
+
+    print(matrix)
+
+    print(zeros)
+
+    print(combined)
+
+    print(numbers)
+
+    print(chars)
+
+    print(len(chars))
+
+    ```
+
+
+    # 2. Accessing Items
+
+
+    ```
+
+    letters = ["a", "b", "c"]
+
+    print(letters[0])
+
+    print(letters[-1])
+
+    letters[0] = "g"
+
+    print(letters)
+
+
+    letters = ["a", "b", "c", ''d'', ''e'']
+
+    print(letters[0:3])
+
+    print(letters[::2])
+
+
+    numbers = list(range(20))
+
+    print(numbers[::2])
+
+
+    numbers = list(range(20))
+
+    print(numbers[::-1])
+
+    ```
+
+
+    # 3. Unpacking List
+
+
+    ```
+
+    numbers = [5, 2, 3, 5, 6, 6, 7, 8, 9]
+
+    first, second, *others = numbers
+
+    print(first)
+
+    print(others)
+
+    ```'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: "```\n# first = numbers[0]\n# second = numbers[1]\n# third = numbers[2]\n```\n\
+    \n# 4. Looping Over Lists\n\n```\nletters = [\"a\", \"b\", \"c\"]\n\nfor index,\
+    \ item in enumerate(letters):\n    print(index, item)\n\n#enumerate function returns\
+    \ an enumerate object which is iterable. In each iteration it returns a tuple\
+    \ and we can unpack it in the for loop\n```\n\n# 5. Adding or Removing Items\n\
+    \n```\nWhen a function is a part of a class then we refer to it as a Method\n\n\
+    letters = [\"a\", \"b\", \"c\"]\n\n# Add\nletters.append(\"d\")  # At the end\
+    \ of the list\nprint(letters)\nletters.insert(0, '-')  # At a specific index\n\
+    print(letters)\n\n# Removing\nletters.pop(0)  # Specifying the index\nprint(letters)\n\
+    letters.remove('b')\nprint(letters)\nletters.clear()\n```\n\n# 6. Sorting Lists"
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: "```\nletters = [\"a\", \"b\", \"c\"]\nprint(letters.index(\"d\"))\nprint(letters.count('a'))\n\
+    ```\n\n# 7. Sorting Lists\n\n```\nnumbers = [3, 51, 2, 8, 4]\nnumbers.sort()\n\
+    print(numbers)\n```\n\n```\nnumbers = [3, 51, 2, 8, 4]\nnumbers.sort(reverse=True)\n\
+    print(numbers)\n```\n\n```\nn = sorted(numbers) # returns a new a list\nprint(n)\n\
+    ```\n\n```\nitems = [\n    (\"Product1\", 10),\n    (\"Product2\", 9),\n    (\"\
+    product3\", 13),\n    (\"product3\", 28),\n    (\"product3\", 3)\n]\n```\n\n```\n\
+    def sort_item(item):\n    return item[1]\n```\n\n```\nitems.sort(key=sort_item)\n\
+    print(items)\n```"
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: "# 8. Lambda Functions\n\n```\nitems = [\n    (\"Product1\", 10),\n    (\"Product2\"\
+    , 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\", 3)\n\
+    ]\n\nitems.sort(key=lambda item: item[1])\nprint(items)\n```\n\n# 9. Map Function\n\
+    \n```\nitems=[\n    (\"Product1\", 10),\n    (\"Product2\", 9),\n    (\"product3\"\
+    , 13),\n    (\"product3\", 28),\n    (\"product3\", 3)\n]\n\n# Will aplay the\
+    \ labda funciton on all items in the list\nprices=list(map(lambda item: item[1],\
+    \ items))\nprint(prices)\n```\n\n# 10. Filter Functions\n\n```\nitems=[\n    (\"\
+    Product1\", 10),\n    (\"Product2\", 9),\n```"
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: "```\npython\n(\"product3\", 13),\n(\"product3\", 28),\n(\"product3\", 3)\n\
+    ]\n\nx=list(filter(lambda item: item[1] >= 10, items))\nprint(x)\n```\n\n# 11.\
+    \ List Comprehensions\n\n```\npython\nitems=[\n    (\"Product1\", 10),\n    (\"\
+    Product2\", 9),\n    (\"product3\", 13),\n    (\"product3\", 28),\n    (\"product3\"\
+    , 3)\n]\n\nx=[item[1] for item in items]\nprint(x)\n\ny=[item for item in items\
+    \ if item[1] >= 10]\nprint(y)\n```\n\n# 12. Zip Function\n\n```\npython\nlist1=[1,\
+    \ 2, 3, 4]\nlist2=[10, 20, 40]\n\nprint(list(zip(list1, list2)))\n```"
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: "# 13. Stacks\n\n```\nLiFo - Last in First out\n\nbrowsing_session=[]\n\nbrowsing_session.append(1)\n\
+    \nbrowsing_session.append(2)\n\nbrowsing_session.append(3)\n\nprint(browsing_session)\n\
+    \n\n\nbrowsing_session.pop()\n\nbrowsing_session.pop()\n\nbrowsing_session.pop()\n\
+    \nif not browsing_session:\n    print(browsing_session[-1])\n```\n\n# 14. Queues\n\
+    \n```\nFiFo - First in First out\n\nfrom collections import deque\n\n\n\nqueue=deque([])\n\
+    \nqueue.append(1)\n\nqueue.append(2)\n\nqueue.popleft()\n\nqueue.popleft()\n\n\
+    \n\nprint(queue)\n```\n\n# 15. Tuple\n\n```\npoint=(1,)\n\nprint(point)\n```"
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: '```
+
+    point1=(1, 2) * 3
+
+
+    print(point1)
+
+
+    print(point1[0:2])
+
+    ```
+
+
+    # 16. Swapping Variable
+
+
+    ```
+
+    x=10
+
+
+    y=11
+
+
+    z=x
+
+
+    x=y
+
+
+    y=z
+
+
+    print(x)
+
+
+    print(y)
+
+
+    x, y=y, x  # We are defining a tuple and unpacking it
+
+
+    # x, y = (y, x)
+
+    ```
+
+
+    # 17. Arrays
+
+
+    ```
+
+    from array import array
+
+
+    # Takes a typecode
+
+
+    numbers=array(''i'', [1, 2, 3])
+
+
+    numbers[0]=5
+
+    ```
+
+
+    # 18. Set
+
+
+    ```
+
+    numbers=[1, 1, 2, 3, 5]
+
+
+    first=set(numbers)
+
+    ```'
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: "```\nsecond={15, 7, 5}\n\n# print(first)\n# print(second)\n\nprint(first |\
+    \ second)  # All the items that are in either the first or second set\nprint(first\
+    \ & second)  # that exists in both the sets\n# This first set has additional numbers\
+    \ that are not in the second set\nprint(first - second)\nprint(first ^ second)\
+    \  # that exists in first or second set but not both\n```\n\n# 19. Dictionary\n\
+    \n```\npoint={\"x\": 1, \"y\": 2}\npoint1=dict(x=1, y=2)\nprint(point1[\"y\"])\n\
+    point1[\"z\"]=20\n# print(point1[\"a\"])\nprint(point1.get(\"a\", \"doesn't exist\"\
+    ))\ndel point['x']\nfor key in point1:\n    print(key, point1[key])\n\nfor key,\
+    \ value in point1.items():\n    print(key, value)\n```\n\n# 20. Dictionary Comprehension\n\
+    \n```\nl={x*2 for x in range(5)}  # set\nprint(l)\n```"
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: '```
+
+    l={x: x*2 for x in range(5)}  # dict
+
+
+    print(l)
+
+
+    l=(x*2 for x in range(5))  # tuple, returns a Generator object
+
+
+    print(l)
+
+    ```
+
+
+    # 21. Generator object
+
+
+    ```
+
+    from sys import getsizeof
+
+
+    l=(x*2 for x in range(10000))
+
+    print(getsizeof(l))
+
+
+    l=[x*2 for x in range(10000)]
+
+    print(getsizeof(l))
+
+    ```
+
+
+    # 22. Unpacking Operator
+
+
+    ```
+
+    values=[*range(5)]
+
+    print(values)
+
+
+    string=[*"Hello"]
+
+    print(string)
+
+
+    combined=[values, string]  # [[0, 1, 2, 3, 4], [''H'', ''e'', ''l'', ''l'', ''o'']]
+
+    combined=[*values, *string]  # [0, 1, 2, 3, 4, ''H'', ''e'', ''l'', ''l'', ''o'']
+
+    print(combined)
+
+
+    first={"x": 1}
+
+    second={"x": 10, "y": 2}
+
+    combined={**first, **second}
+
+    print(combined)
+
+    ```'
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: "# 23. Exercise\n\nWrite some code which provides you the letter with the highest\
+    \ occurrence in a sentence.\n\n```\nfrom pprint import pprint\n\nsentence=\"This\
+    \ is a common interview question\"\n\ncount={}\n\nfor char in sentence:\n    count[char]=count.get(char,\
+    \ 0) + 1\n\npprint(count, width=1)\n\nfrequency_sorted=sorted(count.items(),\n\
+    key=lambda kv: kv[1],\nreverse=True)\n\nprint(frequency_sorted[0])\n```\n\n# Chapter\
+    \ 6 Exception\n\n# 1. Exceptions\n\n```\ntry:\n    age=int(input(\"Age: \"))\n\
+    except ValueError as error:\n    print(error)\n    print(\"You didnt enter a valid\
+    \ age\")\nelse:\n```"
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: "```\nprint(\"No exceptions were thrown\")\nprint(\"Execution continues\")\n\
+    ```\n\n# 2. Handling Multiple exceptions\n\n```\ntry:\n    age=int(input(\"Age:\
+    \ \"))\n    xfactor=10/age\nexcept ValueError as error:\n    print(error)\n  \
+    \  print(\"You didnt enter a valid age\")\nexcept ZeroDivisionError:\n    print(\"\
+    Age can not be zero\")\nelse:\n    print(\"No exceptions were thrown\")\nprint(\"\
+    Execution continues\")\n#--------------------------------------------------\n\
+    try:\n    age=int(input(\"Age: \"))\n    xfactor=10/age\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didnt enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nprint(\"Execution continues\")\n```\n\n# 3. Cleaning Up\n\n\
+    ```\ntry:\n    file=open(\"app.py\")\n    age=int(input(\"Age: \"))\n```"
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: "```\nxfactor=10/age\n\nexcept (ValueError, ZeroDivisionError):\n    print(\"\
+    You didnt enter a valid age\")\nelse:\n    print(\"No exceptions were thrown\"\
+    )\nfinally:\n    file.close()\n```\n\n# 4. The With Statement\n\n```\ntry:\n \
+    \   # Automatically realease external resources\n    with open(\"app.py\") as\
+    \ file, open(\"another.txt\") as target:\n        print(\"File opened\")\n   \
+    \ age=int(input(\"Age: \"))\n    xfactor=10/age\n\nexcept (ValueError, ZeroDivisionError):\n\
+    \    print(\"You didnt enter a valid age\")\nelse:\n    print(\"No exceptions\
+    \ were thrown\")\nfinally:\n    file.close()\n\n# if an object has __exit__ and\
+    \ __enter__ methods , it supports context management protocol\n```\n\n# 5. Raising\
+    \ Exceptions"
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: "```\npython\ndef calculate_xfactor(age):\n    if age <= 0:\n        raise ValueError(\"\
+    Age cannot be 0 or less\")\n    return 10/age\n\nprint(calculate_xfactor(1))\n\
+    ```\n\n# 6. Cost Of raising Exceptions\n\n```\npython\nfrom timeit import timeit\n\
+    \ncode1=\"\"\"\ndef calculate_xfactor(age):\n    if age <= 0:\n        raise ValueError(\"\
+    Age cannot be 0 or less\")\n    return 10/age\n\ntry:\n    print(calculate_xfactor(-1))\n\
+    except ValueError as error:\n    pass\n\"\"\"\n\ncode2=\"\"\"\ndef calculate_xfactor(age):\n\
+    \    if age <= 0:\n        return None\n    return 10/age\n\"\"\"\n```"
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: "```\nxfactor = calculate_xfactor(-1)\n\nif xfactor == None:\n    pass\n\"\"\
+    \"\n\nprint(timeit(code1, number=10000))\nprint(timeit(code2, number=10000))\n\
+    ```\n\n# Chapter 7 Classes\n\n# 1.Classes\n\nClasses are used to define new types\
+    \ or\n\nClass is a blueprint for creating new objects\n\nAn object is an instance\
+    \ of a class\n\n# 2. Creating Classes\n\n```\nclass Point:  # Pascal naming convention\n\
+    \    def draw(self):\n        print(\"draw\")\n\npoint1=Point()\nprint(type(Point()))\
+    \  # <class '__main__.Point'>\npoint1.draw()\nprint(isinstance(point1, int))\n\
+    ```\n\n# 3. Constructor\n\n```\nclass Point:  # Pascal naming convention\n```"
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: "```\npython\ndef __init__(self, x, y):  # Magic or dunder method, self is a\
+    \ reference to the current object\n    self.x = x\n    self.y = y\n\ndef draw(self):\n\
+    \    print(f\"Point ({self.x},{self.y})\")\n\npoint1 = Point(5, 8)\npoint1.draw()\n\
+    print(point1.x)\n```\n\n# 4. Class vs. Instance Attributes\n\n```\npython\nclass\
+    \ Point:  # Pascal naming convention\n    default_color = \"red\"\n\n    def __init__(self,\
+    \ x, y):  # Magic or dunder method, self is a reference to a current object\n\
+    \        self.x = x\n        self.y = y\n\n    def draw(self):\n        print(f\"\
+    Point ({self.x},{self.y})\")\n\nPoint.default_color = \"yellow\"\n\npoint1 = Point(5,\
+    \ 8)\nprint(point1.default_color)\nprint(Point.default_color)\n```"
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: "```\npoint1.draw()\n\npoint2=Point(45, 58)\n\nprint(point2.default_color)\n\
+    \npoint2.draw()\n```\n\n# 5. Class vs. Instance Methods\n\n```\nclass Point:\n\
+    \    def __init__(self, x, y):\n        self.x=x\n        self.y=y\n\n    def\
+    \ draw(self):\n        print(f\"Point ({self.x},{self.y})\")\n\n    @ classmethod\n\
+    \    def zero(cls):\n        return cls(0, 0)\n\npoint1=Point(5, 8)\npoint1.draw()\n\
+    print(point1.x)\n\nzero=Point.zero()\nzero.draw()\n```\n\n# 6. Magic Methods"
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: "```\nclass Point:\n    def __init__(self, x, y):\n        self.x=x\n      \
+    \  self.y=y\n\n    def __str__(self):\n        return f\"{self.x}, {self.y}\"\n\
+    \n    def draw(self):\n        print(f\"(Point {self.x}, {self.y})\")\n\npoint=Point(1,\
+    \ 2)\nprint(point)\nprint(str(point))\n```\n\n# 7. Comparing Objects\n\n```\n\
+    class Point:\n    def __init__(self, x, y):\n        self.x=x\n        self.y=y\n\
+    \n    def __eq__(self, other):\n        return self.x == other.x and self.y ==\
+    \ other.y\n\n    def __gt__(self, other):\n        return self.x > other.x and\
+    \ self.y > other.y\n\npoint=Point(1, 2)\nother=Point(2, 4)\n```"
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: "```\nprint(point == other)\nprint(point < other)\n```\n\n# 8. Performing Arithmetic\
+    \ Operations\n\n```\nclass Point:\n    def __init__(self, x, y):\n        self.x=x\n\
+    \        self.y=y\n\n    def __eq__(self, other):\n        return self.x == other.x\
+    \ and self.y == other.y\n\n    def __gt__(self, other):\n        return self.x\
+    \ > other.x and self.y > other.y\n\n    def __add__(self, other):\n        return\
+    \ Point(self.x + other.x, self.y + other.y)\n\npoint=Point(1, 2)\nother=Point(2,\
+    \ 4)\nprint(point == other)\nprint(point < other)\nsum=point + other\nprint(sum.y)\n\
+    ```\n\n# 9. Making Custom Containers\n\n```\nclass TagCloud:\n    def __init__(self):\n\
+    \        self.tags={}\n```"
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: "```\ndef add(self, tag):\n    self.tags[tag.lower()]=self.tags.get(tag.lower(),\
+    \ 0) + 1\n\ndef __getitem__(self, tag):\n    return self.tags.get(tag.lower(),\
+    \ 0)\n\ndef __setitem__(self, tag, count):\n    self.tags[tag.lower()]=count\n\
+    \ndef __len__(self):\n    return len(self.tags)\n\ndef __iter__(self):\n    return\
+    \ iter(self.tags)\n\ncloud=TagCloud()\ncloud.add(\"python\")\ncloud.add(\"python\"\
+    )\ncloud.add(\"pytHon\")\ncloud[\"Programming\"]=10\nprint(len(cloud))\nprint(cloud[\"\
+    Python\"])\nprint(cloud.tags)\nfor item in cloud:\n    print(item)\n```\n\n# 10.\
+    \ Private Members\n\n```\nclass TagCloud:\n```"
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: "```\ndef __init__(self):\n    self.__tags = {}  # Private members\n\ndef add(self,\
+    \ tag):\n    self.__tags[tag.lower()] = self.__tags.get(tag.lower(), 0) + 1\n\n\
+    def __getitem__(self, tag):\n    return self.__tags.get(tag.lower(), 0)\n\ndef\
+    \ __setitem__(self, tag, count):\n    self.__tags[tag.lower()] = count\n\ndef\
+    \ __len__(self):\n    return len(self.__tags)\n\ndef __iter__(self):\n    return\
+    \ iter(self.__tags)\n```\n\n```\ncloud = TagCloud()\ncloud.add(\"python\")\ncloud.add(\"\
+    python\")\ncloud.add(\"pytHon\")\ncloud[\"Bubbles\"] = 1000000\nprint(len(cloud))\n\
+    print(cloud[\"Python\"])\n# print(cloud.__tags)\nfor item in cloud:\n    print(item)\n\
+    print(cloud.__dict__)\n```"
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: "```\nprint(cloud._TagCloud__tags)\n```\n\n# 11. Properties\n\n```\nclass Product:\n\
+    \    def __init__(self, price):\n        self.set_price(price)\n\n    def get_price(self):\n\
+    \        return self.__price\n\n    def set_price(self, value):\n        if value\
+    \ < 0:\n            raise ValueError(\"Price cannot be negative\")\n        self.__price\
+    \ = value\n\nproduct = Product(50)\nprint(product.get_price())\n# Unpythonic code\n\
+    \nclass Product:\n    def __init__(self, price):\n        self.price = price\n\
+    \n    @property\n    def price(self):\n        return self.__price\n\n    @price.setter\n\
+    ```"
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: "```\ndef price(self, value):\n    if value < 0:\n        raise ValueError(\"\
+    Price cannot be negative\")\n    self.__price = value\n\nproduct = Product(50)\n\
+    product.price = 23\nprint(product.price)\n# Property is an attribute outside but\
+    \ internally it has two mehods ,a getter and a setter\n```\n\n# 12. Inheritance\n\
+    \n```\nclass Animal:\n    def __init__(self):\n        self.age = 1\n\n    def\
+    \ eat(self):\n        print(\"Eat\")\n\n# Animal: Parent, Base\n# Mammal: Child\
+    \ , Sub\n\nclass Mammal(Animal):\n    def walk(self):\n        print(\"walk\"\
+    )\n\nclass Fish(Animal):\n```"
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: "```\ndef swim(self):\n    print(\"walk\")\n\nm = Mammal()\n\nm.eat()\n\nm.walk()\n\
+    \nprint(m.age)\n```\n\n# 13. Object Class\n\n# 14. Method Overriding\n\n```\n\
+    class Animal:\n    def __init__(self):\n        print(\"Animal Costructor\")\n\
+    \        self.age = 1\n\n    def eat(self):\n        print(\"Eat\")\n\nclass Mammal(Animal):\n\
+    \    def __init__(self):\n        super().__init__()\n        print(\"Mammal Constructor\"\
+    )\n        self.weight = 2\n\n    def walk(self):\n        print(\"walk\")\n```"
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: "```\nm = Mammal()\n\nprint(m.age)\n\nprint(m.weight)\n```\n\n# 15. Multi-Level\
+    \ Inheritance\n\n```\nclass Animal:\n    def eat(self):\n        print(\"eat\"\
+    )\n\nclass Bird(Animal):\n    def fly(self):\n        print(\"fly\")\n\nclass\
+    \ Chicken(Bird):\n    pass\n```\n\n# 16. Multiple Inheritance\n\n```\nclass Employee:\n\
+    \    def greet(self):\n        print(\"Employee greet\")\n\nclass Person:\n  \
+    \  def greet(self):\n        print(\"Person greet\")\n\nclass Manager(Employee,\
+    \ Person):\n    pass\n```"
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: "```\nmanager = Manager()\n\nmanager.greet()\n\nclass Flyer:\n    def fly(self):\n\
+    \        pass\n\nclass Swimmer:\n    def swim(self):\n        pass\n\nclass FlyingFish(Flyer,\
+    \ Swimmer):\n    pass\n```\n\n# 17. A Good Example Of Inheritance\n\n```\nclass\
+    \ InvalidOperationError(Exception):\n    pass\n\nclass Stream:\n    def __init__(self):\n\
+    \        self.opened = False\n\n    def open(self):\n        if self.opened:\n\
+    \            raise InvalidOperationError(\"Stream is already opened\")\n     \
+    \   self.opened = True\n\n    def close(self):\n```"
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: "```\npython\nif not self.opened:\n    raise InvalidOperationError(\"Stream\
+    \ is already closed\")\n\nself.opened = False\n\nclass FileStream(Stream):\n \
+    \   def read(self):\n        print(\"Reading data from a file\")\n\nclass NetworkStream(Stream):\n\
+    \    def read(self):\n        print(\"Reading data from a network\")\n```\n\n\
+    # 18. Abstract Base Classes\n\n```\npython\nfrom abc import ABC, abstractmethod\n\
+    \nclass InvalidOperationError(Exception):\n    pass\n\nclass Stream(ABC):\n  \
+    \  def __init__(self):\n        self.opened = False\n\n    def open(self):\n \
+    \       if self.opened:\n            raise InvalidOperationError(\"Stream is already\
+    \ opened\")\n        self.opened = True\n\n    def close(self):\n```"
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: "```\nif not self.opened:\n    raise InvalidOperationError(\"Stream is already\
+    \ closed\")\n\nself.opened = False\n\n@abstractmethod\ndef read(self):\n    pass\n\
+    ```\n\n```\nclass FileStream(Stream):\n    def read(self):\n        print(\"Reading\
+    \ data from a file\")\n```\n\n```\nclass NetworkStream(Stream):\n    def read(self):\n\
+    \        print(\"Reading data from a network\")\n```\n\n```\nclass VideoStream(Stream):\n\
+    \    pass\n```\n\n```\nstream = Stream()\nn = VideoStream()\n```\n\n# 19. Polymorphism\n\
+    \n```\nfrom abc import ABC, abstractmethod\n\nclass UIControl(ABC):\n    @abstractmethod\n\
+    \    def draw(self):\n        pass\n```"
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: "```\npython\nclass DropDownList(UIControl):\n    def draw(self):\n        print(\"\
+    DropDownlist\")\n\nclass TextBox(UIControl):\n    def draw(self):\n        print(\"\
+    TextBox\")\n\ndef draw(*controls):\n    for control in controls:\n        control.draw()\n\
+    \nddl = DropDownList()\ntextbox = TextBox()\ndraw(ddl, textbox)\n```\n\n# 20.\
+    \ Duck Typing\n\n# 21. Extending Built-In Types\n\n```\npython\nclass Text(str):\n\
+    \    def duplicate(self):\n        return self + self\n\ntext = Text(\"Python\"\
+    )\nprint(text.duplicate())\n```"
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: "```\nclass TrackableList(list):\n    def append(self, object):\n        print(\"\
+    Append called\")\n        super().append(object)\n\nlist = TrackableList()\nlist.append(\"\
+    I\")\n```\n\n# 22. Data Types\n\n```\nfrom collections import namedtuple\n\nPoint\
+    \ = namedtuple(\"Point\", [\"x\", \"y\"])\np1 = Point(x=1, y=2)\np2 = Point(x=5,\
+    \ y=6)\nprint(p2 == p1)\n# They are immutable\n```\n\n# Chapter 8 Modules\n\n\
+    # 1. Modules\n\n```\nfrom sales import calc_shipping, calc_tax  # importing specific\
+    \ functions\nimport sales  # importing entire module as an object\n\nsales.calc_shipping()\n\
+    sales.calc_tax()\ncalc_shipping()\ncalc_tax()\n```"
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: "# 2. Packages\n\n```\nimport ecommerce.sales\n\nfrom ecommerce.sales import\
+    \ calc_shipping\n\nfrom ecommerce import sales\n\n\n\necommerce.sales.calc_tax()\n\
+    ```\n\n# 3. Intra-Package Reference\n\n```\nfrom ecommerce.customer import contact\
+    \  # Absolute reference\n\nfrom ..customer import contact  # relative reference\n\
+    \n\n\ndef calc_tax():\n    pass\n```\n\n# 4. Dir Function\n\n```\nfrom ecommerce.shopping\
+    \ import sales\n\n\nprint(dir(sales))\n\nprint(sales.__name__)  # ecommerce.shopping.sales\n\
+    \nprint(sales.__package__)  # ecommerce.shopping\n\n# c:\\Users\\kimjlk\\Desktop\\\
+    Hello World\\ecommerce\\shopping\\sales.py\n\nprint(sales.__file__)\n```\n\n#\
+    \ 5. Executing Modules as Scripts"
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: "```\nif __name__ == \"__main__\":\n    print(\"Sales started\")\n```"
+  merge: -1
+  pgno: 45
+toc:
+- - '##'
+  - 通过100多个示例学习Python
+- - '##'
+  - 第1章 入门
+- - '###'
+  - 1. 什么是Python？
+- - '###'
+  - 2. 安装Python
+- - '###'
+  - 3. Python解释器
+- - '###'
+  - 4. 代码编辑器
+- - '###'
+  - 5. Hello World
+- - '###'
+  - 6. Python扩展
+- - '###'
+  - 7. 代码检查
+- - '###'
+  - 8. 格式化代码
+- - '###'
+  - 9. 运行python代码
+- - '###'
+  - 10. Python实现
+- - '###'
+  - 11. Python代码如何执行
+- - '##'
+  - 第2章 基本类型
+- - '###'
+  - 1. 变量
+- - '###'
+  - 2. 变量名
+- - '###'
+  - 3. 字符串
+- - '####'
+  - 末尾索引处的字符不包含在内 (Pyt) 切片字符串
+- - '###'
+  - 4. 转义序列
+- - '###'
+  - 5. 格式化字符串
+- - '###'
+  - 6. 字符串方法
+- - '####'
+  - 如果未找到字符串，它将返回 -1，返回一个索引
+- - '####'
+  - 所有这些都创建了新的字符串
+- - '###'
+  - 7. 数字
+- - '####'
+  - 增强运算符
+- - '###'
+  - 8. 处理数字
+- - '###'
+  - 9. 类型转换
+- - '##'
+  - 第3章 控制流
+- - '###'
+  - 1. 比较运算符
+- - '###'
+  - 2. 条件语句
+- - '###'
+  - 3. 三元运算符
+- - '###'
+  - 4. 逻辑运算符
+- - '###'
+  - 5. 短路求值
+- - '###'
+  - 6. 链式比较运算符
+- - '###'
+  - 7. For循环
+- - '###'
+  - 8. For Else循环
+- - '###'
+  - 9. 嵌套循环
+- - '###'
+  - 10. 可迭代对象
+- - '####'
+  - range对象是可迭代的
+- - '###'
+  - 11. While循环
+- - '###'
+  - 12. 无限循环
+- - '##'
+  - 第4章 函数
+- - '###'
+  - 1. 函数
+- - '###'
+  - 2. 参数
+- - '###'
+  - 3. 函数类型
+- - '###'
+  - 4. 关键字参数
+- - '###'
+  - 5. 默认参数
+- - '###'
+  - 6. Xargs
+- - '###'
+  - 7. Xxargs
+- - '###'
+  - 8. 作用域
+- - '##'
+  - 第5章 数据结构
+- - '###'
+  - 1. 列表
+- - '###'
+  - 2. 访问元素
+- - '###'
+  - 3. 解包列表
+- - '###'
+  - 4. 遍历列表
+- - '####'
+  - enumerate 函数返回一个可迭代的 enumerate 对象。在每次迭代中，它返回一个元组，我们可以在 for 循环中解包它
+- - '###'
+  - 5. 添加或删除元素
+- - '####'
+  - 当一个函数是类的一部分时，我们称它为方法
+- - '####'
+  - 添加
+- - '####'
+  - 删除
+- - '###'
+  - 6. 列表排序
+- - '###'
+  - 7. 列表排序
+- - '###'
+  - 8. Lambda 函数
+- - '###'
+  - 9. Map 函数
+- - '####'
+  - 将 lambda 函数应用于列表中的所有元素
+- - '###'
+  - 10. Filter 函数
+- - '###'
+  - 11. 列表推导式
+- - '###'
+  - 12. Zip 函数
+- - '###'
+  - 13. 栈
+- - '####'
+  - LIFO - 后进先出
+- - '###'
+  - 14. 队列
+- - '####'
+  - FIFO - 先进先出
+- - '###'
+  - 15. 元组
+- - '###'
+  - 16. 交换变量
+- - '####'
+  - x, y = (y, x)
+- - '###'
+  - 17. 数组
+- - '####'
+  - 接受一个类型码
+- - '###'
+  - 18. 集合
+- - '####'
+  - print(first)
+- - '####'
+  - print(second)
+- - '####'
+  - 这个第一个集合包含第二个集合中没有的额外数字
+- - '###'
+  - 19. 字典
+- - '####'
+  - print(point1["a"])
+- - '###'
+  - 20. 字典推导式
+- - '###'
+  - 21. 生成器对象
+- - '###'
+  - 22. 解包运算符
+- - '###'
+  - 23. 练习
+- - '##'
+  - 第6章 异常
+- - '###'
+  - 1. 异常
+- - '###'
+  - 2. 处理多个异常
+- - '###'
+  - 3. 清理资源
+- - '###'
+  - 4. With 语句
+- - '####'
+  - 如果一个对象有 __exit__ 和 __enter__ 方法，它就支持上下文管理协议
+- - '###'
+  - 5. 抛出异常
+- - '###'
+  - 6. 抛出异常的代价
+- - '##'
+  - 第7章 类
+- - '###'
+  - 1. 类
+- - '###'
+  - 2. 创建类
+- - '###'
+  - 3. 构造函数
+- - '###'
+  - 4. 类属性与实例属性
+- - '###'
+  - 5. 类与实例方法
+- - '###'
+  - 6. 魔术方法
+- - '###'
+  - 7. 对象比较
+- - '###'
+  - 8. 执行算术运算
+- - '###'
+  - 9. 创建自定义容器
+- - '###'
+  - 10. 私有成员
+- - '####'
+  - print(cloud.__tags)
+- - '###'
+  - 11. 属性
+- - '####'
+  - 非Python风格的代码
+- - '####'
+  - 属性在外部是一个属性，但内部有两个方法，一个getter和一个setter
+- - '###'
+  - 12. 继承
+- - '####'
+  - 'Animal: 父类，基类'
+- - '####'
+  - 'Mammal: 子类，派生类'
+- - '###'
+  - 13. 对象类
+- - '###'
+  - 14. 方法重写
+- - '###'
+  - 15. 多级继承
+- - '###'
+  - 16. 多重继承
+- - '###'
+  - 17. 继承的一个好例子
+- - '###'
+  - 18. 抽象基类
+- - '###'
+  - 19. 多态
+- - '###'
+  - 20. 鸭子类型
+- - '###'
+  - 21. 扩展内置类型
+- - '###'
+  - 22. 数据类型
+- - '####'
+  - 它们是不可变的
+- - '##'
+  - 第8章 模块
+- - '###'
+  - 1. 模块
+- - '###'
+  - 2. 包
+- - '###'
+  - 3. 包内引用
+- - '###'
+  - 4. Dir函数
+- - '####'
+  - c:\Users\kimjlk\Desktop\Hello World\ecommerce\shopping\sales.py
+- - '###'
+  - 5. 将模块作为脚本执行
