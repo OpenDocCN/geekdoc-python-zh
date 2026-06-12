@@ -1,0 +1,2885 @@
+groups:
+- md: "# Easily Explained\n\n## ADVANCED PYTHON TIPS\n\nA SIMPLE BOOK ON ADVANCED\
+    \ PYTHON CONCEPTS\n\nBY RAHUL AGARWAL\n\n![](img/754e520429142dbf037b2b2434cf63fd_0_0.png)\n\
+    \nRAHUL AGARWAL\n\n## Advanced Python Tips\n\nExplained Simply\n\nCopyright ©\
+    \ 2020 by Rahul Agarwal\n\nAll rights reserved. No part of this publication may\
+    \ be reproduced, stored or transmitted in any form or by any means, electronic,\
+    \ mechanical, photocopying, recording, scanning, or otherwise without written\
+    \ permission from the publisher. It is illegal to copy this book, post it to a\
+    \ website, or distribute it by any other means without permission.\n\nRahul Agarwal\
+    \ asserts the moral right to be identified as the author of this work.\n\nRahul\
+    \ Agarwal has no responsibility for the persistence or accuracy of URLs for external\
+    \ or third-party Internet Websites referred to in this publication and does not\
+    \ guarantee that any content on such Websites is, or will remain, accurate or\
+    \ appropriate.\n\nDesignations used by companies to distinguish their products\
+    \ are often claimed as trademarks. All brand names and product names used in this\
+    \ book and on its cover are trade names, service marks, trademarks and registered\
+    \ trademarks of their respective owners. The publishers and the book are not associated\
+    \ with any product or vendor mentioned in this book. None of the companies referenced\
+    \ within the book have endorsed the book.\n\nFirst edition\n\nThis book was professionally\
+    \ typeset on Reedsy.\nFind out more at [reesdy.com](https://reesdy.com)\n\n##\
+    \ Contents\n\n- About me iv\n- Introduction v\n- 1 Minimize for loop usage in\
+    \ Python 1\n- 2 Python defaultdict and Counter 7\n- 3 *args, **kwargs, decorators\
+    \ for Data Scientists 12\n- 4 Use Itertools, Generators, and Generator Expressions\
+    \ 23\n- 5 How and Why to use f strings in Python3? 34\n- Afterword 41\n\n## About\
+    \ me\n\nI am Rahul Agarwal(MLWhiz), a data scientist consultant, and big data\
+    \ engineer based in Bangalore, where I am currently working with **WalmartLabs**.\n\
+    \nPreviously, I have worked at startups like **Fractal** and **MyCity-Way** and\
+    \ conglomerates like **Citi**. I started my blog [mlwhiz.com](http://mlwhiz.com)\
+    \ with a purpose to augment my own understanding of new things while helping others\
+    \ learn about them. I also write for publications on Medium like [Towards Data\
+    \ Science](https://towardsdatascience.com/) and [HackerNoon](https://hackernoon.com/)\n\
+    \n> As Feynman said: “**I couldn’t do it. I couldn’t reduce it to the freshman\
+    \ level. That means we don’t really understand it**”\n\nPersonally I am tool agnostic.\
+    \ I like learning new tools and constantly work to add up new skills as I face\
+    \ new problems that cannot be accomplished with my current set of techniques.\
+    \ But the tools that get most of my work done currently are Python, Hadoop, and\
+    \ Spark.\n\nI also really like working with data-intensive problems and am constantly\
+    \ in search of new ideas to work on.\n\n## Introduction\n\n**Learning a language\
+    \ is easy.** Whenever I start with a new language, I focus on a few things in\
+    \ the below order, and it is a breeze to get started with writing code in any\
+    \ language.\n\n- Operators and Data Types: +,-,int,float,str\n- Conditional statements:\
+    \ if,else,case,switch\n- Loops: For, while\n- Data structures: List, Array, Dict,\
+    \ Hashmaps\n- Define Function\n\n**However, learning to write a language and writing\
+    \ a language in an optimized way are two different things.**\n\nEvery Language\
+    \ has some ingredients which make it unique.\n\nYet, **a new programmer to any\
+    \ language will always do some forced overfitting.** A Java programmer, new to\
+    \ python, for example, might write this code to add numbers in a list.\n\n```\n\
+    x=[1,2,3,4,5]\nsum_x = 0\nfor i in range(len(x)):\n    sum_x+=x[i]\n```\n\nWhile\
+    \ a Python programmer will naturally do this:\n\n```\nsum_x = sum(x)\n```\n\n\
+    In this book, I will explain some simple constructs provided by Python, some essential\
+    \ tips, and some use cases I come up with regularly in my Data Science work. Most\
+    \ of the book is of a practical nature and you will find it beaming with examples.\n\
+    \n**This book is about efficient and readable code.**\n\nThis book is distributed\
+    \ as free to read/pay as you want. If you like it, I would appreciate it if you\
+    \ could [buy](buy) the paid version here.\n\n## 1 Minimize for loop usage in Python\n\
+    \nThere are many ways to write a for loop in python.\n\nA beginner may get confused\
+    \ on what to use.\n\nLet me explain this with a simple example statement.\n\n\
+    Suppose you want to take the **sum of squares in a list.**\n\nThis is a valid\
+    \ problem we all face in machine learning whenever we want to calculate the distance\
+    \ between two points in n dimension.\n\nYou can do this using loops easily.\n\n\
+    In fact, I will show you **three ways to do the same task which I have seen people\
+    \ use and let you choose for yourself which you find the best.**\n\n```\nx = [1,3,5,7,9]\n\
+    sum_squared = 0\nfor i in range(len(x)):\n    sum_squared+=x[i]**2\n```\n\nWhenever\
+    \ I see the above code in a python codebase, I understand that the person has\
+    \ come from C or Java background.\n\nA **slightly more pythonic way** of doing\
+    \ the same thing is:\n\n```\nx = [1,3,5,7,9]\nsum_squared = 0\nfor y in x:\n \
+    \   sum_squared+=y**2\n```\n\nBetter.\n\nI didn't index the list. And my code\
+    \ is more readable.\n\nBut still, the pythonic way to do it is in one line.\n\n\
+    ```\nx = [1,3,5,7,9]\nsum_squared = sum([y**2 for y in x])\n```\n\n**This approach\
+    \ is called List Comprehension, and this may very well be one of the reasons that\
+    \ I love Python.**\n\nYou can also use **if** in a list comprehension.\n\nLet's\
+    \ say we wanted a list of squared numbers for even numbers only.\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n\
+    even_squared = [y**2 for y in x if y%2==0]\n----------------------------------------\n\
+    [4, 16, 36, 64]\n```\n\n### What about if-else?\n\nWhat if we wanted to have the\
+    \ number squared for even and cubed for odd?\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n\
+    squared_cubed = [y**2 if y%2==0 else y**3 for y in x]\n----------------------------------------\n\
+    [1, 4, 27, 16, 125, 36, 343, 64, 729]\n```\n\nGreat!!!\n\n![](img/754e520429142dbf037b2b2434cf63fd_11_0.png)\n\
+    \nSo basically follow specific **guidelines**: Whenever you feel like writing\
+    \ a for statement, you should ask yourself the following questions,\n\n- Can it\
+    \ be done without a **for** loop? Most Pythonic\n- Can it be done using **list\
+    \ comprehension**? If yes, use it.\n- Can I do it without indexing arrays? if\
+    \ not, think about using **enumerate**\n\nWhat is enumerate?\n\nSometimes we need\
+    \ both the index in an array as well as the value in an array.\n\nIn such cases,\
+    \ I prefer to use **enumerate** rather than indexing the list.\n\n```\nL = ['blue',\
+    \ 'yellow', 'orange']\nfor i, val in enumerate(L):\n    print(\"index is %d and\
+    \ value is %s\" % (i, val))\n------------------------------------------------------------\n\
+    index is 0 and value is blue\nindex is 1 and value is yellow\nindex is 2 and value\
+    \ is orange\n```\n\nThe rule is:\n\n> Never index a list, if you can do without\
+    \ it.\n\n### Try Using Dictionary Comprehension\n\nAlso try using **dictionary\
+    \ comprehension**, which is a relatively new addition in Python. The syntax is\
+    \ pretty similar to List comprehension.\n\nLet me explain using an example. I\
+    \ want to get a dictionary with (key: squared value) for every value in x.\n\n\
+    ```\nx = [1,2,3,4,5,6,7,8,9]\n{k:k**2 for k in x}\n------------------------------------------------------------\n\
+    {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64,\n9: 81}\n```\n\nWhat if\
+    \ I want a dict only for even values?\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n{k:k**2\
+    \ for k in x if k%2==0}\n----------------------------------------\n{2: 4, 4: 16,\
+    \ 6: 36, 8: 64}\n```\n\nWhat if we want squared value for even key and cubed number\
+    \ for the odd key?\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n{k:k**2 if k%2==0 else k**3\
+    \ for k in x}\n----------------------------------------\n{1: 1, 2: 4, 3: 27, 4:\
+    \ 16, 5: 125, 6: 36, 7: 343, 8: 64, 9: 729}\n```\n\n### Conclusion\n\nTo conclude,\
+    \ I will say that while it might seem easy to transfer the knowledge you acquired\
+    \ from other languages to Python, you won't be able to appreciate the beauty of\
+    \ Python if you keep doing that.\n\nPython is much more powerful when we use its\
+    \ ways and decidedly much more fun.\n\n**So, use List Comprehensions and Dict\
+    \ comprehensions when you need a for loop. Use enumerate if you need array index.**\n\
+    \n> Avoid for loops like plague\n\nYour code will be much more readable and maintainable\
+    \ in the long run."
+  mdcn: "# 轻松讲解\n\n## 高级Python技巧\n\n一本关于高级Python概念的简明书籍\n\n作者：Rahul Agarwal\n\n![](img/754e520429142dbf037b2b2434cf63fd_0_0.png)\n\
+    \nRAHUL AGARWAL\n\n## 高级Python技巧\n\n简明讲解\n\n版权所有 © 2020 Rahul Agarwal\n\n保留所有权利。未经出版商书面许可，不得以任何形式或任何方式（电子、机械、影印、录音、扫描或其他方式）复制、存储或传播本出版物的任何部分。未经许可复制本书、将其发布到网站或通过任何其他方式分发均属非法。\n\
+    \nRahul Agarwal主张其作为本作品作者的署名权。\n\nRahul Agarwal对本出版物中提及的外部或第三方互联网网站的URL的持续性或准确性不承担任何责任，并且不保证此类网站上的任何内容现在或将来是准确或适当的。\n\
+    \n公司用于区分其产品的名称通常被声明为商标。本书及其封面上使用的所有品牌名称和产品名称均为其各自所有者的商品名、服务标志、商标和注册商标。出版商和本书与本书中提及的任何产品或供应商均无关联。本书中引用的任何公司均未认可本书。\n\
+    \n第一版\n\n本书使用Reedsy进行专业排版。\n了解更多请访问 [reesdy.com](https://reesdy.com)\n\n## 目录\n\
+    \n- 关于我 iv\n- 引言 v\n- 1 在Python中最小化for循环的使用 1\n- 2 Python的defaultdict和Counter\
+    \ 7\n- 3 数据科学家的*args、**kwargs和装饰器 12\n- 4 使用Itertools、生成器和生成器表达式 23\n- 5 在Python3中如何以及为何使用f字符串？\
+    \ 34\n- 后记 41\n\n## 关于我\n\n我是Rahul Agarwal（MLWhiz），一位数据科学家顾问和大数据工程师，目前在班加罗尔工作，就职于**沃尔玛实验室**。\n\
+    \n此前，我曾在**Fractal**和**MyCity-Way**等初创公司以及**花旗集团**等大型企业工作过。我开设博客[mlwhiz.com](http://mlwhiz.com)的目的是在帮助他人学习新事物的同时，加深自己对新事物的理解。我也为Medium上的出版物撰稿，例如[Towards\
+    \ Data Science](https://towardsdatascience.com/)和[HackerNoon](https://hackernoon.com/)。\n\
+    \n> 正如费曼所说：“**我做不到。我无法将其简化到大一新生的水平。这意味着我们并没有真正理解它。**”\n\n就个人而言，我并不拘泥于特定工具。我喜欢学习新工具，并不断努力增加新技能，以应对那些无法用我现有技术解决的新问题。但目前完成我大部分工作的工具是Python、Hadoop和Spark。\n\
+    \n我也非常喜欢处理数据密集型问题，并不断寻找新的想法来实践。\n\n## 引言\n\n**学习一门语言很容易。** 每当我开始学习一门新语言时，我会按照以下顺序关注几件事，这样就能轻松上手编写任何语言的代码。\n\
+    \n- 运算符和数据类型：+,-,int,float,str\n- 条件语句：if,else,case,switch\n- 循环：For, while\n\
+    - 数据结构：List, Array, Dict, Hashmaps\n- 定义函数\n\n**然而，学习如何编写一门语言和以优化的方式编写一门语言是两回事。**\n\
+    \n每种语言都有一些使其独特的要素。\n\n然而，**任何语言的新程序员总会进行一些强制性的过度拟合。** 例如，一个刚接触Python的Java程序员可能会这样写代码来计算列表中数字的和：\n\
+    \n```\nx=[1,2,3,4,5]\nsum_x = 0\nfor i in range(len(x)):\n    sum_x+=x[i]\n```\n\
+    \n而一个Python程序员自然会这样做：\n\n```\nsum_x = sum(x)\n```\n\n在本书中，我将解释Python提供的一些简单结构、一些基本技巧，以及我在数据科学工作中经常遇到的一些用例。本书大部分内容具有实用性，你会发现其中充满了示例。\n\
+    \n**本书是关于高效且可读的代码。**\n\n本书以免费阅读/按需付费的方式分发。如果你喜欢它，如果你能在这里[购买](buy)付费版本，我将不胜感激。\n\
+    \n## 1 在Python中最小化for循环的使用\n\n在Python中编写for循环有很多种方式。\n\n初学者可能会对使用哪种方式感到困惑。\n\n\
+    让我用一个简单的例子来解释。\n\n假设你想计算**列表中数字的平方和。**\n\n这是一个我们在机器学习中经常遇到的有效问题，当我们想计算n维空间中两点之间的距离时。\n\
+    \n你可以轻松地使用循环来完成。\n\n事实上，我将向你展示**三种完成相同任务的方法，我见过人们使用这些方法，并让你自己选择你觉得最好的一种。**\n\n\
+    ```\nx = [1,3,5,7,9]\nsum_squared = 0\nfor i in range(len(x)):\n    sum_squared+=x[i]**2\n\
+    ```\n\n每当我看到Python代码库中的上述代码时，我就知道这个人来自C或Java背景。\n\n完成同样任务的**一种更Python化的方式**是：\n\
+    \n```\nx = [1,3,5,7,9]\nsum_squared = 0\nfor y in x:\n    sum_squared+=y**2\n\
+    ```\n\n更好。\n\n我没有对列表进行索引。我的代码更具可读性。\n\n但更Python化的方式是一行代码完成。\n\n```\nx = [1,3,5,7,9]\n\
+    sum_squared = sum([y**2 for y in x])\n```\n\n**这种方法被称为列表推导式，这很可能就是我喜欢Python的原因之一。**\n\
+    \n你也可以在列表推导式中使用**if**。\n\n假设我们只想要偶数的平方列表。\n\n```\nx = [1,2,3,4,5,6,7,8,9]\neven_squared\
+    \ = [y**2 for y in x if y%2==0]\n----------------------------------------\n[4,\
+    \ 16, 36, 64]\n```\n\n### 那么if-else呢？\n\n如果我们想要偶数平方，奇数立方呢？\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n\
+    squared_cubed = [y**2 if y%2==0 else y**3 for y in x]\n----------------------------------------\n\
+    [1, 4, 27, 16, 125, 36, 343, 64, 729]\n```\n\n太棒了！！！\n\n![](img/754e520429142dbf037b2b2434cf63fd_11_0.png)\n\
+    \n所以基本上要遵循特定的**准则**：每当你想写一个for语句时，你应该问自己以下问题，\n\n- 不使用**for**循环能完成吗？最Python化的方式\n\
+    - 能使用**列表推导式**完成吗？如果可以，就使用它。\n- 我能在不索引数组的情况下完成吗？如果不能，考虑使用**enumerate**\n\n什么是enumerate？\n\
+    \n有时我们需要数组中的索引和数组中的值。\n\n在这种情况下，我更喜欢使用**enumerate**而不是对列表进行索引。\n\n```\nL = ['blue',\
+    \ 'yellow', 'orange']\nfor i, val in enumerate(L):\n    print(\"index is %d and\
+    \ value is %s\" % (i, val))\n------------------------------------------------------------\n\
+    index is 0 and value is blue\nindex is 1 and value is yellow\nindex is 2 and value\
+    \ is orange\n```\n\n规则是：\n\n> 如果可以不用索引，就永远不要索引列表。\n\n### 尝试使用字典推导式\n\n也尝试使用**字典推导式**，这是Python中相对较新的功能。其语法与列表推导式非常相似。\n\
+    \n让我用一个例子来解释。我想为x中的每个值获取一个字典（键：平方值）。\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n{k:k**2\
+    \ for k in x}\n------------------------------------------------------------\n\
+    {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64,\n9: 81}\n```\n\n如果我只想要偶数值的字典呢？\n\
+    \n```\nx = [1,2,3,4,5,6,7,8,9]\n{k:k**2 for k in x if k%2==0}\n----------------------------------------\n\
+    {2: 4, 4: 16, 6: 36, 8: 64}\n```\n\n如果我们想要偶数键的平方值和奇数键的立方值呢？\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n\
+    {k:k**2 if k%2==0 else k**3 for k in x}\n----------------------------------------\n\
+    {1: 1, 2: 4, 3: 27, 4: 16, 5: 125, 6: 36, 7: 343, 8: 64, 9: 729}\n```\n\n### 结论\n\
+    \n总之，我想说，虽然将你从其他语言获得的知识转移到Python中可能看起来很容易，但如果你一直这样做，你将无法欣赏Python的美妙之处。\n\n当我们使用Python的方式时，它会强大得多，而且无疑更有趣。\n\
+    \n**所以，当你需要for循环时，使用列表推导式和字典推导式。如果你需要数组索引，使用enumerate。**\n\n> 像躲避瘟疫一样避免for循环\n\
+    \n从长远来看，你的代码将更具可读性和可维护性。"
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    Easily Explained
+
+
+    # ADVANCED PYTHON TIPS
+
+
+    A SIMPLE BOOK ON ADVANCED PYTHON CONCEPTS
+
+
+    BY RAHUL AGARWAL
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_0_0.png)'
+  - '[PAGE 1]
+
+
+    <!-- no content -->'
+  - '[PAGE 2]
+
+
+    RAHUL AGARWAL
+
+
+    # Advanced Python Tips
+
+
+    Explained Simply'
+  - '[PAGE 3]
+
+
+    Copyright © 2020 by Rahul Agarwal
+
+
+    All rights reserved. No part of this publication may be reproduced, stored or
+    transmitted in any form or by any means, electronic, mechanical, photocopying,
+    recording, scanning, or otherwise without written permission from the publisher.
+    It is illegal to copy this book, post it to a website, or distribute it by any
+    other means without permission.
+
+
+    Rahul Agarwal asserts the moral right to be identified as the author of this work.
+
+
+    Rahul Agarwal has no responsibility for the persistence or accuracy of URLs for
+    external or third-party Internet Websites referred to in this publication and
+    does not guarantee that any content on such Websites is, or will remain, accurate
+    or appropriate.
+
+
+    Designations used by companies to distinguish their products are often claimed
+    as trademarks. All brand names and product names used in this book and on its
+    cover are trade names, service marks, trademarks and registered trademarks of
+    their respective owners. The publishers and the book are not associated with any
+    product or vendor mentioned in this book. None of the companies referenced within
+    the book have endorsed the book.
+
+
+    First edition
+
+
+    This book was professionally typeset on Reedsy.
+
+    Find out more at [reesdy.com](https://reesdy.com)'
+  - '[PAGE 4]
+
+
+    # Contents
+
+
+    +   About me iv
+
+    Introduction v
+
+    1 Minimize for loop usage in Python 1
+
+    2 Python defaultdict and Counter 7
+
+    3 *args, **kwargs, decorators for Data Scientists 12
+
+    4 Use Itertools, Generators, and Generator Expressions 23
+
+    5 How and Why to use f strings in Python3? 34
+
+    Afterword 41'
+  - '[PAGE 5]
+
+
+    # About me
+
+
+    I am Rahul Agarwal(MLWhiz), a data scientist consultant, and big data engineer
+    based in Bangalore, where I am currently working with **WalmartLabs**.
+
+
+    Previously, I have worked at startups like **Fractal** and **MyCity-Way** and
+    conglomerates like **Citi**. I started my blog [mlwhiz.com](http://mlwhiz.com)
+    with a purpose to augment my own understanding of new things while helping others
+    learn about them. I also write for publications on Medium like [Towards Data Science](https://towardsdatascience.com/)
+    and [HackerNoon](https://hackernoon.com/)
+
+
+    > As Feynman said: “**I couldn’t do it. I couldn’t reduce it to the freshman level.
+    That means we don’t really understand it**”
+
+
+    Personally I am tool agnostic. I like learning new tools and constantly work to
+    add up new skills as I face new problems that cannot be accomplished with my current
+    set of techniques. But the tools that get most of my work done currently are Python,
+    Hadoop, and Spark.
+
+
+    I also really like working with data-intensive problems and am constantly in search
+    of new ideas to work on.'
+  - "[PAGE 6]\n\n# Introduction\n\n**Learning a language is easy.** Whenever I start\
+    \ with a new language, I focus on a few things in the below order, and it is a\
+    \ breeze to get started with writing code in any language.\n\n+   - Operators\
+    \ and Data Types: +,-,int,float,str\n- Conditional statements: if,else,case,switch\n\
+    - Loops: For, while\n- Data structures: List, Array, Dict, Hashmaps\n- Define\
+    \ Function\n\n**However, learning to write a language and writing a language in\
+    \ an optimized way are two different things.**\n\nEvery Language has some ingredients\
+    \ which make it unique.\n\nYet, **a new programmer to any language will always\
+    \ do some forced overfitting.** A Java programmer, new to python, for example,\
+    \ might write this code to add numbers in a list.\n\n```\nx=[1,2,3,4,5]\nsum_x\
+    \ = 0\nfor i in range(len(x)):\n    sum_x+=x[i]\n```"
+  - '[PAGE 7]
+
+
+    While a Python programmer will naturally do this:
+
+
+    ```
+
+    sum_x = sum(x)
+
+    ```
+
+
+    In this book, I will explain some simple constructs provided by Python, some essential
+    tips, and some use cases I come up with regularly in my Data Science work. Most
+    of the book is of a practical nature and you will find it beaming with examples.
+
+
+    **This book is about efficient and readable code.**
+
+
+    This book is distributed as free to read/pay as you want. If you like it, I would
+    appreciate it if you could [buy](buy) the paid version here.'
+  - '[PAGE 8]
+
+
+    # # 1
+
+
+    # # Minimize for loop usage in Python
+
+
+    There are many ways to write a for loop in python.
+
+
+    A beginner may get confused on what to use.
+
+
+    Let me explain this with a simple example statement.
+
+
+    Suppose you want to take the **sum of squares in a list.**
+
+
+    This is a valid problem we all face in machine learning whenever we want to calculate
+    the distance between two points in n dimension.
+
+
+    You can do this using loops easily.
+
+
+    In fact, I will show you **three ways to do the same task which I have seen people
+    use and let you choose for yourself which you find the best.**'
+  - "[PAGE 9]\n\n# ADVANCED PYTHON TIPS\n\n```\nx = [1,3,5,7,9]\nsum_squared = 0\n\
+    for i in range(len(x)):\n    sum_squared+=x[i]**2\n```\n\nWhenever I see the above\
+    \ code in a python codebase, I understand that the person has come from C or Java\
+    \ background.\n\nA **slightly more pythonic way** of doing the same thing is:\n\
+    \n```\nx = [1,3,5,7,9]\nsum_squared = 0\nfor y in x:\n    sum_squared+=y**2\n\
+    ```\n\nBetter.\n\nI didn't index the list. And my code is more readable.\n\nBut\
+    \ still, the pythonic way to do it is in one line.\n\n```\nx = [1,3,5,7,9]\nsum_squared\
+    \ = sum([y**2 for y in x])\n```\n\n**This approach is called List Comprehension,\
+    \ and this may very well be one of the reasons that I love Python.**\n\nYou can\
+    \ also use **if** in a list comprehension.\n\nLet's say we wanted a list of squared\
+    \ numbers for even numbers only."
+  - '[PAGE 10]
+
+
+    # MINIMIZE FOR LOOP USAGE IN PYTHON
+
+
+    ```
+
+    x = [1,2,3,4,5,6,7,8,9]
+
+    even_squared = [y**2 for y in x if y%2==0]
+
+    ----------------------------------------
+
+    [4, 16, 36, 64]
+
+    ```
+
+
+    # What about if-else?
+
+
+    What if we wanted to have the number squared for even and cubed for odd?
+
+
+    ```
+
+    x = [1,2,3,4,5,6,7,8,9]
+
+    squared_cubed = [y**2 if y%2==0 else y**3 for y in x]
+
+    ----------------------------------------
+
+    [1, 4, 27, 16, 125, 36, 343, 64, 729]
+
+    ```
+
+
+    Great!!!'
+  - '[PAGE 11]
+
+
+    # ADVANCED PYTHON TIPS
+
+
+    # WHY ASIMOV PUT THE THREE LAWS OF ROBOTICS IN THE ORDER HE DID:
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_11_0.png)
+
+
+    So basically follow specific **guidelines**: Whenever you feel like writing a
+    forstatement, you should ask yourself the following questions,
+
+
+    +   - Can it be done without a **for** loop? Most Pythonic
+
+    - Can it be done using **list comprehension**? If yes, use it.
+
+    - Can I do it without indexing arrays? if not, think about using **enumerate**
+
+
+    What is enumerate?
+
+
+    Sometimes we need both the index in an array as well as the value in an array.'
+  - "[PAGE 12]\n\n# MINIMIZE FOR LOOP USAGE IN PYTHON\n\nIn such cases, I prefer to\
+    \ use **enumerate** rather than indexing the list.\n\n```\nL = ['blue', 'yellow',\
+    \ 'orange']\nfor i, val in enumerate(L):\n    print(\"index is %d and value is\
+    \ %s\" % (i, val))\n------------------------------------------------------------\n\
+    index is 0 and value is blue\nindex is 1 and value is yellow\nindex is 2 and value\
+    \ is orange\n```\n\nThe rule is:\n\n> Never index a list, if you can do without\
+    \ it.\n\n# Try Using Dictionary Comprehension\n\nAlso try using **dictionary comprehension**,\
+    \ which is a relatively new addition in Python. The syntax is pretty similar to\
+    \ List comprehension.\n\nLet me explain using an example. I want to get a dictionary\
+    \ with (key: squared value) for every value in x.\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n\
+    {k:k**2 for k in x}\n------------------------------------------------------------\n\
+    {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64,\n9: 81}\n```\n\nWhat if\
+    \ I want a dict only for even values?"
+  - '[PAGE 13]
+
+
+    # ADVANCED PYTHON TIPS
+
+
+    ```
+
+    x = [1,2,3,4,5,6,7,8,9]
+
+    {k:k**2 for k in x if x%2==0}
+
+    ----------------------------------------
+
+    {2: 4, 4: 16, 6: 36, 8: 64}
+
+    ```
+
+
+    What if we want squared value for even key and cubed number for the odd key?
+
+
+    ```
+
+    x = [1,2,3,4,5,6,7,8,9]
+
+    {k:k**2 if k%2==0 else k**3 for k in x}
+
+    ----------------------------------------
+
+    {1: 1, 2: 4, 3: 27, 4: 16, 5: 125, 6: 36, 7: 343, 8: 64, 9: 729}
+
+    ```
+
+
+    # Conclusion
+
+
+    To conclude, I will say that while it might seem easy to transfer the knowledge
+    you acquired from other languages to Python, you won''t be able to appreciate
+    the beauty of Python if you keep doing that.
+
+
+    Python is much more powerful when we use its ways and decidedly much more fun.
+
+
+    **So, use List Comprehensions and Dict comprehensions when you need a for loop.
+    Use enumerate if you need array index.**
+
+
+    > Avoid for loops like plague
+
+
+    Your code will be much more readable and maintainable in the long run.'
+- md: "## 2\n\n## Python defaultdict and Counter\n\n![](img/754e520429142dbf037b2b2434cf63fd_14_0.png)\n\
+    \nLet's say I need to count the number of word occurrences in a piece of text.\
+    \ Maybe for a book like Hamlet. How could I do that?\n\n## ADVANCED PYTHON TIPS\n\
+    \nPython always provides us with multiple ways to do the same thing. But only\
+    \ one way I find elegant.\n\nThis is a **Naive Python implementation** using the\
+    \ dict object.\n\n```python\ntext = \"I need to count the number of word occurrences\
+    \ in a piece of text. How could I do that? Python provides us with multiple ways\
+    \ to do the same thing. But only one way I find beautiful.\"\n\nword_count_dict\
+    \ = {}\n\nfor w in text.split(\" \"):\n    if w in word_count_dict:\n        word_count_dict[w]+=1\n\
+    \    else:\n        word_count_dict[w]=1\n```\n\nWe could use **defaultdict**\
+    \ to reduce the number of lines in the code.\n\n```python\nfrom collections import\
+    \ defaultdict\nword_count_dict = defaultdict(int)\nfor w in text.split(\" \"):\n\
+    \    word_count_dict[w]+=1\n```\n\nWe could also have used **Counter** to do this,\
+    \ which according to me is the most preferable method for this problem.\n\n```python\n\
+    from collections import Counter\nword_count_dict = Counter()\nfor w in text.split(\"\
+    \ \"):\n    word_count_dict[w]+=1\n```\n\nIf we use Counter, we can also get the\
+    \ most common words using a simple function.\n\n```python\nword_count_dict.most_common(10)\n\
+    ----------------------------------------\n[('I', 3), ('to', 2), ('the', 2)]\n\
+    ```\n\nOther use cases of Counter:\n\n```python\n# Count Characters\nCounter('abccccccddddd')\n\
+    ----------------------------------------\nCounter({'a': 1, 'b': 1, 'c': 6, 'd':\
+    \ 5})\n# Count List elements\nCounter([1,2,3,4,5,1,2])\n----------------------------------------\n\
+    Counter({1: 2, 2: 2, 3: 1, 4: 1, 5: 1})\n```\n\n***\n\n## So, why ever use defaultdict?\n\
+    \nNotice that in *Counter*, the value is always an integer. What if we wanted\
+    \ to parse through a list of tuples containing colors and fruits. And wanted to\
+    \ create a dictionary of key and list of values.\n\nThe main functionality provided\
+    \ by a defaultdict is that it defaults a key to empty/zero if it is not found\
+    \ in the defaultdict.\n\n```python\ns = [('color', 'blue'), ('color', 'orange'),\n\
+    ('color', 'yellow'), ('fruit', 'banana'), ('fruit', 'orange'),('fruit', 'banana')]\n\
+    d = defaultdict(list)\nfor k, v in s:\n    d[k].append(v)\nprint(d)\n-----------------------------------------------------------------------\n\
+    defaultdict(<class 'list'>, {'color': ['blue', 'orange', 'yellow'], 'fruit': ['banana',\
+    \ 'orange', 'banana']})\n```\n\nbanana comes two times in fruit, we could use\
+    \ set\n\n```python\nd = defaultdict(set)\nfor k, v in s:\n    d[k].add(v)\nprint(d)\n\
+    -----------------------------------------------------------------------\ndefaultdict(<class\
+    \ 'set'>, {'color': {'yellow', 'blue', 'orange'}, 'fruit': {'banana', 'orange'}})\n\
+    ```\n\n***\n\n## Conclusion\n\nTo conclude, I will say that **there is always\
+    \ a beautiful way to do anything in Python**. Search for it before you write code.\
+    \ Going to StackOverflow is okay. I go there a lot of times when I get stuck.\
+    \ Always Remember:\n\nCreating a function for what already is provided is not\
+    \ pythonic.\n\n## 3\n\n## *args, **kwargs, decorators for Data Scientists\n\n\
+    Python has a lot of constructs that are reasonably easy to learn and use in our\
+    \ code. Then there are some constructs which always confuse us when we encounter\
+    \ them in our code. Then are some that even seasoned programmers are not able\
+    \ to understand. *args, **kwargs and decorators are some constructs that fall\
+    \ into this category.\n\nI guess a lot of my data science friends have faced them\
+    \ too. Most of the seaborn functions use *args and **kwargs in some way or other.\n\
+    \n## seaborn.scatterplot\n\n```python\nseaborn.scatterplot(x=None, y=None, hue=None,\
+    \ style=None, size=None, data=None, palette=None, hue_order=None, hue_norm=None,\
+    \ sizes=None, size_order=None, size_norm=None, markers=True, style_order=None,\
+    \ x_bins=None, y_bins=None, units=None, estimator=None, ci=95, n_boot=1000, alpha='auto',\
+    \ x_jitter=None, y_jitter=None, legend='brief', ax=None, **kwargs) What is this?\n\
+    ```\n\nOr what about decorators? Every time you see a warning like some function\
+    \ will be deprecated in the next version. The sklearn package uses decorators\
+    \ for that. You can see the **@deprecated** in the source code. That is a decorator\
+    \ function.\n\n```python\nfrom .utils import deprecated\n\ndef zero_one_loss(y_true,\
+    \ y_pred, normalize=True):\n    # actual implementation\n    pass\n\n@deprecated(\"\
+    Function 'zero_one' was renamed to 'zero_one_loss' \"\n            \"in version\
+    \ 0.13 and will be removed in release 0.15. \"\n            \"Default behavior\
+    \ is changed from 'normalize=False' to \"\n            \"'normalize=True'\")\n\
+    def zero_one(y_true, y_pred, normalize=False):\n    return zero_one_loss(y_true,\
+    \ y_pred, normalize)\n```\n\n* * *\n\n## What are *args?\n\nIn simple terms, **you\
+    \ can use *args to give an arbitrary number of inputs to your function.**\n\n\
+    A simple example: Let us say we have to create a function that adds two numbers.\
+    \ We can do this easily in python.\n\n```python\ndef adder(x,y):\n    return x+y\n\
+    ```\n\nWhat if we want to create a function to add three variables?\n\n```python\n\
+    def adder(x,y,z):\n    return x+y+z\n```\n\nWhat if we want the same function\
+    \ to add an unknown number of variables? Please note that we can use *args or\
+    \ *argv or *anyOtherName to do this. It is the * that matters.\n\n```python\n\
+    def adder(*args):\n    result = 0\n    for arg in args:\n        result+=arg\n\
+    \    return result\n```\n\nWhat *args does is that it takes all your passed arguments\
+    \ and provides a variable length argument list to the function which you can use\
+    \ as you want. Now you can use the same function as follows:\n\n```python\nadder(1,2)\n\
+    adder(1,2,3)\nadder(1,2,5,7,8,9,100)\n```\n\nand so on. Now, have you ever thought\
+    \ how the print function in python could take so many arguments? *args\n\n* *\
+    \ *\n\n## What are **kwargs?\n\n## seaborn.scatterplot\n\n```python\nseaborn.scatterplot(x=None,\
+    \ y=None, hue=None, style=None, size=None, data=None, palette=None, hue_order=None,\
+    \ hue_norm=None, sizes=None, size_order=None, size_norm=None, markers=True, style_order=None,\
+    \ x_bins=None, y_bins=None, units=None, estimator=None, ci=95, n_boot=1000, alpha='auto',\
+    \ x_jitter=None, y_jitter=None, legend='brief', ax=None, **kwargs) What is this?\n\
+    ```\n\nIn simple terms, **you can use **kwargs to give an arbitrary number of\
+    \ Keyworded inputs to your function** and access them using a dictionary.\n\n\
+    A simple example: Let’s say you want to create a print function that can take\
+    \ a name and age as input and print that.\n\n```python\ndef myprint(name, age):\n\
+    \    print(f'{name} is {age} years old')\n```\n\nSimple. Let us now say you want\
+    \ the same function to take two names and two ages.\n\n```python\ndef myprint(name1,\
+    \ age1, name2, age2):\n    print(f'{name1} is {age1} years old')\n    print(f'{name2}\
+    \ is {age2} years old')\n```\n\nYou guessed right my next question is: **What\
+    \ if I don't know how many arguments I am going to need?**\n\nCan I use *args?\
+    \ Guess not since name and age order is essential. We don't want to write \"28\
+    \ is Michael years old\". Come **kwargs in the picture.\n\n```python\ndef myprint(**kwargs):\n\
+    \    for k,v in kwargs.items():\n        print(f'{k} is {v} years old')\n```\n\
+    \nYou can call this function using:\n\n```python\nmyprint(Sansa=20,Tyrion=40,Arya=17)\n\
+    Output:---------------------------------------\nSansa is 20 years old\nTyrion\
+    \ is 40 years old\nArya is 17 years old\n```\n\n**Remember we never defined Sansa\
+    \ or Arya or Tyrion as our methods arguments.** **That is a pretty powerful concept.**\
+    \ And many programmers utilize this pretty cleverly when they write wrapper libraries.\n\
+    \nFor example, **seaborn.scatterplot** function wraps the **plt.scatter** function\
+    \ from Matplotlib. Essentially, using *args and **kwargs we can provide all the\
+    \ arguments that **plt.scatter** can take to **seaborn.Scatterplot** as well.\n\
+    \nThis can save a lot of coding effort and also makes the code future proof. If\
+    \ at any time in the future **plt.scatter** starts accepting any new arguments\
+    \ the **seaborn.Scatterplot** function will still work.\n\n* * *\n\n## What are\
+    \ Decorators?\n\n![](img/754e520429142dbf037b2b2434cf63fd_24_0.png)\n\nIn simple\
+    \ terms: **Decorators are functions that wrap another function thus modifying\
+    \ its behavior.**"
+  mdcn: "## 2\n\n## Python 的 defaultdict 和 Counter\n\n![](img/754e520429142dbf037b2b2434cf63fd_14_0.png)\n\
+    \n假设我需要统计一段文本中单词出现的次数。比如统计《哈姆雷特》这样的书。我该如何实现呢？\n\n## 高级 Python 技巧\n\nPython 总是为我们提供多种实现同一功能的方法。但在我看来，只有一种方式是优雅的。\n\
+    \n这是一个使用 dict 对象的**朴素 Python 实现**。\n\n```python\ntext = \"I need to count the\
+    \ number of word occurrences in a piece of text. How could I do that? Python provides\
+    \ us with multiple ways to do the same thing. But only one way I find beautiful.\"\
+    \n\nword_count_dict = {}\n\nfor w in text.split(\" \"):\n    if w in word_count_dict:\n\
+    \        word_count_dict[w]+=1\n    else:\n        word_count_dict[w]=1\n```\n\
+    \n我们可以使用 **defaultdict** 来减少代码行数。\n\n```python\nfrom collections import defaultdict\n\
+    word_count_dict = defaultdict(int)\nfor w in text.split(\" \"):\n    word_count_dict[w]+=1\n\
+    ```\n\n我们也可以使用 **Counter** 来实现，我认为这是解决此问题的首选方法。\n\n```python\nfrom collections\
+    \ import Counter\nword_count_dict = Counter()\nfor w in text.split(\" \"):\n \
+    \   word_count_dict[w]+=1\n```\n\n如果使用 Counter，我们还可以通过一个简单的函数获取最常见的单词。\n\n```python\n\
+    word_count_dict.most_common(10)\n----------------------------------------\n[('I',\
+    \ 3), ('to', 2), ('the', 2)]\n```\n\nCounter 的其他用例：\n\n```python\n# 统计字符\nCounter('abccccccddddd')\n\
+    ----------------------------------------\nCounter({'a': 1, 'b': 1, 'c': 6, 'd':\
+    \ 5})\n# 统计列表元素\nCounter([1,2,3,4,5,1,2])\n----------------------------------------\n\
+    Counter({1: 2, 2: 2, 3: 1, 4: 1, 5: 1})\n```\n\n***\n\n## 那么，为什么还要使用 defaultdict？\n\
+    \n请注意，在 *Counter* 中，值始终是整数。如果我们想解析一个包含颜色和水果的元组列表，并创建一个键和值列表的字典呢？\n\ndefaultdict\
+    \ 提供的主要功能是，如果在 defaultdict 中找不到某个键，它会将该键默认为空/零。\n\n```python\ns = [('color', 'blue'),\
+    \ ('color', 'orange'),\n('color', 'yellow'), ('fruit', 'banana'), ('fruit', 'orange'),('fruit',\
+    \ 'banana')]\nd = defaultdict(list)\nfor k, v in s:\n    d[k].append(v)\nprint(d)\n\
+    -----------------------------------------------------------------------\ndefaultdict(<class\
+    \ 'list'>, {'color': ['blue', 'orange', 'yellow'], 'fruit': ['banana', 'orange',\
+    \ 'banana']})\n```\n\nbanana 在 fruit 中出现了两次，我们可以使用 set\n\n```python\nd = defaultdict(set)\n\
+    for k, v in s:\n    d[k].add(v)\nprint(d)\n-----------------------------------------------------------------------\n\
+    defaultdict(<class 'set'>, {'color': {'yellow', 'blue', 'orange'}, 'fruit': {'banana',\
+    \ 'orange'}})\n```\n\n***\n\n## 结论\n\n总而言之，我想说**在 Python 中，总有一种优雅的方式来完成任何事情**。在编写代码之前，先去寻找它。去\
+    \ StackOverflow 看看也没问题。当我遇到困难时，我经常去那里。永远记住：\n\n为已有的功能创建函数是不符合 Python 风格的。\n\n\
+    ## 3\n\n## 面向数据科学家的 *args、**kwargs 和装饰器\n\nPython 有许多构造，在我们的代码中学习和使用起来相当容易。但也有一些构造，当我们在代码中遇到它们时，总会让我们感到困惑。还有一些构造，即使是经验丰富的程序员也无法理解。*args、**kwargs\
+    \ 和装饰器就属于这一类。\n\n我猜我的很多数据科学朋友也遇到过它们。大多数 seaborn 函数都以某种方式使用了 *args 和 **kwargs。\n\
+    \n## seaborn.scatterplot\n\n```python\nseaborn.scatterplot(x=None, y=None, hue=None,\
+    \ style=None, size=None, data=None, palette=None, hue_order=None, hue_norm=None,\
+    \ sizes=None, size_order=None, size_norm=None, markers=True, style_order=None,\
+    \ x_bins=None, y_bins=None, units=None, estimator=None, ci=95, n_boot=1000, alpha='auto',\
+    \ x_jitter=None, y_jitter=None, legend='brief', ax=None, **kwargs) 这是什么？\n```\n\
+    \n或者装饰器呢？每次你看到类似“某个函数将在下一个版本中弃用”的警告时。sklearn 包就使用了装饰器来实现这一点。你可以在源代码中看到 **@deprecated**。那就是一个装饰器函数。\n\
+    \n```python\nfrom .utils import deprecated\n\ndef zero_one_loss(y_true, y_pred,\
+    \ normalize=True):\n    # 实际实现\n    pass\n\n@deprecated(\"Function 'zero_one'\
+    \ was renamed to 'zero_one_loss' \"\n            \"in version 0.13 and will be\
+    \ removed in release 0.15. \"\n            \"Default behavior is changed from\
+    \ 'normalize=False' to \"\n            \"'normalize=True'\")\ndef zero_one(y_true,\
+    \ y_pred, normalize=False):\n    return zero_one_loss(y_true, y_pred, normalize)\n\
+    ```\n\n* * *\n\n## 什么是 *args？\n\n简单来说，**你可以使用 *args 为你的函数提供任意数量的输入。**\n\n一个简单的例子：假设我们需要创建一个函数来将两个数字相加。我们可以很容易地在\
+    \ Python 中实现。\n\n```python\ndef adder(x,y):\n    return x+y\n```\n\n如果我们想创建一个函数来将三个变量相加呢？\n\
+    \n```python\ndef adder(x,y,z):\n    return x+y+z\n```\n\n如果我们想让同一个函数能够将未知数量的变量相加呢？请注意，我们可以使用\
+    \ *args 或 *argv 或 *anyOtherName 来实现这一点。重要的是那个 *。\n\n```python\ndef adder(*args):\n\
+    \    result = 0\n    for arg in args:\n        result+=arg\n    return result\n\
+    ```\n\n*args 的作用是接收你传递的所有参数，并为函数提供一个可变长度的参数列表，你可以按需使用。现在你可以像这样使用同一个函数：\n\n```python\n\
+    adder(1,2)\nadder(1,2,3)\nadder(1,2,5,7,8,9,100)\n```\n\n等等。现在，你有没有想过 Python 中的\
+    \ print 函数为什么能接受这么多参数？*args\n\n* * *\n\n## 什么是 **kwargs？\n\n## seaborn.scatterplot\n\
+    \n```python\nseaborn.scatterplot(x=None, y=None, hue=None, style=None, size=None,\
+    \ data=None, palette=None, hue_order=None, hue_norm=None, sizes=None, size_order=None,\
+    \ size_norm=None, markers=True, style_order=None, x_bins=None, y_bins=None, units=None,\
+    \ estimator=None, ci=95, n_boot=1000, alpha='auto', x_jitter=None, y_jitter=None,\
+    \ legend='brief', ax=None, **kwargs) 这是什么？\n```\n\n简单来说，**你可以使用 **kwargs 为你的函数提供任意数量的带关键字的输入**，并使用字典来访问它们。\n\
+    \n一个简单的例子：假设你想创建一个 print 函数，它可以接受姓名和年龄作为输入并打印出来。\n\n```python\ndef myprint(name,\
+    \ age):\n    print(f'{name} is {age} years old')\n```\n\n很简单。现在假设你想让同一个函数接受两个姓名和两个年龄。\n\
+    \n```python\ndef myprint(name1, age1, name2, age2):\n    print(f'{name1} is {age1}\
+    \ years old')\n    print(f'{name2} is {age2} years old')\n```\n\n你猜对了，我的下一个问题是：**如果我不知道需要多少个参数怎么办？**\n\
+    \n我能用 *args 吗？恐怕不行，因为姓名和年龄的顺序很重要。我们不想写出“28 is Michael years old”这样的句子。这时 **kwargs\
+    \ 就派上用场了。\n\n```python\ndef myprint(**kwargs):\n    for k,v in kwargs.items():\n\
+    \        print(f'{k} is {v} years old')\n```\n\n你可以这样调用这个函数：\n\n```python\nmyprint(Sansa=20,Tyrion=40,Arya=17)\n\
+    Output:---------------------------------------\nSansa is 20 years old\nTyrion\
+    \ is 40 years old\nArya is 17 years old\n```\n\n**记住，我们从未将 Sansa 或 Arya 或 Tyrion\
+    \ 定义为方法的参数。** **这是一个非常强大的概念。** 许多程序员在编写包装库时，都非常巧妙地利用了这一点。\n\n例如，**seaborn.scatterplot**\
+    \ 函数包装了 Matplotlib 中的 **plt.scatter** 函数。本质上，使用 *args 和 **kwargs，我们可以将 **plt.scatter**\
+    \ 能接受的所有参数也传递给 **seaborn.Scatterplot**。\n\n这可以节省大量的编码工作，并使代码具有前瞻性。如果将来 **plt.scatter**\
+    \ 开始接受任何新参数，**seaborn.Scatterplot** 函数仍然可以正常工作。\n\n* * *\n\n## 什么是装饰器？\n\n![](img/754e520429142dbf037b2b2434cf63fd_24_0.png)\n\
+    \n简单来说：**装饰器是包装另一个函数从而修改其行为的函数。**"
+  merge: 0
+  raw:
+  - '[PAGE 14]
+
+
+    # 2
+
+
+    # Python defaultdict and Counter
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_14_0.png)
+
+
+    Let''s say I need to count the number of word occurrences in a piece of text.
+
+
+    Maybe for a book like Hamlet. How could I do that?'
+  - "[PAGE 15]\n\n# ADVANCED PYTHON TIPS\n\nPython always provides us with multiple\
+    \ ways to do the same thing. But only one way I find elegant.\n\nThis is a **Naive\
+    \ Python implementation** using the dict object.\n\n```\ntext = \"I need to count\
+    \ the number of word occurrences in a piece of text. How could I do that? Python\
+    \ provides us with multiple ways to do the same thing. But only one way I find\
+    \ beautiful.\"\n\nword_count_dict = {}\n\nfor w in text.split(\" \"):\n    if\
+    \ w in word_count_dict:\n        word_count_dict[w]+=1\n    else:\n        word_count_dict[w]=1\n\
+    ```\n\nWe could use **defaultdict** to reduce the number of lines in the code.\n\
+    \n```\nfrom collections import defaultdict\nword_count_dict = defaultdict(int)\n\
+    for w in text.split(\" \"):\n    word_count_dict[w]+=1\n```\n\nWe could also have\
+    \ used **Counter** to do this, which according to me is the most preferable method\
+    \ for this problem.\n\n```\nfrom collections import Counter\nword_count_dict =\
+    \ Counter()\nfor w in text.split(\" \"):\n```"
+  - '[PAGE 16]
+
+
+    # PYTHON DEFAULTDICT AND COUNTER
+
+
+    ```
+
+    word_count_dict[w]+=1
+
+    ```
+
+
+    If we use Counter, we can also get the most common words using a simple function.
+
+
+    ```
+
+    word_count_dict.most_common(10)
+
+    ----------------------------------------
+
+    [(''I'', 3), (''to'', 2), (''the'', 2)]
+
+    ```
+
+
+    Other use cases of Counter:
+
+
+    ```
+
+    # Count Characters
+
+    Counter(''abccccccddddd'')
+
+    ----------------------------------------
+
+    Counter({''a'': 1, ''b'': 1, ''c'': 6, ''d'': 5})
+
+    # Count List elements
+
+    Counter([1,2,3,4,5,1,2])
+
+    ----------------------------------------
+
+    Counter({1: 2, 2: 2, 3: 1, 4: 1, 5: 1})
+
+    ```
+
+
+    ***
+
+
+    # So, why ever use defaultdict?
+
+
+    Notice that in *Counter*, the value is always an integer.
+
+
+    What if we wanted to parse through a list of tuples containing colors and fruits.
+    And wanted to create a dictionary of key and list of values.
+
+
+    The main functionality provided by a defaultdict is that it'
+  - "[PAGE 17]\n\n# ADVANCED PYTHON TIPS\n\ndefaults a key to empty/zero if it is\
+    \ not found in the defaultdict.\n\n```\ns = [('color', 'blue'), ('color', 'orange'),\n\
+    ('color', 'yellow'), ('fruit', 'banana'), ('fruit', 'orange'),('fruit', 'banana')]\n\
+    d = defaultdict(list)\nfor k, v in s:\n    d[k].append(v)\nprint(d)\n-----------------------------------------------------------------------\n\
+    defaultdict(<class 'list'>, {'color': ['blue', 'orange', 'yellow'], 'fruit': ['banana',\
+    \ 'orange', 'banana']})\n```\n\nbanana comes two times in fruit, we could use\
+    \ set\n\n```\nd = defaultdict(set)\nfor k, v in s:\n    d[k].add(v)\nprint(d)\n\
+    -----------------------------------------------------------------------\ndefaultdict(<class\
+    \ 'set'>, {'color': {'yellow', 'blue', 'orange'}, 'fruit': {'banana', 'orange'}})\n\
+    ```\n\n***\n\n# Conclusion\n\nTo conclude, I will say that **there is always a\
+    \ beautiful way to do anything in Python**. Search for it before you write code.\
+    \ Going to StackOverflow is okay. I go there a lot of times when I get stuck.\
+    \ Always Remember:"
+  - '[PAGE 18]
+
+
+    # PYTHON DEFAULTDICT AND COUNTER
+
+
+    Creating a function for what already is provided is not pythonic.'
+  - '[PAGE 19]
+
+
+    # 3
+
+
+    # *args, **kwargs, decorators for Data Scientists
+
+
+    Python has a lot of constructs that are reasonably easy to learn and use in our
+    code.
+
+
+    Then there are some constructs which always confuse us when we encounter them
+    in our code.
+
+
+    Then are some that even seasoned programmers are not able to understand. *args,
+    **kwargs and decorators are some constructs that fall into this category.
+
+
+    I guess a lot of my data science friends have faced them too.
+
+
+    Most of the seaborn functions use *args and **kwargs in some way or other.'
+  - "[PAGE 20]\n\n*ARGS, **KWARGS, DECORATORS FOR DATA SCIENTISTS\n\n# seaborn.scatterplot\n\
+    \n```\nseaborn.scatterplot(x=None, y=None, hue=None, style=None, size=None, data=None,\
+    \ palette=None, hue_order=None, hue_norm=None, sizes=None, size_order=None, size_norm=None,\
+    \ markers=True, style_order=None, x_bins=None, y_bins=None, units=None, estimator=None,\
+    \ ci=95, n_boot=1000, alpha='auto', x_jitter=None, y_jitter=None, legend='brief',\
+    \ ax=None, **kwargs) What is this?\n```\n\nOr what about decorators?\n\nEvery\
+    \ time you see a warning like some function will be deprecated in the next version.\
+    \ The sklearn package uses decorators for that. You can see the **@deprecated**\
+    \ in the source code. That is a decorator function.\n\n```\nfrom .utils import\
+    \ deprecated\n\ndef zero_one_loss(y_true, y_pred, normalize=True):\n    # actual\
+    \ implementation\n    pass\n\n@deprecated(\"Function 'zero_one' was renamed to\
+    \ 'zero_one_loss' \"\n            \"in version 0.13 and will be removed in release\
+    \ 0.15. \"\n            \"Default behavior is changed from 'normalize=False' to\
+    \ \"\n            \"'normalize=True'\")\ndef zero_one(y_true, y_pred, normalize=False):\n\
+    \    return zero_one_loss(y_true, y_pred, normalize)\n```\n\n* * *\n\n# What are\
+    \ *args?\n\nIn simple terms, **you can use *args to give an arbitrary number of\
+    \ inputs to your function.**\n\nA simple example:\n\nLet us say we have to create\
+    \ a function that adds two numbers. We can do this easily in python."
+  - "[PAGE 21]\n\n# ADVANCED PYTHON TIPS\n\n```\ndef adder(x,y):\n    return x+y\n\
+    ```\n\nWhat if we want to create a function to add three variables?\n\n```\ndef\
+    \ adder(x,y,z):\n    return x+y+z\n```\n\nWhat if we want the same function to\
+    \ add an unknown number of variables?\n\nPlease note that we can use *args or\
+    \ *argv or *anyOtherName to do this. It is the * that matters.\n\n```\ndef adder(*args):\n\
+    \    result = 0\n    for arg in args:\n        result+=arg\n    return result\n\
+    ```\n\nWhat *args does is that it takes all your passed arguments and provides\
+    \ a variable length argument list to the function which you can use as you want.\n\
+    \nNow you can use the same function as follows:\n\n```\nadder(1,2)\nadder(1,2,3)\n\
+    adder(1,2,5,7,8,9,100)\n```\n\nand so on.\n\nNow, have you ever thought how the\
+    \ print function in python"
+  - "[PAGE 22]\n\n*ARGS, **KWARGS, DECORATORS FOR DATA SCIENTISTS\n\n# could take\
+    \ so many arguments? *args\n\n* * *\n\n# What are **kwargs?\n\n# seaborn.scatterplot\n\
+    \n```\nseaborn.scatterplot(x=None, y=None, hue=None, style=None, size=None, data=None,\
+    \ palette=None, hue_order=None, hue_norm=None, sizes=None, size_order=None, size_norm=None,\
+    \ markers=True, style_order=None, x_bins=None, y_bins=None, units=None, estimator=None,\
+    \ ci=95, n_boot=1000, alpha='auto', x_jitter=None, y_jitter=None, legend='brief',\
+    \ ax=None, **kwargs) What is this?\n```\n\nIn simple terms, **you can use **kwargs\
+    \ to give an arbitrary number of Keyworded inputs to your function** and access\
+    \ them using a dictionary.\n\nA simple example:\n\nLet’s say you want to create\
+    \ a print function that can take a name and age as input and print that.\n\n```\n\
+    def myprint(name, age):\n    print(f'{name} is {age} years old')\n```\n\nSimple.\
+    \ Let us now say you want the same function to take two names and two ages.\n\n\
+    ```\ndef myprint(name1, age1, name2, age2):\n    print(f'{name1} is {age1} years\
+    \ old')\n```\n\n15"
+  - "[PAGE 23]\n\n```\nprint(f'{name2} is {age2} years old')\n```\n\nYou guessed right\
+    \ my next question is: **What if I don't know how many arguments I am going to\
+    \ need?**\n\nCan I use *args? Guess not since name and age order is essential.\
+    \ We don't want to write \"28 is Michael years old\".\n\nCome **kwargs in the\
+    \ picture.\n\n```\ndef myprint(**kwargs):\n    for k,v in kwargs.items():\n  \
+    \      print(f'{k} is {v} years old')\n```\n\nYou can call this function using:\n\
+    \n```\nmyprint(Sansa=20,Tyrion=40,Arya=17)\nOutput:---------------------------------------\n\
+    Sansa is 20 years old\nTyrion is 40 years old\nArya is 17 years old\n```\n\n**Remember\
+    \ we never defined Sansa or Arya or Tyrion as our methods arguments.**\n\n**That\
+    \ is a pretty powerful concept.** And many programmers utilize this pretty cleverly\
+    \ when they write wrapper libraries.\n\nFor example, **seaborn.scatterplot** function\
+    \ wraps the **plt.scatter** function from Matplotlib.\n\nEssentially, using *args\
+    \ and **kwargs we can provide all the"
+  - '[PAGE 24]
+
+
+    *ARGS, **KWARGS, DECORATORS FOR DATA SCIENTISTS
+
+
+    arguments that **plt.scatter** can take to **seaborn.Scatterplot** as well.
+
+
+    This can save a lot of coding effort and also makes the code future proof. If
+    at any time in the future **plt.scatter** starts accepting any new arguments the
+    **seaborn.Scatterplot** function will still work.
+
+
+    * * *
+
+
+    # What are Decorators?
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_24_0.png)
+
+
+    In simple terms: **Decorators are functions that wrap another function thus modifying
+    its behavior.**'
+- md: "## A simple example:\n\nLet us say we want to add custom functionality to some\
+    \ of our functions. The functionality is that whenever the function gets called\
+    \ the “**function name begins**” is printed and whenever the function ends the\
+    \ “**function name ends**” and time taken by the function is printed.\n\nLet us\
+    \ assume our function is:\n\n```python\ndef somefunc(a,b):\n    output = a+b\n\
+    \    return output\n```\n\nWe can add some print lines to all our functions to\
+    \ achieve this.\n\n```python\nimport time\ndef somefunc(a,b):\n    print(\"somefunc\
+    \ begins\")\n    start_time = time.time()\n    output = a+b\n    print(\"somefunc\
+    \ ends in \",time.time()-start_time,\n          \"secs\")\n    return output\n\
+    out = somefunc(4,5)\n```\n\nOUTPUT:\n```\n----------------------------------------\n\
+    somefunc begins\nsomefunc ends in  9.5367431640625e-07 secs\n```\n\n## But, Can\
+    \ we do better?\n\nThis is where decorators excel. We can use decorators to wrap\
+    \ any function.\n\n```python\nfrom functools import wraps\ndef timer(func):\n\
+    \    @wraps(func)\n    def wrapper(a,b):\n        print(f\"{func.__name__!r} begins\"\
+    )\n        start_time = time.time()\n        result = func(a,b)\n        print(f\"\
+    {func.__name__!r} ends in\n        {time.time()-start_time}  secs\")\n       \
+    \ return result\n    return wrapper\n```\n\nThis is how we can define any decorator.\
+    \ functools helps us create decorators using wraps. In essence, we do something\
+    \ before any function is called and do something after a function is called in\
+    \ the above decorator.\n\nWe can now use this timer decorator to decorate our\
+    \ function somefunc\n\n```python\n@timer\ndef somefunc(a,b):\n    output = a+b\n\
+    \    return output\n```\n\nNow calling this function, we get:\n\n```\na = somefunc(4,5)\n\
+    Output\n----------------------------------------\n'somefunc' begins\n'somefunc'\
+    \ ends in 2.86102294921875e-06  secs\n```\n\nNow we can append @timer to each\
+    \ of our function for which we want to have the time printed. And we are done.\n\
+    \nReally?\n\n* * *\n\n## Connecting all the pieces\n\n![](img/754e520429142dbf037b2b2434cf63fd_27_0.png)\n\
+    \n**What if our function takes three arguments? Or many arguments?**\n\nThis is\
+    \ where whatever we have learned till now connects. We use *args and **kwargs\n\
+    \nWe change our decorator function as:\n\n```python\nfrom functools import wraps\n\
+    def timer(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n      \
+    \  print(f\"{func.__name__!r} begins\")\n        start_time = time.time()\n  \
+    \      result = func(*args, **kwargs)\n        print(f\"{func.__name__!r} ends\
+    \ in\n        {time.time()-start_time} secs\")\n        return result\n    return\
+    \ wrapper\n```\n\nNow our function can take any number of arguments, and our decorator\
+    \ will still work.\n\nIsn't Python Beautiful?\n\nIn my view, decorators could\
+    \ be pretty helpful. I provided only one use case of decorators, but there are\
+    \ several ways one can use them.\n\nYou can use a decorator to debug code by checking\
+    \ which arguments go in a function. Or a decorator could be used to count the\
+    \ number of times a particular function has been called. This could help with\
+    \ counting recursive calls.\n\n* * *\n\n## Conclusion\n\nIn this post, I talked\
+    \ about some of the constructs you can find in python source code and how you\
+    \ can understand them.\n\nIt is not necessary that you end up using them in your\
+    \ code now. But I guess understanding how these things work helps mitigate some\
+    \ of the confusion and panic one faces whenever these constructs come up.\n\n\
+    # 4 Use Itertools, Generators, and Generator Expressions\n\n![](img/754e520429142dbf037b2b2434cf63fd_30_0.png)\n\
+    \nPython in many ways has made our life easier when it comes to programming.\n\
+    \nWith its many libraries and functionalities, sometimes we forget to focus on\
+    \ some of the useful things it offers.\n\nOne of such functionalities are generators\
+    \ and generator expressions. I stalled learning about them for a long time but\
+    \ they are useful.\n\nHave you ever encountered yield in Python code and didn’t\
+    \ knew what it meant? or what does an iterator or a generator means and why we\
+    \ use it? Or have you used ImageDataGenerator while working with Keras and didn’t\
+    \ understand what is going at the backend? Then this chapter is for you.\n\n*The\
+    \ Problem Statement:*\n\n![](img/754e520429142dbf037b2b2434cf63fd_31_0.png)\n\n\
+    *Let us say that we need to run a for loop over 10 Million Prime numbers.*\n\n\
+    *I am using prime numbers in this case for understanding but it could be extended\
+    \ to a case where we have to process a lot of images or files in a database or\
+    \ big data.*\n\n**How would you proceed with such a problem?**\n\nSimple. We can\
+    \ create a list and keep all the prime numbers there.\n\nReally? **Think of the\
+    \ memory such a list would occupy.**\n\nIt would be great if we had something\
+    \ that could just keep the last prime number we have checked and returns just\
+    \ the next prime number.\n\nThat is where iterators could help us.\n\n* * *\n\n\
+    ## The Iterator Solution\n\nWe create a class named primes and use it to generate\
+    \ primes.\n\n```python\ndef check_prime(number):\n    for divisor in range(2,\
+    \ int(number ** 0.5) + 1):\n        if number % divisor == 0:\n            return\
+    \ False\n    return True\n\nclass Primes:\n    def __init__(self, max):\n    \
+    \    # the maximum number of primes we want generated\n        self.max = max\n\
+    \        # start with this number to check if it is a prime.\n        self.number\
+    \ = 1\n        # No of primes generated yet. We want to StopIteration when it\
+    \ reaches max\n        self.primes_generated = 0\n    def __iter__(self):\n  \
+    \      return self\n    def __next__(self):\n        self.number += 1\n      \
+    \  if self.primes_generated >= self.max:\n            raise StopIteration\n  \
+    \      elif check_prime(self.number):\n            self.primes_generated+=1\n\
+    \            return self.number\n        else:\n            return self.__next__()\n\
+    ```\n\nWe can then use this as:\n\n```python\nprime_generator = Primes(10000000)\n\
+    for x in prime_generator:\n    # Process Here\n```\n\nHere I have defined an iterator.\
+    \ This is how most of the functions like xrange or ImageGenerator work.\n\nEvery\
+    \ iterator needs to have:\n\n1. an `__iter__` method that returns self, and\n\
+    2. an `__next__` method that returns the next value.\n3. a StopIteration exception\
+    \ that signifies the ending of the iterator.\n\nEvery iterator takes the above\
+    \ form and we can tweak the functions to our liking in this boilerplate code to\
+    \ do what we want to do.\n\nSee that we don't keep all the prime numbers in memory\
+    \ just the state of the iterator like\n\n- what max prime number we have returned\
+    \ and\n- how many primes we have returned already.\n\nBut it seems a little too\
+    \ much code. Can we do better?\n\n* * *\n\n## The Generator Solution\n\n![](img/754e520429142dbf037b2b2434cf63fd_35_0.png)\n\
+    \n**Put simply Generators provide us ways to write iterators easily using the\
+    \ yield statement.**\n\n```python\ndef Primes(max):\n    number = 1\n    generated\
+    \ = 0\n    while generated < max:\n        number += 1\n        if check_prime(number):\n\
+    \            generated+=1\n            yield number\n```\n\nwe can use the function\
+    \ as:\n\n```python\nprime_generator = Primes(10)\nfor x in prime_generator:\n\
+    \    # Process Here\n```\n\nIt is so much simpler to read. But what is yield?\n\
+    \nWe can think of yield as a return statement only as it returns the value.\n\n\
+    But when a yield happens the state of the function is also saved in the memory.\
+    \ So at every iteration in for loop the function variables like number, generated\
+    \ and max are stored somewhere in memory.\n\nSo what is happening is that the\
+    \ above function is taking care of all the boilerplate code for us by using the\
+    \ yield statement.\n\nMuch More pythonic.\n\n* * *\n\n## Generator Expression\
+    \ Solution\n\n![](img/754e520429142dbf037b2b2434cf63fd_37_0.png)\n\nWhile not\
+    \ explicitly better than the previous solution but we can also use Generator expression\
+    \ for the same task. But we might lose some functionality here. They work exactly\
+    \ like list comprehensions but they don’t keep the whole list in memory.\n\n```python\n\
+    primes = (i for i in range(1,10000000) if check_prime(i))\nfor x in primes:\n\
+    \    # do something\n```\n\nFunctionality loss: We can generate primes till 10M.\
+    \ But we can’t generate 10M primes. One can only do so much with generator expressions.\n\
+    \nBut generator expressions let us do some pretty cool things.\n\n***Let us say\
+    \ we wanted to have all Pythagorean Triplets lower than 1000.***"
+  mdcn: "## 一个简单的例子：\n\n假设我们想为某些函数添加自定义功能。这个功能是：每当函数被调用时，打印“**函数名开始**”；每当函数结束时，打印“**函数名结束**”以及函数所花费的时间。\n\
+    \n假设我们的函数是：\n\n```python\ndef somefunc(a,b):\n    output = a+b\n    return output\n\
+    ```\n\n我们可以在所有函数中添加一些打印行来实现这一点。\n\n```python\nimport time\ndef somefunc(a,b):\n\
+    \    print(\"somefunc begins\")\n    start_time = time.time()\n    output = a+b\n\
+    \    print(\"somefunc ends in \",time.time()-start_time,\n          \"secs\")\n\
+    \    return output\nout = somefunc(4,5)\n```\n\n输出：\n```\n----------------------------------------\n\
+    somefunc begins\nsomefunc ends in  9.5367431640625e-07 secs\n```\n\n## 但是，我们能做得更好吗？\n\
+    \n这正是装饰器大显身手的地方。我们可以使用装饰器来包装任何函数。\n\n```python\nfrom functools import wraps\n\
+    def timer(func):\n    @wraps(func)\n    def wrapper(a,b):\n        print(f\"{func.__name__!r}\
+    \ begins\")\n        start_time = time.time()\n        result = func(a,b)\n  \
+    \      print(f\"{func.__name__!r} ends in\n        {time.time()-start_time}  secs\"\
+    )\n        return result\n    return wrapper\n```\n\n这就是我们定义任何装饰器的方式。`functools`\
+    \ 帮助我们使用 `wraps` 创建装饰器。本质上，在上面的装饰器中，我们在任何函数被调用之前做一些事情，在函数被调用之后做一些事情。\n\n我们现在可以使用这个\
+    \ `timer` 装饰器来装饰我们的函数 `somefunc`。\n\n```python\n@timer\ndef somefunc(a,b):\n \
+    \   output = a+b\n    return output\n```\n\n现在调用这个函数，我们得到：\n\n```\na = somefunc(4,5)\n\
+    输出\n----------------------------------------\n'somefunc' begins\n'somefunc' ends\
+    \ in 2.86102294921875e-06  secs\n```\n\n现在，我们可以将 `@timer` 附加到我们想要打印时间的每个函数上。这样就完成了。\n\
+    \n真的吗？\n\n* * *\n\n## 将所有部分连接起来\n\n![](img/754e520429142dbf037b2b2434cf63fd_27_0.png)\n\
+    \n**如果我们的函数接受三个参数呢？或者很多参数呢？**\n\n这就是我们到目前为止所学的一切连接起来的地方。我们使用 `*args` 和 `**kwargs`。\n\
+    \n我们将装饰器函数修改为：\n\n```python\nfrom functools import wraps\ndef timer(func):\n \
+    \   @wraps(func)\n    def wrapper(*args, **kwargs):\n        print(f\"{func.__name__!r}\
+    \ begins\")\n        start_time = time.time()\n        result = func(*args, **kwargs)\n\
+    \        print(f\"{func.__name__!r} ends in\n        {time.time()-start_time}\
+    \ secs\")\n        return result\n    return wrapper\n```\n\n现在我们的函数可以接受任意数量的参数，而我们的装饰器仍然可以工作。\n\
+    \nPython 不是很美吗？\n\n在我看来，装饰器可能非常有用。我只提供了一个装饰器的用例，但人们可以用多种方式使用它们。\n\n你可以使用装饰器通过检查哪些参数传入函数来调试代码。或者装饰器可以用来计算特定函数被调用的次数。这有助于计算递归调用。\n\
+    \n* * *\n\n## 结论\n\n在这篇文章中，我谈到了你可以在 Python 源代码中找到的一些构造，以及你如何理解它们。\n\n现在不一定非要在你的代码中使用它们。但我认为理解这些东西是如何工作的，有助于减轻每当这些构造出现时所面临的困惑和恐慌。\n\
+    \n# 4 使用 Itertools、生成器和生成器表达式\n\n![](img/754e520429142dbf037b2b2434cf63fd_30_0.png)\n\
+    \nPython 在许多方面使我们的编程生活变得更加轻松。\n\n凭借其众多的库和功能，有时我们忘记了关注它提供的一些有用的东西。\n\n其中一项功能就是生成器和生成器表达式。我拖延学习它们很长时间了，但它们很有用。\n\
+    \n你是否曾在 Python 代码中遇到过 `yield` 却不知道它的意思？或者不知道迭代器或生成器是什么以及为什么使用它们？或者在使用 Keras 时使用了\
+    \ `ImageDataGenerator` 却不明白后台发生了什么？那么这一章就是为你准备的。\n\n*问题陈述：*\n\n![](img/754e520429142dbf037b2b2434cf63fd_31_0.png)\n\
+    \n*假设我们需要对 1000 万个质数运行一个 for 循环。*\n\n*我在这里使用质数是为了便于理解，但可以扩展到我们必须处理数据库或大数据中大量图像或文件的情况。*\n\
+    \n**你将如何处理这样的问题？**\n\n很简单。我们可以创建一个列表，把所有质数都放在那里。\n\n真的吗？**想想这样一个列表会占用多少内存。**\n\
+    \n如果我们有一些东西可以只保留我们检查过的最后一个质数，并且只返回下一个质数，那就太好了。\n\n这就是迭代器可以帮助我们的地方。\n\n* * *\n\n\
+    ## 迭代器解决方案\n\n我们创建一个名为 `primes` 的类，并用它来生成质数。\n\n```python\ndef check_prime(number):\n\
+    \    for divisor in range(2, int(number ** 0.5) + 1):\n        if number % divisor\
+    \ == 0:\n            return False\n    return True\n\nclass Primes:\n    def __init__(self,\
+    \ max):\n        # 我们想要生成的最大质数数量\n        self.max = max\n        # 从这个数字开始检查它是否是质数。\n\
+    \        self.number = 1\n        # 已生成的质数数量。当达到 max 时我们想要 StopIteration\n   \
+    \     self.primes_generated = 0\n    def __iter__(self):\n        return self\n\
+    \    def __next__(self):\n        self.number += 1\n        if self.primes_generated\
+    \ >= self.max:\n            raise StopIteration\n        elif check_prime(self.number):\n\
+    \            self.primes_generated+=1\n            return self.number\n      \
+    \  else:\n            return self.__next__()\n```\n\n然后我们可以这样使用它：\n\n```python\n\
+    prime_generator = Primes(10000000)\nfor x in prime_generator:\n    # 在这里处理\n```\n\
+    \n这里我定义了一个迭代器。大多数像 `xrange` 或 `ImageGenerator` 这样的函数就是这样工作的。\n\n每个迭代器都需要有：\n\n\
+    1.  一个返回自身的 `__iter__` 方法，以及\n2.  一个返回下一个值的 `__next__` 方法。\n3.  一个表示迭代器结束的 `StopIteration`\
+    \ 异常。\n\n每个迭代器都采用上述形式，我们可以在这个样板代码中根据自己的喜好调整函数，以做我们想做的事情。\n\n注意，我们没有将所有质数保存在内存中，只保存了迭代器的状态，比如\n\
+    \n-   我们返回的最大质数是多少，以及\n-   我们已经返回了多少个质数。\n\n但这似乎代码有点太多了。我们能做得更好吗？\n\n* * *\n\n\
+    ## 生成器解决方案\n\n![](img/754e520429142dbf037b2b2434cf63fd_35_0.png)\n\n**简单来说，生成器为我们提供了使用\
+    \ `yield` 语句轻松编写迭代器的方法。**\n\n```python\ndef Primes(max):\n    number = 1\n   \
+    \ generated = 0\n    while generated < max:\n        number += 1\n        if check_prime(number):\n\
+    \            generated+=1\n            yield number\n```\n\n我们可以这样使用该函数：\n\n```python\n\
+    prime_generator = Primes(10)\nfor x in prime_generator:\n    # 在这里处理\n```\n\n\
+    它读起来简单多了。但 `yield` 是什么？\n\n我们可以将 `yield` 视为一个 `return` 语句，因为它返回值。\n\n但当 `yield`\
+    \ 发生时，函数的状态也会保存在内存中。因此，在 `for` 循环的每次迭代中，函数变量如 `number`、`generated` 和 `max` 都存储在内存中的某个地方。\n\
+    \n所以发生的事情是，上面的函数通过使用 `yield` 语句为我们处理了所有的样板代码。\n\n更加 Pythonic。\n\n* * *\n\n## 生成器表达式解决方案\n\
+    \n![](img/754e520429142dbf037b2b2434cf63fd_37_0.png)\n\n虽然不一定比之前的解决方案更好，但我们可以使用生成器表达式来完成相同的任务。但我们可能会在这里失去一些功能。它们的工作方式与列表推导式完全相同，但它们不会将整个列表保存在内存中。\n\
+    \n```python\nprimes = (i for i in range(1,10000000) if check_prime(i))\nfor x\
+    \ in primes:\n    # 做点什么\n```\n\n功能损失：我们可以生成多达 1000 万个质数。但我们不能生成 1000 万个质数。生成器表达式只能做这么多。\n\
+    \n但生成器表达式让我们可以做一些非常酷的事情。\n\n***假设我们想要所有小于 1000 的毕达哥拉斯三元组。***"
+  merge: 0
+  raw:
+  - "[PAGE 25]\n\n# A simple example:\n\nLet us say we want to add custom functionality\
+    \ to some of our functions. The functionality is that whenever the function gets\
+    \ called the “**function name begins**” is printed and whenever the function ends\
+    \ the “**function name ends**” and time taken by the function is printed.\n\n\
+    Let us assume our function is:\n\n```\ndef somefunc(a,b):\n    output = a+b\n\
+    \    return output\n```\n\nWe can add some print lines to all our functions to\
+    \ achieve this.\n\n```\nimport time\ndef somefunc(a,b):\n    print(\"somefunc\
+    \ begins\")\n    start_time = time.time()\n    output = a+b\n    print(\"somefunc\
+    \ ends in \",time.time()-start_time,\n          \"secs\")\n    return output\n\
+    out = somefunc(4,5)\nOUTPUT:\n----------------------------------------\nsomefunc\
+    \ begins\nsomefunc ends in  9.5367431640625e-07 secs\n```\n\n# But, Can we do\
+    \ better?\n\nThis is where decorators excel. We can use decorators to wrap any\
+    \ function."
+  - "[PAGE 26]\n\n```\nfrom functools import wraps\ndef timer(func):\n    @wraps(func)\n\
+    \    def wrapper(a,b):\n        print(f\"{func.__name__!r} begins\")\n       \
+    \ start_time = time.time()\n        result = func(a,b)\n        print(f\"{func.__name__!r}\
+    \ ends in\n        {time.time()-start_time}  secs\")\n        return result\n\
+    \    return wrapper\n```\n\nThis is how we can define any decorator. functools\
+    \ helps us create decorators using wraps. In essence, we do something before any\
+    \ function is called and do something after a function is called in the above\
+    \ decorator.\n\nWe can now use this timer decorator to decorate our function somefunc\n\
+    \n```\n@timer\ndef somefunc(a,b):\n    output = a+b\n    return output\n```\n\n\
+    Now calling this function, we get:\n\n```\na = somefunc(4,5)\nOutput\n----------------------------------------\n\
+    'somefunc' begins\n'somefunc' ends in 2.86102294921875e-06  secs\n```\n\nNow we\
+    \ can append @timer to each of our function for which"
+  - '[PAGE 27]
+
+
+    ADVANCED PYTHON TIPS
+
+
+    we want to have the time printed. And we are done.
+
+
+    Really?
+
+
+    * * *
+
+
+    # Connecting all the pieces
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_27_0.png)
+
+
+    **What if our function takes three arguments? Or many arguments?**
+
+
+    This is where whatever we have learned till now connects. We use *args and **kwargs
+
+
+    We change our decorator function as:'
+  - "[PAGE 28]\n\n```\nfrom functools import wraps\ndef timer(func):\n    @wraps(func)\n\
+    \    def wrapper(*args, **kwargs):\n        print(f\"{func.__name__!r} begins\"\
+    )\n        start_time = time.time()\n        result = func(*args, **kwargs)\n\
+    \        print(f\"{func.__name__!r} ends in\n        {time.time()-start_time}\
+    \ secs\")\n        return result\n    return wrapper\n```\n\nNow our function\
+    \ can take any number of arguments, and our decorator will still work.\n\nIsn't\
+    \ Python Beautiful?\n\nIn my view, decorators could be pretty helpful. I provided\
+    \ only one use case of decorators, but there are several ways one can use them.\n\
+    \nYou can use a decorator to debug code by checking which arguments go in a function.\
+    \ Or a decorator could be used to count the number of times a particular function\
+    \ has been called. This could help with counting recursive calls.\n\n* * *"
+  - '[PAGE 29]
+
+
+    # Conclusion
+
+
+    In this post, I talked about some of the constructs you can find in python source
+    code and how you can understand them.
+
+
+    It is not necessary that you end up using them in your code now. But I guess understanding
+    how these things work helps mitigate some of the confusion and panic one faces
+    whenever these constructs come up.'
+  - '[PAGE 30]
+
+
+    # 4
+
+
+    # Use Itertools, Generators, and Generator Expressions
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_30_0.png)
+
+
+    Python in many ways has made our life easier when it comes to programming.
+
+
+    With its many libraries and functionalities, sometimes we forget'
+  - '[PAGE 31]
+
+
+    # ADVANCED PYTHON TIPS
+
+
+    to focus on some of the useful things it offers.
+
+
+    One of such functionalities are generators and generator expressions. I stalled
+    learning about them for a long time but they are useful.
+
+
+    Have you ever encountered yield in Python code and didn’t knew what it meant?
+    or what does an iterator or a generator means and why we use it? Or have you used
+    ImageDataGenerator while working with Keras and didn’t understand what is going
+    at the backend? Then this chapter is for you.
+
+
+    *The Problem Statement:*
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_31_0.png)
+
+
+    *Let us say that we need to run a for loop over 10 Million Prime*'
+  - "[PAGE 32]\n\n**numbers.**\n\n*I am using prime numbers in this case for understanding\
+    \ but it could be extended to a case where we have to process a lot of images\
+    \ or files in a database or big data.*\n\n**How would you proceed with such a\
+    \ problem?**\n\nSimple. We can create a list and keep all the prime numbers there.\n\
+    \nReally? **Think of the memory such a list would occupy.**\n\nIt would be great\
+    \ if we had something that could just keep the last prime number we have checked\
+    \ and returns just the next prime number.\n\nThat is where iterators could help\
+    \ us.\n\n* * *\n\n# The Iterator Solution\n\nWe create a class named primes and\
+    \ use it to generate primes.\n\n```\ndef check_prime(number):\n    for divisor\
+    \ in range(2, int(number ** 0.5) + 1):\n        if number % divisor == 0:\n```"
+  - "[PAGE 33]\n\n# ADVANCED PYTHON TIPS\n\n```\nreturn False\nreturn True\nclass\
+    \ Primes:\n    def __init__(self, max):\n        # the maximum number of primes\
+    \ we want generated\n        self.max = max\n        # start with this number\
+    \ to check if it is a prime.\n        self.number = 1\n        # No of primes\
+    \ generated yet. We want to StopIteration when it reaches max\n        self.primes_generated\
+    \ = 0\n    def __iter__(self):\n        return self\n    def __next__(self):\n\
+    \        self.number += 1\n        if self.primes_generated >= self.max:\n   \
+    \         raise StopIteration\n        elif check_prime(self.number):\n      \
+    \      self.primes_generated+=1\n            return self.number\n        else:\n\
+    \            return self.__next__()\n```\n\nWe can then use this as:\n\n```\n\
+    prime_generator = Primes(10000000)\n```\n\n```\nfor x in prime_generator:\n  \
+    \  # Process Here\n```\n\nHere I have defined an iterator. This is how most of\
+    \ the functions like xrange or ImageGenerator work.\n\nEvery iterator needs to\
+    \ have:"
+  - '[PAGE 34]
+
+
+    USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS
+
+
+    +   1. an `__iter__` method that returns self, and
+
+    2. an `__next__` method that returns the next value.
+
+    3. a StopIteration exception that signifies the ending of the iterator.
+
+
+    Every iterator takes the above form and we can tweak the functions to our liking
+    in this boilerplate code to do what we want to do.
+
+
+    See that we don''t keep all the prime numbers in memory just the state of the
+    iterator like
+
+
+    +   - what max prime number we have returned and
+
+    - how many primes we have returned already.
+
+
+    But it seems a little too much code. Can we do better?
+
+
+    * * *
+
+
+    # The Generator Solution'
+  - "[PAGE 35]\n\n# ADVANCED PYTHON TIPS\n\n![](img/754e520429142dbf037b2b2434cf63fd_35_0.png)\n\
+    \n**Put simply Generators provide us ways to write iterators easily using the\
+    \ yield statement.**\n\n```\npython\ndef Primes(max):\n    number = 1\n    generated\
+    \ = 0\n    while generated < max:\n        number += 1\n        if check_prime(number):\n\
+    \            generated+=1\n            yield number\n```\n\nwe can use the function\
+    \ as:\n\n```\npython\nprime_generator = Primes(10)\nfor x in prime_generator:\n\
+    \    # Process Here\n```\n\nIt is so much simpler to read. But what is yield?"
+  - '[PAGE 36]
+
+
+    USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS
+
+
+    We can think of yield as a return statement only as it returns the value.
+
+
+    But when a yield happens the state of the function is also saved in the memory.
+    So at every iteration in for loop the function variables like number, generated
+    and max are stored somewhere in memory.
+
+
+    So what is happening is that the above function is taking care of all the boilerplate
+    code for us by using the yield statement.
+
+
+    Much More pythonic.
+
+
+    * * *
+
+
+    # Generator Expression Solution'
+  - "[PAGE 37]\n\n# ADVANCED PYTHON TIPS\n\n![](img/754e520429142dbf037b2b2434cf63fd_37_0.png)\n\
+    \nWhile not explicitly better than the previous solution but we can also use Generator\
+    \ expression for the same task. But we might lose some functionality here. They\
+    \ work exactly like list comprehensions but they don’t keep the whole list in\
+    \ memory.\n\n`primes = (i for i in range(1,10000000) if check_prime(i))`\n\n```\n\
+    python\nfor x in primes:\n    # do something\n```\n\nFunctionality loss: We can\
+    \ generate primes till 10M. But we can’t generate 10M primes. One can only do\
+    \ so much with generator expressions.\n\nBut generator expressions let us do some\
+    \ pretty cool things.\n\n***Let us say we wanted to have all Pythagorean Triplets\
+    \ lower than 1000.***"
+- md: "## USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS\n\nHow can we get it?\n\
+    \nUsing a generator, now we know how to use them.\n\n```python\ndef triplet(n):\
+    \  # Find all the Pythagorean triplets between 1 and n\n    for a in range(n):\n\
+    \        for b in range(a):\n            for c in range(b):\n                if\
+    \ a*a == b*b + c*c:\n                    yield(a, b, c)\n```\n\nWe can use this\
+    \ as:\n\n```python\ntriplet_generator = triplet(1000)\nfor x in triplet_generator:\n\
+    \    print(x)\n```\n\n```\n(5, 4, 3)\n(10, 8, 6)\n(13, 12, 5)\n(15, 12, 9)\n.....\n\
+    ```\n\nOr, we could also have used a generator expression here:\n\n```python\n\
+    triplet_generator = ((a,b,c) for a in range(1000) for\nb in range(a) for c in\
+    \ range(b) if a*a == b*b + c*c)\nfor x in triplet_generator:\n    print(x)\n```\n\
+    \n```\n(5, 4, 3)\n(10, 8, 6)\n(13, 12, 5)\n(15, 12, 9)\n.....\n```\n\n## Isn’t\
+    \ Python Beautiful?\n\nI hate code blocks sometimes due to code breaks and copy\
+    \ paste issues. So you can see all the code in this [kaggle kernel](https://www.kaggle.com/).\n\
+    \n* * *\n\n## Conclusion\n\n**We must always try to reduce the memory footprint\
+    \ in Python.** Iterators and generators provide us with a way to do that with\
+    \ Lazy evaluation.\n\n**How do we choose which one to use?** What we can do with\
+    \ generator expressions we could have done with generators or iterators too.\n\
+    \nThere is no correct answer here. Whenever I face such a dilemma, I always think\
+    \ in the terms of functionality vs readability. Generally,\n\nFunctionality wise:\
+    \ Iterators>Generators>Generator Expressions.\n\nReadability wise: Iterators<Generators<Generator\
+    \ Expressions.\n\nIt is not necessary that you end up using them in your code\
+    \ now. But I guess understanding how these things work helps mitigate some of\
+    \ the confusion and panic one faces whenever these constructs come up.\n\n## 5\n\
+    \n## How and Why to use f strings in Python3?\n\n![](img/754e520429142dbf037b2b2434cf63fd_41_0.png)\n\
+    \nPython provides us with many styles of coding. And with time, Python has regularly\
+    \ come up with new coding standards and tools that adhere even more to the coding\
+    \ standards in the Zen of Python.\n\n> Beautiful is better than ugly.\n\nAnd so\
+    \ this chapter is **about using f strings in Python that was introduced in Python\
+    \ 3.6.**\n\n* * *\n\n## 3 Common Ways of Printing:\n\nLet me explain this with\
+    \ a simple example. Suppose you have some variables, and you want to print them\
+    \ within a statement.\n\n```python\nname = 'Andy'\nage = 20\nprint(?)\n```\n\n\
+    ```\nOutput: I am Andy. I am 20 years old\n```\n\nYou can do this in various ways:\n\
+    \n**a) Concatenate:** A very naive way to do is to simply use + for concatenation\
+    \ within the print function. But that is clumsy. We would need to convert our\
+    \ numeric variables to string and keep care of the spaces while concatenating.\
+    \ And it doesn't look good as the code readability suffers a little when we use\
+    \ it.\n\n```python\nname = 'Andy'\nage = 20\nprint(\"I am \" + name + \". I am\
+    \ \" + str(age) + \" years old\")\n```\n\n```\nI am Andy. I am 20 years old\n\
+    ```\n\n![](img/754e520429142dbf037b2b2434cf63fd_43_0.png)\n\n**b) % Format:**\
+    \ The second option is to use % formatting. But it also has its problems. For\
+    \ one, it is not readable. You would need to look at the first %s and try to find\
+    \ the corresponding variable in the list at the end. And imagine if you have a\
+    \ long list of variables that you may want to print.\n\n```python\nprint(\"I am\
+    \ %s. I am %s years old\" % (name, age))\n```\n\n## HOW AND WHY TO USE F STRINGS\
+    \ IN PYTHON3?\n\n**c) str.format():** Next comes the way that has been used in\
+    \ most Python 3 codes and has become the standard of printing in Python. Using\
+    \ str.format()\n\n```python\nprint(\"I am {}. I am {} years old\".format(name,\
+    \ age))\n```\n\nHere we use {} to denote the placeholder of the object in the\
+    \ list. It still has the same problem of readability, but we can also use str.format\
+    \ :\n\n```python\nprint(\"I am {name}. I am {age} years old\".format(name = name,\
+    \ age = age))\n```\n\nIf this seems a little too repetitive, we can use dictionaries\
+    \ too:\n\n```python\ndata = {'name':'Andy', 'age':20}\nprint(\"I am {name}. I\
+    \ am {age} years old\".format(**data))\n```\n\n* * *\n\n## The Fourth Way with\
+    \ f\n\n## ADVANCED PYTHON TIPS\n\n![](img/754e520429142dbf037b2b2434cf63fd_45_0.png)\n\
+    \nSince Python 3.6, we have a new formatting option, which makes it even more\
+    \ trivial. We could simply use:\n\n```python\nprint(f\"I am {name}. I am {age}\
+    \ years old\")\n```\n\nWe just append f at the start of the string and use {}\
+    \ to include our variable name, and we get the required results.\n\nAn added functionality\
+    \ that f string provides is that **we can put expressions** in the {} brackets.\
+    \ For Example:\n\n```python\nnum1 = 4\nnum2 = 5\nprint(f\"The sum of {num1} and\
+    \ {num2} is {num1+num2}.\")\n```\n\n```\nThe sum of 4 and 5 is 9.\n```\n\nThis\
+    \ is quite useful as you can use any sort of expression inside these brackets.\
+    \ **The expression can contain dictionaries or functions.** A simple example:\n\
+    \n```python\ndef totalFruits(apples,oranges):\n    return apples+oranges\n\ndata\
+    \ = {'name':'Andy','age':20}\n\napples = 20\noranges = 30\n\nprint(f\"{data['name']}\
+    \ has {totalFruits(apples,oranges)} fruits\")\n```\n\n```\nAndy has 50 fruits\n\
+    ```\n\nAlso, you can use ''' to use **multiline strings**.\n\n```python\nnum1\
+    \ = 4\nnum2 = 5\nprint(f'''The sum of\n{num1} and\n{num2} is\n{num1+num2}.''')\n\
+    ```\n\n```\nThe sum of\n4 and\n5 is\n9.\n```\n\nAn everyday use case while formatting\
+    \ strings is to **format floats**. You can do that using f string as following\n\
+    \n```python\nnumFloat = 10.23456678\nprint(f'Printing Float with 2 decimals: {numFloat:.2f}')\n\
+    ```\n\n```\nPrinting Float with 2 decimals: 10.23\n```\n\n* * *\n\n## Conclusion\n\
+    \nUntil recently, I had been using Python 2 for all my work, and so was not able\
+    \ to check out this new feature. But now, as I am shifting to Python 3, f strings\
+    \ has become my go-to syntax to format strings. It is easy to write and read with\
+    \ the ability to incorporate arbitrary expressions as well. In a way, this new\
+    \ function adheres to at least 3 PEP concepts —\n\n> Beautiful is better than\
+    \ ugly, Simple is better than complex and Readability counts.\n\n## Afterword\n\
+    \nThis is just a brief overview of a few of the functionalities in Python. I tried\
+    \ to make them as beginner-friendly as possible without going too much into terminologies.\
+    \ Let me know what you think of this short book on Twitter @mlwhiz.\n\nI am still\
+    \ going to write more about new functionalities in Python. Follow me up at **Medium**.\
+    \ As always, I welcome feedback and constructive criticism and can be reached\
+    \ on Twitter @mlwhiz.\n\nAlso if you want to learn more about Python 3, I would\
+    \ like to call out an excellent course on Learn [Intermediate level Python](https://www.coursera.org/learn/intermediate-python)\
+    \ from the University of Michigan. Do check it out.\n\nThis book is distributed\
+    \ as free to read/pay as you want. If you like it, I would appreciate it if you\
+    \ could [buy](https://gumroad.com/l/mlwhiz) the paid version here."
+  mdcn: "## 使用迭代器、生成器和生成器表达式\n\n我们该如何实现呢？\n\n使用生成器，现在我们已经知道如何使用它们了。\n\n```python\n\
+    def triplet(n):  # Find all the Pythagorean triplets between 1 and n\n    for\
+    \ a in range(n):\n        for b in range(a):\n            for c in range(b):\n\
+    \                if a*a == b*b + c*c:\n                    yield(a, b, c)\n```\n\
+    \n我们可以这样使用它：\n\n```python\ntriplet_generator = triplet(1000)\nfor x in triplet_generator:\n\
+    \    print(x)\n```\n\n```\n(5, 4, 3)\n(10, 8, 6)\n(13, 12, 5)\n(15, 12, 9)\n.....\n\
+    ```\n\n或者，我们也可以在这里使用生成器表达式：\n\n```python\ntriplet_generator = ((a,b,c) for a in\
+    \ range(1000) for\nb in range(a) for c in range(b) if a*a == b*b + c*c)\nfor x\
+    \ in triplet_generator:\n    print(x)\n```\n\n```\n(5, 4, 3)\n(10, 8, 6)\n(13,\
+    \ 12, 5)\n(15, 12, 9)\n.....\n```\n\n## Python 不是很美吗？\n\n有时我讨厌代码块，因为代码换行和复制粘贴的问题。所以你可以在这个\
+    \ [kaggle kernel](https://www.kaggle.com/) 中看到所有代码。\n\n* * *\n\n## 结论\n\n**我们必须始终努力减少\
+    \ Python 中的内存占用。** 迭代器和生成器通过惰性求值为我们提供了一种实现方式。\n\n**我们如何选择使用哪一个？** 生成器表达式能做的事情，生成器或迭代器也能做到。\n\
+    \n这里没有正确答案。每当我面临这样的困境时，我总是从功能性和可读性的角度来思考。通常，\n\n功能性方面：迭代器 > 生成器 > 生成器表达式。\n\n\
+    可读性方面：迭代器 < 生成器 < 生成器表达式。\n\n你现在不一定非要在代码中使用它们。但我认为理解这些东西的工作原理有助于缓解每当遇到这些构造时产生的一些困惑和恐慌。\n\
+    \n## 5\n\n## 在 Python3 中如何以及为何使用 f 字符串？\n\n![](img/754e520429142dbf037b2b2434cf63fd_41_0.png)\n\
+    \nPython 为我们提供了多种编码风格。随着时间的推移，Python 定期推出新的编码标准和工具，这些工具更加符合 Python 之禅中的编码标准。\n\
+    \n> 优美胜于丑陋。\n\n因此，本章**关于在 Python 中使用 f 字符串，该特性在 Python 3.6 中引入。**\n\n* * *\n\n\
+    ## 三种常见的打印方式：\n\n让我用一个简单的例子来解释。假设你有一些变量，并且想在语句中打印它们。\n\n```python\nname = 'Andy'\n\
+    age = 20\nprint(?)\n```\n\n```\nOutput: I am Andy. I am 20 years old\n```\n\n\
+    你可以用多种方式做到这一点：\n\n**a) 字符串拼接：** 一种非常简单的方法是在 print 函数中直接使用 + 进行拼接。但这很笨拙。我们需要将数字变量转换为字符串，并在拼接时注意空格。而且看起来不太好，因为使用它时代码可读性会受到一点影响。\n\
+    \n```python\nname = 'Andy'\nage = 20\nprint(\"I am \" + name + \". I am \" + str(age)\
+    \ + \" years old\")\n```\n\n```\nI am Andy. I am 20 years old\n```\n\n![](img/754e520429142dbf037b2b2434cf63fd_43_0.png)\n\
+    \n**b) % 格式化：** 第二个选项是使用 % 格式化。但它也有其问题。首先，它不可读。你需要查看第一个 %s，然后尝试在末尾的列表中找到对应的变量。想象一下，如果你有一个很长的变量列表需要打印。\n\
+    \n```python\nprint(\"I am %s. I am %s years old\" % (name, age))\n```\n\n## 在\
+    \ Python3 中如何以及为何使用 f 字符串？\n\n**c) str.format()：** 接下来是在大多数 Python 3 代码中使用并已成为\
+    \ Python 打印标准的方式。使用 str.format()\n\n```python\nprint(\"I am {}. I am {} years\
+    \ old\".format(name, age))\n```\n\n这里我们使用 {} 来表示列表中对象的占位符。它仍然存在可读性问题，但我们也可以使用\
+    \ str.format：\n\n```python\nprint(\"I am {name}. I am {age} years old\".format(name\
+    \ = name, age = age))\n```\n\n如果这看起来有点重复，我们也可以使用字典：\n\n```python\ndata = {'name':'Andy',\
+    \ 'age':20}\nprint(\"I am {name}. I am {age} years old\".format(**data))\n```\n\
+    \n* * *\n\n## 使用 f 的第四种方式\n\n## 高级 Python 技巧\n\n![](img/754e520429142dbf037b2b2434cf63fd_45_0.png)\n\
+    \n从 Python 3.6 开始，我们有了一个新的格式化选项，这使得它变得更加简单。我们可以简单地使用：\n\n```python\nprint(f\"\
+    I am {name}. I am {age} years old\")\n```\n\n我们只需在字符串开头附加 f，并使用 {} 包含变量名，就能得到所需的结果。\n\
+    \nf 字符串提供的一个附加功能是**我们可以在 {} 括号中放入表达式**。例如：\n\n```python\nnum1 = 4\nnum2 = 5\n\
+    print(f\"The sum of {num1} and {num2} is {num1+num2}.\")\n```\n\n```\nThe sum\
+    \ of 4 and 5 is 9.\n```\n\n这非常有用，因为你可以在这个括号中使用任何类型的表达式。**表达式可以包含字典或函数。** 一个简单的例子：\n\
+    \n```python\ndef totalFruits(apples,oranges):\n    return apples+oranges\n\ndata\
+    \ = {'name':'Andy','age':20}\n\napples = 20\noranges = 30\n\nprint(f\"{data['name']}\
+    \ has {totalFruits(apples,oranges)} fruits\")\n```\n\n```\nAndy has 50 fruits\n\
+    ```\n\n此外，你可以使用 ''' 来使用**多行字符串**。\n\n```python\nnum1 = 4\nnum2 = 5\nprint(f'''The\
+    \ sum of\n{num1} and\n{num2} is\n{num1+num2}.''')\n```\n\n```\nThe sum of\n4 and\n\
+    5 is\n9.\n```\n\n格式化字符串时的一个常见用例是**格式化浮点数**。你可以使用 f 字符串按如下方式操作：\n\n```python\n\
+    numFloat = 10.23456678\nprint(f'Printing Float with 2 decimals: {numFloat:.2f}')\n\
+    ```\n\n```\nPrinting Float with 2 decimals: 10.23\n```\n\n* * *\n\n## 结论\n\n直到最近，我所有工作都使用\
+    \ Python 2，因此无法检查这个新功能。但现在，随着我转向 Python 3，f 字符串已成为我格式化字符串的首选语法。它易于编写和阅读，并且能够包含任意表达式。在某种程度上，这个新功能至少遵循了\
+    \ 3 个 PEP 概念——\n\n> 优美胜于丑陋，简洁胜于复杂，可读性很重要。\n\n## 后记\n\n这只是 Python 中部分功能的简要概述。我试图让它们尽可能对初学者友好，而不涉及太多术语。请在\
+    \ Twitter @mlwhiz 上告诉我你对这本小书的看法。\n\n我还会继续写更多关于 Python 新功能的文章。在 **Medium** 上关注我。一如既往，我欢迎反馈和建设性批评，可以通过\
+    \ Twitter @mlwhiz 联系我。\n\n另外，如果你想了解更多关于 Python 3 的知识，我想推荐密歇根大学的一门优秀课程：[中级 Python](https://www.coursera.org/learn/intermediate-python)。请务必查看一下。\n\
+    \n本书免费阅读/按需付费分发。如果你喜欢它，如果你能在这里[购买](https://gumroad.com/l/mlwhiz)付费版本，我将不胜感激。"
+  merge: 0
+  raw:
+  - "[PAGE 38]\n\n# USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS\n\nHow can\
+    \ we get it?\n\nUsing a generator, now we know how to use them.\n\n```\ndef triplet(n):\
+    \ # Find all the Pythagorean triplets\nbetween 1 and n\n    for a in range(n):\n\
+    \        for b in range(a):\n            for c in range(b):\n                if\
+    \ a*a == b*b + c*c:\n                    yield(a, b, c)\n```\n\nWe can use this\
+    \ as:\n\n```\ntriplet_generator = triplet(1000)\nfor x in triplet_generator:\n\
+    \    print(x)\n--------------------------------------------------\n(5, 4, 3)\n\
+    (10, 8, 6)\n(13, 12, 5)\n(15, 12, 9)\n.....\n```\n\nOr, we could also have used\
+    \ a generator expression here:\n\n```\ntriplet_generator = ((a,b,c) for a in range(1000)\
+    \ for\nb in range(a) for c in range(b) if a*a == b*b + c*c)\nfor x in triplet_generator:\n\
+    \    print(x)\n--------------------------------------------------\n(5, 4, 3)\n\
+    (10, 8, 6)\n(13, 12, 5)\n(15, 12, 9)\n.....\n```"
+  - '[PAGE 39]
+
+
+    # Isn’t Python Beautiful?
+
+
+    I hate code blocks sometimes due to code breaks and copy paste issues. So you
+    can see all the code in this [kaggle kernel](https://www.kaggle.com/).
+
+
+    * * *
+
+
+    # Conclusion
+
+
+    **We must always try to reduce the memory footprint in Python.** Iterators and
+    generators provide us with a way to do that with Lazy evaluation.
+
+
+    **How do we choose which one to use?** What we can do with generator expressions
+    we could have done with generators or iterators too.
+
+
+    There is no correct answer here. Whenever I face such a dilemma, I always think
+    in the terms of functionality vs readability. Generally,
+
+
+    Functionality wise: Iterators>Generators>Generator Expressions.
+
+
+    Readability wise: Iterators<Generators<Generator Expressions.
+
+
+    It is not necessary that you end up using them in your code now. But I guess understanding
+    how these things work helps mitigate some of the confusion and panic one faces
+    whenever'
+  - '[PAGE 40]
+
+
+    # USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS
+
+
+    these constructs come up.'
+  - '[PAGE 41]
+
+
+    # 5
+
+
+    # How and Why to use f strings in Python3?
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_41_0.png)'
+  - '[PAGE 42]
+
+
+    Python provides us with many styles of coding. And with time, Python has regularly
+    come up with new coding standards and tools that adhere even more to the coding
+    standards in the Zen of Python.
+
+
+    > Beautiful is better than ugly.
+
+
+    And so this chapter is **about using f strings in Python that was introduced in
+    Python 3.6.**
+
+
+    * * *
+
+
+    # 3 Common Ways of Printing:
+
+
+    Let me explain this with a simple example. Suppose you have some variables, and
+    you want to print them within a statement.
+
+
+    ```
+
+    name = ''Andy''
+
+    age = 20
+
+    print(?)
+
+    ------------------------------------------------------------
+
+    Output: I am Andy. I am 20 years old
+
+    ```
+
+
+    You can do this in various ways:
+
+    **a) Concatenate:** A very naive way to do is to simply use + for concatenation
+    within the print function. But that is clumsy. We would need to convert our numeric
+    variables to string and keep care of the spaces while concatenating. And it doesn''t
+    look good'
+  - '[PAGE 43]
+
+
+    as the code readability suffers a little when we use it.
+
+
+    ```
+
+    name = ''Andy''
+
+    age = 20
+
+    print("I am " + name + ". I am " + str(age) + " years old")
+
+    -----------------------------------------------
+
+    I am Andy. I am 20 years old
+
+    ```
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_43_0.png)
+
+
+    b) % Format: The second option is to use % formatting. But it also has its problems.
+    For one, it is not readable. You would need to look at the first %s and try to
+    find the corresponding variable in the list at the end. And imagine if you have
+    a long list of variables that you may want to print.
+
+
+    ```
+
+    print("I am %s. I am %s years old" % (name, age))
+
+    ```'
+  - '[PAGE 44]
+
+
+    # HOW AND WHY TO USE F STRINGS IN PYTHON3?
+
+
+    **c) str.format():** Next comes the way that has been used in most Python 3 codes
+    and has become the standard of printing in Python. Using str.format()
+
+
+    ```
+
+    print("I am {}. I am {} years old".format(name, age))
+
+    ```
+
+
+    Here we use {} to denote the placeholder of the object in the list. It still has
+    the same problem of readability, but we can also use str.format :
+
+
+    ```
+
+    print("I am {name}. I am {age} years old".format(name = name, age = age))
+
+    ```
+
+
+    If this seems a little too repetitive, we can use dictionaries too:
+
+
+    ```
+
+    data = {''name'':''Andy'', ''age'':20}
+
+    print("I am {name}. I am {age} years old".format(**data))
+
+    ```
+
+
+    * * *
+
+
+    # The Fourth Way with f'
+  - '[PAGE 45]
+
+
+    # ADVANCED PYTHON TIPS
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_45_0.png)
+
+
+    Since Python 3.6, we have a new formatting option, which makes it even more trivial.
+    We could simply use:
+
+
+    ```
+
+    print(f"I am {name}. I am {age} years old")
+
+    ```
+
+
+    We just append f at the start of the string and use {} to include our variable
+    name, and we get the required results.
+
+    An added functionality that f string provides is that **we can put expressions**
+    in the {} brackets. For Example:
+
+
+    ```
+
+    num1 = 4
+
+    num2 = 5
+
+    print(f"The sum of {num1} and {num2} is {num1+num2}.")
+
+    ---------------------------------------------
+
+    The sum of 4 and 5 is 9.
+
+    ```
+
+
+    This is quite useful as you can use any sort of expression inside these brackets.
+    ***The expression can contain dictionaries***'
+  - "[PAGE 46]\n\n# HOW AND WHY TO USE F STRINGS IN PYTHON3?\n\n**or functions.**\
+    \ A simple example:\n\n```\ndef totalFruits(apples,oranges):\n    return apples+oranges\n\
+    \ndata = {'name':'Andy','age':20}\n\napples = 20\noranges = 30\n\nprint(f\"{data['name']}\
+    \ has {totalFruits(apples,oranges)} fruits\")\n-----------------------------------------------\n\
+    Andy has 50 fruits\n```\n\nAlso, you can use ''' to use **multiline strings**.\n\
+    \n```\nnum1 = 4\nnum2 = 5\nprint(f'''The sum of\n{num1} and\n{num2} is\n{num1+num2}.''')\n\
+    -----------------------------------------------\nThe sum of\n4 and\n5 is\n9.\n\
+    ```\n\nAn everyday use case while formatting strings is to **format floats**.\
+    \ You can do that using f string as following\n\n```\nnumFloat = 10.23456678\n\
+    print(f'Printing Float with 2 decimals: {numFloat:.2f}')\n```"
+  - '[PAGE 47]
+
+
+    ```
+
+    --------------------------------------------------
+
+    Printing Float with 2 decimals: 10.23
+
+    ```
+
+
+    * * *
+
+
+    # Conclusion
+
+
+    Until recently, I had been using Python 2 for all my work, and so was not able
+    to check out this new feature. But now, as I am shifting to Python 3, f strings
+    has become my go-to syntax to format strings. It is easy to write and read with
+    the ability to incorporate arbitrary expressions as well. In a way, this new function
+    adheres to at least 3 PEP concepts —
+
+
+    > Beautiful is better than ugly, Simple is better than complex and Readability
+    counts.'
+  - '[PAGE 48]
+
+
+    # Afterword
+
+
+    This is just a brief overview of a few of the functionalities in Python. I tried
+    to make them as beginner-friendly as possible without going too much into terminologies.
+    Let me know what you think of this short book on Twitter @mlwhiz.
+
+
+    I am still going to write more about new functionalities in Python. Follow me
+    up at **Medium**. As always, I welcome feedback and constructive criticism and
+    can be reached on Twitter @mlwhiz.
+
+
+    Also if you want to learn more about Python 3, I would like to call out an excellent
+    course on Learn [Intermediate level Python](https://www.coursera.org/learn/intermediate-python)
+    from the University of Michigan. Do check it out.
+
+
+    This book is distributed as free to read/pay as you want. If you like it, I would
+    appreciate it if you could [buy](https://gumroad.com/l/mlwhiz) the paid version
+    here.'
+  - '[PAGE 49]
+
+
+    <!-- no content -->'
+pages:
+- img_proc: true
+  md: 'Easily Explained
+
+
+    # ADVANCED PYTHON TIPS
+
+
+    A SIMPLE BOOK ON ADVANCED PYTHON CONCEPTS
+
+
+    BY RAHUL AGARWAL
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_0_0.png)'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: 'RAHUL AGARWAL
+
+
+    # Advanced Python Tips
+
+
+    Explained Simply'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: 'Copyright © 2020 by Rahul Agarwal
+
+
+    All rights reserved. No part of this publication may be reproduced, stored or
+    transmitted in any form or by any means, electronic, mechanical, photocopying,
+    recording, scanning, or otherwise without written permission from the publisher.
+    It is illegal to copy this book, post it to a website, or distribute it by any
+    other means without permission.
+
+
+    Rahul Agarwal asserts the moral right to be identified as the author of this work.
+
+
+    Rahul Agarwal has no responsibility for the persistence or accuracy of URLs for
+    external or third-party Internet Websites referred to in this publication and
+    does not guarantee that any content on such Websites is, or will remain, accurate
+    or appropriate.
+
+
+    Designations used by companies to distinguish their products are often claimed
+    as trademarks. All brand names and product names used in this book and on its
+    cover are trade names, service marks, trademarks and registered trademarks of
+    their respective owners. The publishers and the book are not associated with any
+    product or vendor mentioned in this book. None of the companies referenced within
+    the book have endorsed the book.
+
+
+    First edition
+
+
+    This book was professionally typeset on Reedsy.
+
+    Find out more at [reesdy.com](https://reesdy.com)'
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: '# Contents
+
+
+    +   About me iv
+
+    Introduction v
+
+    1 Minimize for loop usage in Python 1
+
+    2 Python defaultdict and Counter 7
+
+    3 *args, **kwargs, decorators for Data Scientists 12
+
+    4 Use Itertools, Generators, and Generator Expressions 23
+
+    5 How and Why to use f strings in Python3? 34
+
+    Afterword 41'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: '# About me
+
+
+    I am Rahul Agarwal(MLWhiz), a data scientist consultant, and big data engineer
+    based in Bangalore, where I am currently working with **WalmartLabs**.
+
+
+    Previously, I have worked at startups like **Fractal** and **MyCity-Way** and
+    conglomerates like **Citi**. I started my blog [mlwhiz.com](http://mlwhiz.com)
+    with a purpose to augment my own understanding of new things while helping others
+    learn about them. I also write for publications on Medium like [Towards Data Science](https://towardsdatascience.com/)
+    and [HackerNoon](https://hackernoon.com/)
+
+
+    > As Feynman said: “**I couldn’t do it. I couldn’t reduce it to the freshman level.
+    That means we don’t really understand it**”
+
+
+    Personally I am tool agnostic. I like learning new tools and constantly work to
+    add up new skills as I face new problems that cannot be accomplished with my current
+    set of techniques. But the tools that get most of my work done currently are Python,
+    Hadoop, and Spark.
+
+
+    I also really like working with data-intensive problems and am constantly in search
+    of new ideas to work on.'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: "# Introduction\n\n**Learning a language is easy.** Whenever I start with a\
+    \ new language, I focus on a few things in the below order, and it is a breeze\
+    \ to get started with writing code in any language.\n\n+   - Operators and Data\
+    \ Types: +,-,int,float,str\n- Conditional statements: if,else,case,switch\n- Loops:\
+    \ For, while\n- Data structures: List, Array, Dict, Hashmaps\n- Define Function\n\
+    \n**However, learning to write a language and writing a language in an optimized\
+    \ way are two different things.**\n\nEvery Language has some ingredients which\
+    \ make it unique.\n\nYet, **a new programmer to any language will always do some\
+    \ forced overfitting.** A Java programmer, new to python, for example, might write\
+    \ this code to add numbers in a list.\n\n```\nx=[1,2,3,4,5]\nsum_x = 0\nfor i\
+    \ in range(len(x)):\n    sum_x+=x[i]\n```"
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: 'While a Python programmer will naturally do this:
+
+
+    ```
+
+    sum_x = sum(x)
+
+    ```
+
+
+    In this book, I will explain some simple constructs provided by Python, some essential
+    tips, and some use cases I come up with regularly in my Data Science work. Most
+    of the book is of a practical nature and you will find it beaming with examples.
+
+
+    **This book is about efficient and readable code.**
+
+
+    This book is distributed as free to read/pay as you want. If you like it, I would
+    appreciate it if you could [buy](buy) the paid version here.'
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: '# # 1
+
+
+    # # Minimize for loop usage in Python
+
+
+    There are many ways to write a for loop in python.
+
+
+    A beginner may get confused on what to use.
+
+
+    Let me explain this with a simple example statement.
+
+
+    Suppose you want to take the **sum of squares in a list.**
+
+
+    This is a valid problem we all face in machine learning whenever we want to calculate
+    the distance between two points in n dimension.
+
+
+    You can do this using loops easily.
+
+
+    In fact, I will show you **three ways to do the same task which I have seen people
+    use and let you choose for yourself which you find the best.**'
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: "# ADVANCED PYTHON TIPS\n\n```\nx = [1,3,5,7,9]\nsum_squared = 0\nfor i in range(len(x)):\n\
+    \    sum_squared+=x[i]**2\n```\n\nWhenever I see the above code in a python codebase,\
+    \ I understand that the person has come from C or Java background.\n\nA **slightly\
+    \ more pythonic way** of doing the same thing is:\n\n```\nx = [1,3,5,7,9]\nsum_squared\
+    \ = 0\nfor y in x:\n    sum_squared+=y**2\n```\n\nBetter.\n\nI didn't index the\
+    \ list. And my code is more readable.\n\nBut still, the pythonic way to do it\
+    \ is in one line.\n\n```\nx = [1,3,5,7,9]\nsum_squared = sum([y**2 for y in x])\n\
+    ```\n\n**This approach is called List Comprehension, and this may very well be\
+    \ one of the reasons that I love Python.**\n\nYou can also use **if** in a list\
+    \ comprehension.\n\nLet's say we wanted a list of squared numbers for even numbers\
+    \ only."
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: '# MINIMIZE FOR LOOP USAGE IN PYTHON
+
+
+    ```
+
+    x = [1,2,3,4,5,6,7,8,9]
+
+    even_squared = [y**2 for y in x if y%2==0]
+
+    ----------------------------------------
+
+    [4, 16, 36, 64]
+
+    ```
+
+
+    # What about if-else?
+
+
+    What if we wanted to have the number squared for even and cubed for odd?
+
+
+    ```
+
+    x = [1,2,3,4,5,6,7,8,9]
+
+    squared_cubed = [y**2 if y%2==0 else y**3 for y in x]
+
+    ----------------------------------------
+
+    [1, 4, 27, 16, 125, 36, 343, 64, 729]
+
+    ```
+
+
+    Great!!!'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: '# ADVANCED PYTHON TIPS
+
+
+    # WHY ASIMOV PUT THE THREE LAWS OF ROBOTICS IN THE ORDER HE DID:
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_11_0.png)
+
+
+    So basically follow specific **guidelines**: Whenever you feel like writing a
+    forstatement, you should ask yourself the following questions,
+
+
+    +   - Can it be done without a **for** loop? Most Pythonic
+
+    - Can it be done using **list comprehension**? If yes, use it.
+
+    - Can I do it without indexing arrays? if not, think about using **enumerate**
+
+
+    What is enumerate?
+
+
+    Sometimes we need both the index in an array as well as the value in an array.'
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: "# MINIMIZE FOR LOOP USAGE IN PYTHON\n\nIn such cases, I prefer to use **enumerate**\
+    \ rather than indexing the list.\n\n```\nL = ['blue', 'yellow', 'orange']\nfor\
+    \ i, val in enumerate(L):\n    print(\"index is %d and value is %s\" % (i, val))\n\
+    ------------------------------------------------------------\nindex is 0 and value\
+    \ is blue\nindex is 1 and value is yellow\nindex is 2 and value is orange\n```\n\
+    \nThe rule is:\n\n> Never index a list, if you can do without it.\n\n# Try Using\
+    \ Dictionary Comprehension\n\nAlso try using **dictionary comprehension**, which\
+    \ is a relatively new addition in Python. The syntax is pretty similar to List\
+    \ comprehension.\n\nLet me explain using an example. I want to get a dictionary\
+    \ with (key: squared value) for every value in x.\n\n```\nx = [1,2,3,4,5,6,7,8,9]\n\
+    {k:k**2 for k in x}\n------------------------------------------------------------\n\
+    {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64,\n9: 81}\n```\n\nWhat if\
+    \ I want a dict only for even values?"
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: '# ADVANCED PYTHON TIPS
+
+
+    ```
+
+    x = [1,2,3,4,5,6,7,8,9]
+
+    {k:k**2 for k in x if x%2==0}
+
+    ----------------------------------------
+
+    {2: 4, 4: 16, 6: 36, 8: 64}
+
+    ```
+
+
+    What if we want squared value for even key and cubed number for the odd key?
+
+
+    ```
+
+    x = [1,2,3,4,5,6,7,8,9]
+
+    {k:k**2 if k%2==0 else k**3 for k in x}
+
+    ----------------------------------------
+
+    {1: 1, 2: 4, 3: 27, 4: 16, 5: 125, 6: 36, 7: 343, 8: 64, 9: 729}
+
+    ```
+
+
+    # Conclusion
+
+
+    To conclude, I will say that while it might seem easy to transfer the knowledge
+    you acquired from other languages to Python, you won''t be able to appreciate
+    the beauty of Python if you keep doing that.
+
+
+    Python is much more powerful when we use its ways and decidedly much more fun.
+
+
+    **So, use List Comprehensions and Dict comprehensions when you need a for loop.
+    Use enumerate if you need array index.**
+
+
+    > Avoid for loops like plague
+
+
+    Your code will be much more readable and maintainable in the long run.'
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: '# 2
+
+
+    # Python defaultdict and Counter
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_14_0.png)
+
+
+    Let''s say I need to count the number of word occurrences in a piece of text.
+
+
+    Maybe for a book like Hamlet. How could I do that?'
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: "# ADVANCED PYTHON TIPS\n\nPython always provides us with multiple ways to do\
+    \ the same thing. But only one way I find elegant.\n\nThis is a **Naive Python\
+    \ implementation** using the dict object.\n\n```\ntext = \"I need to count the\
+    \ number of word occurrences in a piece of text. How could I do that? Python provides\
+    \ us with multiple ways to do the same thing. But only one way I find beautiful.\"\
+    \n\nword_count_dict = {}\n\nfor w in text.split(\" \"):\n    if w in word_count_dict:\n\
+    \        word_count_dict[w]+=1\n    else:\n        word_count_dict[w]=1\n```\n\
+    \nWe could use **defaultdict** to reduce the number of lines in the code.\n\n\
+    ```\nfrom collections import defaultdict\nword_count_dict = defaultdict(int)\n\
+    for w in text.split(\" \"):\n    word_count_dict[w]+=1\n```\n\nWe could also have\
+    \ used **Counter** to do this, which according to me is the most preferable method\
+    \ for this problem.\n\n```\nfrom collections import Counter\nword_count_dict =\
+    \ Counter()\nfor w in text.split(\" \"):\n```"
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: '# PYTHON DEFAULTDICT AND COUNTER
+
+
+    ```
+
+    word_count_dict[w]+=1
+
+    ```
+
+
+    If we use Counter, we can also get the most common words using a simple function.
+
+
+    ```
+
+    word_count_dict.most_common(10)
+
+    ----------------------------------------
+
+    [(''I'', 3), (''to'', 2), (''the'', 2)]
+
+    ```
+
+
+    Other use cases of Counter:
+
+
+    ```
+
+    # Count Characters
+
+    Counter(''abccccccddddd'')
+
+    ----------------------------------------
+
+    Counter({''a'': 1, ''b'': 1, ''c'': 6, ''d'': 5})
+
+    # Count List elements
+
+    Counter([1,2,3,4,5,1,2])
+
+    ----------------------------------------
+
+    Counter({1: 2, 2: 2, 3: 1, 4: 1, 5: 1})
+
+    ```
+
+
+    ***
+
+
+    # So, why ever use defaultdict?
+
+
+    Notice that in *Counter*, the value is always an integer.
+
+
+    What if we wanted to parse through a list of tuples containing colors and fruits.
+    And wanted to create a dictionary of key and list of values.
+
+
+    The main functionality provided by a defaultdict is that it'
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: "# ADVANCED PYTHON TIPS\n\ndefaults a key to empty/zero if it is not found in\
+    \ the defaultdict.\n\n```\ns = [('color', 'blue'), ('color', 'orange'),\n('color',\
+    \ 'yellow'), ('fruit', 'banana'), ('fruit', 'orange'),('fruit', 'banana')]\nd\
+    \ = defaultdict(list)\nfor k, v in s:\n    d[k].append(v)\nprint(d)\n-----------------------------------------------------------------------\n\
+    defaultdict(<class 'list'>, {'color': ['blue', 'orange', 'yellow'], 'fruit': ['banana',\
+    \ 'orange', 'banana']})\n```\n\nbanana comes two times in fruit, we could use\
+    \ set\n\n```\nd = defaultdict(set)\nfor k, v in s:\n    d[k].add(v)\nprint(d)\n\
+    -----------------------------------------------------------------------\ndefaultdict(<class\
+    \ 'set'>, {'color': {'yellow', 'blue', 'orange'}, 'fruit': {'banana', 'orange'}})\n\
+    ```\n\n***\n\n# Conclusion\n\nTo conclude, I will say that **there is always a\
+    \ beautiful way to do anything in Python**. Search for it before you write code.\
+    \ Going to StackOverflow is okay. I go there a lot of times when I get stuck.\
+    \ Always Remember:"
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: '# PYTHON DEFAULTDICT AND COUNTER
+
+
+    Creating a function for what already is provided is not pythonic.'
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: '# 3
+
+
+    # *args, **kwargs, decorators for Data Scientists
+
+
+    Python has a lot of constructs that are reasonably easy to learn and use in our
+    code.
+
+
+    Then there are some constructs which always confuse us when we encounter them
+    in our code.
+
+
+    Then are some that even seasoned programmers are not able to understand. *args,
+    **kwargs and decorators are some constructs that fall into this category.
+
+
+    I guess a lot of my data science friends have faced them too.
+
+
+    Most of the seaborn functions use *args and **kwargs in some way or other.'
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: "*ARGS, **KWARGS, DECORATORS FOR DATA SCIENTISTS\n\n# seaborn.scatterplot\n\n\
+    ```\nseaborn.scatterplot(x=None, y=None, hue=None, style=None, size=None, data=None,\
+    \ palette=None, hue_order=None, hue_norm=None, sizes=None, size_order=None, size_norm=None,\
+    \ markers=True, style_order=None, x_bins=None, y_bins=None, units=None, estimator=None,\
+    \ ci=95, n_boot=1000, alpha='auto', x_jitter=None, y_jitter=None, legend='brief',\
+    \ ax=None, **kwargs) What is this?\n```\n\nOr what about decorators?\n\nEvery\
+    \ time you see a warning like some function will be deprecated in the next version.\
+    \ The sklearn package uses decorators for that. You can see the **@deprecated**\
+    \ in the source code. That is a decorator function.\n\n```\nfrom .utils import\
+    \ deprecated\n\ndef zero_one_loss(y_true, y_pred, normalize=True):\n    # actual\
+    \ implementation\n    pass\n\n@deprecated(\"Function 'zero_one' was renamed to\
+    \ 'zero_one_loss' \"\n            \"in version 0.13 and will be removed in release\
+    \ 0.15. \"\n            \"Default behavior is changed from 'normalize=False' to\
+    \ \"\n            \"'normalize=True'\")\ndef zero_one(y_true, y_pred, normalize=False):\n\
+    \    return zero_one_loss(y_true, y_pred, normalize)\n```\n\n* * *\n\n# What are\
+    \ *args?\n\nIn simple terms, **you can use *args to give an arbitrary number of\
+    \ inputs to your function.**\n\nA simple example:\n\nLet us say we have to create\
+    \ a function that adds two numbers. We can do this easily in python."
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: "# ADVANCED PYTHON TIPS\n\n```\ndef adder(x,y):\n    return x+y\n```\n\nWhat\
+    \ if we want to create a function to add three variables?\n\n```\ndef adder(x,y,z):\n\
+    \    return x+y+z\n```\n\nWhat if we want the same function to add an unknown\
+    \ number of variables?\n\nPlease note that we can use *args or *argv or *anyOtherName\
+    \ to do this. It is the * that matters.\n\n```\ndef adder(*args):\n    result\
+    \ = 0\n    for arg in args:\n        result+=arg\n    return result\n```\n\nWhat\
+    \ *args does is that it takes all your passed arguments and provides a variable\
+    \ length argument list to the function which you can use as you want.\n\nNow you\
+    \ can use the same function as follows:\n\n```\nadder(1,2)\nadder(1,2,3)\nadder(1,2,5,7,8,9,100)\n\
+    ```\n\nand so on.\n\nNow, have you ever thought how the print function in python"
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: "*ARGS, **KWARGS, DECORATORS FOR DATA SCIENTISTS\n\n# could take so many arguments?\
+    \ *args\n\n* * *\n\n# What are **kwargs?\n\n# seaborn.scatterplot\n\n```\nseaborn.scatterplot(x=None,\
+    \ y=None, hue=None, style=None, size=None, data=None, palette=None, hue_order=None,\
+    \ hue_norm=None, sizes=None, size_order=None, size_norm=None, markers=True, style_order=None,\
+    \ x_bins=None, y_bins=None, units=None, estimator=None, ci=95, n_boot=1000, alpha='auto',\
+    \ x_jitter=None, y_jitter=None, legend='brief', ax=None, **kwargs) What is this?\n\
+    ```\n\nIn simple terms, **you can use **kwargs to give an arbitrary number of\
+    \ Keyworded inputs to your function** and access them using a dictionary.\n\n\
+    A simple example:\n\nLet’s say you want to create a print function that can take\
+    \ a name and age as input and print that.\n\n```\ndef myprint(name, age):\n  \
+    \  print(f'{name} is {age} years old')\n```\n\nSimple. Let us now say you want\
+    \ the same function to take two names and two ages.\n\n```\ndef myprint(name1,\
+    \ age1, name2, age2):\n    print(f'{name1} is {age1} years old')\n```\n\n15"
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: "```\nprint(f'{name2} is {age2} years old')\n```\n\nYou guessed right my next\
+    \ question is: **What if I don't know how many arguments I am going to need?**\n\
+    \nCan I use *args? Guess not since name and age order is essential. We don't want\
+    \ to write \"28 is Michael years old\".\n\nCome **kwargs in the picture.\n\n```\n\
+    def myprint(**kwargs):\n    for k,v in kwargs.items():\n        print(f'{k} is\
+    \ {v} years old')\n```\n\nYou can call this function using:\n\n```\nmyprint(Sansa=20,Tyrion=40,Arya=17)\n\
+    Output:---------------------------------------\nSansa is 20 years old\nTyrion\
+    \ is 40 years old\nArya is 17 years old\n```\n\n**Remember we never defined Sansa\
+    \ or Arya or Tyrion as our methods arguments.**\n\n**That is a pretty powerful\
+    \ concept.** And many programmers utilize this pretty cleverly when they write\
+    \ wrapper libraries.\n\nFor example, **seaborn.scatterplot** function wraps the\
+    \ **plt.scatter** function from Matplotlib.\n\nEssentially, using *args and **kwargs\
+    \ we can provide all the"
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: '*ARGS, **KWARGS, DECORATORS FOR DATA SCIENTISTS
+
+
+    arguments that **plt.scatter** can take to **seaborn.Scatterplot** as well.
+
+
+    This can save a lot of coding effort and also makes the code future proof. If
+    at any time in the future **plt.scatter** starts accepting any new arguments the
+    **seaborn.Scatterplot** function will still work.
+
+
+    * * *
+
+
+    # What are Decorators?
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_24_0.png)
+
+
+    In simple terms: **Decorators are functions that wrap another function thus modifying
+    its behavior.**'
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: "# A simple example:\n\nLet us say we want to add custom functionality to some\
+    \ of our functions. The functionality is that whenever the function gets called\
+    \ the “**function name begins**” is printed and whenever the function ends the\
+    \ “**function name ends**” and time taken by the function is printed.\n\nLet us\
+    \ assume our function is:\n\n```\ndef somefunc(a,b):\n    output = a+b\n    return\
+    \ output\n```\n\nWe can add some print lines to all our functions to achieve this.\n\
+    \n```\nimport time\ndef somefunc(a,b):\n    print(\"somefunc begins\")\n    start_time\
+    \ = time.time()\n    output = a+b\n    print(\"somefunc ends in \",time.time()-start_time,\n\
+    \          \"secs\")\n    return output\nout = somefunc(4,5)\nOUTPUT:\n----------------------------------------\n\
+    somefunc begins\nsomefunc ends in  9.5367431640625e-07 secs\n```\n\n# But, Can\
+    \ we do better?\n\nThis is where decorators excel. We can use decorators to wrap\
+    \ any function."
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: "```\nfrom functools import wraps\ndef timer(func):\n    @wraps(func)\n    def\
+    \ wrapper(a,b):\n        print(f\"{func.__name__!r} begins\")\n        start_time\
+    \ = time.time()\n        result = func(a,b)\n        print(f\"{func.__name__!r}\
+    \ ends in\n        {time.time()-start_time}  secs\")\n        return result\n\
+    \    return wrapper\n```\n\nThis is how we can define any decorator. functools\
+    \ helps us create decorators using wraps. In essence, we do something before any\
+    \ function is called and do something after a function is called in the above\
+    \ decorator.\n\nWe can now use this timer decorator to decorate our function somefunc\n\
+    \n```\n@timer\ndef somefunc(a,b):\n    output = a+b\n    return output\n```\n\n\
+    Now calling this function, we get:\n\n```\na = somefunc(4,5)\nOutput\n----------------------------------------\n\
+    'somefunc' begins\n'somefunc' ends in 2.86102294921875e-06  secs\n```\n\nNow we\
+    \ can append @timer to each of our function for which"
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: 'ADVANCED PYTHON TIPS
+
+
+    we want to have the time printed. And we are done.
+
+
+    Really?
+
+
+    * * *
+
+
+    # Connecting all the pieces
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_27_0.png)
+
+
+    **What if our function takes three arguments? Or many arguments?**
+
+
+    This is where whatever we have learned till now connects. We use *args and **kwargs
+
+
+    We change our decorator function as:'
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: "```\nfrom functools import wraps\ndef timer(func):\n    @wraps(func)\n    def\
+    \ wrapper(*args, **kwargs):\n        print(f\"{func.__name__!r} begins\")\n  \
+    \      start_time = time.time()\n        result = func(*args, **kwargs)\n    \
+    \    print(f\"{func.__name__!r} ends in\n        {time.time()-start_time} secs\"\
+    )\n        return result\n    return wrapper\n```\n\nNow our function can take\
+    \ any number of arguments, and our decorator will still work.\n\nIsn't Python\
+    \ Beautiful?\n\nIn my view, decorators could be pretty helpful. I provided only\
+    \ one use case of decorators, but there are several ways one can use them.\n\n\
+    You can use a decorator to debug code by checking which arguments go in a function.\
+    \ Or a decorator could be used to count the number of times a particular function\
+    \ has been called. This could help with counting recursive calls.\n\n* * *"
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: '# Conclusion
+
+
+    In this post, I talked about some of the constructs you can find in python source
+    code and how you can understand them.
+
+
+    It is not necessary that you end up using them in your code now. But I guess understanding
+    how these things work helps mitigate some of the confusion and panic one faces
+    whenever these constructs come up.'
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: '# 4
+
+
+    # Use Itertools, Generators, and Generator Expressions
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_30_0.png)
+
+
+    Python in many ways has made our life easier when it comes to programming.
+
+
+    With its many libraries and functionalities, sometimes we forget'
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: '# ADVANCED PYTHON TIPS
+
+
+    to focus on some of the useful things it offers.
+
+
+    One of such functionalities are generators and generator expressions. I stalled
+    learning about them for a long time but they are useful.
+
+
+    Have you ever encountered yield in Python code and didn’t knew what it meant?
+    or what does an iterator or a generator means and why we use it? Or have you used
+    ImageDataGenerator while working with Keras and didn’t understand what is going
+    at the backend? Then this chapter is for you.
+
+
+    *The Problem Statement:*
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_31_0.png)
+
+
+    *Let us say that we need to run a for loop over 10 Million Prime*'
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: "**numbers.**\n\n*I am using prime numbers in this case for understanding but\
+    \ it could be extended to a case where we have to process a lot of images or files\
+    \ in a database or big data.*\n\n**How would you proceed with such a problem?**\n\
+    \nSimple. We can create a list and keep all the prime numbers there.\n\nReally?\
+    \ **Think of the memory such a list would occupy.**\n\nIt would be great if we\
+    \ had something that could just keep the last prime number we have checked and\
+    \ returns just the next prime number.\n\nThat is where iterators could help us.\n\
+    \n* * *\n\n# The Iterator Solution\n\nWe create a class named primes and use it\
+    \ to generate primes.\n\n```\ndef check_prime(number):\n    for divisor in range(2,\
+    \ int(number ** 0.5) + 1):\n        if number % divisor == 0:\n```"
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: "# ADVANCED PYTHON TIPS\n\n```\nreturn False\nreturn True\nclass Primes:\n \
+    \   def __init__(self, max):\n        # the maximum number of primes we want generated\n\
+    \        self.max = max\n        # start with this number to check if it is a\
+    \ prime.\n        self.number = 1\n        # No of primes generated yet. We want\
+    \ to StopIteration when it reaches max\n        self.primes_generated = 0\n  \
+    \  def __iter__(self):\n        return self\n    def __next__(self):\n       \
+    \ self.number += 1\n        if self.primes_generated >= self.max:\n          \
+    \  raise StopIteration\n        elif check_prime(self.number):\n            self.primes_generated+=1\n\
+    \            return self.number\n        else:\n            return self.__next__()\n\
+    ```\n\nWe can then use this as:\n\n```\nprime_generator = Primes(10000000)\n```\n\
+    \n```\nfor x in prime_generator:\n    # Process Here\n```\n\nHere I have defined\
+    \ an iterator. This is how most of the functions like xrange or ImageGenerator\
+    \ work.\n\nEvery iterator needs to have:"
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: 'USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS
+
+
+    +   1. an `__iter__` method that returns self, and
+
+    2. an `__next__` method that returns the next value.
+
+    3. a StopIteration exception that signifies the ending of the iterator.
+
+
+    Every iterator takes the above form and we can tweak the functions to our liking
+    in this boilerplate code to do what we want to do.
+
+
+    See that we don''t keep all the prime numbers in memory just the state of the
+    iterator like
+
+
+    +   - what max prime number we have returned and
+
+    - how many primes we have returned already.
+
+
+    But it seems a little too much code. Can we do better?
+
+
+    * * *
+
+
+    # The Generator Solution'
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: "# ADVANCED PYTHON TIPS\n\n![](img/754e520429142dbf037b2b2434cf63fd_35_0.png)\n\
+    \n**Put simply Generators provide us ways to write iterators easily using the\
+    \ yield statement.**\n\n```\npython\ndef Primes(max):\n    number = 1\n    generated\
+    \ = 0\n    while generated < max:\n        number += 1\n        if check_prime(number):\n\
+    \            generated+=1\n            yield number\n```\n\nwe can use the function\
+    \ as:\n\n```\npython\nprime_generator = Primes(10)\nfor x in prime_generator:\n\
+    \    # Process Here\n```\n\nIt is so much simpler to read. But what is yield?"
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: 'USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS
+
+
+    We can think of yield as a return statement only as it returns the value.
+
+
+    But when a yield happens the state of the function is also saved in the memory.
+    So at every iteration in for loop the function variables like number, generated
+    and max are stored somewhere in memory.
+
+
+    So what is happening is that the above function is taking care of all the boilerplate
+    code for us by using the yield statement.
+
+
+    Much More pythonic.
+
+
+    * * *
+
+
+    # Generator Expression Solution'
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: "# ADVANCED PYTHON TIPS\n\n![](img/754e520429142dbf037b2b2434cf63fd_37_0.png)\n\
+    \nWhile not explicitly better than the previous solution but we can also use Generator\
+    \ expression for the same task. But we might lose some functionality here. They\
+    \ work exactly like list comprehensions but they don’t keep the whole list in\
+    \ memory.\n\n`primes = (i for i in range(1,10000000) if check_prime(i))`\n\n```\n\
+    python\nfor x in primes:\n    # do something\n```\n\nFunctionality loss: We can\
+    \ generate primes till 10M. But we can’t generate 10M primes. One can only do\
+    \ so much with generator expressions.\n\nBut generator expressions let us do some\
+    \ pretty cool things.\n\n***Let us say we wanted to have all Pythagorean Triplets\
+    \ lower than 1000.***"
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: "# USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS\n\nHow can we get it?\n\
+    \nUsing a generator, now we know how to use them.\n\n```\ndef triplet(n): # Find\
+    \ all the Pythagorean triplets\nbetween 1 and n\n    for a in range(n):\n    \
+    \    for b in range(a):\n            for c in range(b):\n                if a*a\
+    \ == b*b + c*c:\n                    yield(a, b, c)\n```\n\nWe can use this as:\n\
+    \n```\ntriplet_generator = triplet(1000)\nfor x in triplet_generator:\n    print(x)\n\
+    --------------------------------------------------\n(5, 4, 3)\n(10, 8, 6)\n(13,\
+    \ 12, 5)\n(15, 12, 9)\n.....\n```\n\nOr, we could also have used a generator expression\
+    \ here:\n\n```\ntriplet_generator = ((a,b,c) for a in range(1000) for\nb in range(a)\
+    \ for c in range(b) if a*a == b*b + c*c)\nfor x in triplet_generator:\n    print(x)\n\
+    --------------------------------------------------\n(5, 4, 3)\n(10, 8, 6)\n(13,\
+    \ 12, 5)\n(15, 12, 9)\n.....\n```"
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: '# Isn’t Python Beautiful?
+
+
+    I hate code blocks sometimes due to code breaks and copy paste issues. So you
+    can see all the code in this [kaggle kernel](https://www.kaggle.com/).
+
+
+    * * *
+
+
+    # Conclusion
+
+
+    **We must always try to reduce the memory footprint in Python.** Iterators and
+    generators provide us with a way to do that with Lazy evaluation.
+
+
+    **How do we choose which one to use?** What we can do with generator expressions
+    we could have done with generators or iterators too.
+
+
+    There is no correct answer here. Whenever I face such a dilemma, I always think
+    in the terms of functionality vs readability. Generally,
+
+
+    Functionality wise: Iterators>Generators>Generator Expressions.
+
+
+    Readability wise: Iterators<Generators<Generator Expressions.
+
+
+    It is not necessary that you end up using them in your code now. But I guess understanding
+    how these things work helps mitigate some of the confusion and panic one faces
+    whenever'
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: '# USE ITERTOOLS, GENERATORS, AND GENERATOR EXPRESSIONS
+
+
+    these constructs come up.'
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: '# 5
+
+
+    # How and Why to use f strings in Python3?
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_41_0.png)'
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: 'Python provides us with many styles of coding. And with time, Python has regularly
+    come up with new coding standards and tools that adhere even more to the coding
+    standards in the Zen of Python.
+
+
+    > Beautiful is better than ugly.
+
+
+    And so this chapter is **about using f strings in Python that was introduced in
+    Python 3.6.**
+
+
+    * * *
+
+
+    # 3 Common Ways of Printing:
+
+
+    Let me explain this with a simple example. Suppose you have some variables, and
+    you want to print them within a statement.
+
+
+    ```
+
+    name = ''Andy''
+
+    age = 20
+
+    print(?)
+
+    ------------------------------------------------------------
+
+    Output: I am Andy. I am 20 years old
+
+    ```
+
+
+    You can do this in various ways:
+
+    **a) Concatenate:** A very naive way to do is to simply use + for concatenation
+    within the print function. But that is clumsy. We would need to convert our numeric
+    variables to string and keep care of the spaces while concatenating. And it doesn''t
+    look good'
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: 'as the code readability suffers a little when we use it.
+
+
+    ```
+
+    name = ''Andy''
+
+    age = 20
+
+    print("I am " + name + ". I am " + str(age) + " years old")
+
+    -----------------------------------------------
+
+    I am Andy. I am 20 years old
+
+    ```
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_43_0.png)
+
+
+    b) % Format: The second option is to use % formatting. But it also has its problems.
+    For one, it is not readable. You would need to look at the first %s and try to
+    find the corresponding variable in the list at the end. And imagine if you have
+    a long list of variables that you may want to print.
+
+
+    ```
+
+    print("I am %s. I am %s years old" % (name, age))
+
+    ```'
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: '# HOW AND WHY TO USE F STRINGS IN PYTHON3?
+
+
+    **c) str.format():** Next comes the way that has been used in most Python 3 codes
+    and has become the standard of printing in Python. Using str.format()
+
+
+    ```
+
+    print("I am {}. I am {} years old".format(name, age))
+
+    ```
+
+
+    Here we use {} to denote the placeholder of the object in the list. It still has
+    the same problem of readability, but we can also use str.format :
+
+
+    ```
+
+    print("I am {name}. I am {age} years old".format(name = name, age = age))
+
+    ```
+
+
+    If this seems a little too repetitive, we can use dictionaries too:
+
+
+    ```
+
+    data = {''name'':''Andy'', ''age'':20}
+
+    print("I am {name}. I am {age} years old".format(**data))
+
+    ```
+
+
+    * * *
+
+
+    # The Fourth Way with f'
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: '# ADVANCED PYTHON TIPS
+
+
+    ![](img/754e520429142dbf037b2b2434cf63fd_45_0.png)
+
+
+    Since Python 3.6, we have a new formatting option, which makes it even more trivial.
+    We could simply use:
+
+
+    ```
+
+    print(f"I am {name}. I am {age} years old")
+
+    ```
+
+
+    We just append f at the start of the string and use {} to include our variable
+    name, and we get the required results.
+
+    An added functionality that f string provides is that **we can put expressions**
+    in the {} brackets. For Example:
+
+
+    ```
+
+    num1 = 4
+
+    num2 = 5
+
+    print(f"The sum of {num1} and {num2} is {num1+num2}.")
+
+    ---------------------------------------------
+
+    The sum of 4 and 5 is 9.
+
+    ```
+
+
+    This is quite useful as you can use any sort of expression inside these brackets.
+    ***The expression can contain dictionaries***'
+  merge: -1
+  pgno: 45
+- img_proc: true
+  md: "# HOW AND WHY TO USE F STRINGS IN PYTHON3?\n\n**or functions.** A simple example:\n\
+    \n```\ndef totalFruits(apples,oranges):\n    return apples+oranges\n\ndata = {'name':'Andy','age':20}\n\
+    \napples = 20\noranges = 30\n\nprint(f\"{data['name']} has {totalFruits(apples,oranges)}\
+    \ fruits\")\n-----------------------------------------------\nAndy has 50 fruits\n\
+    ```\n\nAlso, you can use ''' to use **multiline strings**.\n\n```\nnum1 = 4\n\
+    num2 = 5\nprint(f'''The sum of\n{num1} and\n{num2} is\n{num1+num2}.''')\n-----------------------------------------------\n\
+    The sum of\n4 and\n5 is\n9.\n```\n\nAn everyday use case while formatting strings\
+    \ is to **format floats**. You can do that using f string as following\n\n```\n\
+    numFloat = 10.23456678\nprint(f'Printing Float with 2 decimals: {numFloat:.2f}')\n\
+    ```"
+  merge: -1
+  pgno: 46
+- img_proc: true
+  md: '```
+
+    --------------------------------------------------
+
+    Printing Float with 2 decimals: 10.23
+
+    ```
+
+
+    * * *
+
+
+    # Conclusion
+
+
+    Until recently, I had been using Python 2 for all my work, and so was not able
+    to check out this new feature. But now, as I am shifting to Python 3, f strings
+    has become my go-to syntax to format strings. It is easy to write and read with
+    the ability to incorporate arbitrary expressions as well. In a way, this new function
+    adheres to at least 3 PEP concepts —
+
+
+    > Beautiful is better than ugly, Simple is better than complex and Readability
+    counts.'
+  merge: -1
+  pgno: 47
+- img_proc: true
+  md: '# Afterword
+
+
+    This is just a brief overview of a few of the functionalities in Python. I tried
+    to make them as beginner-friendly as possible without going too much into terminologies.
+    Let me know what you think of this short book on Twitter @mlwhiz.
+
+
+    I am still going to write more about new functionalities in Python. Follow me
+    up at **Medium**. As always, I welcome feedback and constructive criticism and
+    can be reached on Twitter @mlwhiz.
+
+
+    Also if you want to learn more about Python 3, I would like to call out an excellent
+    course on Learn [Intermediate level Python](https://www.coursera.org/learn/intermediate-python)
+    from the University of Michigan. Do check it out.
+
+
+    This book is distributed as free to read/pay as you want. If you like it, I would
+    appreciate it if you could [buy](https://gumroad.com/l/mlwhiz) the paid version
+    here.'
+  merge: -1
+  pgno: 48
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 49
+toc:
+- - '#'
+  - 轻松讲解
+- - '##'
+  - 高级Python技巧
+- - '##'
+  - 目录
+- - '##'
+  - 关于我
+- - '##'
+  - 引言
+- - '##'
+  - 1 在Python中最小化for循环的使用
+- - '###'
+  - 那么if-else呢？
+- - '###'
+  - 尝试使用字典推导式
+- - '###'
+  - 结论
+- - '##'
+  - 2 Python 的 defaultdict 和 Counter
+- - '###'
+  - 统计字符
+- - '###'
+  - 统计列表元素
+- - '###'
+  - 那么，为什么还要使用 defaultdict？
+- - '###'
+  - 结论
+- - '##'
+  - 3 面向数据科学家的 *args、**kwargs 和装饰器
+- - '###'
+  - seaborn.scatterplot
+- - '###'
+  - 什么是 *args？
+- - '###'
+  - 什么是 **kwargs？
+- - '###'
+  - 什么是装饰器？
+- - '###'
+  - 一个简单的例子：
+- - '###'
+  - 但是，我们能做得更好吗？
+- - '###'
+  - 将所有部分连接起来
+- - '###'
+  - 结论
+- - '##'
+  - 4 使用 Itertools、生成器和生成器表达式
+- - '###'
+  - 迭代器解决方案
+- - '###'
+  - 生成器解决方案
+- - '###'
+  - 生成器表达式解决方案
+- - '###'
+  - 使用迭代器、生成器和生成器表达式
+- - '###'
+  - Python 不是很美吗？
+- - '###'
+  - 结论
+- - '##'
+  - 5 在 Python3 中如何以及为何使用 f 字符串？
+- - '###'
+  - 三种常见的打印方式：
+- - '###'
+  - 使用 f 的第四种方式
+- - '###'
+  - 结论
+- - '##'
+  - 后记
