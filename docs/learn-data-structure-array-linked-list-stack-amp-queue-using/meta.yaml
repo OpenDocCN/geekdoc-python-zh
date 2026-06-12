@@ -1,0 +1,2479 @@
+groups:
+- md: "First Edition\n\n## LEARN DATA STRUCTURE ARRAY LINKED LIST STACK QUEUE USING\
+    \ PYTHON IN 5 MINUTES\n\nS. BASU\n\nCopyright © 2021 S Basu\nAll rights reserved.\n\
+    \n## Disclaimer:\n\nThe information and materials presented here are for educational\
+    \ purposes only. Every effort has been made to make this book as complete and\
+    \ as accurate as possible but no warranty or fitness is implied. The information\
+    \ provided is on an \"as is\" basis. The ideas and opinions expressed are of the\
+    \ author's own imagination and the author is not affiliated to any organization,\
+    \ school or educational discipline and will not be held accountable or liable\
+    \ for any inadvertent misrepresentation.\n\n## Contents\n\n- Chapter 1 : Few Important\
+    \ Python Basics\n    - 1.1 : What is a Python module?\n    - 1.2 : What is a Python\
+    \ function?\n    - 1.3 : What is a Python class?\n- Chapter 2 : Array\n- Chapter\
+    \ 3 : Linked List\n    - 3.1 : Creating a Linked List & displaying its values\n\
+    \    - 3.2 : Insert a node in the beginning of the Linked List\n    - 3.3 : Insert\
+    \ a node in the middle of the Linked List\n    - 3.4 : Insert a node at the end\
+    \ of the Linked List\n    - 3.5 : Deletion\n    - 3.6 : Types of Linked List\n\
+    \    - 3.7 : Difference between a Array and a Linked List\n- Chapter 4 : Stack\n\
+    - Chapter 5 : Queue\n\n## Chapter 1 : Few Important Python Basics\n\nBefore we\
+    \ start learning about data structure related topics like linked list, array,\
+    \ stack and queue, we first need to get an understanding about a few python basics\
+    \ like how to create a python module, run a python code and what is a python function\
+    \ or a python class.\n\nSo let us first review these python topics.\n\n### 1.1\
+    \ : What is a Python module?\n\n- Python module is a Python file that contains\
+    \ functions, classes, and variables that group a logical functionality together.\n\
+    - Modules can be **imported** for use in code.\n\nLet’s create a simple Python\
+    \ file or module,\n\n- Open **Notepad++** and create a new file (*hello_world*)\
+    \ and save the file with `.py` extension\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_5_0.png)\n\
+    \nInside ***hello_world.py*** file, write one line of code:\n\n```\nprint(\"Hello\
+    \ World\")\n```\n\n> **What is print( ) function in Python?**\n\n**print( )**\
+    \ function displays the output to the screen\n\nNow let's run the above piece\
+    \ of code.\nOpen command prompt -> Go to the **hello_world.py** file location\
+    \ and type the following command:\n**python** *file_name* **.py**\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_6_0.png)\n\
+    \nThe output displays\n\n- Now let's create another Python file and name it **test.py**\n\
+    \n![](img/591d9c11b694572e0eabb212be0ec9cf_6_1.png)\n\nIn **test.py** file, simply\
+    \ **import** the **hello_world** module created above.\n\n```\nimport hello_world\n\
+    ```\n\nNow run this file.\nOpen command prompt -> Go to the **test.py** file location\
+    \ and write the following command:\n**python test.py**\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_7_0.png)\n\
+    \nWe see that the **test** module prints out “*Hello World*” output from **hello_world**\
+    \ module.\n\n> **What is import statement in Python?**\n\n**import** statement\
+    \ in Python allows a Python file or module to access all the codes present in\
+    \ another Python file or module.\n\n### 1.2 : What is a Python function?\n\nPython\
+    \ Functions are just like Java methods. It is a block of codes performing certain\
+    \ task.\n\nSyntax:\n\n```\ndef function_name() :\n    ....... \n```\n\n### Example:\n\
+    \n```\nusername = \"John123\"\ndef validate_username(uname):\n    if uname ==\
+    \ \"John123\":\n        print(\"Hello John\")\n    else:\n        print(\"Wrong\
+    \ username\")\nvalidate_username(username)\n```\n\n### Code Explanation:\n\n-\
+    \ In the above piece of code, we created a **function validate_username** with\
+    \ parameter **uname**. If the argument is \"*John123*\", the **function** prints\
+    \ \"*Hello John*\" or else it will print \"*Wrong username*\".\n- To call any\
+    \ function, we simply have to write the function name followed by parenthesis.\
+    \ Within that parenthesis, we passed the value of **username** which is \"*John123*\"\
+    \n\n### Output\n\n```\nC:\\Users\\...\\Python_script>functions.py\nHello John\n\
+    ```\n\n> **Difference between parameter and argument**\n\nParameter is the variable\
+    \ passed to a **function**. Example:\n\n**function** *function_name* ( *variable1*\
+    \ , *variable2* ) :\n\n> Argument is the **value** assigned to the variables.\
+    \ Example:\n*function_name* ( 123, \"Hello_World\" )\n\n### 1.3 : What is a Python\
+    \ class?\n\n- Python is an **object oriented programming language**.\n- A **class**\
+    \ is a “blueprint” for creating an **object** and like any other programming language\
+    \ Python **class** contains attributes and methods.\n- Python **object** contains\
+    \ the copy of all attributes and methods present within its **class**. To access\
+    \ those properties **dot** operator ( . ) is used.\n    - The syntax for creating\
+    \ a **class** is:\n\n```python\nclass class_name :\n    def __init__(self) :\n\
+    \        ....\n    def method1 :\n        ....\n```\n\nThe syntax for creating\
+    \ an **object** of a **class** is:\n\n```python\nclass Hello :\n    def __init__(self)\
+    \ :\n        ................\n        ............\n```\n\n*h = Hello()* , where\
+    \ **h** is the **object** of **class** *Hello*.\n\n> **What is def __init__ (self)?**\n\
+    \n\"__init__\" is a reserved method in **Python** classes initializing the **object**'s\
+    \ state. In Object Oriented concepts, it refers to the **constructor** of the\
+    \ **class**. This method initializes the attributes of a **class** when an **object**\
+    \ is created.\n\n**self** keyword helps to access the attributes of the class.\n\
+    \n### **Example:**\n\n```\nclass Employee:\n    def __init__(self,id_num,name,age,address,salary):\n\
+    \        self.id_num = id_num\n        self.name = name\n        self.age = age\n\
+    \        self.address = address\n        self.salary = salary\n    def validation(self):\n\
+    \        if (str(self.id_num) == \"123\" and self.name ==\"John\"):\n        \
+    \    print(\"This is Jon and his age is\",self.age,\n            \",his address\
+    \ is\",self.address,\n            \"and his salary is\", self.salary)\n      \
+    \  else:\n            print(\"Not John\")\ne = Employee(123,\"John\",25,\"Texas\"\
+    ,1000)\ne.validation()\n```\n\n### **Output**\n\n```\nC:\\Users\\Pinky\\Desktop\\\
+    Python_script>classes.py\nThis is Jon and his age is 25 ,his address is Texas\
+    \ and his salary is 1000\n```\n\n**Important points to note from the above piece\
+    \ of code are:**\n\n1. A Python **Class** name should start with a capital letter.\n\
+    2. Within the **__init__** method we declared different attributes of our **class\
+    \ Employee** and passed those values to **self**.\n3. In our **validation()**\
+    \ method we pass the argument **self** which helps to access all the attributes\
+    \ of the **class Employee**.\n4. **str()** function helps to convert an integer\
+    \ value to a string value.\n5. **and** keyword is the **logical and operator**\
+    \ in Python.\n6. In **line 15** of the above code, we created an **object e**\
+    \ and passed values into it.\n\n## Chapter 2 : Array\n\nAn Array is a collection\
+    \ of items or elements all having the same datatypes. An element from an array\
+    \ can only be accessed from its index value. Example: Let’s create an array of\
+    \ cars.\n\n```\ncars = [\"Kia\", \"Toyota\", \"Ford\", \"Tesla\"]\n```\n\n| Index\
+    \ | 0 | 1 | 2 | 3 |\n|---|---|---|---|---|\n| Value | Kia | Toyota | Ford | Tesla\
+    \ |\n\nIn order to get the value **Ford** as output, we need to write `print (\
+    \ cars [ 2 ] )`\n\n- In Python, a **List** is very similar to an **Array**. It\
+    \ contains a list of elements separated by commas and its elements are written\
+    \ with square brackets [ .... ].\n- A value from a **List** can be accessed from\
+    \ its index value and the syntax is.\n\n```\nList_name [ index_num ]\n```\n\n\
+    **Example:**\nCreate a new Python file (**variables.py**) and write the following\
+    \ lines of code:\n\n```\nfruits = [\"apple\",\"orange\",\"banana\",\"mango\",\"\
+    strawberry\",\"peaches\"]\nx = \"this apple is tasty\"\nprint(len(fruits))\nprint(fruits[2:4])\n\
+    print(x[2:8])\n```\n\nAfter running the above piece of code, we get an output\
+    \ of:\n\n```\nC:\\Users\\...\\Desktop\\Python_script>variables.py\n6\n['banana',\
+    \ 'mango']\nis app\n```\n\n### Code explanation:\n\n- In the above piece of code,\
+    \ **fruits** is a **List** containing 6 elements. The value at position 0 is \"\
+    apple\", at position 1 is \"orange\" and so on.\n- **x** is a variable holding\
+    \ a string value. The value at position 0 is \"t\", at position 1 is \"h\" and\
+    \ so on.\n- **len()** function is used to get the length of the list.\n- In Line\
+    \ 4 and 5 we are performing **Slicing operation**.\n    - **print ( fruits [ 2\
+    \ : 4] )** means print elements from position 2 (including its value) to position\
+    \ 4 (excluding its value).\n    - **print ( x [ 2 : 8 ] )** means print the values\
+    \ of **x** (\"this apple is tasty\") from position 2 (including its value) to\
+    \ position 8 (excluding its value).\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_13_0.png)\n\
+    \n**Output:** ['banana', 'mango']"
+  mdcn: "第一版\n\n## 5分钟内使用Python学习数据结构：数组、链表、栈、队列\n\nS. BASU\n\n版权所有 © 2021 S Basu\n\
+    保留所有权利。\n\n## 免责声明：\n\n此处提供的信息和材料仅供教育用途。我们已尽一切努力确保本书尽可能完整和准确，但不提供任何明示或暗示的保证或适用性。所提供的信息按“原样”基础提供。所表达的观点和意见均为作者个人想象，作者与任何组织、学校或教育机构无关，且不对任何无意的错误陈述承担责任。\n\
+    \n## 目录\n\n- 第1章：几个重要的Python基础\n    - 1.1：什么是Python模块？\n    - 1.2：什么是Python函数？\n\
+    \    - 1.3：什么是Python类？\n- 第2章：数组\n- 第3章：链表\n    - 3.1：创建链表并显示其值\n    - 3.2：在链表开头插入节点\n\
+    \    - 3.3：在链表中间插入节点\n    - 3.4：在链表末尾插入节点\n    - 3.5：删除操作\n    - 3.6：链表的类型\n \
+    \   - 3.7：数组与链表的区别\n- 第4章：栈\n- 第5章：队列\n\n## 第1章：几个重要的Python基础\n\n在开始学习与数据结构相关的主题（如链表、数组、栈和队列）之前，我们首先需要了解一些Python基础知识，例如如何创建Python模块、运行Python代码，以及什么是Python函数或Python类。\n\
+    \n因此，让我们先回顾这些Python主题。\n\n### 1.1：什么是Python模块？\n\n- Python模块是一个Python文件，其中包含将逻辑功能组合在一起的函数、类和变量。\n\
+    - 模块可以被**导入**以在代码中使用。\n\n让我们创建一个简单的Python文件或模块，\n\n- 打开**Notepad++**并创建一个新文件（*hello_world*），并将文件保存为`.py`扩展名\n\
+    \n![](img/591d9c11b694572e0eabb212be0ec9cf_5_0.png)\n\n在***hello_world.py***文件中，编写一行代码：\n\
+    \n```\nprint(\"Hello World\")\n```\n\n> **Python中的print( )函数是什么？**\n\n**print(\
+    \ )**函数将输出显示到屏幕上\n\n现在让我们运行上面的代码。\n打开命令提示符 -> 转到**hello_world.py**文件位置并输入以下命令：\n\
+    **python** *file_name* **.py**\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_6_0.png)\n\
+    \n输出显示\n\n- 现在让我们创建另一个Python文件并将其命名为**test.py**\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_6_1.png)\n\
+    \n在**test.py**文件中，只需**导入**上面创建的**hello_world**模块。\n\n```\nimport hello_world\n\
+    ```\n\n现在运行此文件。\n打开命令提示符 -> 转到**test.py**文件位置并输入以下命令：\n**python test.py**\n\n\
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_7_0.png)\n\n我们看到**test**模块打印出了来自**hello_world**模块的“*Hello\
+    \ World*”输出。\n\n> **Python中的import语句是什么？**\n\nPython中的**import**语句允许一个Python文件或模块访问另一个Python文件或模块中存在的所有代码。\n\
+    \n### 1.2：什么是Python函数？\n\nPython函数类似于Java方法。它是一个执行特定任务的代码块。\n\n语法：\n\n```\ndef\
+    \ function_name() :\n    ....... \n```\n\n### 示例：\n\n```\nusername = \"John123\"\
+    \ndef validate_username(uname):\n    if uname == \"John123\":\n        print(\"\
+    Hello John\")\n    else:\n        print(\"Wrong username\")\nvalidate_username(username)\n\
+    ```\n\n### 代码解释：\n\n- 在上面的代码中，我们创建了一个带参数**uname**的**函数validate_username**。如果参数是“*John123*”，**函数**打印“*Hello\
+    \ John*”，否则将打印“*Wrong username*”。\n- 要调用任何函数，我们只需编写函数名后跟括号。在该括号内，我们传递了**username**的值，即“*John123*”\n\
+    \n### 输出\n\n```\nC:\\Users\\...\\Python_script>functions.py\nHello John\n```\n\
+    \n> **参数与实参的区别**\n\n参数是传递给**函数**的变量。示例：\n\n**function** *function_name* ( *variable1*\
+    \ , *variable2* ) :\n\n> 实参是分配给变量的**值**。示例：\n*function_name* ( 123, \"Hello_World\"\
+    \ )\n\n### 1.3：什么是Python类？\n\n- Python是一种**面向对象的编程语言**。\n- **类**是创建**对象**的“蓝图”，与任何其他编程语言一样，Python**类**包含属性和方法。\n\
+    - Python**对象**包含其**类**中存在的所有属性和方法的副本。要访问这些属性，使用**点**运算符（.）。\n    - 创建**类**的语法是：\n\
+    \n```python\nclass class_name :\n    def __init__(self) :\n        ....\n    def\
+    \ method1 :\n        ....\n```\n\n创建**类**的**对象**的语法是：\n\n```python\nclass Hello\
+    \ :\n    def __init__(self) :\n        ................\n        ............\n\
+    ```\n\n*h = Hello()*，其中**h**是**类***Hello*的**对象**。\n\n> **什么是def __init__ (self)？**\n\
+    \n“__init__”是**Python**类中的一个保留方法，用于初始化**对象**的状态。在面向对象的概念中，它指的是**类**的**构造函数**。此方法在创建**对象**时初始化**类**的属性。\n\
+    \n**self**关键字有助于访问类的属性。\n\n### **示例：**\n\n```\nclass Employee:\n    def __init__(self,id_num,name,age,address,salary):\n\
+    \        self.id_num = id_num\n        self.name = name\n        self.age = age\n\
+    \        self.address = address\n        self.salary = salary\n    def validation(self):\n\
+    \        if (str(self.id_num) == \"123\" and self.name ==\"John\"):\n        \
+    \    print(\"This is Jon and his age is\",self.age,\n            \",his address\
+    \ is\",self.address,\n            \"and his salary is\", self.salary)\n      \
+    \  else:\n            print(\"Not John\")\ne = Employee(123,\"John\",25,\"Texas\"\
+    ,1000)\ne.validation()\n```\n\n### **输出**\n\n```\nC:\\Users\\Pinky\\Desktop\\\
+    Python_script>classes.py\nThis is Jon and his age is 25 ,his address is Texas\
+    \ and his salary is 1000\n```\n\n**从上面的代码中需要注意的重要点：**\n\n1. Python**类**名应以大写字母开头。\n\
+    2. 在**__init__**方法中，我们声明了**类Employee**的不同属性，并将这些值传递给**self**。\n3. 在我们的**validation()**方法中，我们传递了参数**self**，它有助于访问**类Employee**的所有属性。\n\
+    4. **str()**函数有助于将整数值转换为字符串值。\n5. **and**关键字是Python中的**逻辑与运算符**。\n6. 在上面代码的**第15行**，我们创建了一个**对象e**并向其传递了值。\n\
+    \n## 第2章：数组\n\n数组是具有相同数据类型的项目或元素的集合。数组中的元素只能通过其索引值访问。示例：让我们创建一个汽车数组。\n\n```\n\
+    cars = [\"Kia\", \"Toyota\", \"Ford\", \"Tesla\"]\n```\n\n| 索引 | 0 | 1 | 2 | 3\
+    \ |\n|---|---|---|---|---|\n| 值 | Kia | Toyota | Ford | Tesla |\n\n为了获得**Ford**作为输出，我们需要编写`print\
+    \ ( cars [ 2 ] )`\n\n- 在Python中，**列表**与**数组**非常相似。它包含由逗号分隔的元素列表，其元素用方括号[ ....\
+    \ ]编写。\n- **列表**中的值可以通过其索引值访问，语法是。\n\n```\nList_name [ index_num ]\n```\n\n**示例：**\n\
+    创建一个新的Python文件（**variables.py**）并编写以下代码：\n\n```\nfruits = [\"apple\",\"orange\"\
+    ,\"banana\",\"mango\",\"strawberry\",\"peaches\"]\nx = \"this apple is tasty\"\
+    \nprint(len(fruits))\nprint(fruits[2:4])\nprint(x[2:8])\n```\n\n运行上面的代码后，我们得到输出：\n\
+    \n```\nC:\\Users\\...\\Desktop\\Python_script>variables.py\n6\n['banana', 'mango']\n\
+    is app\n```\n\n### 代码解释：\n\n- 在上面的代码中，**fruits**是一个包含6个元素的**列表**。位置0的值是“apple”，位置1的值是“orange”，依此类推。\n\
+    - **x**是一个保存字符串值的变量。位置0的值是“t”，位置1的值是“h”，依此类推。\n- **len()**函数用于获取列表的长度。\n- 在第4行和第5行，我们执行**切片操作**。\n\
+    \    - **print ( fruits [ 2 : 4] )**表示打印从位置2（包括其值）到位置4（不包括其值）的元素。\n    - **print\
+    \ ( x [ 2 : 8 ] )**表示打印**x**（“this apple is tasty”）从位置2（包括其值）到位置8（不包括其值）的值。\n\n\
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_13_0.png)\n\n**输出：** ['banana', 'mango']"
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    First Edition
+
+
+    # LEARN DATA STRUCTURE ARRAY LINKED LIST STACK QUEUE USING PYTHON IN 5 MINUTES
+
+
+    S. BASU'
+  - '[PAGE 1]
+
+
+    First Edition
+
+
+    # LEARN DATA STRUCTURE ARRAY LINKED LIST STACK QUEUE USING PYTHON IN 5 MINUTES
+
+
+    S. BASU'
+  - '[PAGE 2]
+
+
+    # LEARN DATA STRUCTURE LINKED LIST ARRAY STACK QUEUE USING PYTHON IN 5 MINUTES
+
+
+    Copyright © 2021 S Basu
+
+    All rights reserved.'
+  - '[PAGE 3]
+
+
+    # Disclaimer:
+
+
+    The information and materials presented here are for educational purposes only.
+    Every effort has been made to make this book as complete and as accurate as possible
+    but no warranty or fitness is implied. The information provided is on an "as is"
+    basis. The ideas and opinions expressed are of the author''s own imagination and
+    the author is not affiliated to any organization, school or educational discipline
+    and will not be held accountable or liable for any inadvertent misrepresentation.'
+  - "[PAGE 4]\n\n# Contents\n\n+   - Chapter 1 : Few Important Python Basics\n   \
+    \ - 1.1 : What is a Python module?\n    - 1.2 : What is a Python function?\n \
+    \   - 1.3 : What is a Python class?\n- Chapter 2 : Array\n- Chapter 3 : Linked\
+    \ List\n    - 3.1 : Creating a Linked List & displaying its values\n    - 3.2\
+    \ : Insert a node in the beginning of the Linked List\n    - 3.3 : Insert a node\
+    \ in the middle of the Linked List\n    - 3.4 : Insert a node at the end of the\
+    \ Linked List\n    - 3.5 : Deletion\n    - 3.6 : Types of Linked List\n    - 3.7\
+    \ : Difference between a Array and a Linked List\n- Chapter 4 : Stack\n- Chapter\
+    \ 5 : Queue"
+  - '[PAGE 5]
+
+
+    # Chapter 1 : Few Important Python Basics
+
+
+    Before we start learning about data structure related topics like linked list,
+    array, stack and queue, we first need to get an understanding about a few python
+    basics like how to create a python module, run a python code and what is a python
+    function or a python class.
+
+
+    So let us first review these python topics.
+
+
+    # 1.1 : What is a Python module?
+
+
+    +   - Python module is a Python file that contains functions, classes, and variables
+    that group a logical functionality together.
+
+    - Modules can be **imported** for use in code.
+
+
+    Let’s create a simple Python file or module,
+
+
+    +   - Open **Notepad++** and create a new file (*hello_world* ) and save the file
+    with `.py` extension
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_5_0.png)
+
+
+    Inside ***hello_world.py*** file, write one line of code:'
+  - '[PAGE 6]
+
+
+    ```
+
+    1 print("Hello World")
+
+    ```
+
+
+    > **What is print( ) function in Python?**
+
+
+    **print( )** function displays the output to the screen
+
+
+    Now let''s run the above piece of code.
+
+    Open command prompt -> Go to the **hello_world.py** file location and type the
+    following command:
+
+    **python** *file_name* **.py**
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_6_0.png)
+
+
+    The output displays
+
+
+    +   - Now let''s create another Python file and name it **test.py**
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_6_1.png)
+
+
+    In **test.py** file, simply **import** the **hello_world** module created above.'
+  - "[PAGE 7]\n\n```\n1 import hello_world\n2 \n3 \n4 \n5 \n```\n\nNow run this file.\n\
+    Open command prompt -> Go to the **test.py** file location and write the following\
+    \ command:\n**python test .py**\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_7_0.png)\n\
+    \nWe see that the **test** module prints out “*Hello World* ” output from **hello_world**\
+    \ module.\n\n> **What is import statement in Python?**\n\n**import** statement\
+    \ in Python allows a Python file or module to access all the codes present in\
+    \ another Python file or module.\n\n# 1.2 : What is a Python function?\n\nPython\
+    \ Functions are just like Java methods. It is a block of codes performing certain\
+    \ task.\n\nSyntax:"
+  - "[PAGE 8]\n\n```\ndef function_name() :\n    ....... \n```\n\n# Example:\n\n```\n\
+    1  username = \"John123\"\n2  def validate_username(uname):\n3      if uname ==\
+    \ \"John123\":\n4          print(\"Hello John\")\n5      else:\n6          print(\"\
+    Wrong username\")\n7  validate_username(username)\n```\n\n# Code Explanation:\n\
+    \n+   - In the above piece of code, we created a **function validate_username**\
+    \ with parameter **uname**. If the argument is \"*John123* \", the **function**\
+    \ prints \"*Hello John* \" or else it will print \"*Wrong username* \".\n- To\
+    \ call any function, we simply have to write the function name followed by parenthesis\
+    \ . Within that parenthesis, we passed the value of **username** which is \"*John123*\
+    \ \"\n\n# Output\n\n```\nC:\\Users\\...\\Python_script>functions.py\nHello John\n\
+    ```\n\n> **Difference between parameter and argument**\n\nParameter is the variable\
+    \ passed to a **function** . Example:\n\n**function** *function_name* ( *variable1*\
+    \ , *variable2* ) :"
+  - "[PAGE 9]\n\n> Argument is the **value** assigned to the variables. Example:\n\
+    *function_name* ( 123, \"Hello_World\" )\n\n# 1.3 : What is a Python class?\n\n\
+    +   - Python is an **object oriented programming language** .\n- A **class** is\
+    \ a “blueprint” for creating an **object** and like any other programming language\
+    \ Python **class** contains attributes and methods.\n- Python **object** contains\
+    \ the copy of all attributes and methods present within its **class**. To access\
+    \ those properties **dot** operator ( . ) is used.\n    - The syntax for creating\
+    \ a **class** is:\n\npython\nclass class_name :\ndef __init__(self) :\n....\n\
+    def method1 :\n....\n\n\nThe syntax for creating an **object** of a **class**\
+    \ is:\n\npython\nclass Hello :\ndef __init__(self) :\n................\n............\n\
+    \n\n*h = Hello()* , where **h** is the **object** of **class** *Hello* .\n\n>\
+    \ **What is def __init__ (self)?**\n\n\"__init__\" is a reserved method in **Python**\
+    \ classes initializing the **object** 's state. In Object Oriented concepts, it\
+    \ refers to the"
+  - '[PAGE 10]
+
+
+    **constructor** of the **class** . This method initializes the attributes of a
+    **class** when an **object** is created.
+
+
+    **self** keyword helps to access the attributes of the class.
+
+
+    # **Example:**
+
+
+    ```
+
+    1  class Employee:
+
+    2      def __init__(self,id_num,name,age,address,salary):
+
+    3          self.id_num = id_num
+
+    4          self.name = name
+
+    5          self.age = age
+
+    6          self.address = address
+
+    7          self.salary = salary
+
+    8      def validation(self):
+
+    9          if (str(self.id_num) == "123" and self.name =="John"):
+
+    10             print("This is Jon and his age is",self.age,
+
+    11             ",his address is",self.address,
+
+    12             "and his salary is", self.salary)
+
+    13         else:
+
+    14             print("Not John")
+
+    15 e = Employee(123,"John",25,"Texas",1000)
+
+    16 e.validation()
+
+    ```
+
+
+    # **Output**
+
+
+    ```
+
+    C:\Users\Pinky\Desktop\Python_script>classes.py
+
+    This is Jon and his age is 25 ,his address is Texas and his salary is 1000
+
+    ```
+
+
+    **Important points to note from the above piece of code are:**
+
+
+    +   1. A Python **Class** name should start with a capital letter.
+
+    2. Within the **__init__** method we declared different attributes of our **class
+    Employee** and passed those values to **self** .'
+  - '[PAGE 11]
+
+
+    *id_num* , *self* . *name* and so on.
+
+
+    +   3. In our **validation ( )** method we pass the argument **self** which helps
+    to access all the attributes of the **class *Employee*** .
+
+
+    +   4. **str( )** function helps to convert an integer value to a string value.
+
+
+    +   5. **and** keyword is the **logical and operator** in Python.
+
+
+    +   6. In **line 15** of the above code, we created an **object e** and passed
+    values into it.'
+  - '[PAGE 12]
+
+
+    # Chapter 2 : Array
+
+
+    An Array is a collection of items or elements all having the same datatypes. An
+    element from an array can only be accessed from its index value. Example: Let’s
+    create an array of cars.
+
+
+    ```
+
+    cars = [“Kia”, “Toyota”, “Ford”, “Tesla”]
+
+    ```
+
+
+    | Index | 0 | 1 | 2 | 3 |
+
+    |---|---|---|---|---|
+
+    | Value | Kia | Toyota | Ford | Tesla |
+
+
+    In order to get the value **Ford** as output, we need to write `print ( cars [
+    2 ] )`
+
+
+    +   - In Python, a **List** is very similar to an **Array** . It contains a list
+    of elements separated by commas and its elements are written with square brackets
+    [ .... ] .
+
+    - A value from a **List** can be accessed from its index value and the syntax
+    is.
+
+
+    ```
+
+    List_name [ index_num ]
+
+    ```
+
+
+    **Example:**
+
+    Create a new Python file (**variables.py** ) and write the following lines of
+    code:'
+  - "[PAGE 13]\n\n```\n1 fruits = [\"apple\",\"orange\",\"banana\",\"mango\",\"strawberry\"\
+    ,\"peaches\"]\n2 x = \"this apple is tasty\"\n3 print(len(fruits))\n4 print(fruits[2:4])\n\
+    5 print(x[2:8])\n```\n\nAfter running the above piece of code, we get an output\
+    \ of:\n\n```\nC:\\Users\\...\\Desktop\\Python_script>variables.py\n6\n['banana',\
+    \ 'mango']\nis app\n```\n\n# Code explanation:\n\n+   - In the above piece of\
+    \ code, **fruits** is a **List** containing 6 elements. The value at position\
+    \ 0 is \"apple\", at position 1 is \"orange\" and so on.\n- **x** is a variable\
+    \ holding a string value. The value at position 0 is \"t\", at position 1 is \"\
+    h\" and so on.\n- **len( )** function is used to get the length of the list.\n\
+    - In Line 4 and 5 we are performing **Slicing operation**.\n    - **print ( fruits\
+    \ [ 2 : 4] )** means print elements from position 2 (including its value) to position\
+    \ 4 (excluding its value).\n    - **print ( x [ 2 : 8 ] )** means print the values\
+    \ of **x** (\"this apple is tasty\") from position 2 (including its value) to\
+    \ position 8 (excluding its value).\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_13_0.png)\n\
+    \n**Output:** ['banana', 'mango']"
+- md: "## Chapter 3 : Linked List\n\n- A Linked List is a **Linear Data Structure**\
+    \ which is a collection of data elements or **nodes**.\n- Each **node** contains\
+    \ a **data** and an **address** or **pointer** which points to the next **node**.\n\
+    - The first node is called the Head and the last node is called the Tail. The\
+    \ last node always points to NULL.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_16_0.png)\n\
+    \n> **What is data structure?**\n> Data structure is the process of organizing\
+    \ and storing the data.\n> It is classified into two types:\n> 1. **Linear Data\
+    \ Structure** – In this type of data structure, the data elements are arranged\
+    \ in a linear sequential order, but it is not compulsory to store the elements\
+    \ sequentially. Example: Array, Linked List, Stacks & Queue.\n> 2. **Non-Linear\
+    \ Data Structure** – In this type of data structure, the data elements are arranged\
+    \ in a non-linear order. Example: Tree and graphs.\n\nLet's code..\n\n### 3.1\
+    \ : Creating a Linked List & displaying its values\n\nOpen **Notepad++** and create\
+    \ a new **python** file and name it ***linked_list.py*** and write the following\
+    \ lines of code.\n\n```python\nclass Node():\n    def __init__(self,value):\n\
+    \        self.value = value\n        self.next = None\n```\n\nIn the above piece\
+    \ of code, we simply created the **Node class** which contains two attributes,\
+    \ one is **value** or data of the linked list **node** and the other one is the\
+    \ ***next*** **pointer** which points to the next **node** of the linked list.\n\
+    For now the ***next*** **pointer** points to none.\n\nNow let's create the **Linked\
+    \ List class**\n\n```python\nclass Node():\n    def __init__(self,value):\n  \
+    \      self.value = value\n        self.next = None\n\nclass Linked_List():\n\
+    \    def __init__(self):\n        self.head = None\n```\n\nThe **Linked_List class**\
+    \ contains only one attribute **head** and for now the **head** is empty or **none**.\n\
+    \nThe image below shows the order in which we will create our linked list.\n\n\
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_18_0.png)\n\n```\nHead = n1\nn1.next\
+    \ = n2\nn2.next = n3\nn3 points to none or null\n```\n\n```python\nclass Node():\n\
+    \    def __init__(self,value):\n        self.value = value\n        self.next\
+    \ = None\n\nclass Linked_List():\n    def __init__(self):\n        self.head =\
+    \ None\n\ns = Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next\
+    \ = n3\ns.head.next = n2\nwhile s.head is not None:\n    print(s.head.value)\n\
+    \    s.head = s.head.next\n```\n\n### Code explanation:\n\n- In line 8, we created\
+    \ object **s** of **class Linked_List( )**.\n- In line 9, we created the first\
+    \ **node** of the linked list using **Node class** and assigned that node to **head**.\n\
+    \n**s.head** now act as an **object** of **class Node**\n\n- In line 10, we created\
+    \ the second **node** of the linked list.\n- In line 11, we created the third\
+    \ **node** of the linked list.\n- In line 12, we linked the second **node** and\
+    \ the third **node** using ***next*** attribute of **class Node**.\n- In line\
+    \ 13, we link the **head** with the second **node**.\n- From line 14 to line 16,\
+    \ using **while loop**, we display the values of each **node** of the linked list.\n\
+    \nNow let's save everything and run the python module.\n\nTo run the above piece\
+    \ of code,\nOpen command prompt -> navigate to the python file location and run\
+    \ using **python** command as shown in the screen shot below.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_20_0.png)\n\
+    \n### 3.2 : Insert a node in the beginning of the Linked List\n\nLet us suppose\
+    \ we want to assign a **node x** as the new **head** of the linked list as shown\
+    \ in the image below.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_21_0.png)\n\n\
+    In order to do this the following three steps are needed:\n\n1. **Step 1** : Move\
+    \ the existing linked list (*suppose linked list z* ) and store it in a temporary\
+    \ variable.\n2. **Step 2** : Create a new **node** and assign that **node** to\
+    \ the **head**.\n3. **Step 3** : Now link the new **head** with the existing linked\
+    \ list **z** with the help of *next* pointer.\n\nIn *linked_list.py* , add the\
+    \ following **function** in **class Linked_List** .\n\n```python\ndef add_beginning(self,newVal):\n\
+    \    temp = self.head\n    self.head = Node(newVal)\n    self.head.next = temp\n\
+    ```\n\nNow let's call the newly created **function** .\n\n```python\ns.head =\
+    \ Node(5)\n\nn2 = Node(6)\n\nn3 = Node(7)\n\nn2.next = n3\n\ns.head.next = n2\n\
+    \ns.add_beginning(4)\n\nwhile s.head is not None:\n    print(s.head.value)\n \
+    \   s.head = s.head.next\n```\n\nRun the above piece of code.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_22_0.png)\n\
+    \n**Time Complexity** : Since we know in which position we need to add the new\
+    \ **node** , so no iteration is required, hence the time complexity is **O(1)**\n\
+    \n> **What is Time Complexity and Big-O notation?**\n>\n> **Time complexity**\
+    \ denotes the amount of time taken by the code to execute.\n>\n> The **Big-O notation**\
+    \ is the growth rate of a **function** . It usually provides the upper limit on\
+    \ the growth rate of an algorithm or **function** .\n\n### 3.3 : Insert a node\
+    \ in the middle of the Linked List\n\nSuppose we want to insert a new node **x**\
+    \ after node **y** in the linked list as shown in the image below.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_23_0.png)\n\
+    \nIn order to do this the following two steps are needed:\n\n**Step 1:** Node\
+    \ **y** was previously pointing to **node a**. The **y node**'s *next* must be\
+    \ removed and assigned to **x node**'s *next* making **node x** point to **node\
+    \ a**.\n\n**Step 2:** **y node**'s *next* must point to **node x**.\n\nIn ***linked_list.py***,\
+    \ add the following **function** in class **Linked_List**.\n\n```python\ndef add_middle(self,\
+    \ node, newVal):\n    newNode = Node(newVal)\n    newNode.next = node.next\n \
+    \   node.next = newNode\n```\n\nNow let's call the newly created **function**.\n\
+    \n```python\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\ns.head.next\
+    \ = n2\ns.add_beginning(4)\ns.add_middle(6, 6.5)\nwhile s.head is not None:\n\
+    \    print(s.head.value)\n    s.head = s.head.next\n```\n\nRun the above piece\
+    \ of code.\n\n```\nC:\\Users\\...>python linked_List.py\n4\n5\n6\n6.5\n7\n```\n\
+    \n**Time Complexity** : In this case we have a reference **node** and know the\
+    \ position in which we are inserting the new **node** , so the time complexity\
+    \ is **O(1)**.\n\nIf we do not have a reference **node** and have to iterate through\
+    \ the linked list to insert a **node** , in that case the time complexity is **O(n)**\
+    \ , where **n** refers to the input size. For example, in a **list** , **n** refers\
+    \ to the number of elements.\n\n### 3.4 : Insert a node at the end of the Linked\
+    \ List\n\nSuppose we want to insert node **b** at the end of the linked list as\
+    \ shown in the image below.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_25_0.png)\n\
+    \nIn order to do this the following two steps are needed:\n\n**Step 1:** We need\
+    \ to loop through the **pointers** and reach the end of the linked list. Once\
+    \ the **pointer** *next* points to **none** , then stop the loop and return the\
+    \ last **node** **a** of the linked list.\n\n**Step 2:** Now make the last **node\
+    \ a** of the linked list point to the new **node b**\n\nIn *linked_list.py* ,\
+    \ add the following **function** in **class Linked_List** .\n\n```python\ndef\
+    \ add_end(self,newVal):\n    newNode = Node(newVal)\n    temp = self.head\n  \
+    \  while temp.next:\n        temp = temp.next\n    temp.next = newNode\n```\n\n\
+    Now let's call the newly created **function** ."
+  mdcn: "## 第三章：链表\n\n- 链表是一种**线性数据结构**，它由数据元素或**节点**组成。\n- 每个**节点**包含一个**数据**和一个**地址**或**指针**，该指针指向下一个**节点**。\n\
+    - 第一个节点称为头节点，最后一个节点称为尾节点。最后一个节点总是指向NULL。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_16_0.png)\n\
+    \n> **什么是数据结构？**\n> 数据结构是组织和存储数据的过程。\n> 它分为两种类型：\n> 1. **线性数据结构** – 在这种数据结构中，数据元素按线性顺序排列，但元素不一定必须按顺序存储。例如：数组、链表、栈和队列。\n\
+    > 2. **非线性数据结构** – 在这种数据结构中，数据元素按非线性顺序排列。例如：树和图。\n\n让我们开始编码吧。\n\n### 3.1：创建链表并显示其值\n\
+    \n打开 **Notepad++**，创建一个新的 **python** 文件，命名为 ***linked_list.py***，并编写以下代码。\n\n\
+    ```python\nclass Node():\n    def __init__(self,value):\n        self.value =\
+    \ value\n        self.next = None\n```\n\n在上面的代码中，我们简单地创建了 **Node 类**，它包含两个属性，一个是链表**节点**的**值**或数据，另一个是\
+    \ ***next*** **指针**，它指向链表的下一个**节点**。\n目前，***next*** **指针**指向 none。\n\n现在让我们创建\
+    \ **Linked List 类**\n\n```python\nclass Node():\n    def __init__(self,value):\n\
+    \        self.value = value\n        self.next = None\n\nclass Linked_List():\n\
+    \    def __init__(self):\n        self.head = None\n```\n\n**Linked_List 类**只包含一个属性\
+    \ **head**，目前 **head** 是空的或 **none**。\n\n下图显示了我们将创建链表的顺序。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_18_0.png)\n\
+    \n```\nHead = n1\nn1.next = n2\nn2.next = n3\nn3 points to none or null\n```\n\
+    \n```python\nclass Node():\n    def __init__(self,value):\n        self.value\
+    \ = value\n        self.next = None\n\nclass Linked_List():\n    def __init__(self):\n\
+    \        self.head = None\n\ns = Linked_List()\ns.head = Node(5)\nn2 = Node(6)\n\
+    n3 = Node(7)\nn2.next = n3\ns.head.next = n2\nwhile s.head is not None:\n    print(s.head.value)\n\
+    \    s.head = s.head.next\n```\n\n### 代码解释：\n\n- 在第 8 行，我们创建了 **Linked_List( )\
+    \ 类**的对象 **s**。\n- 在第 9 行，我们使用 **Node 类**创建了链表的第一个**节点**，并将该节点赋值给 **head**。\n\n\
+    **s.head** 现在充当 **Node 类**的一个**对象**。\n\n- 在第 10 行，我们创建了链表的第二个**节点**。\n- 在第 11\
+    \ 行，我们创建了链表的第三个**节点**。\n- 在第 12 行，我们使用 **Node 类**的 ***next*** 属性将第二个**节点**和第三个**节点**连接起来。\n\
+    - 在第 13 行，我们将 **head** 与第二个**节点**连接起来。\n- 从第 14 行到第 16 行，使用 **while 循环**，我们显示链表中每个**节点**的值。\n\
+    \n现在让我们保存所有内容并运行 python 模块。\n\n要运行上面的代码，\n打开命令提示符 -> 导航到 python 文件位置，并使用 **python**\
+    \ 命令运行，如下图所示。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_20_0.png)\n\n### 3.2：在链表开头插入一个节点\n\
+    \n假设我们想将一个**节点 x** 作为链表的新**头节点**，如下图所示。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_21_0.png)\n\
+    \n为了做到这一点，需要以下三个步骤：\n\n1. **步骤 1**：移动现有的链表（*假设为链表 z*）并将其存储在一个临时变量中。\n2. **步骤 2**：创建一个新的**节点**并将该**节点**赋值给\
+    \ **head**。\n3. **步骤 3**：现在借助 *next* 指针将新的**head**与现有的链表 **z** 连接起来。\n\n在 *linked_list.py*\
+    \ 中，在 **Linked_List 类**中添加以下**函数**。\n\n```python\ndef add_beginning(self,newVal):\n\
+    \    temp = self.head\n    self.head = Node(newVal)\n    self.head.next = temp\n\
+    ```\n\n现在让我们调用新创建的**函数**。\n\n```python\ns.head = Node(5)\n\nn2 = Node(6)\n\nn3\
+    \ = Node(7)\n\nn2.next = n3\n\ns.head.next = n2\n\ns.add_beginning(4)\n\nwhile\
+    \ s.head is not None:\n    print(s.head.value)\n    s.head = s.head.next\n```\n\
+    \n运行上面的代码。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_22_0.png)\n\n**时间复杂度**：由于我们知道需要在哪个位置添加新的**节点**，因此不需要迭代，所以时间复杂度是\
+    \ **O(1)**。\n\n> **什么是时间复杂度和大O表示法？**\n>\n> **时间复杂度**表示代码执行所需的时间量。\n>\n> **大O表示法**是**函数**的增长率。它通常提供算法或**函数**增长率的上限。\n\
+    \n### 3.3：在链表中间插入一个节点\n\n假设我们想在链表中节点 **y** 之后插入一个新节点 **x**，如下图所示。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_23_0.png)\n\
+    \n为了做到这一点，需要以下两个步骤：\n\n**步骤 1：** 节点 **y** 之前指向**节点 a**。必须移除 **y 节点**的 *next* 并将其赋值给\
+    \ **x 节点**的 *next*，使**节点 x** 指向**节点 a**。\n\n**步骤 2：** **y 节点**的 *next* 必须指向**节点\
+    \ x**。\n\n在 ***linked_list.py*** 中，在 **Linked_List 类**中添加以下**函数**。\n\n```python\n\
+    def add_middle(self, node, newVal):\n    newNode = Node(newVal)\n    newNode.next\
+    \ = node.next\n    node.next = newNode\n```\n\n现在让我们调用新创建的**函数**。\n\n```python\n\
+    s.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\ns.head.next = n2\n\
+    s.add_beginning(4)\ns.add_middle(6, 6.5)\nwhile s.head is not None:\n    print(s.head.value)\n\
+    \    s.head = s.head.next\n```\n\n运行上面的代码。\n\n```\nC:\\Users\\...>python linked_List.py\n\
+    4\n5\n6\n6.5\n7\n```\n\n**时间复杂度**：在这种情况下，我们有一个参考**节点**，并且知道插入新**节点**的位置，所以时间复杂度是\
+    \ **O(1)**。\n\n如果我们没有参考**节点**，并且必须遍历链表来插入一个**节点**，那么时间复杂度是 **O(n)**，其中 **n** 指的是输入大小。例如，在一个**列表**中，**n**\
+    \ 指的是元素的数量。\n\n### 3.4：在链表末尾插入一个节点\n\n假设我们想在链表末尾插入节点 **b**，如下图所示。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_25_0.png)\n\
+    \n为了做到这一点，需要以下两个步骤：\n\n**步骤 1：** 我们需要遍历**指针**并到达链表的末尾。一旦**指针** *next* 指向 **none**，则停止循环并返回链表的最后一个**节点\
+    \ a**。\n\n**步骤 2：** 现在让链表的最后一个**节点 a** 指向新的**节点 b**。\n\n在 *linked_list.py* 中，在\
+    \ **Linked_List 类**中添加以下**函数**。\n\n```python\ndef add_end(self,newVal):\n    newNode\
+    \ = Node(newVal)\n    temp = self.head\n    while temp.next:\n        temp = temp.next\n\
+    \    temp.next = newNode\n```\n\n现在让我们调用新创建的**函数**。"
+  merge: 0
+  raw:
+  - '[PAGE 14]
+
+
+    0 1 2 3 4 5 6 7 8 9 ....................
+
+    x = this apple is tasty
+
+    **Output: is app**
+
+
+    > **NOTE : To insert a data into an array list, python provides us with insert
+    method.**
+
+
+    The syntax is:
+
+
+    `array_list . insert ( index_value , data_element )`
+
+
+    To **delete** an element from the array list, python provide us with **remove**
+    method.
+
+
+    The syntax is:
+
+
+    `array_list . remove ( data_element )`
+
+
+    ```
+
+    python
+
+    car = ["kia","toyota","ford"]
+
+    car.insert(1,"tesla")
+
+    print("The array list after insertion ", car)
+
+    car.remove("toyota")
+
+    print("The array list after deletion ", car)
+
+    ```
+
+
+    Now let''s run the above piece of code:'
+  - '[PAGE 15]
+
+
+    ```
+
+    C:\Users\...>python array.py
+
+    The array list after insertion  [''kia'', ''tesla'', ''toyota'', ''ford'']
+
+    The array list after deletion  [''kia'', ''tesla'', ''ford'']
+
+    ```'
+  - '[PAGE 16]
+
+
+    # Chapter 3 : Linked List
+
+
+    +   - A Linked List is a **Linear Data Structure** which is a collection of data
+    elements or **nodes** .
+
+    - Each **node** contains a **data** and an **address** or **pointer** which points
+    to the next **node** .
+
+    - The first node is called the Head and the last node is called the Tail. The
+    last node always points to NULL.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_16_0.png)
+
+
+    > **What is data structure?**
+
+    Data structure is the process of organizing and storing the data.
+
+    It is classified into two types:
+
+    1. **Linear Data Structure** – In this type of data structure, the data elements
+    are arranged in a linear sequential order, but it is not compulsory to store the
+    elements sequentially. Example: Array, Linked List, Stacks & Queue.
+
+    2. **Non-Linear Data Structure** – In this type of data structure, the data elements
+    are arranged in a non-linear order. Example: Tree and graphs.'
+  - "[PAGE 17]\n\nLet's code..\n\n# 3.1 : Creating a Linked List & displaying its\
+    \ values\n\nOpen **Notepad++** and create a new **python** file and name it ***linked_list.py***\
+    \ and write the following lines of code.\n\n```\npython\nclass Node():\n    def\
+    \ __init__(self,value):\n        self.value = value\n        self.next = None\n\
+    ```\n\nIn the above piece of code, we simply created the **Node class** which\
+    \ contains two attributes, one is **value** or data of the linked list **node**\
+    \ and the other one is the ***next*** **pointer** which points to the next **node**\
+    \ of the linked list.\nFor now the ***next*** **pointer** points to none.\n\n\
+    Now let's create the **Linked List class**\n\n```\npython\nclass Node():\n   \
+    \ def __init__(self,value):\n        self.value = value\n        self.next = None\n\
+    \nclass Linked_List():\n    def __init__(self):\n        self.head = None\n```"
+  - '[PAGE 18]
+
+
+    The **Linked_List class** contains only one attribute **head** and for now the
+    **head** is empty or **none** .
+
+
+    The image below shows the order in which we will create our linked list.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_18_0.png)
+
+
+    ```
+
+    Head = n1
+
+    n1.next = n2
+
+    n2.next = n3
+
+    n3 points to none or null
+
+    ```'
+  - "[PAGE 19]\n\n```\nclass Node():\n    def __init__(self,value):\n        self.value\
+    \ = value\n        self.next = None\n\nclass Linked_List():\n    def __init__(self):\n\
+    \        self.head = None\n\ns = Linked_List()\ns.head = Node(5)\nn2 = Node(6)\n\
+    n3 = Node(7)\nn2.next = n3\ns.head.next = n2\nwhile s.head is not None:\n    print(s.head.value)\n\
+    \    s.head = s.head.next\n```\n\n# Code explanation:\n\n+   - In line 8, we created\
+    \ object **s** of **class Linked_List( )**.\n- In line 9, we created the first\
+    \ **node** of the linked list using **Node class** and assigned that node to **head**."
+  - '[PAGE 20]
+
+
+    **s.head** now act as an **object** of **class Node**
+
+
+    +   - In line 10, we created the second **node** of the linked list.
+
+    - In line 11, we created the third **node** of the linked list.
+
+    - In line 12, we linked the second **node** and the third **node** using ***next***
+    attribute of **class Node**.
+
+    - In line 13, we link the **head** with the second **node**.
+
+    - From line 14 to line 16, using **while loop**, we display the values of each
+    **node** of the linked list.
+
+
+    Now let''s save everything and run the python module.
+
+
+    To run the above piece of code,
+
+    Open command prompt -> navigate to the python file location and run using **python**
+    command as shown in the screen shot below.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_20_0.png)
+
+
+    # 3.2 : Insert a node in the beginning of the Linked List
+
+
+    Let us suppose we want to assign a **node x** as the new **head** of the linked
+    list as shown in the image below.'
+  - "[PAGE 21]\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_21_0.png)\n\nIn order to\
+    \ do this the following three steps are needed:\n\n+   1. **Step 1** : Move the\
+    \ existing linked list (*suppose linked list z* ) and store it in a temporary\
+    \ variable.\n2. **Step 2** : Create a new **node** and assign that **node** to\
+    \ the **head** .\n3. **Step 3** : Now link the new **head** with the existing\
+    \ linked list **z** with the help of *next* pointer.\n\nIn *linked_list.py* ,\
+    \ add the following **function** in **class Linked_List** .\n\n```\npython\ndef\
+    \ add_beginning(self,newVal):\n    temp = self.head\n    self.head = Node(newVal)\n\
+    \    self.head.next = temp\n```\n\nNow let's call the newly created **function**\
+    \ ."
+  - "[PAGE 22]\n\n```\ns.head = Node(5)\n\nn2 = Node(6)\n\nn3 = Node(7)\n\nn2.next\
+    \ = n3\n\ns.head.next = n2\n\ns.add_beginning(4)\n\nwhile s.head is not None:\n\
+    \    print(s.head.value)\n    s.head = s.head.next\n```\n\nRun the above piece\
+    \ of code.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_22_0.png)\n\n**Time Complexity**\
+    \ : Since we know in which position we need to add the new **node** , so no iteration\
+    \ is required, hence the time complexity is **O(1)**\n\n> **What is Time Complexity\
+    \ and Big-O notation?**\n\n**Time complexity** denotes the amount of time taken\
+    \ by the code to execute.\n\nThe **Big-O notation** is the growth rate of a **function**\
+    \ . It usually provides the upper limit on the growth rate of an algorithm or\
+    \ **function** ."
+  - '[PAGE 23]
+
+
+    # 3.3 : Insert a node in the middle of the Linked List
+
+
+    Suppose we want to insert a new node **x** after node **y** in the linked list
+    as shown in the image below.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_23_0.png)
+
+
+    In order to do this the following two steps are needed:
+
+
+    **Step 1:** Node **y** was previously pointing to **node a**. The **y node**''s
+    *next* must be removed and assigned to **x node**''s *next* making **node x**
+    point to **node a**.
+
+
+    **Step 2:** **y node**''s *next* must point to **node x**.
+
+
+    In ***linked_list.py***, add the following **function** in class **Linked_List**.'
+  - "[PAGE 24]\n\n```\npython\ndef add_middle(self, node, newVal):\n    newNode =\
+    \ Node(newVal)\n    newNode.next = node.next\n    node.next = newNode\n```\n\n\
+    Now let's call the newly created **function**.\n\n```\npython\ns.head = Node(5)\n\
+    n2 = Node(6)\nn3 = Node(7)\nn2.next = n3\ns.head.next = n2\ns.add_beginning(4)\n\
+    s.add_middle(6, 6.5)\nwhile s.head is not None:\n    print(s.head.value)\n   \
+    \ s.head = s.head.next\n```\n\nRun the above piece of code."
+  - '[PAGE 25]
+
+
+    ```
+
+    C:\Users\...>python linked_List.py
+
+    4
+
+    5
+
+    6
+
+    6.5
+
+    7
+
+    ```
+
+
+    **Time Complexity** : In this case we have a reference **node** and know the position
+    in which we are inserting the new **node** , so the time complexity is **O(1)**.
+
+
+    If we do not have a reference **node** and have to iterate through the linked
+    list to insert a **node** , in that case the time complexity is **O(n)** , where
+    **n** refers to the input size. For example, in a **list** , **n** refers to the
+    number of elements.
+
+
+    # 3.4 : Insert a node at the end of the Linked List
+
+
+    Suppose we want to insert node **b** at the end of the linked list as shown in
+    the image below.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_25_0.png)
+
+
+    In order to do this the following two steps are needed:
+
+
+    **Step 1:** We need to loop through the **pointers** and reach the end of the
+    linked list. Once the **pointer** *next* points to **none** , then stop the loop
+    and return the last **node** **a** of the linked list.'
+  - "[PAGE 26]\n\n**Step 2:** Now make the last **node a** of the linked list point\
+    \ to the new **node b**\n\nIn *linked_list.py* , add the following **function**\
+    \ in **class Linked_List** .\n\n```\npython\ndef add_end(self,newVal):\n    newNode\
+    \ = Node(newVal)\n    temp = self.head\n    while temp.next:\n        temp = temp.next\n\
+    \    temp.next = newNode\n```\n\nNow let's call the newly created **function**\
+    \ ."
+- md: "## 3.5 : Deletion\n\nSuppose we want to remove **node b** from the linked list\
+    \ as shown in the image below.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_28_0.png)\n\
+    \nIn order to do this the following two steps are needed:\n\n**Step 1:** Replace\
+    \ the **b node**'s value with next **node**'s (*node c*) value.\n\n**Step 2:**\
+    \ Make the **b node**'s *next* attribute point to **c node**'s *next* attribute\
+    \ which is pointing to **node d**\n\nIn ***linked_list.py***, add the following\
+    \ **function** in class **Linked_List**.\n\n```python\ndef delete(self, node):\n\
+    \    node.value = node.next.value\n    node.next = node.next.next\n```\n\nNow\
+    \ let's call the newly created **function**.\n\n```python\ns.head = Node(5)\n\
+    n2 = Node(6)\nn3 = Node(7)\nn2.next = n3\ns.head.next = n2\ns.add_beginning(4)\n\
+    s.add_middle(n2, 6.5)\ns.add_end(8)\ns.delete(n3)\nwhile s.head is not None:\n\
+    \    print(s.head.value)\n    s.head = s.head.next\n```\n\nRun the above piece\
+    \ of code.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_29_0.png)\n\n**Time Complexity\
+    \ :** Since no iteration is performed to find the node, the time complexity is\
+    \ **O(1)**\n\n## 3.6 : Types of Linked List\n\nA linked list is of three types:\n\
+    \n1. **Singly Linked List** - A singly linked list is generally a linked list\
+    \ in which each **node** contains a **data** and a **pointer** *next* which points\
+    \ to the next **node**.\n\n2. **Doubly Linked List** - In doubly linked list,\
+    \ each node contains **data** and <u>two</u> pointers *next* and *prev*. **Pointer**\
+    \ *next* points to the next **node** and **pointer** *prev* points to the previous\
+    \ **node**.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_30_0.png)\n\nWhile coding,\
+    \ we just need to add one extra attribute *prev* to the **class Node**\n\n```python\n\
+    class Node():\n    def __init__(self,value):\n        self.value = value\n   \
+    \     self.next = None\n        self.prev = None\n```\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_30_1.png)\n\
+    \n> Head = n1\n> n1.next = n2\n> n2.prev = n1\n\nn2.next points to none or null\n\
+    n1.prev points to none or null\n\n```python\nclass Node():\n    def __init__(self,value):\n\
+    \        self.value = value\n        self.next = None\n        self.prev = None\n\
+    \nclass Linked_List():\n    def __init__(self):\n        self.head = None\n\n\
+    \    def insert(self,val):\n        new_node = Node(val)\n        new_node.next\
+    \ = self.head\n        if self.head is not None:\n            self.head.prev =\
+    \ new_node\n        self.head = new_node\n\n    def display_data(self):\n    \
+    \    while self.head is not None:\n            print(self.head.value)\n      \
+    \      self.head = self.head.next\n```\n\nThe highlighted piece of code in the\
+    \ screen shot above shows the double linked list *insert function*.\n\n### Code\
+    \ explanation:\n\n- In line 10, we created a new **node** *new_node*.\n- In line\
+    \ 11, we made the *new_node* point to **head** with the help of *next* attribute.\n\
+    - In line 12, we check whether there is a **head node** present or not.\n  - If\
+    \ **head node** is present, then make the **head node** point to the new node\
+    \ with the help of *prev* attribute.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_32_0.png)\n\
+    \n- Then in line *self.head = new_node*, make the *new_node* as the new **head\
+    \ node**.\n\n3. **Circular Linked List** - A circular linked list is like a singly\
+    \ linked list except for the fact that the last **node** does not point to NULL.\
+    \ The last **node** of the circular linked list points to the **head node**.\n\
+    \n![](img/591d9c11b694572e0eabb212be0ec9cf_33_0.png)\n\nIn the above image,\n\n\
+    ```python\nhead = n1\nn1.next = n2\nn2.next = n3\nn3.next = n1\n```\n\nIn the\
+    \ code below we will create a circular linked list and will display the values.\n\
+    \n```python\nclass Node():\n    def __init__(self,value):\n        self.value\
+    \ = value\n        self.next = None\n\nclass Linked_List():\n    def __init__(self):\n\
+    \        self.head = None\n\n#......creating the circular linked list.....\ns\
+    \ = Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    n3.next = s.head\ns.head.next = n2\n\n#displaying the values of the circular linked\
+    \ list..\ncurrent = s.head\nprint(current.value)\nwhile(current.next != s.head):\n\
+    \    current = current.next\n    print(current.value)\n```\n\n### Code explanation:\n\
+    \n- In the above piece of code we created our general linked list, but we made\
+    \ the last node (**n3**) point to the **head** of the linked list in line:\n\n\
+    \    `n3.next = s.head`\n\n- While displaying the values from the linked list,\n\
+    \n    - In line `current = s.head`, we assigned the **head** node (suppose **n1**)\
+    \ to a variable **current**.\n\n    - In line `print(current.value)`, we print\
+    \ the value of **n1**. (*It will print 5*)\n\n    - In line `while(current.next\
+    \ != s.head):`, we perform a **while loop**.\n\n        - **current.next** of\
+    \ **n1** is **n2** which is not equal to the **n1**, so the condition returns\
+    \ true. The value of **n2** is printed.\n\n        - Then again **current.next**\
+    \ of **n2** is **n3** and **n3** is not equal to **n1**, so the condition returns\
+    \ true. The value of **n3** is printed.\n\n        - Then again **current.next**\
+    \ of **n3** is **n1** and **n1** is indeed equal to **n1**, so the condition returns\
+    \ false and the **while loop** stops.\n\nNow let's run the above piece of code\n\
+    \n```\nC:\\Users\\...\\python linked_List1.py\n5\n6\n7\n```\n\n### How to know\
+    \ a Linked List is circular or not?\n\nIn order to check whether a linked list\
+    \ is circular or not, we need to perform two steps:\n\n**Step 1:** Get the last\
+    \ **node** of the linked list.\n\n**Step 2:** Check whether the last **node**\
+    \ points to the **head node** . If last **node** points to the head **node** ,\
+    \ then it is a circular linked list.\n\n```python\ndef get_end_node(self):\n \
+    \   current = self.head\n    while((current.next is not self.head) and (current.next\
+    \ is not None)):\n        current = current.next\n    return current\n```\n\n\
+    ```python\ndef get_end_node(self):\n    current = self.head\n    while((current.next\
+    \ is not self.head)\n        current = current.next\n    return current\n\ns =\
+    \ Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    n3.next = s.head\ns.head.next = n2\n\nif s.get_end_node().next == s.head:\n  \
+    \  print(\"It is a circular linked list\")\nelse:\n    print(\"It is not a circular\
+    \ linked list\")\n```\n\nIn the highlighted piece of code above, we check whether\
+    \ the last **node** points to **head** or not.\n\nNow run the above piece of code.\n\
+    \n```\nC:\\Users\\...>python linked_list1.py\nIt is a circular linked list\n```\n\
+    \n## 3.7 : Difference between a Array and a Linked List\n\n| Array | Linked List\
+    \ |\n|---|---|\n| An array is a collection of data elements having a fixed size.\
+    \ It is static in nature | Linked List is dynamic in nature. |\n| In Array, accessing\
+    \ an element is faster. It helps us to access any elements simply from its index\
+    \ value. Hence the time complexity is O(1) | In Linked List, we need to perform\
+    \ iteration to access any element. Hence the time complexity is O(n) |\n| In an\
+    \ Array, memory is allocated during compile time (Static memory allocation). |\
+    \ In Linked list memory is allocated during runtime (Dynamic memory allocation).\
+    \ Memory consumption is also more in linked lists compared to arrays and this\
+    \ is because each **node** contains data and a **pointer** which requires extra\
+    \ memory. |\n\n## Chapter 4 : Stack\n\nA stack is a data structure which is used\
+    \ for storing data element. For example: Let us consider that in a kitchen cabinet,\
+    \ plates **a**, **b**, **c**, **d** are stacked one on the another as shown in\
+    \ the image below.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_39_0.png)\n\nPlate\
+    \ **a** is the first one to go in and plate **d** is the last one to enter the\
+    \ cabinet. When we want to use a plate, we usually take plate **d** and it is\
+    \ the first plate to be removed and plate **a** is the last one to be removed.\n\
+    \nThis concept is similar to a data structure **stack**. The first data element\
+    \ inserted into the **stack** (*plate a in the above example*) is the last one\
+    \ to be removed and the last element inserted into the **stack** (*plate d of\
+    \ above example*) is the first one to be removed. Hence **stack** is called **Last\
+    \ In First Out (LIFO)** or **First In Last Out (FILO)** list. The insertion and\
+    \ deletion always occurs from one end and that is the **top**."
+  mdcn: "## 3.5：删除\n\n假设我们想要从下图所示的链表中移除**节点 b**。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_28_0.png)\n\
+    \n为了实现这一点，需要以下两个步骤：\n\n**步骤 1：** 将**节点 b** 的值替换为下一个**节点**（*节点 c*）的值。\n\n**步骤 2：**\
+    \ 使**节点 b** 的 *next* 属性指向**节点 c** 的 *next* 属性，而后者指向**节点 d**。\n\n在 ***linked_list.py***\
+    \ 文件中，在 **Linked_List** 类中添加以下**函数**。\n\n```python\ndef delete(self, node):\n\
+    \    node.value = node.next.value\n    node.next = node.next.next\n```\n\n现在让我们调用新创建的**函数**。\n\
+    \n```python\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\ns.head.next\
+    \ = n2\ns.add_beginning(4)\ns.add_middle(n2, 6.5)\ns.add_end(8)\ns.delete(n3)\n\
+    while s.head is not None:\n    print(s.head.value)\n    s.head = s.head.next\n\
+    ```\n\n运行上面的代码。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_29_0.png)\n\n**时间复杂度：**\
+    \ 由于不需要迭代来查找节点，因此时间复杂度为 **O(1)**。\n\n## 3.6：链表的类型\n\n链表有三种类型：\n\n1.  **单链表** -\
+    \ 单链表通常是一种链表，其中每个**节点**包含一个**数据**和一个指向下一个**节点**的**指针** *next*。\n\n2.  **双链表**\
+    \ - 在双链表中，每个节点包含**数据**和<u>两个</u>指针 *next* 和 *prev*。**指针** *next* 指向下一个**节点**，**指针**\
+    \ *prev* 指向前一个**节点**。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_30_0.png)\n\n\
+    在编码时，我们只需要在 **Node 类**中添加一个额外的属性 *prev*。\n\n```python\nclass Node():\n    def\
+    \ __init__(self,value):\n        self.value = value\n        self.next = None\n\
+    \        self.prev = None\n```\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_30_1.png)\n\
+    \n> Head = n1\n> n1.next = n2\n> n2.prev = n1\n\nn2.next 指向 none 或 null\nn1.prev\
+    \ 指向 none 或 null\n\n```python\nclass Node():\n    def __init__(self,value):\n\
+    \        self.value = value\n        self.next = None\n        self.prev = None\n\
+    \nclass Linked_List():\n    def __init__(self):\n        self.head = None\n\n\
+    \    def insert(self,val):\n        new_node = Node(val)\n        new_node.next\
+    \ = self.head\n        if self.head is not None:\n            self.head.prev =\
+    \ new_node\n        self.head = new_node\n\n    def display_data(self):\n    \
+    \    while self.head is not None:\n            print(self.head.value)\n      \
+    \      self.head = self.head.next\n```\n\n上面截图中高亮的代码片段展示了双链表的 *插入函数*。\n\n### 代码解释：\n\
+    \n-   在第 10 行，我们创建了一个新的**节点** *new_node*。\n-   在第 11 行，我们借助 *next* 属性使 *new_node*\
+    \ 指向**头节点**。\n-   在第 12 行，我们检查是否存在**头节点**。\n    -   如果**头节点**存在，则借助 *prev* 属性使**头节点**指向新节点。\n\
+    \n![](img/591d9c11b694572e0eabb212be0ec9cf_32_0.png)\n\n-   然后在 `self.head = new_node`\
+    \ 这一行，将 *new_node* 设为新的**头节点**。\n\n3.  **循环链表** - 循环链表类似于单链表，不同之处在于最后一个**节点**不指向\
+    \ NULL。循环链表的最后一个**节点**指向**头节点**。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_33_0.png)\n\
+    \n在上图中，\n\n```python\nhead = n1\nn1.next = n2\nn2.next = n3\nn3.next = n1\n```\n\
+    \n在下面的代码中，我们将创建一个循环链表并显示其值。\n\n```python\nclass Node():\n    def __init__(self,value):\n\
+    \        self.value = value\n        self.next = None\n\nclass Linked_List():\n\
+    \    def __init__(self):\n        self.head = None\n\n#......创建循环链表.....\ns =\
+    \ Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    n3.next = s.head\ns.head.next = n2\n\n#显示循环链表的值..\ncurrent = s.head\nprint(current.value)\n\
+    while(current.next != s.head):\n    current = current.next\n    print(current.value)\n\
+    ```\n\n### 代码解释：\n\n-   在上面的代码中，我们创建了通用的链表，但我们在这一行使最后一个节点（**n3**）指向链表的**头节点**：\n\
+    \n    `n3.next = s.head`\n\n-   在显示链表的值时，\n\n    -   在 `current = s.head` 这一行，我们将**头节点**（假设是\
+    \ **n1**）赋值给变量 **current**。\n\n    -   在 `print(current.value)` 这一行，我们打印 **n1**\
+    \ 的值。（*它将打印 5*）\n\n    -   在 `while(current.next != s.head):` 这一行，我们执行一个 **while\
+    \ 循环**。\n\n        -   **n1** 的 **current.next** 是 **n2**，它不等于 **n1**，所以条件返回 true。打印\
+    \ **n2** 的值。\n\n        -   然后 **n2** 的 **current.next** 是 **n3**，**n3** 不等于 **n1**，所以条件返回\
+    \ true。打印 **n3** 的值。\n\n        -   然后 **n3** 的 **current.next** 是 **n1**，**n1**\
+    \ 确实等于 **n1**，所以条件返回 false，**while 循环**停止。\n\n现在让我们运行上面的代码\n\n```\nC:\\Users\\\
+    ...\\python linked_List1.py\n5\n6\n7\n```\n\n### 如何判断链表是否是循环的？\n\n为了检查链表是否是循环的，我们需要执行两个步骤：\n\
+    \n**步骤 1：** 获取链表的最后一个**节点**。\n\n**步骤 2：** 检查最后一个**节点**是否指向**头节点**。如果最后一个**节点**指向头**节点**，那么它就是一个循环链表。\n\
+    \n```python\ndef get_end_node(self):\n    current = self.head\n    while((current.next\
+    \ is not self.head) and (current.next is not None)):\n        current = current.next\n\
+    \    return current\n```\n\n```python\ndef get_end_node(self):\n    current =\
+    \ self.head\n    while((current.next is not self.head)\n        current = current.next\n\
+    \    return current\n\ns = Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 =\
+    \ Node(7)\nn2.next = n3\nn3.next = s.head\ns.head.next = n2\n\nif s.get_end_node().next\
+    \ == s.head:\n    print(\"It is a circular linked list\")\nelse:\n    print(\"\
+    It is not a circular linked list\")\n```\n\n在上面高亮的代码中，我们检查最后一个**节点**是否指向**头节点**。\n\
+    \n现在运行上面的代码。\n\n```\nC:\\Users\\...>python linked_list1.py\nIt is a circular linked\
+    \ list\n```\n\n## 3.7：数组与链表的区别\n\n| 数组 | 链表 |\n|---|---|\n| 数组是具有固定大小的数据元素的集合。它是静态的。\
+    \ | 链表是动态的。 |\n| 在数组中，访问元素更快。它帮助我们简单地通过索引值访问任何元素。因此时间复杂度为 O(1) | 在链表中，我们需要执行迭代来访问任何元素。因此时间复杂度为\
+    \ O(n) |\n| 在数组中，内存是在编译时分配的（静态内存分配）。 | 在链表中，内存是在运行时分配的（动态内存分配）。与数组相比，链表的内存消耗也更大，这是因为每个**节点**包含数据和一个**指针**，这需要额外的内存。\
+    \ |\n\n## 第 4 章：栈\n\n栈是一种用于存储数据元素的数据结构。例如：让我们考虑在厨房橱柜中，盘子 **a**、**b**、**c**、**d**\
+    \ 一个叠一个地堆放着，如下图所示。\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_39_0.png)\n\n盘子\
+    \ **a** 是第一个放进去的，盘子 **d** 是最后一个进入橱柜的。当我们想使用一个盘子时，我们通常会拿盘子 **d**，它是第一个被移除的盘子，而盘子\
+    \ **a** 是最后一个被移除的。\n\n这个概念类似于数据结构**栈**。第一个插入**栈**的数据元素（*上例中的盘子 a*）是最后一个被移除的，而最后一个插入**栈**的元素（*上例中的盘子\
+    \ d*）是第一个被移除的。因此**栈**被称为**后进先出（LIFO）**或**先进后出（FILO）**列表。插入和删除总是发生在一端，那就是**栈顶**。"
+  merge: 0
+  raw:
+  - "[PAGE 27]\n\n```\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    s.head.next = n2\ns.add_beginning(4)\ns.add_middle(n2, 6.5)\ns.add_end(8)\nwhile\
+    \ s.head is not None:\n    print(s.head.value)\n    s.head = s.head.next\n```\n\
+    \nRun the above piece of code.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_27_0.png)\n\
+    \n**Time Complexity** : Since we are traversing the linked list to add a new node,\
+    \ the time complexity is **O(n)**\n\n# 3.5 : Deletion"
+  - "[PAGE 28]\n\nSuppose we want to remove **node b** from the linked list as shown\
+    \ in the image below.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_28_0.png)\n\n\
+    In order to do this the following two steps are needed:\n\n**Step 1:** Replace\
+    \ the **b node**'s value with next **node**'s (*node c*) value.\n\n**Step 2:**\
+    \ Make the **b node**'s *next* attribute point to **c node**'s *next* attribute\
+    \ which is pointing to **node d**\n\nIn ***linked_list.py***, add the following\
+    \ **function** in class **Linked_List**.\n\n```\npython\ndef delete(self, node):\n\
+    \    node.value = node.next.value\n    node.next = node.next.next\n```\n\nNow\
+    \ let's call the newly created **function**."
+  - "[PAGE 29]\n\n```\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    s.head.next = n2\ns.add_beginning(4)\ns.add_middle(n2, 6.5)\ns.add_end(8)\ns.delete(n3)\n\
+    while s.head is not None:\n    print(s.head.value)\n    s.head = s.head.next\n\
+    ```\n\nRun the above piece of code.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_29_0.png)\n\
+    \n**Time Complexity :** Since no iteration is performed to find the node, the\
+    \ time complexity is **O(1)**\n\n# 3.6 : Types of Linked List\n\nA linked list\
+    \ is of three types:"
+  - "[PAGE 30]\n\n1. **Singly Linked List** - A singly linked list is generally a\
+    \ linked list in which each **node** contains a **data** and a **pointer** *next*\
+    \ which points to the next **node**.\n\n2. **Doubly Linked List** - In doubly\
+    \ linked list, each node contains **data** and <u>two</u> pointers *next* and\
+    \ *prev*. **Pointer** *next* points to the next **node** and **pointer** *prev*\
+    \ points to the previous **node**.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_30_0.png)\n\
+    \nWhile coding, we just need to add one extra attribute *prev* to the **class\
+    \ Node**\n\n```\npython\nclass Node():\n    def __init__(self,value):\n      \
+    \  self.value = value\n        self.next = None\n        self.prev = None\n```\n\
+    \n![](img/591d9c11b694572e0eabb212be0ec9cf_30_1.png)\n\n> Head = n1\nn1.next =\
+    \ n2\nn2.prev = n1"
+  - "[PAGE 31]\n\nn2.next points to none or null\nn1.prev points to none or null\n\
+    \n```\nclass Node():\n    def __init__(self,value):\n        self.value = value\n\
+    \        self.next = None\n        self.prev = None\n\nclass Linked_List():\n\
+    \    def __init__(self):\n        self.head = None\n\n    def insert(self,val):\n\
+    \        new_node = Node(val)\n        new_node.next = self.head\n        if self.head\
+    \ is not None:\n            self.head.prev = new_node\n        self.head = new_node\n\
+    \n    def display_data(self):\n        while self.head is not None:\n        \
+    \    print(self.head.value)\n            self.head = self.head.next\n```"
+  - "[PAGE 32]\n\nThe highlighted piece of code in the screen shot above shows the\
+    \ double linked list *insert function*.\n\n# Code explanation:\n\n+   - In line\
+    \ 10, we created a new **node** *new_node*.\n- In line 11, we made the *new_node*\
+    \ point to **head** with the help of *next* attribute.\n- In line 12, we check\
+    \ whether there is a **head node** present or not.\n  - If **head node** is present,\
+    \ then make the **head node** point to the new node with the help of *prev* attribute.\n\
+    \n![](img/591d9c11b694572e0eabb212be0ec9cf_32_0.png)\n\n+   - Then in line *self.head\
+    \ = new_node*, make the *new_node* as the new **head node**.\n\n**3. Circular\
+    \ Linked List** - A circular linked list is like a singly linked list except for\
+    \ the fact that the last **node** does not point to NULL. The last **node** of\
+    \ the circular linked list points to the **head node**."
+  - '[PAGE 33]
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_33_0.png)
+
+
+    In the above image,
+
+
+    ```
+
+    head = n1
+
+    n1.next = n2
+
+    n2.next = n3
+
+    n3.next = n1
+
+    ```
+
+
+    In the code below we will create a circular linked list and will display the values.'
+  - "[PAGE 34]\n\n```\nclass Node():\n    def __init__(self,value):\n        self.value\
+    \ = value\n        self.next = None\n\nclass Linked_List():\n    def __init__(self):\n\
+    \        self.head = None\n\n#......creating the circular linked list.....\ns\
+    \ = Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    n3.next = s.head\ns.head.next = n2\n\n#displaying the values of the circular linked\
+    \ list..\ncurrent = s.head\nprint(current.value)\nwhile(current.next != s.head):\n\
+    \    current = current.next\n    print(current.value)\n```\n\n# Code explanation:"
+  - "[PAGE 35]\n\n+   - In the above piece of code we created our general linked list,\
+    \ but we made the last node (**n3**) point to the **head** of the linked list\
+    \ in line:\n\n    `n3.next = s.head`\n\n- While displaying the values from the\
+    \ linked list,\n\n    - In line `current = s.head`, we assigned the **head** node\
+    \ (suppose **n1**) to a variable **current**.\n\n    - In line `print(current.value)`,\
+    \ we print the value of **n1**. (*It will print 5*)\n\n    - In line `while(current.next\
+    \ != s.head):`, we perform a **while loop**.\n\n        - **current.next** of\
+    \ **n1** is **n2** which is not equal to the **n1**, so the condition returns\
+    \ true. The value of **n2** is printed.\n\n        - Then again **current.next**\
+    \ of **n2** is **n3** and **n3** is not equal to **n1**, so the condition returns\
+    \ true. The value of **n3** is printed.\n\n        - Then again **current.next**\
+    \ of **n3** is **n1** and **n1** is indeed equal to **n1**, so the condition returns\
+    \ false and the **while loop** stops.\n\nNow let's run the above piece of code\n\
+    \n```\nC:\\Users\\...\\python linked_List1.py\n5\n6\n7\n```\n\n# How to know a\
+    \ Linked List is circular or not?\n\nIn order to check whether a linked list is\
+    \ circular or not, we need to"
+  - "[PAGE 36]\n\nperform two steps:\n\n**Step 1:** Get the last **node** of the linked\
+    \ list.\n\n**Step 2:** Check whether the last **node** points to the **head node**\
+    \ . If last **node** points to the head **node** , then it is a circular linked\
+    \ list.\n\n```\ndef get_end_node(self):\n    current = self.head\n    while((current.next\
+    \ is not self.head) and (current.next is not None)):\n        current = current.next\n\
+    \    return current\n```"
+  - "[PAGE 37]\n\n```\ndef get_end_node(self):\n    current = self.head\n    while((current.next\
+    \ is not self.head)\n        current = current.next\n    return current\n\ns =\
+    \ Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    n3.next = s.head\ns.head.next = n2\n\nif s.get_end_node().next == s.head:\n  \
+    \  print(\"It is a circular linked list\")\nelse:\n    print(\"It is not a circular\
+    \ linked list\")\n```\n\nIn the highlighted piece of code above, we check whether\
+    \ the last **node** points to **head** or not.\n\nNow run the above piece of code.\n\
+    \n```\nC:\\Users\\...>python linked_list1.py\nIt is a circular linked list\n```\n\
+    \n# 3.7 : Difference between a Array and a Linked List"
+  - '[PAGE 38]
+
+
+    | Array | Linked List |
+
+    |---|---|
+
+    | An array is a collection of data elements having a fixed size. It is static
+    in nature | Linked List is dynamic in nature. |
+
+    | In Array, accessing an element is faster. It helps us to access any elements
+    simply from its index value. Hence the time complexity is O(1) | In Linked List,
+    we need to perform iteration to access any element. Hence the time complexity
+    is O(n) |
+
+    | In an Array, memory is allocated during compile time (Static memory allocation).
+    | In Linked list memory is allocated during runtime (Dynamic memory allocation).
+    Memory consumption is also more in linked lists compared to arrays and this is
+    because each **node** contains data and a **pointer** which requires extra memory.
+    |'
+  - '[PAGE 39]
+
+
+    # Chapter 4 : Stack
+
+
+    A stack is a data structure which is used for storing data element. For example:
+    Let us consider that in a kitchen cabinet, plates **a**, **b**, **c**, **d** are
+    stacked one on the another as shown in the image below.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_39_0.png)
+
+
+    Plate **a** is the first one to go in and plate **d** is the last one to enter
+    the cabinet. When we want to use a plate, we usually take plate **d** and it is
+    the first plate to be removed and plate **a** is the last one to be removed.
+
+
+    This concept is similar to a data structure **stack**. The first data element
+    inserted into the **stack** (*plate a in the above example*) is the last one to
+    be removed and the last element inserted into the **stack** (*plate d of above
+    example*) is the first one to be removed. Hence **stack** is called **Last In
+    First Out (LIFO)** or **First In Last Out (FILO)** list. The insertion and deletion
+    always occurs from one end and that is the **top**.'
+- md: "**NOTE:** The data elements are pushed and popped from the **top** of the **stack**\
+    \ which has a special index value of -1. When the stack is empty the index value\
+    \ of **top** is -1.\n\nThe operation of adding and removing the elements is called\
+    \ **PUSH** and **POP** respectively. Python provides us with **append( )** and\
+    \ **pop( )** functions to add and remove the data elements.\n\nNow create a new\
+    \ python file and name it **stack.py** and write the following lines of code.\n\
+    \n```python\nclass Stack():\n    def __init__(self):\n        self.stack = []\n\
+    \n    def push(self, val):\n        self.stack.append(val)\n\n    def pop(self):\n\
+    \        self.stack.pop()\n\n    def peek(self):\n        x = len(self.stack)\n\
+    \        return self.stack[x-1]\n```\n\n```python\ns = Stack()\ns.push(1)\ns.push(2)\n\
+    s.push(3)\ns.push(4)\ns.push(5)\nprint(s.stack)\nprint(\"Top value after PUSH\
+    \ :\", s.peek())\ns.pop()\ns.pop()\nprint(s.stack)\nprint(\"Top value after POP\
+    \ :\", s.peek())\n```\n\n# Code explanation:\n\n- **Stack class** is declared\
+    \ and it contains only one attribute **stack** which is empty for now.\n- **push\
+    \ function** appends or adds a data element into the **stack**.\n- **pop function**\
+    \ pops or removes the last data element entered from the **top** of the **stack**.\n\
+    - **peek function** returns the **top** value of the stack.\n\nRun the above piece\
+    \ of code.\n\n```\nC:\\Users\\...>python stack.py\n[1, 2, 3, 4, 5]\nTop value\
+    \ after PUSH : 5\n[1, 2, 3]\nTop value after POP : 3\n```\n\n**Time Complexity**:\
+    \ **push** and **pop** operation is done from one end and no iteration is performed,\
+    \ so the time complexity is **O(1)**.\n\n# Chapter 5 : Queue\n\nQueue is a data\
+    \ structure which stores data elements. In this data elements are inserted from\
+    \ one end (**rear**) and deletion is performed from the other end (**front**).\
+    \ For example: Let us consider a drive-through car wash line.\n\nThe first car\
+    \ which enters the line gets washed first and they leave. Then the second car\
+    \ is washed and then the third car. Similarly in **queue**, the first data element\
+    \ inserted gets removed first and the last data element inserted gets removed\
+    \ last. Hence **queue** is called **First in First Out (FIFO)** or **Last In Last\
+    \ Out (LILO)** list.\n\nWhen an element is inserted into the **queue**, the concept\
+    \ is called **EnQueue** and when an element is removed from the **queue**, the\
+    \ concept is called **DeQueue**.\n\nNow create a new python file and name it **queue.py**\
+    \ and write the following lines of code.\n\n```python\nclass Queue():\n    def\
+    \ __init__(self):\n        self.queue = []\n    def enqueue(self,val):\n     \
+    \   self.queue.append(val)\n    def dequeue(self):\n        self.queue.pop(0)\n\
+    \nq = Queue()\nq.enqueue(10)\nq.enqueue(20)\nq.enqueue(30)\nq.enqueue(40)\nq.enqueue(50)\n\
+    print(\"Values after insertion :\", q.queue)\nq.dequeue()\nq.dequeue()\nprint(\"\
+    Value after deletion :\", q.queue)\n```\n\n# Code explanation:\n\n- Function **enqueue**\
+    \ adds new values into the **queue**.\n- Function **dequeue** removes the first\
+    \ values inserted into the **queue**.\n\nRun the above piece of code.\n\n```\n\
+    C:\\Users\\...>python queue.py\nValues after insertion : [10, 20, 30, 40, 50]\n\
+    Value after deletion : [30, 40, 50]\n```\n\n**Time Complexity**: No iteration\
+    \ was performed in **enqueue** and **dequeue** operation, so the time complexity\
+    \ is **O(1)**.\n\nWish you all the best and thank you very much for buying this\
+    \ book.\n\nAlways remember, the most important learning is Self-Learning."
+  mdcn: "**注意：** 数据元素从**栈**的**顶部**进行压入和弹出，该顶部具有特殊的索引值 -1。当栈为空时，**顶部**的索引值为 -1。\n\n\
+    添加和移除元素的操作分别称为**压栈（PUSH）**和**弹栈（POP）**。Python 为我们提供了 **append( )** 和 **pop( )**\
+    \ 函数来添加和移除数据元素。\n\n现在创建一个新的 Python 文件，命名为 **stack.py**，并写入以下代码。\n\n```python\n\
+    class Stack():\n    def __init__(self):\n        self.stack = []\n\n    def push(self,\
+    \ val):\n        self.stack.append(val)\n\n    def pop(self):\n        self.stack.pop()\n\
+    \n    def peek(self):\n        x = len(self.stack)\n        return self.stack[x-1]\n\
+    ```\n\n```python\ns = Stack()\ns.push(1)\ns.push(2)\ns.push(3)\ns.push(4)\ns.push(5)\n\
+    print(s.stack)\nprint(\"Top value after PUSH :\", s.peek())\ns.pop()\ns.pop()\n\
+    print(s.stack)\nprint(\"Top value after POP :\", s.peek())\n```\n\n# 代码解释：\n\n\
+    - **Stack 类**被声明，它只包含一个属性 **stack**，目前为空。\n- **push 函数**向**栈**中追加或添加一个数据元素。\n\
+    - **pop 函数**从**栈**的**顶部**弹出或移除最后进入的数据元素。\n- **peek 函数**返回栈的**顶部**值。\n\n运行上述代码。\n\
+    \n```\nC:\\Users\\...>python stack.py\n[1, 2, 3, 4, 5]\nTop value after PUSH :\
+    \ 5\n[1, 2, 3]\nTop value after POP : 3\n```\n\n**时间复杂度**：**push** 和 **pop** 操作都在一端完成，且不执行迭代，因此时间复杂度为\
+    \ **O(1)**。\n\n# 第 5 章：队列\n\n队列是一种存储数据元素的数据结构。在这种结构中，数据元素从一端（**队尾**）插入，从另一端（**队头**）删除。例如：让我们考虑一个免下车洗车线。\n\
+    \n第一辆进入队列的车首先被清洗并离开。然后第二辆车被清洗，接着是第三辆车。同样，在**队列**中，第一个插入的数据元素最先被移除，最后一个插入的数据元素最后被移除。因此，**队列**被称为**先进先出（FIFO）**或**后进后出（LILO）**列表。\n\
+    \n当一个元素被插入到**队列**中时，这个概念称为**入队（EnQueue）**；当一个元素从**队列**中被移除时，这个概念称为**出队（DeQueue）**。\n\
+    \n现在创建一个新的 Python 文件，命名为 **queue.py**，并写入以下代码。\n\n```python\nclass Queue():\n\
+    \    def __init__(self):\n        self.queue = []\n    def enqueue(self,val):\n\
+    \        self.queue.append(val)\n    def dequeue(self):\n        self.queue.pop(0)\n\
+    \nq = Queue()\nq.enqueue(10)\nq.enqueue(20)\nq.enqueue(30)\nq.enqueue(40)\nq.enqueue(50)\n\
+    print(\"Values after insertion :\", q.queue)\nq.dequeue()\nq.dequeue()\nprint(\"\
+    Value after deletion :\", q.queue)\n```\n\n# 代码解释：\n\n- 函数 **enqueue** 向**队列**中添加新值。\n\
+    - 函数 **dequeue** 移除最先插入**队列**的值。\n\n运行上述代码。\n\n```\nC:\\Users\\...>python queue.py\n\
+    Values after insertion : [10, 20, 30, 40, 50]\nValue after deletion : [30, 40,\
+    \ 50]\n```\n\n**时间复杂度**：**enqueue** 和 **dequeue** 操作中没有执行迭代，因此时间复杂度为 **O(1)**。\n\
+    \n祝你一切顺利，非常感谢你购买本书。\n\n请永远记住，最重要的学习是自学。"
+  merge: 0
+  raw:
+  - '[PAGE 40]
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_40_0.png)
+
+
+    **NOTE:** The data elements are pushed and popped from the **top** of the **stack**
+    which has a special index value of -1. When the stack is empty the index value
+    of **top** is -1.'
+  - '[PAGE 41]
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_41_0.png)
+
+
+    The operation of adding and removing the elements is called **PUSH** and **POP**
+    respectively. Python provide us with **append( )** and **pop( ) functions** to
+    add and remove the data elements.
+
+
+    Now create a new python file and name it **stack.py** and write the following
+    lines of code.'
+  - "[PAGE 42]\n\n```\npython\nclass Stack():\n    def __init__(self):\n        self.stack\
+    \ = []\n\n    def push(self, val):\n        self.stack.append(val)\n\n    def\
+    \ pop(self):\n        self.stack.pop()\n\n    def peek(self):\n        x = len(self.stack)\n\
+    \        return self.stack[x-1]\n```"
+  - '[PAGE 43]
+
+
+    ```
+
+    s = Stack()
+
+    s.push(1)
+
+    s.push(2)
+
+    s.push(3)
+
+    s.push(4)
+
+    s.push(5)
+
+    print(s.stack)
+
+    print("Top value after PUSH :", s.peek())
+
+    s.pop()
+
+    s.pop()
+
+    print(s.stack)
+
+    print("Top value after POP :", s.peek())
+
+    ```
+
+
+    # Code explanation:
+
+
+    +   - **Stack class** is declared and it contains only one attribute **stack**
+    which is empty for now.
+
+    - **push function** appends or adds a data element into the **stack**.
+
+    - **pop function** pops or removes the last data element entered from the **top**
+    of the **stack**.
+
+    - **peek function** returns the **top** value of the stack.
+
+
+    Run the above piece of code.'
+  - '[PAGE 44]
+
+
+    ```
+
+    C:\Users\...>python stack.py
+
+    [1, 2, 3, 4, 5]
+
+    Top value after PUSH : 5
+
+    [1, 2, 3]
+
+    Top value after POP : 3
+
+    ```
+
+
+    **Time Complexity** : **push** and **pop** operation is done from one end and
+    no iteration is performed, so the time complexity is **O(1)**'
+  - '[PAGE 45]
+
+
+    # Chapter 5 : Queue
+
+
+    Queue is a data structure which stores data elements. In this data elements are
+    inserted from one end (**rear** ) and deletion is performed from the other end
+    (**front** ). For example: Let us consider a drive-through car wash line.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_45_0.png)
+
+
+    The first car which enters the line gets washed first and they leave. Then the
+    second car is washed and then the third car. Similarly in **queue** , the first
+    data element inserted gets removed first and the last data element inserted gets
+    removed last. Hence **queue** is called **First in First Out (FIFO)** or **Last
+    In Last Out (LILO)** list .'
+  - '[PAGE 46]
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_46_0.png)
+
+
+    When an element is inserted into the **queue** , the concept is called **EnQueue**
+    and when an element is removed from the **queue** , the concept is called **DeQueue**
+    .
+
+
+    Now create a new python file and name it **queue.py** and write the following
+    lines of code.'
+  - "[PAGE 47]\n\n```\npython\nclass Queue():\n    def __init__(self):\n        self.queue\
+    \ = []\n    def enqueue(self,val):\n        self.queue.append(val)\n    def dequeue(self):\n\
+    \        self.queue.pop(0)\n\nq = Queue()\nq.enqueue(10)\nq.enqueue(20)\nq.enqueue(30)\n\
+    q.enqueue(40)\nq.enqueue(50)\nprint(\"Values after insertion :\", q.queue)\nq.dequeue()\n\
+    q.dequeue()\nprint(\"Value after deletion :\", q.queue)\n```\n\n# Code explanation:\n\
+    \n+   - Function **enqueue** adds new values into the **queue**.\n- Funtion **dequeue**\
+    \ removes the first values inserted into the **queue**."
+  - '[PAGE 48]
+
+
+    Run the above piece of code.
+
+
+    ```
+
+    C:\Users\...>python queue.py
+
+    Values after insertion : [10, 20, 30, 40, 50]
+
+    Value after deletion : [30, 40, 50]
+
+    ```
+
+
+    **Time Complexity** : No iteration was performed in **enqueue** and **dequeue**
+    operation, so the time complexity is **O(1)**'
+  - '[PAGE 49]
+
+
+    Wish you all the best and thank you very much for buying this book.
+
+
+    Always remember, the most important learning is Self-Learning..'
+pages:
+- img_proc: true
+  md: 'First Edition
+
+
+    # LEARN DATA STRUCTURE ARRAY LINKED LIST STACK QUEUE USING PYTHON IN 5 MINUTES
+
+
+    S. BASU'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: 'First Edition
+
+
+    # LEARN DATA STRUCTURE ARRAY LINKED LIST STACK QUEUE USING PYTHON IN 5 MINUTES
+
+
+    S. BASU'
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: '# LEARN DATA STRUCTURE LINKED LIST ARRAY STACK QUEUE USING PYTHON IN 5 MINUTES
+
+
+    Copyright © 2021 S Basu
+
+    All rights reserved.'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: '# Disclaimer:
+
+
+    The information and materials presented here are for educational purposes only.
+    Every effort has been made to make this book as complete and as accurate as possible
+    but no warranty or fitness is implied. The information provided is on an "as is"
+    basis. The ideas and opinions expressed are of the author''s own imagination and
+    the author is not affiliated to any organization, school or educational discipline
+    and will not be held accountable or liable for any inadvertent misrepresentation.'
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: "# Contents\n\n+   - Chapter 1 : Few Important Python Basics\n    - 1.1 : What\
+    \ is a Python module?\n    - 1.2 : What is a Python function?\n    - 1.3 : What\
+    \ is a Python class?\n- Chapter 2 : Array\n- Chapter 3 : Linked List\n    - 3.1\
+    \ : Creating a Linked List & displaying its values\n    - 3.2 : Insert a node\
+    \ in the beginning of the Linked List\n    - 3.3 : Insert a node in the middle\
+    \ of the Linked List\n    - 3.4 : Insert a node at the end of the Linked List\n\
+    \    - 3.5 : Deletion\n    - 3.6 : Types of Linked List\n    - 3.7 : Difference\
+    \ between a Array and a Linked List\n- Chapter 4 : Stack\n- Chapter 5 : Queue"
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: '# Chapter 1 : Few Important Python Basics
+
+
+    Before we start learning about data structure related topics like linked list,
+    array, stack and queue, we first need to get an understanding about a few python
+    basics like how to create a python module, run a python code and what is a python
+    function or a python class.
+
+
+    So let us first review these python topics.
+
+
+    # 1.1 : What is a Python module?
+
+
+    +   - Python module is a Python file that contains functions, classes, and variables
+    that group a logical functionality together.
+
+    - Modules can be **imported** for use in code.
+
+
+    Let’s create a simple Python file or module,
+
+
+    +   - Open **Notepad++** and create a new file (*hello_world* ) and save the file
+    with `.py` extension
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_5_0.png)
+
+
+    Inside ***hello_world.py*** file, write one line of code:'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: '```
+
+    1 print("Hello World")
+
+    ```
+
+
+    > **What is print( ) function in Python?**
+
+
+    **print( )** function displays the output to the screen
+
+
+    Now let''s run the above piece of code.
+
+    Open command prompt -> Go to the **hello_world.py** file location and type the
+    following command:
+
+    **python** *file_name* **.py**
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_6_0.png)
+
+
+    The output displays
+
+
+    +   - Now let''s create another Python file and name it **test.py**
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_6_1.png)
+
+
+    In **test.py** file, simply **import** the **hello_world** module created above.'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: "```\n1 import hello_world\n2 \n3 \n4 \n5 \n```\n\nNow run this file.\nOpen\
+    \ command prompt -> Go to the **test.py** file location and write the following\
+    \ command:\n**python test .py**\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_7_0.png)\n\
+    \nWe see that the **test** module prints out “*Hello World* ” output from **hello_world**\
+    \ module.\n\n> **What is import statement in Python?**\n\n**import** statement\
+    \ in Python allows a Python file or module to access all the codes present in\
+    \ another Python file or module.\n\n# 1.2 : What is a Python function?\n\nPython\
+    \ Functions are just like Java methods. It is a block of codes performing certain\
+    \ task.\n\nSyntax:"
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: "```\ndef function_name() :\n    ....... \n```\n\n# Example:\n\n```\n1  username\
+    \ = \"John123\"\n2  def validate_username(uname):\n3      if uname == \"John123\"\
+    :\n4          print(\"Hello John\")\n5      else:\n6          print(\"Wrong username\"\
+    )\n7  validate_username(username)\n```\n\n# Code Explanation:\n\n+   - In the\
+    \ above piece of code, we created a **function validate_username** with parameter\
+    \ **uname**. If the argument is \"*John123* \", the **function** prints \"*Hello\
+    \ John* \" or else it will print \"*Wrong username* \".\n- To call any function,\
+    \ we simply have to write the function name followed by parenthesis . Within that\
+    \ parenthesis, we passed the value of **username** which is \"*John123* \"\n\n\
+    # Output\n\n```\nC:\\Users\\...\\Python_script>functions.py\nHello John\n```\n\
+    \n> **Difference between parameter and argument**\n\nParameter is the variable\
+    \ passed to a **function** . Example:\n\n**function** *function_name* ( *variable1*\
+    \ , *variable2* ) :"
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: "> Argument is the **value** assigned to the variables. Example:\n*function_name*\
+    \ ( 123, \"Hello_World\" )\n\n# 1.3 : What is a Python class?\n\n+   - Python\
+    \ is an **object oriented programming language** .\n- A **class** is a “blueprint”\
+    \ for creating an **object** and like any other programming language Python **class**\
+    \ contains attributes and methods.\n- Python **object** contains the copy of all\
+    \ attributes and methods present within its **class**. To access those properties\
+    \ **dot** operator ( . ) is used.\n    - The syntax for creating a **class** is:\n\
+    \npython\nclass class_name :\ndef __init__(self) :\n....\ndef method1 :\n....\n\
+    \n\nThe syntax for creating an **object** of a **class** is:\n\npython\nclass\
+    \ Hello :\ndef __init__(self) :\n................\n............\n\n\n*h = Hello()*\
+    \ , where **h** is the **object** of **class** *Hello* .\n\n> **What is def __init__\
+    \ (self)?**\n\n\"__init__\" is a reserved method in **Python** classes initializing\
+    \ the **object** 's state. In Object Oriented concepts, it refers to the"
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: '**constructor** of the **class** . This method initializes the attributes of
+    a **class** when an **object** is created.
+
+
+    **self** keyword helps to access the attributes of the class.
+
+
+    # **Example:**
+
+
+    ```
+
+    1  class Employee:
+
+    2      def __init__(self,id_num,name,age,address,salary):
+
+    3          self.id_num = id_num
+
+    4          self.name = name
+
+    5          self.age = age
+
+    6          self.address = address
+
+    7          self.salary = salary
+
+    8      def validation(self):
+
+    9          if (str(self.id_num) == "123" and self.name =="John"):
+
+    10             print("This is Jon and his age is",self.age,
+
+    11             ",his address is",self.address,
+
+    12             "and his salary is", self.salary)
+
+    13         else:
+
+    14             print("Not John")
+
+    15 e = Employee(123,"John",25,"Texas",1000)
+
+    16 e.validation()
+
+    ```
+
+
+    # **Output**
+
+
+    ```
+
+    C:\Users\Pinky\Desktop\Python_script>classes.py
+
+    This is Jon and his age is 25 ,his address is Texas and his salary is 1000
+
+    ```
+
+
+    **Important points to note from the above piece of code are:**
+
+
+    +   1. A Python **Class** name should start with a capital letter.
+
+    2. Within the **__init__** method we declared different attributes of our **class
+    Employee** and passed those values to **self** .'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: '*id_num* , *self* . *name* and so on.
+
+
+    +   3. In our **validation ( )** method we pass the argument **self** which helps
+    to access all the attributes of the **class *Employee*** .
+
+
+    +   4. **str( )** function helps to convert an integer value to a string value.
+
+
+    +   5. **and** keyword is the **logical and operator** in Python.
+
+
+    +   6. In **line 15** of the above code, we created an **object e** and passed
+    values into it.'
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: '# Chapter 2 : Array
+
+
+    An Array is a collection of items or elements all having the same datatypes. An
+    element from an array can only be accessed from its index value. Example: Let’s
+    create an array of cars.
+
+
+    ```
+
+    cars = [“Kia”, “Toyota”, “Ford”, “Tesla”]
+
+    ```
+
+
+    | Index | 0 | 1 | 2 | 3 |
+
+    |---|---|---|---|---|
+
+    | Value | Kia | Toyota | Ford | Tesla |
+
+
+    In order to get the value **Ford** as output, we need to write `print ( cars [
+    2 ] )`
+
+
+    +   - In Python, a **List** is very similar to an **Array** . It contains a list
+    of elements separated by commas and its elements are written with square brackets
+    [ .... ] .
+
+    - A value from a **List** can be accessed from its index value and the syntax
+    is.
+
+
+    ```
+
+    List_name [ index_num ]
+
+    ```
+
+
+    **Example:**
+
+    Create a new Python file (**variables.py** ) and write the following lines of
+    code:'
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: "```\n1 fruits = [\"apple\",\"orange\",\"banana\",\"mango\",\"strawberry\",\"\
+    peaches\"]\n2 x = \"this apple is tasty\"\n3 print(len(fruits))\n4 print(fruits[2:4])\n\
+    5 print(x[2:8])\n```\n\nAfter running the above piece of code, we get an output\
+    \ of:\n\n```\nC:\\Users\\...\\Desktop\\Python_script>variables.py\n6\n['banana',\
+    \ 'mango']\nis app\n```\n\n# Code explanation:\n\n+   - In the above piece of\
+    \ code, **fruits** is a **List** containing 6 elements. The value at position\
+    \ 0 is \"apple\", at position 1 is \"orange\" and so on.\n- **x** is a variable\
+    \ holding a string value. The value at position 0 is \"t\", at position 1 is \"\
+    h\" and so on.\n- **len( )** function is used to get the length of the list.\n\
+    - In Line 4 and 5 we are performing **Slicing operation**.\n    - **print ( fruits\
+    \ [ 2 : 4] )** means print elements from position 2 (including its value) to position\
+    \ 4 (excluding its value).\n    - **print ( x [ 2 : 8 ] )** means print the values\
+    \ of **x** (\"this apple is tasty\") from position 2 (including its value) to\
+    \ position 8 (excluding its value).\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_13_0.png)\n\
+    \n**Output:** ['banana', 'mango']"
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: '0 1 2 3 4 5 6 7 8 9 ....................
+
+    x = this apple is tasty
+
+    **Output: is app**
+
+
+    > **NOTE : To insert a data into an array list, python provides us with insert
+    method.**
+
+
+    The syntax is:
+
+
+    `array_list . insert ( index_value , data_element )`
+
+
+    To **delete** an element from the array list, python provide us with **remove**
+    method.
+
+
+    The syntax is:
+
+
+    `array_list . remove ( data_element )`
+
+
+    ```
+
+    python
+
+    car = ["kia","toyota","ford"]
+
+    car.insert(1,"tesla")
+
+    print("The array list after insertion ", car)
+
+    car.remove("toyota")
+
+    print("The array list after deletion ", car)
+
+    ```
+
+
+    Now let''s run the above piece of code:'
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: '```
+
+    C:\Users\...>python array.py
+
+    The array list after insertion  [''kia'', ''tesla'', ''toyota'', ''ford'']
+
+    The array list after deletion  [''kia'', ''tesla'', ''ford'']
+
+    ```'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: '# Chapter 3 : Linked List
+
+
+    +   - A Linked List is a **Linear Data Structure** which is a collection of data
+    elements or **nodes** .
+
+    - Each **node** contains a **data** and an **address** or **pointer** which points
+    to the next **node** .
+
+    - The first node is called the Head and the last node is called the Tail. The
+    last node always points to NULL.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_16_0.png)
+
+
+    > **What is data structure?**
+
+    Data structure is the process of organizing and storing the data.
+
+    It is classified into two types:
+
+    1. **Linear Data Structure** – In this type of data structure, the data elements
+    are arranged in a linear sequential order, but it is not compulsory to store the
+    elements sequentially. Example: Array, Linked List, Stacks & Queue.
+
+    2. **Non-Linear Data Structure** – In this type of data structure, the data elements
+    are arranged in a non-linear order. Example: Tree and graphs.'
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: "Let's code..\n\n# 3.1 : Creating a Linked List & displaying its values\n\n\
+    Open **Notepad++** and create a new **python** file and name it ***linked_list.py***\
+    \ and write the following lines of code.\n\n```\npython\nclass Node():\n    def\
+    \ __init__(self,value):\n        self.value = value\n        self.next = None\n\
+    ```\n\nIn the above piece of code, we simply created the **Node class** which\
+    \ contains two attributes, one is **value** or data of the linked list **node**\
+    \ and the other one is the ***next*** **pointer** which points to the next **node**\
+    \ of the linked list.\nFor now the ***next*** **pointer** points to none.\n\n\
+    Now let's create the **Linked List class**\n\n```\npython\nclass Node():\n   \
+    \ def __init__(self,value):\n        self.value = value\n        self.next = None\n\
+    \nclass Linked_List():\n    def __init__(self):\n        self.head = None\n```"
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: 'The **Linked_List class** contains only one attribute **head** and for now
+    the **head** is empty or **none** .
+
+
+    The image below shows the order in which we will create our linked list.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_18_0.png)
+
+
+    ```
+
+    Head = n1
+
+    n1.next = n2
+
+    n2.next = n3
+
+    n3 points to none or null
+
+    ```'
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: "```\nclass Node():\n    def __init__(self,value):\n        self.value = value\n\
+    \        self.next = None\n\nclass Linked_List():\n    def __init__(self):\n \
+    \       self.head = None\n\ns = Linked_List()\ns.head = Node(5)\nn2 = Node(6)\n\
+    n3 = Node(7)\nn2.next = n3\ns.head.next = n2\nwhile s.head is not None:\n    print(s.head.value)\n\
+    \    s.head = s.head.next\n```\n\n# Code explanation:\n\n+   - In line 8, we created\
+    \ object **s** of **class Linked_List( )**.\n- In line 9, we created the first\
+    \ **node** of the linked list using **Node class** and assigned that node to **head**."
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: '**s.head** now act as an **object** of **class Node**
+
+
+    +   - In line 10, we created the second **node** of the linked list.
+
+    - In line 11, we created the third **node** of the linked list.
+
+    - In line 12, we linked the second **node** and the third **node** using ***next***
+    attribute of **class Node**.
+
+    - In line 13, we link the **head** with the second **node**.
+
+    - From line 14 to line 16, using **while loop**, we display the values of each
+    **node** of the linked list.
+
+
+    Now let''s save everything and run the python module.
+
+
+    To run the above piece of code,
+
+    Open command prompt -> navigate to the python file location and run using **python**
+    command as shown in the screen shot below.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_20_0.png)
+
+
+    # 3.2 : Insert a node in the beginning of the Linked List
+
+
+    Let us suppose we want to assign a **node x** as the new **head** of the linked
+    list as shown in the image below.'
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: "![](img/591d9c11b694572e0eabb212be0ec9cf_21_0.png)\n\nIn order to do this the\
+    \ following three steps are needed:\n\n+   1. **Step 1** : Move the existing linked\
+    \ list (*suppose linked list z* ) and store it in a temporary variable.\n2. **Step\
+    \ 2** : Create a new **node** and assign that **node** to the **head** .\n3. **Step\
+    \ 3** : Now link the new **head** with the existing linked list **z** with the\
+    \ help of *next* pointer.\n\nIn *linked_list.py* , add the following **function**\
+    \ in **class Linked_List** .\n\n```\npython\ndef add_beginning(self,newVal):\n\
+    \    temp = self.head\n    self.head = Node(newVal)\n    self.head.next = temp\n\
+    ```\n\nNow let's call the newly created **function** ."
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: "```\ns.head = Node(5)\n\nn2 = Node(6)\n\nn3 = Node(7)\n\nn2.next = n3\n\ns.head.next\
+    \ = n2\n\ns.add_beginning(4)\n\nwhile s.head is not None:\n    print(s.head.value)\n\
+    \    s.head = s.head.next\n```\n\nRun the above piece of code.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_22_0.png)\n\
+    \n**Time Complexity** : Since we know in which position we need to add the new\
+    \ **node** , so no iteration is required, hence the time complexity is **O(1)**\n\
+    \n> **What is Time Complexity and Big-O notation?**\n\n**Time complexity** denotes\
+    \ the amount of time taken by the code to execute.\n\nThe **Big-O notation** is\
+    \ the growth rate of a **function** . It usually provides the upper limit on the\
+    \ growth rate of an algorithm or **function** ."
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: '# 3.3 : Insert a node in the middle of the Linked List
+
+
+    Suppose we want to insert a new node **x** after node **y** in the linked list
+    as shown in the image below.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_23_0.png)
+
+
+    In order to do this the following two steps are needed:
+
+
+    **Step 1:** Node **y** was previously pointing to **node a**. The **y node**''s
+    *next* must be removed and assigned to **x node**''s *next* making **node x**
+    point to **node a**.
+
+
+    **Step 2:** **y node**''s *next* must point to **node x**.
+
+
+    In ***linked_list.py***, add the following **function** in class **Linked_List**.'
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: "```\npython\ndef add_middle(self, node, newVal):\n    newNode = Node(newVal)\n\
+    \    newNode.next = node.next\n    node.next = newNode\n```\n\nNow let's call\
+    \ the newly created **function**.\n\n```\npython\ns.head = Node(5)\nn2 = Node(6)\n\
+    n3 = Node(7)\nn2.next = n3\ns.head.next = n2\ns.add_beginning(4)\ns.add_middle(6,\
+    \ 6.5)\nwhile s.head is not None:\n    print(s.head.value)\n    s.head = s.head.next\n\
+    ```\n\nRun the above piece of code."
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: '```
+
+    C:\Users\...>python linked_List.py
+
+    4
+
+    5
+
+    6
+
+    6.5
+
+    7
+
+    ```
+
+
+    **Time Complexity** : In this case we have a reference **node** and know the position
+    in which we are inserting the new **node** , so the time complexity is **O(1)**.
+
+
+    If we do not have a reference **node** and have to iterate through the linked
+    list to insert a **node** , in that case the time complexity is **O(n)** , where
+    **n** refers to the input size. For example, in a **list** , **n** refers to the
+    number of elements.
+
+
+    # 3.4 : Insert a node at the end of the Linked List
+
+
+    Suppose we want to insert node **b** at the end of the linked list as shown in
+    the image below.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_25_0.png)
+
+
+    In order to do this the following two steps are needed:
+
+
+    **Step 1:** We need to loop through the **pointers** and reach the end of the
+    linked list. Once the **pointer** *next* points to **none** , then stop the loop
+    and return the last **node** **a** of the linked list.'
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: "**Step 2:** Now make the last **node a** of the linked list point to the new\
+    \ **node b**\n\nIn *linked_list.py* , add the following **function** in **class\
+    \ Linked_List** .\n\n```\npython\ndef add_end(self,newVal):\n    newNode = Node(newVal)\n\
+    \    temp = self.head\n    while temp.next:\n        temp = temp.next\n    temp.next\
+    \ = newNode\n```\n\nNow let's call the newly created **function** ."
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: "```\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\ns.head.next\
+    \ = n2\ns.add_beginning(4)\ns.add_middle(n2, 6.5)\ns.add_end(8)\nwhile s.head\
+    \ is not None:\n    print(s.head.value)\n    s.head = s.head.next\n```\n\nRun\
+    \ the above piece of code.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_27_0.png)\n\
+    \n**Time Complexity** : Since we are traversing the linked list to add a new node,\
+    \ the time complexity is **O(n)**\n\n# 3.5 : Deletion"
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: "Suppose we want to remove **node b** from the linked list as shown in the image\
+    \ below.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_28_0.png)\n\nIn order to\
+    \ do this the following two steps are needed:\n\n**Step 1:** Replace the **b node**'s\
+    \ value with next **node**'s (*node c*) value.\n\n**Step 2:** Make the **b node**'s\
+    \ *next* attribute point to **c node**'s *next* attribute which is pointing to\
+    \ **node d**\n\nIn ***linked_list.py***, add the following **function** in class\
+    \ **Linked_List**.\n\n```\npython\ndef delete(self, node):\n    node.value = node.next.value\n\
+    \    node.next = node.next.next\n```\n\nNow let's call the newly created **function**."
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: "```\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\ns.head.next\
+    \ = n2\ns.add_beginning(4)\ns.add_middle(n2, 6.5)\ns.add_end(8)\ns.delete(n3)\n\
+    while s.head is not None:\n    print(s.head.value)\n    s.head = s.head.next\n\
+    ```\n\nRun the above piece of code.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_29_0.png)\n\
+    \n**Time Complexity :** Since no iteration is performed to find the node, the\
+    \ time complexity is **O(1)**\n\n# 3.6 : Types of Linked List\n\nA linked list\
+    \ is of three types:"
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: "1. **Singly Linked List** - A singly linked list is generally a linked list\
+    \ in which each **node** contains a **data** and a **pointer** *next* which points\
+    \ to the next **node**.\n\n2. **Doubly Linked List** - In doubly linked list,\
+    \ each node contains **data** and <u>two</u> pointers *next* and *prev*. **Pointer**\
+    \ *next* points to the next **node** and **pointer** *prev* points to the previous\
+    \ **node**.\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_30_0.png)\n\nWhile coding,\
+    \ we just need to add one extra attribute *prev* to the **class Node**\n\n```\n\
+    python\nclass Node():\n    def __init__(self,value):\n        self.value = value\n\
+    \        self.next = None\n        self.prev = None\n```\n\n![](img/591d9c11b694572e0eabb212be0ec9cf_30_1.png)\n\
+    \n> Head = n1\nn1.next = n2\nn2.prev = n1"
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: "n2.next points to none or null\nn1.prev points to none or null\n\n```\nclass\
+    \ Node():\n    def __init__(self,value):\n        self.value = value\n       \
+    \ self.next = None\n        self.prev = None\n\nclass Linked_List():\n    def\
+    \ __init__(self):\n        self.head = None\n\n    def insert(self,val):\n   \
+    \     new_node = Node(val)\n        new_node.next = self.head\n        if self.head\
+    \ is not None:\n            self.head.prev = new_node\n        self.head = new_node\n\
+    \n    def display_data(self):\n        while self.head is not None:\n        \
+    \    print(self.head.value)\n            self.head = self.head.next\n```"
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: "The highlighted piece of code in the screen shot above shows the double linked\
+    \ list *insert function*.\n\n# Code explanation:\n\n+   - In line 10, we created\
+    \ a new **node** *new_node*.\n- In line 11, we made the *new_node* point to **head**\
+    \ with the help of *next* attribute.\n- In line 12, we check whether there is\
+    \ a **head node** present or not.\n  - If **head node** is present, then make\
+    \ the **head node** point to the new node with the help of *prev* attribute.\n\
+    \n![](img/591d9c11b694572e0eabb212be0ec9cf_32_0.png)\n\n+   - Then in line *self.head\
+    \ = new_node*, make the *new_node* as the new **head node**.\n\n**3. Circular\
+    \ Linked List** - A circular linked list is like a singly linked list except for\
+    \ the fact that the last **node** does not point to NULL. The last **node** of\
+    \ the circular linked list points to the **head node**."
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: '![](img/591d9c11b694572e0eabb212be0ec9cf_33_0.png)
+
+
+    In the above image,
+
+
+    ```
+
+    head = n1
+
+    n1.next = n2
+
+    n2.next = n3
+
+    n3.next = n1
+
+    ```
+
+
+    In the code below we will create a circular linked list and will display the values.'
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: "```\nclass Node():\n    def __init__(self,value):\n        self.value = value\n\
+    \        self.next = None\n\nclass Linked_List():\n    def __init__(self):\n \
+    \       self.head = None\n\n#......creating the circular linked list.....\ns =\
+    \ Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    n3.next = s.head\ns.head.next = n2\n\n#displaying the values of the circular linked\
+    \ list..\ncurrent = s.head\nprint(current.value)\nwhile(current.next != s.head):\n\
+    \    current = current.next\n    print(current.value)\n```\n\n# Code explanation:"
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: "+   - In the above piece of code we created our general linked list, but we\
+    \ made the last node (**n3**) point to the **head** of the linked list in line:\n\
+    \n    `n3.next = s.head`\n\n- While displaying the values from the linked list,\n\
+    \n    - In line `current = s.head`, we assigned the **head** node (suppose **n1**)\
+    \ to a variable **current**.\n\n    - In line `print(current.value)`, we print\
+    \ the value of **n1**. (*It will print 5*)\n\n    - In line `while(current.next\
+    \ != s.head):`, we perform a **while loop**.\n\n        - **current.next** of\
+    \ **n1** is **n2** which is not equal to the **n1**, so the condition returns\
+    \ true. The value of **n2** is printed.\n\n        - Then again **current.next**\
+    \ of **n2** is **n3** and **n3** is not equal to **n1**, so the condition returns\
+    \ true. The value of **n3** is printed.\n\n        - Then again **current.next**\
+    \ of **n3** is **n1** and **n1** is indeed equal to **n1**, so the condition returns\
+    \ false and the **while loop** stops.\n\nNow let's run the above piece of code\n\
+    \n```\nC:\\Users\\...\\python linked_List1.py\n5\n6\n7\n```\n\n# How to know a\
+    \ Linked List is circular or not?\n\nIn order to check whether a linked list is\
+    \ circular or not, we need to"
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: "perform two steps:\n\n**Step 1:** Get the last **node** of the linked list.\n\
+    \n**Step 2:** Check whether the last **node** points to the **head node** . If\
+    \ last **node** points to the head **node** , then it is a circular linked list.\n\
+    \n```\ndef get_end_node(self):\n    current = self.head\n    while((current.next\
+    \ is not self.head) and (current.next is not None)):\n        current = current.next\n\
+    \    return current\n```"
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: "```\ndef get_end_node(self):\n    current = self.head\n    while((current.next\
+    \ is not self.head)\n        current = current.next\n    return current\n\ns =\
+    \ Linked_List()\ns.head = Node(5)\nn2 = Node(6)\nn3 = Node(7)\nn2.next = n3\n\
+    n3.next = s.head\ns.head.next = n2\n\nif s.get_end_node().next == s.head:\n  \
+    \  print(\"It is a circular linked list\")\nelse:\n    print(\"It is not a circular\
+    \ linked list\")\n```\n\nIn the highlighted piece of code above, we check whether\
+    \ the last **node** points to **head** or not.\n\nNow run the above piece of code.\n\
+    \n```\nC:\\Users\\...>python linked_list1.py\nIt is a circular linked list\n```\n\
+    \n# 3.7 : Difference between a Array and a Linked List"
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: '| Array | Linked List |
+
+    |---|---|
+
+    | An array is a collection of data elements having a fixed size. It is static
+    in nature | Linked List is dynamic in nature. |
+
+    | In Array, accessing an element is faster. It helps us to access any elements
+    simply from its index value. Hence the time complexity is O(1) | In Linked List,
+    we need to perform iteration to access any element. Hence the time complexity
+    is O(n) |
+
+    | In an Array, memory is allocated during compile time (Static memory allocation).
+    | In Linked list memory is allocated during runtime (Dynamic memory allocation).
+    Memory consumption is also more in linked lists compared to arrays and this is
+    because each **node** contains data and a **pointer** which requires extra memory.
+    |'
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: '# Chapter 4 : Stack
+
+
+    A stack is a data structure which is used for storing data element. For example:
+    Let us consider that in a kitchen cabinet, plates **a**, **b**, **c**, **d** are
+    stacked one on the another as shown in the image below.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_39_0.png)
+
+
+    Plate **a** is the first one to go in and plate **d** is the last one to enter
+    the cabinet. When we want to use a plate, we usually take plate **d** and it is
+    the first plate to be removed and plate **a** is the last one to be removed.
+
+
+    This concept is similar to a data structure **stack**. The first data element
+    inserted into the **stack** (*plate a in the above example*) is the last one to
+    be removed and the last element inserted into the **stack** (*plate d of above
+    example*) is the first one to be removed. Hence **stack** is called **Last In
+    First Out (LIFO)** or **First In Last Out (FILO)** list. The insertion and deletion
+    always occurs from one end and that is the **top**.'
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: '![](img/591d9c11b694572e0eabb212be0ec9cf_40_0.png)
+
+
+    **NOTE:** The data elements are pushed and popped from the **top** of the **stack**
+    which has a special index value of -1. When the stack is empty the index value
+    of **top** is -1.'
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: '![](img/591d9c11b694572e0eabb212be0ec9cf_41_0.png)
+
+
+    The operation of adding and removing the elements is called **PUSH** and **POP**
+    respectively. Python provide us with **append( )** and **pop( ) functions** to
+    add and remove the data elements.
+
+
+    Now create a new python file and name it **stack.py** and write the following
+    lines of code.'
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: "```\npython\nclass Stack():\n    def __init__(self):\n        self.stack =\
+    \ []\n\n    def push(self, val):\n        self.stack.append(val)\n\n    def pop(self):\n\
+    \        self.stack.pop()\n\n    def peek(self):\n        x = len(self.stack)\n\
+    \        return self.stack[x-1]\n```"
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: '```
+
+    s = Stack()
+
+    s.push(1)
+
+    s.push(2)
+
+    s.push(3)
+
+    s.push(4)
+
+    s.push(5)
+
+    print(s.stack)
+
+    print("Top value after PUSH :", s.peek())
+
+    s.pop()
+
+    s.pop()
+
+    print(s.stack)
+
+    print("Top value after POP :", s.peek())
+
+    ```
+
+
+    # Code explanation:
+
+
+    +   - **Stack class** is declared and it contains only one attribute **stack**
+    which is empty for now.
+
+    - **push function** appends or adds a data element into the **stack**.
+
+    - **pop function** pops or removes the last data element entered from the **top**
+    of the **stack**.
+
+    - **peek function** returns the **top** value of the stack.
+
+
+    Run the above piece of code.'
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: '```
+
+    C:\Users\...>python stack.py
+
+    [1, 2, 3, 4, 5]
+
+    Top value after PUSH : 5
+
+    [1, 2, 3]
+
+    Top value after POP : 3
+
+    ```
+
+
+    **Time Complexity** : **push** and **pop** operation is done from one end and
+    no iteration is performed, so the time complexity is **O(1)**'
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: '# Chapter 5 : Queue
+
+
+    Queue is a data structure which stores data elements. In this data elements are
+    inserted from one end (**rear** ) and deletion is performed from the other end
+    (**front** ). For example: Let us consider a drive-through car wash line.
+
+
+    ![](img/591d9c11b694572e0eabb212be0ec9cf_45_0.png)
+
+
+    The first car which enters the line gets washed first and they leave. Then the
+    second car is washed and then the third car. Similarly in **queue** , the first
+    data element inserted gets removed first and the last data element inserted gets
+    removed last. Hence **queue** is called **First in First Out (FIFO)** or **Last
+    In Last Out (LILO)** list .'
+  merge: -1
+  pgno: 45
+- img_proc: true
+  md: '![](img/591d9c11b694572e0eabb212be0ec9cf_46_0.png)
+
+
+    When an element is inserted into the **queue** , the concept is called **EnQueue**
+    and when an element is removed from the **queue** , the concept is called **DeQueue**
+    .
+
+
+    Now create a new python file and name it **queue.py** and write the following
+    lines of code.'
+  merge: -1
+  pgno: 46
+- img_proc: true
+  md: "```\npython\nclass Queue():\n    def __init__(self):\n        self.queue =\
+    \ []\n    def enqueue(self,val):\n        self.queue.append(val)\n    def dequeue(self):\n\
+    \        self.queue.pop(0)\n\nq = Queue()\nq.enqueue(10)\nq.enqueue(20)\nq.enqueue(30)\n\
+    q.enqueue(40)\nq.enqueue(50)\nprint(\"Values after insertion :\", q.queue)\nq.dequeue()\n\
+    q.dequeue()\nprint(\"Value after deletion :\", q.queue)\n```\n\n# Code explanation:\n\
+    \n+   - Function **enqueue** adds new values into the **queue**.\n- Funtion **dequeue**\
+    \ removes the first values inserted into the **queue**."
+  merge: -1
+  pgno: 47
+- img_proc: true
+  md: 'Run the above piece of code.
+
+
+    ```
+
+    C:\Users\...>python queue.py
+
+    Values after insertion : [10, 20, 30, 40, 50]
+
+    Value after deletion : [30, 40, 50]
+
+    ```
+
+
+    **Time Complexity** : No iteration was performed in **enqueue** and **dequeue**
+    operation, so the time complexity is **O(1)**'
+  merge: -1
+  pgno: 48
+- img_proc: true
+  md: 'Wish you all the best and thank you very much for buying this book.
+
+
+    Always remember, the most important learning is Self-Learning..'
+  merge: -1
+  pgno: 49
+toc:
+- - '##'
+  - 5分钟内使用Python学习数据结构：数组、链表、栈、队列
+- - '##'
+  - 免责声明：
+- - '##'
+  - 目录
+- - '##'
+  - 第1章：几个重要的Python基础
+- - '###'
+  - 1.1：什么是Python模块？
+- - '###'
+  - 1.2：什么是Python函数？
+- - '###'
+  - 示例：
+- - '###'
+  - 代码解释：
+- - '###'
+  - 输出
+- - '###'
+  - 1.3：什么是Python类？
+- - '###'
+  - '**示例：**'
+- - '###'
+  - '**输出**'
+- - '##'
+  - 第2章：数组
+- - '###'
+  - 代码解释：
+- - '##'
+  - 第三章：链表
+- - '###'
+  - 3.1：创建链表并显示其值
+- - '###'
+  - 代码解释：
+- - '###'
+  - 3.2：在链表开头插入一个节点
+- - '###'
+  - 3.3：在链表中间插入一个节点
+- - '###'
+  - 3.4：在链表末尾插入一个节点
+- - '###'
+  - 3.5：删除
+- - '###'
+  - 3.6：链表的类型
+- - '###'
+  - 代码解释：
+- - '###'
+  - 代码解释：
+- - '###'
+  - 如何判断链表是否是循环的？
+- - '###'
+  - 3.7：数组与链表的区别
+- - '##'
+  - 第 4 章：栈
+- - '###'
+  - 代码解释：
+- - '##'
+  - 第 5 章：队列
+- - '###'
+  - 代码解释：
