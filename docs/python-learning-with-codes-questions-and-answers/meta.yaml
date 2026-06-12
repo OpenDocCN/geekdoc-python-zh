@@ -1,0 +1,3379 @@
+groups:
+- md: "## TECH PROFESSIONAL\n\n1st edition\n2023\n\n## Python learning with codes\
+    \ Questions and Answers\n\n## Python learning with codes\n\nQuestions and Answers\n\
+    \nFirst edition 2023\n\nBy Tech Professional\n\nWhat will be the value of the\
+    \ i variable when the while loop finishes its execution?\n\n```\ni=0\nwhile i\
+    \ != 0:\n    i=i-1\nelse:\n    i=i+1\n```\n\n- A. 1\n- B. 0\n- C. 2\n- D. the\
+    \ variable becomes unavailable\n\nSelect the true statement about composition.\n\
+    \n- A. Composition extends a class's capabilities by adding new components and\
+    \ modifying the existing ones\n- B. Composition allows a class to be projected\
+    \ as a container of different classes\n- C. Composition is a concept that promotes\
+    \ code reusability, while Inheritance promotes encapsulation\n- D. Composition\
+    \ is based on the has a relation, so it cannot be used together with inheritance\n\
+    \n**Correct Answer:** *B*\n\nAnalyze the following snippet and select the statement\
+    \ that best describes it.\n\n```\nclass OwnMath:\n    pass\n\ndef calculate_value(numerator,\
+    \ denominator):\n    try:\n        value = numerator / denominator\n    except\
+    \ ZeroDivisionError as e:\n        raise OwnMath from e\n    return value\n\n\
+    calculate_value(4, 0)\n```\n\n- A. The code is an example of implicitly chained\
+    \ exceptions.\n- B. The code is erroneous as the OwnMath class does not inherit\
+    \ from any Exception type class\n- C. The code is fine and the script execution\
+    \ is not interrupted by any exception.\n- D. The code is an example of explicitly\
+    \ chained exceptions\n\n**Correct Answer:** A\n\nAnalyze the following snippet\
+    \ and select the statement that best describes it.\n\n```\nclass Sword:\n    var1\
+    \ = 'weapon'\n\n    def __init__(self):\n        self.name = 'Excalibur'\n```\n\
+    \n- A. self.name is the name of a class variable\n- B. var1 is the name of a global\
+    \ variable\n- C. Excalibur is the value passed to an instance variable\n- D. weapon\
+    \ is the value passed to an instance variable\n\n**Correct Answer:** C\n\nThe\
+    \ following snippet represents one of the OOP pillars. Which one is that?\n\n\
+    ```\nclass A:\n    def run(self):\n        print(\"A is running\")\n\nclass B:\n\
+    \    def fly(self):\n        print(\"B is flying\")\n\nclass C:\n    def run(self):\n\
+    \        print(\"C is running\")\n\nfor element in A(), B(), C():\n    element.run()\n\
+    ```\n\n- A. Serialization\n- B. Inheritance\n- C. Encapsulation\n- D. Polymorphism\n\
+    \n**Correct Answer:** D\n\nAnalyze the following function and choose the statement\
+    \ that best describes it.\n\n```\ndef my_decorator(coating):\n    def level1_wrapper(my_function):\n\
+    \        def level2_wrapper(*args):\n            our_function(*args)\n       \
+    \ return level2_wrapper\n    return level1_wrapper\n```\n\n- A. It is an example\
+    \ of a decorator that accepts its own arguments.\n- B. It is an example of decorator\
+    \ stacking.\n- C. It is an example of a decorator that can trigger an infinite\
+    \ recursion\n- D. The function is erroneous.\n\n**Correct Answer:** A\n\nAnalyze\
+    \ the following snippet and select the statement that best describes it.\n\n```\n\
+    def fl(*arg, **args):\n    pass\n```\n\n- A. The code is syntactically correct\
+    \ despite the fact that the names of the function parameters do not follow the\
+    \ naming convention\n- B. The *arg parameter holds a list of unnamed parameters.\n\
+    - C. The code is missing a placeholder for unnamed parameters.\n- D. The code\
+    \ is syntactically incorrect - the function should be defined as def f1 (*args,\
+    \ **kwargs):\n\n**Correct Answer:** D\n\nAnalyze the following snippet and decide\
+    \ whether the code is correct and/or which method should be distinguished as a\
+    \ class method.\n\n```python\nclass Crossword:\n    number_of_Crosswords = 0\n\
+    \n    def __init__(self, height, width):\n        self.height = height\n     \
+    \   self.width = width\n        self.progress = 0\n\n    @staticmethod\n    def\
+    \ isElementCorrect(word):\n        if self.isSolved():\n            print('The\
+    \ crossword is already solved')\n            return True\n        result = True\n\
+    \        for char in word:\n            if char.isdigit():\n                result\
+    \ = False\n                break\n        return result\n\n    def isSolved(self):\n\
+    \        if self.progress == 100:\n            return True\n\n    def getNumberOfCrosswords(cls):\n\
+    \        return cls.number_of_Crosswords\n```\n\n- A. There is only one initializer,\
+    \ so there is no need for a class method\n- B. The getNumberOfCrosswords() method\
+    \ Should be decorated with @classmethod\n- C. The code is erroneous\n- D. The\
+    \ getNumberOfCrosswords() and isSolved methods should be decorated with @classmethod\n\
+    \n**Correct Answer:** *B*\n\nAnalyze the code and choose the best statement that\
+    \ describes it.\n\n```\nclass Item:\n    def __init__(self, initial_value):\n\
+    \        self.value = initial_value\n\n    def __ne__(self, other):\n        ...\n\
+    ```\n\n- A. __ne__() is not a built-in special method.\n- B. The code is erroneous\n\
+    - C. The code is responsible for the support of the negation operator, e.g. a\
+    \ = - a\n- D. The code is responsible for the support of the inequality operator,\
+    \ i.e. !=\n\n**Correct Answer:** *D*\n\nAnd operator able to perform bitwise shifts\
+    \ is coded as (Choose two.)\n\n- A. --\n- B. ++\n- C. <<\n- D. >>\n\n**Correct\
+    \ Answer:** *CD*\n\nWhat will the value of the i variable be when the following\
+    \ loop finishes its execution?\n\n```\nfor i in range(10):\n    pass\n```\n\n\
+    - A. 10\n- B. the variable becomes unavailable\n- C. 11\n- D. 9\n\n**Correct Answer:**\
+    \ *B*\n\nThe following expression -\n\n```\n1+-2\n```\n\n- A. equal to 1\n- B.\
+    \ invalid\n- C. equal to 2\n- D. equal to -1\n\n**Correct Answer:** *D*\n\nA compiler\
+    \ is a program designed to (Choose two.)\n\n- A. rearrange the source code to\
+    \ make it clearer\n- B. check the source code in order to see of it's correct\n\
+    - C. execute the source code\n- D. translate the source code into machine code\n\
+    \n**Correct Answer:** *BD*\n\nWhat is the output of the following piece of code?\n\
+    \n```\na= 'ant'\nb= \"bat\"\nc= 'camel'\nprint(a, b, c, sep=\"\")\n```\n\n- A.\
+    \ ant' bat' camel\n- B. antλ€batλ€ camel\n- C. antbatcamel\n- D. print (a, b,\
+    \ c, sep= ' λ€ ')\n\n**Correct Answer:** B\n\nWhat is the expected output of the\
+    \ following snippet?\n\n```\ni=5\nwhile i>0:\n    i=i //2\n    if i % 2==0:\n\
+    \        break\nelse:\n    i+=1\nprint(i)\n```\n\n- A. the code is erroneous\n\
+    - B. 3\n- C. 7\n- D. 15\n\n**Correct Answer:** *A*\n\nHow many lines does the\
+    \ following snippet output?\n\n```\nfor i in range(1, 3):\n    print(\"*\", end=\"\
+    \")\nelse:\n    print(\"*\")\n```\n\n- A. three\n- B. one\n- C. two\n- D. four\n\
+    \n**Correct Answer:** B\n\nWhich of the following literals reflect the value given\
+    \ as 34.23? (Choose two.)\n\n- A. .3423e2\n- B. 3423e-2\n- C. .3423e-2\n- D. 3423e2\n\
+    \n**Correct Answer:** *AB*\n\nWhat is the expected output of the following snippet?\n\
+    \n```\na=2\nif a>0:\n    a+=1\nelse:\n    a-=1\nprint(a)\n```\n\n- A. 3\n- B.\
+    \ 1\n- C. 2\n- D. the code is erroneous\n\n**Correct Answer:** A\n\nAssuming that\
+    \ the following snippet has been successfully executed, which of the equations\
+    \ are True? (Choose two.)\n\n```\na= [1]\nb=a\na[0] = 0\n```\n\n- A. len(a) ==\
+    \ len(b)\n- B. b[0] +1 ==a[0]\n- C. a[0] == b[0]\n- D. a[0] + 1 ==b[0]\n\n**Correct\
+    \ Answer:** *AC*\n\nAssuming that the following snippet has been successfully\
+    \ executed, which of the equations are False? (Choose two.)\n\n- A. len(a)== len(b)\n\
+    - B. a[0]-1 ==b[0]\n- C. a[0]== b[0]\n- D. b[0] - 1 ==a[0]\n\n**Correct Answer:**\
+    \ *AB*\n\nWhich of the following statements are true? (Choose two.)\n\n- A. Python\
+    \ strings are actually lists\n- B. Python strings can be concatenated\n- C. Python\
+    \ strings can be sliced like lists\n- D. Python strings are mutable\n\n**Correct\
+    \ Answer:** *BC*\n\nWhich of the following sentences are true? (Choose two.)\n\
+    \n- A. Lists may not be stored inside tuples\n- B. Tuples may be stored inside\
+    \ lists\n- C. Tuples may not be stored inside tuples\n- D. Lists may be stored\
+    \ inside lists\n\n**Correct Answer:** *BD*\n\nAssuming that String is six or more\
+    \ letters long, the following slice\n\n```\nstring[1:-2]\n```\n\nis shorter than\
+    \ the original string by:\n\n- A. four chars\n- B. three chars\n- C. one char\n\
+    - D. two chars\n\n**Correct Answer:** *B*"
+  mdcn: "## 技术专业人士\n\n第一版\n2023\n\n## 带代码的Python学习：问题与解答\n\n## 带代码的Python学习\n\n问题与解答\n\
+    \n第一版 2023\n\n作者：技术专业人士\n\n当while循环执行完毕后，变量i的值将是多少？\n\n```\ni=0\nwhile i != 0:\n\
+    \    i=i-1\nelse:\n    i=i+1\n```\n\n- A. 1\n- B. 0\n- C. 2\n- D. 变量变得不可用\n\n\
+    选择关于组合的正确陈述。\n\n- A. 组合通过添加新组件和修改现有组件来扩展类的功能\n- B. 组合允许一个类被设计为不同类的容器\n- C. 组合是促进代码重用的概念，而继承促进封装\n\
+    - D. 组合基于“has a”关系，因此不能与继承一起使用\n\n**正确答案：** *B*\n\n分析以下代码片段并选择最能描述它的陈述。\n\n```\n\
+    class OwnMath:\n    pass\n\ndef calculate_value(numerator, denominator):\n   \
+    \ try:\n        value = numerator / denominator\n    except ZeroDivisionError\
+    \ as e:\n        raise OwnMath from e\n    return value\n\ncalculate_value(4,\
+    \ 0)\n```\n\n- A. 该代码是隐式链接异常的示例。\n- B. 该代码有错误，因为OwnMath类没有继承任何异常类型类\n- C. 该代码没有问题，脚本执行不会被任何异常中断。\n\
+    - D. 该代码是显式链接异常的示例\n\n**正确答案：** A\n\n分析以下代码片段并选择最能描述它的陈述。\n\n```\nclass Sword:\n\
+    \    var1 = 'weapon'\n\n    def __init__(self):\n        self.name = 'Excalibur'\n\
+    ```\n\n- A. self.name是类变量的名称\n- B. var1是全局变量的名称\n- C. Excalibur是传递给实例变量的值\n- D.\
+    \ weapon是传递给实例变量的值\n\n**正确答案：** C\n\n以下代码片段代表了面向对象编程的支柱之一。是哪一个？\n\n```\nclass\
+    \ A:\n    def run(self):\n        print(\"A is running\")\n\nclass B:\n    def\
+    \ fly(self):\n        print(\"B is flying\")\n\nclass C:\n    def run(self):\n\
+    \        print(\"C is running\")\n\nfor element in A(), B(), C():\n    element.run()\n\
+    ```\n\n- A. 序列化\n- B. 继承\n- C. 封装\n- D. 多态\n\n**正确答案：** D\n\n分析以下函数并选择最能描述它的陈述。\n\
+    \n```\ndef my_decorator(coating):\n    def level1_wrapper(my_function):\n    \
+    \    def level2_wrapper(*args):\n            our_function(*args)\n        return\
+    \ level2_wrapper\n    return level1_wrapper\n```\n\n- A. 这是一个接受自身参数的装饰器示例。\n-\
+    \ B. 这是一个装饰器堆叠的示例。\n- C. 这是一个可能触发无限递归的装饰器示例\n- D. 该函数有错误。\n\n**正确答案：** A\n\n分析以下代码片段并选择最能描述它的陈述。\n\
+    \n```\ndef fl(*arg, **args):\n    pass\n```\n\n- A. 尽管函数参数的名称不符合命名约定，但该代码在语法上是正确的\n\
+    - B. *arg参数保存一个未命名参数的列表。\n- C. 该代码缺少未命名参数的占位符。\n- D. 该代码在语法上不正确 - 函数应定义为 def f1\
+    \ (*args, **kwargs):\n\n**正确答案：** D\n\n分析以下代码片段并判断代码是否正确和/或哪个方法应被标识为类方法。\n\n```python\n\
+    class Crossword:\n    number_of_Crosswords = 0\n\n    def __init__(self, height,\
+    \ width):\n        self.height = height\n        self.width = width\n        self.progress\
+    \ = 0\n\n    @staticmethod\n    def isElementCorrect(word):\n        if self.isSolved():\n\
+    \            print('The crossword is already solved')\n            return True\n\
+    \        result = True\n        for char in word:\n            if char.isdigit():\n\
+    \                result = False\n                break\n        return result\n\
+    \n    def isSolved(self):\n        if self.progress == 100:\n            return\
+    \ True\n\n    def getNumberOfCrosswords(cls):\n        return cls.number_of_Crosswords\n\
+    ```\n\n- A. 只有一个初始化器，所以不需要类方法\n- B. getNumberOfCrosswords()方法应该用@classmethod装饰\n\
+    - C. 代码有错误\n- D. getNumberOfCrosswords()和isSolved方法应该用@classmethod装饰\n\n**正确答案：**\
+    \ *B*\n\n分析代码并选择最能描述它的陈述。\n\n```\nclass Item:\n    def __init__(self, initial_value):\n\
+    \        self.value = initial_value\n\n    def __ne__(self, other):\n        ...\n\
+    ```\n\n- A. __ne__()不是内置的特殊方法。\n- B. 代码有错误\n- C. 该代码负责支持否定运算符，例如 a = - a\n- D.\
+    \ 该代码负责支持不等运算符，即 !=\n\n**正确答案：** *D*\n\n能够执行位移的运算符编码为（选择两个。）\n\n- A. --\n- B.\
+    \ ++\n- C. <<\n- D. >>\n\n**正确答案：** *CD*\n\n当以下循环执行完毕后，变量i的值将是多少？\n\n```\nfor\
+    \ i in range(10):\n    pass\n```\n\n- A. 10\n- B. 变量变得不可用\n- C. 11\n- D. 9\n\n\
+    **正确答案：** *B*\n\n以下表达式 -\n\n```\n1+-2\n```\n\n- A. 等于1\n- B. 无效\n- C. 等于2\n- D.\
+    \ 等于-1\n\n**正确答案：** *D*\n\n编译器是设计用来（选择两个。）的程序。\n\n- A. 重新排列源代码使其更清晰\n- B. 检查源代码以查看其是否正确\n\
+    - C. 执行源代码\n- D. 将源代码翻译成机器码\n\n**正确答案：** *BD*\n\n以下代码片段的输出是什么？\n\n```\na= 'ant'\n\
+    b= \"bat\"\nc= 'camel'\nprint(a, b, c, sep=\"\")\n```\n\n- A. ant' bat' camel\n\
+    - B. antλ€batλ€ camel\n- C. antbatcamel\n- D. print (a, b, c, sep= ' λ€ ')\n\n\
+    **正确答案：** B\n\n以下代码片段的预期输出是什么？\n\n```\ni=5\nwhile i>0:\n    i=i //2\n    if i\
+    \ % 2==0:\n        break\nelse:\n    i+=1\nprint(i)\n```\n\n- A. 代码有错误\n- B. 3\n\
+    - C. 7\n- D. 15\n\n**正确答案：** *A*\n\n以下代码片段输出多少行？\n\n```\nfor i in range(1, 3):\n\
+    \    print(\"*\", end=\"\")\nelse:\n    print(\"*\")\n```\n\n- A. 三行\n- B. 一行\n\
+    - C. 两行\n- D. 四行\n\n**正确答案：** B\n\n以下哪些字面量反映了给定的值34.23？（选择两个。）\n\n- A. .3423e2\n\
+    - B. 3423e-2\n- C. .3423e-2\n- D. 3423e2\n\n**正确答案：** *AB*\n\n以下代码片段的预期输出是什么？\n\
+    \n```\na=2\nif a>0:\n    a+=1\nelse:\n    a-=1\nprint(a)\n```\n\n- A. 3\n- B.\
+    \ 1\n- C. 2\n- D. 代码有错误\n\n**正确答案：** A\n\n假设以下代码片段已成功执行，以下哪些等式为真？（选择两个。）\n\n```\n\
+    a= [1]\nb=a\na[0] = 0\n```\n\n- A. len(a) == len(b)\n- B. b[0] +1 ==a[0]\n- C.\
+    \ a[0] == b[0]\n- D. a[0] + 1 ==b[0]\n\n**正确答案：** *AC*\n\n假设以下代码片段已成功执行，以下哪些等式为假？（选择两个。）\n\
+    \n- A. len(a)== len(b)\n- B. a[0]-1 ==b[0]\n- C. a[0]== b[0]\n- D. b[0] - 1 ==a[0]\n\
+    \n**正确答案：** *AB*\n\n以下哪些陈述是正确的？（选择两个。）\n\n- A. Python字符串实际上是列表\n- B. Python字符串可以连接\n\
+    - C. Python字符串可以像列表一样切片\n- D. Python字符串是可变的\n\n**正确答案：** *BC*\n\n以下哪些句子是正确的？（选择两个。）\n\
+    \n- A. 列表不能存储在元组内\n- B. 元组可以存储在列表内\n- C. 元组不能存储在元组内\n- D. 列表可以存储在列表内\n\n**正确答案：**\
+    \ *BD*\n\n假设字符串长度为六个或更多字母，以下切片\n\n```\nstring[1:-2]\n```\n\n比原始字符串短：\n\n- A. 四个字符\n\
+    - B. 三个字符\n- C. 一个字符\n- D. 两个字符\n\n**正确答案：** *B*"
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    # TECH PROFESSIONAL
+
+
+    1st edition
+
+    2023
+
+
+    # Python learning with codes Questions and Answers'
+  - "[PAGE 1]\n\n# Phython learning with codes\n\nQuestions and Answers\n\nFirst edition\
+    \ 2023\n\nBy Tech Professional\n\nWhat will be the value of the i variable when\
+    \ the while e loop finishes its execution?\n\n```\ni=0\nwhile I ! =0;\n    i=i-1\n\
+    else;\n    i=i+1\n```"
+  - '[PAGE 2]
+
+
+    +   - A. 1
+
+    - B. 0
+
+    - C. 2
+
+    - D. the variable becomes unavailable
+
+
+    Select the true statement about composition.
+
+
+    +   - A. Composition extends a class''s capabilities by adding new components
+    and modifying the existing ones
+
+    - B. Composition allows a class to be projected as a container of different classes
+
+    - C. Composition is a concept that promotes code reusability, while Inheritance
+    promotes encapsulation
+
+    - D. Composition is based on the has a relation, so it cannot be used together
+    with inheritance
+
+
+    **Correct Answer:** *B*
+
+
+    Analyze the following snippet and select the statement that best describes it.'
+  - "[PAGE 3]\n\n```\nClass OwnMath:\n    Pass\n\ndef calculate _ value (numerator,\
+    \ denominator) :\n    try :\n        value  = numerator / denominator\n    except\
+    \ ZeroDivisionError as e :\n        raise  OwnMath from e\n    return value\n\
+    calculate _ value (4, 0)\n```\n\n+   - A. The code is an example of implicitly\
+    \ chained exceptions.\n- B. The code is erroneous as the OwnMath class does not\
+    \ inherit from any Exception type class\n- C. The code is fine and the script\
+    \ execution is not interrupted by any exception.\n- D. The code is an example\
+    \ of explicitly chained exceptions\n\n**Correct Answer: A**\n\nAnalyze the following\
+    \ snippet and select the statement that best describes it.\n\n```\nClass Sword:\n\
+    \    Varl  = ' weapon'\n\nDef _ init _ (self) :\n    Self.name = 'Excalibur'\n\
+    ```"
+  - '[PAGE 4]
+
+
+    +   - A. self.name is the name of a class variable
+
+    - B. var1 is the name of a global variable
+
+    - C. Excalibur is the value passed to an instance variable
+
+    - D. weapon is the value passed to an instance variable
+
+
+    **Correct Answer:** C
+
+
+    The following snippet represents one of the OOP pillars. Which one is that?'
+  - "[PAGE 5]\n\n```\nClass A:\n    def run(self):\n        Print(\"A is running\"\
+    )\n\nClass B:\n    def fly(self):\n        print(\"B is flying\")\n\nCass C:\n\
+    \    def run(self):\n        print(\"C is running\")\n\nfor element in A(), B(),\
+    \ C()\n    element.run()\n```\n\n+   - A. Serialization\n- B. Inheritance\n- C.\
+    \ Encapsulation\n- D. Polymorphism\n\n**Correct Answer: D**"
+  - "[PAGE 6]\n\nAnalyze the following function and choose the statement that best\
+    \ describes it.\n\n```\ndef my_decorator (coating) :\n    def level 1_wrapper\
+    \ (my_function):\n        def level2_wrapper (*args)\n            our_function\
+    \ (*args)\n        return level2_wrapper\n    return  level1_wrapper\n```\n\n\
+    +   - A. It is an example of a decorator that accepts its own arguments.\n- B.\
+    \ It is an example of decorator stacking.\n- C. It is an example of a decorator\
+    \ that can trigger an infinite recursion\n- D. The function is erroneous.\n\n\
+    **Correct Answer: A**"
+  - "[PAGE 7]\n\nAnalyze the following snippet and select the statement that best\
+    \ describes it.\n\n```\ndef fl (*arg, **args) :\n    pass\n```\n\n+   - A. The\
+    \ code is syntactically correct despite the fact that the names of the function\
+    \ parameters do not follow the naming convention\n- B. The *arg parameter holds\
+    \ a list of unnamed parameters.\n- C. The code is missing a placeholder for unnamed\
+    \ parameters.\n- D. The code is syntactically incorrect - the function should\
+    \ be defined as def f1 (*args, **kwargs):\n\n**Correct Answer: D**\n\nAnalyze\
+    \ the following snippet and decide whether the code is correct and/or which method\
+    \ should be distinguished as a class method."
+  - "[PAGE 8]\n\n```\npython\nclass Crossword:\n    number_of_Crosswords = 0\n\n \
+    \   def __init__(self, height, width):\n        self.height = height\n       \
+    \ self.width = width\n        self.progress = 0\n\n    @staticmethod\n    def\
+    \ isElementCorrect(word):\n        if self.isSolved():\n            print('The\
+    \ crossword is already solved')\n            return True\n        result = True\n\
+    \        for char in word:\n            if char.isdigit():\n                result\
+    \ = False\n                break\n        return result\n\n    def isSolved(self):\n\
+    \        if self.progress == 100\n            return True\n\n    def getNumberOfCrosswords(cls):\n\
+    \        return cls.number_of_Crosswords\n```"
+  - "[PAGE 9]\n\n+   - A. There is only one initializer, so there is no need for a\
+    \ class method\n- B. The getNumberOfCrosswords() method Should be decorated with\
+    \ @classmethod\n- C. The code is erroneous\n- D. The getNumberOfCrosswords() and\
+    \ isSolved methods should be decorated with @classmethod\n\n**Correct Answer:**\
+    \ *B*\n\nAnalyze the code and choose the best statement that describes it.\n\n\
+    ```\nclass Item:\n    def __init__(self, initial_value):\n        self.value =\
+    \ initial_value\n\n    def __ne__(self, other):\n        ...\n```"
+  - '[PAGE 10]
+
+
+    +   - A. __ne__() is not a built-in special method.
+
+    - B. The code is erroneous
+
+    - C. The code is responsible for the support of the negation operator, e.g. a
+    = - a
+
+    - D. The code is responsible for the support of the inequality operator, i.e.
+    !=
+
+
+    **Correct Answer:** *D*
+
+
+    And operator able to perform bitwise shifts is coded as (Choose two.)
+
+
+    +   - A. --
+
+    - B. ++
+
+    - C. <<
+
+    - D. >>
+
+
+    **Correct Answer:** *CD*
+
+
+    What will the value of the i variable be when the following loop finishes its
+    execution?'
+  - "[PAGE 11]\n\n```\nfor i in range (10):\n    pass\n```\n\n+   - A. 10\n- B. the\
+    \ variable becomes unavailable\n- C. 11\n- D. 9\n\n**Correct Answer:** *B*\n\n\
+    The following expression -\n\n```\n1+-2\n```"
+  - '[PAGE 12]
+
+
+    +   - A. equal to 1
+
+    - B. invalid
+
+    - C. equal to 2
+
+    - D. equal to -1
+
+
+    **Correct Answer:** *D*
+
+
+    A compiler is a program designed to (Choose two.)
+
+
+    +   - A. rearrange the source code to make it clearer
+
+    - B. check the source code in order to see of it''s correct
+
+    - C. execute the source code
+
+    - D. translate the source code into machine code
+
+
+    **Correct Answer:** *BD*'
+  - '[PAGE 13]
+
+
+    What is the output of the following piece of code?
+
+
+    ```
+
+    a= ''ant''
+
+    b= "bat"
+
+    c= ''camel''
+
+    print (a, b, c, sep= "")
+
+    ```
+
+
+    +   - A. ant'' bat'' camel
+
+    - B. antλ€batλ€ camel
+
+    - C. antbatcamel
+
+    - D. print (a, b, c, sep= '' λ€ '')
+
+
+    **Correct Answer: B**'
+  - "[PAGE 14]\n\nWhat is the expected output of the following snippet?\n\n```\ni=5\n\
+    while i>0:\n    i=i //2\n    if i % 2=0:\n        break\nelse:\n    i+=1\nprint\
+    \ (i)\n```"
+  - '[PAGE 15]
+
+
+    +   - A. the code is erroneous
+
+    - B. 3
+
+    - C. 7
+
+    - D. 15
+
+
+    **Correct Answer:** *A*
+
+
+    How many lines does the following snippet output?'
+  - "[PAGE 16]\n\n```\nfor i in range (1, 3):\n    print (\"*\", end= \"\")\nelse:\n\
+    \    print (\"*\")\n```\n\n+   - A. three\n- B. one\n- C. two\n- D. four\n\nCorrect\
+    \ Answer: B"
+  - '[PAGE 17]
+
+
+    Which of the following literals reflect the value given as 34.23? (Choose two.)
+
+
+    +   - A. .3423e2
+
+    - B. 3423e-2
+
+    - C. .3423e-2
+
+    - D. 3423e2
+
+
+    **Correct Answer:** *AB*
+
+
+    What is the expected output of the following snippet?'
+  - "[PAGE 18]\n\n```\na=2\nif a>0:\n    a+=1\nelse:\n    a-=1\nprint(a)\n```\n\n\
+    +   - A. 3\n- B. 1\n- C. 2\n- D. the code is erroneous\n\nCorrect Answer: A"
+  - '[PAGE 19]
+
+
+    Assuming that the following snippet has been successfully executed, which of the
+    equations are True? (Choose two.)
+
+
+    ```
+
+    a= [1]
+
+    b=a
+
+    a[0] = 0
+
+    ```
+
+
+    +   - A. len(a) == len (b)
+
+    - B. b [0] +1 ==a [0]
+
+    - C. a [0] == b [0]
+
+    - D. a [0] + 1 ==b [0]
+
+
+    **Correct Answer:** *AC*
+
+
+    Assuming that the following snippet has been successfully executed, which of the
+    equations are False? (Choose two.)'
+  - '[PAGE 20]
+
+
+    +   - A. len(a)== len (b)
+
+    - B. a [0]-1 ==b [0]
+
+    - C. a [0]== b [0]
+
+    - D. b [0] - 1 ==a [0]
+
+
+    **Correct Answer:** *AB*
+
+
+    Which of the following statements are true? (Choose two.)
+
+
+    +   - A. Python strings are actually lists
+
+    - B. Python strings can be concatenated
+
+    - C. Python strings can be sliced like lists
+
+    - D. Python strings are mutable
+
+
+    **Correct Answer:** *BC*'
+  - '[PAGE 21]
+
+
+    Which of the following sentences are true? (Choose two.)
+
+
+    +   - A. Lists may not be stored inside tuples
+
+    - B. Tuples may be stored inside lists
+
+    - C. Tuples may not be stored inside tuples
+
+    - D. Lists may be stored inside lists
+
+
+    **Correct Answer:** *BD*
+
+
+    Assuming that String is six or more letters long, the following slice
+
+
+    ```
+
+    string [1:-2]
+
+    ```
+
+
+    is shorter than the original string by:
+
+
+    +   - A. four chars
+
+    - B. three chars
+
+    - C. one char
+
+    - D. two chars
+
+
+    **Correct Answer:** *B*'
+- md: "What is the expected output of the following snippet?\n\n```\nlst = [1,2,3,4]\n\
+    lst = lst[-3:-2]\nlst = lst[-1]\nprint(lst)\n```\n\n- A. 1\n- B. 4\n- C. 2\n-\
+    \ D. 3\n\n**Correct Answer: C**\n\nWhich of the following statements are true?\
+    \ (Choose two.)\n\n- A. Python strings are actually lists\n- B. Python strings\
+    \ can be concatenated\n- C. Python strings can be sliced like lists\n- D. Python\
+    \ strings are mutable\n\n**Correct Answer: BC**\n\nWhich of the following sentences\
+    \ are true? (Choose two.)\n\n- A. Lists may not be stored inside tuples\n- B.\
+    \ Tuples may be stored inside lists\n- C. Tuples may not be stored inside tuples\n\
+    - D. Lists may be stored inside lists\n\n**Correct Answer: BD**\n\nWhat is the\
+    \ expected output of the following snippet?\n\n```\ns = 'abc'\nfor i in len(s):\n\
+    \    s[i] = s[i].upper()\nprint(s)\n```\n\n- A. abc\n- B. The code will cause\
+    \ a runtime exception\n- C. ABC\n- D. 123\n\n**Correct Answer: B**\n\nHow many\
+    \ elements will the list2 list contain after execution of the following snippet?\n\
+    \n```\nlist1 = [False for i in range(1, 10)]\nlist2 = list1[-1:1:-1]\n```\n\n\
+    - A. zero\n- B. five\n- C. seven\n- D. three\n\n**Correct Answer: C**\n\nWhat\
+    \ would you use instead of XXX if you want to check whether a certain 'key' exists\
+    \ in a dictionary called dict? (Choose two.)\n\n```\nif XXX:\n    print('Key exists')\n\
+    ```\n\n- A. 'key' in dict\n- B. dict['key'] != None\n- C. dict.exists('key')\n\
+    - D. 'key' in dict.keys()\n\n**Correct Answer: BD**\n\nYou need data which can\
+    \ act as a simple telephone directory. You can obtain it with the following clauses\
+    \ (Choose two.) (assume that no other items have been created before)\n\n- A.\
+    \ dir={'Mom': 5551234567, 'Dad': 5557654321}\n- B. dir={'Mom': '5551234567', 'Dad':\
+    \ '5557654321'}\n- C. dir={Mom: 5551234567, Dad: 5557654321}\n- D. dir={Mom: '5551234567',\
+    \ Dad: '5557654321'}\n\n**Correct Answer: CD**\n\nWhat can you do if you don't\
+    \ like a long package path like this one?\n\n```\nimport alpha.beta.gamma.delta.epsilon.zeta\n\
+    ```\n\n- A. you can make an alias for the name using the alias keyword\n- B. nothing,\
+    \ you need to come to terms with it\n- C. you can shorten it to alpha.zeta and\
+    \ Python will find the proper connection\n- D. you can make an alias for the name\
+    \ using the as keyword\n\n**Correct Answer: D**\n\nWhat is the expected output\
+    \ of the following code?\n\n```\nstr = 'abcdef'\ndef fun(s):\n    del s[2]\n \
+    \   return s\n\nprint(fun(str))\n```\n\n- A. abcef\n- B. The program will cause\
+    \ a runtime exception/error\n- C. acdef\n- D. abdef\n\n**Correct Answer: B**\n\
+    \nWhat is the expected output of the following code?\n\n```\ndef f(n):\n    if\
+    \ n == 1:\n        return '1'\n    return str(n) + f(n-1)\n\nprint(f(2))\n```\n\
+    \n- A. 21\n- B. 2\n- C. 3\n- D. 12\n\n**Correct Answer: A**\n\nWhat is the expected\
+    \ behavior of the following snippet?\n\n```\ndef x():           # line 01\n  \
+    \  return 2       # line 02\n\nx = 1 + x()        # line 03\nprint(x)        \
+    \   # line 04\n```\n\nIt will:\n\n- A. cause a runtime exception on line 02\n\
+    - B. cause a runtime exception on line 01\n- C. cause a runtime exception on line\
+    \ 03\n- D. print 3\n\n**Correct Answer: D**\n\nWhat is the expected behavior of\
+    \ the following code?\n\n```\ndef f(n):\n    for i in range(1, n+1):\n       \
+    \ yield i\n\nprint(f(2))\n```\n\nIt will:\n\n- A. print 4321\n- B. print <generator\
+    \ object f at (some hex digits)>\n- C. cause a runtime exception\n- D. print 1234\n\
+    \n**Correct Answer: B**\n\nIf you need a function that does nothing, what would\
+    \ you use instead of XXX? (Choose two.)\n\n```\ndef idler():\n    XXX\n```\n\n\
+    - A. pass\n- B. return\n- C. exit\n- D. None\n\n**Correct Answer: AD**\n\nIs it\
+    \ possible to safely check if a class/object has a certain attribute?\n\n- A.\
+    \ yes, by using the hasattr attribute\n- B. yes, by using the hasattr() method\n\
+    - C. yes, by using the hassattr() function\n- D. no, it is not possible\n\n**Correct\
+    \ Answer: B**\n\nThe first parameter of each method:\n\n- A. holds a reference\
+    \ to the currently processed object\n- B. is always set to None\n- C. is set to\
+    \ a unique random value\n- D. is set by the first argument's value\n\n**Correct\
+    \ Answer: D**\n\nThe simplest possible class definition in Python can be expressed\
+    \ as:\n\n- A. class X:\n- B. class X: pass\n- C. class X: return\n- D. class X:\
+    \ { }\n\n**Correct Answer: A**\n\nIf you want to access an exception object's\
+    \ components and store them in an object called e, you have to use the following\
+    \ form of exception statement:\n\n- A. except Exception(e):\n- B. except e = Exception:\n\
+    - C. except Exception as e:\n- D. such an action is not possible in Python\n\n\
+    **Correct Answer: C**\n\nA variable stored separately in every object is called:\n\
+    \n- A. there are no such variables, all variables are shared among objects\n-\
+    \ B. a class variable\n- C. an object variable\n- D. an instance variable\n\n\
+    **Correct Answer: D**\n\nThere is a stream named s open for writing. What option\
+    \ will you select to write a line to the stream?\n\n- A. s.write('Hello\\n')\n\
+    - B. write(s, 'Hello\\n')\n- C. s.writeln('Hello\\n')\n- D. s.writeline('Hello\\\
+    n')\n\n**Correct Answer: A**\n\nYou are going to read just one character from\
+    \ a stream called s. Which statement would you use?\n\n- A. ch = read(s, 1)\n\
+    - B. ch = s.input(1)\n- C. ch = input(s, 1)\n- D. ch = s.read(1)\n\n**Correct\
+    \ Answer: D**\n\nWhat can you deduce from the following statement? (Choose two.)\n\
+    \n```\nstr = open('file.txt', 'rt')\n```\n\n- A. str is a string read in from\
+    \ the file named file.txt\n- B. a newline character translation will be performed\
+    \ during the reads\n- C. if file.txt does not exist, it will be created\n- D.\
+    \ the opened file cannot be written with the use of the str variable\n\n**Correct\
+    \ Answer: AD**\n\nThe following class hierarchy is given. What is the expected\
+    \ output of the code?\n\n```\nclass A:\n    def a(self):\n        print(\"A\"\
+    , end=' ')\n    def b(self):\n        self.a()\n\nclass B(A):\n    def a(self):\n\
+    \        print(\"B\", end=' ')\n    def do(self):\n        self.b()\n\nclass C(A):\n\
+    \    def a(self):\n        print(\"C\", end=' ')\n    def do(self):\n        self.b()\n\
+    \nB().do()\nC().do()\n```\n\n- A. BB\n- B. CC\n- C. AA\n- D. BC\n\n**Correct Answer:\
+    \ D**\n\nPython's built-in function named open() tries to open a file and returns:\n\
+    \n- A. an integer value identifying an opened file\n- B. an error code (0 means\
+    \ success)\n- C. a stream object\n- D. always None\n\n**Correct Answer: C**\n\n\
+    Which of the following words can be used as a variable name? (Choose two.)\n\n\
+    - A. for\n- B. True\n- C. true\n- D. For\n\n**Correct Answer: CD**\n\nPython strings\
+    \ can be `glued` together using the operator:\n\n- A. .\n- B. &\n- C. _\n- D.\
+    \ +\n\n**Correct Answer: D**\n\nA keyword (Choose two.)\n\n- A. can be used as\
+    \ an identifier\n- B. is defined by Python's lexis\n- C. is also known as a reserved\
+    \ word\n- D. cannot be used in the user's code\n\n**Correct Answer: BC**\n\nHow\
+    \ many stars (*) does the snippet print?\n\n```\ns = '*****'\ns = s - s[2]\nprint(s)\n\
+    ```\n\n- A. the code is erroneous\n- B. five\n- C. four\n- D. two\n\n**Correct\
+    \ Answer: A**\n\nWhich line can be used instead of the comment to cause the snippet\
+    \ to produce the following expected output? (Choose two.)\nExpected output:\n\
+    1 2 3\nCode:\n\n```\nc, b, a = 1, 3, 2\n# put line here\nprint(a, b, c)\n```\n\
+    \n- A. c, b, a = b, a, c\n- B. c, b, a = a, c, b\n- C. a, b, c = c, a, b\n- D.\
+    \ a, b, c = a, b, c\n\n**Correct Answer: AC**\n\nAssuming that the V variable\
+    \ holds an integer value to 2, which of the following operators should be used\
+    \ instead of OPER to make the expression equal to 1?\n\nV OPER 1 -\n\n- A. <<<\n\
+    - B. >>>\n- C. >>\n- D. <<\n\n**Correct Answer: C**\n\nHow many stars (*) does\
+    \ the following snippet print?\n\n```\ni = 3\nwhile i > 0:\n    i -= 1\n    print(\"\
+    *\")\nelse:\n    print(\"*\")\n```\n\n- A. the code is erroneous\n- B. five\n\
+    - C. three\n- D. four\n\n**Correct Answer: D**\n\nUNICODE is:\n\n- A. the name\
+    \ of an operating system\n- B. a standard for encoding and handling texts\n- C.\
+    \ the name of a programming language\n- D. the name of a text processor\n\n**Correct\
+    \ Answer: B**\n\nWhat is the expected output of the following snippet?\n\n```\n\
+    s = '* - *'\ns = 2 * s + s * 2\nprint(s)\n```"
+  mdcn: "以下代码片段的预期输出是什么？\n\n```\nlst = [1,2,3,4]\nlst = lst[-3:-2]\nlst = lst[-1]\n\
+    print(lst)\n```\n\n- A. 1\n- B. 4\n- C. 2\n- D. 3\n\n**正确答案：C**\n\n以下哪些陈述是正确的？（选择两项。）\n\
+    \n- A. Python字符串实际上是列表\n- B. Python字符串可以连接\n- C. Python字符串可以像列表一样切片\n- D. Python字符串是可变的\n\
+    \n**正确答案：BC**\n\n以下哪些句子是正确的？（选择两项。）\n\n- A. 列表不能存储在元组内\n- B. 元组可以存储在列表内\n- C.\
+    \ 元组不能存储在元组内\n- D. 列表可以存储在列表内\n\n**正确答案：BD**\n\n以下代码片段的预期输出是什么？\n\n```\ns = 'abc'\n\
+    for i in len(s):\n    s[i] = s[i].upper()\nprint(s)\n```\n\n- A. abc\n- B. 代码将导致运行时异常\n\
+    - C. ABC\n- D. 123\n\n**正确答案：B**\n\n执行以下代码片段后，list2列表将包含多少个元素？\n\n```\nlist1 =\
+    \ [False for i in range(1, 10)]\nlist2 = list1[-1:1:-1]\n```\n\n- A. 零个\n- B.\
+    \ 五个\n- C. 七个\n- D. 三个\n\n**正确答案：C**\n\n如果你想检查一个名为dict的字典中是否存在某个'key'，你会用什么代替XXX？（选择两项。）\n\
+    \n```\nif XXX:\n    print('Key exists')\n```\n\n- A. 'key' in dict\n- B. dict['key']\
+    \ != None\n- C. dict.exists('key')\n- D. 'key' in dict.keys()\n\n**正确答案：BD**\n\
+    \n你需要一个可以充当简单电话簿的数据。你可以使用以下子句来获取它（选择两项。）（假设之前没有创建其他项目）\n\n- A. dir={'Mom': 5551234567,\
+    \ 'Dad': 5557654321}\n- B. dir={'Mom': '5551234567', 'Dad': '5557654321'}\n- C.\
+    \ dir={Mom: 5551234567, Dad: 5557654321}\n- D. dir={Mom: '5551234567', Dad: '5557654321'}\n\
+    \n**正确答案：CD**\n\n如果你不喜欢像下面这样长的包路径，你可以用什么代替？\n\n```\nimport alpha.beta.gamma.delta.epsilon.zeta\n\
+    ```\n\n- A. 你可以使用alias关键字为名称创建别名\n- B. 无能为力，你需要接受它\n- C. 你可以将其缩短为alpha.zeta，Python会找到正确的连接\n\
+    - D. 你可以使用as关键字为名称创建别名\n\n**正确答案：D**\n\n以下代码的预期输出是什么？\n\n```\nstr = 'abcdef'\n\
+    def fun(s):\n    del s[2]\n    return s\n\nprint(fun(str))\n```\n\n- A. abcef\n\
+    - B. 程序将导致运行时异常/错误\n- C. acdef\n- D. abdef\n\n**正确答案：B**\n\n以下代码的预期输出是什么？\n\n\
+    ```\ndef f(n):\n    if n == 1:\n        return '1'\n    return str(n) + f(n-1)\n\
+    \nprint(f(2))\n```\n\n- A. 21\n- B. 2\n- C. 3\n- D. 12\n\n**正确答案：A**\n\n以下代码片段的预期行为是什么？\n\
+    \n```\ndef x():           # 第01行\n    return 2       # 第02行\n\nx = 1 + x()   \
+    \     # 第03行\nprint(x)           # 第04行\n```\n\n它将：\n\n- A. 在第02行导致运行时异常\n- B.\
+    \ 在第01行导致运行时异常\n- C. 在第03行导致运行时异常\n- D. 打印3\n\n**正确答案：D**\n\n以下代码的预期行为是什么？\n\n\
+    ```\ndef f(n):\n    for i in range(1, n+1):\n        yield i\n\nprint(f(2))\n\
+    ```\n\n它将：\n\n- A. 打印4321\n- B. 打印 <generator object f at (some hex digits)>\n\
+    - C. 导致运行时异常\n- D. 打印1234\n\n**正确答案：B**\n\n如果你需要一个什么都不做的函数，你会用什么代替XXX？（选择两项。）\n\
+    \n```\ndef idler():\n    XXX\n```\n\n- A. pass\n- B. return\n- C. exit\n- D. None\n\
+    \n**正确答案：AD**\n\n是否可以安全地检查一个类/对象是否具有某个属性？\n\n- A. 可以，使用hasattr属性\n- B. 可以，使用hasattr()方法\n\
+    - C. 可以，使用hassattr()函数\n- D. 不可以，这是不可能的\n\n**正确答案：B**\n\n每个方法的第一个参数：\n\n- A. 持有对当前处理对象的引用\n\
+    - B. 总是设置为None\n- C. 设置为一个唯一的随机值\n- D. 由第一个参数的值设置\n\n**正确答案：D**\n\nPython中最简单的类定义可以表示为：\n\
+    \n- A. class X:\n- B. class X: pass\n- C. class X: return\n- D. class X: { }\n\
+    \n**正确答案：A**\n\n如果你想访问异常对象的组件并将它们存储在一个名为e的对象中，你必须使用以下形式的异常语句：\n\n- A. except Exception(e):\n\
+    - B. except e = Exception:\n- C. except Exception as e:\n- D. 在Python中不可能执行这样的操作\n\
+    \n**正确答案：C**\n\n在每个对象中单独存储的变量称为：\n\n- A. 没有这样的变量，所有变量都在对象之间共享\n- B. 类变量\n- C.\
+    \ 对象变量\n- D. 实例变量\n\n**正确答案：D**\n\n有一个名为s的流已打开用于写入。你将选择哪个选项向流中写入一行？\n\n- A. s.write('Hello\\\
+    n')\n- B. write(s, 'Hello\\n')\n- C. s.writeln('Hello\\n')\n- D. s.writeline('Hello\\\
+    n')\n\n**正确答案：A**\n\n你打算从一个名为s的流中读取一个字符。你会使用哪个语句？\n\n- A. ch = read(s, 1)\n- B.\
+    \ ch = s.input(1)\n- C. ch = input(s, 1)\n- D. ch = s.read(1)\n\n**正确答案：D**\n\n\
+    从以下语句中你可以推断出什么？（选择两项。）\n\n```\nstr = open('file.txt', 'rt')\n```\n\n- A. str是从名为file.txt的文件中读入的字符串\n\
+    - B. 在读取期间将执行换行符转换\n- C. 如果file.txt不存在，它将被创建\n- D. 打开的文件不能使用str变量进行写入\n\n**正确答案：AD**\n\
+    \n给定以下类层次结构。代码的预期输出是什么？\n\n```\nclass A:\n    def a(self):\n        print(\"A\"\
+    , end=' ')\n    def b(self):\n        self.a()\n\nclass B(A):\n    def a(self):\n\
+    \        print(\"B\", end=' ')\n    def do(self):\n        self.b()\n\nclass C(A):\n\
+    \    def a(self):\n        print(\"C\", end=' ')\n    def do(self):\n        self.b()\n\
+    \nB().do()\nC().do()\n```\n\n- A. BB\n- B. CC\n- C. AA\n- D. BC\n\n**正确答案：D**\n\
+    \nPython的内置函数open()尝试打开一个文件并返回：\n\n- A. 一个标识已打开文件的整数值\n- B. 一个错误代码（0表示成功）\n- C.\
+    \ 一个流对象\n- D. 总是None\n\n**正确答案：C**\n\n以下哪些单词可以用作变量名？（选择两项。）\n\n- A. for\n- B.\
+    \ True\n- C. true\n- D. For\n\n**正确答案：CD**\n\nPython字符串可以使用运算符`粘合`在一起：\n\n- A.\
+    \ .\n- B. &\n- C. _\n- D. +\n\n**正确答案：D**\n\n一个关键字（选择两项。）\n\n- A. 可以用作标识符\n- B.\
+    \ 由Python的词法定义\n- C. 也称为保留字\n- D. 不能在用户的代码中使用\n\n**正确答案：BC**\n\n代码片段打印了多少个星号(*)？\n\
+    \n```\ns = '*****'\ns = s - s[2]\nprint(s)\n```\n\n- A. 代码有误\n- B. 五个\n- C. 四个\n\
+    - D. 两个\n\n**正确答案：A**\n\n哪一行可以代替注释，使代码片段产生以下预期输出？（选择两项。）\n预期输出：\n1 2 3\n代码：\n\n\
+    ```\nc, b, a = 1, 3, 2\n# 在此处放置一行\nprint(a, b, c)\n```\n\n- A. c, b, a = b, a,\
+    \ c\n- B. c, b, a = a, c, b\n- C. a, b, c = c, a, b\n- D. a, b, c = a, b, c\n\n\
+    **正确答案：AC**\n\n假设V变量持有整数值2，以下哪个运算符应该代替OPER，使表达式等于1？\n\nV OPER 1 -\n\n- A. <<<\n\
+    - B. >>>\n- C. >>\n- D. <<\n\n**正确答案：C**\n\n以下代码片段打印了多少个星号(*)？\n\n```\ni = 3\n\
+    while i > 0:\n    i -= 1\n    print(\"*\")\nelse:\n    print(\"*\")\n```\n\n-\
+    \ A. 代码有误\n- B. 五个\n- C. 三个\n- D. 四个\n\n**正确答案：D**\n\nUNICODE是：\n\n- A. 操作系统的名称\n\
+    - B. 用于编码和处理文本的标准\n- C. 编程语言的名称\n- D. 文本处理器的名称\n\n**正确答案：B**\n\n以下代码片段的预期输出是什么？\n\
+    \n```\ns = '* - *'\ns = 2 * s + s * 2\nprint(s)\n```"
+  merge: 0
+  raw:
+  - '[PAGE 22]
+
+
+    What is the expected output of the following snippet?
+
+
+    ```
+
+    lst = [1,2,3,4]
+
+    lst = lst [-3:-2]
+
+    lst= lst[-1]
+
+    print (lst)
+
+    ```
+
+
+    +   - A. 1
+
+    - B. 4
+
+    - C. 2
+
+    - D. 3
+
+
+    **Correct Answer: C**'
+  - '[PAGE 23]
+
+
+    Which of the following statements are true? (Choose two.)
+
+
+    +   - A. Python strings are actually lists
+
+    - B. Python strings can be concatenated
+
+    - C. Python strings can be sliced like lists
+
+    - D. Python strings are mutable
+
+
+    **Correct Answer:** *BC*
+
+
+    Which of the following sentences are true? (Choose two.)
+
+
+    +   - A. Lists may not be stored inside tuples
+
+    - B. Tuples may be stored inside lists
+
+    - C. Tuples may not be stored inside tuples
+
+    - D. Lists may be stored inside lists
+
+
+    **Correct Answer:** *BD*'
+  - "[PAGE 24]\n\nWhat is the expected output of the following snippet?\n\n```\ns=\
+    \ 'abc'\nfor i in len(s):\n    s[i] = s[i].upper ( )\nprint(s)\n```"
+  - '[PAGE 25]
+
+
+    +   - A. abc
+
+    - B. The code will cause a runtime exception
+
+    - C. ABC
+
+    - D. 123
+
+
+    **Correct Answer: B**
+
+
+    How many elements will the list2 list contain after execution of the following
+    snippet?
+
+
+    ```
+
+    list1 = [False for i in range (1, 10) ]
+
+    list2 = list1 [-1:1:-1]
+
+    ```
+
+
+    +   - A. zero
+
+    - B. five
+
+    - C. seven
+
+    - D. three
+
+
+    **Correct Answer: C**'
+  - "[PAGE 26]\n\nWhat would you used instead of XXX if you want to check weather\
+    \ a certain 'key' exists in a dictionary called dict? (Choose two.)\n\n```\nif\
+    \ XXX:\n    print  Key exists\n```\n\n+   - A. 'key' in dict\n- B. dict ['key']\
+    \ != None\n- C. dict.exists ('key')\n- D. 'key' in dict.keys ( )\n\n**Correct\
+    \ Answer: BD**\n\nYou need data which can act as a simple telephone directory.\
+    \ You can obtain it with the following clauses (Choose two.) (assume that no other\
+    \ items have been created before)\n\n+   - A. dir={'Mom': 5551234567, 'Dad': 5557654321}\n\
+    - B. dir= {'Mom': '5551234567', 'Dad': '5557654321'}\n- C. dir= {Mom: 5551234567,\
+    \ Dad: 5557654321}\n- D. dir= {Mom: '5551234567', Dad: '5557654321'}\n\n**Correct\
+    \ Answer: CD**"
+  - '[PAGE 27]
+
+
+    What can you do if you don''t like a long package path like this one?
+
+
+    ```
+
+    import alpha .beta . gamma .delta .epsilon .zeta
+
+    ```
+
+
+    +   - A. you can make an alias for the name using the alias keyword
+
+    - B. nothing, you need to come to terms with it
+
+    - C. you can shorten it to alpha . zeta and Python will find the proper connection
+
+    - D. you can make an alias for the name using the as keyword
+
+
+    **Correct Answer:** *D*
+
+
+    What is the expected output of the following code?'
+  - "[PAGE 28]\n\n```\nstr = 'abcdef'\ndef fun(s) :\n    del s[2]\n    return s\n\n\
+    print(fun(str))\n```"
+  - "[PAGE 29]\n\n+   - A. abcef\n- B. The program will cause a runtime exception/error\n\
+    - C. acdef\n- D. abdef\n\n**Correct Answer: B**\n\nWhat is the expected output\
+    \ of the following code\n\n```\ndef f(n):\n    if n == 1:\n        return '1'\n\
+    \    return str(n) + f(n-1)\n\nprint(f(2))\n```"
+  - "[PAGE 30]\n\n+   - A. 21\n- B. 2\n- C. 3\n- D. 12\n\n**Correct Answer:** *A*\n\
+    \nWhat is the expected behavior of the following snippet?\n\n```\ndef x( ) : \
+    \          # line 01\n    return 2         # line 02\n\nx= 1 + x ( )         #\
+    \ line 03\nprint (x)             # line 04\n```"
+  - "[PAGE 31]\n\nIt will:\n\n+   - A. cause a runtime exception on line 02\n- B.\
+    \ cause a runtime exception on line 01\n- C. cause a runtime exception on line\
+    \ 03\n- D. print 3\n\n**Correct Answer:** *D*\n\nWhat is the expected behavior\
+    \ of the following code?\n\n```\ndef f(n):\n    for i in range(1, n+1):\n    \
+    \    yield I\n\nprint(f(2))\n```"
+  - "[PAGE 32]\n\nIt will:\n\n+   - A. print 4321\n- B. print <generator object f\
+    \ at (some hex digits)>\n- C. cause a runtime exception\n- D. print 1234\n\n**Correct\
+    \ Answer:** *B*\n\nIf you need a function that does nothing, what would you use\
+    \ instead of XXX? (Choose two.)\n\n```\ndef idler():\n    XXX\n```\n\n+   - A.\
+    \ pass\n- B. return\n- C. exit\n- D. None\n\n**Correct Answer:** *AD*"
+  - '[PAGE 33]
+
+
+    Is it possible to safely check if a class/object has a certain attribute?
+
+
+    +   - A. yes, by using the hasattr attribute
+
+    - B. yes, by using the hasattr ( ) method
+
+    - C. yes, by using the hassattr ( ) function
+
+    - D. no, it is not possible
+
+
+    **Correct Answer: B**
+
+
+    The first parameter of each method:
+
+
+    +   - A. holds a reference to the currently processed object
+
+    - B. is always set to None
+
+    - C. is set to a unique random value
+
+    - D. is set by the first argument''s value
+
+
+    **Correct Answer: D**'
+  - '[PAGE 34]
+
+
+    The simplest possible class definition in Python can be expressed as:
+
+
+    +   - A. class X:
+
+    - B. class X: pass
+
+    - C. class X: return
+
+    - D. class X: { }
+
+
+    **Correct Answer: A**
+
+
+    If you want to access an exception object''s components and store them in an object
+    called e, you have to use the following form of exception statement:
+
+
+    +   - A. except Exception (e) :
+
+    - B. except e= Exception :
+
+    - C. except Exception as e:
+
+    - D. such an action is not possible in Python
+
+
+    **Correct Answer: C**'
+  - '[PAGE 35]
+
+
+    A variable stored separately in every object is called:
+
+
+    +   - A. there are no such variables, all variables are shared among objects
+
+    - B. a class variable
+
+    - C. an object variable
+
+    - D. an instance variable
+
+
+    **Correct Answer:** *D*
+
+
+    There is a stream named s open for writing. What option will you select to write
+    a line to the stream?
+
+
+    +   - A. s. write (λ€Hello\nλ€)
+
+    - B. write (s, λ€Hellolλ€)
+
+    - C. s.writeln (λ€Hellolλ€)
+
+    - D. s. writeline (λ€Hellolλ€)
+
+
+    **Correct Answer:** *A*'
+  - '[PAGE 36]
+
+
+    You are going to read just one character from a stream called s. Which statement
+    would you use?
+
+
+    +   - A. ch = read (s, 1)
+
+    - B. ch= s.input (1)
+
+    - C. ch= input (s, 1)
+
+    - D. ch= s.read (1)
+
+
+    **Correct Answer: D**
+
+
+    What can you deduce from the following statement? (Choose two.)
+
+
+    ```
+
+    str= open (‘file.txt’, ‘rt’)
+
+    ```
+
+
+    +   - A. str is a string read in from the file named file.txt
+
+    - B. a newline character translation will be performed during the reads
+
+    - C. if file. txt does not exist, it will be created
+
+    - D. the opened file cannot be written with the use of the str variable
+
+
+    **Correct Answer: AD**'
+  - "[PAGE 37]\n\nThe following class hierarchy is given. What is the expected out\
+    \ of the code?\n\n```\nclass A:\n    def a(self):\n        print(\"A\", end='\
+    \ ')\n    def b(self):\n        self.a()\n\nclass B(A):\n    def a(self):\n  \
+    \      print(\"B\", end=' ')\n    def do(self):\n        self.b()\n\nclass C(A):\n\
+    \    def a(self):\n        print(\"C\", end=' ')\n    def do(self):\n        self.b()\n\
+    \nB().do()\nC().do()\n```"
+  - '[PAGE 38]
+
+
+    +   - A. BB
+
+    - B. CC
+
+    - C. AA
+
+    - D. BC
+
+
+    **Correct Answer: D**
+
+
+    Python''s built in function named open () tries to open a file and returns:
+
+
+    +   - A. an integer value identifying an opened file
+
+    - B. an error code (0 means success)
+
+    - C. a stream object
+
+    - D. always None
+
+
+    **Correct Answer: C**
+
+
+    Which of the following words can be used as a variable name? (Choose two.)
+
+
+    +   - A. for
+
+    - B. True
+
+    - C. true
+
+    - D. For
+
+
+    **Correct Answer: CD**'
+  - '[PAGE 39]
+
+
+    Python strings can be `glued` together using the operator:
+
+
+    +   - A. .
+
+    - B. &
+
+    - C. _
+
+    - D. +
+
+
+    **Correct Answer:** *D*
+
+
+    A keyword (Choose two.)
+
+
+    +   - A. can be used as an identifier
+
+    - B. is defined by Python''s lexis
+
+    - C. is also known as a reserved word
+
+    - D. cannot be used in the user''s code
+
+
+    **Correct Answer:** *BC*'
+  - '[PAGE 40]
+
+
+    How many stars (*) does the snippet print?
+
+
+    ```
+
+    s = ''*****''
+
+    s = s - s [2]
+
+    print (s)
+
+    ```
+
+
+    +   - A. the code is erroneous
+
+    - B. five
+
+    - C. four
+
+    - D. two
+
+
+    **Correct Answer: A**
+
+
+    Which line can be used instead of the comment to cause the snippet to produce
+    the following expected output? (Choose two.)
+
+    Expected output:
+
+    1 2 3
+
+    Code:'
+  - '[PAGE 41]
+
+
+    ```
+
+    c, b, a = 1, 3, 2
+
+    # put line here
+
+    print (a, b, c)
+
+    ```
+
+
+    +   - A. c, b, a = b, a, c
+
+    - B. c, b, a = a, c, b
+
+    - C. a, b, c = c, a, b
+
+    - D. a, b, c = a, b, c
+
+
+    **Correct Answer: AC**'
+  - '[PAGE 42]
+
+
+    Assuming that the V variable holds an integer value to 2, which of the following
+    operators should be used instead of OPER to make the expression equal to 1?
+
+
+    V OPER 1 -
+
+
+    +   - A. <<<
+
+    - B. >>>
+
+    - C. >>
+
+    - D. <<
+
+
+    **Correct Answer: C**
+
+
+    How many stars (*) does the following snippet print?'
+  - "[PAGE 43]\n\n```\ni = 3\nwhile i > 0 :\n    i -= 1\n    print (\"*\")\nelse:\n\
+    \    print (\"*\")\n```\n\n+   - A. the code is erroneous\n- B. five\n- C. three\n\
+    - D. four\n\n**Correct Answer: D**"
+  - '[PAGE 44]
+
+
+    UNICODE is:
+
+
+    +   - A. the name of an operating system
+
+    - B. a standard for encoding and handling texts
+
+    - C. the name of a programming language
+
+    - D. the name of a text processor
+
+
+    **Correct Answer: B**
+
+
+    What is the expected output of the following snippet?
+
+
+    ```
+
+    s = ''* - *''
+
+    s = 2* s + s* 2
+
+    print (s)
+
+    ```'
+- md: '## What is a static method?
+
+
+    - A. A method that works on the class itself
+
+    - B. A method decorated with the @method trait
+
+    - C. A method that requires no parameters referring to the class itself
+
+    - D. A method that works on class objects that are instantiated
+
+
+    **Correct Answer: C**
+
+
+    What is true about type in the object-oriented programming sense?
+
+
+    - A. It is the bottommost type that any object can inherit from.
+
+    - B. It is a built-in method that allows enumeration of composite objects
+
+    - C. It is the topmost type that any class can inherit from.
+
+    - D. It is an object used to instantiate a class.
+
+
+    **Correct Answer: C**
+
+
+    What does the term deserialization mean? (Choose the best answer.)
+
+
+    - A. It is a process of creating Python objects based on sequences of bytes
+
+    - B. It is a process of assigning unique identifiers to every newly created Python
+    object
+
+    - C. It is another name for the data transmission process
+
+    - D. It is a process of converting the structure of an object into a stream of
+    bytes
+
+
+    **Correct Answer: D**
+
+
+    What is a `__traceback__`? (Choose two.)
+
+
+    - A. An attribute owned by every exception object
+
+    - B. A special method delivered by the traceback module to retrieve a full list
+    of strings describing the traceback
+
+    - C. An attribute that is added to every object when the traceback module is imported
+
+    - D. An attribute that holds interesting information that is particularly useful
+    when the programmer wants to store exception details in other objects
+
+
+    **Correct Answer: AD**
+
+
+    Which of the following examples using line breaks and different indentation methods
+    are compliant with PEP 8 recommendations? (Choose two.)
+
+
+    A.'
+  mdcn: '## 什么是静态方法？
+
+
+    - A. 作用于类本身的方法
+
+    - B. 使用 `@method` 特性装饰的方法
+
+    - C. 一个不需要引用类本身作为参数的方法
+
+    - D. 作用于已实例化的类对象的方法
+
+
+    **正确答案：C**
+
+
+    在面向对象编程的意义上，关于类型，以下哪项是正确的？
+
+
+    - A. 它是任何对象都可以继承的最底层类型。
+
+    - B. 它是一种内置方法，允许枚举复合对象。
+
+    - C. 它是任何类都可以继承的最顶层类型。
+
+    - D. 它是用于实例化类的对象。
+
+
+    **正确答案：C**
+
+
+    术语“反序列化”是什么意思？（选择最佳答案。）
+
+
+    - A. 它是基于字节序列创建 Python 对象的过程。
+
+    - B. 它是为每个新创建的 Python 对象分配唯一标识符的过程。
+
+    - C. 它是数据传输过程的另一个名称。
+
+    - D. 它是将对象结构转换为字节流的过程。
+
+
+    **正确答案：D**
+
+
+    什么是 `__traceback__`？（选择两项。）
+
+
+    - A. 每个异常对象都拥有的一个属性。
+
+    - B. 由 traceback 模块提供的特殊方法，用于检索描述回溯的完整字符串列表。
+
+    - C. 当导入 traceback 模块时，添加到每个对象的一个属性。
+
+    - D. 一个保存有用信息的属性，当程序员希望将异常细节存储在其他对象中时特别有用。
+
+
+    **正确答案：AD**
+
+
+    以下哪些使用换行和不同缩进方法的示例符合 PEP 8 的建议？（选择两项。）
+
+
+    A.'
+  merge: 0
+  raw:
+  - '[PAGE 45]
+
+
+    +   - A. *_**_**_**_*
+
+    - B. *_**_**_**_**_**_**_**_*
+
+    - C. *_*
+
+    - D. *_**_*
+
+
+    **Correct Answer: A**
+
+
+    Which of the listed actions can be applied to the following tuple? (Choose two.)
+
+
+    ```
+
+    tup = ()
+
+    ```
+
+
+    +   - A. tup [:]
+
+    - B. tup.append (0)
+
+    - C. tup [0]
+
+    - D. del tup
+
+
+    **Correct Answer: AD**'
+  - '[PAGE 46]
+
+
+    Executing the following snippet –
+
+
+    ```
+
+    dct = { ''pi'' : 3.14}
+
+    dct [''pi''] = 3.1415
+
+    ```
+
+
+    will cause the dct:
+
+
+    +   - A. to hold two keys named ''pi'' linked to 3.14 and 3.1415 respectively
+
+    - B. to hold two key named ''pi'' linked to 3.14 and 3.1415
+
+    - C. to hold one key named ''pi'' linked to 3.1415
+
+    - D. to hold two keys named ''pi'' linked to 3.1415
+
+
+    **Correct Answer: C**
+
+
+    How many elements will the list1 list contain after execution of the following
+    snippet?'
+  - '[PAGE 47]
+
+
+    ```
+
+    List1 = "don''t think twice, do it!" .split ('','')
+
+    ```
+
+
+    +   - A. two
+
+    - B. zero
+
+    - C. one
+
+    - D. three
+
+
+    **Correct Answer: A**
+
+
+    Which of the equations are True? (Choose two.)
+
+
+    +   - A. chr (ord (x)) = = x
+
+    - B. ord (ord (x)) = = x
+
+    - C. chr (chr (x)) = = x
+
+    - D. ord (chr (x)) = = x
+
+
+    **Correct Answer: AD**'
+  - "[PAGE 48]\n\nIf you want to transform a string into a list of words, what invocation\
+    \ would you use?\n(Choose two.)\nExpected output:\nThe, Catcher, in, the Rye,\n\
+    \nCode:\n\n```\nS = \"The Catcher in the Rye\"\nl = # put a proper invocation\
+    \ here\nFor w in l:\n    Print (w, end=',') # outputs: The, Catcher, in, the Rye,\n\
+    ```\n\n+   - A. s.split ()\n- B. split (s,' ')\n- C. s.split (' ')\n- D. split\
+    \ (s)\n\n**Correct Answer:** AC"
+  - '[PAGE 49]
+
+
+    is a four-element list is there any difference between these two statements?
+
+
+    ```
+
+    del lst # the first line
+
+    del lst [:] # the second line
+
+    ```
+
+
+    +   - A. yes, there is, the first line empties the list, the second line deletes
+    the list as a whole
+
+    - B. yes, there is, the first line deletes the list as a whole, the second line
+    just empties the list
+
+    - C. no, there is no difference
+
+    - D. yes, there is, the first line deletes the list as a whole, the second line
+    removes all the elements except the first one
+
+
+    **Correct Answer: B**'
+  - "[PAGE 50]\n\nWhat should you put instead of XXX to print out the module name?\n\
+    \n```\nIf ______name______ ! = \"XXX\":\n    print (____name____)\n```"
+  - '[PAGE 51]
+
+
+    +   - A. main
+
+    - B. _main_
+
+    - C. __main__
+
+    - D. ____main____
+
+
+    **Correct Answer: C**
+
+
+    Files with the suffix .pyc contain:
+
+
+    +   - A. Python 4 source code
+
+    - B. backups
+
+    - C. temporary data
+
+    - D. semi-compiled Python code
+
+
+    **Correct Answer: D**'
+  - '[PAGE 52]
+
+
+    Package source directories/folders can be:
+
+
+    +   - A. converted into the so-called pypck format
+
+    - B. packed as a ZIP file and distributed as one file
+
+    - C. rebuilt to a flat form and distributed as one directory/folder
+
+    - D. removed as Python compiles them into an internal portable format
+
+
+    **Correct Answer: B**
+
+
+    What can you deduce from the line below? (Choose two.)
+
+
+    ```
+
+    x = a.b.c.f ()
+
+    ```'
+  - '[PAGE 53]
+
+
+    +   - A. import a.b.c should be placed before that line
+
+    - B. f () is located in subpackage c of subpackage b of package a
+
+    - C. the line is incorrect
+
+    - D. the function being invoked is called a.b.c.f ()
+
+
+    **Correct Answer: AC**'
+  - '[PAGE 54]
+
+
+    A two-parameter lambda function raising its first parameter to the power of the
+    second parameter should be declared as:
+
+
+    +   - A. lambda (x, y) = x ** y
+
+    - B. lambda (x, y): x ** y
+
+    - C. def lambda (x, y): return x ** y
+
+    - D. lambda x, y: x ** y
+
+
+    **Correct Answer: D**
+
+    What is the expected output of the following code?
+
+
+    ```
+
+    def f (n) :
+
+    if n == 1:
+
+    return 1
+
+    return n + f (n-1)
+
+    print (f(2))
+
+    ```'
+  - "[PAGE 55]\n\n+   - A. 21\n- B. 12\n- C. 3\n- D. none\n\n**Correct Answer: C**\n\
+    \nA method for passing the arguments used by the following snippet is called:\n\
+    \n```\ndef fun (a, b):\n    return a + b\n\nres = fun (1, 2)\n```"
+  - "[PAGE 56]\n\n+   - A. sequential\n- B. named\n- C. positional\n- D. keyword\n\
+    \n**Correct Answer: C**\nWhat is the expected behavior of the following code?\n\
+    \n```\ndef f(n):\n    for i in range(1, n+1):\n        yield i\n\nfor i in f(2):\n\
+    \    print(i, end=' ')\n```"
+  - '[PAGE 57]
+
+
+    It will -
+
+
+    +   - A. print 2 1
+
+    - B. print 1 2
+
+    - C. cause a runtime exception
+
+    - D. print <generator object f at (some hex digits)>
+
+
+    **Correct Answer: B**
+
+
+    What is the expected output of the following code?
+
+
+    ```
+
+    lst = [x for x in range (5)]
+
+    lst = list (filter (lambda x: x % 2 == 0, lst))
+
+    print (len(lst))
+
+    ```'
+  - "[PAGE 58]\n\n+   - A. 2\n- B. The code will cause a runtime exception\n- C. 1\n\
+    - D. 3\n\n**Correct Answer: D**\n\nWhat is the expected behavior of the following\
+    \ code?\n\n```\ndef unclear (x):\n    if x % 2 == 1:\n        return 0\n\nprint\
+    \ (unclear (1) + unclear (2))\n```"
+  - '[PAGE 59]
+
+
+    It will:
+
+
+    +   - A. print 0
+
+    - B. cause a runtime exception
+
+    - C. prints 3
+
+    - D. p
+
+
+    **Correct Answer: B**
+
+
+    If any of a class''s components has a name that starts with two underscores (___),
+    then:
+
+
+    +   - A. the class component''s name will be mangled
+
+    - B. the class component has to be an instance variable
+
+    - C. the class component has to be a class variable
+
+    - D. the class component has to be a method
+
+
+    **Correct Answer: A**
+
+
+    If you need to serve two different exceptions called Ex1 and Ex2 in one except
+    branch, you can write:
+
+
+    +   - A. except Ex1 Ex2:
+
+    - B. except (ex1, Ex2):
+
+    - C. except Ex1, Ex2:
+
+    - D. except Ex1+Ex2:
+
+
+    **Correct Answer: B**'
+  - '[PAGE 60]
+
+
+    A function called issubclass (c1, c2) is able to check if:
+
+
+    +   - A. c1 and c2 are both subclasses of the same superclass
+
+    - B. c2 is a subclass of c1
+
+    - C. c1 is a subclass of c2
+
+    - D. c1 and c2 are not subclasses of the same superclass
+
+
+    **Correct Answer: C**
+
+
+    Which function or operator should you use to obtain the answer True or False to
+    the question "Do two variables refer to the same object?"
+
+
+    +   - A. The == operator
+
+    - B. The isinstance() function
+
+    - C. The id() function
+
+    - D. The is function
+
+
+    **Correct Answer: D**'
+  - '[PAGE 61]
+
+
+    Which sentence about the @property decorator is false?
+
+
+    +   - A. The @property decorator should be defined after the method that is responsible
+    for setting an encapsulated attribute.
+
+    - B. The @property decorator designates a method which is responsible for returning
+    an attribute value.
+
+    - C. The @property decorator marks the method whose name will be used as the name
+    of the instance attribute.
+
+    - D. The @property decorator should be defined before the methods that are responsible
+    for setting and deleting an encapsulated attribute.
+
+
+    **Correct Answer: C**'
+  - '[PAGE 62]
+
+
+    Select the true statement about the __name__ attribute.
+
+
+    +   - A. __name__ is a special attribute, which is inherent for both classes and
+    instances, and it contains information about the class to which a class instance
+    belongs.
+
+    - B. __name__ is a special attribute, which is inherent for both classes and instances,
+    and it contains a dictionary of object attributes.
+
+    - C. __name__ is a special attribute, which is inherent for classes, and it contains
+    information about the class to which a class instance belongs.
+
+    - D. __name__ is a special attribute, which is inherent for classes, and it contains
+    the name of a class.
+
+
+    **Correct Answer:** *D*'
+  - '[PAGE 63]
+
+
+    # What is a static method?
+
+
+    +   - A. A method that works on the class itself
+
+    - B. A method decorated with the @method trait
+
+    - C. A method that requires no parameters referring to the class itself
+
+    - D. A method that works on class objects that are instantiated
+
+
+    **Correct Answer: C**'
+  - '[PAGE 64]
+
+
+    What is true about type in the object-oriented programming sense?
+
+
+    +   - A. It is the bottommost type that any object can inherit from.
+
+    - B. It is a built-in method that allows enumeration of composite objects
+
+    - C. It is the topmost type that any class can inherit from.
+
+    - D. It is an object used to instantiate a class.
+
+
+    **Correct Answer: C**
+
+
+    What does the term deserialization mean? (Choose the best answer.)
+
+
+    +   - A. It is a process of creating Python objects based on sequences of bytes
+
+    - B. It is a process of assigning unique identifiers to every newly created Python
+    object
+
+    - C. It is another name for the data transmission process
+
+    - D. It is a process of converting the structure of an object into a stream of
+    bytes
+
+
+    **Correct Answer: D**'
+  - '[PAGE 65]
+
+
+    What is a __traceback__? (Choose two.)
+
+
+    +   - A. An attribute owned by every exception object
+
+    - B. A special method delivered by the traceback module to retrieve a full list
+    of strings describing the traceback
+
+    - C. An attribute that is added to every object when the traceback module is imported
+
+    - D. An attribute that holds interesting information that is particularly useful
+    when the programmer wants to store exception details in other objects
+
+
+    **Correct Answer:** *AD*
+
+
+    Which of the following examples using line breaks and different indentation methods
+    are compliant with PEP 8 recommendations? (Choose two.)
+
+
+    A.'
+- md: "spam = my_function(arg_one, arg_two,\n                  arg_three, arg_four)\n\
+    \nB.\n\neggs = (1, 2, 3,\n        4, 5, 6)\n\nC.\n\nmy_list = [\n    1, 2, 3,\n\
+    \    4, 5, 6,\n]\n\nD.\n\nfoo = my_function(\n    arg_one, arg_two,\n    arg_three,\
+    \ arg_four\n)\n\n## Correct Answer: CD\n\nLook at the following examples of comments\
+    \ and docstrings in Python Select the ones that are useful and compliant with\
+    \ PEP 8 recommendations. (Choose two.)\n\nA.\n\ndef area_price(area, price=1.25):\n\
+    \    \"\"\"Calculate the area in square meters.\n    Keyword arguments:\n    area\
+    \ -- the land area of the slot\n    price -- price per sq/m (default 1.25)\"\"\
+    \"\n    ...\n\nB.\n\ndef area_price(area, price=2.25):\n    \"\"\"Calculate the\
+    \ area in square meters.\n\n    Keyword arguments:\n    area -- the land area\
+    \ of the slot\n    price -- price per sq/m (default 2.25)\"\"\"\n    ...\n\n#\
+    \ Example that illustrates creating\n# a two-element list, and printing\n# the\
+    \ list contents to the screen.\n\nmy_list = [a, b]\nprint(my_list)\n\n- D. price\
+    \ = price + 1 # Decrement price by one to compensate for loss.\n\n**Correct Answer:\
+    \ AB**\n\nSelect the true statement related to PEP 257.\n\n- A. String literals\
+    \ that occur immediately after another docstring are called attribute docstrings\n\
+    - B. Attribute docstrings and Additional docstrings are two types of extra docstrings\
+    \ that can be extracted by software tools\n- C. String literals that occur in\
+    \ places other than the first statement in a module, function, or class definition\
+    \ can act as documentation. They are recognized by the Python bytecode compiler,\
+    \ and are accessible as runtime object attributes.\n- D. String literals that\
+    \ occur immediately after a simple assignment at the top level of a module are\
+    \ called complementary docstrings\n\n**Correct Answer: C**\n\nSelect the true\
+    \ statements related to PEP 8 programming recommendations for code writing. (Choose\
+    \ two.)\n\n- A. You should use the not ... is operator (e.g. if not spam is None:),\
+    \ rather than the is not operator (e.g. if spam is not None:), to increase readability.\n\
+    - B. You should make object type comparisons using the isinstance() method (e.g.\
+    \ if isinstance(obj , int):) instead of comparing types directly (e.g. if type(obj)\
+    \ is type(1)).\n- C. You should write code in a way that favors the CPython implementation\
+    \ over PyPy, Cython, and Jython.\n- D. You should not write string literals that\
+    \ rely on significant trailing whitespaces, as they may be visually indistinguishable,\
+    \ and certain editors may trim them.\n\n**Correct Answer: BD**"
+  mdcn: "spam = my_function(arg_one, arg_two,\n                  arg_three, arg_four)\n\
+    \nB.\n\neggs = (1, 2, 3,\n        4, 5, 6)\n\nC.\n\nmy_list = [\n    1, 2, 3,\n\
+    \    4, 5, 6,\n]\n\nD.\n\nfoo = my_function(\n    arg_one, arg_two,\n    arg_three,\
+    \ arg_four\n)\n\n## 正确答案：CD\n\n查看以下 Python 中注释和文档字符串的示例。选择那些有用且符合 PEP 8 建议的示例。（选择两个。）\n\
+    \nA.\n\ndef area_price(area, price=1.25):\n    \"\"\"Calculate the area in square\
+    \ meters.\n    Keyword arguments:\n    area -- the land area of the slot\n   \
+    \ price -- price per sq/m (default 1.25)\"\"\"\n    ...\n\nB.\n\ndef area_price(area,\
+    \ price=2.25):\n    \"\"\"Calculate the area in square meters.\n\n    Keyword\
+    \ arguments:\n    area -- the land area of the slot\n    price -- price per sq/m\
+    \ (default 2.25)\"\"\"\n    ...\n\n# 该示例展示了如何创建\n# 一个包含两个元素的列表，并将\n# 列表内容打印到屏幕上。\n\
+    \nmy_list = [a, b]\nprint(my_list)\n\n- D. price = price + 1 # 将价格减少一以补偿损失。\n\n\
+    **正确答案：AB**\n\n选择与 PEP 257 相关的正确陈述。\n\n- A. 紧接在另一个文档字符串之后出现的字符串字面量称为属性文档字符串\n\
+    - B. 属性文档字符串和附加文档字符串是两种可以被软件工具提取的额外文档字符串类型\n- C. 出现在模块、函数或类定义的第一个语句之外的字符串字面量可以充当文档。它们被\
+    \ Python 字节码编译器识别，并且可以作为运行时对象属性访问。\n- D. 紧接在模块顶层简单赋值之后出现的字符串字面量称为补充文档字符串\n\n**正确答案：C**\n\
+    \n选择与 PEP 8 代码编写编程建议相关的正确陈述。（选择两个。）\n\n- A. 你应该使用 `not ... is` 运算符（例如 `if not\
+    \ spam is None:`），而不是 `is not` 运算符（例如 `if spam is not None:`），以提高可读性。\n- B. 你应该使用\
+    \ `isinstance()` 方法（例如 `if isinstance(obj, int):`）进行对象类型比较，而不是直接比较类型（例如 `if type(obj)\
+    \ is type(1)`）。\n- C. 你应该以有利于 CPython 实现而非 PyPy、Cython 和 Jython 的方式编写代码。\n- D.\
+    \ 你不应该编写依赖于重要尾随空格的字符串字面量，因为它们在视觉上可能难以区分，并且某些编辑器可能会修剪它们。\n\n**正确答案：BD**"
+  merge: 0
+  raw:
+  - "[PAGE 66]\n\n```\nspam = my_function(arg_one, arg_two,\n                  arg_three,\
+    \ arg_four)\n```\n\nB.\n\n```\neggs = (1, 2, 3,\n        4, 5, 6)\n```\n\nC."
+  - "[PAGE 67]\n\n```\nmy_list = [\n    1, 2, 3,\n    4, 5, 6,\n]\n```\n\nD.\n\n```\n\
+    foo = my_function(\n    arg_one, arg_two,\n    arg_three, arg_four\n)\n```"
+  - "[PAGE 68]\n\n# Correct Answer: CD\n\nLook at the following examples of comments\
+    \ and docstrings in Python Select the ones that are useful and compliant with\
+    \ PEP 8 recommendations. (Choose two.)\n\nA.\n\n```\ndef area_price(area, price=1.25):\n\
+    \    \"\"\"Calculate the area in square meters.\n    Keyword arguments:\n    area\
+    \ -- the land area of the slot\n    price -- price per sq/m (default 1.25)\"\"\
+    \"\n    ...\n```\n\nB."
+  - "[PAGE 69]\n\n```\ndef area_price(area, price=2.25):\n    \"\"\"Calculate the\
+    \ area in square meters.\n\n    Keyword arguments:\n    area -- the land area\
+    \ of the slot\n    price -- price per sq/m (default 2.25)\"\"\"\n    ...\n\n#\
+    \ Example that illustrates creating\n# a two-element list, and printing\n# the\
+    \ list contents to the screen.\n\nmy_list = [a, b]\nprint(my_list)\n```"
+  - '[PAGE 70]
+
+
+    +   - D. price = price + 1 # Decrement price by one to compensate for loss.
+
+
+    **Correct Answer: AB**
+
+
+    Select the true statement related to PEP 257.
+
+
+    +   - A. String literals that occur immediately after another docstring are called
+    attribute docstrings
+
+    - B. Attribute docstrings and Additional docstrings are two types of extra docstrings
+    that can be extracted by software tools
+
+    - C. String literals that occur in places other than the first statement in a
+    module, function, or class definition can act as documentation. They are recognized
+    by the Python bytecode compiler, and are accessible as runtime object attributes.
+
+    - D. String literals that occur immediately after a simple assignment at the top
+    level of a module are called complementary docstrings
+
+
+    **Correct Answer: C**'
+  - '[PAGE 71]
+
+
+    Select the true statements related to PEP 8 programming recommendations for code
+    writing. (Choose two.)
+
+
+    +   - A. You should use the not ... is operator (e.g. if not spam is None:), rather
+    than the is not operator (e.g. if spam is not None:), to increase readability.
+
+    - B. You should make object type comparisons using the isinstance() method (e.g.
+    if isinstance(obj , int):) instead of comparing types directly (e.g. if type(obj)
+    is type(1)).
+
+    - C. You should write code in a way that favors the CPython implementation over
+    PyPy, Cython, and Jython.
+
+    - D. You should not write string literals that rely on significant trailing whitespaces,
+    as they may be visually indistinguishable, and certain editors may trim them.
+
+
+    **Correct Answer:** *BD*'
+pages:
+- img_proc: true
+  md: '# TECH PROFESSIONAL
+
+
+    1st edition
+
+    2023
+
+
+    # Python learning with codes Questions and Answers'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: "# Phython learning with codes\n\nQuestions and Answers\n\nFirst edition 2023\n\
+    \nBy Tech Professional\n\nWhat will be the value of the i variable when the while\
+    \ e loop finishes its execution?\n\n```\ni=0\nwhile I ! =0;\n    i=i-1\nelse;\n\
+    \    i=i+1\n```"
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: '+   - A. 1
+
+    - B. 0
+
+    - C. 2
+
+    - D. the variable becomes unavailable
+
+
+    Select the true statement about composition.
+
+
+    +   - A. Composition extends a class''s capabilities by adding new components
+    and modifying the existing ones
+
+    - B. Composition allows a class to be projected as a container of different classes
+
+    - C. Composition is a concept that promotes code reusability, while Inheritance
+    promotes encapsulation
+
+    - D. Composition is based on the has a relation, so it cannot be used together
+    with inheritance
+
+
+    **Correct Answer:** *B*
+
+
+    Analyze the following snippet and select the statement that best describes it.'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: "```\nClass OwnMath:\n    Pass\n\ndef calculate _ value (numerator, denominator)\
+    \ :\n    try :\n        value  = numerator / denominator\n    except ZeroDivisionError\
+    \ as e :\n        raise  OwnMath from e\n    return value\ncalculate _ value (4,\
+    \ 0)\n```\n\n+   - A. The code is an example of implicitly chained exceptions.\n\
+    - B. The code is erroneous as the OwnMath class does not inherit from any Exception\
+    \ type class\n- C. The code is fine and the script execution is not interrupted\
+    \ by any exception.\n- D. The code is an example of explicitly chained exceptions\n\
+    \n**Correct Answer: A**\n\nAnalyze the following snippet and select the statement\
+    \ that best describes it.\n\n```\nClass Sword:\n    Varl  = ' weapon'\n\nDef _\
+    \ init _ (self) :\n    Self.name = 'Excalibur'\n```"
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: '+   - A. self.name is the name of a class variable
+
+    - B. var1 is the name of a global variable
+
+    - C. Excalibur is the value passed to an instance variable
+
+    - D. weapon is the value passed to an instance variable
+
+
+    **Correct Answer:** C
+
+
+    The following snippet represents one of the OOP pillars. Which one is that?'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: "```\nClass A:\n    def run(self):\n        Print(\"A is running\")\n\nClass\
+    \ B:\n    def fly(self):\n        print(\"B is flying\")\n\nCass C:\n    def run(self):\n\
+    \        print(\"C is running\")\n\nfor element in A(), B(), C()\n    element.run()\n\
+    ```\n\n+   - A. Serialization\n- B. Inheritance\n- C. Encapsulation\n- D. Polymorphism\n\
+    \n**Correct Answer: D**"
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: "Analyze the following function and choose the statement that best describes\
+    \ it.\n\n```\ndef my_decorator (coating) :\n    def level 1_wrapper (my_function):\n\
+    \        def level2_wrapper (*args)\n            our_function (*args)\n      \
+    \  return level2_wrapper\n    return  level1_wrapper\n```\n\n+   - A. It is an\
+    \ example of a decorator that accepts its own arguments.\n- B. It is an example\
+    \ of decorator stacking.\n- C. It is an example of a decorator that can trigger\
+    \ an infinite recursion\n- D. The function is erroneous.\n\n**Correct Answer:\
+    \ A**"
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: "Analyze the following snippet and select the statement that best describes\
+    \ it.\n\n```\ndef fl (*arg, **args) :\n    pass\n```\n\n+   - A. The code is syntactically\
+    \ correct despite the fact that the names of the function parameters do not follow\
+    \ the naming convention\n- B. The *arg parameter holds a list of unnamed parameters.\n\
+    - C. The code is missing a placeholder for unnamed parameters.\n- D. The code\
+    \ is syntactically incorrect - the function should be defined as def f1 (*args,\
+    \ **kwargs):\n\n**Correct Answer: D**\n\nAnalyze the following snippet and decide\
+    \ whether the code is correct and/or which method should be distinguished as a\
+    \ class method."
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: "```\npython\nclass Crossword:\n    number_of_Crosswords = 0\n\n    def __init__(self,\
+    \ height, width):\n        self.height = height\n        self.width = width\n\
+    \        self.progress = 0\n\n    @staticmethod\n    def isElementCorrect(word):\n\
+    \        if self.isSolved():\n            print('The crossword is already solved')\n\
+    \            return True\n        result = True\n        for char in word:\n \
+    \           if char.isdigit():\n                result = False\n             \
+    \   break\n        return result\n\n    def isSolved(self):\n        if self.progress\
+    \ == 100\n            return True\n\n    def getNumberOfCrosswords(cls):\n   \
+    \     return cls.number_of_Crosswords\n```"
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: "+   - A. There is only one initializer, so there is no need for a class method\n\
+    - B. The getNumberOfCrosswords() method Should be decorated with @classmethod\n\
+    - C. The code is erroneous\n- D. The getNumberOfCrosswords() and isSolved methods\
+    \ should be decorated with @classmethod\n\n**Correct Answer:** *B*\n\nAnalyze\
+    \ the code and choose the best statement that describes it.\n\n```\nclass Item:\n\
+    \    def __init__(self, initial_value):\n        self.value = initial_value\n\n\
+    \    def __ne__(self, other):\n        ...\n```"
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: '+   - A. __ne__() is not a built-in special method.
+
+    - B. The code is erroneous
+
+    - C. The code is responsible for the support of the negation operator, e.g. a
+    = - a
+
+    - D. The code is responsible for the support of the inequality operator, i.e.
+    !=
+
+
+    **Correct Answer:** *D*
+
+
+    And operator able to perform bitwise shifts is coded as (Choose two.)
+
+
+    +   - A. --
+
+    - B. ++
+
+    - C. <<
+
+    - D. >>
+
+
+    **Correct Answer:** *CD*
+
+
+    What will the value of the i variable be when the following loop finishes its
+    execution?'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: "```\nfor i in range (10):\n    pass\n```\n\n+   - A. 10\n- B. the variable\
+    \ becomes unavailable\n- C. 11\n- D. 9\n\n**Correct Answer:** *B*\n\nThe following\
+    \ expression -\n\n```\n1+-2\n```"
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: '+   - A. equal to 1
+
+    - B. invalid
+
+    - C. equal to 2
+
+    - D. equal to -1
+
+
+    **Correct Answer:** *D*
+
+
+    A compiler is a program designed to (Choose two.)
+
+
+    +   - A. rearrange the source code to make it clearer
+
+    - B. check the source code in order to see of it''s correct
+
+    - C. execute the source code
+
+    - D. translate the source code into machine code
+
+
+    **Correct Answer:** *BD*'
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: 'What is the output of the following piece of code?
+
+
+    ```
+
+    a= ''ant''
+
+    b= "bat"
+
+    c= ''camel''
+
+    print (a, b, c, sep= "")
+
+    ```
+
+
+    +   - A. ant'' bat'' camel
+
+    - B. antλ€batλ€ camel
+
+    - C. antbatcamel
+
+    - D. print (a, b, c, sep= '' λ€ '')
+
+
+    **Correct Answer: B**'
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: "What is the expected output of the following snippet?\n\n```\ni=5\nwhile i>0:\n\
+    \    i=i //2\n    if i % 2=0:\n        break\nelse:\n    i+=1\nprint (i)\n```"
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: '+   - A. the code is erroneous
+
+    - B. 3
+
+    - C. 7
+
+    - D. 15
+
+
+    **Correct Answer:** *A*
+
+
+    How many lines does the following snippet output?'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: "```\nfor i in range (1, 3):\n    print (\"*\", end= \"\")\nelse:\n    print\
+    \ (\"*\")\n```\n\n+   - A. three\n- B. one\n- C. two\n- D. four\n\nCorrect Answer:\
+    \ B"
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: 'Which of the following literals reflect the value given as 34.23? (Choose two.)
+
+
+    +   - A. .3423e2
+
+    - B. 3423e-2
+
+    - C. .3423e-2
+
+    - D. 3423e2
+
+
+    **Correct Answer:** *AB*
+
+
+    What is the expected output of the following snippet?'
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: "```\na=2\nif a>0:\n    a+=1\nelse:\n    a-=1\nprint(a)\n```\n\n+   - A. 3\n\
+    - B. 1\n- C. 2\n- D. the code is erroneous\n\nCorrect Answer: A"
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: 'Assuming that the following snippet has been successfully executed, which of
+    the equations are True? (Choose two.)
+
+
+    ```
+
+    a= [1]
+
+    b=a
+
+    a[0] = 0
+
+    ```
+
+
+    +   - A. len(a) == len (b)
+
+    - B. b [0] +1 ==a [0]
+
+    - C. a [0] == b [0]
+
+    - D. a [0] + 1 ==b [0]
+
+
+    **Correct Answer:** *AC*
+
+
+    Assuming that the following snippet has been successfully executed, which of the
+    equations are False? (Choose two.)'
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: '+   - A. len(a)== len (b)
+
+    - B. a [0]-1 ==b [0]
+
+    - C. a [0]== b [0]
+
+    - D. b [0] - 1 ==a [0]
+
+
+    **Correct Answer:** *AB*
+
+
+    Which of the following statements are true? (Choose two.)
+
+
+    +   - A. Python strings are actually lists
+
+    - B. Python strings can be concatenated
+
+    - C. Python strings can be sliced like lists
+
+    - D. Python strings are mutable
+
+
+    **Correct Answer:** *BC*'
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: 'Which of the following sentences are true? (Choose two.)
+
+
+    +   - A. Lists may not be stored inside tuples
+
+    - B. Tuples may be stored inside lists
+
+    - C. Tuples may not be stored inside tuples
+
+    - D. Lists may be stored inside lists
+
+
+    **Correct Answer:** *BD*
+
+
+    Assuming that String is six or more letters long, the following slice
+
+
+    ```
+
+    string [1:-2]
+
+    ```
+
+
+    is shorter than the original string by:
+
+
+    +   - A. four chars
+
+    - B. three chars
+
+    - C. one char
+
+    - D. two chars
+
+
+    **Correct Answer:** *B*'
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: 'What is the expected output of the following snippet?
+
+
+    ```
+
+    lst = [1,2,3,4]
+
+    lst = lst [-3:-2]
+
+    lst= lst[-1]
+
+    print (lst)
+
+    ```
+
+
+    +   - A. 1
+
+    - B. 4
+
+    - C. 2
+
+    - D. 3
+
+
+    **Correct Answer: C**'
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: 'Which of the following statements are true? (Choose two.)
+
+
+    +   - A. Python strings are actually lists
+
+    - B. Python strings can be concatenated
+
+    - C. Python strings can be sliced like lists
+
+    - D. Python strings are mutable
+
+
+    **Correct Answer:** *BC*
+
+
+    Which of the following sentences are true? (Choose two.)
+
+
+    +   - A. Lists may not be stored inside tuples
+
+    - B. Tuples may be stored inside lists
+
+    - C. Tuples may not be stored inside tuples
+
+    - D. Lists may be stored inside lists
+
+
+    **Correct Answer:** *BD*'
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: "What is the expected output of the following snippet?\n\n```\ns= 'abc'\nfor\
+    \ i in len(s):\n    s[i] = s[i].upper ( )\nprint(s)\n```"
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: '+   - A. abc
+
+    - B. The code will cause a runtime exception
+
+    - C. ABC
+
+    - D. 123
+
+
+    **Correct Answer: B**
+
+
+    How many elements will the list2 list contain after execution of the following
+    snippet?
+
+
+    ```
+
+    list1 = [False for i in range (1, 10) ]
+
+    list2 = list1 [-1:1:-1]
+
+    ```
+
+
+    +   - A. zero
+
+    - B. five
+
+    - C. seven
+
+    - D. three
+
+
+    **Correct Answer: C**'
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: "What would you used instead of XXX if you want to check weather a certain 'key'\
+    \ exists in a dictionary called dict? (Choose two.)\n\n```\nif XXX:\n    print\
+    \  Key exists\n```\n\n+   - A. 'key' in dict\n- B. dict ['key'] != None\n- C.\
+    \ dict.exists ('key')\n- D. 'key' in dict.keys ( )\n\n**Correct Answer: BD**\n\
+    \nYou need data which can act as a simple telephone directory. You can obtain\
+    \ it with the following clauses (Choose two.) (assume that no other items have\
+    \ been created before)\n\n+   - A. dir={'Mom': 5551234567, 'Dad': 5557654321}\n\
+    - B. dir= {'Mom': '5551234567', 'Dad': '5557654321'}\n- C. dir= {Mom: 5551234567,\
+    \ Dad: 5557654321}\n- D. dir= {Mom: '5551234567', Dad: '5557654321'}\n\n**Correct\
+    \ Answer: CD**"
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: 'What can you do if you don''t like a long package path like this one?
+
+
+    ```
+
+    import alpha .beta . gamma .delta .epsilon .zeta
+
+    ```
+
+
+    +   - A. you can make an alias for the name using the alias keyword
+
+    - B. nothing, you need to come to terms with it
+
+    - C. you can shorten it to alpha . zeta and Python will find the proper connection
+
+    - D. you can make an alias for the name using the as keyword
+
+
+    **Correct Answer:** *D*
+
+
+    What is the expected output of the following code?'
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: "```\nstr = 'abcdef'\ndef fun(s) :\n    del s[2]\n    return s\n\nprint(fun(str))\n\
+    ```"
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: "+   - A. abcef\n- B. The program will cause a runtime exception/error\n- C.\
+    \ acdef\n- D. abdef\n\n**Correct Answer: B**\n\nWhat is the expected output of\
+    \ the following code\n\n```\ndef f(n):\n    if n == 1:\n        return '1'\n \
+    \   return str(n) + f(n-1)\n\nprint(f(2))\n```"
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: "+   - A. 21\n- B. 2\n- C. 3\n- D. 12\n\n**Correct Answer:** *A*\n\nWhat is\
+    \ the expected behavior of the following snippet?\n\n```\ndef x( ) :         \
+    \  # line 01\n    return 2         # line 02\n\nx= 1 + x ( )         # line 03\n\
+    print (x)             # line 04\n```"
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: "It will:\n\n+   - A. cause a runtime exception on line 02\n- B. cause a runtime\
+    \ exception on line 01\n- C. cause a runtime exception on line 03\n- D. print\
+    \ 3\n\n**Correct Answer:** *D*\n\nWhat is the expected behavior of the following\
+    \ code?\n\n```\ndef f(n):\n    for i in range(1, n+1):\n        yield I\n\nprint(f(2))\n\
+    ```"
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: "It will:\n\n+   - A. print 4321\n- B. print <generator object f at (some hex\
+    \ digits)>\n- C. cause a runtime exception\n- D. print 1234\n\n**Correct Answer:**\
+    \ *B*\n\nIf you need a function that does nothing, what would you use instead\
+    \ of XXX? (Choose two.)\n\n```\ndef idler():\n    XXX\n```\n\n+   - A. pass\n\
+    - B. return\n- C. exit\n- D. None\n\n**Correct Answer:** *AD*"
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: 'Is it possible to safely check if a class/object has a certain attribute?
+
+
+    +   - A. yes, by using the hasattr attribute
+
+    - B. yes, by using the hasattr ( ) method
+
+    - C. yes, by using the hassattr ( ) function
+
+    - D. no, it is not possible
+
+
+    **Correct Answer: B**
+
+
+    The first parameter of each method:
+
+
+    +   - A. holds a reference to the currently processed object
+
+    - B. is always set to None
+
+    - C. is set to a unique random value
+
+    - D. is set by the first argument''s value
+
+
+    **Correct Answer: D**'
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: 'The simplest possible class definition in Python can be expressed as:
+
+
+    +   - A. class X:
+
+    - B. class X: pass
+
+    - C. class X: return
+
+    - D. class X: { }
+
+
+    **Correct Answer: A**
+
+
+    If you want to access an exception object''s components and store them in an object
+    called e, you have to use the following form of exception statement:
+
+
+    +   - A. except Exception (e) :
+
+    - B. except e= Exception :
+
+    - C. except Exception as e:
+
+    - D. such an action is not possible in Python
+
+
+    **Correct Answer: C**'
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: 'A variable stored separately in every object is called:
+
+
+    +   - A. there are no such variables, all variables are shared among objects
+
+    - B. a class variable
+
+    - C. an object variable
+
+    - D. an instance variable
+
+
+    **Correct Answer:** *D*
+
+
+    There is a stream named s open for writing. What option will you select to write
+    a line to the stream?
+
+
+    +   - A. s. write (λ€Hello\nλ€)
+
+    - B. write (s, λ€Hellolλ€)
+
+    - C. s.writeln (λ€Hellolλ€)
+
+    - D. s. writeline (λ€Hellolλ€)
+
+
+    **Correct Answer:** *A*'
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: 'You are going to read just one character from a stream called s. Which statement
+    would you use?
+
+
+    +   - A. ch = read (s, 1)
+
+    - B. ch= s.input (1)
+
+    - C. ch= input (s, 1)
+
+    - D. ch= s.read (1)
+
+
+    **Correct Answer: D**
+
+
+    What can you deduce from the following statement? (Choose two.)
+
+
+    ```
+
+    str= open (‘file.txt’, ‘rt’)
+
+    ```
+
+
+    +   - A. str is a string read in from the file named file.txt
+
+    - B. a newline character translation will be performed during the reads
+
+    - C. if file. txt does not exist, it will be created
+
+    - D. the opened file cannot be written with the use of the str variable
+
+
+    **Correct Answer: AD**'
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: "The following class hierarchy is given. What is the expected out of the code?\n\
+    \n```\nclass A:\n    def a(self):\n        print(\"A\", end=' ')\n    def b(self):\n\
+    \        self.a()\n\nclass B(A):\n    def a(self):\n        print(\"B\", end='\
+    \ ')\n    def do(self):\n        self.b()\n\nclass C(A):\n    def a(self):\n \
+    \       print(\"C\", end=' ')\n    def do(self):\n        self.b()\n\nB().do()\n\
+    C().do()\n```"
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: '+   - A. BB
+
+    - B. CC
+
+    - C. AA
+
+    - D. BC
+
+
+    **Correct Answer: D**
+
+
+    Python''s built in function named open () tries to open a file and returns:
+
+
+    +   - A. an integer value identifying an opened file
+
+    - B. an error code (0 means success)
+
+    - C. a stream object
+
+    - D. always None
+
+
+    **Correct Answer: C**
+
+
+    Which of the following words can be used as a variable name? (Choose two.)
+
+
+    +   - A. for
+
+    - B. True
+
+    - C. true
+
+    - D. For
+
+
+    **Correct Answer: CD**'
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: 'Python strings can be `glued` together using the operator:
+
+
+    +   - A. .
+
+    - B. &
+
+    - C. _
+
+    - D. +
+
+
+    **Correct Answer:** *D*
+
+
+    A keyword (Choose two.)
+
+
+    +   - A. can be used as an identifier
+
+    - B. is defined by Python''s lexis
+
+    - C. is also known as a reserved word
+
+    - D. cannot be used in the user''s code
+
+
+    **Correct Answer:** *BC*'
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: 'How many stars (*) does the snippet print?
+
+
+    ```
+
+    s = ''*****''
+
+    s = s - s [2]
+
+    print (s)
+
+    ```
+
+
+    +   - A. the code is erroneous
+
+    - B. five
+
+    - C. four
+
+    - D. two
+
+
+    **Correct Answer: A**
+
+
+    Which line can be used instead of the comment to cause the snippet to produce
+    the following expected output? (Choose two.)
+
+    Expected output:
+
+    1 2 3
+
+    Code:'
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: '```
+
+    c, b, a = 1, 3, 2
+
+    # put line here
+
+    print (a, b, c)
+
+    ```
+
+
+    +   - A. c, b, a = b, a, c
+
+    - B. c, b, a = a, c, b
+
+    - C. a, b, c = c, a, b
+
+    - D. a, b, c = a, b, c
+
+
+    **Correct Answer: AC**'
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: 'Assuming that the V variable holds an integer value to 2, which of the following
+    operators should be used instead of OPER to make the expression equal to 1?
+
+
+    V OPER 1 -
+
+
+    +   - A. <<<
+
+    - B. >>>
+
+    - C. >>
+
+    - D. <<
+
+
+    **Correct Answer: C**
+
+
+    How many stars (*) does the following snippet print?'
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: "```\ni = 3\nwhile i > 0 :\n    i -= 1\n    print (\"*\")\nelse:\n    print\
+    \ (\"*\")\n```\n\n+   - A. the code is erroneous\n- B. five\n- C. three\n- D.\
+    \ four\n\n**Correct Answer: D**"
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: 'UNICODE is:
+
+
+    +   - A. the name of an operating system
+
+    - B. a standard for encoding and handling texts
+
+    - C. the name of a programming language
+
+    - D. the name of a text processor
+
+
+    **Correct Answer: B**
+
+
+    What is the expected output of the following snippet?
+
+
+    ```
+
+    s = ''* - *''
+
+    s = 2* s + s* 2
+
+    print (s)
+
+    ```'
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: '+   - A. *_**_**_**_*
+
+    - B. *_**_**_**_**_**_**_**_*
+
+    - C. *_*
+
+    - D. *_**_*
+
+
+    **Correct Answer: A**
+
+
+    Which of the listed actions can be applied to the following tuple? (Choose two.)
+
+
+    ```
+
+    tup = ()
+
+    ```
+
+
+    +   - A. tup [:]
+
+    - B. tup.append (0)
+
+    - C. tup [0]
+
+    - D. del tup
+
+
+    **Correct Answer: AD**'
+  merge: -1
+  pgno: 45
+- img_proc: true
+  md: 'Executing the following snippet –
+
+
+    ```
+
+    dct = { ''pi'' : 3.14}
+
+    dct [''pi''] = 3.1415
+
+    ```
+
+
+    will cause the dct:
+
+
+    +   - A. to hold two keys named ''pi'' linked to 3.14 and 3.1415 respectively
+
+    - B. to hold two key named ''pi'' linked to 3.14 and 3.1415
+
+    - C. to hold one key named ''pi'' linked to 3.1415
+
+    - D. to hold two keys named ''pi'' linked to 3.1415
+
+
+    **Correct Answer: C**
+
+
+    How many elements will the list1 list contain after execution of the following
+    snippet?'
+  merge: -1
+  pgno: 46
+- img_proc: true
+  md: '```
+
+    List1 = "don''t think twice, do it!" .split ('','')
+
+    ```
+
+
+    +   - A. two
+
+    - B. zero
+
+    - C. one
+
+    - D. three
+
+
+    **Correct Answer: A**
+
+
+    Which of the equations are True? (Choose two.)
+
+
+    +   - A. chr (ord (x)) = = x
+
+    - B. ord (ord (x)) = = x
+
+    - C. chr (chr (x)) = = x
+
+    - D. ord (chr (x)) = = x
+
+
+    **Correct Answer: AD**'
+  merge: -1
+  pgno: 47
+- img_proc: true
+  md: "If you want to transform a string into a list of words, what invocation would\
+    \ you use?\n(Choose two.)\nExpected output:\nThe, Catcher, in, the Rye,\n\nCode:\n\
+    \n```\nS = \"The Catcher in the Rye\"\nl = # put a proper invocation here\nFor\
+    \ w in l:\n    Print (w, end=',') # outputs: The, Catcher, in, the Rye,\n```\n\
+    \n+   - A. s.split ()\n- B. split (s,' ')\n- C. s.split (' ')\n- D. split (s)\n\
+    \n**Correct Answer:** AC"
+  merge: -1
+  pgno: 48
+- img_proc: true
+  md: 'is a four-element list is there any difference between these two statements?
+
+
+    ```
+
+    del lst # the first line
+
+    del lst [:] # the second line
+
+    ```
+
+
+    +   - A. yes, there is, the first line empties the list, the second line deletes
+    the list as a whole
+
+    - B. yes, there is, the first line deletes the list as a whole, the second line
+    just empties the list
+
+    - C. no, there is no difference
+
+    - D. yes, there is, the first line deletes the list as a whole, the second line
+    removes all the elements except the first one
+
+
+    **Correct Answer: B**'
+  merge: -1
+  pgno: 49
+- img_proc: true
+  md: "What should you put instead of XXX to print out the module name?\n\n```\nIf\
+    \ ______name______ ! = \"XXX\":\n    print (____name____)\n```"
+  merge: -1
+  pgno: 50
+- img_proc: true
+  md: '+   - A. main
+
+    - B. _main_
+
+    - C. __main__
+
+    - D. ____main____
+
+
+    **Correct Answer: C**
+
+
+    Files with the suffix .pyc contain:
+
+
+    +   - A. Python 4 source code
+
+    - B. backups
+
+    - C. temporary data
+
+    - D. semi-compiled Python code
+
+
+    **Correct Answer: D**'
+  merge: -1
+  pgno: 51
+- img_proc: true
+  md: 'Package source directories/folders can be:
+
+
+    +   - A. converted into the so-called pypck format
+
+    - B. packed as a ZIP file and distributed as one file
+
+    - C. rebuilt to a flat form and distributed as one directory/folder
+
+    - D. removed as Python compiles them into an internal portable format
+
+
+    **Correct Answer: B**
+
+
+    What can you deduce from the line below? (Choose two.)
+
+
+    ```
+
+    x = a.b.c.f ()
+
+    ```'
+  merge: -1
+  pgno: 52
+- img_proc: true
+  md: '+   - A. import a.b.c should be placed before that line
+
+    - B. f () is located in subpackage c of subpackage b of package a
+
+    - C. the line is incorrect
+
+    - D. the function being invoked is called a.b.c.f ()
+
+
+    **Correct Answer: AC**'
+  merge: -1
+  pgno: 53
+- img_proc: true
+  md: 'A two-parameter lambda function raising its first parameter to the power of
+    the second parameter should be declared as:
+
+
+    +   - A. lambda (x, y) = x ** y
+
+    - B. lambda (x, y): x ** y
+
+    - C. def lambda (x, y): return x ** y
+
+    - D. lambda x, y: x ** y
+
+
+    **Correct Answer: D**
+
+    What is the expected output of the following code?
+
+
+    ```
+
+    def f (n) :
+
+    if n == 1:
+
+    return 1
+
+    return n + f (n-1)
+
+    print (f(2))
+
+    ```'
+  merge: -1
+  pgno: 54
+- img_proc: true
+  md: "+   - A. 21\n- B. 12\n- C. 3\n- D. none\n\n**Correct Answer: C**\n\nA method\
+    \ for passing the arguments used by the following snippet is called:\n\n```\n\
+    def fun (a, b):\n    return a + b\n\nres = fun (1, 2)\n```"
+  merge: -1
+  pgno: 55
+- img_proc: true
+  md: "+   - A. sequential\n- B. named\n- C. positional\n- D. keyword\n\n**Correct\
+    \ Answer: C**\nWhat is the expected behavior of the following code?\n\n```\ndef\
+    \ f(n):\n    for i in range(1, n+1):\n        yield i\n\nfor i in f(2):\n    print(i,\
+    \ end=' ')\n```"
+  merge: -1
+  pgno: 56
+- img_proc: true
+  md: 'It will -
+
+
+    +   - A. print 2 1
+
+    - B. print 1 2
+
+    - C. cause a runtime exception
+
+    - D. print <generator object f at (some hex digits)>
+
+
+    **Correct Answer: B**
+
+
+    What is the expected output of the following code?
+
+
+    ```
+
+    lst = [x for x in range (5)]
+
+    lst = list (filter (lambda x: x % 2 == 0, lst))
+
+    print (len(lst))
+
+    ```'
+  merge: -1
+  pgno: 57
+- img_proc: true
+  md: "+   - A. 2\n- B. The code will cause a runtime exception\n- C. 1\n- D. 3\n\n\
+    **Correct Answer: D**\n\nWhat is the expected behavior of the following code?\n\
+    \n```\ndef unclear (x):\n    if x % 2 == 1:\n        return 0\n\nprint (unclear\
+    \ (1) + unclear (2))\n```"
+  merge: -1
+  pgno: 58
+- img_proc: true
+  md: 'It will:
+
+
+    +   - A. print 0
+
+    - B. cause a runtime exception
+
+    - C. prints 3
+
+    - D. p
+
+
+    **Correct Answer: B**
+
+
+    If any of a class''s components has a name that starts with two underscores (___),
+    then:
+
+
+    +   - A. the class component''s name will be mangled
+
+    - B. the class component has to be an instance variable
+
+    - C. the class component has to be a class variable
+
+    - D. the class component has to be a method
+
+
+    **Correct Answer: A**
+
+
+    If you need to serve two different exceptions called Ex1 and Ex2 in one except
+    branch, you can write:
+
+
+    +   - A. except Ex1 Ex2:
+
+    - B. except (ex1, Ex2):
+
+    - C. except Ex1, Ex2:
+
+    - D. except Ex1+Ex2:
+
+
+    **Correct Answer: B**'
+  merge: -1
+  pgno: 59
+- img_proc: true
+  md: 'A function called issubclass (c1, c2) is able to check if:
+
+
+    +   - A. c1 and c2 are both subclasses of the same superclass
+
+    - B. c2 is a subclass of c1
+
+    - C. c1 is a subclass of c2
+
+    - D. c1 and c2 are not subclasses of the same superclass
+
+
+    **Correct Answer: C**
+
+
+    Which function or operator should you use to obtain the answer True or False to
+    the question "Do two variables refer to the same object?"
+
+
+    +   - A. The == operator
+
+    - B. The isinstance() function
+
+    - C. The id() function
+
+    - D. The is function
+
+
+    **Correct Answer: D**'
+  merge: -1
+  pgno: 60
+- img_proc: true
+  md: 'Which sentence about the @property decorator is false?
+
+
+    +   - A. The @property decorator should be defined after the method that is responsible
+    for setting an encapsulated attribute.
+
+    - B. The @property decorator designates a method which is responsible for returning
+    an attribute value.
+
+    - C. The @property decorator marks the method whose name will be used as the name
+    of the instance attribute.
+
+    - D. The @property decorator should be defined before the methods that are responsible
+    for setting and deleting an encapsulated attribute.
+
+
+    **Correct Answer: C**'
+  merge: -1
+  pgno: 61
+- img_proc: true
+  md: 'Select the true statement about the __name__ attribute.
+
+
+    +   - A. __name__ is a special attribute, which is inherent for both classes and
+    instances, and it contains information about the class to which a class instance
+    belongs.
+
+    - B. __name__ is a special attribute, which is inherent for both classes and instances,
+    and it contains a dictionary of object attributes.
+
+    - C. __name__ is a special attribute, which is inherent for classes, and it contains
+    information about the class to which a class instance belongs.
+
+    - D. __name__ is a special attribute, which is inherent for classes, and it contains
+    the name of a class.
+
+
+    **Correct Answer:** *D*'
+  merge: -1
+  pgno: 62
+- img_proc: true
+  md: '# What is a static method?
+
+
+    +   - A. A method that works on the class itself
+
+    - B. A method decorated with the @method trait
+
+    - C. A method that requires no parameters referring to the class itself
+
+    - D. A method that works on class objects that are instantiated
+
+
+    **Correct Answer: C**'
+  merge: -1
+  pgno: 63
+- img_proc: true
+  md: 'What is true about type in the object-oriented programming sense?
+
+
+    +   - A. It is the bottommost type that any object can inherit from.
+
+    - B. It is a built-in method that allows enumeration of composite objects
+
+    - C. It is the topmost type that any class can inherit from.
+
+    - D. It is an object used to instantiate a class.
+
+
+    **Correct Answer: C**
+
+
+    What does the term deserialization mean? (Choose the best answer.)
+
+
+    +   - A. It is a process of creating Python objects based on sequences of bytes
+
+    - B. It is a process of assigning unique identifiers to every newly created Python
+    object
+
+    - C. It is another name for the data transmission process
+
+    - D. It is a process of converting the structure of an object into a stream of
+    bytes
+
+
+    **Correct Answer: D**'
+  merge: -1
+  pgno: 64
+- img_proc: true
+  md: 'What is a __traceback__? (Choose two.)
+
+
+    +   - A. An attribute owned by every exception object
+
+    - B. A special method delivered by the traceback module to retrieve a full list
+    of strings describing the traceback
+
+    - C. An attribute that is added to every object when the traceback module is imported
+
+    - D. An attribute that holds interesting information that is particularly useful
+    when the programmer wants to store exception details in other objects
+
+
+    **Correct Answer:** *AD*
+
+
+    Which of the following examples using line breaks and different indentation methods
+    are compliant with PEP 8 recommendations? (Choose two.)
+
+
+    A.'
+  merge: -1
+  pgno: 65
+- img_proc: true
+  md: "```\nspam = my_function(arg_one, arg_two,\n                  arg_three, arg_four)\n\
+    ```\n\nB.\n\n```\neggs = (1, 2, 3,\n        4, 5, 6)\n```\n\nC."
+  merge: -1
+  pgno: 66
+- img_proc: true
+  md: "```\nmy_list = [\n    1, 2, 3,\n    4, 5, 6,\n]\n```\n\nD.\n\n```\nfoo = my_function(\n\
+    \    arg_one, arg_two,\n    arg_three, arg_four\n)\n```"
+  merge: -1
+  pgno: 67
+- img_proc: true
+  md: "# Correct Answer: CD\n\nLook at the following examples of comments and docstrings\
+    \ in Python Select the ones that are useful and compliant with PEP 8 recommendations.\
+    \ (Choose two.)\n\nA.\n\n```\ndef area_price(area, price=1.25):\n    \"\"\"Calculate\
+    \ the area in square meters.\n    Keyword arguments:\n    area -- the land area\
+    \ of the slot\n    price -- price per sq/m (default 1.25)\"\"\"\n    ...\n```\n\
+    \nB."
+  merge: -1
+  pgno: 68
+- img_proc: true
+  md: "```\ndef area_price(area, price=2.25):\n    \"\"\"Calculate the area in square\
+    \ meters.\n\n    Keyword arguments:\n    area -- the land area of the slot\n \
+    \   price -- price per sq/m (default 2.25)\"\"\"\n    ...\n\n# Example that illustrates\
+    \ creating\n# a two-element list, and printing\n# the list contents to the screen.\n\
+    \nmy_list = [a, b]\nprint(my_list)\n```"
+  merge: -1
+  pgno: 69
+- img_proc: true
+  md: '+   - D. price = price + 1 # Decrement price by one to compensate for loss.
+
+
+    **Correct Answer: AB**
+
+
+    Select the true statement related to PEP 257.
+
+
+    +   - A. String literals that occur immediately after another docstring are called
+    attribute docstrings
+
+    - B. Attribute docstrings and Additional docstrings are two types of extra docstrings
+    that can be extracted by software tools
+
+    - C. String literals that occur in places other than the first statement in a
+    module, function, or class definition can act as documentation. They are recognized
+    by the Python bytecode compiler, and are accessible as runtime object attributes.
+
+    - D. String literals that occur immediately after a simple assignment at the top
+    level of a module are called complementary docstrings
+
+
+    **Correct Answer: C**'
+  merge: -1
+  pgno: 70
+- img_proc: true
+  md: 'Select the true statements related to PEP 8 programming recommendations for
+    code writing. (Choose two.)
+
+
+    +   - A. You should use the not ... is operator (e.g. if not spam is None:), rather
+    than the is not operator (e.g. if spam is not None:), to increase readability.
+
+    - B. You should make object type comparisons using the isinstance() method (e.g.
+    if isinstance(obj , int):) instead of comparing types directly (e.g. if type(obj)
+    is type(1)).
+
+    - C. You should write code in a way that favors the CPython implementation over
+    PyPy, Cython, and Jython.
+
+    - D. You should not write string literals that rely on significant trailing whitespaces,
+    as they may be visually indistinguishable, and certain editors may trim them.
+
+
+    **Correct Answer:** *BD*'
+  merge: -1
+  pgno: 71
+toc:
+- - '##'
+  - 技术专业人士
+- - '##'
+  - 带代码的Python学习：问题与解答
+- - '##'
+  - 带代码的Python学习
+- - '#'
+  - 在此处放置一行
+- - '##'
+  - 什么是静态方法？
+- - '##'
+  - 正确答案：CD
+- - '#'
+  - 该示例展示了如何创建
+- - '#'
+  - 一个包含两个元素的列表，并将
+- - '#'
+  - 列表内容打印到屏幕上。

@@ -1,0 +1,2 @@
++   [Python 逻辑精通 - 通过算法思维学习 Python 编程初学者指南：#1 快速课程，解锁使用逻辑、数学和计算思维的编码信心。](README.md)
++   [Python 逻辑精通 - 通过算法思维学习 Python 编程初学者指南：#1 快速课程，解锁使用逻辑、数学和计算思维的编码信心。](python-logic-mastery---learning-python-programming-through-a.md)
