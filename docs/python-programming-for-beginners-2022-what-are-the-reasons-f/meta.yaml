@@ -1,0 +1,2643 @@
+groups:
+- md: '# PYTHON PROGRAMMING FOR BEGINNERS 2022
+
+
+    # WHAT ARE THE REASONS FOR LEARNING PYTHON
+
+
+    SARA JACKLINE
+
+
+    # Python Programming For Beginners 2022: What Are The Reasons For Learning Python
+
+
+    ## Introduction
+
+
+    The net is full of loose assets so that it will flip you right into a programmer
+    and in case you''ve constantly desired to discover the manner to construct software
+    program your self or possibly write an occasional script however had no clue in
+    which to start off than this manual is for you!
+
+
+    If you are curious approximately turning into a programmer, you may get off to
+    an terrific begin the usage of masses of loose net-primary based totally tutorials
+    and assets. Since the primary days of the net programmer groups are the usage
+    of it to discuss software program improvement techniques, post tutorials, and
+    percentage code samples for others to discover from and use online.
+
+
+    ## Choosing a Language
+
+
+    A not unusualplace problem for novices is getting hung abreast of seeking to exercise
+    session which programing language is quality to discover first. There are lots
+    of reviews out there, however there''s no one "quality" language. Here''s the
+    issue: in the end, language would not simply matter. Understanding statistics
+    and manipulate systems and fashion styles are what matters.
+
+
+    Every programing language, even simple scripting languages can have factors with
+    the intention to make different languages simpler to understand.
+
+
+    Many programmers by no means definitely take permitted instructional guides and
+    are self-taught in each language all through their careers. that is frequently
+    completed via way of means of reusing standards already recognized and referring
+    to documentation and books to discover its syntax. Therefore, in preference to
+    getting caught on what language to discover first simply, select out the sort
+    of improvement you would love to attempt to, and simply begin the usage of the
+    only that comes the handiest to you.
+
+
+    There are numerous unique forms of software program improvement you may do for
+    diverse platforms; net improvement, computer improvement, cellular tool improvement,
+    and training.
+
+
+    ## Desktop Scripting
+
+
+    The simplest way to attempting your hand at programming on your Windows or Mac
+    computer is to start off with a scripting or macro application like AutoHotkey
+    (for Windows) or Automator (for Mac). Sure, now superior coders can also additionally
+    disagree that AutoHotkey or AppleScript is not "real" programming that is technically
+    authentic as those forms of gear simply do high-degree scripting. However, for
+    the ones new programming who simply need to induce their arms dirty, automating
+    moves on their computer, the usage of those loose gear offer vital basics towards
+    "real" programming afterward. The strains of while an software contains of scripting
+    and while it is taken into consideration to be programming are typically blurred,
+    hold this in mind. Once your code is compiled it is taken into consideration to
+    be "real" programming. Most endcustomers of an software typically do now no longer
+    understand and need to now no longer care as lengthy as it is supposed nicely
+    and capabilities at some stage in a dynamic and sturdy manner in order to serve
+    its supposed purpose.
+
+
+    ## Web Development
+
+
+    If being positive to particular programming languages and with the layout and
+    experience of a selected OS is not your preference, bear in mind growing your
+    software for the browser alternatively and distribute it to a much broader audience,
+    as a web app.
+
+
+    HTML and CSS: the number one issue you would love to apprehend to create a web
+    web website online is Hyper Text terminology (HTML) the web page markup that creates
+    up webweb sites and Cascading sheet (CSS) is that the fashion records that controls
+    layout look of the markup.
+
+
+    HTML and CSS are scripting languages that simply incorporate web page shape and
+    beauty records. However, you must be familiar with writing coding via way of means
+    of hand earlier than you begin constructing net programs, due to the fact constructing
+    simple webpages can be a prerequisite to growing a dynamic net app.
+
+
+    After studying the improvement of static webweb sites with HTML and CSS, gaining
+    knowledge of JavaScript is that the subsequent step in programming dynamic webweb
+    sites at some stage in a browser. JavaScript is what bookmarklets, Greasemonkey
+    consumer scripts, Chrome Web Apps, and Ajax are made from.
+
+
+    Server-facet scripting: Once you are cushty at making dynamic webweb sites domestically
+    at some stage in a browser, you are in all likelihood to require to location a
+    few dynamic server motion at the back of it. to attempt to try this you may get
+    to analyze a server-facet scripting language. for instance, to shape a net-primarily
+    based totally touch shape that sends an electronic mail someplace supported what
+    a consumer entered, a server-facet script is required. Scripting languages like,
+    Python, Perl, or Ruby can ask a database to your net server additionally, so in
+    case you would love to shape a domain in which customers can log in and keep records,
+    that is probably the proper way to set approximately it.
+
+
+    Web frameworks: in preference to reinventing the wheel for every new net improvement
+    project, a few programmers have give you improvement frameworks that perform a
+    little repetitive paintings of rewriting comparable code time and again to create
+    dynamic net webweb sites. Many scripting languages provide a netparticular shape
+    for buying not unusualplace net software responsibilities accomplished simpler.
+
+
+    Web improvement frameworks encompass; Ruby on Rails framework (for Ruby programmers),
+    CakePHP (for PHP programmers), Django (for Python programmers), and jQuery (for
+    JavaScript programmers).
+
+
+    Web APIs: An API (Application Programming Interface) can be a programmatic manner
+    for diverse portions of software program to talk to at the least one another.
+    for instance, in case you would love to location a dynamic map to your net web
+    website online, you would use a Google Map in preference to constructing your
+    very own custom map. The Google Maps API makes it smooth to programmatically encompass
+    a map at some stage in a web page with JavaScript. Almost each current net carrier
+    makes use of an API that permits you to encompass statistics and widgets from
+    it on your software. These encompass; Twitter, Facebook, Google Docs, Google Maps,
+    etc. Integrating different net apps into your net software thru API''s are first
+    rate assets for reinforcing wealthy net improvement. Every primary net carrier
+    API need to provide thorough documentation and some brief begin manual.
+
+
+    ## Command Line Scripting
+
+
+    If you would love to put in writing down a application that takes textual or report
+    enter and outputs some thing useful, the training is proper. While the training
+    is not as visually attractive as a web app or computer software, improvement of
+    brief scripts that automate processes, it is the handiest suited.
+
+
+    Several scripting languages that employment on a Linux-primarily based totally
+    net server additionally works at the training inclusive of Perl, Python, and PHP.
+    Learning one of these languages will purpose you to acquainted with each contexts.
+    If turning into fluent in Unix is one in all your programming goals, you need
+    to grasp shell scripting with bash. Bash is that the training scripting language
+    of a *nix environment, and it may do the whole thing from help you discovered
+    out automatic backups of your database and documents to prepare a full-fledged
+    software with consumer interaction.
+
+
+    ## Add-ons
+
+
+    Modern net apps and browsers are extensible with bits of software program that
+    plugin to them and upload extra features. Add-on improvement profits reputation
+    as greater present builders test out present programs and frameworks and want
+    to characteristic a specific characteristic to shape it better.'
+  mdcn: '# 2022年Python编程入门
+
+
+    # 学习Python的理由有哪些
+
+
+    萨拉·杰克琳
+
+
+    # 2022年Python编程入门：学习Python的理由有哪些
+
+
+    ## 引言
+
+
+    网络上充满了丰富的免费资源，足以将你转变为一名程序员。如果你一直渴望学习如何自己构建软件，或者偶尔想写个脚本却不知从何开始，那么这份指南正是为你准备的！
+
+
+    如果你对成为程序员感到好奇，可以利用大量免费的网络教程和资源，获得一个极好的开端。自互联网诞生之初，程序员社区就利用它来讨论软件开发技术、发布教程，并分享代码示例供他人在线学习和使用。
+
+
+    ## 选择语言
+
+
+    初学者常遇到的一个问题是，纠结于应该先学习哪种编程语言。网上有很多观点，但没有一种“最佳”语言。问题是：归根结底，语言本身并不那么重要。重要的是理解数据和控制系统以及设计模式。
+
+
+    每种编程语言，即使是简单的脚本语言，都有一些特性，能让你更容易理解其他语言。
+
+
+    许多程序员从未正式上过课程，他们在职业生涯中自学了每种语言。这通常是通过复用已知的概念，并查阅文档和书籍来学习其语法来完成的。因此，与其纠结于先学哪种语言，不如选择你想尝试的开发类型，然后直接使用你感觉最顺手的语言开始。
+
+
+    你可以为不同的平台进行多种类型的软件开发：网络开发、桌面开发、移动设备开发和教学。
+
+
+    ## 桌面脚本
+
+
+    在你的Windows或Mac电脑上尝试编程的最简单方法，是从使用脚本或宏应用程序开始，比如AutoHotkey（适用于Windows）或Automator（适用于Mac）。当然，高级程序员可能会不同意，认为AutoHotkey或AppleScript不是“真正的”编程，从技术上讲这是对的，因为这些工具只进行高级脚本编写。然而，对于那些只想动手实践、自动化电脑操作的编程新手来说，使用这些免费工具能为日后学习“真正的”编程打下重要基础。请记住，应用程序何时由脚本构成、何时被视为编程，其界限通常是模糊的。一旦你的代码被编译，它就被视为“真正的”编程。大多数应用程序的最终用户通常并不了解，也不需要关心，只要它设计良好，并能以动态和稳健的方式运行以实现其预期目的即可。
+
+
+    ## 网络开发
+
+
+    如果你不想局限于特定的编程语言和特定操作系统的界面与体验，可以考虑为浏览器开发软件，并将其作为Web应用分发给更广泛的受众。
+
+
+    HTML和CSS：要创建一个网站，你首先需要了解超文本标记语言（HTML），它是构成网站的页面标记；以及层叠样式表（CSS），它是控制标记布局样式的样式信息。
+
+
+    HTML和CSS是仅包含页面结构和样式信息的脚本语言。然而，在开始构建网络应用之前，你应该熟悉手动编写代码，因为构建简单网页可能是开发动态网络应用的前提。
+
+
+    在学习了使用HTML和CSS开发静态网站之后，下一步是在浏览器中学习JavaScript来编程动态网站。JavaScript是书签脚本、Greasemonkey用户脚本、Chrome
+    Web Apps和Ajax的基础。
+
+
+    服务器端脚本：一旦你能够熟练地在本地浏览器中创建动态网站，你可能需要在其后添加一些动态的服务器操作。为此，你需要学习一种服务器端脚本语言。例如，要创建一个基于网络的联系表单，根据用户输入发送电子邮件，就需要服务器端脚本。像Python、Perl或Ruby这样的脚本语言也可以查询网络服务器上的数据库，所以如果你想创建一个用户可以登录并存储数据的网站，这可能是正确的开始方式。
+
+
+    Web框架：为了避免为每个新的网络开发项目重复造轮子，一些程序员开发了开发框架，这些框架可以完成一些重复性的工作，避免反复重写相似的代码来创建动态网站。许多脚本语言提供了一个特定于网络的结构，使常见的网络应用任务更容易完成。
+
+
+    网络开发框架包括：Ruby on Rails框架（适用于Ruby程序员）、CakePHP（适用于PHP程序员）、Django（适用于Python程序员）和jQuery（适用于JavaScript程序员）。
+
+
+    Web API：API（应用程序编程接口）是不同软件部分之间进行通信的一种编程方式。例如，如果你想在网站上放置一个动态地图，你可以使用Google地图，而不是构建自己的自定义地图。Google
+    Maps API使得通过JavaScript在网页中以编程方式包含地图变得非常简单。几乎每个现代网络服务都使用API，允许你将来自它的数据和小部件包含到你的应用程序中。这些包括：Twitter、Facebook、Google
+    Docs、Google Maps等。通过API将其他网络应用集成到你的网络应用中，是增强富网络开发的绝佳资源。每个主要的网络服务API都应该提供详尽的文档和一些快速入门指南。
+
+
+    ## 命令行脚本
+
+
+    如果你想编写一个程序，接收文本或文件输入并输出有用的内容，那么教学是合适的。虽然教学不像网络应用或桌面软件那样具有视觉吸引力，但对于开发自动化流程的短脚本来说，它是最合适的。
+
+
+    几种在基于Linux的网络服务器上运行的脚本语言，如Perl、Python和PHP，也可以在教学中使用。学习其中一种语言将使你熟悉这两种环境。如果精通Unix是你的编程目标之一，你需要掌握使用bash的shell脚本。bash是*nix环境的命令行脚本语言，它能做很多事情，从帮助你设置数据库和文件的自动备份，到构建具有用户交互功能的完整应用程序。
+
+
+    ## 附加组件
+
+
+    现代网络应用和浏览器可以通过插入额外的软件片段来扩展，以添加更多功能。附加组件开发正变得越来越受欢迎，因为越来越多的开发人员尝试现有的程序和框架，并希望添加特定功能使其变得更好。'
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    # PYTHON
+
+
+    # PROGRAMMING FOR BEGINNERS 2022
+
+
+    ![](img/031229159a7a3391fbbf625710e05fd6_0_0.png)
+
+
+    # WHAT ARE THE REASONS FOR LEARNING PYTHON
+
+
+    SARA JACKLINE'
+  - '[PAGE 1]
+
+
+    # PYTHON
+
+
+    # PROGRAMMING FOR BEGINNERS 2022
+
+
+    ![](img/031229159a7a3391fbbf625710e05fd6_1_0.png)
+
+
+    # WHAT ARE THE REASONS FOR LEARNING PYTHON
+
+
+    # SARA JACKLINE'
+  - '[PAGE 2]
+
+
+    # Python Programming For Beginners 2022: What Are The Reasons For Learning Python
+
+
+    # Introduction
+
+
+    The net is full of loose assets so that it will flip you right into a programmer
+    and in case you''ve constantly desired to
+
+    discover the manner to construct software program your self or possibly write
+    an occasional script however had
+
+    no clue in which to start off than this manual is for you!
+
+    If you are curious approximately turning into a programmer, you may get off to
+    an terrific begin the usage of
+
+    masses of loose net-primary based totally tutorials and assets. Since the primary
+    days of the net programmer groups are the usage of it to discuss
+
+    software program improvement techniques, post tutorials, and percentage code samples
+    for others to discover from and use online.
+
+
+    # Choosing a Language
+
+
+    A not unusualplace problem for novices is getting hung abreast of seeking to exercise
+    session which programing
+
+    language is quality to discover first. There are lots of reviews out there, however
+    there''s no one "quality" language. Here''s the issue: in the end, language would
+    not simply matter. Understanding statistics and manipulate systems and fashion
+    styles are what
+
+    matters.'
+  - '[PAGE 3]
+
+
+    Every programing language, even simple scripting languages can have factors with
+    the intention to make different languages simpler to understand.
+
+
+    Many programmers by no means definitely take permitted instructional guides and
+    are self-taught in each language all through their careers. that is frequently
+    completed via way of means of reusing standards already recognized and referring
+    to documentation and books to discover its syntax. Therefore, in preference to
+    getting caught on what language to discover first simply, select out the sort
+    of improvement you would love to attempt to, and simply begin the usage of the
+    only that comes the handiest to you.
+
+
+    There are numerous unique forms of software program improvement you may do for
+    diverse platforms; net improvement, computer improvement, cellular tool improvement,
+    and training.
+
+
+    # Desktop Scripting
+
+
+    The simplest way to attempting your hand at programming on your Windows or Mac
+    computer is to start off with a scripting or macro application like AutoHotkey
+    (for Windows) or Automator (for Mac). Sure, now superior coders can also additionally
+    disagree that AutoHotkey or AppleScript is not "real" programming that is technically
+    authentic as those forms of gear simply do high-degree scripting. However, for
+    the ones new programming who simply need to induce their arms dirty, automating
+    moves on their computer, the usage of those loose gear offer vital basics towards
+    "real" programming afterward. The strains of while an software contains of scripting
+    and while it is taken into consideration to be programming are typically blurred,
+    hold this in mind. Once your code is compiled it is taken into consideration to
+    be "real" programming. Most endcustomers of an software typically do now no longer
+    understand and need to now no longer care as lengthy as it is'
+  - '[PAGE 4]
+
+
+    supposed nicely and capabilities at some stage in a dynamic and sturdy manner
+    in order to serve its supposed purpose.
+
+
+    # Web Development
+
+
+    If being positive to particular programming languages and with the layout and
+    experience of a selected OS
+
+
+    is not your preference, bear in mind growing your software for the browser alternatively
+    and distribute it to a much broader audience, as a web app.
+
+
+    HTML and CSS: the number one issue you would love to apprehend to create a web
+    web website online is Hyper Text terminology (HTML) the web page markup that creates
+    up webweb sites and Cascading sheet (CSS) is that the fashion records that controls
+    layout look of the markup.
+
+
+    HTML and CSS are scripting languages that simply incorporate web page shape and
+    beauty records. However, you must be familiar with writing coding via way of means
+    of hand earlier than you begin constructing net programs, due to the fact constructing
+    simple webpages can be a prerequisite to growing a dynamic net app.
+
+
+    After studying the improvement of static webweb sites with HTML and CSS, gaining
+    knowledge of JavaScript is that the subsequent step in
+
+
+    programming dynamic webweb sites at some stage in a browser. JavaScript is what
+    bookmarklets, Greasemonkey consumer scripts, Chrome Web Apps,
+
+
+    and Ajax are made from.
+
+
+    Server-facet scripting: Once you are cushty at making dynamic webweb sites domestically
+    at some stage in a browser, you are in all likelihood to require to
+
+
+    location a few dynamic server motion at the back of it. to attempt to try this
+    you may get to analyze a server-facet scripting language. for instance, to shape
+    a net-primarily based totally
+
+
+    touch shape that sends an electronic mail someplace supported what a'
+  - '[PAGE 5]
+
+
+    consumer entered, a server-facet script
+
+
+    is required. Scripting languages like, Python, Perl, or Ruby can ask a database
+    to your net server additionally, so in case you would love to shape a
+
+
+    domain in which customers can log in and keep records, that is probably the proper
+    way to set approximately it.
+
+
+    Web frameworks: in preference to reinventing the wheel for every new net improvement
+    project, a few programmers have give you improvement frameworks that perform a
+    little repetitive paintings of rewriting comparable code time and again to create
+    dynamic net webweb sites. Many scripting languages provide a netparticular shape
+    for buying not
+
+
+    unusualplace net software responsibilities accomplished simpler.
+
+
+    Web improvement frameworks encompass; Ruby on Rails framework (for Ruby programmers),
+    CakePHP (for PHP programmers), Django (for Python
+
+
+    programmers), and jQuery (for
+
+
+    JavaScript programmers). Web APIs: An API (Application Programming Interface)
+    can be a
+
+
+    programmatic manner for diverse portions of software program to talk to at the
+    least one another. for instance, in
+
+
+    case you would love to location a dynamic map to your net web website online,
+    you would use a Google Map in
+
+
+    preference to constructing your very own custom map. The Google Maps API makes
+    it smooth to
+
+
+    programmatically encompass a map at some stage in a web page with JavaScript.
+    Almost each current net carrier makes use of an API that permits you to encompass
+    statistics and widgets
+
+
+    from it on your software. These encompass; Twitter, Facebook, Google'
+  - '[PAGE 6]
+
+
+    Docs, Google Maps, etc. Integrating different net apps into your net software
+    thru API''s are first rate assets for
+
+
+    reinforcing wealthy net improvement. Every primary net carrier API need to provide
+    thorough documentation and some brief begin manual.
+
+
+    # Command Line Scripting
+
+
+    If you would love to put in writing down a application that takes textual or report
+    enter and outputs some thing
+
+
+    useful, the training is proper. While the training is not as visually attractive
+    as a web app or computer software,
+
+
+    improvement of brief scripts that automate processes, it is the handiest suited.
+
+
+    Several scripting languages that employment on a Linux-primarily based totally
+    net server additionally works at
+
+
+    the training inclusive of Perl, Python, and PHP. Learning one of these languages
+    will purpose you to
+
+
+    acquainted with each contexts. If turning into fluent in Unix is one in all your
+    programming goals, you need to grasp shell scripting with bash. Bash is
+
+
+    that the training scripting language of a *nix environment, and it may do the
+    whole thing from help you discovered out automatic backups of your database and
+    documents to prepare a full-fledged software with consumer interaction.
+
+
+    # Add-ons
+
+
+    Modern net apps and browsers are extensible with bits of software program that
+    plugin to them and upload extra
+
+
+    features. Add-on improvement profits reputation as greater present builders test
+    out present programs and
+
+
+    frameworks and want to characteristic a specific characteristic to shape it better.'
+- md: '## Desktop Development
+
+
+    Learning net improvement first can be a first rate Segway into acquiring the wanted
+    competencies from one context in order to use to a unique like computer software
+    improvement.
+
+
+    Desktop Development programming will range at the OS (OS), use of Software Development
+    Kit (SDK) provided, and preference for crossplatform improvement. Using preceding
+    net improvement competencies additionally may be re-applied withininside the distribution
+    of your computer software throughout the web to plug to a larger audience.
+
+
+    ## Mobile Device App Development
+
+
+    Mobile programs similar to those discovered on smartphones and capsules are more
+    and more more popular, and having your app indexed at the iTunes App Store, Google
+    Play Store (previously known as the Android Market Place), Windows Marketplace,
+    BlackBerry World, etc. However, for the majority of newbie coders, delving into
+    cellular improvement are frequently a steep gaining knowledge of curve, as it
+    calls for an terrific deal of consolation and familiarity with superior programming
+    languages like Java and Objective C to increase a long way greater than a simple
+    "Hello World" software.
+
+
+    ## The Long Road Ahead
+
+
+    Great coders are frequently meticulous problem-solvers whom are passionate at
+    what they''re doing and fueled via way of means of small solitary victories of
+    overcoming problems thru trial and error. the path to a profession is each an
+    prolonged avenue of infinite gaining knowledge of and frustration however very
+    profitable and worthwhile nonethe-less.
+
+
+    ## The 5 Reasons for Learning Python
+
+
+    One of the most strong and dynamic programming languages being used nowadays is
+    Python. It stresses heaps on code readability, and because of its syntax additionally
+    as implementation, programmers want to put in writing lesser codes in comparison
+    to Java and C++. Memory control in Python is finished robotically and some of
+    different trendy libraries are to be had for the programmer here. After finishing
+    a certification direction in Python education, a programmer can advantage enjoy
+    in numerous pinnacle IT organizations.
+
+
+    Python programming helps severa patterns like useful programming, vital and object-orientated
+    patterns. Here are the very best 5 motives why a programmer ought to research
+    the Python language:
+
+
+    - Ease of learning- Python has been created with the newcomer in mind. Completion
+    of simple duties calls for much less code in Python, as in comparison to different
+    languages. The codes are typically 3-five instances shorter than Java, and five-10
+    instances smaller than C++. Python codes are without difficulty readable and with
+    a hint little little bit of knowledge, new builders can research heaps via way
+    of means of simply looking the code.
+
+    - Highly desired for internet development- Python includes an array of frameworks
+    which might be beneficial in designing a web site. Among those frameworks, Django
+    is the freshest one for python development. way to those frameworks, internet
+    designing with Python has tremendous flexibility. the variety of net webweb sites
+    on-line nowadays is on the point of 1 billion, and with the evergrowing scope
+    for greater, it is herbal that Python programming will nevertheless be a important
+    ability for internet builders.
+
+    - Considered perfect for start-ups- Time and finances are critical constraints
+    for any new products or services at some point of a company, and greater so if
+    it is a startup. One can create a product that differentiates itself from the
+    the rest in any language. However, for brief development, much less code, and
+    lesser cost, Python is that the best language here. Python can without difficulty
+    share any complicated utility and also can be treated via way of means of a touch
+    team. Not most effective does one keep sources, however you moreover may also
+    get to expand packages in the proper path with Python.
+
+    - Unlimited availability of sources and trying out framework- Several sources
+    for Python are to be had nowadays, and those are also continuously being updated.
+    As a result, it is very uncommon that a Python developer receives stuck. The massive
+    trendy library offers inconstructed functionalities. Its built in trying out framework
+    permits rapid workflows and less debugging time.
+
+    - Fat paycheques- Today pinnacle IT organizations like Google, Yahoo, IBM, and
+    Nokia employ Python. Among all programming languages, it is had remarkable increase
+    over a last few years. It is obvious that Python can be a critical language for
+    internet-primarily based totally programmers. More are regularly learnt at a reputed
+    Python education institute.
+
+
+    ## General Overview for Beginners
+
+
+    Python, a high-stage language evolved through Guido van Rossum, is thought for
+    its clean clarity. The center philosophies of the language are easy simplicity
+    over complexity; splendor over ugliness, specific over implicit and different
+    comparable aphorisms. the most critical philosophy of the language is "Readability
+    Counts", which shows that the syntaxes and codes written the usage of Python are
+    clean and neat. The programing language capabilities a big library that helps
+    programmers. Python additionally has an open-supply model known as the CPython
+    programming platform. it is an good sized network of builders who continuously
+    paintings to improve capabilities. Python can be a dynamic language and helps
+    extraordinary programming patterns together with object-oriented, aspect-oriented,
+    practical, and imperative. one of the best capabilities of the language is easy
+    and more desirable reminiscence management. Essentially hired like a scripting
+    language, Python gives an wonderful stage of capability. While it''s miles frequently
+    used as a standalone application, you may additionally combine 0.33-celebration
+    equipment and customise its capability.
+
+
+    One of the highlights of Python is that it is a surprisingly extensible language.
+    this shows that numerous practical factors are not constructed into the center
+    of this platform. Rather, you may use 0.33 celebration packages and increase the
+    platform''s capability.
+
+
+    Additionally, you may additionally combine a Python code into an current application
+    and make an interface for programming. that is frequently known as Embedding and
+    increasing.
+
+
+    As cited above, the syntaxes of Python are easy. Complicated syntaxes are rejected
+    and consequently the platform embraces codes which are much less cluttered and
+    sparse. However, this does not in any manner have an impact on the overall performance
+    or capability of programs. Also, in contrast to different famous programming languages
+    like Perl, Python would not provide needless muddle through giving the programmer
+    more than one methods of reaching an equal purpose. Python''s philosophy is to
+    deliver one effective manner or acquiring one result. This philosophy is the primary
+    power at the back of the simplicity of Python. So, in case you would really like
+    to grow to be adept for the duration of this language, you would really like to
+    differ your attitude and suppose for the duration of a easy and clean manner.
+    This technique closer to programming works quality with Python. In order to help
+    simplicity, Python coding, and syntaxes use English phrases in preference to punctuations
+    or symbols. This complements the clarity additionally.
+
+
+    Some samples of statements written in Python include "if", "for", "while", "try",
+    "class", "def", "with", "yield", "import" and masses of others. Most of the instructions
+    used are selfexplanatory.
+
+
+    Owing to the ease of handling, Python can be a "programmer''s language". Moreover,
+    studying the language is extraordinarily easy. one of the maximum critical blessings
+    of Python, except clean and really readable codes, is that the velocity with which
+    you may code. Programmers can maintain method due to the fact more than one tiers
+    that are not vital are frequently skipped.
+
+
+    Another benefit is that programmers get heaps of help from the Python opensupply
+    developer network.
+
+
+    The portability characteristic of Python is every other certainly one of its main
+    strengths. Not simplest can Python run'
+  mdcn: '## 桌面开发
+
+
+    首先学习网络开发可以成为一个绝佳的跳板，帮助你从一个领域获取所需技能，并将其应用于另一个领域，例如计算机软件开发。
+
+
+    桌面开发编程会因操作系统（OS）、所使用的软件开发工具包（SDK）以及对跨平台开发的偏好而异。运用先前的网络开发技能，同样可以应用于通过网络分发你的软件，以触达更广泛的受众。
+
+
+    ## 移动设备应用开发
+
+
+    类似于在智能手机和平板电脑上发现的移动应用程序正变得越来越受欢迎，让你的应用被列在iTunes应用商店、Google Play商店（以前称为Android市场）、Windows
+    Marketplace、BlackBerry World等平台上。然而，对于大多数新手程序员来说，深入移动开发通常是一个陡峭的学习曲线，因为它需要对Java和Objective
+    C等高级编程语言有极高的熟练度和熟悉度，才能开发出远不止一个简单的“Hello World”程序。
+
+
+    ## 漫漫长路
+
+
+    优秀的程序员通常是细致的问题解决者，他们对自己所做的事情充满热情，并通过反复试验克服问题的小型独立胜利来获得动力。通往职业的道路既是一条充满无限学习和挫折的漫长之路，但无论如何，它也是非常有回报和值得的。
+
+
+    ## 学习Python的5个理由
+
+
+    当今使用的最强大和最动态的编程语言之一是Python。它非常强调代码可读性，并且由于其语法和实现方式，程序员需要编写的代码比Java和C++少。Python中的内存管理是自动完成的，并且这里还有许多其他标准库可供程序员使用。完成Python培训的认证课程后，程序员可以在众多顶级IT公司获得经验。
+
+
+    Python编程支持多种模式，如函数式编程、命令式和面向对象模式。以下是程序员应该学习Python语言的5个最佳理由：
+
+
+    -   易于学习 - Python在创建时就考虑到了新手。在Python中完成简单任务所需的代码比其他语言少。代码通常比Java短3-5倍，比C++小5-10倍。Python代码易于阅读，只需一点点知识，新开发者就可以通过仅仅阅读代码学到很多东西。
+
+    -   网络开发高度需求 - Python包含一系列有助于设计网站的框架。在这些框架中，Django是Python开发中最热门的一个。得益于这些框架，使用Python进行网络设计具有极大的灵活性。当今在线网站的数量接近10亿，并且随着对更多网站的需求不断增长，Python编程对于网络开发者来说自然仍将是一项关键技能。
+
+    -   被认为非常适合初创公司 - 时间和预算是任何公司新产品或服务的关键限制因素，对于初创公司来说更是如此。人们可以用任何语言创建一个与其他产品区分开来的产品。然而，为了快速开发、更少的代码和更低的成本，Python是这里的最佳语言。Python可以轻松共享任何复杂的应用程序，并且也可以由一个小团队处理。这样不仅可以节省资源，还可以确保你以正确的方向开发应用程序。
+
+    -   无限的资源和测试框架可用性 - 如今有许多Python资源可用，并且这些资源也在不断更新。因此，Python开发者很少会遇到卡住的情况。庞大的标准库提供了内置功能。其内置的测试框架允许快速的工作流程和更少的调试时间。
+
+    -   丰厚的薪水 - 如今，像Google、Yahoo、IBM和Nokia这样的顶级IT公司都使用Python。在所有编程语言中，它在过去几年中取得了显著的增长。很明显，Python对于基于网络的程序员来说将是一门关键语言。更多内容可以在信誉良好的Python培训机构学到。
+
+
+    ## 初学者概述
+
+
+    Python是由Guido van Rossum开发的一种高级语言，以其清晰易懂而闻名。该语言的核心哲学是简单的：简单胜于复杂；美胜于丑；明确胜于隐晦以及其他类似的格言。该语言最重要的哲学是“可读性至上”，这表明使用Python编写的语法和代码清晰整洁。该编程语言拥有一个庞大的库来支持程序员。Python还有一个名为CPython编程平台的开源版本。这是一个庞大的开发者社区，他们不断致力于改进功能。Python是一种动态语言，支持多种编程模式，包括面向对象、面向方面、函数式和命令式。该语言的最佳特性之一是简单且增强的内存管理。Python本质上用作脚本语言，提供了出色的性能水平。虽然它通常用作独立应用程序，但你也可以集成第三方工具并自定义其功能。
+
+
+    Python的一个亮点是它是一种高度可扩展的语言。这意味着许多功能并未内置到该平台的核心中。相反，你可以使用第三方包来扩展平台的功能。
+
+
+    此外，你还可以将Python代码集成到现有应用程序中，并为其创建一个编程接口。这通常被称为嵌入和扩展。
+
+
+    如上所述，Python的语法很简单。复杂的语法被摒弃，因此该平台拥抱更少杂乱和稀疏的代码。然而，这丝毫不会影响程序的性能或功能。此外，与其他流行的编程语言（如Perl）不同，Python不会通过为程序员提供多种实现相同目标的方法来造成不必要的混乱。Python的哲学是提供一种有效的方法或实现一个结果。这种哲学是Python简洁性的主要驱动力。因此，如果你想精通这门语言，你需要改变你的态度，以简单清晰的方式思考。这种编程方法与Python配合得最好。为了支持简洁性，Python编码和语法使用英语单词而不是标点符号或符号。这也增强了可读性。
+
+
+    用Python编写的语句示例包括“if”、“for”、“while”、“try”、“class”、“def”、“with”、“yield”、“import”等等。大多数使用的指令都是不言自明的。
+
+
+    由于易于处理，Python是一种“程序员的语言”。此外，学习这门语言非常容易。除了清晰易读的代码外，Python最重要的优势之一是你编码的速度。程序员可以保持方法，因为可以跳过多个不必要的层次。
+
+
+    另一个好处是程序员可以从Python开源开发者社区获得大量帮助。
+
+
+    Python的可移植性是其另一个主要优势。Python不仅可以运行'
+  merge: 0
+  raw:
+  - '[PAGE 7]
+
+
+    nevertheless do masses in any browser.
+
+
+    Bookmarklets, Greasemonkey consumer scripts, and trendy consumer patterns are
+    created with an equal code
+
+
+    that creates normal webweb sites, so they may be really well worth gaining knowledge
+    of albeit you simplest need
+
+
+    to tweak an present web website online with a bit snippet of code.
+
+
+    More superior browser upload-ons, like Firefox and Chrome extensions, let you
+    do greater. Developing Firefox and
+
+
+    Chrome extensions calls for that you are acquainted with JavaScript, XML, and
+    JSON that is markup nearly like HTML, however with stricter layout rules.
+
+
+    Many loose net programs provide an extension framework additionally like WordPress
+    and Drupal. Both of those are written in PHP, making that particular language
+    a prerequisite for improvement.
+
+
+    # Desktop Development
+
+
+    Learning net improvement first can be a first rate Segway into acquiring the wanted
+    competencies from one context in order to use to a unique like computer software
+    improvement.
+
+
+    Desktop Development programming will range at the OS (OS), use of Software Development
+    Kit (SDK)
+
+
+    provided, and preference for crossplatform improvement. Using preceding net improvement
+    competencies additionally may be re-applied withininside the distribution of your
+    computer software throughout the web to plug to a larger audience.
+
+
+    # Mobile Device App Development
+
+
+    Mobile programs similar to those discovered on smartphones and capsules are more
+    and more more popular, and having your app indexed at the iTunes App Store, Google
+    Play Store (previously known as the Android Market Place), Windows Marketplace,
+    BlackBerry World, etc. However, for'
+  - '[PAGE 8]
+
+
+    the majority of newbie coders, delving into cellular improvement are frequently
+    a steep gaining knowledge of curve, as it calls for an terrific deal of consolation
+    and familiarity with superior programming languages like Java and Objective C
+    to increase a long way greater than a simple "Hello World" software.
+
+
+    # The Long Road Ahead
+
+
+    Great coders are frequently meticulous problem-solvers whom are passionate at
+    what they''re doing and fueled via way of means of small solitary victories of
+    overcoming problems thru trial and error.
+
+    the path to a profession is each an prolonged avenue of infinite gaining knowledge
+    of and frustration however very profitable and worthwhile nonethe-less.'
+  - '[PAGE 9]
+
+
+    # The 5 Reasons for Learning Python
+
+
+    One of the most strong and dynamic programming languages being used nowadays is
+    Python. It stresses heaps on code readability, and because of its syntax additionally
+    as implementation, programmers want to put in writing lesser codes in comparison
+    to Java and C++. Memory control in Python is finished robotically and some of
+    different trendy libraries are to be had for the programmer here. After finishing
+    a certification direction in Python education, a programmer can advantage enjoy
+    in numerous pinnacle IT organizations.
+
+
+    Python programming helps severa patterns like useful programming, vital and object-orientated
+    patterns. Here are the very best 5 motives why a programmer ought to research
+    the Python language:
+
+
+    Ease of learning- Python has been created with the newcomer in mind. Completion
+    of simple duties calls for much less code in Python, as in comparison to different
+    languages. The codes are typically 3-five instances shorter than Java, and five-10
+    instances smaller than C++. Python codes are without difficulty readable and with
+    a hint little little bit of knowledge, new builders can research heaps via way
+    of means of simply looking the code. Highly desired for internet development-
+    Python includes an array of frameworks which might be beneficial in designing
+    a web site. Among those frameworks, Django is the freshest one for python development.
+    way to those frameworks, internet designing with Python has tremendous flexibility.
+    the variety of net webweb sites on-line nowadays is on the point of 1 billion,
+    and with the evergrowing scope for greater, it is herbal that Python programming
+    will'
+  - '[PAGE 10]
+
+
+    nevertheless be a important ability for internet builders.
+
+    Considered perfect for start-ups- Time and finances are critical constraints for
+    any new products or services at some
+
+
+    point of a company, and greater so if it is a startup. One can create a product
+    that differentiates itself from the the rest
+
+
+    in any language. However, for brief development, much less code, and lesser cost,
+    Python is that the best language here. Python can without difficulty share any
+    complicated utility
+
+
+    and also can be treated via way of means of a touch team. Not most effective does
+    one keep sources,
+
+
+    however you moreover may also get to expand packages in the proper path with Python.
+
+
+    Unlimited availability of sources and trying out framework- Several sources for
+    Python are to be had nowadays, and those are also continuously being updated.
+    As a result, it is very uncommon that a Python developer receives stuck.
+
+
+    The massive trendy library offers inconstructed functionalities. Its built in
+    trying out framework permits rapid workflows and less debugging time.
+
+
+    Fat paycheques- Today pinnacle IT organizations like Google, Yahoo, IBM, and Nokia
+    employ Python. Among all
+
+
+    programming languages, it is had remarkable increase over a last few years. It
+    is obvious that Python can be a
+
+
+    critical language for internet-primarily based totally programmers. More are regularly
+    learnt at a reputed Python education institute.'
+  - '[PAGE 11]
+
+
+    # General Overview for Beginners
+
+
+    Python, a high-stage language evolved through Guido van Rossum, is thought for
+    its clean clarity. The center philosophies of the language are easy simplicity
+    over complexity; splendor over ugliness, specific over implicit and different
+    comparable aphorisms. the most critical philosophy of the language is "Readability
+    Counts", which shows
+
+
+    that the syntaxes and codes written the usage of Python are clean and neat. The
+    programing language capabilities a big library that helps programmers. Python
+    additionally has an open-supply model known as the CPython programming platform.
+    it is an good sized network of builders who continuously paintings to improve
+    capabilities. Python can be a dynamic language and helps extraordinary programming
+    patterns together with object-oriented, aspect-oriented, practical, and imperative.
+    one of the best capabilities of the language is easy and more desirable reminiscence
+    management. Essentially hired like a scripting language, Python gives an wonderful
+    stage of capability. While it''s miles frequently used as a standalone application,
+    you may additionally combine 0.33-celebration equipment and customise its capability.
+
+
+    One of the highlights of Python is that it is a surprisingly extensible language.
+    this shows that numerous practical factors are not constructed into the center
+    of this platform. Rather, you may use 0.33 celebration packages and increase the
+    platform''s capability.
+
+
+    Additionally, you may additionally combine a Python code into an current application
+    and make an interface for programming. that is frequently known as Embedding and
+    increasing.
+
+
+    As cited above, the syntaxes of Python are easy. Complicated syntaxes are'
+  - '[PAGE 12]
+
+
+    rejected and consequently the platform embraces codes which are much less cluttered
+    and sparse. However, this does not in any manner have an impact on the overall
+    performance or capability of programs. Also, in contrast to different famous programming
+    languages like Perl, Python would not provide needless muddle through giving the
+    programmer more than one methods of reaching an equal purpose. Python''s philosophy
+    is to deliver one effective manner or acquiring one result. This philosophy is
+    the primary power at the back of the simplicity of Python. So, in case you would
+    really like to grow to be adept for the duration of this language, you would really
+    like to differ your attitude and suppose for the duration of a easy and clean
+    manner. This technique closer to programming works quality with Python. In order
+    to help simplicity, Python coding, and syntaxes use English phrases in preference
+    to punctuations or symbols. This complements the clarity additionally.
+
+
+    Some samples of statements written in Python include "if", "for", "while", "try",
+    "class", "def", "with", "yield", "import" and masses of others. Most of the instructions
+    used are selfexplanatory.
+
+
+    Owing to the ease of handling, Python can be a "programmer''s language". Moreover,
+    studying the language is extraordinarily easy. one of the maximum critical blessings
+    of Python, except clean and really readable codes, is that the velocity with which
+    you may code. Programmers can maintain method due to the fact more than one tiers
+    that are not vital are frequently skipped.
+
+
+    Another benefit is that programmers get heaps of help from the Python opensupply
+    developer network.
+
+
+    The portability characteristic of Python is every other certainly one of its main
+    strengths. Not simplest can Python run'
+- md: '## Python Language Is Considered Better Than Other Languages
+
+
+    Python, a high-level language developed by Guido van Rossum, is known for its
+    smooth clarity. The core philosophies of the language are easy - simplicity over
+    complexity; beauty over ugliness, explicit over implicit and other similar aphorisms.
+    The most vital philosophy of the language is "Readability Counts", which indicates
+    that the syntaxes and codes written using Python are clean and neat. The programming
+    language features a big library that helps programmers. Python also has an open-source
+    version called the CPython programming platform. It is an extensive community
+    of developers who continuously work to improve functions. Python is a dynamic
+    language and supports special programming patterns including object-oriented,
+    aspect-oriented, functional, and imperative. One of the best features of the language
+    is simple and enhanced memory management. Essentially used like a scripting language,
+    Python provides an amazing level of capability. While it is regularly used as
+    a standalone software, you can also integrate third-party tools and customize
+    its capability. One of the highlights of Python is that it is a highly extensible
+    language. This indicates that diverse functional factors are not built into the
+    core of this platform. Rather, you can use third-party programs and increase the
+    platform''s capability. Additionally, you can also integrate a Python code into
+    an existing software and make an interface for programming. This is regularly
+    referred to as Embedding and extending.
+
+
+    As noted above, the syntaxes of Python are easy. Complicated syntaxes are rejected
+    and consequently the platform embraces codes which are less cluttered and sparse.
+    However, this does not in any manner affect the overall performance or capability
+    of programs. Also, unlike other famous programming languages like Perl, Python
+    does not provide unnecessary muddle by giving the programmer multiple methods
+    of accomplishing an equal purpose. Python''s philosophy is to deliver one effective
+    manner or acquiring one result. This philosophy is the principal pressure behind
+    the simplicity of Python. So, if you would really like to become adept in this
+    language, you would really like to change your attitude and think in a simple
+    and smooth manner. This method toward programming works best with Python. In order
+    to help simplicity, Python coding, and syntaxes use English phrases as opposed
+    to punctuations or symbols. This enhances the clarity additionally.
+
+
+    Some samples of statements written in Python include "if", "for", "while", "try",
+    "class", "def", "with", "yield", "import" and many others. Most of the instructions
+    used are self-explanatory. Owing to the benefit of handling, Python is a "programmer''s
+    language". Moreover, studying the language is extraordinarily easy. One of the
+    maximum vital benefits of Python, except clean and actually readable codes, is
+    that the rate with which you will code. Programmers can keep approach because
+    multiple ranges that are not important are regularly skipped.
+
+
+    Another benefit is that programmers get lots of guide from the Python open-source
+    developer network.
+
+
+    The portability function of Python is another considered one of its important
+    strengths. Not simplest can Python run on multiple platforms, however additionally
+    programmers simplest were given to write one application to work on all working
+    structures like Linux, Mac, Windows et al. It is a highly adaptable language.
+    Learning Python is not a tough assignment even for beginners. So, take the jump
+    and grasp the Python.
+
+
+    ## Python Frameworks and Their Real-World
+
+
+    Why do you need to select Python?
+
+
+    Python is a language that has won stupendous reputation within the enterprise
+    inside a truly less span of time after the magical contact from Google. With the
+    unladen swallow project, the rate of the generation has improved around to three
+    times. As a result, it is frequently desired for a giant-scale software program
+    that desires excessive electricity and pace from the middle of the language. Well
+    within the twenty-first century we can now not forget about the significance of
+    net area and fortunately, Python is very flexible in growing corporation trendy
+    net answers. The web packages disturbing greater pace and electricity are frequently
+    carried out with Python. All varieties of knowledge-driven net packages are frequently
+    evolved in Python with most electricity and potential. In fact, Python is extraordinarily
+    famous among online developers thanks to its unrivaled quality and overall performance
+    along with few tremendously efficient Python frameworks. Let us speak about the
+    pinnacle Python frameworks of the enterprise.
+
+
+    - **Django framework**: This is frequently possibly the most distinguished Python
+    net framework of the enterprise. Django is extraordinarily effective and was evolved
+    with the aid of using Jason Sole and Jason McLaughlin. It was applied for the
+    number one time during a process portal to make certain its performance. Later
+    on, it was released for all people and acquired an awesome reaction within the
+    enterprise. This is frequently the maximum crucial Python-primarily based totally
+    net framework of the enterprise and subsequently comes with first-rate electricity
+    and functions for the Python builders. There is an extensive help network for
+    this framework which might be operating 24x7 to deliver help to others. It is
+    the most effective admin interface for the very best degree manage of any huge
+    scale net software. Practically this framework is extraordinarily beneficial in
+    growing on-line forums, portals and different social networking sites. It is also
+    extraordinarily famous in growing brief net answers with most performance and
+    minimal effort.
+
+
+    - **Flask**: Flask is a microframework evolved in Python having a peculiar background.
+    It was the consequences of an April idiot wonder from an smart Python developer
+    of India. Mr. Pradeep Gowda challenged his colleague to expand one document micro-framework
+    in Python and he succeeded within the equal and proficient it to his buddy due
+    to the April idiot wonder. Well, it is frequently not as effective as that of
+    Django however it could be used for the slight length of Python net software improvement
+    tasks. It is first-rate appropriate for novices who need to discover Python and
+    start coding in much less time span. It creates an insatiable thirst among Python
+    builders to test with the framework. It is frequently applied in small net improvement
+    that too inside low finances and restricted time-frame. Hence it has acquired
+    an sincere phrase of mouth reaction from the enterprise since its inception.
+
+
+    - **Pyramid**: Pyramid is but one more high-quality Python improvement framework
+    having first-rate flexibility to serve a very good variety of net packages. It
+    is also powered with the aid of using GitHub and subsequently there may be no
+    worry for help. It is the aggregate of pylons 1.0 and repoze.bfg. It is developing
+    during a much quicker tempo within the network thanks to its flexible nature.
+    Practically it is beneficial for growing corporation trendy API Python tasks and
+    growing Python primarily based totally CMS or KMS.'
+  mdcn: '## Python 语言被认为优于其他语言
+
+
+    Python 是由 Guido van Rossum 开发的一种高级语言，以其流畅清晰而闻名。该语言的核心哲学很简单——简洁胜于复杂；美观胜于丑陋，显式胜于隐式，以及其他类似的格言。该语言最重要的哲学是“可读性至上”，这意味着使用
+    Python 编写的语法和代码是干净整洁的。该编程语言拥有一个庞大的库，可以帮助程序员。Python 还有一个名为 CPython 编程平台的开源版本。这是一个庞大的开发者社区，他们不断努力改进功能。Python
+    是一种动态语言，支持特殊的编程模式，包括面向对象、面向方面、函数式和命令式。该语言最好的特性之一是简单且增强的内存管理。本质上像脚本语言一样使用，Python
+    提供了惊人的能力水平。虽然它经常被用作独立软件，但你也可以集成第三方工具并自定义其功能。Python 的一个亮点是它是一种高度可扩展的语言。这意味着各种功能因素并未内置到该平台的核心中。相反，你可以使用第三方程序并增加平台的能力。此外，你还可以将
+    Python 代码集成到现有软件中，并为编程创建一个接口。这通常被称为嵌入和扩展。
+
+
+    如上所述，Python 的语法很简单。复杂的语法被拒绝，因此该平台接受不那么杂乱和稀疏的代码。然而，这绝不会以任何方式影响程序的整体性能或能力。此外，与其他著名的编程语言（如
+    Perl）不同，Python 不会通过为程序员提供多种实现相同目的的方法来造成不必要的混乱。Python 的哲学是提供一种有效的方法或获得一种结果。这种哲学是
+    Python 简洁性的主要驱动力。所以，如果你真的想精通这门语言，你真的需要改变你的态度，以简单流畅的方式思考。这种方法最适合 Python 编程。为了帮助简化，Python
+    编码和语法使用英语短语而不是标点符号或符号。这进一步增强了清晰度。
+
+
+    用 Python 编写的语句的一些示例包括“if”、“for”、“while”、“try”、“class”、“def”、“with”、“yield”、“import”等等。大多数使用的指令都是不言自明的。由于易于处理的优势，Python
+    是一种“程序员的语言”。此外，学习这门语言非常容易。除了干净且真正可读的代码之外，Python 最重要的优势之一是你编码的速度。程序员可以保持高效，因为许多不重要的范围通常会被跳过。
+
+
+    另一个好处是程序员从 Python 开源开发者网络获得了大量支持。
+
+
+    Python 的可移植性功能是其另一个重要优势。Python 不仅可以在多个平台上运行，而且程序员只需编写一个应用程序就可以在所有操作系统（如 Linux、Mac、Windows
+    等）上运行。它是一种高度适应性的语言。即使对于初学者来说，学习 Python 也不是一项艰巨的任务。所以，大胆尝试并掌握 Python 吧。
+
+
+    ## Python 框架及其实际应用
+
+
+    为什么你需要选择 Python？
+
+
+    Python 是一种在 Google 的神奇触碰之后，在企业中获得了巨大声誉的语言，时间非常短。通过 unladen swallow 项目，该技术的速度提高了大约三倍。因此，它经常被需要从语言核心获得高能量和速度的大型软件所青睐。在二十一世纪，我们不能忽视网络空间的重要性，幸运的是，Python
+    在开发企业级网络解决方案方面非常灵活。需要更高能量和速度的网络应用程序通常使用 Python 实现。各种数据驱动的网络应用程序通常使用 Python 以最大的能量和潜力开发。事实上，Python
+    在在线开发者中非常受欢迎，这要归功于其无与伦比的质量和性能，以及一些非常高效的 Python 框架。让我们谈谈企业中顶级的 Python 框架。
+
+
+    - **Django 框架**：这可能是企业中最著名的 Python 网络框架。Django 非常强大，由 Jason Sole 和 Jason McLaughlin
+    开发。它最初在一个流程门户中应用以确保其性能。后来，它向所有人发布，并在企业中获得了极好的反响。这是企业中最重要的基于 Python 的网络框架，因此为 Python
+    开发者提供了卓越的能量和功能。该框架有一个广泛的支持网络，全天候工作以向他人提供支持。它是最有效的管理界面，用于对任何大型网络软件进行最高级别的控制。实际上，该框架在开发在线论坛、门户和其他社交网络站点方面非常有用。它在开发具有最大性能和最小努力的快速网络解决方案方面也非常受欢迎。
+
+
+    - **Flask**：Flask 是一个用 Python 开发的微框架，有着独特的背景。它是一位聪明的印度 Python 开发者进行的愚人节玩笑的结果。Pradeep
+    Gowda 先生挑战他的同事用 Python 开发一个单文件微框架，他成功了，并将其作为愚人节玩笑提供给了他的朋友。虽然它不如 Django 那么强大，但它可以用于中等规模的
+    Python 网络软件开发项目。它非常适合想要探索 Python 并在较短时间内开始编码的初学者。它在 Python 开发者中激发了测试该框架的强烈渴望。它通常用于小型网络开发，预算低且时间有限。因此，自成立以来，它在企业中获得了真诚的口碑反响。
+
+
+    - **Pyramid**：Pyramid 是另一个优秀的 Python 开发框架，具有极好的灵活性，可以服务于广泛的网络应用程序。它也由 GitHub 提供支持，因此无需担心支持。它是
+    pylons 1.0 和 repoze.bfg 的组合。由于其灵活的特性，它在社区中以更快的速度发展。实际上，它对于开发企业级 API Python 项目和开发基于
+    Python 的 CMS 或 KMS 非常有用。'
+  merge: 0
+  raw:
+  - '[PAGE 13]
+
+
+    on more than one platforms, however additionally programmers simplest were given
+    to put in writing one application to discern on all running structures like Linux,
+    Mac, Windows, et al. it is a surprisingly adaptable language. Learning Python
+    is not a difficult venture even for beginners. So, take the bounce and grasp the
+    Python.'
+  - '[PAGE 14]
+
+
+    # Python Language Is Considered Better Than Other Languages
+
+
+    Python, a high-stage language advanced via way of means of Guido van Rossum, is
+    thought for its smooth clarity. The center philosophies of the language are easy
+    - simplicity over complexity; splendor over ugliness, express over implicit and
+    different comparable aphorisms. the most vital philosophy of the language is "Readability
+    Counts", which indicates that the syntaxes and codes written the usage of Python
+    are clean and neat. The programing language functions a big library that helps
+    programmers. Python additionally has an open-supply model referred to as the CPython
+    programming platform. it is an sizable network of builders who continuously paintings
+    to improve functions. Python can be a dynamic language and helps special programming
+    patterns inclusive of object-oriented, aspectoriented, purposeful, and imperative.
+    one of the only functions of the language is simple and more desirable reminiscence
+    management. Essentially hired like a scripting language, Python gives an amazing
+    stage of capability. While it''s miles regularly used as a standalone software,
+    you will additionally combine 0.33-birthday birthday celebration gear and customise
+    its capability. One of the highlights of Python is that it is a exceptionally
+    extensible language. this indicates that diverse purposeful factors are not constructed
+    into the center of this platform. Rather, you will'
+  - '[PAGE 15]
+
+
+    use 0.33 birthday birthday celebration programs and increase the platform''s capability.
+    Additionally, you will additionally combine a Python code into an present software
+    and make an interface for programming. that is regularly referred to as Embedding
+    and increasing.
+
+
+    As noted above, the syntaxes of Python are easy. Complicated syntaxes are rejected
+    and consequently the platform
+
+
+    embraces codes which can be much less cluttered and sparse. However, this does
+    not in any manner have an effect on the overall performance or capability of
+
+
+    programs. Also, not like different famous programming languages like Perl, Python
+    does not provide pointless muddle via way of means of giving the
+
+
+    programmer a couple of methods of accomplishing an equal purpose. Python''s philosophy
+    is to deliver one effective manner or acquiring one result. This philosophy is
+    the principle pressure in the back of the simplicity of
+
+
+    Python. So, in case you would really like to turn out to be adept in the course
+    of this language, you would really like
+
+
+    to differ your attitude and suppose in the course of a easy and smooth manner.
+    This method toward programming works nice with Python. In order to help simplicity,
+    Python coding, and syntaxes use English
+
+
+    phrases as opposed to punctuations or symbols. This complements the clarity additionally.
+
+
+    Some samples of statements written in Python include "if", "for", "while", "try",
+    "class", "def", "with", "yield", "import" and masses of others. Most of
+
+
+    the instructions used are selfexplanatory.
+
+    Owing to the benefit of handling,
+
+
+    Python can be a "programmer''s language". Moreover, studying the language is extraordinarily
+    easy. one of the maximum vital benefits of Python, except'
+  - '[PAGE 16]
+
+
+    clean and actually readable codes, is that the rate with which you will code.
+    Programmers can hold approach due to the fact a couple of ranges that are not
+    important are regularly skipped.
+
+
+    Another benefit is that programmers get lots of guide from the Python opensupply
+    developer network.
+
+
+    The portability function of Python is any other considered one of its important
+    strengths. Not simplest can
+
+
+    Python run on a couple of platforms, however additionally programmers simplest
+    were given to jot down one software to discern on all working structures like
+    Linux, Mac, Windows et al. it is a exceptionally adaptable language.
+
+
+    Learning Python is not a tough assignment even for beginners. So, take the jump
+    and grasp the Python.'
+  - '[PAGE 17]
+
+
+    # Python Frameworks and Their Real-World
+
+
+    Why do you need to select Python?
+
+
+    Python can be a language that has won stupendous reputation withinside the enterprise
+    inside a surely much less
+
+
+    span of it slow after the paranormal contact from Google. With the unladen swallow
+    project, the rate of the
+
+
+    generation has improved round to three times. As a result, it is frequently desired
+    for a giant-scale software
+
+
+    program software that desires excessive electricity and pace from the middle of
+    the language. Well withinside the
+
+
+    twenty first century we can now no longer forget about the significance of net
+    area and fortunately, Python may be
+
+
+    very bendy in growing corporation trendy net answers. the web packages disturbing
+    greater pace and electricity are frequently carried out with Python.
+
+
+    all varieties of knowledge-pushed net packages are frequently evolved in Python
+    with most electricity and potential. In fact, Python is extraordinarily famous
+    the various online developer''s way to its unrivaled nice and overall performance
+    along few tremendously green Python frameworks. permit us to speak about
+
+
+    the pinnacle Python frameworks of the enterprise.
+
+
+    Django framework: that is frequently possibly the most distinguished Python net
+    framework of the enterprise. Django is extraordinarily effective and changed into
+    evolved with the aid of using Jason'
+  - '[PAGE 18]
+
+
+    Sole and Jason Mc Laughlin.
+
+
+    it were applied for the number one time for the duration of a process portal to
+    make certain its performance. Later on, it were launched for all people and acquired
+    an awesome reaction withinside the enterprise. that is frequently the maximum
+    crucial Python-primarily based totally net framework of the enterprise and subsequently
+    comes with first-rate electricity and functions for the Python builders. there
+    may be an full-size help network for this framework which might be operating 24x7
+    to deliver help to others. it is the most effective admin interface for the very
+    best degree manage of any huge scale net software. Practically this framework
+    is extraordinarily beneficial in growing on-line forums, portals and different
+    social networking sites.
+
+
+    it is also extraordinarily famous in growing brief net answers with most performance
+    and minimal effort.
+
+
+    Flask: Flask can be a microframework evolved in Python having a peculiar background.
+    it were the consequences
+
+
+    of an April idiot wonder from an smart Python developer of India. Mr. Pradeep
+    Gowda challenged his colleague to expand one document micro-framework
+
+
+    in Python and he succeeded withinside the equal and proficient it to his buddy
+    due to the April idiot wonder.
+
+
+    Well, are frequently ">" that is frequently now no longer as effective as that
+    of Django however it could be used
+
+
+    for the slight length of Python net software improvement tasks. it is firstrate
+    appropriate for novices who need to discover Python and start coding in much less
+    time span. It creates an insatiable thirst the various Python builders to test
+    with the framework. it is frequently applied in small net improvement that too
+    inside low
+
+
+    finances and restricted time-frame. Hence it is acquired an sincere phrase of'
+  - '[PAGE 19]
+
+
+    mouth reaction from the enterprise due to the fact its inception.
+
+
+    Pyramid: Pyramid is but one greater high-quality Python improvement framework
+    having first-rate flexibility to serve a very good variety of net packages. it
+    is also powered with the aid
+
+
+    of using git hub and subsequently there may be no worry for help. it is the aggregate
+    of pylons 1.zero and
+
+
+    repose.bfg. it is developing for the duration of a miles quicker tempo withinside
+    the network way to its bendy
+
+
+    nature. Practically it is beneficial for growing corporation trendy API Python
+    tasks and developing Python primarily based totally CMS or KMS.'
+- md: '## Python Programming Models To Improve Open Source
+
+
+    Open-source packages are my favorites, however they have some major drawbacks
+    that need to be corrected if you follow the tips throughout this article. They
+    may be excellent, and being free is largely appealing to most people who have
+    paid a lot for commercial software, however they may be frustrating if they are
+    not stable or user-friendly. Another good thing about this free software is it
+    does not try to be everything to everyone.
+
+
+    Often this software solves a particular need, this makes it more targeted and
+    less complicated to use than commercial software which has got to try and reach
+    a large market.
+
+
+    There are a few downsides to open-source software though, which can be frustrating.
+    One problem is that sometimes it stops being maintained, and eventually becomes
+    unusable. This is often similar to commercial software that eventually becomes
+    unsupported and requires replacement.
+
+
+    Free software has some major issues which have influenced my design choices because
+    often they are avoidable and can make software less stable, less usable, and more
+    difficult to maintain.
+
+
+    These major issues are dependency on other open-source code and poor interface
+    designs that are not intuitive and do not offer adequate support resources. I
+    am a serious creator, user, and supporter of open-source software however find
+    these matters very frustrating as a user.
+
+
+    Let''s test out these issues. Dependency -- Many free packages build applications
+    using other open-source libraries. This allows rapid complex development which
+    is good. The problem is that your application may also break because you have
+    no control over the other library''s support. If the library is not updated in
+    a timely manner after core language releases or is morphed into commercial software,
+    this could render the dependent code unusable, or cause major changes on your
+    end.
+
+
+    Solution -- Pure Python. I program using pure Python whenever possible. Creating
+    open-source code that is only tied to the core language and its libraries, gives
+    me the most control over maintenance. By removing dependencies, my code is more
+    stable.
+
+
+    Poor Interface Design -- Open-source packages are powerful but are often difficult
+    to use. Command-line interfaces, minimal documentation, and no integrated support
+    can challenge users who are accustomed to GUI interfaces and extensive support
+    documents in commercial software. Users want a familiar interface and quick access
+    to solutions for their questions. Solution -- Keep It Simple and Help. Python
+    packages using Tkinter GUI interfaces are easy to use and can be written with
+    pop-up help windows. Even simply explaining how to use each function clearly helps.
+    Smaller programs should provide online tutorials and examples, which most large
+    open-source packages already do.
+
+
+    Make it clear, appealing, and stable, and other people will like it.
+
+
+    I am a Python contract developer who uses these same concepts in both my open-source
+    and custom commercial software. No matter how large or small the application,
+    good design and value can make a happier customer.
+
+
+    ## PHP Vs Python
+
+
+    PHP or Python? The question crosses the mind of every new starter in the realm
+    of web development who wants to make it big with an amazing web application. As
+    both languages are immensely and equally popular in web development and have their
+    own set of benefits, choosing the one that is right for your required task is
+    tough. To help all those beginners make a quick decision, this article outlines
+    the bits of differences between the two in numerous aspects.
+
+
+    About the programming
+
+
+    PHP has always been and will be the designated language for developing websites
+    first then for other solutions.
+
+
+    So, in every way, PHP is similar to the HTML template having codes. On the contrary,
+    Python comes as an all-purpose language providing developers with too much flexibility
+    and customization options. Thus, choosing Python means getting a framework that
+    will provide the capability you would like for your web task.
+
+
+    Language syntax
+
+
+    Anyone who is adept at C-like language can get PHP right away because it is based
+    on C-like syntax. However, Python is not that straightforward in terms of language
+    syntax and you would need to make some major changes in your way of coding. For
+    example, the white spaces are to be made significant in place of brackets.
+
+
+    ## The Learning Curve
+
+
+    The PHP community has done great efforts to make matters in web development much
+    smoother and friendlier. With it, web creators have developed fluency in syntax
+    and can use tools in their way to developing good functional code for translating
+    a web design. On the other hand, Python is difficult at first and can lead to
+    errors in formatting. So without a doubt, PHP is the easiest and most learnable
+    language and wins over Python.
+
+
+    ## Tools for Debugging and Profiling
+
+
+    You''ll usually get confident links when you need any tools from Google for debugging
+    and profiling in PHP. It is the benefit of an in-depth developer environment and
+    you can get any tools easily. This explains why developers prefer using PHP over
+    Python because the chance of getting such tools for debugging for the latter is
+    rare. Maybe they have is far less for the Python solutions.
+
+    Tallying all of the above factors gives out that PHP is the language you must
+    choose.
+
+
+    While Python has never been that easy whether it is about writing code or with
+    syntax. This is the main reason to choose PHP. However, PHP can also get complex
+    with large projects, but that is normal. Doing critical programming at the professional
+    level for complex solutions is equally tough in any language.
+
+
+    ## SARA JACKLINE'
+  mdcn: '## 提升开源项目的 Python 编程模型
+
+
+    开源软件包是我的最爱，但它们存在一些主要缺点，如果你遵循本文中的建议，这些问题是可以修正的。它们可能非常出色，而且免费这一点对大多数曾为商业软件支付高昂费用的人来说极具吸引力。然而，如果它们不稳定或不够用户友好，也可能令人沮丧。这类免费软件的另一个优点是它不会试图满足所有人的所有需求。
+
+
+    这类软件通常解决特定需求，这使得它比必须面向广阔市场的商业软件更具针对性，使用起来也更简单。
+
+
+    不过，开源软件也有一些缺点，可能会让人感到沮丧。一个问题是，有时它会停止维护，最终变得无法使用。这通常类似于最终不再受支持并需要替换的商业软件。
+
+
+    免费软件存在一些主要问题，这些问题影响了我的设计选择，因为它们通常是可以避免的，并且会使软件稳定性降低、可用性变差、更难维护。
+
+
+    这些主要问题包括：对其他开源代码的依赖，以及不直观且未提供足够支持资源的糟糕界面设计。我是一个严肃的开源软件创建者、用户和支持者，但作为用户，我发现这些问题非常令人沮丧。
+
+
+    让我们来探讨一下这些问题。**依赖性** -- 许多免费软件包使用其他开源库来构建应用程序。这允许快速进行复杂开发，这是好事。问题在于，你的应用程序也可能因为无法控制其他库的支持而崩溃。如果该库在核心语言发布后没有及时更新，或者转变为商业软件，这可能导致依赖的代码无法使用，或者在你这边引发重大变更。
+
+
+    **解决方案** -- 纯 Python。我尽可能使用纯 Python 进行编程。创建仅与核心语言及其库绑定的开源代码，能让我对维护拥有最大的控制权。通过消除依赖，我的代码更加稳定。
+
+
+    **糟糕的界面设计** -- 开源软件包功能强大，但通常难以使用。命令行界面、最少的文档以及缺乏集成支持，对于习惯于图形用户界面和商业软件中广泛支持文档的用户来说是个挑战。用户希望有一个熟悉的界面，并能快速找到问题的解决方案。**解决方案**
+    -- 保持简单并提供帮助。使用 Tkinter 图形用户界面的 Python 包易于使用，并且可以编写弹出式帮助窗口。即使是简单地清晰解释每个函数的使用方法也会有所帮助。较小的程序应该提供在线教程和示例，大多数大型开源软件包已经这样做了。
+
+
+    让它清晰、有吸引力且稳定，其他人就会喜欢它。
+
+
+    我是一名 Python 合同开发者，在我的开源和定制商业软件中都使用这些相同的概念。无论应用程序大小，良好的设计和价值都能带来更满意的客户。
+
+
+    ## PHP 与 Python
+
+
+    PHP 还是 Python？这个问题会出现在每个希望用出色的 Web 应用程序在 Web 开发领域大展宏图的新手脑海中。由于这两种语言在 Web 开发中都极其流行且同样受欢迎，并且各有其优势，因此为你的特定任务选择合适的一个并不容易。为了帮助所有初学者快速做出决定，本文概述了两者在众多方面的细微差别。
+
+
+    **关于编程**
+
+
+    PHP 过去是，将来也仍然是主要用于开发网站，然后才是其他解决方案的语言。
+
+
+    因此，在各方面，PHP 都类似于带有代码的 HTML 模板。相反，Python 是一种通用语言，为开发者提供了极大的灵活性和定制选项。因此，选择 Python
+    意味着获得一个能够为你的 Web 任务提供所需能力的框架。
+
+
+    **语言语法**
+
+
+    任何精通类 C 语言的人都能立即掌握 PHP，因为它基于类 C 语法。然而，Python 在语言语法方面没那么直接，你需要对你的编码方式进行一些重大改变。例如，空格需要变得有意义，以替代括号。
+
+
+    ## 学习曲线
+
+
+    PHP 社区为使 Web 开发中的事务变得更顺畅、更友好付出了巨大努力。借助它，Web 创作者能够熟练掌握语法，并能以自己的方式使用工具来开发功能良好的代码，以实现
+    Web 设计。另一方面，Python 一开始很难，并且可能导致格式错误。因此，毫无疑问，PHP 是最简单、最容易学习的语言，并且胜过 Python。
+
+
+    ## 调试和性能分析工具
+
+
+    当你需要任何用于 PHP 调试和性能分析的工具时，通常可以从 Google 获得可靠的链接。这是深入开发者环境的好处，你可以轻松获得任何工具。这解释了为什么开发者更喜欢使用
+    PHP 而不是 Python，因为对于后者，获得此类调试工具的机会很少。也许他们拥有的工具远少于 PHP 解决方案。
+
+
+    综合以上所有因素，PHP 是你必须选择的语言。
+
+
+    而 Python 从来都不容易，无论是编写代码还是语法方面。这是选择 PHP 的主要原因。然而，PHP 在大型项目中也可能变得复杂，但这是正常的。在专业水平上为复杂解决方案进行关键编程，在任何语言中都同样困难。
+
+
+    ## 莎拉·杰克琳'
+  merge: 0
+  raw:
+  - '[PAGE 20]
+
+
+    # Python Programming Models To Improve Open Source
+
+
+    Open-supply packages are my favorites, however they want main drawbacks to be
+    able to be corrected in case you appoint the pointers throughout this article.
+    they may be excellent, and being loose is largely appealing to maximum oldsters
+    who''ve paid lots for business
+
+
+    software program, however they may be irritating if they may be now no longer
+    strong or consumer friendly. Another exact issue approximately this loose software
+    program is it does not try and be the whole lot to everybody.
+
+
+    Often this software program solves a particular want, this makes it greater targeted
+    and less complicated to apply than business software program which has were given
+    to try and attain a large market.
+
+
+    There are a few downsides to opensupply software program though, to be able to
+    be irritating. One hassle is that
+
+
+    once in a while it stops being maintained, and sooner or later turns into unusable.
+    that is frequently nearly like business software program that sooner or later
+    turns into unsupported and calls for replacement.
+
+
+    Free software program has particular main issues which have encouraged my layout
+    choices due to the fact frequently they may be avoidable and can make
+
+
+    software program much less strong, much less usable, and more difficult to take
+    care of.
+
+
+    These particular main issues are dependency on different open-supply code and
+    terrible interface designs that are not intuitive and do not offer ok
+
+
+    assist resources. I''m a severe creator, consumer, and supporter of open supply
+    software program however discover those matters very irritating as a consumer.'
+  - '[PAGE 21]
+
+
+    Let''s test out those issues. Dependency -- Many loose packages construct programs
+    the use of different open-supply libraries. this allows speedy complicated improvement
+    that is
+
+
+    sweet. the problem is that your application can also additionally wreck due to
+    the fact you have got no manage
+
+
+    over the other library''s support. If the library isn''t always modified throughout
+    a well timed style after center language releases or is morphed into business
+    software program, this could render the based code unusable, or reason main changes
+    on the best.
+
+
+    Solution -- Pure Python. I application the use of natural Python on every occasion
+    possible. Creating open-supply code this is handiest hooked into the center language
+    and its libraries, provide me the most manage over maintenance. By putting off
+    dependencies, my code is greater
+
+
+    strong.
+
+
+    Poor Interface Design -- Open supply packages are effective however are frequently
+    tough to apply. Commandline interfaces, minimum documentation, and no integrated
+    assist can assignment customers who''re wont to GUI interfaces and good sized
+    assist documents in business software program. Users want a acquainted interface
+    and brief get entry to to solutions for their questions. Solution -- Keep It Simple
+    and Help. Python packages the use of Tkinter GUI interfaces are clean to apply
+    and can be written with pop-up assist windows. Even simply explaining the manner
+    to apply every function without a doubt helps. Smaller programs must provide online
+    tutorials and examples, which maximum massive open-supply packages already do.
+
+
+    Make it clean, appealing, and strong, and different humans will like it.
+
+
+    I am a Python settlement developer who makes use of those identical concepts in
+    each my open supply and custom business software program. no matter
+
+
+    how large or small the appliance ,, exact layout and value could make a'
+  - '[PAGE 22]
+
+
+    happier customer.'
+  - '[PAGE 23]
+
+
+    # PHP Vs Python
+
+
+    PHP or Python? The query moves at the thoughts of every new starter inside the
+    realm of internet improvement who need to shape it massive with an remarkable
+    internet application. As each languages are immensely and similarly famous in
+    internet improvement and feature their personal set of benefits, selecting the
+    only that is ideal in your required task is tough. to help all the ones novices
+    all through a short decision, this newsletter pen downs the bits of variations
+    among the two in numerous aspects.
+
+
+    About the programming
+
+
+    PHP has usually been and may be the described language for developing webweb sites
+    first then for different answers.
+
+
+    So, in each manner, PHP is similar to the HTML template having codes. On the contrary,
+    Python comes as an allreason language presenting builders with too much flexibility
+    and customization options. Thus, selecting Python manner getting a framework with
+    a purpose to provide the capability you would really like in your internet task.
+
+
+    Language syntax
+
+
+    Anyone who''s adept at C-like language can get PHP proper manner due to the fact
+    it''s far predicated on C-like syntax. However, Python is not that trustworthy
+    in phrases of language syntax and also you would really like to shape a few predominant
+    modifications on your manner of coding. as an example, the white areas are to
+    be made extensive in situ of brackets.'
+  - '[PAGE 24]
+
+
+    # The Learning curve
+
+
+    The PHP network has done high-quality efforts to shape matters in internet improvement
+    a lot smooth and friendly. With it, internet creators have advanced fluency in
+    syntax and might use gear of their way to developing right useful code for translating
+    a web design. On the other hand, Python is difficult to start with and might lead
+    to errors in formatting. So with a doubt, PHP is that the handiest and particularly
+    learnable language and wins over Python.
+
+
+    # Tools for debugging and profiling
+
+
+    You''ll usually get confident hyperlinks when you want any gear from Google for
+    debugging and profiling in PHP. it is the gain of an in-intensity developer surroundings
+    and you may get any gear easily. This explains why builders decide on the usage
+    of PHP over Python due to the fact the risk of having such gear for debugging
+    for the latter is rare. Maybe they have got is a ways much less for the Python
+    answers.
+
+    Tallying all of the above factors offers out that PHP is that the language you
+    must choose.
+
+
+    While Python has in no way been that smooth whether or not it is approximately
+    writing code or with syntax. this is the important thing purpose to pick PHP.
+    However,
+
+
+    PHP also can get complex with massive projects, however that is usual. Doing critical
+    programming on the expert degree for complicated answers is similarly tough in
+    any language.'
+  - '[PAGE 25]
+
+
+    # SARA JACKLINE'
+pages:
+- img_proc: true
+  md: '# PYTHON
+
+
+    # PROGRAMMING FOR BEGINNERS 2022
+
+
+    ![](img/031229159a7a3391fbbf625710e05fd6_0_0.png)
+
+
+    # WHAT ARE THE REASONS FOR LEARNING PYTHON
+
+
+    SARA JACKLINE'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: '# PYTHON
+
+
+    # PROGRAMMING FOR BEGINNERS 2022
+
+
+    ![](img/031229159a7a3391fbbf625710e05fd6_1_0.png)
+
+
+    # WHAT ARE THE REASONS FOR LEARNING PYTHON
+
+
+    # SARA JACKLINE'
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: '# Python Programming For Beginners 2022: What Are The Reasons For Learning
+    Python
+
+
+    # Introduction
+
+
+    The net is full of loose assets so that it will flip you right into a programmer
+    and in case you''ve constantly desired to
+
+    discover the manner to construct software program your self or possibly write
+    an occasional script however had
+
+    no clue in which to start off than this manual is for you!
+
+    If you are curious approximately turning into a programmer, you may get off to
+    an terrific begin the usage of
+
+    masses of loose net-primary based totally tutorials and assets. Since the primary
+    days of the net programmer groups are the usage of it to discuss
+
+    software program improvement techniques, post tutorials, and percentage code samples
+    for others to discover from and use online.
+
+
+    # Choosing a Language
+
+
+    A not unusualplace problem for novices is getting hung abreast of seeking to exercise
+    session which programing
+
+    language is quality to discover first. There are lots of reviews out there, however
+    there''s no one "quality" language. Here''s the issue: in the end, language would
+    not simply matter. Understanding statistics and manipulate systems and fashion
+    styles are what
+
+    matters.'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: 'Every programing language, even simple scripting languages can have factors
+    with the intention to make different languages simpler to understand.
+
+
+    Many programmers by no means definitely take permitted instructional guides and
+    are self-taught in each language all through their careers. that is frequently
+    completed via way of means of reusing standards already recognized and referring
+    to documentation and books to discover its syntax. Therefore, in preference to
+    getting caught on what language to discover first simply, select out the sort
+    of improvement you would love to attempt to, and simply begin the usage of the
+    only that comes the handiest to you.
+
+
+    There are numerous unique forms of software program improvement you may do for
+    diverse platforms; net improvement, computer improvement, cellular tool improvement,
+    and training.
+
+
+    # Desktop Scripting
+
+
+    The simplest way to attempting your hand at programming on your Windows or Mac
+    computer is to start off with a scripting or macro application like AutoHotkey
+    (for Windows) or Automator (for Mac). Sure, now superior coders can also additionally
+    disagree that AutoHotkey or AppleScript is not "real" programming that is technically
+    authentic as those forms of gear simply do high-degree scripting. However, for
+    the ones new programming who simply need to induce their arms dirty, automating
+    moves on their computer, the usage of those loose gear offer vital basics towards
+    "real" programming afterward. The strains of while an software contains of scripting
+    and while it is taken into consideration to be programming are typically blurred,
+    hold this in mind. Once your code is compiled it is taken into consideration to
+    be "real" programming. Most endcustomers of an software typically do now no longer
+    understand and need to now no longer care as lengthy as it is'
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: 'supposed nicely and capabilities at some stage in a dynamic and sturdy manner
+    in order to serve its supposed purpose.
+
+
+    # Web Development
+
+
+    If being positive to particular programming languages and with the layout and
+    experience of a selected OS
+
+
+    is not your preference, bear in mind growing your software for the browser alternatively
+    and distribute it to a much broader audience, as a web app.
+
+
+    HTML and CSS: the number one issue you would love to apprehend to create a web
+    web website online is Hyper Text terminology (HTML) the web page markup that creates
+    up webweb sites and Cascading sheet (CSS) is that the fashion records that controls
+    layout look of the markup.
+
+
+    HTML and CSS are scripting languages that simply incorporate web page shape and
+    beauty records. However, you must be familiar with writing coding via way of means
+    of hand earlier than you begin constructing net programs, due to the fact constructing
+    simple webpages can be a prerequisite to growing a dynamic net app.
+
+
+    After studying the improvement of static webweb sites with HTML and CSS, gaining
+    knowledge of JavaScript is that the subsequent step in
+
+
+    programming dynamic webweb sites at some stage in a browser. JavaScript is what
+    bookmarklets, Greasemonkey consumer scripts, Chrome Web Apps,
+
+
+    and Ajax are made from.
+
+
+    Server-facet scripting: Once you are cushty at making dynamic webweb sites domestically
+    at some stage in a browser, you are in all likelihood to require to
+
+
+    location a few dynamic server motion at the back of it. to attempt to try this
+    you may get to analyze a server-facet scripting language. for instance, to shape
+    a net-primarily based totally
+
+
+    touch shape that sends an electronic mail someplace supported what a'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: 'consumer entered, a server-facet script
+
+
+    is required. Scripting languages like, Python, Perl, or Ruby can ask a database
+    to your net server additionally, so in case you would love to shape a
+
+
+    domain in which customers can log in and keep records, that is probably the proper
+    way to set approximately it.
+
+
+    Web frameworks: in preference to reinventing the wheel for every new net improvement
+    project, a few programmers have give you improvement frameworks that perform a
+    little repetitive paintings of rewriting comparable code time and again to create
+    dynamic net webweb sites. Many scripting languages provide a netparticular shape
+    for buying not
+
+
+    unusualplace net software responsibilities accomplished simpler.
+
+
+    Web improvement frameworks encompass; Ruby on Rails framework (for Ruby programmers),
+    CakePHP (for PHP programmers), Django (for Python
+
+
+    programmers), and jQuery (for
+
+
+    JavaScript programmers). Web APIs: An API (Application Programming Interface)
+    can be a
+
+
+    programmatic manner for diverse portions of software program to talk to at the
+    least one another. for instance, in
+
+
+    case you would love to location a dynamic map to your net web website online,
+    you would use a Google Map in
+
+
+    preference to constructing your very own custom map. The Google Maps API makes
+    it smooth to
+
+
+    programmatically encompass a map at some stage in a web page with JavaScript.
+    Almost each current net carrier makes use of an API that permits you to encompass
+    statistics and widgets
+
+
+    from it on your software. These encompass; Twitter, Facebook, Google'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: 'Docs, Google Maps, etc. Integrating different net apps into your net software
+    thru API''s are first rate assets for
+
+
+    reinforcing wealthy net improvement. Every primary net carrier API need to provide
+    thorough documentation and some brief begin manual.
+
+
+    # Command Line Scripting
+
+
+    If you would love to put in writing down a application that takes textual or report
+    enter and outputs some thing
+
+
+    useful, the training is proper. While the training is not as visually attractive
+    as a web app or computer software,
+
+
+    improvement of brief scripts that automate processes, it is the handiest suited.
+
+
+    Several scripting languages that employment on a Linux-primarily based totally
+    net server additionally works at
+
+
+    the training inclusive of Perl, Python, and PHP. Learning one of these languages
+    will purpose you to
+
+
+    acquainted with each contexts. If turning into fluent in Unix is one in all your
+    programming goals, you need to grasp shell scripting with bash. Bash is
+
+
+    that the training scripting language of a *nix environment, and it may do the
+    whole thing from help you discovered out automatic backups of your database and
+    documents to prepare a full-fledged software with consumer interaction.
+
+
+    # Add-ons
+
+
+    Modern net apps and browsers are extensible with bits of software program that
+    plugin to them and upload extra
+
+
+    features. Add-on improvement profits reputation as greater present builders test
+    out present programs and
+
+
+    frameworks and want to characteristic a specific characteristic to shape it better.'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: 'nevertheless do masses in any browser.
+
+
+    Bookmarklets, Greasemonkey consumer scripts, and trendy consumer patterns are
+    created with an equal code
+
+
+    that creates normal webweb sites, so they may be really well worth gaining knowledge
+    of albeit you simplest need
+
+
+    to tweak an present web website online with a bit snippet of code.
+
+
+    More superior browser upload-ons, like Firefox and Chrome extensions, let you
+    do greater. Developing Firefox and
+
+
+    Chrome extensions calls for that you are acquainted with JavaScript, XML, and
+    JSON that is markup nearly like HTML, however with stricter layout rules.
+
+
+    Many loose net programs provide an extension framework additionally like WordPress
+    and Drupal. Both of those are written in PHP, making that particular language
+    a prerequisite for improvement.
+
+
+    # Desktop Development
+
+
+    Learning net improvement first can be a first rate Segway into acquiring the wanted
+    competencies from one context in order to use to a unique like computer software
+    improvement.
+
+
+    Desktop Development programming will range at the OS (OS), use of Software Development
+    Kit (SDK)
+
+
+    provided, and preference for crossplatform improvement. Using preceding net improvement
+    competencies additionally may be re-applied withininside the distribution of your
+    computer software throughout the web to plug to a larger audience.
+
+
+    # Mobile Device App Development
+
+
+    Mobile programs similar to those discovered on smartphones and capsules are more
+    and more more popular, and having your app indexed at the iTunes App Store, Google
+    Play Store (previously known as the Android Market Place), Windows Marketplace,
+    BlackBerry World, etc. However, for'
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: 'the majority of newbie coders, delving into cellular improvement are frequently
+    a steep gaining knowledge of curve, as it calls for an terrific deal of consolation
+    and familiarity with superior programming languages like Java and Objective C
+    to increase a long way greater than a simple "Hello World" software.
+
+
+    # The Long Road Ahead
+
+
+    Great coders are frequently meticulous problem-solvers whom are passionate at
+    what they''re doing and fueled via way of means of small solitary victories of
+    overcoming problems thru trial and error.
+
+    the path to a profession is each an prolonged avenue of infinite gaining knowledge
+    of and frustration however very profitable and worthwhile nonethe-less.'
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: '# The 5 Reasons for Learning Python
+
+
+    One of the most strong and dynamic programming languages being used nowadays is
+    Python. It stresses heaps on code readability, and because of its syntax additionally
+    as implementation, programmers want to put in writing lesser codes in comparison
+    to Java and C++. Memory control in Python is finished robotically and some of
+    different trendy libraries are to be had for the programmer here. After finishing
+    a certification direction in Python education, a programmer can advantage enjoy
+    in numerous pinnacle IT organizations.
+
+
+    Python programming helps severa patterns like useful programming, vital and object-orientated
+    patterns. Here are the very best 5 motives why a programmer ought to research
+    the Python language:
+
+
+    Ease of learning- Python has been created with the newcomer in mind. Completion
+    of simple duties calls for much less code in Python, as in comparison to different
+    languages. The codes are typically 3-five instances shorter than Java, and five-10
+    instances smaller than C++. Python codes are without difficulty readable and with
+    a hint little little bit of knowledge, new builders can research heaps via way
+    of means of simply looking the code. Highly desired for internet development-
+    Python includes an array of frameworks which might be beneficial in designing
+    a web site. Among those frameworks, Django is the freshest one for python development.
+    way to those frameworks, internet designing with Python has tremendous flexibility.
+    the variety of net webweb sites on-line nowadays is on the point of 1 billion,
+    and with the evergrowing scope for greater, it is herbal that Python programming
+    will'
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: 'nevertheless be a important ability for internet builders.
+
+    Considered perfect for start-ups- Time and finances are critical constraints for
+    any new products or services at some
+
+
+    point of a company, and greater so if it is a startup. One can create a product
+    that differentiates itself from the the rest
+
+
+    in any language. However, for brief development, much less code, and lesser cost,
+    Python is that the best language here. Python can without difficulty share any
+    complicated utility
+
+
+    and also can be treated via way of means of a touch team. Not most effective does
+    one keep sources,
+
+
+    however you moreover may also get to expand packages in the proper path with Python.
+
+
+    Unlimited availability of sources and trying out framework- Several sources for
+    Python are to be had nowadays, and those are also continuously being updated.
+    As a result, it is very uncommon that a Python developer receives stuck.
+
+
+    The massive trendy library offers inconstructed functionalities. Its built in
+    trying out framework permits rapid workflows and less debugging time.
+
+
+    Fat paycheques- Today pinnacle IT organizations like Google, Yahoo, IBM, and Nokia
+    employ Python. Among all
+
+
+    programming languages, it is had remarkable increase over a last few years. It
+    is obvious that Python can be a
+
+
+    critical language for internet-primarily based totally programmers. More are regularly
+    learnt at a reputed Python education institute.'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: '# General Overview for Beginners
+
+
+    Python, a high-stage language evolved through Guido van Rossum, is thought for
+    its clean clarity. The center philosophies of the language are easy simplicity
+    over complexity; splendor over ugliness, specific over implicit and different
+    comparable aphorisms. the most critical philosophy of the language is "Readability
+    Counts", which shows
+
+
+    that the syntaxes and codes written the usage of Python are clean and neat. The
+    programing language capabilities a big library that helps programmers. Python
+    additionally has an open-supply model known as the CPython programming platform.
+    it is an good sized network of builders who continuously paintings to improve
+    capabilities. Python can be a dynamic language and helps extraordinary programming
+    patterns together with object-oriented, aspect-oriented, practical, and imperative.
+    one of the best capabilities of the language is easy and more desirable reminiscence
+    management. Essentially hired like a scripting language, Python gives an wonderful
+    stage of capability. While it''s miles frequently used as a standalone application,
+    you may additionally combine 0.33-celebration equipment and customise its capability.
+
+
+    One of the highlights of Python is that it is a surprisingly extensible language.
+    this shows that numerous practical factors are not constructed into the center
+    of this platform. Rather, you may use 0.33 celebration packages and increase the
+    platform''s capability.
+
+
+    Additionally, you may additionally combine a Python code into an current application
+    and make an interface for programming. that is frequently known as Embedding and
+    increasing.
+
+
+    As cited above, the syntaxes of Python are easy. Complicated syntaxes are'
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: 'rejected and consequently the platform embraces codes which are much less cluttered
+    and sparse. However, this does not in any manner have an impact on the overall
+    performance or capability of programs. Also, in contrast to different famous programming
+    languages like Perl, Python would not provide needless muddle through giving the
+    programmer more than one methods of reaching an equal purpose. Python''s philosophy
+    is to deliver one effective manner or acquiring one result. This philosophy is
+    the primary power at the back of the simplicity of Python. So, in case you would
+    really like to grow to be adept for the duration of this language, you would really
+    like to differ your attitude and suppose for the duration of a easy and clean
+    manner. This technique closer to programming works quality with Python. In order
+    to help simplicity, Python coding, and syntaxes use English phrases in preference
+    to punctuations or symbols. This complements the clarity additionally.
+
+
+    Some samples of statements written in Python include "if", "for", "while", "try",
+    "class", "def", "with", "yield", "import" and masses of others. Most of the instructions
+    used are selfexplanatory.
+
+
+    Owing to the ease of handling, Python can be a "programmer''s language". Moreover,
+    studying the language is extraordinarily easy. one of the maximum critical blessings
+    of Python, except clean and really readable codes, is that the velocity with which
+    you may code. Programmers can maintain method due to the fact more than one tiers
+    that are not vital are frequently skipped.
+
+
+    Another benefit is that programmers get heaps of help from the Python opensupply
+    developer network.
+
+
+    The portability characteristic of Python is every other certainly one of its main
+    strengths. Not simplest can Python run'
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: on more than one platforms, however additionally programmers simplest were given
+    to put in writing one application to discern on all running structures like Linux,
+    Mac, Windows, et al. it is a surprisingly adaptable language. Learning Python
+    is not a difficult venture even for beginners. So, take the bounce and grasp the
+    Python.
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: '# Python Language Is Considered Better Than Other Languages
+
+
+    Python, a high-stage language advanced via way of means of Guido van Rossum, is
+    thought for its smooth clarity. The center philosophies of the language are easy
+    - simplicity over complexity; splendor over ugliness, express over implicit and
+    different comparable aphorisms. the most vital philosophy of the language is "Readability
+    Counts", which indicates that the syntaxes and codes written the usage of Python
+    are clean and neat. The programing language functions a big library that helps
+    programmers. Python additionally has an open-supply model referred to as the CPython
+    programming platform. it is an sizable network of builders who continuously paintings
+    to improve functions. Python can be a dynamic language and helps special programming
+    patterns inclusive of object-oriented, aspectoriented, purposeful, and imperative.
+    one of the only functions of the language is simple and more desirable reminiscence
+    management. Essentially hired like a scripting language, Python gives an amazing
+    stage of capability. While it''s miles regularly used as a standalone software,
+    you will additionally combine 0.33-birthday birthday celebration gear and customise
+    its capability. One of the highlights of Python is that it is a exceptionally
+    extensible language. this indicates that diverse purposeful factors are not constructed
+    into the center of this platform. Rather, you will'
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: 'use 0.33 birthday birthday celebration programs and increase the platform''s
+    capability. Additionally, you will additionally combine a Python code into an
+    present software and make an interface for programming. that is regularly referred
+    to as Embedding and increasing.
+
+
+    As noted above, the syntaxes of Python are easy. Complicated syntaxes are rejected
+    and consequently the platform
+
+
+    embraces codes which can be much less cluttered and sparse. However, this does
+    not in any manner have an effect on the overall performance or capability of
+
+
+    programs. Also, not like different famous programming languages like Perl, Python
+    does not provide pointless muddle via way of means of giving the
+
+
+    programmer a couple of methods of accomplishing an equal purpose. Python''s philosophy
+    is to deliver one effective manner or acquiring one result. This philosophy is
+    the principle pressure in the back of the simplicity of
+
+
+    Python. So, in case you would really like to turn out to be adept in the course
+    of this language, you would really like
+
+
+    to differ your attitude and suppose in the course of a easy and smooth manner.
+    This method toward programming works nice with Python. In order to help simplicity,
+    Python coding, and syntaxes use English
+
+
+    phrases as opposed to punctuations or symbols. This complements the clarity additionally.
+
+
+    Some samples of statements written in Python include "if", "for", "while", "try",
+    "class", "def", "with", "yield", "import" and masses of others. Most of
+
+
+    the instructions used are selfexplanatory.
+
+    Owing to the benefit of handling,
+
+
+    Python can be a "programmer''s language". Moreover, studying the language is extraordinarily
+    easy. one of the maximum vital benefits of Python, except'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: 'clean and actually readable codes, is that the rate with which you will code.
+    Programmers can hold approach due to the fact a couple of ranges that are not
+    important are regularly skipped.
+
+
+    Another benefit is that programmers get lots of guide from the Python opensupply
+    developer network.
+
+
+    The portability function of Python is any other considered one of its important
+    strengths. Not simplest can
+
+
+    Python run on a couple of platforms, however additionally programmers simplest
+    were given to jot down one software to discern on all working structures like
+    Linux, Mac, Windows et al. it is a exceptionally adaptable language.
+
+
+    Learning Python is not a tough assignment even for beginners. So, take the jump
+    and grasp the Python.'
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: '# Python Frameworks and Their Real-World
+
+
+    Why do you need to select Python?
+
+
+    Python can be a language that has won stupendous reputation withinside the enterprise
+    inside a surely much less
+
+
+    span of it slow after the paranormal contact from Google. With the unladen swallow
+    project, the rate of the
+
+
+    generation has improved round to three times. As a result, it is frequently desired
+    for a giant-scale software
+
+
+    program software that desires excessive electricity and pace from the middle of
+    the language. Well withinside the
+
+
+    twenty first century we can now no longer forget about the significance of net
+    area and fortunately, Python may be
+
+
+    very bendy in growing corporation trendy net answers. the web packages disturbing
+    greater pace and electricity are frequently carried out with Python.
+
+
+    all varieties of knowledge-pushed net packages are frequently evolved in Python
+    with most electricity and potential. In fact, Python is extraordinarily famous
+    the various online developer''s way to its unrivaled nice and overall performance
+    along few tremendously green Python frameworks. permit us to speak about
+
+
+    the pinnacle Python frameworks of the enterprise.
+
+
+    Django framework: that is frequently possibly the most distinguished Python net
+    framework of the enterprise. Django is extraordinarily effective and changed into
+    evolved with the aid of using Jason'
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: 'Sole and Jason Mc Laughlin.
+
+
+    it were applied for the number one time for the duration of a process portal to
+    make certain its performance. Later on, it were launched for all people and acquired
+    an awesome reaction withinside the enterprise. that is frequently the maximum
+    crucial Python-primarily based totally net framework of the enterprise and subsequently
+    comes with first-rate electricity and functions for the Python builders. there
+    may be an full-size help network for this framework which might be operating 24x7
+    to deliver help to others. it is the most effective admin interface for the very
+    best degree manage of any huge scale net software. Practically this framework
+    is extraordinarily beneficial in growing on-line forums, portals and different
+    social networking sites.
+
+
+    it is also extraordinarily famous in growing brief net answers with most performance
+    and minimal effort.
+
+
+    Flask: Flask can be a microframework evolved in Python having a peculiar background.
+    it were the consequences
+
+
+    of an April idiot wonder from an smart Python developer of India. Mr. Pradeep
+    Gowda challenged his colleague to expand one document micro-framework
+
+
+    in Python and he succeeded withinside the equal and proficient it to his buddy
+    due to the April idiot wonder.
+
+
+    Well, are frequently ">" that is frequently now no longer as effective as that
+    of Django however it could be used
+
+
+    for the slight length of Python net software improvement tasks. it is firstrate
+    appropriate for novices who need to discover Python and start coding in much less
+    time span. It creates an insatiable thirst the various Python builders to test
+    with the framework. it is frequently applied in small net improvement that too
+    inside low
+
+
+    finances and restricted time-frame. Hence it is acquired an sincere phrase of'
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: 'mouth reaction from the enterprise due to the fact its inception.
+
+
+    Pyramid: Pyramid is but one greater high-quality Python improvement framework
+    having first-rate flexibility to serve a very good variety of net packages. it
+    is also powered with the aid
+
+
+    of using git hub and subsequently there may be no worry for help. it is the aggregate
+    of pylons 1.zero and
+
+
+    repose.bfg. it is developing for the duration of a miles quicker tempo withinside
+    the network way to its bendy
+
+
+    nature. Practically it is beneficial for growing corporation trendy API Python
+    tasks and developing Python primarily based totally CMS or KMS.'
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: '# Python Programming Models To Improve Open Source
+
+
+    Open-supply packages are my favorites, however they want main drawbacks to be
+    able to be corrected in case you appoint the pointers throughout this article.
+    they may be excellent, and being loose is largely appealing to maximum oldsters
+    who''ve paid lots for business
+
+
+    software program, however they may be irritating if they may be now no longer
+    strong or consumer friendly. Another exact issue approximately this loose software
+    program is it does not try and be the whole lot to everybody.
+
+
+    Often this software program solves a particular want, this makes it greater targeted
+    and less complicated to apply than business software program which has were given
+    to try and attain a large market.
+
+
+    There are a few downsides to opensupply software program though, to be able to
+    be irritating. One hassle is that
+
+
+    once in a while it stops being maintained, and sooner or later turns into unusable.
+    that is frequently nearly like business software program that sooner or later
+    turns into unsupported and calls for replacement.
+
+
+    Free software program has particular main issues which have encouraged my layout
+    choices due to the fact frequently they may be avoidable and can make
+
+
+    software program much less strong, much less usable, and more difficult to take
+    care of.
+
+
+    These particular main issues are dependency on different open-supply code and
+    terrible interface designs that are not intuitive and do not offer ok
+
+
+    assist resources. I''m a severe creator, consumer, and supporter of open supply
+    software program however discover those matters very irritating as a consumer.'
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: 'Let''s test out those issues. Dependency -- Many loose packages construct programs
+    the use of different open-supply libraries. this allows speedy complicated improvement
+    that is
+
+
+    sweet. the problem is that your application can also additionally wreck due to
+    the fact you have got no manage
+
+
+    over the other library''s support. If the library isn''t always modified throughout
+    a well timed style after center language releases or is morphed into business
+    software program, this could render the based code unusable, or reason main changes
+    on the best.
+
+
+    Solution -- Pure Python. I application the use of natural Python on every occasion
+    possible. Creating open-supply code this is handiest hooked into the center language
+    and its libraries, provide me the most manage over maintenance. By putting off
+    dependencies, my code is greater
+
+
+    strong.
+
+
+    Poor Interface Design -- Open supply packages are effective however are frequently
+    tough to apply. Commandline interfaces, minimum documentation, and no integrated
+    assist can assignment customers who''re wont to GUI interfaces and good sized
+    assist documents in business software program. Users want a acquainted interface
+    and brief get entry to to solutions for their questions. Solution -- Keep It Simple
+    and Help. Python packages the use of Tkinter GUI interfaces are clean to apply
+    and can be written with pop-up assist windows. Even simply explaining the manner
+    to apply every function without a doubt helps. Smaller programs must provide online
+    tutorials and examples, which maximum massive open-supply packages already do.
+
+
+    Make it clean, appealing, and strong, and different humans will like it.
+
+
+    I am a Python settlement developer who makes use of those identical concepts in
+    each my open supply and custom business software program. no matter
+
+
+    how large or small the appliance ,, exact layout and value could make a'
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: happier customer.
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: '# PHP Vs Python
+
+
+    PHP or Python? The query moves at the thoughts of every new starter inside the
+    realm of internet improvement who need to shape it massive with an remarkable
+    internet application. As each languages are immensely and similarly famous in
+    internet improvement and feature their personal set of benefits, selecting the
+    only that is ideal in your required task is tough. to help all the ones novices
+    all through a short decision, this newsletter pen downs the bits of variations
+    among the two in numerous aspects.
+
+
+    About the programming
+
+
+    PHP has usually been and may be the described language for developing webweb sites
+    first then for different answers.
+
+
+    So, in each manner, PHP is similar to the HTML template having codes. On the contrary,
+    Python comes as an allreason language presenting builders with too much flexibility
+    and customization options. Thus, selecting Python manner getting a framework with
+    a purpose to provide the capability you would really like in your internet task.
+
+
+    Language syntax
+
+
+    Anyone who''s adept at C-like language can get PHP proper manner due to the fact
+    it''s far predicated on C-like syntax. However, Python is not that trustworthy
+    in phrases of language syntax and also you would really like to shape a few predominant
+    modifications on your manner of coding. as an example, the white areas are to
+    be made extensive in situ of brackets.'
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: '# The Learning curve
+
+
+    The PHP network has done high-quality efforts to shape matters in internet improvement
+    a lot smooth and friendly. With it, internet creators have advanced fluency in
+    syntax and might use gear of their way to developing right useful code for translating
+    a web design. On the other hand, Python is difficult to start with and might lead
+    to errors in formatting. So with a doubt, PHP is that the handiest and particularly
+    learnable language and wins over Python.
+
+
+    # Tools for debugging and profiling
+
+
+    You''ll usually get confident hyperlinks when you want any gear from Google for
+    debugging and profiling in PHP. it is the gain of an in-intensity developer surroundings
+    and you may get any gear easily. This explains why builders decide on the usage
+    of PHP over Python due to the fact the risk of having such gear for debugging
+    for the latter is rare. Maybe they have got is a ways much less for the Python
+    answers.
+
+    Tallying all of the above factors offers out that PHP is that the language you
+    must choose.
+
+
+    While Python has in no way been that smooth whether or not it is approximately
+    writing code or with syntax. this is the important thing purpose to pick PHP.
+    However,
+
+
+    PHP also can get complex with massive projects, however that is usual. Doing critical
+    programming on the expert degree for complicated answers is similarly tough in
+    any language.'
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: '# SARA JACKLINE'
+  merge: -1
+  pgno: 25
+toc:
+- - '#'
+  - 2022年Python编程入门
+- - '##'
+  - 学习Python的理由有哪些
+- - '###'
+  - 2022年Python编程入门：学习Python的理由有哪些
+- - '####'
+  - 引言
+- - '####'
+  - 选择语言
+- - '####'
+  - 桌面脚本
+- - '####'
+  - 网络开发
+- - '####'
+  - 命令行脚本
+- - '####'
+  - 附加组件
+- - '####'
+  - 桌面开发
+- - '####'
+  - 移动设备应用开发
+- - '####'
+  - 漫漫长路
+- - '####'
+  - 学习Python的5个理由
+- - '####'
+  - 初学者概述
+- - '####'
+  - Python 语言被认为优于其他语言
+- - '####'
+  - Python 框架及其实际应用
+- - '####'
+  - 提升开源项目的 Python 编程模型
+- - '####'
+  - PHP 与 Python
+- - '####'
+  - 学习曲线
+- - '####'
+  - 调试和性能分析工具
+- - '####'
+  - 莎拉·杰克琳

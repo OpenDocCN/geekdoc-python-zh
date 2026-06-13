@@ -1,0 +1,2 @@
++   [Python 编程与 SQL：[7合1] 从入门到精通的最全面编程课程 ｜ 借助内部技巧与专家秘诀，以创纪录速度掌握 Python 与 SQL](README.md)
++   [Python 编程与 SQL：[7合1] 从入门到精通的最全面编程课程 ｜ 借助内部技巧与专家秘诀，以创纪录速度掌握 Python 与 SQL](python-programming-and-sql-7-in-1-the-most-comprehensive-cod.md)

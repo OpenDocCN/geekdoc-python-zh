@@ -1,0 +1,2 @@
++   [Python 初学者指南：从基础到 AI 集成。5 分钟图解教程、编程技巧、动手练习与案例研究，7 天掌握 Python 并获得更高薪酬](README.md)
++   [Python 初学者指南：从基础到 AI 集成。5 分钟图解教程、编程技巧、动手练习与案例研究，7 天掌握 Python 并获得更高薪酬](python-programming-for-beginners-from-basics-to-ai-integrati.md)
