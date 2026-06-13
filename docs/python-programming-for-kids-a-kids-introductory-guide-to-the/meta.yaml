@@ -1,0 +1,6354 @@
+groups:
+- md: "# PYTHON PROGRAMMING FOR KIDS\n\nBEN DAVIES\n\n# COPYRIGHT\n\nAll rights reserved.\
+    \ This book or any portion thereof may not be reproduced, or used in any manner\
+    \ whatsoever without the express written permission of the publisher except for\
+    \ the use of brief quotation in a book review.\n\n# TABLE OF CONTENT\n\n- INTRODUCTION\
+    \ .......................... 6\n- INSTALLING PYTHON.................. 13\n  -\
+    \ Installing Python On Windows ....... 13\n  - Installing Python on Ubuntu ..........\
+    \ 24\n  - Saving Your Python Programs ........ 30\n- CALCULATION AND VARIABLES\
+    \ .. 35\n  - Calculating with Python ................ 35\n  - Basic Python Operators\
+    \ ................ 41\n  - The Order Of Operations.............. 42\n  - Variables\
+    \ Are Like Labels ............. 47\n  - Using Variables................................\
+    \ 53\n- STRINGS, LIST, TUPLES AND MAPS\n  - Strings .....................................................\
+    \ 62\n  - Creating Strings ................................... 62\n  - Handling\
+    \ Problems With Strings..... 67\n  - Embedding Values In Strings......... 75\n\
+    \  - Multiplying strings........................... 81\n  - Lists Are More Powerful\
+    \ Than Strings ..................................................... 84\n  - Adding\
+    \ Items To A List .................... 92\n  - Removing Items From A List .........\
+    \ 95\n  - List Arithmetic................................... 97\n  - Tuples ........................................\
+    \ 102\n  - Python Maps Won’t Help You find Your Way ........................................\
+    \ 105\n\n# INTRODUCTION\n\nProgramming fosters creativity, reasoning, and problem\
+    \ solving. The programmer gets the opportunity to create something from nothing,\
+    \ use logic to turn programming constructs into a form that a computer can run,\
+    \ and, when things don’t work quite as well as expected, use problem solving to\
+    \ figure out what has gone wrong. Programming is a fun, sometimes challenging\
+    \ (and occasionally frustrating) activity, and the skills learned from it can\
+    \ be useful both in school and at work . . . even if your career has nothing to\
+    \ do with computers.\n\nAnd, if nothing else, programming is a great way to spend\
+    \ an afternoon when the weather outside is dreary.\n\nPython is an easy-to-learn\
+    \ programming language that has some really useful features for a beginning programmer.\
+    \ The code is quite easy to read when compared to other programming languages,\
+    \ and it has an interactive shell into which you can enter your programs and see\
+    \ them run. In addition to its simple language structure and an interactive shell\
+    \ with which to experiment, Python has some features that greatly augment the\
+    \ learning process and allow you to put together simple animations for creating\
+    \ your own games.\n\nOne is the turtle module, inspired by Turtle graphics (used\
+    \ by the Logo programming language back in the 1960s) and designed for educational\
+    \ use. Another is the tkinter module, an interface for the Tk GUI toolkit, which\
+    \ provides a simple way to create programs with slightly more advanced graphics\
+    \ and animation.\n\nLike anything you try for the first time, it’s always best\
+    \ to start with the basics, so begin with the first chapters and resist the urge\
+    \ to skip ahead to the later chapters. No one can play an orchestral symphony\
+    \ the first time they pick up an instrument. Student pilots don't start flying\
+    \ a plane before they understand the basic controls. Gymnasts aren't (usually)\
+    \ able to do back flips on their first try. If you jump ahead too quickly, not\
+    \ only will the basic ideas not stick in your head, but you'll also find the content\
+    \ of the later chapters more complicated than it actually is.\n\nAs you go through\
+    \ this book, try each of the examples, so you can see how they work.\n\nLike humans,\
+    \ computers use multiple languages to communicate— in this case, programming languages.\
+    \ A programming language is simply a particular way to talk to a computer—a way\
+    \ to use instructions that both humans and the computer can understand.\n\nThere\
+    \ are programming languages named after people (like Ada and Pascal), those named\
+    \ using simple acronyms (like BASIC and FORTRAN), and even a few named after TV\
+    \ shows, like Python.\n\nYes, the Python programming language was named after\
+    \ the Monty Python’s Flying Circus TV show, not after python the snake.\n\nMonty\
+    \ Python’s Flying Circus was an alternative British comedy show first broadcast\
+    \ in the 1970s, and it remains hugely popular today among a certain audience.\
+    \ The show had sketches like “The Ministry of Silly Walks,” “The Fish-Slapping\
+    \ Dance,” and “The Cheese Shop” (which didn’t sell any cheese).\n\nA number of\
+    \ things about the Python programming language make it extremely useful for beginners.\
+    \ Most importantly, you can use Python to write simple, efficient programs really\
+    \ quickly.\n\nPython doesn’t have a lot of complicated symbols, like braces ({\
+    \ }), hashes (#), and dollar signs ($), which make other programming languages\
+    \ a lot more difficult to read and, therefore, a lot less friendly to beginners.\n\
+    \n# INSTALLING PYTHON\n\nInstalling Python is fairly straightforward. Here, we'll\
+    \ go over the steps for installing it on Windows, Mac OS, and Ubuntu. When installing\
+    \ Python, you'll also set up a shortcut for the IDLE program, which is the Integrated\
+    \ DeveLopment Environment that lets you write programs for Python.\n\n## Installing\
+    \ Python On Windows\n\nTo install Python for Microsoft Windows, point a web browser\
+    \ to http://www.python.org/ and download the latest Windows installer for Python\
+    \ 3. Look for a section in the menu titled Quick Links, as shown here:\n\n![](img/3726099ac21786fed2f9ac6bed8b4337_13_0.png)\n\
+    \nAfter you download the Windows installer, double-click its icon, and then follow\
+    \ the instructions to install Python in the default location, as follows:\n\n\
+    1. Select Install for All Users, and then click Next.\n2. Leave the default directory\
+    \ unchanged, but note the name of the installation directory (probably C:\\Python31\
+    \ or C:\\Python32). Click Next.\n3. Ignore the Customize Python section of the\
+    \ installation, and click Next.\n\n![](img/3726099ac21786fed2f9ac6bed8b4337_14_0.png)\n\
+    \nAt the end of this process, you should have a Python 3 entry in your Start menu:\n\
+    \nNext, follow these steps to add a Python 3 shortcut to your desktop:\n\n1. Right-click\
+    \ your desktop, and select New > Shortcut from the pop-up menu.\n2. Enter the\
+    \ following in the box where it says Type the location of the item (make sure\
+    \ that the directory you enter is the same as the one you noted earlier):\n\n\
+    ```\nc:\\Python32\\Lib\\idlelib\\idle.pyw -n\n```\n\nYour dialog should look like\
+    \ this:\n\n![](img/3726099ac21786fed2f9ac6bed8b4337_16_0.png)\n\n3. Click Next\
+    \ to move to the next dialog.\n4. Enter the name as IDLE, and click Finish to\
+    \ create the shortcut.\n\nNow you can skip to “Once You’ve Installed Python” on\
+    \ page 10 to get started with Python.\n\n## Installing Python on Mac OS\n\nIf\
+    \ you’re using a Mac, you should find a version of Python pre-installed, but it’s\
+    \ probably an older version of the language. To be sure that you’re running the\
+    \ newest version, point your browser to http://www.python.org/getit/ to download\
+    \ the latest installer for the Mac.\n\nThere are two different installers. The\
+    \ one you should download depends on which version of Mac OS X you have installed.\
+    \ (To find out, click the Apple icon in the top menu bar, and choose About this\
+    \ Mac.) Pick an installer as follows:\n\n- If you’re running a Mac OS X version\
+    \ between 10.3 and 10.6, download the 32-bit version of Python 3 for i386/PPC.\n\
+    - If you’re running Mac OS X version 10.6 or higher, download the 64-bit/32-bit\
+    \ version of Python 3 for x86-64.\n\nOnce the file has downloaded (it will have\
+    \ the filename extension .dmg), double-click it. You’ll see a window showing the\
+    \ file’s contents.\n\n![](img/3726099ac21786fed2f9ac6bed8b4337_19_0.png)\n\nIn\
+    \ this window, double-click Python.mpkg, and then follow the instructions to install\
+    \ the software. You’ll be prompted for the administrator password for your Mac\
+    \ before Python installs. (Don’t have the administrator password? Your parent\
+    \ may need to enter it.)\n\nNext, you need to add a script to the desktop for\
+    \ launching Python’s IDLE application, as follows:"
+  mdcn: "# 面向儿童的Python编程\n\n本·戴维斯\n\n# 版权所有\n\n保留所有权利。未经出版商明确书面许可，不得以任何方式复制或使用本书或其任何部分，书评中的简短引用除外。\n\
+    \n# 目录\n\n- 引言 .......................... 6\n- 安装Python.................. 13\n\
+    \  - 在Windows上安装Python ....... 13\n  - 在Ubuntu上安装Python .......... 24\n  - 保存你的Python程序\
+    \ ........ 30\n- 计算与变量 .. 35\n  - 使用Python进行计算 ................ 35\n  - 基本Python运算符\
+    \ ................ 41\n  - 运算顺序.............. 42\n  - 变量如同标签 ............. 47\n\
+    \  - 使用变量................................ 53\n- 字符串、列表、元组和映射\n  - 字符串 .....................................................\
+    \ 62\n  - 创建字符串 ................................... 62\n  - 处理字符串问题..... 67\n\
+    \  - 在字符串中嵌入值......... 75\n  - 字符串乘法........................... 81\n  - 列表比字符串更强大\
+    \ ..................................................... 84\n  - 向列表添加项目 ....................\
+    \ 92\n  - 从列表中移除项目 ......... 95\n  - 列表运算................................... 97\n\
+    \  - 元组 ........................................ 102\n  - Python映射不会帮你指路 ........................................\
+    \ 105\n\n# 引言\n\n编程能培养创造力、推理能力和解决问题的能力。程序员有机会从无到有地创造事物，运用逻辑将编程结构转化为计算机可以运行的形式，并且当事情进展不如预期时，运用问题解决能力找出问题所在。编程是一项有趣、有时具有挑战性（偶尔令人沮丧）的活动，从中获得的技能在学校和工作中都很有用……即使你的职业与计算机毫无关系。\n\
+    \n而且，如果没别的事可做，编程是度过一个阴沉下午的好方法。\n\nPython是一种易于学习的编程语言，对于初学者来说具有一些非常实用的特性。与其他编程语言相比，其代码相当容易阅读，并且它有一个交互式外壳，你可以在其中输入程序并查看它们运行。除了简单的语言结构和可供实验的交互式外壳外，Python还有一些特性，极大地增强了学习过程，并允许你组合简单的动画来创建自己的游戏。\n\
+    \n一个是turtle模块，灵感来源于海龟图形（1960年代由Logo编程语言使用），专为教育用途设计。另一个是tkinter模块，它是Tk GUI工具包的接口，提供了一种简单的方法来创建具有稍高级图形和动画的程序。\n\
+    \n就像你第一次尝试任何事情一样，最好从基础开始，所以从第一章开始，抵制住跳到后面章节的冲动。没有人第一次拿起乐器就能演奏交响乐。学生飞行员在理解基本控制之前不会开始驾驶飞机。体操运动员（通常）第一次尝试时无法完成后空翻。如果你跳得太快，不仅基本概念不会留在你脑海中，而且你会发现后面章节的内容比实际更复杂。\n\
+    \n在阅读本书时，尝试每个示例，这样你就能看到它们是如何工作的。\n\n和人类一样，计算机使用多种语言进行交流——在这种情况下，是编程语言。编程语言只是一种与计算机对话的特定方式——一种使用人类和计算机都能理解的指令的方式。\n\
+    \n有些编程语言以人名命名（如Ada和Pascal），有些使用简单的首字母缩写命名（如BASIC和FORTRAN），甚至还有一些以电视节目命名，比如Python。\n\
+    \n是的，Python编程语言是以《蒙提·派森的飞行马戏团》电视节目命名的，而不是以蟒蛇命名。\n\n《蒙提·派森的飞行马戏团》是一部另类的英国喜剧节目，于1970年代首次播出，至今在特定观众中仍然非常受欢迎。该节目有诸如“愚蠢的行走部”、“拍鱼舞”和“奶酪店”（里面不卖任何奶酪）等小品。\n\
+    \nPython编程语言的许多特性使其对初学者极其有用。最重要的是，你可以使用Python快速编写简单、高效的程序。\n\nPython没有很多复杂的符号，如花括号（{\
+    \ }）、井号（#）和美元符号（$），这些符号使其他编程语言更难阅读，因此对初学者不太友好。\n\n# 安装Python\n\n安装Python相当简单。在这里，我们将介绍在Windows、Mac\
+    \ OS和Ubuntu上安装的步骤。安装Python时，你还将为IDLE程序设置一个快捷方式，IDLE是集成开发环境，允许你为Python编写程序。\n\n\
+    ## 在Windows上安装Python\n\n要为Microsoft Windows安装Python，请将Web浏览器指向http://www.python.org/并下载最新的Windows\
+    \ Python 3安装程序。在菜单中查找名为“快速链接”的部分，如下所示：\n\n![](img/3726099ac21786fed2f9ac6bed8b4337_13_0.png)\n\
+    \n下载Windows安装程序后，双击其图标，然后按照说明将Python安装到默认位置，如下所示：\n\n1. 选择“为所有用户安装”，然后单击“下一步”。\n\
+    2. 保持默认目录不变，但记下安装目录的名称（可能是C:\\Python31或C:\\Python32）。单击“下一步”。\n3. 忽略安装的“自定义Python”部分，然后单击“下一步”。\n\
+    \n![](img/3726099ac21786fed2f9ac6bed8b4337_14_0.png)\n\n在此过程结束时，你应该在“开始”菜单中有一个Python\
+    \ 3条目：\n\n接下来，按照以下步骤将Python 3快捷方式添加到桌面：\n\n1. 右键单击桌面，从弹出菜单中选择“新建”>“快捷方式”。\n2.\
+    \ 在“键入项目的位置”框中输入以下内容（确保输入的目录与你之前记下的相同）：\n\n```\nc:\\Python32\\Lib\\idlelib\\idle.pyw\
+    \ -n\n```\n\n你的对话框应如下所示：\n\n![](img/3726099ac21786fed2f9ac6bed8b4337_16_0.png)\n\
+    \n3. 单击“下一步”转到下一个对话框。\n4. 输入名称为IDLE，然后单击“完成”创建快捷方式。\n\n现在你可以跳到第10页的“安装Python后”开始使用Python。\n\
+    \n## 在Mac OS上安装Python\n\n如果你使用的是Mac，你应该会发现预装了Python版本，但它可能是该语言的较旧版本。为确保你运行的是最新版本，请将浏览器指向http://www.python.org/getit/以下载最新的Mac安装程序。\n\
+    \n有两个不同的安装程序。你应该下载哪一个取决于你安装的Mac OS X版本。（要查明，请单击顶部菜单栏中的Apple图标，然后选择“关于本机”。）按如下方式选择安装程序：\n\
+    \n- 如果你运行的是10.3到10.6之间的Mac OS X版本，请下载适用于i386/PPC的32位Python 3版本。\n- 如果你运行的是10.6或更高版本的Mac\
+    \ OS X，请下载适用于x86-64的64位/32位Python 3版本。\n\n文件下载后（文件扩展名为.dmg），双击它。你将看到一个显示文件内容的窗口。\n\
+    \n![](img/3726099ac21786fed2f9ac6bed8b4337_19_0.png)\n\n在此窗口中，双击Python.mpkg，然后按照说明安装软件。在Python安装之前，系统会提示你输入Mac的管理员密码。（没有管理员密码？你的父母可能需要输入。）\n\
+    \n接下来，你需要在桌面上添加一个脚本来启动Python的IDLE应用程序，如下所示："
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    # PYTHON
+
+
+    # PROGRAMMING
+
+
+    # FOR KIDS
+
+
+    BEN DAVIES'
+  - '[PAGE 1]
+
+
+    # COPYRIGHT
+
+
+    All rights reserved. This book or any portion thereof may not be reproduced, or
+    used in any manner whatsoever without the express written permission of the publisher
+    except for the use of brief quotation in a book review.'
+  - "[PAGE 2]\n\n# TABLE OF CONTENT\n\n+   - INTRODUCTION ..........................\
+    \ 6\n- INSTALLING PHYTON.................. 13\n  - Installing Python On Windows\
+    \ ....... 13\n  - Installing Python on Ubuntu .......... 24\n  - Saving Your Python\
+    \ Programs ........ 30\n- CALCULATION AND VARIABLES .. 35\n  - Calculating with\
+    \ Python ................ 35\n  - Basic Python Operators ................ 41\n\
+    \  - The Order Of Operations.............. 42\n  - Variables Are Like Labels .............\
+    \ 47\n  - Using Variables................................ 53"
+  - '[PAGE 3]
+
+
+    # STRINGS, LIST, TUPLES AND MAPS
+
+
+    Strings ..................................................... 62
+
+
+    Creating Strings ................................... 62
+
+
+    Handling Problems With Strings..... 67
+
+
+    Embedding Values In Strings......... 75
+
+
+    Multiplying strings........................... 81
+
+
+    Lists Are More Powerful Than Strings
+
+    ..................................................... 84
+
+
+    Adding Items To A List .................... 92
+
+
+    Removing Items From A List ......... 95
+
+
+    List Arithmetic................................... 97'
+  - '[PAGE 4]
+
+
+    Tuples ........................................ 102
+
+
+    Python Maps Won’t Help You find Your Way ........................................
+    105'
+  - '[PAGE 5]
+
+
+    # INTRODUCTION
+
+
+    Programming fosters creativity, reasoning, and problem solving. The programmer
+    gets the opportunity to create something from nothing, use logic to turn programming
+    constructs into a form that a computer can run, and, when things don’t work quite
+    as well as expected, use problem solving to figure out what has gone wrong. Programming
+    is a fun, sometimes challenging (and occasionally frustrating) activity, and the
+    skills learned from it can be useful both in school and at work . . . even if
+    your career has nothing to do with computers.'
+  - '[PAGE 6]
+
+
+    And, if nothing else, programming is a great way to spend an afternoon when the
+    weather outside is dreary.
+
+
+    Python is an easy-to-learn programming language that has some really useful features
+    for a beginning programmer. The code is quite easy to read when compared to other
+    programming languages, and it has an interactive shell into which you can enter
+    your programs and see them run. In addition to its simple language structure and
+    an interactive shell with which to experiment, Python has some features that greatly
+    augment the learning'
+  - '[PAGE 7]
+
+
+    process and allow you to put together simple animations for creating your own
+    games.
+
+
+    One is the turtle module, inspired by Turtle graphics (used by the Logo programming
+    language back in the 1960s) and designed for educational use. Another is the tkinter
+    module, an interface for the Tk GUI toolkit, which provides a simple way to create
+    programs with slightly more advanced graphics and animation.
+
+
+    Like anything you try for the first time, it’s always best to start with the basics,'
+  - '[PAGE 8]
+
+
+    so begin with the first chapters and resist the urge to skip ahead to the later
+    chapters. No one can play an orchestral symphony the first time they pick up an
+    instrument. Student pilots don''t start flying a plane before they understand
+    the basic controls. Gymnasts aren''t (usually) able to do back flips on their
+    first try. If you jump ahead too quickly, not only will the basic ideas not stick
+    in your head, but you''ll also find the content of the later chapters more complicated
+    than it actually is.'
+  - '[PAGE 9]
+
+
+    As you go through this book, try each of the examples, so you can see how they
+    work.
+
+
+    Like humans, computers use multiple languages to communicate— in this case, programming
+    languages. A programming language is simply a particular way to talk to a computer—a
+    way to use instructions that both humans and the computer can understand.
+
+
+    There are programming languages named after people (like Ada and Pascal), those
+    named using simple acronyms (like BASIC and FORTRAN),'
+  - '[PAGE 10]
+
+
+    and even a few named after TV shows, like Python.
+
+
+    Yes, the Python programming language was named after the Monty Python’s Flying
+    Circus TV show, not after python the snake.
+
+
+    Monty Python’s Flying Circus was an alternative British comedy show first broadcast
+    in the 1970s, and it remains hugely popular today among a certain audience. The
+    show had sketches like “The Ministry of Silly Walks,” “The Fish-Slapping Dance,”
+    and “The Cheese Shop” (which didn’t sell any cheese).
+
+
+    11'
+  - '[PAGE 11]
+
+
+    A number of things about the Python programming language make it extremely useful
+    for beginners. Most importantly, you can use Python to write simple, efficient
+    programs really quickly.
+
+
+    Python doesn’t have a lot of complicated symbols, like braces ({ }), hashes (#),
+    and dollar signs ($), which make other programming languages a lot more difficult
+    to read and, therefore, a lot less friendly to beginners.'
+  - '[PAGE 12]
+
+
+    # INSTALLING PHYTON
+
+
+    Installing Python is fairly straightforward. Here, we''ll go over the steps for
+    installing it on Windows, Mac OS, and Ubuntu. When installing Python, you''ll
+    also set up a shortcut for the IDLE program, which is the Integrated DeveLopment
+    Environment that lets you write programs for Python.
+
+
+    # Installing Python On Windows
+
+
+    To install Python for Microsoft Windows, point a web browser to
+
+
+    13'
+  - '[PAGE 13]
+
+
+    http://www.python.org/ and download the latest Windows installer for Python 3.
+    Look for a section in the menu titled Quick Links, as shown here:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_13_0.png)
+
+
+    After you download the Windows installer, double-click its icon, and then follow
+    the instructions to install Python in the default location, as follows:
+
+
+    +   1. Select Install for All Users, and then click Next.'
+  - '[PAGE 14]
+
+
+    2. Leave the default directory unchanged, but note the name of the installation
+    directory (probably C:\Python31 or C:\ Python32). Click Next.
+
+
+    3. Ignore the Customize Python section of the installation, and click Next.
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_14_0.png)'
+  - '[PAGE 15]
+
+
+    At the end of this process, you should have a Python 3 entry in your Start menu:
+
+
+    Next, follow these steps to add a Python 3 shortcut to your desktop:
+
+
+    +   1. Right-click your desktop, and select New > Shortcut from the pop-up menu.
+
+    2. Enter the following in the box where it says Type the location of the item
+    (make sure that the directory you enter is the same as the one you noted earlier):
+
+
+    ```
+
+    c:\Python32\Lib\idlelib\idle.pyw -n
+
+    ```
+
+
+    Your dialog should look like this:
+
+
+    16'
+  - '[PAGE 16]
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_16_0.png)
+
+
+    3. Click Next to move to the next dialog.
+
+
+    4. Enter the name as IDLE, and click Finish to create the shortcut.
+
+
+    Now you can skip to “Once You’ve Installed Python” on page 10 to get started with
+    Python.
+
+
+    17'
+  - '[PAGE 17]
+
+
+    # Installing Python on Mac os
+
+
+    If you’re using a Mac, you should find a version of Python pre- installed, but
+    it’s probably an older version of the language. To be sure that you’re running
+    the newest version, point your browser to http://www.python.org/getit/ to download
+    the latest installer for the Mac.
+
+
+    There are two different installers. The one you should down- load depends on which
+    version of Mac OS X you have installed. (To find out, click the Apple icon in
+    the top menu bar, and choose'
+  - '[PAGE 18]
+
+
+    About this Mac.) Pick an installer as follows:
+
+
+    +   - If you’re running a Mac OS X version between 10.3 and 10.6, download the
+    32-bit version of Python 3 for i386/PPC.
+
+    - If you’re running Mac OS X version 10.6 or higher, download the 64-bit/32-bit
+    version of Python 3 for x86-64.
+
+
+    Once the file has downloaded (it will have the filename extension .dmg), double-click
+    it. You’ll see a window showing the file’s contents.'
+  - '[PAGE 19]
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_19_0.png)
+
+
+    In this window, double-click Python.mpkg, and then follow the instructions to
+    install the software. You’ll be prompted for the administrator password for your
+    Mac before Python installs. (Don’t have the administrator password? Your parent
+    may need to enter it.)
+
+
+    Next, you need to add a script to the desktop for launching Python’s IDLE application,
+    as follows:
+
+
+    20'
+- md: '## Installing Python on Ubuntu
+
+
+    Python comes preinstalled on the Ubuntu Linux distribution, but it may be an older
+    version. Follow these steps to install Python 3 on Ubuntu.
+
+
+    1. Click the button for the Ubuntu Software Center in the Sidebar (it’s the icon
+    that looks like an orange bag—if you don’t see it, you can always click the Dash
+    Home icon and enter Software in the dialog).
+
+    2. Enter Python in the search box in the top-right corner of the Software Center.
+
+    3. In the list of software presented, select the latest version of IDLE, which
+    is IDLE (using Python 3.2) in this example:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_25_0.png)
+
+
+    4. Click Install.
+
+    5. Enter your administrator password to install the software, and then click Authenticate.
+    (Don’t have the administrator password? Your parent may need to enter it.)
+
+
+    You should now have an icon on your Windows or Mac OS desktop labeled IDLE. If
+    you’re using Ubuntu, in the Applications menu, you should see a new group named
+    Programming with the application IDLE (using Python 3.2) (or a later version).
+
+
+    Double-click the icon or choose the menu option, and you should see this window:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_26_0.png)
+
+
+    This is the Python shell, which is part of Python’s integrated development environment.
+    The three greater-than signs (>>>) are called the prompt.
+
+
+    Let’s enter some commands at the prompt, beginning with the following:
+
+
+    ```
+
+    >>> print("Hello World")
+
+    ```
+
+
+    Make sure to include the double quotes (" "). Press enter on your keyboard when
+    you’re finished typing the line. If you’ve entered the command correctly, you
+    should see something like this:
+
+
+    Hello World
+
+
+    The prompt should reappear to let you know that the Python shell is ready to accept
+    more commands.
+
+
+    Congratulations! You’ve just created your first Python program. The word print
+    is a type of Python command called a function, and it prints out whatever is inside
+    the parentheses to the screen. In essence, you have given the computer an instruction
+    to display the words “Hello World”—an instruction that both you and the computer
+    can understand.
+
+
+    ## Saving Your Python Programs
+
+
+    Python programs wouldn’t be very useful if you needed to rewrite them every time
+    you wanted to use them, never mind print them out so you could reference them.
+    Sure, it might be fine to just rewrite short programs, but a large program, like
+    a word processor, could contain millions of lines of code. Print that all out,
+    and you could have well over 100,000 pages. Just imagine trying to carry that
+    huge stack of paper home.
+
+
+    Better hope that you won’t meet up with a big gust of wind.
+
+
+    Luckily, we can save our programs for future use. To save a new program, open
+    IDLE and choose File > New Window. An empty window will appear, with *Untitled*
+    in the menu bar.
+
+
+    Enter the following code into the new shell window:
+
+
+    ```
+
+    print("Hello World")
+
+    ```
+
+
+    Now, choose File > Save. When prompted for a filename, enter hello.py, and save
+    the file to your desktop. Then choose Run > Run Module. With any luck, your saved
+    program should run, like this:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_31_0.png)
+
+
+    Now, if you close the shell window but leave the hello.py window open and then
+    choose Run > Run Module, the Python shell should reappear, and your program should
+    run again. (To reopen the Python shell without running the program, choose Run
+    > Python Shell.) After running the code, you’ll find a new icon on your desktop
+    labeled hello.py. If you double-click the icon, a black window will appear briefly
+    and then vanish. What happened?
+
+
+    You’re seeing the Python command-line console (similar to the shell) starting
+    up, printing “Hello World,” and then exiting. Here’s what would appear if you
+    had superhero-like speed vision and could see the window before it closed:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_33_0.png)
+
+
+    ## CALCULATION AND VARIABLES
+
+
+    Now that you have Python installed and know how to start the Python shell, you’re
+    ready to do something with it. We’ll begin with some simple calculations and then
+    move on to variables. Variables are a way of storing things in a computer program,
+    and they can help you write useful programs.
+
+
+    ### Calculating with Python
+
+
+    Normally, when asked to find the product of two numbers like 8 × 3.57, you would
+    use a calculator or a pencil and paper. Well, how about using the Python shell
+    to perform your calculation? Let’s try it.
+
+
+    Start the Python shell by double-clicking the IDLE icon on your desktop or, if
+    you’re using Ubuntu, by clicking the IDLE icon in the Applications menu. At the
+    prompt, enter this equation:
+
+
+    ```
+
+    >>> 8 * 3.57
+
+    28.56
+
+    ```
+
+
+    Notice that when entering a multiplication calculation in Python, you use the
+    asterisk symbol (*) instead of a multiplication sign (×).
+
+
+    How about if we try an equation that’s a bit more useful?
+
+
+    Suppose you are digging in your backyard and uncover a bag of 20 gold coins. The
+    next day, you sneak down to the basement and stick the coins inside your grandfather’s
+    steam-powered replicating invention (luckily, you can just fit the 20 coins inside).
+    You hear a whiz and a pop and, a few hours later, out shoot another 10 gleaming
+    coins.
+
+
+    How many coins would you have in your treasure chest if you did this every day
+    for a year? On paper, the equations might look like this:
+
+
+    10 × 365 = 3650
+
+    20 + 3650 = 3670
+
+
+    Sure, it’s easy enough to do these calculations on a calculator or on paper, but
+    we can do all of these calculations with the Python shell as well. First, we multiply
+    10 coins by 365 days in a year to get 3650. Next, we add the original 20 coins
+    to get 3670.
+
+
+    ```
+
+    >>> 10 * 365
+
+    3650
+
+    >>> 20 + 3650
+
+    3670
+
+    ```
+
+
+    Now, what if a raven spots the shiny gold sitting in your bedroom, and every week
+    flies in and manages to steal three coins?
+
+
+    How many coins would you have left at the end of the year? Here’s how this calculation
+    looks in the shell:
+
+
+    ```
+
+    >>> 3 * 52
+
+    156
+
+    >>> 3670 - 156
+
+    3514
+
+    ```
+
+
+    First, we multiply 3 coins by 52 weeks in the year. The result is 156. We subtract
+    that number from our total coins (3670), which tells us that we would have 3514
+    coins remaining at the end of the year.
+
+
+    This is a very simple program. In this book, you’ll learn how to expand on these
+    ideas to write programs that are even more useful.
+
+
+    ### Python operators
+
+
+    You can do multiplication, addition, subtraction, and division in the Python shell,
+    among other mathematical operations that we won’t go into right now. The basic
+    symbols used by Python to perform mathematical operations are called operators.
+
+
+    ### Basic Python Operators
+
+
+    The forward slash (/) is used for division because it’s similar to the division
+    line that you would use when writing a fraction. For example, if you had 100 pirates
+    and 20 large barrels and you wanted to calculate how many pirates'
+  mdcn: '## 在Ubuntu上安装Python
+
+
+    Ubuntu Linux发行版预装了Python，但可能是较旧的版本。请按照以下步骤在Ubuntu上安装Python 3。
+
+
+    1.  点击侧边栏中的Ubuntu软件中心按钮（它是一个橙色袋子形状的图标——如果没看到，可以点击Dash主页图标并在对话框中输入“软件”）。
+
+    2.  在软件中心右上角的搜索框中输入Python。
+
+    3.  在显示的软件列表中，选择最新版本的IDLE，在本例中是IDLE (使用Python 3.2)：
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_25_0.png)
+
+
+    4.  点击安装。
+
+    5.  输入管理员密码以安装软件，然后点击认证。（没有管理员密码？可能需要你的家长输入。）
+
+
+    现在，你的Windows或Mac OS桌面上应该有一个标记为IDLE的图标。如果你使用的是Ubuntu，在应用程序菜单中，你应该会看到一个名为“编程”的新组，其中包含应用程序IDLE
+    (使用Python 3.2)（或更新版本）。
+
+
+    双击图标或选择菜单选项，你应该会看到这个窗口：
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_26_0.png)
+
+
+    这是Python shell，是Python集成开发环境的一部分。三个大于号（>>>）被称为提示符。
+
+
+    让我们在提示符下输入一些命令，从以下开始：
+
+
+    ```
+
+    >>> print("Hello World")
+
+    ```
+
+
+    确保包含双引号（" "）。输入完这行后按键盘上的回车键。如果输入正确，你应该会看到类似这样的内容：
+
+
+    Hello World
+
+
+    提示符应该会重新出现，让你知道Python shell已准备好接受更多命令。
+
+
+    恭喜！你刚刚创建了你的第一个Python程序。单词print是一种称为函数的Python命令，它将括号内的任何内容打印到屏幕上。本质上，你给了计算机一个显示“Hello
+    World”这个词的指令——一个你和计算机都能理解的指令。
+
+
+    ## 保存你的Python程序
+
+
+    如果你每次使用Python程序都需要重写它们，那么它们就不会非常有用，更不用说打印出来以便参考了。当然，重写短程序可能没问题，但像文字处理器这样的大型程序可能包含数百万行代码。全部打印出来，你可能会得到超过10万页。想象一下试图把那一大摞纸带回家。
+
+
+    最好希望你不会遇到一阵大风。
+
+
+    幸运的是，我们可以保存程序以备将来使用。要保存新程序，请打开IDLE并选择文件 > 新建窗口。将出现一个空窗口，菜单栏中显示*未命名*。
+
+
+    在新的shell窗口中输入以下代码：
+
+
+    ```
+
+    print("Hello World")
+
+    ```
+
+
+    现在，选择文件 > 保存。当提示输入文件名时，输入hello.py，并将文件保存到桌面。然后选择运行 > 运行模块。运气好的话，你保存的程序应该会运行，像这样：
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_31_0.png)
+
+
+    现在，如果你关闭shell窗口但保持hello.py窗口打开，然后选择运行 > 运行模块，Python shell应该会重新出现，你的程序应该会再次运行。（要重新打开Python
+    shell而不运行程序，请选择运行 > Python Shell。）运行代码后，你会发现桌面上有一个标记为hello.py的新图标。如果你双击该图标，一个黑色窗口会短暂出现然后消失。发生了什么？
+
+
+    你看到的是Python命令行控制台（类似于shell）启动，打印“Hello World”，然后退出。如果你有超人般的快速视觉，能在窗口关闭前看到它，这就是会出现的内容：
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_33_0.png)
+
+
+    ## 计算和变量
+
+
+    既然你已经安装了Python并知道如何启动Python shell，你就可以用它来做点事情了。我们将从一些简单的计算开始，然后转向变量。变量是在计算机程序中存储事物的一种方式，它们可以帮助你编写有用的程序。
+
+
+    ### 使用Python计算
+
+
+    通常，当被要求计算两个数字的乘积，比如8 × 3.57时，你会使用计算器或纸笔。那么，使用Python shell来执行你的计算怎么样？让我们试试。
+
+
+    通过双击桌面上的IDLE图标启动Python shell，或者如果你使用Ubuntu，点击应用程序菜单中的IDLE图标。在提示符下，输入这个等式：
+
+
+    ```
+
+    >>> 8 * 3.57
+
+    28.56
+
+    ```
+
+
+    注意，在Python中输入乘法计算时，你使用星号符号（*）而不是乘号（×）。
+
+
+    如果我们尝试一个更有用的等式怎么样？
+
+
+    假设你在后院挖掘，发现了一袋20枚金币。第二天，你偷偷溜到地下室，把硬币放进你祖父的蒸汽动力复制发明中（幸运的是，你刚好能把20枚硬币放进去）。你听到嗖的一声和砰的一声，几个小时后，又射出了10枚闪闪发光的硬币。
+
+
+    如果你每天都这样做，一年后你的宝箱里会有多少枚硬币？在纸上，等式可能看起来像这样：
+
+
+    10 × 365 = 3650
+
+    20 + 3650 = 3670
+
+
+    当然，在计算器或纸上做这些计算很容易，但我们也可以用Python shell完成所有这些计算。首先，我们将10枚硬币乘以一年中的365天，得到3650。接下来，我们加上原来的20枚，得到3670。
+
+
+    ```
+
+    >>> 10 * 365
+
+    3650
+
+    >>> 20 + 3650
+
+    3670
+
+    ```
+
+
+    现在，如果一只乌鸦发现了你卧室里闪闪发光的金币，每周都飞进来偷走三枚硬币会怎样？
+
+
+    一年结束时你还剩多少枚硬币？以下是shell中的计算过程：
+
+
+    ```
+
+    >>> 3 * 52
+
+    156
+
+    >>> 3670 - 156
+
+    3514
+
+    ```
+
+
+    首先，我们将3枚硬币乘以一年中的52周。结果是156。我们从总硬币数（3670）中减去这个数字，这告诉我们一年结束时我们将剩下3514枚硬币。
+
+
+    这是一个非常简单的程序。在本书中，你将学习如何扩展这些想法来编写更有用的程序。
+
+
+    ### Python运算符
+
+
+    你可以在Python shell中进行乘法、加法、减法和除法，以及其他我们现在不深入讨论的数学运算。Python用于执行数学运算的基本符号称为运算符。
+
+
+    ### 基本Python运算符
+
+
+    正斜杠（/）用于除法，因为它类似于书写分数时使用的除号线。例如，如果你有100个海盗和20个大桶，你想计算有多少海盗'
+  merge: 0
+  raw:
+  - '[PAGE 20]
+
+
+    +   1. Click the Spotlight icon, the small magnifying glass at the top-right corner
+    of the screen.
+
+    2. In the box that appears, enter Automator.
+
+    3. Click the application that looks like a robot when it appears in the menu.
+    It will either be in the section labeled Top Hit or in Applications.
+
+    4. Once Automator starts, select the Application template:'
+  - '[PAGE 21]
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_21_0.png)
+
+
+    5. Click Choose to continue.
+
+
+    6. In the list of actions, find Run Shell Script, and drag it to the empty panel
+    on the right. You''ll see something like this:
+
+
+    22'
+  - '[PAGE 22]
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_22_0.png)
+
+
+    7. In the text box, you’ll see the word cat. Select the word and replace it with
+    the following text (everything from open to -n):
+
+
+    ```
+
+    open -a "/Applications/Python 3.2/IDLE.app" --args -n
+
+    ```
+
+
+    You may need to change the directory depending on the version of Python you installed.
+
+
+    23'
+  - '[PAGE 23]
+
+
+    +   8. Select File > Save, and enter IDLE as the name.
+
+    9. Select Desktop from the Where dialog, and then click Save.
+
+
+    Now you can skip to “Once You’ve Installed Python” on page 10 to get started with
+    Python.
+
+
+    # Installing Python on Ubuntu
+
+
+    Python comes preinstalled on the Ubuntu Linux distribution, but it may be an older
+    version. Follow these steps to install Python 3 on Ubuntu'
+  - '[PAGE 24]
+
+
+    +   1. Click the button for the Ubuntu Software Center in the Side- bar (it’s
+    the icon that looks like an orange bag—if you don’t see it, you can always click
+    the Dash Home icon and enter Software in the dialog).
+
+    2. Enter Python in the search box in the top-right corner of the Software Center.
+
+    3. In the list of software presented, select the latest version of IDLE, which
+    is IDLE (using Python 3.2) in this example:'
+  - '[PAGE 25]
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_25_0.png)
+
+
+    4. Click Install.
+
+
+    5. Enter your administrator password to install the software, and then click Authenticate.
+    (Don’t have the administrator pass- word? Your parent may need to enter it.)
+
+
+    26'
+  - '[PAGE 26]
+
+
+    You should now have an icon on your Windows or Mac OS desktop labeled IDLE. If
+    you’re using Ubuntu, in the Applications menu, you should see a new group named
+    Programming with the application IDLE (using Python 3.2) (or a later version).
+
+
+    Double-click the icon or choose the menu option, and you should see this window:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_26_0.png)'
+  - '[PAGE 27]
+
+
+    This is the Python shell, which is part of Python’s integrated development environment.
+    The three greater-than signs (>>>) are called the prompt.
+
+
+    Let’s enter some commands at the prompt, beginning with the following:
+
+
+    ```
+
+    >>> print("Hello World")
+
+    ```
+
+
+    Make sure to include the double quotes (" "). Press enter on your keyboard when
+    you’re finished typing the line. If you’ve entered the command correctly, you
+    should see something like this:
+
+
+    Hello World'
+  - '[PAGE 28]
+
+
+    The prompt should reappear to let you know that the Python shell is ready to accept
+    more commands.
+
+
+    Congratulations! You’ve just created your first Python program. The word print
+    is a type of Python command called a function, and it prints out whatever is inside
+    the parentheses to the screen. In essence, you have given the computer an instruction
+    to display the words “Hello World”—an instruction that both you and the computer
+    can understand.'
+  - '[PAGE 29]
+
+
+    # Saving Your Python Programs
+
+
+    Python programs wouldn’t be very useful if you needed to rewrite them every time
+    you wanted to use them, never mind print them out so you could reference them.
+    Sure, it might be fine to just rewrite short programs, but a large program, like
+    a word proces- sor, could contain millions of lines of code. Print that all out,
+    and you could have well over 100,000 pages. Just imagine trying to carry that
+    huge stack of paper home.'
+  - '[PAGE 30]
+
+
+    Better hope that you won’t meet up with a big gust of wind.
+
+
+    Luckily, we can save our programs for future use. To save a new program, open
+    IDLE and choose File>New Window. An empty window will appear, with *Untitled*
+    in the menu bar.
+
+
+    Enter the following code into the new shell window:
+
+
+    ```
+
+    print("Hello World")
+
+    ```
+
+
+    Now, choose File > Save. When prompted for a filename, enter hello.py, and save
+    the file to your desktop. Then'
+  - '[PAGE 31]
+
+
+    choose Run > Run Module. With any luck, your saved program should run, like this:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_31_0.png)
+
+
+    Now, if you close the shell window but leave the hello.py window open and then
+    choose Run > Run Module, the Python shell should reappear, and your program should
+    run again. (To reopen the Python shell without running the program,
+
+
+    32'
+  - '[PAGE 32]
+
+
+    choose Run > Python Shell.) After running the code, you’ll find a new icon on
+    your desktop labeled hello.py. If you double-click the icon, a black window will
+    appear briefly and then vanish. What happened?
+
+
+    You’re seeing the Python command-line console (similar to the shell) starting
+    up, printing “Hello World,” and then exiting. Here’s what would appear if you
+    had superhero-like speed vision and could see the window before it closed:'
+  - '[PAGE 33]
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_33_0.png)
+
+
+    34'
+  - '[PAGE 34]
+
+
+    # CALCULATION AND VARIABLES
+
+
+    Now that you have Python installed and know how to start the Python shell, you’re
+    ready to do something with it. We’ll begin with some simple calculations and then
+    move on to variables. Variables are a way of storing things in a computer program,
+    and they can help you write useful programs.
+
+
+    # Calculating with Python
+
+
+    Normally, when asked to find the product of two numbers like 8 × 3.57, you would'
+  - '[PAGE 35]
+
+
+    use a calculator or a pencil and paper.
+
+    Well, how about using the Python shell to
+
+    perform your calculation? Let’s try it.
+
+
+    Start the Python shell by double-clicking
+
+    the IDLE icon on your desktop or, if
+
+    you’re using Ubuntu, by clicking the IDLE
+
+    icon in the Applications menu. At the
+
+    prompt, enter this equation:
+
+
+    ```
+
+    >>> 8 * 3.57
+
+
+    28.56
+
+    ```
+
+
+    Notice that when entering a
+
+    multiplication calculation in Python, you'
+  - '[PAGE 36]
+
+
+    use the asterisk symbol (*) instead of a multiplication sign (×).
+
+
+    How about if we try an equation that’s a bit more useful?
+
+
+    Suppose you are digging in your backyard and uncover a bag of 20 gold coins. The
+    next day, you sneak down to the basement and stick the coins inside your grandfather’s
+    steam-powered replicating invention (luckily, you can just fit the 20 coins inside).
+    You hear a whiz and a pop and, a few hours later, out shoot another 10 gleaming
+    coins.'
+  - '[PAGE 37]
+
+
+    How many coins would you have in your treasure chest if you did this every day
+    for a year? On paper, the equations might look like this:
+
+
+    10 × 365 = 3650
+
+
+    20 + 3650 = 3670
+
+
+    Sure, it’s easy enough to do these calculations on a calculator or on paper, but
+    we can do all of these calculations with the Python shell as well. First, we multiply
+    10 coins by 365 days in a year to get 3650. Next, we add the original 20 coins
+    to get 3670.
+
+
+    38'
+  - '[PAGE 38]
+
+
+    ```
+
+    >>> 10 * 365
+
+    3650
+
+    >>> 20 + 3650
+
+    3670
+
+    ```
+
+
+    Now, what if a raven spots the shiny gold sitting in your bed- room, and every
+    week flies in and manages to steal three coins?
+
+
+    How many coins would you have left at the end of the year? Here’s how this calculation
+    looks in the shell:
+
+
+    ```
+
+    >>> 3 * 52
+
+    ```'
+  - '[PAGE 39]
+
+
+    156
+
+
+    ```
+
+    >>> 3670 - 156
+
+    ```
+
+
+    3514
+
+
+    First, we multiply 3 coins by 52 weeks in the year. The result is 156. We subtract
+    that number from our total coins (3670), which tells us that we would have 3514
+    coins remaining at the end of the year.
+
+
+    This is a very simple program. In this book, you’ll learn how to expand on these
+    ideas to write programs that are even more useful.
+
+
+    Python operators'
+  - '[PAGE 40]
+
+
+    You can do multiplication, addition, subtraction, and division in the Python shell,
+    among other mathematical operations that we won’t go into right now. The basic
+    symbols used by Python to per- form mathematical operations are called operators.
+
+
+    # Basic Python Operators
+
+
+    The forward slash (/) is used for divi- sion because it’s similar to the division
+    line that you would use when writing a fraction. For example, if you had 100 pirates
+    and 20 large barrels and you wanted to calculate how many pirates'
+- md: 'you could hide in each barrel, you could divide 100 pirates by 20 barrels (100
+    ÷ 20) by entering 100 / 20 in the Python shell. Just remember that the forward
+    slash is the one whose top falls to the right.
+
+
+    ## The Order Of Operations
+
+
+    We use parentheses in a programming language to control the order of operations.
+    An operation is anything that uses an operator. Multiplication and division have
+    a higher order than addition and subtraction, which means that they’re performed
+    first. In other words, if you enter an equation in Python, multiplication or division
+    is performed before addition or subtraction.
+
+
+    For example, in the following equation, the numbers 30 and 20 are multiplied first,
+    and the number 5 is added to their product.
+
+
+    ```
+
+    >>> 5 + 30 * 20
+
+
+    605
+
+    ```
+
+
+    This equation is another way of saying, “multiply 30 by 20, and then add 5 to
+    the result.” The result is 605. We can change the order of operations by adding
+    parentheses around the first two numbers, like so:
+
+
+    ```
+
+    >>> (5 + 30) * 20
+
+
+    700
+
+    ```
+
+
+    The result of this equation is 700 (not 605) because the parentheses tell Python
+    to do the operation in the parentheses first, and then do the operation outside
+    the parentheses. This example is saying “add 5 to 30, and then multiply the result
+    by 20.”
+
+
+    Parentheses can be nested, which means that there can be parentheses inside parentheses,
+    like this:
+
+
+    ```
+
+    >>> ((5 + 30) * 20) / 10
+
+    70.0
+
+    ```
+
+
+    In this case, Python evaluates the innermost parentheses first, then the outer
+    ones, and then the final division operator. In other words, this equation is saying,
+    “add 5 to 30, then multiply the result by 20, and divide that result by 10.” Here’s
+    what happens:
+
+
+    - Adding 5 to 30 gives 35.
+
+    - Multiplying 35 by 20 gives 700.
+
+    - Dividing 700 by 10 gives the final answer of 70.
+
+
+    If we had not used parentheses, the result would be slightly different:
+
+
+    ```
+
+    >>> 5 + 30 * 20 / 10
+
+    65.0
+
+    ```
+
+
+    In this case, 30 is first multiplied by 20 (giving 600), and then 600 is divided
+    by 10 (giving 60). Finally, 5 is added to get the result of 65.
+
+
+    Warning: Remember that multiplication and division always go before addition and
+    subtraction, unless parentheses are used to control the order of operations.
+
+
+    ## Variables Are Like Labels
+
+
+    The word variable in programming describes a place to store information such as
+    numbers, text, lists of numbers and text, and so on. Another way of looking at
+    a variable is that it’s like a label for something.
+
+
+    For example, to create a variable named fred, we use an equal sign (=) and then
+    tell Python what information the variable should be the label for. Here, we create
+    the variable fred and tell Python that it labels the number 100 (note that this
+    doesn’t mean that another variable can’t have the same value):
+
+
+    ```
+
+    >>> fred = 100
+
+    ```
+
+
+    To find out what value a variable labels, enter print in the shell, followed by
+    the variable name in parentheses, like this:
+
+
+    ```
+
+    >>> print(fred)
+
+
+    100
+
+    ```
+
+
+    We can also tell Python to change the variable fred so that it labels something
+    else. For example, here’s how to change fred to the number 200:
+
+
+    ```
+
+    >>> fred = 200
+
+
+    >>> print(fred)
+
+
+    200
+
+    ```
+
+
+    On the first line, we say that fred labels the number 200. In the second line,
+    we ask what fred is labeling, just to confirm the change. Python prints the result
+    on the last line.
+
+
+    We can also use more than one label (more than one variable) for the same item:
+
+
+    ```
+
+    >>> fred = 200
+
+    >>> john = fred
+
+    >>> print(john)
+
+    200
+
+    ```
+
+
+    In this example, we''re telling Python that we want the name (or variable) john
+    to label the same thing as fred by using the equal sign between john and fred.
+
+
+    Of course, fred probably isn''t a very useful name for a variable because it most
+    likely doesn''t tell us anything about what the variable is used for. Let''s call
+    our variable number_of_coins instead of fred, like this:
+
+
+    ```
+
+    >>> number_of_coins = 200
+
+    >>> print(number_of_coins)
+
+    200
+
+    ```
+
+
+    This makes it clear that we’re talking about 200 coins.
+
+
+    Variable names can be made up of letters, numbers, and the underscore character
+    (_), but they can’t start with a number. You can use anything from single letters
+    (such as a) to long sentences for variable names. (A variable can’t contain a
+    space, so use an underscore to separate words.) Sometimes, if you’re doing something
+    quick, a short variable name is best. The name you choose should depend on how
+    meaningful you need the variable name to be.
+
+
+    Now that you know how to create variables, let’s look at how to use them.
+
+
+    ## Using Variables
+
+
+    Remember our equation for figuring out how many coins you would have at the end
+    of the year if you could magically create new coins with your grandfather’s crazy
+    invention in the basement? We have this equation:
+
+
+    ```
+
+    >>> 20 + 10 * 365
+
+    3670
+
+    >>> 3 * 52
+
+    156
+
+    >>> 3670 - 156
+
+    3514
+
+    ```
+
+
+    We can turn this into a single line of code:
+
+
+    ```
+
+    >>> 20 + 10 * 365 - 3 * 52
+
+    3514
+
+    ```
+
+
+    Now, what if we turn the numbers into variables? Try entering the following:
+
+
+    ```
+
+    >>> found_coins = 20
+
+    >>> magic_coins = 10
+
+    >>> stolen_coins = 3
+
+    ```
+
+
+    These entries create the variables found_coins, magic_coins, and stolen_coins.
+
+
+    Now, we can reenter the equation like this:
+
+
+    ```
+
+    >>> found_coins + magic_coins * 365 - stolen_coins * 52
+
+    3514
+
+    ```
+
+
+    You can see that this gives us the same answer. So who cares, right? Ah, but here’s
+    the magic of variables. What if you stick a scarecrow in your window, and the
+    raven steals only two coins instead of three? When we use a variable, we can simply
+    change the variable to hold that new number, and it will change everywhere it
+    is used in the equation. We can change the stolen_coins variable to 2 by entering
+    this:
+
+
+    ```
+
+    >>> stolen_coins = 2
+
+    ```
+
+
+    We can then copy and paste the equation to calculate the answer again, like so:
+
+
+    1. Select the text to copy by clicking with the mouse and dragging from the beginning
+    to the end of the line, as shown here:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_56_0.png)
+
+
+    2. Hold down the ctrl Key and press C to copy the selected text. (You''ll see
+    this as ctrl-C from now on.)
+
+    3. Click the last prompt line (after stolen_coins = 2).
+
+    4. Hold down the ctrl key and press V to paste the selected text. (You’ll see
+    this as ctrl-V from now on.)
+
+    5. Press enter to see the new result:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_57_0.png)
+
+
+    Isn’t that a lot easier than retyping the whole equation? It sure is.
+
+
+    You can try changing the other variables, and then copy (ctrl-C) and paste (ctrl-V)
+    the calculation to see the effect of your changes. For example, if you bang the
+    sides of your grandfather’s invention at the right moment, and it spits out an
+    extra 3 coins each time, you’ll find that you end up with 4661 coins at the end
+    of the year:
+
+
+    ```
+
+    >>> magic_coins = 13
+
+
+    >>> found_coins + magic_coins * 365 - stolen_coins * 52
+
+    4661
+
+    ```
+
+
+    Of course, using variables for a simple equation like this one is still only slightly
+    useful. We haven’t gotten to really useful yet. For now, just remember that variables
+    are a way of labeling things so that you can use them later.
+
+
+    ## STRINGS, LIST, TUPLES AND MAPS
+
+
+    In this chapter, we''ll work with some other items in Python programs: strings,
+    lists, tuples, and maps. You''ll use strings to display messages in your programs
+    (such as "Get Ready" and "Game Over" messages in a game).
+
+
+    You''ll also discover how lists, tuples, and maps are used to store collections
+    of things.
+
+
+    ## Strings
+
+
+    In programming terms, we usually call text a string. When you think of a string
+    as a collection of letters, the term makes sense. All the letters, numbers, and
+    symbols in this book could be a string. For that matter, your name could be a
+    string, and so could your address.
+
+
+    ### Creating Strings
+
+
+    In Python, we create a string by putting quotes around text.
+
+
+    ```
+
+    fred = "Why do gorillas have big nostrils? Big fingers!!"
+
+    ```'
+  mdcn: '你可以藏在每个桶里，你可以将100个海盗除以20个桶（100 ÷ 20），方法是在Python shell中输入100 / 20。只需记住，正斜杠是顶部向右倾斜的那个。
+
+
+    ## 运算顺序
+
+
+    我们在编程语言中使用括号来控制运算顺序。运算是指任何使用运算符的操作。乘法和除法的优先级高于加法和减法，这意味着它们会先执行。换句话说，如果你在Python中输入一个等式，乘法或除法会在加法或减法之前执行。
+
+
+    例如，在下面的等式中，数字30和20首先相乘，然后将数字5加到它们的乘积上。
+
+
+    ```
+
+    >>> 5 + 30 * 20
+
+
+    605
+
+    ```
+
+
+    这个等式是“将30乘以20，然后将结果加上5”的另一种说法。结果是605。我们可以通过在前两个数字周围添加括号来改变运算顺序，如下所示：
+
+
+    ```
+
+    >>> (5 + 30) * 20
+
+
+    700
+
+    ```
+
+
+    这个等式的结果是700（而不是605），因为括号告诉Python先执行括号内的运算，然后再执行括号外的运算。这个例子说的是“将5加到30上，然后将结果乘以20”。
+
+
+    括号可以嵌套，这意味着括号内可以有括号，像这样：
+
+
+    ```
+
+    >>> ((5 + 30) * 20) / 10
+
+    70.0
+
+    ```
+
+
+    在这种情况下，Python首先计算最内层的括号，然后是外层的括号，最后是除法运算符。换句话说，这个等式说的是“将5加到30上，然后将结果乘以20，再将结果除以10”。以下是具体步骤：
+
+
+    - 将5加到30上得到35。
+
+    - 将35乘以20得到700。
+
+    - 将700除以10得到最终答案70。
+
+
+    如果我们没有使用括号，结果会略有不同：
+
+
+    ```
+
+    >>> 5 + 30 * 20 / 10
+
+    65.0
+
+    ```
+
+
+    在这种情况下，30首先乘以20（得到600），然后600除以10（得到60）。最后，加上5得到结果65。
+
+
+    警告：记住，除非使用括号来控制运算顺序，否则乘法和除法总是优先于加法和减法。
+
+
+    ## 变量就像标签
+
+
+    编程中的“变量”一词描述的是存储信息的地方，例如数字、文本、数字和文本的列表等。另一种看待变量的方式是，它就像某个东西的标签。
+
+
+    例如，要创建一个名为fred的变量，我们使用等号（=），然后告诉Python这个变量应该作为什么信息的标签。在这里，我们创建变量fred，并告诉Python它标记数字100（注意这并不意味着另一个变量不能有相同的值）：
+
+
+    ```
+
+    >>> fred = 100
+
+    ```
+
+
+    要找出变量标记的值，在shell中输入print，后跟括号中的变量名，如下所示：
+
+
+    ```
+
+    >>> print(fred)
+
+
+    100
+
+    ```
+
+
+    我们还可以告诉Python更改变量fred，使其标记其他内容。例如，以下是将fred更改为数字200的方法：
+
+
+    ```
+
+    >>> fred = 200
+
+
+    >>> print(fred)
+
+
+    200
+
+    ```
+
+
+    在第一行，我们说fred标记数字200。在第二行，我们询问fred标记的是什么，只是为了确认更改。Python在最后一行打印结果。
+
+
+    我们还可以为同一个项目使用多个标签（多个变量）：
+
+
+    ```
+
+    >>> fred = 200
+
+    >>> john = fred
+
+    >>> print(john)
+
+    200
+
+    ```
+
+
+    在这个例子中，我们告诉Python，我们希望名称（或变量）john标记与fred相同的东西，方法是在john和fred之间使用等号。
+
+
+    当然，fred可能不是一个非常有用的变量名，因为它很可能没有告诉我们变量的用途。让我们将变量命名为number_of_coins而不是fred，如下所示：
+
+
+    ```
+
+    >>> number_of_coins = 200
+
+    >>> print(number_of_coins)
+
+    200
+
+    ```
+
+
+    这清楚地表明我们谈论的是200个硬币。
+
+
+    变量名可以由字母、数字和下划线字符（_）组成，但不能以数字开头。你可以使用从单个字母（如a）到长句子的任何内容作为变量名。（变量不能包含空格，因此请使用下划线分隔单词。）有时，如果你正在做一些快速的事情，短变量名是最好的。你选择的名称应该取决于你需要变量名有多有意义。
+
+
+    现在你知道如何创建变量了，让我们看看如何使用它们。
+
+
+    ## 使用变量
+
+
+    还记得我们用来计算如果你能用你父亲在地下室的疯狂发明神奇地创造新硬币，年底你会有多少硬币的等式吗？我们有这个等式：
+
+
+    ```
+
+    >>> 20 + 10 * 365
+
+    3670
+
+    >>> 3 * 52
+
+    156
+
+    >>> 3670 - 156
+
+    3514
+
+    ```
+
+
+    我们可以将其转换为单行代码：
+
+
+    ```
+
+    >>> 20 + 10 * 365 - 3 * 52
+
+    3514
+
+    ```
+
+
+    现在，如果我们把这些数字变成变量呢？尝试输入以下内容：
+
+
+    ```
+
+    >>> found_coins = 20
+
+    >>> magic_coins = 10
+
+    >>> stolen_coins = 3
+
+    ```
+
+
+    这些条目创建了变量found_coins、magic_coins和stolen_coins。
+
+
+    现在，我们可以像这样重新输入等式：
+
+
+    ```
+
+    >>> found_coins + magic_coins * 365 - stolen_coins * 52
+
+    3514
+
+    ```
+
+
+    你可以看到这给出了相同的答案。那又怎样，对吧？啊，但这就是变量的魔力。如果你在窗户上放一个稻草人，乌鸦只偷了两个硬币而不是三个呢？当我们使用变量时，我们只需更改变量以保存新数字，它就会在等式中使用它的所有地方发生变化。我们可以通过输入以下内容将stolen_coins变量更改为2：
+
+
+    ```
+
+    >>> stolen_coins = 2
+
+    ```
+
+
+    然后我们可以复制并粘贴等式以再次计算答案，如下所示：
+
+
+    1. 通过单击鼠标并从行的开头拖动到末尾来选择要复制的文本，如下所示：
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_56_0.png)
+
+
+    2. 按住ctrl键并按C复制所选文本。（从现在开始，你将看到ctrl-C。）
+
+    3. 单击最后一行提示符（在stolen_coins = 2之后）。
+
+    4. 按住ctrl键并按V粘贴所选文本。（从现在开始，你将看到ctrl-V。）
+
+    5. 按enter键查看新结果：
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_57_0.png)
+
+
+    这不比重新输入整个等式容易得多吗？确实如此。
+
+
+    你可以尝试更改其他变量，然后复制（ctrl-C）并粘贴（ctrl-V）计算以查看更改的效果。例如，如果你在正确的时刻敲击你父亲发明的侧面，它每次会额外吐出3个硬币，你会发现年底你最终会有4661个硬币：
+
+
+    ```
+
+    >>> magic_coins = 13
+
+
+    >>> found_coins + magic_coins * 365 - stolen_coins * 52
+
+    4661
+
+    ```
+
+
+    当然，对于像这样的简单等式，使用变量仍然只是稍微有用。我们还没有达到真正有用的程度。现在，只需记住，变量是一种标记事物的方式，以便你以后可以使用它们。
+
+
+    ## 字符串、列表、元组和映射
+
+
+    在本章中，我们将使用Python程序中的一些其他项目：字符串、列表、元组和映射。你将使用字符串在程序中显示消息（例如游戏中的“准备就绪”和“游戏结束”消息）。
+
+
+    你还将发现列表、元组和映射如何用于存储事物的集合。
+
+
+    ## 字符串
+
+
+    在编程术语中，我们通常将文本称为字符串。当你将字符串视为字母的集合时，这个术语是有意义的。本书中的所有字母、数字和符号都可以是一个字符串。就此而言，你的名字可以是一个字符串，你的地址也可以是一个字符串。
+
+
+    ### 创建字符串
+
+
+    在Python中，我们通过在文本周围加上引号来创建字符串。
+
+
+    ```
+
+    fred = "Why do gorillas have big nostrils? Big fingers!!"
+
+    ```'
+  merge: 1
+  raw:
+  - '[PAGE 41]
+
+
+    you could hide in each barrel, you could divide 100 pirates by 20 barrels (100
+    ÷ 20) by entering 100 / 20 in the Python shell. Just remember that the forward
+    slash is the one whose top falls to the right.
+
+
+    # The Order Of Operations
+
+
+    We use parentheses in a programming language to control the order of operations.
+    An operation is anything that uses an operator. Multiplication and division have
+    a higher order than addition and subtraction, which means that they’re performed
+    first. In other'
+  - '[PAGE 42]
+
+
+    words, if you enter an equation in Python, multiplication or division is performed
+    before addition or subtraction.
+
+
+    For example, in the following equation, the numbers 30 and 20 are multiplied first,
+    and the number 5 is added to their product.
+
+
+    ```
+
+    >>> 5 + 30 * 20
+
+
+    605
+
+    ```
+
+
+    This equation is another way of saying, “multiply 30 by 20, and then add 5 to
+    the result.” The result is 605. We can change the order of operations by adding'
+  - '[PAGE 43]
+
+
+    parentheses around the first two numbers, like so:
+
+
+    ```
+
+    >>> (5 + 30) * 20
+
+
+    700
+
+    ```
+
+
+    The result of this equation is 700 (not 605) because the parentheses tell Python
+    to do the operation in the parentheses first, and then do the operation outside
+    the parentheses. This example is saying “add 5 to 30, and then multiply the result
+    by 20.”'
+  - '[PAGE 44]
+
+
+    Parentheses can be nested, which means that there can be parentheses inside parentheses,
+    like this:
+
+
+    ```
+
+    >>> ((5 + 30) * 20) / 10
+
+    70.0
+
+    ```
+
+
+    In this case, Python evaluates the innermost parentheses first, then the outer
+    ones, and then the final division operator'
+  - '[PAGE 45]
+
+
+    In other words, this equation is saying, “add 5 to 30, then multiply the result
+    by 20, and divide that result by 10.” Here’s what happens:
+
+
+    +   - Adding 5 to 30 gives 35.
+
+    - Multiplying 35 by 20 gives 700.
+
+    - Dividing 700 by 10 gives the final answer of 70.
+
+
+    If we had not used parentheses, the result would be slightly different:
+
+
+    ```
+
+    >>> 5 + 30 * 20 / 10
+
+    65.0
+
+    ```'
+  - '[PAGE 46]
+
+
+    In this case, 30 is first multiplied by 20 (giving 600), and then 600 is divided
+    by 10 (giving 60). Finally, 5 is added to get the result of 65.
+
+
+    Warning: Remember that multiplication and division always go before addition and
+    subtraction, unless parentheses are used to control the order of operations.
+
+
+    # Variables Are Like Labels
+
+
+    The word variable in programming describes a place to store infor- mation such
+    as numbers, text, lists of numbers and text, and so on. Another way of'
+  - '[PAGE 47]
+
+
+    looking at a variable is that it’s like a label for something.
+
+
+    For example, to create a variable named fred, we use an equal sign (=) and then
+    tell Python what information the variable should be the label for. Here, we create
+    the variable fred and tell Python
+
+
+    that it labels the number 100 (note that this doesn’t mean that
+
+
+    another variable can’t have the same value):
+
+
+    ```
+
+    >>> fred = 100
+
+    ```'
+  - '[PAGE 48]
+
+
+    To find out what value a variable labels, enter print in the shell, followed by
+    the variable name in parentheses, like this:
+
+
+    ```
+
+    >>> print(fred)
+
+
+    100
+
+    ```
+
+
+    We can also tell Python to change the variable fred so that it labels something
+    else. For example, here’s how to change fred to the number 200:
+
+
+    ```
+
+    >>> fred = 200
+
+
+    >>> print(fred)
+
+
+    200
+
+    ```'
+  - '[PAGE 49]
+
+
+    On the first line, we say that fred labels the number 200. In the second line,
+    we ask what fred is labeling, just to confirm the change. Python prints the result
+    on the last line.
+
+
+    We can also use more than one label (more than one variable) for the same item:
+
+
+    ```
+
+    >>> fred = 200
+
+    >>> john = fred
+
+    >>> print(john)
+
+    200
+
+    ```'
+  - '[PAGE 50]
+
+
+    In this example, we''re telling Python that we want the name (or variable) john
+    to label the same thing as fred by using the equal sign between john and fred.
+
+
+    Of course, fred probably isn''t a very useful name for a variable because it most
+    likely doesn''t tell us anything about what the variable is used for. Let''s call
+    our variable number_of_coins instead of fred, like this:
+
+
+    ```
+
+    >>> number_of_coins = 200
+
+    >>> print(number_of_coins)
+
+    ```'
+  - '[PAGE 51]
+
+
+    200
+
+
+    This makes it clear that we’re talking about 200 coins.
+
+
+    Variable names can be made up of letters, numbers, and the underscore character
+    (_), but they can’t start with a number. You can use anything from single letters
+    (such as a) to long sentences for variable names. (A variable can’t contain a
+    space, so use an underscore to separate words.) Sometimes, if you’re doing some-
+    thing
+
+
+    52'
+  - '[PAGE 52]
+
+
+    quick, a short variable name is best. The name you choose should depend on how
+    meaningful you need the variable name to be.
+
+
+    Now that you know how to create variables, let’s look at how to use them.
+
+
+    # Using Variables
+
+
+    Remember our equation for figuring out how many coins you would have at the end
+    of the year if you could magically create new coins with your grandfather’s crazy
+    invention in the basement? We have this equation:'
+  - '[PAGE 53]
+
+
+    ```
+
+    >>> 20 + 10 * 365
+
+    3670
+
+    >>> 3 * 52
+
+    156
+
+    >>> 3670 - 156
+
+    3514
+
+    ```
+
+
+    We can turn this into a single line of code:
+
+
+    ```
+
+    >>> 20 + 10 * 365 - 3 * 52
+
+    3514
+
+    ```
+
+
+    Now, what if we turn the numbers into variables? Try entering the following:
+
+
+    ```
+
+    54
+
+    ```'
+  - '[PAGE 54]
+
+
+    ```
+
+    >>> found_coins = 20
+
+    >>> magic_coins = 10
+
+    >>> stolen_coins = 3
+
+    ```
+
+
+    These entries create the variables found_coins, magic_coins, and stolen_coins.
+
+
+    Now, we can reenter the equation like this:
+
+
+    ```
+
+    >>> found_coins + magic_coins * 365 - stolen_coins * 52
+
+    3514
+
+    ```'
+  - '[PAGE 55]
+
+
+    You can see that this gives us the same answer. So who cares, right? Ah, but here’s
+    the magic of variables. What if you stick a scarecrow in your win- dow, and the
+    raven steals only two coins instead of three? When we use a variable, we can simply
+    change the variable to hold that new number, and it will change every-where it
+    is used in the equation. We can change the stolen_coins variable to 2 by entering
+    this:
+
+
+    ```
+
+    >>> stolen_coins = 2
+
+    ```'
+  - '[PAGE 56]
+
+
+    We can then copy and paste the equation to calculate the answer again, like so:
+
+
+    +   1. Select the text to copy by clicking with the mouse and dragging from the
+    beginning to the end of the line, as shown here:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_56_0.png)
+
+
+    +   2. Hold down the ctrl Key and press C to copy the selected text. (You''ll
+    see this as ctrl-C from now on.)'
+  - '[PAGE 57]
+
+
+    +   3. Click the last prompt line (after stolen_coins = 2).
+
+    4. Hold down the ctrl key and press V to paste the selected text. (You’ll see
+    this as ctrl-V from now on.)
+
+    5. Press enter to see the new result:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_57_0.png)
+
+
+    Isn’t that a lot easier than retyping the whole equation? It sure is.'
+  - '[PAGE 58]
+
+
+    You can try changing the other variables, and then copy (ctrl-C) and paste (ctrl-V)
+    the calculation to see the effect of your changes. For example, if you bang the
+    sides of your grand- father’s invention at the right moment, and it spits out
+    an extra 3 coins each time, you’ll find that you end up with 4661 coins at the
+    end of the year:
+
+
+    ```
+
+    >>> magic_coins = 13
+
+
+    >>> found_coins + magic_coins * 365 - stolen_coins * 52 4661
+
+    ```
+
+
+    Of course, using variables for a simple equation like this one is still only slightly'
+  - '[PAGE 59]
+
+
+    useful. We haven’t gotten to really useful yet. For now, just remember that variables
+    are a way of labeling things so that you can use them later.'
+  - '[PAGE 60]
+
+
+    # STRINGS, LIST, TUPLES AND MAPS
+
+
+    In this chapter, we''ll work with some other items in Python programs: strings,
+    lists, tuples, and maps. You''ll use strings to display messages in your programs
+    (such as "Get Ready" and "Game Over" messages in a game).
+
+
+    You''ll also discover how lists, tuples, and maps are used to store collections
+    of things.'
+  - '[PAGE 61]
+
+
+    # Strings
+
+
+    In programming terms, we usually call text a string. When you think of a string
+    as a collection of letters, the term makes sense. All the letters, numbers, and
+    symbols in this book could be a string. For that matter, your name could be a
+    string, and so could your address.
+
+
+    # Creating Strings
+
+
+    In Python, we create a string by putting quotes around text.
+
+
+    ```
+
+    fred = "Why do gorillas have big nostrils? Big fingers!!"
+
+    ```'
+- md: 'Then, to see what''s inside fred, we could enter print(fred), like this:
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    Why do gorillas have big nostrils? Big fingers!!
+
+
+    You can also use single quotes to create a string, like this:
+
+
+    ```
+
+    >>> fred = ''What is pink and fluffy? Pink fluff!!''
+
+    ```
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    What is pink and fluffy? Pink fluff!!
+
+
+    However, if you try to enter more than one line of text for your string using
+    only a single quote ('') or double quote (") or if you start with one type of
+    quote and try to finish with another, you''ll get an error message in the Python
+    shell. For example, enter the following line:
+
+
+    ```
+
+    >>> fred = "How do dinosaurs pay their bills?
+
+    ```
+
+
+    You''ll see this result:
+
+
+    ```
+
+    SyntaxError: EOL while scanning string literal
+
+    ```
+
+
+    This is an error message complaining about syntax because you did not follow the
+    rules for ending a string with a single or double quote.
+
+
+    Syntax means the arrangement and order of words in a sentence or, in this case,
+    the arrangement and order of words and symbols in a program. So SyntaxError means
+    that you did something in an order Python was not expecting, or Python was expecting
+    something that you missed. EOL means end-of-line, so the rest of the error message
+    is telling you that Python hit the end of the line and did not find a double quote
+    to close the string.
+
+
+    To use more than one line of text in your string (called a multiline string),
+    use three single quotes (''''''), and then hit enter between lines, like this:
+
+
+    ```
+
+    >>> fred = """How do dinosaurs pay their bills? With tyrannosaurus checks!"""
+
+    ```
+
+
+    Now let’s print out the contents of fred to see if this worked:
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    How do dinosaurs pay their bills? With tyrannosaurus checks!
+
+
+    ## Handling Problems With Strings
+
+
+    Now consider this crazy example of a string, which causes Python to display an
+    error message:
+
+
+    ```
+
+    >>> silly_string = ''He said, "Aren''t can''t shouldn''t wouldn''t."'' SyntaxError:
+    invalid syntax
+
+    ```
+
+
+    In the first line, we try to create a string (defined as the variable silly_string)
+    enclosed by single quotes, but also containing a mixture of single quotes in the
+    words can''t, shouldn''t, and wouldn''t, as well as double quotes. What a mess!
+
+
+    Remember that Python itself is not as smart as a human being, so all it sees is
+    a string containing He said, "Aren, followed by a bunch of other characters that
+    it doesn''t expect. When Python sees a quotation mark (either a single or double
+    quote), it expects a string to start following the first mark and the string to
+    end after the next matching quotation mark (either single or double) on that line.
+    In this case, the start of the string is the single quotation mark before He,
+    and the end of the string, as far as Python is concerned, is the single quote
+    after the n in Aren. IDLE highlights the point where things have gone wrong:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_68_0.png)
+
+
+    The last line of IDLE tells us what sort of error occurred—in this case, a syntax
+    error.
+
+
+    Using double instead of single quotes still produces an error:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_69_0.png)
+
+
+    ```
+
+    >>> silly_string = "He said, "Aren''t can''t shouldn''t wouldn''t."" SyntaxError:
+    invalid syntax
+
+    ```
+
+
+    Here, Python sees a string bounded by double quotes, containing the letters He
+    said, (and a space). Everything following that string (from Aren''t on) causes
+    the error.
+
+
+    This is because, from Python''s perspective, all that extra stuff just isn''t
+    supposed to be there. Python looks for the next matching quote and doesn''t know
+    what you want it to do with anything that follows that quote on the same line.
+
+
+    The solution to this problem is a multiline string, which we learned about earlier,
+    using three single quotes (''''''), which allows us to combine double and single
+    quotes in our string without causing errors. In fact, if we use three single quotes,
+    we can put any combination of single and double quotes inside the string (as long
+    as we don''t try to put three single quotes there).
+
+
+    This is what the error-free version of our string looks like:
+
+
+    ```
+
+    silly_string = """He said, "Aren''t can''t shouldn''t wouldn''t."""
+
+    ```
+
+
+    But wait, there''s more. If you really want to use single or double quotes to
+    surround a string in Python, instead of three single quotes, you can add a backslash
+    (\) before each quotation mark within the string. This is called escaping. It''s
+    a way of saying to Python, “Yes, I know I have quotes inside my string, and I
+    want you to ignore them until you see the end quote.”
+
+
+    Escaping strings can make them harder to read, so it’s probably better to use
+    multiline strings. Still, you might come across snippets of code that use escaping,
+    so it’s good to know why the backslashes are there.
+
+
+    Here are a few examples of how escaping works:
+
+
+    ```
+
+    >>> single_quote_str = ''He said, \n"Aren\''t can\''t shouldn\''t wouldn\''t."''
+
+
+    >>> double_quote_str = "He said, \n"Aren''t can''t shouldn''t wouldn''t.""
+
+
+    >>> print(single_quote_str)
+
+    He said, "Aren''t can''t shouldn''t wouldn''t."
+
+
+    >>> print(double_quote_str)
+
+    He said, "Aren''t can''t shouldn''t wouldn''t."
+
+    ```
+
+
+    First, at u, we create a string with single quotes, using the backslash in front
+    of the single quotes inside that string. At v, we create a string with double
+    quotes, and use the backslash in front of those quotes in the string. In the lines
+    that follow, we print the variables we''ve just created. Notice that the backslash
+    character doesn''t appear in the strings when we print them.
+
+
+    ## Embedding Values In Strings
+
+
+    If you want to display a message using the contents of a variable, you can embed
+    values in a string using %s, which is like a marker for a value that you want
+    to add later. (Embedding values is programmer-speak for “inserting values.”) For
+    example, to have Python calculate or store the number of points you scored in
+    a game, and then add it to a sentence like “I scored points,” use %s in the sentence
+    in place of the value, and then tell Python that value, like this:
+
+
+    ```
+
+    >>> myscore = 1000
+
+    >>> message = ''I scored %s points''
+
+    ```
+
+
+    ```
+
+    >>> print(message % myscore) I scored 1000 points
+
+    ```
+
+
+    Here, we create the variable myscore with the value 1000 and the variable message
+    with a string that contains the words “I scored %s points,” where %s is a placeholder
+    for the number of points. On the next line, we call print(message) with the %
+    symbol to tell Python to replace %s with the value stored in the variable myscore.
+    The result of printing this message is I scored 1000 points. We don’t need to
+    use a variable for the value. We could do the same example and just use print(message
+    % 1000).
+
+
+    We can also pass in different values for the %s placeholder, using different variables,
+    as in this example:
+
+
+    ```
+
+    >>> joke_text = ''%s: a device for finding furniture in the dark''
+
+    >>> bodypart1 = ''Knee''
+
+    >>> bodypart2 = ''Shin''
+
+    >>> print(joke_text % bodypart1)
+
+    Knee: a device for finding furniture in the dark
+
+    >>> print(joke_text % bodypart2)
+
+    ```
+
+
+    Shin: a device for finding furniture in the dark
+
+
+    Here, we create three variables. The first, joke_text, includes the string with
+    the %s marker. The other variables are bodypart1 and bodypart2. We can print the
+    variable joke_text, and once again use the % operator to replace it with the contents
+    of the variables bodypart1 and bodypart2 to produce different messages.
+
+
+    You can also use more than one placeholder in a string, like this:
+
+
+    ```
+
+    >>> nums = ''What did the number %s say to the number %s? Nice belt!!''
+
+    >>> print(nums % (0, 8))
+
+    ```
+
+
+    What did the number 0 say to the number 8? Nice belt!!
+
+
+    When using more than one placeholder, be sure to wrap the replacement values in
+    parentheses, as shown in the example. The order of the values is the order in
+    which they''ll be used in the string.
+
+
+    ## Multiplying Strings
+
+
+    What is 10 multiplied by 5? The answer is 50, of course. But what’s 10 multiplied
+    by a? Here’s Python’s answer:
+
+
+    ```
+
+    >>> print(10 * ''a'')
+
+
+    aaaaaaaaaa
+
+    ```
+
+
+    Python programmers might use this approach to line up strings with a specific
+    number of spaces when displaying messages in the shell, for example. How about
+    printing a letter in the shell (select File > New Window, and enter the following
+    code):'
+  mdcn: '那么，要查看 fred 里面的内容，我们可以输入 `print(fred)`，像这样：
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    为什么大猩猩有大鼻孔？因为手指太粗！！
+
+
+    你也可以使用单引号来创建字符串，像这样：
+
+
+    ```
+
+    >>> fred = ''What is pink and fluffy? Pink fluff!!''
+
+    ```
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    What is pink and fluffy? Pink fluff!!
+
+
+    然而，如果你尝试仅使用单引号（''）或双引号（"）为字符串输入多行文本，或者你以一种引号开始却试图用另一种引号结束，你将在 Python shell 中收到一条错误消息。例如，输入以下行：
+
+
+    ```
+
+    >>> fred = "How do dinosaurs pay their bills?
+
+    ```
+
+
+    你将看到这个结果：
+
+
+    ```
+
+    SyntaxError: EOL while scanning string literal
+
+    ```
+
+
+    这是一条关于语法的错误消息，因为你没有遵循使用单引号或双引号结束字符串的规则。
+
+
+    语法是指句子中单词的排列和顺序，或者在这种情况下，是指程序中单词和符号的排列和顺序。因此，SyntaxError 意味着你做了一些 Python 未预料到的事情，或者
+    Python 期望的东西你遗漏了。EOL 意味着行尾，所以错误消息的其余部分告诉你，Python 到达了行尾，但没有找到双引号来关闭字符串。
+
+
+    要在字符串中使用多行文本（称为多行字符串），请使用三个单引号（''''''），然后在行之间按回车键，像这样：
+
+
+    ```
+
+    >>> fred = """How do dinosaurs pay their bills? With tyrannosaurus checks!"""
+
+    ```
+
+
+    现在让我们打印出 fred 的内容，看看这是否有效：
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    How do dinosaurs pay their bills? With tyrannosaurus checks!
+
+
+    ## 处理字符串问题
+
+
+    现在考虑这个疯狂的字符串示例，它导致 Python 显示一条错误消息：
+
+
+    ```
+
+    >>> silly_string = ''He said, "Aren''t can''t shouldn''t wouldn''t."'' SyntaxError:
+    invalid syntax
+
+    ```
+
+
+    在第一行中，我们尝试创建一个用单引号括起来的字符串（定义为变量 silly_string），但其中也包含了 can''t、shouldn''t 和 wouldn''t
+    等单词中的单引号，以及双引号。真是一团糟！
+
+
+    请记住，Python 本身并不像人类那样聪明，所以它看到的只是一个包含 He said, "Aren 的字符串，后面跟着一堆它不期望的其他字符。当 Python
+    看到引号（单引号或双引号）时，它期望字符串在第一个引号之后开始，并在该行上下一个匹配的引号（单引号或双引号）之后结束。在这种情况下，字符串的开始是 He 之前的单引号，而就
+    Python 而言，字符串的结束是 Aren 中 n 之后的单引号。IDLE 高亮显示了出错的位置：
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_68_0.png)
+
+
+    IDLE 的最后一行告诉我们发生了什么类型的错误——在这种情况下，是语法错误。
+
+
+    使用双引号而不是单引号仍然会产生错误：
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_69_0.png)
+
+
+    ```
+
+    >>> silly_string = "He said, "Aren''t can''t shouldn''t wouldn''t."" SyntaxError:
+    invalid syntax
+
+    ```
+
+
+    在这里，Python 看到一个由双引号界定的字符串，包含字母 He said,（和一个空格）。该字符串之后的所有内容（从 Aren''t 开始）都会导致错误。
+
+
+    这是因为，从 Python 的角度来看，所有那些额外的东西根本就不应该在那里。Python 寻找下一个匹配的引号，并且不知道你希望它如何处理同一行上该引号之后的任何内容。
+
+
+    这个问题的解决方案是多行字符串，我们之前学过，使用三个单引号（''''''），这允许我们在字符串中组合双引号和单引号而不会导致错误。事实上，如果我们使用三个单引号，我们可以在字符串中放入任何单引号和双引号的组合（只要我们不尝试在那里放入三个单引号）。
+
+
+    这就是我们无错误版本的字符串的样子：
+
+
+    ```
+
+    silly_string = """He said, "Aren''t can''t shouldn''t wouldn''t."""
+
+    ```
+
+
+    但是等等，还有更多。如果你真的想在 Python 中使用单引号或双引号来包围字符串，而不是三个单引号，你可以在字符串中的每个引号前添加一个反斜杠（\）。这被称为转义。这是对
+    Python 说的一种方式：“是的，我知道我的字符串里有引号，我希望你忽略它们，直到你看到结束引号。”
+
+
+    转义字符串可能使它们更难阅读，所以最好使用多行字符串。不过，你可能会遇到使用转义的代码片段，所以了解反斜杠为什么在那里是很好的。
+
+
+    以下是转义如何工作的几个示例：
+
+
+    ```
+
+    >>> single_quote_str = ''He said, \n"Aren\''t can\''t shouldn\''t wouldn\''t."''
+
+
+    >>> double_quote_str = "He said, \n"Aren''t can''t shouldn''t wouldn''t.""
+
+
+    >>> print(single_quote_str)
+
+    He said, "Aren''t can''t shouldn''t wouldn''t."
+
+
+    >>> print(double_quote_str)
+
+    He said, "Aren''t can''t shouldn''t wouldn''t."
+
+    ```
+
+
+    首先，在 u 处，我们使用单引号创建一个字符串，在该字符串内的单引号前使用反斜杠。在 v 处，我们使用双引号创建一个字符串，并在字符串中的这些引号前使用反斜杠。在接下来的几行中，我们打印刚刚创建的变量。注意，当我们打印它们时，反斜杠字符不会出现在字符串中。
+
+
+    ## 在字符串中嵌入值
+
+
+    如果你想使用变量的内容显示一条消息，你可以使用 %s 在字符串中嵌入值，这就像一个标记，用于你稍后要添加的值。（嵌入值是程序员对“插入值”的说法。）例如，要让
+    Python 计算或存储你在游戏中获得的分数，然后将其添加到像“I scored points”这样的句子中，请在句子中使用 %s 代替该值，然后告诉 Python
+    该值，像这样：
+
+
+    ```
+
+    >>> myscore = 1000
+
+    >>> message = ''I scored %s points''
+
+    ```
+
+
+    ```
+
+    >>> print(message % myscore) I scored 1000 points
+
+    ```
+
+
+    在这里，我们创建变量 myscore，值为 1000，以及变量 message，包含字符串“I scored %s points”，其中 %s 是分数的占位符。在下一行，我们使用
+    % 符号调用 `print(message)`，告诉 Python 用存储在变量 myscore 中的值替换 %s。打印此消息的结果是 I scored 1000
+    points。我们不需要为该值使用变量。我们可以做同样的例子，只使用 `print(message % 1000)`。
+
+
+    我们也可以使用不同的变量为 %s 占位符传递不同的值，如本例所示：
+
+
+    ```
+
+    >>> joke_text = ''%s: a device for finding furniture in the dark''
+
+    >>> bodypart1 = ''Knee''
+
+    >>> bodypart2 = ''Shin''
+
+    >>> print(joke_text % bodypart1)
+
+    Knee: a device for finding furniture in the dark
+
+    >>> print(joke_text % bodypart2)
+
+    ```
+
+
+    Shin: a device for finding furniture in the dark
+
+
+    在这里，我们创建三个变量。第一个，joke_text，包含带有 %s 标记的字符串。其他变量是 bodypart1 和 bodypart2。我们可以打印变量
+    joke_text，并再次使用 % 运算符将其替换为变量 bodypart1 和 bodypart2 的内容，以产生不同的消息。
+
+
+    你也可以在字符串中使用多个占位符，像这样：
+
+
+    ```
+
+    >>> nums = ''What did the number %s say to the number %s? Nice belt!!''
+
+    >>> print(nums % (0, 8))
+
+    ```
+
+
+    What did the number 0 say to the number 8? Nice belt!!
+
+
+    使用多个占位符时，请务必将替换值包装在括号中，如示例所示。值的顺序是它们在字符串中使用的顺序。
+
+
+    ## 字符串乘法
+
+
+    10 乘以 5 是多少？答案当然是 50。但是 10 乘以 a 是多少？这是 Python 的答案：
+
+
+    ```
+
+    >>> print(10 * ''a'')
+
+
+    aaaaaaaaaa
+
+    ```
+
+
+    Python 程序员可能会使用这种方法在 shell 中显示消息时，将字符串与特定数量的空格对齐。例如，在 shell 中打印一个字母怎么样（选择 File
+    > New Window，然后输入以下代码）：'
+  merge: 0
+  raw:
+  - '[PAGE 62]
+
+
+    Then, to see what''s inside fred, we could enter print(fred), like this:
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    Why do gorillas have big nostrils? Big fingers!!
+
+
+    You can also use single quotes to create a string, like this:
+
+
+    ```
+
+    >>> fred = ''What is pink and fluffy? Pink fluff!!''
+
+    ```
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    What is pink and fluffy? Pink fluff!!'
+  - '[PAGE 63]
+
+
+    However, if you try to enter more than one line of text for your string using
+    only a single quote ('') or double quote (") or if you start with one type of
+    quote and try to finish with another, you''ll get an error message in the Python
+    shell. For example, enter the following line:
+
+
+    ```
+
+    >>> fred = "How do dinosaurs pay their bills?
+
+    ```
+
+
+    You''ll see this result:
+
+
+    ```
+
+    SyntaxError: EOL while scanning string literal
+
+    ```'
+  - '[PAGE 64]
+
+
+    This is an error message complaining about syntax because you did not follow the
+    rules for ending a string with a single or double quote.
+
+
+    Syntax means the arrangement and order of words in a sen- tence or, in this case,
+    the arrangement and order of words and symbols in a program. So SyntaxError means
+    that you did some-
+
+
+    thing in an order Python was not expecting, or Python was expecting something
+    that you missed. EOL means end-of-line, so the rest of the error message is telling
+    you that Python hit the
+
+
+    65'
+  - '[PAGE 65]
+
+
+    end of the line and did not find a double quote to close the string.
+
+
+    To use more than one line of text in your string (called a multiline string),
+    use three single quotes (''''''), and then hit enter between lines, like this:
+
+
+    ```
+
+    >>> fred = """How do dinosaurs pay their bills? With tyrannosaurus checks!"""
+
+    ```
+
+
+    Now let’s print out the contents of fred to see if this worked:
+
+
+    ```
+
+    >>> print(fred)
+
+    ```'
+  - '[PAGE 66]
+
+
+    How do dinosaurs pay their bills? With tyrannosaurus checks!
+
+
+    # Handling Problems With Strings
+
+
+    Now consider this crazy example of a string, which causes Python to display an
+    error message:
+
+
+    ```
+
+    >>> silly_string = ''He said, "Aren''t can''t shouldn''t wouldn''t."'' SyntaxError:
+    invalid syntax
+
+    ```
+
+
+    In the first line, we try to create a string (defined as the vari- able silly_string)
+    enclosed by single quotes, but also'
+  - '[PAGE 67]
+
+
+    containing a mixture of single quotes in the words can''t, shouldn''t, and wouldn''t,
+    as well as double quotes. What a mess!
+
+
+    Remember that Python itself is not as smart as a human being, so all it sees is
+    a string containing He said, "Aren, followed by a bunch of other characters that
+    it doesn''t expect. When Python sees a quotation mark (either a single or double
+    quote), it expects a string to start following the first mark and the string to
+    end after the next matching quotation mark (either single or double) on that line.
+    In this case, the start of the string is the single quotation mark before He,
+
+
+    68'
+  - '[PAGE 68]
+
+
+    and the end of the string, as far as Python is concerned, is the single quote
+    after the n in Aren. IDLE highlights the point where things have gone wrong:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_68_0.png)
+
+
+    The last line of IDLE tells us what sort of error occurred—in this case, a syntax
+    error.
+
+
+    Using double instead of single quotes still produces an error:'
+  - '[PAGE 69]
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_69_0.png)
+
+
+    ```
+
+    >>> silly_string = "He said, "Aren''t can''t shouldn''t wouldn''t."" SyntaxError:
+    invalid syntax
+
+    ```
+
+
+    Here, Python sees a string bounded by double quotes, contain- ing the letters
+    He said, (and a space). Everything following that string (from Aren''t on) causes
+    the error.
+
+
+    70'
+  - '[PAGE 70]
+
+
+    This is because, from Python''s perspective, all that extra stuff just isn''t
+    supposed to be there. Python looks for the next matching quote and doesn''t know
+    what you want it to do with anything that follows that quote on the same line.
+
+
+    The solution to this prob- lem is a multiline string, which we learned about earlier,
+    using three single quotes (''''''), which allows us to combine double and single
+    quotes in our string with- out causing errors. In fact, if we use three single
+    quotes, we can put any'
+  - '[PAGE 71]
+
+
+    combination of single and double quotes inside the string (as long as we don''t
+    try to put three single quotes there).
+
+
+    This is what the error-free ver- sion of our string looks like:
+
+
+    ```
+
+    silly_string = """He said, "Aren''t can''t shouldn''t wouldn''t."""
+
+    ```
+
+
+    But wait, there''s more. If you really want to use single or double quotes to
+    surround a string in Python, instead of three single quotes, you can add a backslash
+    (\) before each quotation mark within the string. This is called escaping. It''s
+    a way of saying to
+
+
+    72'
+  - '[PAGE 72]
+
+
+    Python, “Yes, I know I have quotes inside my string, and I want you to ignore
+    them until you see the end quote.”
+
+
+    Escaping strings can make them harder to read, so it’s prob- ably better to use
+    multiline strings. Still, you might come across snippets of code that use escaping,
+    so it’s good to know why the backslashes are there.
+
+
+    Here are a few examples of how escaping works:'
+  - '[PAGE 73]
+
+
+    ```
+
+    >>> single_quote_str = ''He said, \n"Aren\''t can\''t shouldn\''t wouldn\''t."''
+
+
+    >>> double_quote_str = "He said, \n"Aren''t can''t shouldn''t wouldn''t.""
+
+
+    >>> print(single_quote_str)
+
+    He said, "Aren''t can''t shouldn''t wouldn''t."
+
+
+    >>> print(double_quote_str)
+
+    He said, "Aren''t can''t shouldn''t wouldn''t."
+
+    ```
+
+
+    First, at u, we create a string with single quotes, using the backslash in front
+    of the single quotes inside that string. At v,
+
+
+    74'
+  - '[PAGE 74]
+
+
+    we create a string with double quotes, and use the backslash in front of those
+    quotes in the string. In the lines that follow, we print the variables we''ve
+    just created. Notice that the backslash character doesn''t appear in the strings
+    when we print them.
+
+
+    # Embedding Values In Strings
+
+
+    If you want to display a message using the contents of a vari- able, you can embed
+    values in a string using %s, which is like a marker for a value that'
+  - '[PAGE 75]
+
+
+    you want to add later. (Embedding values
+
+
+    is programmer-speak for “inserting values.”) For example, to have Python calculate
+    or store the number of points you scored in a game, and then add it to a sentence
+    like “I scored points,” use %s in the sentence in place of the value, and then
+    tell Python that value, like this:
+
+
+    ```
+
+    >>> myscore = 1000
+
+    >>> message = ''I scored %s points''
+
+    ```'
+  - '[PAGE 76]
+
+
+    ```
+
+    >>> print(message % myscore) I scored 1000 points
+
+    ```
+
+
+    Here, we create the variable myscore with the value 1000 and the variable message
+    with a string that contains the words “I scored %s points,” where %s is a placeholder
+    for the number of points. On the next line, we call print(message) with the %
+    symbol to tell Python to replace %s with the value stored in the variable myscore.
+    The result of printing this message is I scored 1000 points. We don’t need to
+    use a variable for the value. We could do the same example and just use print(message
+    % 1000).
+
+
+    77'
+  - '[PAGE 77]
+
+
+    We can also pass in different values for the %s placeholder, using different variables,
+    as in this example:
+
+
+    ```
+
+    >>> joke_text = ''%s: a device for finding furniture in the dark''
+
+    >>> bodypart1 = ''Knee''
+
+    >>> bodypart2 = ''Shin''
+
+    >>> print(joke_text % bodypart1)
+
+    Knee: a device for finding furniture in the dark
+
+    >>> print(joke_text % bodypart2)
+
+    ```'
+  - '[PAGE 78]
+
+
+    # Shin: a device for finding furniture in the dark
+
+
+    Here, we create three variables. The first, joke_text, includes the string with
+    the %s marker. The other variables are bodypart1 and bodypart2. We can print the
+    variable joke_text, and once again use the % operator to replace it with the contents
+    of the variables bodypart1 and bodypart2 to produce different messages.'
+  - '[PAGE 79]
+
+
+    You can also use more than one placeholder in a string, like this:
+
+
+    ```
+
+    >>> nums = ''What did the number %s say to the number %s? Nice belt!!''
+
+    >>> print(nums % (0, 8))
+
+    ```
+
+
+    What did the number 0 say to the number 8? Nice belt!!
+
+
+    When using more than one placeholder, be sure to wrap the replacement values in
+    parentheses, as shown in the example. The order of the values is the order in
+    which they''ll be used in the string.'
+  - '[PAGE 80]
+
+
+    # # Multiplying strings
+
+
+    What is 10 multiplied by 5? The answer is 50, of course. But what’s 10 multiplied
+    by a? Here’s Python’s answer:
+
+
+    ```
+
+    >>> print(10 * ''a'')
+
+
+    aaaaaaaaaa
+
+    ```
+
+
+    Python programmers might use this approach to line up strings with a specific
+    number of spaces when displaying messages in the shell, for example. How about
+    printing a letter in the shell (select File > New Window, and enter the following
+    code):'
+- md: "```\nspaces = ' ' * 25\n\nprint('%s 12 Butts Wynd' % spaces)\nprint('%s Twinklebottom\
+    \ Heath' % spaces)\nprint('%s West Snoring' % spaces)\nprint()\n\nprint()\nprint('Dear\
+    \ Sir')\nprint()\n\nprint('I wish to report that tiles are missing from the')\n\
+    print('outside toilet roof.')\n\nprint('I think it was bad wind the other night\
+    \ that blew them away.')\nprint()\n\nprint('Regards')\nprint('Malcolm Dithering')\n\
+    ```\n\nOnce you've typed the code into the shell window, select File > Save As.\
+    \ Name your file myletter.py.\n\nNote: From now on, when you see Save As: somefilename.py\
+    \ above a chunk of code, you'll know you need to select File>New Window, enter\
+    \ the code into the window that appears, and then save it as we did in this example.\n\
+    \nIn the first line of this example, we create the variable spaces by multiplying\
+    \ a space character by 25. We then use that variable in the next three lines to\
+    \ align the text to the right of the shell. You can see the result of these print\
+    \ statements below:\n\nIn addition to using multiplication for alignment, we can\
+    \ also use it to fill the screen with annoying messages. Try this example for\
+    \ yourself:\n\n```\n>>> print(1000 * 'snirt')\n```\n\n## Lists Are More Powerful\
+    \ Than Strings\n\n\"Spider legs, toe of frog, eye of newt, bat wing, slug butter,\
+    \ and snake dandruff\" is not quite a normal shopping list (unless you happen\
+    \ to be a wizard), but we'll use it as our first example of the differences between\
+    \ strings and lists.\n\nWe could store this list of items in the wizard_list variable\
+    \ using a string like this:\n\n```\n>>> wizard_list = 'spider legs, toe of frog,\
+    \ eye of newt, bat wing, slug butter, snake dandruff'\n>>> print(wizard_list)\n\
+    spider legs, toe of frog, eye of newt, bat wing, slug butter, snake dandruff\n\
+    ```\n\nBut we could also create a list, a somewhat magical kind of Python object\
+    \ that we can manipulate. Here's what these items would look like written as a\
+    \ list:\n\n```\n>>> wizard_list = ['spider legs', 'toe of frog', 'eye of newt',\
+    \ 'bat wing', 'slug butter', 'snake dandruff']\n>>> print(wizard_list)\n['spider\
+    \ legs', 'toe of frog', 'eye of newt', 'bat wing', 'slug butter', 'snake dandruff']\n\
+    ```\n\nCreating a list takes a bit more typing than creating a string, but a list\
+    \ is more useful than a string because it can be manipulated. For example, we\
+    \ could print the third item in the wizard_list (eye of newt) by entering its\
+    \ position in the list (called the index position) inside square brackets ([]),\
+    \ like this:\n\n```\n>>> print(wizard_list[2])\neye of newt\n```\n\nHuh? Isn't\
+    \ it the third item on the list?\nYes, but lists start at index position 0, so\
+    \ the first item in a list is 0, the second is 1, and the third is 2. That may\
+    \ not make a lot of sense to humans, but it does to computers.\n\nWe can also\
+    \ change an item in a list much more easily than we could in a string. Perhaps\
+    \ instead of eye of newt we needed a snail tongue. Here's how we would do that\
+    \ with our list:\n\n```\n>>> wizard_list[2] = 'snail tongue'\n>>> print(wizard_list)\n\
+    ['spider legs', 'toe of frog', 'snail tongue', 'bat wing', 'slug butter', 'snake\
+    \ dandruff']\n```\n\nThis sets the item in index position 2, previously eye of\
+    \ newt, to snail tongue.\n\nAnother option is to show a subset of the items in\
+    \ the list. We do this by using a colon (:) inside square brackets. For example,\
+    \ enter the following to see the third to fifth items in a list (a brilliant set\
+    \ of ingredients for a lovely sandwich):\n\n```\n>>> print(wizard_list[2:5])\n\
+    ['snail tongue', 'bat wing', 'slug butter']\n```\n\nWriting [2:5] is the same\
+    \ as saying, \"show the items from index position 2 up to (but not including)\
+    \ index position 5\"— or in other words, items 2, 3, and 4.\n\nLists can be used\
+    \ to store all sorts of items, like numbers:\n\n```\n>>> some_numbers = [1, 2,\
+    \ 5, 10, 20]\n```\n\nThey can also hold strings:\n\n```\n>>> some_strings = ['Which',\
+    \ 'Witch', 'Is', 'Which']\n```\n\nThey might have mixtures of numbers and strings:\n\
+    \n```\n>>> numbers_and_strings = ['Why', 'was', 6, 'afraid', 'of', 7, 'because',\
+    \ 7, 8, 9]\n```\n\n```\n>>> print(numbers_and_strings)\n['Why', 'was', 6, 'afraid',\
+    \ 'of', 7, 'because', 7, 8, 9]\n```\n\nAnd lists might even store other lists:\n\
+    \n```\n>>> numbers = [1, 2, 3, 4]\n>>> strings = ['I', 'kicked', 'my', 'toe',\
+    \ 'and', 'it', 'is', 'sore']\n>>> mylist = [numbers, strings]\n>>> print(mylist)\n\
+    [[1, 2, 3, 4], ['I', 'kicked', 'my', 'toe', 'and', 'it', 'is', 'sore']]\n```\n\
+    \nThis list-within-list example creates three variables: numbers with four numbers,\
+    \ strings with eight strings, and mylist using numbers and strings. The third\
+    \ list (mylist) has only two elements because it's a list of variable names, not\
+    \ the contents of the variables.\n\n## Adding Items To A List\n\nTo add items\
+    \ to a list, we use the append function. A function is a chunk of code that tells\
+    \ Python to do something. In this case, append adds an item to the end of a list.\n\
+    \nFor example, to add a bear burp (I'm sure there is such a thing) to the wizard's\
+    \ shopping list, do this:\n\n```\n>>> wizard_list.append('bear burp')\n>>> print(wizard_list)\n\
+    ['spider legs', 'toe of frog', 'snail tongue', 'bat wing', 'slug butter', 'snake\
+    \ dandruff', 'bear burp']\n```\n\nYou can keep adding more magical items to the\
+    \ wizard's list in the same way, like so:\n\n```\n>>> wizard_list.append('mandrake')\n\
+    >>> wizard_list.append('hemlock')\n>>> wizard_list.append('swamp gas')\n```\n\n\
+    Now the wizard's list looks like this:\n\n```\n>>> print(wizard_list)\n['spider\
+    \ legs', 'toe of frog', 'snail tongue', 'bat wing', 'slug butter', 'snake dandruff',\
+    \ 'bear burp', 'mandrake', 'hemlock', 'swamp gas']\n```\n\nThe wizard is clearly\
+    \ ready to work some serious magic!\n\n## Removing Items From A List\n\nTo remove\
+    \ items from a list, use the del command (short for delete). For example, to remove\
+    \ the sixth item in the wizard's list, snake dandruff, do this:\n\n```\n>>> del\
+    \ wizard_list[5]\n>>> print(wizard_list)\n['spider legs', 'toe of frog', 'snail\
+    \ tongue', 'bat wing', 'slug butter', 'bear burp', 'mandrake', 'hemlock', 'swamp\
+    \ gas']\n```\n\nNote: Remember that positions start at zero, so wizard_list[5]\
+    \ actually refers to the sixth item in the list.\n\nAnd here's how to remove the\
+    \ items we just added (mandrake, hemlock, and swamp gas):\n\n```\n>>> del wizard_list[8]\n\
+    >>> del wizard_list[7]\n>>> del wizard_list[6]\n>>> print(wizard_list)\n['spider\
+    \ legs', 'toe of frog', 'snail tongue', 'bat wing', 'slug butter', 'bear burp']\n\
+    ```\n\n## List Arithmetic\n\nWe can join lists by adding them, just like adding\
+    \ numbers, using a plus (+) sign. For example, suppose we have two lists: list1,\
+    \ containing the numbers 1 through 4, and list2, containing some words. We can\
+    \ add them using print and the + sign, like so:\n\n```\n>>> list1 = [1, 2, 3,\
+    \ 4]\n>>> list2 = ['I', 'tripped', 'over', 'and', 'hit', 'the', 'floor']\n>>>\
+    \ print(list1 + list2)\n[1, 2, 3, 4, 'I', 'tripped', 'over', 'and', 'hit', 'the',\
+    \ 'floor']\n```\n\nWe can also add the two lists and set the result equal to another\
+    \ variable.\n\n```\n>>> list1 = [1, 2, 3, 4]\n>>> list2 = ['I', 'ate', 'chocolate',\
+    \ 'and', 'I', 'want', 'more']\n>>> list3 = list1 + list2\n>>> print(list3)\n[1,\
+    \ 2, 3, 4, 'I', 'ate', 'chocolate', 'and', 'I', 'want', 'more']\n```\n\nAnd we\
+    \ can multiply a list by a number. For example, to multiply list1 by 5, we write\
+    \ list1 * 5:\n\n```\n>>> list1 = [1, 2]\n>>> print(list1 * 5)\n[1, 2, 1, 2, 1,\
+    \ 2, 1, 2, 1, 2]\n```\n\nThis is actually telling Python to repeat list1 five\
+    \ times, resulting in 1, 2, 1, 2, 1, 2, 1, 2, 1, 2.\n\nOn the other hand, division\
+    \ (/) and subtraction (-) give only errors, as in these examples:\n\n```\n>>>\
+    \ list1 / 20\nTraceback (most recent call last):\n  File \"<pyshell>\", line 1,\
+    \ in <module>\n    list1 / 20\nTypeError: unsupported operand type(s) for /: 'list'\
+    \ and 'int'\n\n>>> list1 - 20\nTraceback (most recent call last):\n  File \"<pyshell>\"\
+    , line 1, in <module>\n    list1 - 20\nTypeError: unsupported operand type(s)\
+    \ for -: 'list' and 'int'\n```\n\nBut why? Well, joining lists with + and repeating\
+    \ lists with * are straightforward enough operations. These concepts also make\
+    \ sense in the real world. For example, if I were to hand you two paper shopping\
+    \ lists and say, \"Add these two lists,\" you might write out all the items on\
+    \ another sheet of paper in order, end to end."
+  mdcn: "```\nspaces = ' ' * 25\n\nprint('%s 12 Butts Wynd' % spaces)\nprint('%s Twinklebottom\
+    \ Heath' % spaces)\nprint('%s West Snoring' % spaces)\nprint()\n\nprint()\nprint('Dear\
+    \ Sir')\nprint()\n\nprint('I wish to report that tiles are missing from the')\n\
+    print('outside toilet roof.')\n\nprint('I think it was bad wind the other night\
+    \ that blew them away.')\nprint()\n\nprint('Regards')\nprint('Malcolm Dithering')\n\
+    ```\n\n当你在命令行窗口中输入完代码后，选择“文件 > 另存为”。将你的文件命名为 `myletter.py`。\n\n注意：从现在开始，当你在代码块上方看到“另存为：somefilename.py”时，你就知道需要选择“文件\
+    \ > 新建窗口”，在出现的窗口中输入代码，然后像本例中那样保存它。\n\n在本例的第一行中，我们通过将一个空格字符乘以 25 来创建变量 `spaces`。然后我们在接下来的三行中使用该变量，将文本与命令行窗口的右侧对齐。你可以看到这些\
+    \ `print` 语句的结果如下：\n\n除了使用乘法进行对齐，我们还可以用它来用烦人的消息填满屏幕。自己试试这个例子：\n\n```\n>>> print(1000\
+    \ * 'snirt')\n```\n\n## 列表比字符串更强大\n\n“蜘蛛腿、青蛙脚趾、蝾螈眼睛、蝙蝠翅膀、蛞蝓黄油和蛇皮屑”这不太像一个正常的购物清单（除非你碰巧是个巫师），但我们将用它作为字符串和列表之间区别的第一个例子。\n\
+    \n我们可以用一个字符串将这个物品列表存储在 `wizard_list` 变量中，像这样：\n\n```\n>>> wizard_list = 'spider\
+    \ legs, toe of frog, eye of newt, bat wing, slug butter, snake dandruff'\n>>>\
+    \ print(wizard_list)\nspider legs, toe of frog, eye of newt, bat wing, slug butter,\
+    \ snake dandruff\n```\n\n但我们也可以创建一个列表，这是一种有点神奇的 Python 对象，我们可以对其进行操作。这些物品写成列表的样子如下：\n\
+    \n```\n>>> wizard_list = ['spider legs', 'toe of frog', 'eye of newt', 'bat wing',\
+    \ 'slug butter', 'snake dandruff']\n>>> print(wizard_list)\n['spider legs', 'toe\
+    \ of frog', 'eye of newt', 'bat wing', 'slug butter', 'snake dandruff']\n```\n\
+    \n创建列表比创建字符串需要多打一些字，但列表比字符串更有用，因为它可以被操作。例如，我们可以通过在方括号（`[]`）内输入其在列表中的位置（称为索引位置）来打印\
+    \ `wizard_list` 中的第三项（蝾螈眼睛），像这样：\n\n```\n>>> print(wizard_list[2])\neye of newt\n\
+    ```\n\n嗯？它不是列表中的第三项吗？\n是的，但列表从索引位置 0 开始，所以列表中的第一项是 0，第二项是 1，第三项是 2。这对人类来说可能不太合理，但对计算机来说确实如此。\n\
+    \n我们也可以比在字符串中更容易地更改列表中的项目。也许我们需要的不是蝾螈眼睛，而是蜗牛舌头。以下是我们如何用列表来做到这一点：\n\n```\n>>> wizard_list[2]\
+    \ = 'snail tongue'\n>>> print(wizard_list)\n['spider legs', 'toe of frog', 'snail\
+    \ tongue', 'bat wing', 'slug butter', 'snake dandruff']\n```\n\n这将索引位置 2 处的项目（之前是蝾螈眼睛）设置为蜗牛舌头。\n\
+    \n另一个选项是显示列表中项目的一个子集。我们通过在方括号内使用冒号（`:`）来实现这一点。例如，输入以下内容以查看列表中的第三到第五项（一组制作美味三明治的绝佳配料）：\n\
+    \n```\n>>> print(wizard_list[2:5])\n['snail tongue', 'bat wing', 'slug butter']\n\
+    ```\n\n写 `[2:5]` 等同于说，“显示从索引位置 2 到（但不包括）索引位置 5 的项目”——或者换句话说，项目 2、3 和 4。\n\n列表可用于存储各种项目，例如数字：\n\
+    \n```\n>>> some_numbers = [1, 2, 5, 10, 20]\n```\n\n它们也可以包含字符串：\n\n```\n>>> some_strings\
+    \ = ['Which', 'Witch', 'Is', 'Which']\n```\n\n它们可能包含数字和字符串的混合：\n\n```\n>>> numbers_and_strings\
+    \ = ['Why', 'was', 6, 'afraid', 'of', 7, 'because', 7, 8, 9]\n```\n\n```\n>>>\
+    \ print(numbers_and_strings)\n['Why', 'was', 6, 'afraid', 'of', 7, 'because',\
+    \ 7, 8, 9]\n```\n\n列表甚至可能存储其他列表：\n\n```\n>>> numbers = [1, 2, 3, 4]\n>>> strings\
+    \ = ['I', 'kicked', 'my', 'toe', 'and', 'it', 'is', 'sore']\n>>> mylist = [numbers,\
+    \ strings]\n>>> print(mylist)\n[[1, 2, 3, 4], ['I', 'kicked', 'my', 'toe', 'and',\
+    \ 'it', 'is', 'sore']]\n```\n\n这个列表中的列表示例创建了三个变量：`numbers` 包含四个数字，`strings` 包含八个字符串，`mylist`\
+    \ 使用了 `numbers` 和 `strings`。第三个列表（`mylist`）只有两个元素，因为它是一个变量名的列表，而不是变量的内容。\n\n##\
+    \ 向列表中添加项目\n\n要向列表中添加项目，我们使用 `append` 函数。函数是一段告诉 Python 做某事的代码。在这种情况下，`append`\
+    \ 将一个项目添加到列表的末尾。\n\n例如，要将一个熊打嗝（我确信有这种东西）添加到巫师的购物清单中，这样做：\n\n```\n>>> wizard_list.append('bear\
+    \ burp')\n>>> print(wizard_list)\n['spider legs', 'toe of frog', 'snail tongue',\
+    \ 'bat wing', 'slug butter', 'snake dandruff', 'bear burp']\n```\n\n你可以用同样的方式继续向巫师的列表中添加更多神奇的物品，像这样：\n\
+    \n```\n>>> wizard_list.append('mandrake')\n>>> wizard_list.append('hemlock')\n\
+    >>> wizard_list.append('swamp gas')\n```\n\n现在巫师的列表看起来像这样：\n\n```\n>>> print(wizard_list)\n\
+    ['spider legs', 'toe of frog', 'snail tongue', 'bat wing', 'slug butter', 'snake\
+    \ dandruff', 'bear burp', 'mandrake', 'hemlock', 'swamp gas']\n```\n\n巫师显然已经准备好施展一些真正的魔法了！\n\
+    \n## 从列表中移除项目\n\n要从列表中移除项目，使用 `del` 命令（`delete` 的缩写）。例如，要移除巫师列表中的第六项（蛇皮屑），这样做：\n\
+    \n```\n>>> del wizard_list[5]\n>>> print(wizard_list)\n['spider legs', 'toe of\
+    \ frog', 'snail tongue', 'bat wing', 'slug butter', 'bear burp', 'mandrake', 'hemlock',\
+    \ 'swamp gas']\n```\n\n注意：记住位置从零开始，所以 `wizard_list[5]` 实际上指的是列表中的第六项。\n\n以下是如何移除我们刚刚添加的项目（曼德拉草、毒芹和沼泽气体）：\n\
+    \n```\n>>> del wizard_list[8]\n>>> del wizard_list[7]\n>>> del wizard_list[6]\n\
+    >>> print(wizard_list)\n['spider legs', 'toe of frog', 'snail tongue', 'bat wing',\
+    \ 'slug butter', 'bear burp']\n```\n\n## 列表运算\n\n我们可以通过将列表相加来连接它们，就像加数字一样，使用加号（`+`）。例如，假设我们有两个列表：`list1`\
+    \ 包含数字 1 到 4，`list2` 包含一些单词。我们可以使用 `print` 和 `+` 号将它们相加，像这样：\n\n```\n>>> list1\
+    \ = [1, 2, 3, 4]\n>>> list2 = ['I', 'tripped', 'over', 'and', 'hit', 'the', 'floor']\n\
+    >>> print(list1 + list2)\n[1, 2, 3, 4, 'I', 'tripped', 'over', 'and', 'hit', 'the',\
+    \ 'floor']\n```\n\n我们也可以将两个列表相加，并将结果赋给另一个变量。\n\n```\n>>> list1 = [1, 2, 3, 4]\n\
+    >>> list2 = ['I', 'ate', 'chocolate', 'and', 'I', 'want', 'more']\n>>> list3 =\
+    \ list1 + list2\n>>> print(list3)\n[1, 2, 3, 4, 'I', 'ate', 'chocolate', 'and',\
+    \ 'I', 'want', 'more']\n```\n\n我们还可以将一个列表乘以一个数字。例如，要将 `list1` 乘以 5，我们写 `list1\
+    \ * 5`：\n\n```\n>>> list1 = [1, 2]\n>>> print(list1 * 5)\n[1, 2, 1, 2, 1, 2, 1,\
+    \ 2, 1, 2]\n```\n\n这实际上是告诉 Python 将 `list1` 重复五次，结果是 1, 2, 1, 2, 1, 2, 1, 2, 1,\
+    \ 2。\n\n另一方面，除法（`/`）和减法（`-`）只会产生错误，如以下示例所示：\n\n```\n>>> list1 / 20\nTraceback\
+    \ (most recent call last):\n  File \"<pyshell>\", line 1, in <module>\n    list1\
+    \ / 20\nTypeError: unsupported operand type(s) for /: 'list' and 'int'\n\n>>>\
+    \ list1 - 20\nTraceback (most recent call last):\n  File \"<pyshell>\", line 1,\
+    \ in <module>\n    list1 - 20\nTypeError: unsupported operand type(s) for -: 'list'\
+    \ and 'int'\n```\n\n但为什么呢？嗯，用 `+` 连接列表和用 `*` 重复列表是足够直接的操作。这些概念在现实世界中也有意义。例如，如果我递给你两张纸质购物清单并说，“把这两个列表加起来”，你可能会在另一张纸上按顺序、首尾相接地写下所有物品。"
+  merge: 0
+  raw:
+  - '[PAGE 81]
+
+
+    ```
+
+    spaces = '' '' * 25
+
+
+    print(''%s 12 Butts Wynd'' % spaces)
+
+    print(''%s Twinklebottom Heath'' %
+
+    spaces) print(''%s West Snoring'' %
+
+    spaces) print()
+
+
+    print() print(''Dear Sir'') print()
+
+
+    print(''I wish to report that tiles are
+
+    missing from the'') print(''outside toilet
+
+    roof.'')
+
+
+    print(''I think it was bad wind the other
+
+    night that blew them away.'') print()
+
+
+    print(''Regards'') print(''Malcolm
+
+    Dithering'')
+
+    ```
+
+
+    82'
+  - '[PAGE 82]
+
+
+    Once you''ve typed the code into the shell window, select File > Save As. Name
+    your file myletter.py.
+
+
+    Note: From now on, when you see Save As: somefilename.py above a chunk of code,
+    you''ll know you need to select File>New Window, enter the code into the window
+    that appears, and then save it as we did in this example.
+
+
+    In the first line of this example, we create the variable spaces by multiplying
+    a space character by 25. We then use that variable'
+  - '[PAGE 83]
+
+
+    in the next three lines to align the text to the right of the shell. You can see
+    the result of these print statements below:
+
+
+    In addition to using multiplication for alignment, we can also use it to fill
+    the screen with annoying messages. Try this example for yourself:
+
+
+    ```
+
+    >>> print(1000 * ''snirt'')
+
+    ```
+
+
+    # Lists Are More Powerful Than Strings
+
+
+    “Spider legs, toe of frog, eye of newt, bat wing, slug butter, and snake dandruff
+    ” is not quite a normal shopping list (unless'
+  - '[PAGE 84]
+
+
+    you happen to be a wizard), but we’ll use it as our first example of the differences
+    between strings and lists.
+
+
+    We could store this list of items in the wizard_list variable using a string like
+    this:
+
+
+    ```
+
+    >>> wizard_list = ''spider legs, toe of frog, eye of newt, bat wing, slug butter,
+    snake dandruff''
+
+    >>> print(wizard_list)
+
+    spider legs, toe of frog, eye of newt, bat wing, slug butter, snake dandruff
+
+    ```'
+  - '[PAGE 85]
+
+
+    But we could also create a list, a somewhat magical kind of Python object that
+    we can manipulate. Here’s what these items would look like written as a list:
+
+
+    ```
+
+    >>> wizard_list = [''spider legs'', ''toe of frog'', ''eye of newt'', ''bat wing'',
+    ''slug butter'', ''snake dandruff'']
+
+    >>> print(wizard_list)
+
+    [''spider legs'', ''toe of frog'', ''eye of newt'', ''bat wing'', ''slug butter'',
+    ''snake dandruff'']
+
+    ```
+
+
+    Creating a list takes a bit more typing than creating a string,'
+  - '[PAGE 86]
+
+
+    but a list is more useful than a string because it can be manipulated. For example,
+    we could print the third item in the wizard_list (eye of newt) by entering its
+    position in the list (called the index position) inside square brackets ([]),
+    like this:
+
+
+    ```
+
+    >>> print(wizard_list[2]) eye of newt
+
+    ```
+
+
+    Huh? Isn''t it the third item on the list?
+
+    Yes, but lists start at index position 0, so the first item in a list is 0, the
+    second is 1, and the third is 2. That may not make a lot of sense to humans, but
+    it does to computers.'
+  - '[PAGE 87]
+
+
+    We can also change an item in a list much more easily than we could in a string.
+    Perhaps instead of eye of newt we needed a snail tongue. Here’s how we would do
+    that with our list:
+
+
+    ```
+
+    >>> wizard_list[2] = ''snail tongue''
+
+
+    >>> print(wizard_list)
+
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'', ''bat wing'', ''slug butter'',
+    ''snake dandruff'']
+
+    ```
+
+
+    This sets the item in index position 2, previously eye of newt, to snail tongue.'
+  - '[PAGE 88]
+
+
+    Another option is to show a subset of the items in the list. We do this by using
+    a colon (:) inside square brackets. For example, enter the following to see the
+    third to fifth items in a list (a brilliant set of ingredients for a lovely sandwich):
+
+
+    ```
+
+    >>> print(wizard_list[2:5])
+
+    [''snail tongue'', ''bat wing'', ''slug butter'']
+
+    ```
+
+
+    Writing [2:5] is the same as saying, “show the items from index position 2 up
+    to (but not including) index position 5”— or in other'
+  - '[PAGE 89]
+
+
+    words, items 2, 3, and 4.
+
+
+    Lists can be used to store all sorts of items, like numbers:
+
+
+    ```
+
+    >>> some_numbers = [1, 2, 5, 10, 20]
+
+    ```
+
+
+    They can also hold strings:
+
+
+    ```
+
+    >>> some_strings = [''Which'', ''Witch'', ''Is'', ''Which'']
+
+    ```
+
+
+    They might have mixtures of numbers and strings:
+
+
+    ```
+
+    >>> numbers_and_strings = [''Why'', ''was'', 6, ''afraid'', ''of'', 7, ''because'',
+    7, 8, 9]
+
+    ```
+
+
+    90'
+  - '[PAGE 90]
+
+
+    ```
+
+    >>> print(numbers_and_strings)
+
+    [''Why'', ''was'', 6, ''afraid'', ''of'', 7,
+
+    ''because'', 7, 8, 9]
+
+    ```
+
+
+    And lists might even store other lists:
+
+
+    ```
+
+    >>> numbers = [1, 2, 3, 4]
+
+    >>> strings = [''I'', ''kicked'', ''my'', ''toe'',
+
+    ''and'', ''it'', ''is'', ''sore'']
+
+    >>> mylist = [numbers, strings]
+
+    >>> print(mylist)
+
+    [[1, 2, 3, 4], [''I'', ''kicked'', ''my'', ''toe'',
+
+    ''and'', ''it'', ''is'', ''sore'']]
+
+    ```'
+  - '[PAGE 91]
+
+
+    This list-within-list example creates three variables: numbers with four numbers,
+    strings with eight strings, and mylist using numbers and strings. The third list
+    (mylist) has only two elements because it''s a list of variable names, not the
+    contents of the variables.
+
+
+    # Adding Items To A List
+
+
+    To add items to a list, we use the append function. A function is a chunk of code
+    that tells Python to do something. In this case, append adds an item to the end
+    of a list.'
+  - '[PAGE 92]
+
+
+    For example, to add a bear burp (I’m sure there is such a thing) to the wizard’s
+    shopping list, do this:
+
+
+    ```
+
+    >>> wizard_list.append(''bear burp'')
+
+    >>> print(wizard_list)
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'', ''bat wing'', ''slug butter'',
+    ''snake dandruff'', ''bear burp'']
+
+    ```
+
+
+    You can keep adding more magical items to the wizard’s list in the same way, like
+    so:
+
+
+    ```
+
+    >>> wizard_list.append(''mandrake'')
+
+    >>> wizard_list.append(''hemlock'')
+
+    ```'
+  - '[PAGE 93]
+
+
+    ```
+
+    >>> wizard_list.append(''swamp gas'')
+
+    ```
+
+
+    Now the wizard''s list looks like this:
+
+
+    ```
+
+    >>> print(wizard_list)
+
+    ```
+
+
+    ```
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'',
+
+    ''bat wing'', ''slug butter'', ''snake dandruff'',
+
+    ''bear burp'', ''mandrake'', ''hemlock'',
+
+    ''swamp gas'']
+
+    ```
+
+
+    The wizard is clearly ready to work some serious magic!'
+  - '[PAGE 94]
+
+
+    # Removing Items From A List
+
+
+    To remove items from a list, use the del command (short for delete). For example,
+    to remove the sixth item in the wizard’s list, snake dandruff, do this:
+
+
+    ```
+
+    >>> del wizard_list[5]
+
+    >>> print(wizard_list)
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'', ''bat wing'', ''slug butter'',
+    ''bear burp'', ''mandrake'', ''hemlock'', ''swamp gas'']
+
+    ```'
+  - '[PAGE 95]
+
+
+    Note: Remember that positions start at zero, so wizard_list[5] actually refers
+    to the sixth item in the list.
+
+
+    And here''s how to remove the items we just added (mandrake, hemlock, and swamp
+    gas):
+
+
+    ```
+
+    >>> del wizard_list[8]
+
+    >>> del wizard_list[7]
+
+    >>> del wizard_list[6]
+
+    >>> print(wizard_list)
+
+    ```'
+  - '[PAGE 96]
+
+
+    ```
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'',
+
+    ''bat wing'', ''slug butter'', ''bear burp'']
+
+    ```
+
+
+    # List Arithmetic
+
+
+    We can join lists by adding them, just like adding numbers, using a plus (+) sign.
+    For example, suppose we have two lists: list1, con- taining the numbers 1 through
+    4, and list2, containing some words. We can add them using print and the + sign,
+    like so:
+
+
+    ```
+
+    >>> list1 = [1, 2, 3, 4]
+
+    ```'
+  - '[PAGE 97]
+
+
+    ```
+
+    >>> list2 = [''I'', ''tripped'', ''over'', ''and'',
+
+    ''hit'', ''the'', ''floor'']
+
+
+    >>> print(list1 + list2)
+
+
+    [1, 2, 3, 4, ''I'', ''tripped'', ''over'', ''and'',
+
+    ''hit'', ''the'', ''floor'']
+
+    ```
+
+
+    We can also add the two lists and set the result equal to another variable.
+
+
+    ```
+
+    >>> list1 = [1, 2, 3, 4]
+
+
+    >>> list2 = [''I'', ''ate'', ''chocolate'', ''and'',
+
+    ''I'', ''want'', ''more'']
+
+
+    >>> list3 = list1 + list2
+
+
+    >>> print(list3)
+
+    ```'
+  - '[PAGE 98]
+
+
+    ```
+
+    [1, 2, 3, 4, ''I'', ''ate'', ''chocolate'', ''and'', ''I'', ''want'', ''more'']
+
+    ```
+
+
+    And we can multiply a list by a number. For example, to multi- ply list1 by 5,
+    we write list1 * 5:
+
+
+    ```
+
+    >>> list1 = [1, 2]
+
+    >>> print(list1 * 5)
+
+    [1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
+
+    ```
+
+
+    This is actually telling Python to repeat list1 five times, resulting in 1, 2,
+    1, 2, 1, 2, 1, 2, 1, 2.'
+  - '[PAGE 99]
+
+
+    On the other hand, division (/) and subtraction (-) give only errors, as in these
+    examples:
+
+
+    ```
+
+    >>> list1 / 20
+
+
+    Traceback (most recent call last):
+
+
+    File "<pyshell>", line 1, in <module>
+
+
+    list1 / 20
+
+
+    TypeError: unsupported operand type(s)
+
+
+    for /: ''list'' and ''int''
+
+
+    >>> list1 - 20
+
+
+    Traceback (most recent call last):
+
+    ```'
+  - '[PAGE 100]
+
+
+    ```
+
+    File "<pyshell>", line 1, in <module>
+
+    list1 - 20
+
+
+    TypeError: unsupported operand type(s)
+
+    for -: ''list'' and ''int''
+
+    ```
+
+
+    But why? Well, joining lists with + and repeating lists with * are straightforward
+    enough operations. These concepts also make sense in the real world. For example,
+    if I were to hand you two paper shopping lists and say, “Add these two lists,”
+    you might write out all the items on another sheet of paper in order, end to end.
+    The'
+- md: "same might be true if I said, “Multiply this list by 3.” You could imagine\
+    \ writing a list of all of the list’s items three times on another sheet of paper.\n\
+    \n## Tuples\n\nA tuple is like a list that uses parentheses, as in this example:\n\
+    \n```\n>>> fibs = (0, 1, 1, 2, 3)\n>>> print(fibs[3]) 2\n```\n\nHere we define\
+    \ the variable fibs as the numbers 0, 1, 1, 2, and 3. Then, as with a list, we\
+    \ print the item in index position 3 in the tuple using print(fibs[3]).\n\nThe\
+    \ main difference between a tuple and a list is that a tuple cannot change once\
+    \ you've created it. For example, if we try to replace the first value in the\
+    \ tuple fibs with the number 4 (just as we replaced values in our wizard_list),\
+    \ we get an error message:\n\n```\n>>> fibs[0] = 4\nTraceback (most recent call\
+    \ last):\n  File \"<pyshell>\", line 1, in <module>\n    fibs[0] = 4\nTypeError:\
+    \ 'tuple' object does not support item assignment\n```\n\nWhy would you use a\
+    \ tuple instead of a list? Basically because sometimes it is useful to use something\
+    \ that you know can never change. If you create a tuple with two elements inside,\
+    \ it will always have those two elements inside.\n\n## Python Maps Won’t Help\
+    \ You find Your Way\n\nIn Python, a map (also referred to as a dict, short for\
+    \ dictionary) is a collection of things, like lists and tuples. The difference\
+    \ between maps and lists or tuples is that each item in a map has a key and a\
+    \ corresponding value.\n\nFor example, say we have a list of people and their\
+    \ favorite sports. We could put this information into a Python list, with the\
+    \ person’s name followed by their sport, like so:\n\n```\n>>> favorite_sports\
+    \ = ['Ralph Williams, Football',\n'Michael Tippett, Basketball', 'Edward Elgar,\
+    \ Baseball', 'Rebecca Clarke, Netball', 'Ethel Smyth, Badminton', 'Frank Bridge,\
+    \ Rugby']\n```\n\nIf I asked you what Rebecca Clarke’s favorite sport is, you\
+    \ could skim through that list and find the answer is netball. But what if the\
+    \ list included 100 (or many more) people?\n\nNow, if we store this same information\
+    \ in a map, with the person’s name as the key and their favorite sport as the\
+    \ value, the Python code would look like this:\n\n```\n>>> favorite_sports = {'Ralph\
+    \ Williams' : 'Football',\n'Michael Tippett' : 'Basketball', 'Edward Elgar' :\
+    \ 'Baseball', 'Rebecca Clarke' : 'Netball', 'Ethel Smyth' : 'Badminton', 'Frank\
+    \ Bridge' : 'Rugby'}\n```\n\nWe use colons to separate each key from its value,\
+    \ and each key and value is surrounded by single quotes. Notice, too, that the\
+    \ items in a map are enclosed in braces ({}), not parentheses or square brackets."
+  mdcn: "如果我说“将这个列表乘以3”，情况可能也类似。你可以想象在另一张纸上把这个列表的所有项目抄写三遍。\n\n## 元组\n\n元组就像使用圆括号的列表，例如：\n\
+    \n```\n>>> fibs = (0, 1, 1, 2, 3)\n>>> print(fibs[3]) 2\n```\n\n这里我们将变量 `fibs`\
+    \ 定义为数字 0、1、1、2 和 3。然后，与列表一样，我们使用 `print(fibs[3])` 打印元组中索引位置为 3 的项目。\n\n元组和列表的主要区别在于，元组一旦创建就无法更改。例如，如果我们尝试将元组\
+    \ `fibs` 中的第一个值替换为数字 4（就像我们之前替换 `wizard_list` 中的值一样），会得到一条错误信息：\n\n```\n>>> fibs[0]\
+    \ = 4\nTraceback (most recent call last):\n  File \"<pyshell>\", line 1, in <module>\n\
+    \    fibs[0] = 4\nTypeError: 'tuple' object does not support item assignment\n\
+    ```\n\n为什么有时会使用元组而不是列表呢？基本上是因为有时使用你知道永远不会改变的东西会很有用。如果你创建一个包含两个元素的元组，它将始终包含那两个元素。\n\
+    \n## Python 地图不会帮你指路\n\n在 Python 中，地图（也称为字典，即 dict 的缩写）是一种事物的集合，类似于列表和元组。地图与列表或元组的区别在于，地图中的每个项目都有一个键和一个对应的值。\n\
+    \n例如，假设我们有一个包含人员及其喜爱运动的列表。我们可以将这些信息放入一个 Python 列表中，先是人名，然后是他们的运动，如下所示：\n\n```\n\
+    >>> favorite_sports = ['Ralph Williams, Football',\n'Michael Tippett, Basketball',\
+    \ 'Edward Elgar, Baseball', 'Rebecca Clarke, Netball', 'Ethel Smyth, Badminton',\
+    \ 'Frank Bridge, Rugby']\n```\n\n如果我问你丽贝卡·克拉克最喜欢的运动是什么，你可以快速浏览这个列表，找到答案是无挡板篮球。但如果这个列表包含\
+    \ 100 人（或更多）呢？\n\n现在，如果我们把同样的信息存储在一个地图中，以人名为键，他们喜爱的运动为值，Python 代码会是这样的：\n\n```\n\
+    >>> favorite_sports = {'Ralph Williams' : 'Football',\n'Michael Tippett' : 'Basketball',\
+    \ 'Edward Elgar' : 'Baseball', 'Rebecca Clarke' : 'Netball', 'Ethel Smyth' : 'Badminton',\
+    \ 'Frank Bridge' : 'Rugby'}\n```\n\n我们使用冒号将每个键与其值分开，并且每个键和值都用单引号括起来。还要注意，地图中的项目是用花括号（{}）括起来的，而不是圆括号或方括号。"
+  merge: 0
+  raw:
+  - '[PAGE 101]
+
+
+    same might be true if I said, “Multiply this list by 3.” You could imagine writing
+    a list of all of the list’s items three times on another sheet of paper.
+
+
+    # Tuples
+
+
+    A tuple is like a list that uses parentheses, as in this example:
+
+
+    ```
+
+    >>> fibs = (0, 1, 1, 2, 3)
+
+    >>> print(fibs[3]) 2
+
+    ```
+
+
+    Here we define the variable fibs as the numbers 0, 1, 1, 2, and'
+  - '[PAGE 102]
+
+
+    3. Then, as with a list, we print the item in index position 3 in the tuple using
+    print(fibs[3]).
+
+
+    The main difference between a tuple and a list is that a tuple cannot change once
+    you''ve created it. For example, if we try to replace the first value in the tuple
+    fibs with the number 4 (just as we replaced values in our wizard_list), we get
+    an error message:
+
+
+    ```
+
+    >>> fibs[0] = 4
+
+    Traceback (most recent call last):
+
+    ```'
+  - '[PAGE 103]
+
+
+    ```
+
+    File "<pyshell>", line 1, in <module>
+
+    fibs[0] = 4
+
+
+    TypeError: ''tuple'' object does not
+
+    support item assignment
+
+    ```
+
+
+    Why would you use a tuple instead of a list? Basically because sometimes it is
+    useful to use something that you know can never change. If you create a tuple
+    with two elements inside, it will always have those two elements inside.'
+  - '[PAGE 104]
+
+
+    # Python Maps Won’t Help
+
+
+    # You find Your Way
+
+
+    In Python, a map (also referred to as a dict, short for dictionary) is a collection
+    of things, like lists and tuples. The difference between maps and lists or tuples
+    is that each item in a map has a key and a corresponding value.
+
+
+    For example, say we have a list of people and their favorite sports. We could
+    put this information into a Python list, with the person’s name followed by their
+    sport, like so:'
+  - '[PAGE 105]
+
+
+    ```
+
+    >>> favorite_sports = [''Ralph Williams, Football'',
+
+    ''Michael Tippett, Basketball'', ''Edward Elgar, Baseball'', ''Rebecca Clarke,
+    Netball'', ''Ethel Smyth, Badminton'', ''Frank Bridge, Rugby'']
+
+    ```
+
+
+    If I asked you what Rebecca Clarke’s favorite sport is, you could skim through
+    that list and find the answer is netball. But what if the list included 100 (or
+    many more) people?
+
+
+    Now, if we store this same information in a map, with the person’s name as the'
+  - '[PAGE 106]
+
+
+    key and their favorite sport as the value,
+
+    the Python code would look like this:
+
+
+    ```
+
+    >>> favorite_sports = {''Ralph Williams''
+
+    : ''Football'',
+
+
+    ''Michael Tippett'' : ''Basketball'', ''Edward
+
+    Elgar'' : ''Baseball'', ''Rebecca Clarke'' :
+
+    ''Netball'', ''Ethel Smyth'' : ''Badminton'',
+
+    ''Frank Bridge'' : ''Rugby''}
+
+    ```
+
+
+    We use colons to separate each key from
+
+    its value, and each key and value is
+
+    surrounded by single quotes. Notice, too,
+
+    that'
+  - '[PAGE 107]
+
+
+    the items in a map are enclosed in braces ({}), not parentheses or square brackets.'
+pages:
+- img_proc: true
+  md: '# PYTHON
+
+
+    # PROGRAMMING
+
+
+    # FOR KIDS
+
+
+    BEN DAVIES'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: '# COPYRIGHT
+
+
+    All rights reserved. This book or any portion thereof may not be reproduced, or
+    used in any manner whatsoever without the express written permission of the publisher
+    except for the use of brief quotation in a book review.'
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: "# TABLE OF CONTENT\n\n+   - INTRODUCTION .......................... 6\n- INSTALLING\
+    \ PHYTON.................. 13\n  - Installing Python On Windows ....... 13\n \
+    \ - Installing Python on Ubuntu .......... 24\n  - Saving Your Python Programs\
+    \ ........ 30\n- CALCULATION AND VARIABLES .. 35\n  - Calculating with Python\
+    \ ................ 35\n  - Basic Python Operators ................ 41\n  - The\
+    \ Order Of Operations.............. 42\n  - Variables Are Like Labels .............\
+    \ 47\n  - Using Variables................................ 53"
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: '# STRINGS, LIST, TUPLES AND MAPS
+
+
+    Strings ..................................................... 62
+
+
+    Creating Strings ................................... 62
+
+
+    Handling Problems With Strings..... 67
+
+
+    Embedding Values In Strings......... 75
+
+
+    Multiplying strings........................... 81
+
+
+    Lists Are More Powerful Than Strings
+
+    ..................................................... 84
+
+
+    Adding Items To A List .................... 92
+
+
+    Removing Items From A List ......... 95
+
+
+    List Arithmetic................................... 97'
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: 'Tuples ........................................ 102
+
+
+    Python Maps Won’t Help You find Your Way ........................................
+    105'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: '# INTRODUCTION
+
+
+    Programming fosters creativity, reasoning, and problem solving. The programmer
+    gets the opportunity to create something from nothing, use logic to turn programming
+    constructs into a form that a computer can run, and, when things don’t work quite
+    as well as expected, use problem solving to figure out what has gone wrong. Programming
+    is a fun, sometimes challenging (and occasionally frustrating) activity, and the
+    skills learned from it can be useful both in school and at work . . . even if
+    your career has nothing to do with computers.'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: 'And, if nothing else, programming is a great way to spend an afternoon when
+    the weather outside is dreary.
+
+
+    Python is an easy-to-learn programming language that has some really useful features
+    for a beginning programmer. The code is quite easy to read when compared to other
+    programming languages, and it has an interactive shell into which you can enter
+    your programs and see them run. In addition to its simple language structure and
+    an interactive shell with which to experiment, Python has some features that greatly
+    augment the learning'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: 'process and allow you to put together simple animations for creating your own
+    games.
+
+
+    One is the turtle module, inspired by Turtle graphics (used by the Logo programming
+    language back in the 1960s) and designed for educational use. Another is the tkinter
+    module, an interface for the Tk GUI toolkit, which provides a simple way to create
+    programs with slightly more advanced graphics and animation.
+
+
+    Like anything you try for the first time, it’s always best to start with the basics,'
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: so begin with the first chapters and resist the urge to skip ahead to the later
+    chapters. No one can play an orchestral symphony the first time they pick up an
+    instrument. Student pilots don't start flying a plane before they understand the
+    basic controls. Gymnasts aren't (usually) able to do back flips on their first
+    try. If you jump ahead too quickly, not only will the basic ideas not stick in
+    your head, but you'll also find the content of the later chapters more complicated
+    than it actually is.
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: 'As you go through this book, try each of the examples, so you can see how they
+    work.
+
+
+    Like humans, computers use multiple languages to communicate— in this case, programming
+    languages. A programming language is simply a particular way to talk to a computer—a
+    way to use instructions that both humans and the computer can understand.
+
+
+    There are programming languages named after people (like Ada and Pascal), those
+    named using simple acronyms (like BASIC and FORTRAN),'
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: 'and even a few named after TV shows, like Python.
+
+
+    Yes, the Python programming language was named after the Monty Python’s Flying
+    Circus TV show, not after python the snake.
+
+
+    Monty Python’s Flying Circus was an alternative British comedy show first broadcast
+    in the 1970s, and it remains hugely popular today among a certain audience. The
+    show had sketches like “The Ministry of Silly Walks,” “The Fish-Slapping Dance,”
+    and “The Cheese Shop” (which didn’t sell any cheese).
+
+
+    11'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: 'A number of things about the Python programming language make it extremely
+    useful for beginners. Most importantly, you can use Python to write simple, efficient
+    programs really quickly.
+
+
+    Python doesn’t have a lot of complicated symbols, like braces ({ }), hashes (#),
+    and dollar signs ($), which make other programming languages a lot more difficult
+    to read and, therefore, a lot less friendly to beginners.'
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: '# INSTALLING PHYTON
+
+
+    Installing Python is fairly straightforward. Here, we''ll go over the steps for
+    installing it on Windows, Mac OS, and Ubuntu. When installing Python, you''ll
+    also set up a shortcut for the IDLE program, which is the Integrated DeveLopment
+    Environment that lets you write programs for Python.
+
+
+    # Installing Python On Windows
+
+
+    To install Python for Microsoft Windows, point a web browser to
+
+
+    13'
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: 'http://www.python.org/ and download the latest Windows installer for Python
+    3. Look for a section in the menu titled Quick Links, as shown here:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_13_0.png)
+
+
+    After you download the Windows installer, double-click its icon, and then follow
+    the instructions to install Python in the default location, as follows:
+
+
+    +   1. Select Install for All Users, and then click Next.'
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: '2. Leave the default directory unchanged, but note the name of the installation
+    directory (probably C:\Python31 or C:\ Python32). Click Next.
+
+
+    3. Ignore the Customize Python section of the installation, and click Next.
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_14_0.png)'
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: 'At the end of this process, you should have a Python 3 entry in your Start
+    menu:
+
+
+    Next, follow these steps to add a Python 3 shortcut to your desktop:
+
+
+    +   1. Right-click your desktop, and select New > Shortcut from the pop-up menu.
+
+    2. Enter the following in the box where it says Type the location of the item
+    (make sure that the directory you enter is the same as the one you noted earlier):
+
+
+    ```
+
+    c:\Python32\Lib\idlelib\idle.pyw -n
+
+    ```
+
+
+    Your dialog should look like this:
+
+
+    16'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: '![](img/3726099ac21786fed2f9ac6bed8b4337_16_0.png)
+
+
+    3. Click Next to move to the next dialog.
+
+
+    4. Enter the name as IDLE, and click Finish to create the shortcut.
+
+
+    Now you can skip to “Once You’ve Installed Python” on page 10 to get started with
+    Python.
+
+
+    17'
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: '# Installing Python on Mac os
+
+
+    If you’re using a Mac, you should find a version of Python pre- installed, but
+    it’s probably an older version of the language. To be sure that you’re running
+    the newest version, point your browser to http://www.python.org/getit/ to download
+    the latest installer for the Mac.
+
+
+    There are two different installers. The one you should down- load depends on which
+    version of Mac OS X you have installed. (To find out, click the Apple icon in
+    the top menu bar, and choose'
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: 'About this Mac.) Pick an installer as follows:
+
+
+    +   - If you’re running a Mac OS X version between 10.3 and 10.6, download the
+    32-bit version of Python 3 for i386/PPC.
+
+    - If you’re running Mac OS X version 10.6 or higher, download the 64-bit/32-bit
+    version of Python 3 for x86-64.
+
+
+    Once the file has downloaded (it will have the filename extension .dmg), double-click
+    it. You’ll see a window showing the file’s contents.'
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: '![](img/3726099ac21786fed2f9ac6bed8b4337_19_0.png)
+
+
+    In this window, double-click Python.mpkg, and then follow the instructions to
+    install the software. You’ll be prompted for the administrator password for your
+    Mac before Python installs. (Don’t have the administrator password? Your parent
+    may need to enter it.)
+
+
+    Next, you need to add a script to the desktop for launching Python’s IDLE application,
+    as follows:
+
+
+    20'
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: '+   1. Click the Spotlight icon, the small magnifying glass at the top-right
+    corner of the screen.
+
+    2. In the box that appears, enter Automator.
+
+    3. Click the application that looks like a robot when it appears in the menu.
+    It will either be in the section labeled Top Hit or in Applications.
+
+    4. Once Automator starts, select the Application template:'
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: '![](img/3726099ac21786fed2f9ac6bed8b4337_21_0.png)
+
+
+    5. Click Choose to continue.
+
+
+    6. In the list of actions, find Run Shell Script, and drag it to the empty panel
+    on the right. You''ll see something like this:
+
+
+    22'
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: '![](img/3726099ac21786fed2f9ac6bed8b4337_22_0.png)
+
+
+    7. In the text box, you’ll see the word cat. Select the word and replace it with
+    the following text (everything from open to -n):
+
+
+    ```
+
+    open -a "/Applications/Python 3.2/IDLE.app" --args -n
+
+    ```
+
+
+    You may need to change the directory depending on the version of Python you installed.
+
+
+    23'
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: '+   8. Select File > Save, and enter IDLE as the name.
+
+    9. Select Desktop from the Where dialog, and then click Save.
+
+
+    Now you can skip to “Once You’ve Installed Python” on page 10 to get started with
+    Python.
+
+
+    # Installing Python on Ubuntu
+
+
+    Python comes preinstalled on the Ubuntu Linux distribution, but it may be an older
+    version. Follow these steps to install Python 3 on Ubuntu'
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: '+   1. Click the button for the Ubuntu Software Center in the Side- bar (it’s
+    the icon that looks like an orange bag—if you don’t see it, you can always click
+    the Dash Home icon and enter Software in the dialog).
+
+    2. Enter Python in the search box in the top-right corner of the Software Center.
+
+    3. In the list of software presented, select the latest version of IDLE, which
+    is IDLE (using Python 3.2) in this example:'
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: '![](img/3726099ac21786fed2f9ac6bed8b4337_25_0.png)
+
+
+    4. Click Install.
+
+
+    5. Enter your administrator password to install the software, and then click Authenticate.
+    (Don’t have the administrator pass- word? Your parent may need to enter it.)
+
+
+    26'
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: 'You should now have an icon on your Windows or Mac OS desktop labeled IDLE.
+    If you’re using Ubuntu, in the Applications menu, you should see a new group named
+    Programming with the application IDLE (using Python 3.2) (or a later version).
+
+
+    Double-click the icon or choose the menu option, and you should see this window:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_26_0.png)'
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: 'This is the Python shell, which is part of Python’s integrated development
+    environment. The three greater-than signs (>>>) are called the prompt.
+
+
+    Let’s enter some commands at the prompt, beginning with the following:
+
+
+    ```
+
+    >>> print("Hello World")
+
+    ```
+
+
+    Make sure to include the double quotes (" "). Press enter on your keyboard when
+    you’re finished typing the line. If you’ve entered the command correctly, you
+    should see something like this:
+
+
+    Hello World'
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: 'The prompt should reappear to let you know that the Python shell is ready to
+    accept more commands.
+
+
+    Congratulations! You’ve just created your first Python program. The word print
+    is a type of Python command called a function, and it prints out whatever is inside
+    the parentheses to the screen. In essence, you have given the computer an instruction
+    to display the words “Hello World”—an instruction that both you and the computer
+    can understand.'
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: '# Saving Your Python Programs
+
+
+    Python programs wouldn’t be very useful if you needed to rewrite them every time
+    you wanted to use them, never mind print them out so you could reference them.
+    Sure, it might be fine to just rewrite short programs, but a large program, like
+    a word proces- sor, could contain millions of lines of code. Print that all out,
+    and you could have well over 100,000 pages. Just imagine trying to carry that
+    huge stack of paper home.'
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: 'Better hope that you won’t meet up with a big gust of wind.
+
+
+    Luckily, we can save our programs for future use. To save a new program, open
+    IDLE and choose File>New Window. An empty window will appear, with *Untitled*
+    in the menu bar.
+
+
+    Enter the following code into the new shell window:
+
+
+    ```
+
+    print("Hello World")
+
+    ```
+
+
+    Now, choose File > Save. When prompted for a filename, enter hello.py, and save
+    the file to your desktop. Then'
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: 'choose Run > Run Module. With any luck, your saved program should run, like
+    this:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_31_0.png)
+
+
+    Now, if you close the shell window but leave the hello.py window open and then
+    choose Run > Run Module, the Python shell should reappear, and your program should
+    run again. (To reopen the Python shell without running the program,
+
+
+    32'
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: 'choose Run > Python Shell.) After running the code, you’ll find a new icon
+    on your desktop labeled hello.py. If you double-click the icon, a black window
+    will appear briefly and then vanish. What happened?
+
+
+    You’re seeing the Python command-line console (similar to the shell) starting
+    up, printing “Hello World,” and then exiting. Here’s what would appear if you
+    had superhero-like speed vision and could see the window before it closed:'
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: '![](img/3726099ac21786fed2f9ac6bed8b4337_33_0.png)
+
+
+    34'
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: '# CALCULATION AND VARIABLES
+
+
+    Now that you have Python installed and know how to start the Python shell, you’re
+    ready to do something with it. We’ll begin with some simple calculations and then
+    move on to variables. Variables are a way of storing things in a computer program,
+    and they can help you write useful programs.
+
+
+    # Calculating with Python
+
+
+    Normally, when asked to find the product of two numbers like 8 × 3.57, you would'
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: 'use a calculator or a pencil and paper.
+
+    Well, how about using the Python shell to
+
+    perform your calculation? Let’s try it.
+
+
+    Start the Python shell by double-clicking
+
+    the IDLE icon on your desktop or, if
+
+    you’re using Ubuntu, by clicking the IDLE
+
+    icon in the Applications menu. At the
+
+    prompt, enter this equation:
+
+
+    ```
+
+    >>> 8 * 3.57
+
+
+    28.56
+
+    ```
+
+
+    Notice that when entering a
+
+    multiplication calculation in Python, you'
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: 'use the asterisk symbol (*) instead of a multiplication sign (×).
+
+
+    How about if we try an equation that’s a bit more useful?
+
+
+    Suppose you are digging in your backyard and uncover a bag of 20 gold coins. The
+    next day, you sneak down to the basement and stick the coins inside your grandfather’s
+    steam-powered replicating invention (luckily, you can just fit the 20 coins inside).
+    You hear a whiz and a pop and, a few hours later, out shoot another 10 gleaming
+    coins.'
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: 'How many coins would you have in your treasure chest if you did this every
+    day for a year? On paper, the equations might look like this:
+
+
+    10 × 365 = 3650
+
+
+    20 + 3650 = 3670
+
+
+    Sure, it’s easy enough to do these calculations on a calculator or on paper, but
+    we can do all of these calculations with the Python shell as well. First, we multiply
+    10 coins by 365 days in a year to get 3650. Next, we add the original 20 coins
+    to get 3670.
+
+
+    38'
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: '```
+
+    >>> 10 * 365
+
+    3650
+
+    >>> 20 + 3650
+
+    3670
+
+    ```
+
+
+    Now, what if a raven spots the shiny gold sitting in your bed- room, and every
+    week flies in and manages to steal three coins?
+
+
+    How many coins would you have left at the end of the year? Here’s how this calculation
+    looks in the shell:
+
+
+    ```
+
+    >>> 3 * 52
+
+    ```'
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: '156
+
+
+    ```
+
+    >>> 3670 - 156
+
+    ```
+
+
+    3514
+
+
+    First, we multiply 3 coins by 52 weeks in the year. The result is 156. We subtract
+    that number from our total coins (3670), which tells us that we would have 3514
+    coins remaining at the end of the year.
+
+
+    This is a very simple program. In this book, you’ll learn how to expand on these
+    ideas to write programs that are even more useful.
+
+
+    Python operators'
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: 'You can do multiplication, addition, subtraction, and division in the Python
+    shell, among other mathematical operations that we won’t go into right now. The
+    basic symbols used by Python to per- form mathematical operations are called operators.
+
+
+    # Basic Python Operators
+
+
+    The forward slash (/) is used for divi- sion because it’s similar to the division
+    line that you would use when writing a fraction. For example, if you had 100 pirates
+    and 20 large barrels and you wanted to calculate how many pirates'
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: 'you could hide in each barrel, you could divide 100 pirates by 20 barrels (100
+    ÷ 20) by entering 100 / 20 in the Python shell. Just remember that the forward
+    slash is the one whose top falls to the right.
+
+
+    # The Order Of Operations
+
+
+    We use parentheses in a programming language to control the order of operations.
+    An operation is anything that uses an operator. Multiplication and division have
+    a higher order than addition and subtraction, which means that they’re performed
+    first. In other'
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: 'words, if you enter an equation in Python, multiplication or division is performed
+    before addition or subtraction.
+
+
+    For example, in the following equation, the numbers 30 and 20 are multiplied first,
+    and the number 5 is added to their product.
+
+
+    ```
+
+    >>> 5 + 30 * 20
+
+
+    605
+
+    ```
+
+
+    This equation is another way of saying, “multiply 30 by 20, and then add 5 to
+    the result.” The result is 605. We can change the order of operations by adding'
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: 'parentheses around the first two numbers, like so:
+
+
+    ```
+
+    >>> (5 + 30) * 20
+
+
+    700
+
+    ```
+
+
+    The result of this equation is 700 (not 605) because the parentheses tell Python
+    to do the operation in the parentheses first, and then do the operation outside
+    the parentheses. This example is saying “add 5 to 30, and then multiply the result
+    by 20.”'
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: 'Parentheses can be nested, which means that there can be parentheses inside
+    parentheses, like this:
+
+
+    ```
+
+    >>> ((5 + 30) * 20) / 10
+
+    70.0
+
+    ```
+
+
+    In this case, Python evaluates the innermost parentheses first, then the outer
+    ones, and then the final division operator'
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: 'In other words, this equation is saying, “add 5 to 30, then multiply the result
+    by 20, and divide that result by 10.” Here’s what happens:
+
+
+    +   - Adding 5 to 30 gives 35.
+
+    - Multiplying 35 by 20 gives 700.
+
+    - Dividing 700 by 10 gives the final answer of 70.
+
+
+    If we had not used parentheses, the result would be slightly different:
+
+
+    ```
+
+    >>> 5 + 30 * 20 / 10
+
+    65.0
+
+    ```'
+  merge: -1
+  pgno: 45
+- img_proc: true
+  md: 'In this case, 30 is first multiplied by 20 (giving 600), and then 600 is divided
+    by 10 (giving 60). Finally, 5 is added to get the result of 65.
+
+
+    Warning: Remember that multiplication and division always go before addition and
+    subtraction, unless parentheses are used to control the order of operations.
+
+
+    # Variables Are Like Labels
+
+
+    The word variable in programming describes a place to store infor- mation such
+    as numbers, text, lists of numbers and text, and so on. Another way of'
+  merge: -1
+  pgno: 46
+- img_proc: true
+  md: 'looking at a variable is that it’s like a label for something.
+
+
+    For example, to create a variable named fred, we use an equal sign (=) and then
+    tell Python what information the variable should be the label for. Here, we create
+    the variable fred and tell Python
+
+
+    that it labels the number 100 (note that this doesn’t mean that
+
+
+    another variable can’t have the same value):
+
+
+    ```
+
+    >>> fred = 100
+
+    ```'
+  merge: -1
+  pgno: 47
+- img_proc: true
+  md: 'To find out what value a variable labels, enter print in the shell, followed
+    by the variable name in parentheses, like this:
+
+
+    ```
+
+    >>> print(fred)
+
+
+    100
+
+    ```
+
+
+    We can also tell Python to change the variable fred so that it labels something
+    else. For example, here’s how to change fred to the number 200:
+
+
+    ```
+
+    >>> fred = 200
+
+
+    >>> print(fred)
+
+
+    200
+
+    ```'
+  merge: -1
+  pgno: 48
+- img_proc: true
+  md: 'On the first line, we say that fred labels the number 200. In the second line,
+    we ask what fred is labeling, just to confirm the change. Python prints the result
+    on the last line.
+
+
+    We can also use more than one label (more than one variable) for the same item:
+
+
+    ```
+
+    >>> fred = 200
+
+    >>> john = fred
+
+    >>> print(john)
+
+    200
+
+    ```'
+  merge: -1
+  pgno: 49
+- img_proc: true
+  md: 'In this example, we''re telling Python that we want the name (or variable)
+    john to label the same thing as fred by using the equal sign between john and
+    fred.
+
+
+    Of course, fred probably isn''t a very useful name for a variable because it most
+    likely doesn''t tell us anything about what the variable is used for. Let''s call
+    our variable number_of_coins instead of fred, like this:
+
+
+    ```
+
+    >>> number_of_coins = 200
+
+    >>> print(number_of_coins)
+
+    ```'
+  merge: -1
+  pgno: 50
+- img_proc: true
+  md: '200
+
+
+    This makes it clear that we’re talking about 200 coins.
+
+
+    Variable names can be made up of letters, numbers, and the underscore character
+    (_), but they can’t start with a number. You can use anything from single letters
+    (such as a) to long sentences for variable names. (A variable can’t contain a
+    space, so use an underscore to separate words.) Sometimes, if you’re doing some-
+    thing
+
+
+    52'
+  merge: -1
+  pgno: 51
+- img_proc: true
+  md: 'quick, a short variable name is best. The name you choose should depend on
+    how meaningful you need the variable name to be.
+
+
+    Now that you know how to create variables, let’s look at how to use them.
+
+
+    # Using Variables
+
+
+    Remember our equation for figuring out how many coins you would have at the end
+    of the year if you could magically create new coins with your grandfather’s crazy
+    invention in the basement? We have this equation:'
+  merge: -1
+  pgno: 52
+- img_proc: true
+  md: '```
+
+    >>> 20 + 10 * 365
+
+    3670
+
+    >>> 3 * 52
+
+    156
+
+    >>> 3670 - 156
+
+    3514
+
+    ```
+
+
+    We can turn this into a single line of code:
+
+
+    ```
+
+    >>> 20 + 10 * 365 - 3 * 52
+
+    3514
+
+    ```
+
+
+    Now, what if we turn the numbers into variables? Try entering the following:
+
+
+    ```
+
+    54
+
+    ```'
+  merge: -1
+  pgno: 53
+- img_proc: true
+  md: '```
+
+    >>> found_coins = 20
+
+    >>> magic_coins = 10
+
+    >>> stolen_coins = 3
+
+    ```
+
+
+    These entries create the variables found_coins, magic_coins, and stolen_coins.
+
+
+    Now, we can reenter the equation like this:
+
+
+    ```
+
+    >>> found_coins + magic_coins * 365 - stolen_coins * 52
+
+    3514
+
+    ```'
+  merge: -1
+  pgno: 54
+- img_proc: true
+  md: 'You can see that this gives us the same answer. So who cares, right? Ah, but
+    here’s the magic of variables. What if you stick a scarecrow in your win- dow,
+    and the raven steals only two coins instead of three? When we use a variable,
+    we can simply change the variable to hold that new number, and it will change
+    every-where it is used in the equation. We can change the stolen_coins variable
+    to 2 by entering this:
+
+
+    ```
+
+    >>> stolen_coins = 2
+
+    ```'
+  merge: -1
+  pgno: 55
+- img_proc: true
+  md: 'We can then copy and paste the equation to calculate the answer again, like
+    so:
+
+
+    +   1. Select the text to copy by clicking with the mouse and dragging from the
+    beginning to the end of the line, as shown here:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_56_0.png)
+
+
+    +   2. Hold down the ctrl Key and press C to copy the selected text. (You''ll
+    see this as ctrl-C from now on.)'
+  merge: -1
+  pgno: 56
+- img_proc: true
+  md: '+   3. Click the last prompt line (after stolen_coins = 2).
+
+    4. Hold down the ctrl key and press V to paste the selected text. (You’ll see
+    this as ctrl-V from now on.)
+
+    5. Press enter to see the new result:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_57_0.png)
+
+
+    Isn’t that a lot easier than retyping the whole equation? It sure is.'
+  merge: -1
+  pgno: 57
+- img_proc: true
+  md: 'You can try changing the other variables, and then copy (ctrl-C) and paste
+    (ctrl-V) the calculation to see the effect of your changes. For example, if you
+    bang the sides of your grand- father’s invention at the right moment, and it spits
+    out an extra 3 coins each time, you’ll find that you end up with 4661 coins at
+    the end of the year:
+
+
+    ```
+
+    >>> magic_coins = 13
+
+
+    >>> found_coins + magic_coins * 365 - stolen_coins * 52 4661
+
+    ```
+
+
+    Of course, using variables for a simple equation like this one is still only slightly'
+  merge: -1
+  pgno: 58
+- img_proc: true
+  md: useful. We haven’t gotten to really useful yet. For now, just remember that
+    variables are a way of labeling things so that you can use them later.
+  merge: -1
+  pgno: 59
+- img_proc: true
+  md: '# STRINGS, LIST, TUPLES AND MAPS
+
+
+    In this chapter, we''ll work with some other items in Python programs: strings,
+    lists, tuples, and maps. You''ll use strings to display messages in your programs
+    (such as "Get Ready" and "Game Over" messages in a game).
+
+
+    You''ll also discover how lists, tuples, and maps are used to store collections
+    of things.'
+  merge: -1
+  pgno: 60
+- img_proc: true
+  md: '# Strings
+
+
+    In programming terms, we usually call text a string. When you think of a string
+    as a collection of letters, the term makes sense. All the letters, numbers, and
+    symbols in this book could be a string. For that matter, your name could be a
+    string, and so could your address.
+
+
+    # Creating Strings
+
+
+    In Python, we create a string by putting quotes around text.
+
+
+    ```
+
+    fred = "Why do gorillas have big nostrils? Big fingers!!"
+
+    ```'
+  merge: -1
+  pgno: 61
+- img_proc: true
+  md: 'Then, to see what''s inside fred, we could enter print(fred), like this:
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    Why do gorillas have big nostrils? Big fingers!!
+
+
+    You can also use single quotes to create a string, like this:
+
+
+    ```
+
+    >>> fred = ''What is pink and fluffy? Pink fluff!!''
+
+    ```
+
+
+    ```
+
+    >>> print(fred)
+
+    ```
+
+
+    What is pink and fluffy? Pink fluff!!'
+  merge: -1
+  pgno: 62
+- img_proc: true
+  md: 'However, if you try to enter more than one line of text for your string using
+    only a single quote ('') or double quote (") or if you start with one type of
+    quote and try to finish with another, you''ll get an error message in the Python
+    shell. For example, enter the following line:
+
+
+    ```
+
+    >>> fred = "How do dinosaurs pay their bills?
+
+    ```
+
+
+    You''ll see this result:
+
+
+    ```
+
+    SyntaxError: EOL while scanning string literal
+
+    ```'
+  merge: -1
+  pgno: 63
+- img_proc: true
+  md: 'This is an error message complaining about syntax because you did not follow
+    the rules for ending a string with a single or double quote.
+
+
+    Syntax means the arrangement and order of words in a sen- tence or, in this case,
+    the arrangement and order of words and symbols in a program. So SyntaxError means
+    that you did some-
+
+
+    thing in an order Python was not expecting, or Python was expecting something
+    that you missed. EOL means end-of-line, so the rest of the error message is telling
+    you that Python hit the
+
+
+    65'
+  merge: -1
+  pgno: 64
+- img_proc: true
+  md: 'end of the line and did not find a double quote to close the string.
+
+
+    To use more than one line of text in your string (called a multiline string),
+    use three single quotes (''''''), and then hit enter between lines, like this:
+
+
+    ```
+
+    >>> fred = """How do dinosaurs pay their bills? With tyrannosaurus checks!"""
+
+    ```
+
+
+    Now let’s print out the contents of fred to see if this worked:
+
+
+    ```
+
+    >>> print(fred)
+
+    ```'
+  merge: -1
+  pgno: 65
+- img_proc: true
+  md: 'How do dinosaurs pay their bills? With tyrannosaurus checks!
+
+
+    # Handling Problems With Strings
+
+
+    Now consider this crazy example of a string, which causes Python to display an
+    error message:
+
+
+    ```
+
+    >>> silly_string = ''He said, "Aren''t can''t shouldn''t wouldn''t."'' SyntaxError:
+    invalid syntax
+
+    ```
+
+
+    In the first line, we try to create a string (defined as the vari- able silly_string)
+    enclosed by single quotes, but also'
+  merge: -1
+  pgno: 66
+- img_proc: true
+  md: 'containing a mixture of single quotes in the words can''t, shouldn''t, and
+    wouldn''t, as well as double quotes. What a mess!
+
+
+    Remember that Python itself is not as smart as a human being, so all it sees is
+    a string containing He said, "Aren, followed by a bunch of other characters that
+    it doesn''t expect. When Python sees a quotation mark (either a single or double
+    quote), it expects a string to start following the first mark and the string to
+    end after the next matching quotation mark (either single or double) on that line.
+    In this case, the start of the string is the single quotation mark before He,
+
+
+    68'
+  merge: -1
+  pgno: 67
+- img_proc: true
+  md: 'and the end of the string, as far as Python is concerned, is the single quote
+    after the n in Aren. IDLE highlights the point where things have gone wrong:
+
+
+    ![](img/3726099ac21786fed2f9ac6bed8b4337_68_0.png)
+
+
+    The last line of IDLE tells us what sort of error occurred—in this case, a syntax
+    error.
+
+
+    Using double instead of single quotes still produces an error:'
+  merge: -1
+  pgno: 68
+- img_proc: true
+  md: '![](img/3726099ac21786fed2f9ac6bed8b4337_69_0.png)
+
+
+    ```
+
+    >>> silly_string = "He said, "Aren''t can''t shouldn''t wouldn''t."" SyntaxError:
+    invalid syntax
+
+    ```
+
+
+    Here, Python sees a string bounded by double quotes, contain- ing the letters
+    He said, (and a space). Everything following that string (from Aren''t on) causes
+    the error.
+
+
+    70'
+  merge: -1
+  pgno: 69
+- img_proc: true
+  md: 'This is because, from Python''s perspective, all that extra stuff just isn''t
+    supposed to be there. Python looks for the next matching quote and doesn''t know
+    what you want it to do with anything that follows that quote on the same line.
+
+
+    The solution to this prob- lem is a multiline string, which we learned about earlier,
+    using three single quotes (''''''), which allows us to combine double and single
+    quotes in our string with- out causing errors. In fact, if we use three single
+    quotes, we can put any'
+  merge: -1
+  pgno: 70
+- img_proc: true
+  md: 'combination of single and double quotes inside the string (as long as we don''t
+    try to put three single quotes there).
+
+
+    This is what the error-free ver- sion of our string looks like:
+
+
+    ```
+
+    silly_string = """He said, "Aren''t can''t shouldn''t wouldn''t."""
+
+    ```
+
+
+    But wait, there''s more. If you really want to use single or double quotes to
+    surround a string in Python, instead of three single quotes, you can add a backslash
+    (\) before each quotation mark within the string. This is called escaping. It''s
+    a way of saying to
+
+
+    72'
+  merge: -1
+  pgno: 71
+- img_proc: true
+  md: 'Python, “Yes, I know I have quotes inside my string, and I want you to ignore
+    them until you see the end quote.”
+
+
+    Escaping strings can make them harder to read, so it’s prob- ably better to use
+    multiline strings. Still, you might come across snippets of code that use escaping,
+    so it’s good to know why the backslashes are there.
+
+
+    Here are a few examples of how escaping works:'
+  merge: -1
+  pgno: 72
+- img_proc: true
+  md: '```
+
+    >>> single_quote_str = ''He said, \n"Aren\''t can\''t shouldn\''t wouldn\''t."''
+
+
+    >>> double_quote_str = "He said, \n"Aren''t can''t shouldn''t wouldn''t.""
+
+
+    >>> print(single_quote_str)
+
+    He said, "Aren''t can''t shouldn''t wouldn''t."
+
+
+    >>> print(double_quote_str)
+
+    He said, "Aren''t can''t shouldn''t wouldn''t."
+
+    ```
+
+
+    First, at u, we create a string with single quotes, using the backslash in front
+    of the single quotes inside that string. At v,
+
+
+    74'
+  merge: -1
+  pgno: 73
+- img_proc: true
+  md: 'we create a string with double quotes, and use the backslash in front of those
+    quotes in the string. In the lines that follow, we print the variables we''ve
+    just created. Notice that the backslash character doesn''t appear in the strings
+    when we print them.
+
+
+    # Embedding Values In Strings
+
+
+    If you want to display a message using the contents of a vari- able, you can embed
+    values in a string using %s, which is like a marker for a value that'
+  merge: -1
+  pgno: 74
+- img_proc: true
+  md: 'you want to add later. (Embedding values
+
+
+    is programmer-speak for “inserting values.”) For example, to have Python calculate
+    or store the number of points you scored in a game, and then add it to a sentence
+    like “I scored points,” use %s in the sentence in place of the value, and then
+    tell Python that value, like this:
+
+
+    ```
+
+    >>> myscore = 1000
+
+    >>> message = ''I scored %s points''
+
+    ```'
+  merge: -1
+  pgno: 75
+- img_proc: true
+  md: '```
+
+    >>> print(message % myscore) I scored 1000 points
+
+    ```
+
+
+    Here, we create the variable myscore with the value 1000 and the variable message
+    with a string that contains the words “I scored %s points,” where %s is a placeholder
+    for the number of points. On the next line, we call print(message) with the %
+    symbol to tell Python to replace %s with the value stored in the variable myscore.
+    The result of printing this message is I scored 1000 points. We don’t need to
+    use a variable for the value. We could do the same example and just use print(message
+    % 1000).
+
+
+    77'
+  merge: -1
+  pgno: 76
+- img_proc: true
+  md: 'We can also pass in different values for the %s placeholder, using different
+    variables, as in this example:
+
+
+    ```
+
+    >>> joke_text = ''%s: a device for finding furniture in the dark''
+
+    >>> bodypart1 = ''Knee''
+
+    >>> bodypart2 = ''Shin''
+
+    >>> print(joke_text % bodypart1)
+
+    Knee: a device for finding furniture in the dark
+
+    >>> print(joke_text % bodypart2)
+
+    ```'
+  merge: -1
+  pgno: 77
+- img_proc: true
+  md: '# Shin: a device for finding furniture in the dark
+
+
+    Here, we create three variables. The first, joke_text, includes the string with
+    the %s marker. The other variables are bodypart1 and bodypart2. We can print the
+    variable joke_text, and once again use the % operator to replace it with the contents
+    of the variables bodypart1 and bodypart2 to produce different messages.'
+  merge: -1
+  pgno: 78
+- img_proc: true
+  md: 'You can also use more than one placeholder in a string, like this:
+
+
+    ```
+
+    >>> nums = ''What did the number %s say to the number %s? Nice belt!!''
+
+    >>> print(nums % (0, 8))
+
+    ```
+
+
+    What did the number 0 say to the number 8? Nice belt!!
+
+
+    When using more than one placeholder, be sure to wrap the replacement values in
+    parentheses, as shown in the example. The order of the values is the order in
+    which they''ll be used in the string.'
+  merge: -1
+  pgno: 79
+- img_proc: true
+  md: '# # Multiplying strings
+
+
+    What is 10 multiplied by 5? The answer is 50, of course. But what’s 10 multiplied
+    by a? Here’s Python’s answer:
+
+
+    ```
+
+    >>> print(10 * ''a'')
+
+
+    aaaaaaaaaa
+
+    ```
+
+
+    Python programmers might use this approach to line up strings with a specific
+    number of spaces when displaying messages in the shell, for example. How about
+    printing a letter in the shell (select File > New Window, and enter the following
+    code):'
+  merge: -1
+  pgno: 80
+- img_proc: true
+  md: '```
+
+    spaces = '' '' * 25
+
+
+    print(''%s 12 Butts Wynd'' % spaces)
+
+    print(''%s Twinklebottom Heath'' %
+
+    spaces) print(''%s West Snoring'' %
+
+    spaces) print()
+
+
+    print() print(''Dear Sir'') print()
+
+
+    print(''I wish to report that tiles are
+
+    missing from the'') print(''outside toilet
+
+    roof.'')
+
+
+    print(''I think it was bad wind the other
+
+    night that blew them away.'') print()
+
+
+    print(''Regards'') print(''Malcolm
+
+    Dithering'')
+
+    ```
+
+
+    82'
+  merge: -1
+  pgno: 81
+- img_proc: true
+  md: 'Once you''ve typed the code into the shell window, select File > Save As. Name
+    your file myletter.py.
+
+
+    Note: From now on, when you see Save As: somefilename.py above a chunk of code,
+    you''ll know you need to select File>New Window, enter the code into the window
+    that appears, and then save it as we did in this example.
+
+
+    In the first line of this example, we create the variable spaces by multiplying
+    a space character by 25. We then use that variable'
+  merge: -1
+  pgno: 82
+- img_proc: true
+  md: 'in the next three lines to align the text to the right of the shell. You can
+    see the result of these print statements below:
+
+
+    In addition to using multiplication for alignment, we can also use it to fill
+    the screen with annoying messages. Try this example for yourself:
+
+
+    ```
+
+    >>> print(1000 * ''snirt'')
+
+    ```
+
+
+    # Lists Are More Powerful Than Strings
+
+
+    “Spider legs, toe of frog, eye of newt, bat wing, slug butter, and snake dandruff
+    ” is not quite a normal shopping list (unless'
+  merge: -1
+  pgno: 83
+- img_proc: true
+  md: 'you happen to be a wizard), but we’ll use it as our first example of the differences
+    between strings and lists.
+
+
+    We could store this list of items in the wizard_list variable using a string like
+    this:
+
+
+    ```
+
+    >>> wizard_list = ''spider legs, toe of frog, eye of newt, bat wing, slug butter,
+    snake dandruff''
+
+    >>> print(wizard_list)
+
+    spider legs, toe of frog, eye of newt, bat wing, slug butter, snake dandruff
+
+    ```'
+  merge: -1
+  pgno: 84
+- img_proc: true
+  md: 'But we could also create a list, a somewhat magical kind of Python object that
+    we can manipulate. Here’s what these items would look like written as a list:
+
+
+    ```
+
+    >>> wizard_list = [''spider legs'', ''toe of frog'', ''eye of newt'', ''bat wing'',
+    ''slug butter'', ''snake dandruff'']
+
+    >>> print(wizard_list)
+
+    [''spider legs'', ''toe of frog'', ''eye of newt'', ''bat wing'', ''slug butter'',
+    ''snake dandruff'']
+
+    ```
+
+
+    Creating a list takes a bit more typing than creating a string,'
+  merge: -1
+  pgno: 85
+- img_proc: true
+  md: 'but a list is more useful than a string because it can be manipulated. For
+    example, we could print the third item in the wizard_list (eye of newt) by entering
+    its position in the list (called the index position) inside square brackets ([]),
+    like this:
+
+
+    ```
+
+    >>> print(wizard_list[2]) eye of newt
+
+    ```
+
+
+    Huh? Isn''t it the third item on the list?
+
+    Yes, but lists start at index position 0, so the first item in a list is 0, the
+    second is 1, and the third is 2. That may not make a lot of sense to humans, but
+    it does to computers.'
+  merge: -1
+  pgno: 86
+- img_proc: true
+  md: 'We can also change an item in a list much more easily than we could in a string.
+    Perhaps instead of eye of newt we needed a snail tongue. Here’s how we would do
+    that with our list:
+
+
+    ```
+
+    >>> wizard_list[2] = ''snail tongue''
+
+
+    >>> print(wizard_list)
+
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'', ''bat wing'', ''slug butter'',
+    ''snake dandruff'']
+
+    ```
+
+
+    This sets the item in index position 2, previously eye of newt, to snail tongue.'
+  merge: -1
+  pgno: 87
+- img_proc: true
+  md: 'Another option is to show a subset of the items in the list. We do this by
+    using a colon (:) inside square brackets. For example, enter the following to
+    see the third to fifth items in a list (a brilliant set of ingredients for a lovely
+    sandwich):
+
+
+    ```
+
+    >>> print(wizard_list[2:5])
+
+    [''snail tongue'', ''bat wing'', ''slug butter'']
+
+    ```
+
+
+    Writing [2:5] is the same as saying, “show the items from index position 2 up
+    to (but not including) index position 5”— or in other'
+  merge: -1
+  pgno: 88
+- img_proc: true
+  md: 'words, items 2, 3, and 4.
+
+
+    Lists can be used to store all sorts of items, like numbers:
+
+
+    ```
+
+    >>> some_numbers = [1, 2, 5, 10, 20]
+
+    ```
+
+
+    They can also hold strings:
+
+
+    ```
+
+    >>> some_strings = [''Which'', ''Witch'', ''Is'', ''Which'']
+
+    ```
+
+
+    They might have mixtures of numbers and strings:
+
+
+    ```
+
+    >>> numbers_and_strings = [''Why'', ''was'', 6, ''afraid'', ''of'', 7, ''because'',
+    7, 8, 9]
+
+    ```
+
+
+    90'
+  merge: -1
+  pgno: 89
+- img_proc: true
+  md: '```
+
+    >>> print(numbers_and_strings)
+
+    [''Why'', ''was'', 6, ''afraid'', ''of'', 7,
+
+    ''because'', 7, 8, 9]
+
+    ```
+
+
+    And lists might even store other lists:
+
+
+    ```
+
+    >>> numbers = [1, 2, 3, 4]
+
+    >>> strings = [''I'', ''kicked'', ''my'', ''toe'',
+
+    ''and'', ''it'', ''is'', ''sore'']
+
+    >>> mylist = [numbers, strings]
+
+    >>> print(mylist)
+
+    [[1, 2, 3, 4], [''I'', ''kicked'', ''my'', ''toe'',
+
+    ''and'', ''it'', ''is'', ''sore'']]
+
+    ```'
+  merge: -1
+  pgno: 90
+- img_proc: true
+  md: 'This list-within-list example creates three variables: numbers with four numbers,
+    strings with eight strings, and mylist using numbers and strings. The third list
+    (mylist) has only two elements because it''s a list of variable names, not the
+    contents of the variables.
+
+
+    # Adding Items To A List
+
+
+    To add items to a list, we use the append function. A function is a chunk of code
+    that tells Python to do something. In this case, append adds an item to the end
+    of a list.'
+  merge: -1
+  pgno: 91
+- img_proc: true
+  md: 'For example, to add a bear burp (I’m sure there is such a thing) to the wizard’s
+    shopping list, do this:
+
+
+    ```
+
+    >>> wizard_list.append(''bear burp'')
+
+    >>> print(wizard_list)
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'', ''bat wing'', ''slug butter'',
+    ''snake dandruff'', ''bear burp'']
+
+    ```
+
+
+    You can keep adding more magical items to the wizard’s list in the same way, like
+    so:
+
+
+    ```
+
+    >>> wizard_list.append(''mandrake'')
+
+    >>> wizard_list.append(''hemlock'')
+
+    ```'
+  merge: -1
+  pgno: 92
+- img_proc: true
+  md: '```
+
+    >>> wizard_list.append(''swamp gas'')
+
+    ```
+
+
+    Now the wizard''s list looks like this:
+
+
+    ```
+
+    >>> print(wizard_list)
+
+    ```
+
+
+    ```
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'',
+
+    ''bat wing'', ''slug butter'', ''snake dandruff'',
+
+    ''bear burp'', ''mandrake'', ''hemlock'',
+
+    ''swamp gas'']
+
+    ```
+
+
+    The wizard is clearly ready to work some serious magic!'
+  merge: -1
+  pgno: 93
+- img_proc: true
+  md: '# Removing Items From A List
+
+
+    To remove items from a list, use the del command (short for delete). For example,
+    to remove the sixth item in the wizard’s list, snake dandruff, do this:
+
+
+    ```
+
+    >>> del wizard_list[5]
+
+    >>> print(wizard_list)
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'', ''bat wing'', ''slug butter'',
+    ''bear burp'', ''mandrake'', ''hemlock'', ''swamp gas'']
+
+    ```'
+  merge: -1
+  pgno: 94
+- img_proc: true
+  md: 'Note: Remember that positions start at zero, so wizard_list[5] actually refers
+    to the sixth item in the list.
+
+
+    And here''s how to remove the items we just added (mandrake, hemlock, and swamp
+    gas):
+
+
+    ```
+
+    >>> del wizard_list[8]
+
+    >>> del wizard_list[7]
+
+    >>> del wizard_list[6]
+
+    >>> print(wizard_list)
+
+    ```'
+  merge: -1
+  pgno: 95
+- img_proc: true
+  md: '```
+
+    [''spider legs'', ''toe of frog'', ''snail tongue'',
+
+    ''bat wing'', ''slug butter'', ''bear burp'']
+
+    ```
+
+
+    # List Arithmetic
+
+
+    We can join lists by adding them, just like adding numbers, using a plus (+) sign.
+    For example, suppose we have two lists: list1, con- taining the numbers 1 through
+    4, and list2, containing some words. We can add them using print and the + sign,
+    like so:
+
+
+    ```
+
+    >>> list1 = [1, 2, 3, 4]
+
+    ```'
+  merge: -1
+  pgno: 96
+- img_proc: true
+  md: '```
+
+    >>> list2 = [''I'', ''tripped'', ''over'', ''and'',
+
+    ''hit'', ''the'', ''floor'']
+
+
+    >>> print(list1 + list2)
+
+
+    [1, 2, 3, 4, ''I'', ''tripped'', ''over'', ''and'',
+
+    ''hit'', ''the'', ''floor'']
+
+    ```
+
+
+    We can also add the two lists and set the result equal to another variable.
+
+
+    ```
+
+    >>> list1 = [1, 2, 3, 4]
+
+
+    >>> list2 = [''I'', ''ate'', ''chocolate'', ''and'',
+
+    ''I'', ''want'', ''more'']
+
+
+    >>> list3 = list1 + list2
+
+
+    >>> print(list3)
+
+    ```'
+  merge: -1
+  pgno: 97
+- img_proc: true
+  md: '```
+
+    [1, 2, 3, 4, ''I'', ''ate'', ''chocolate'', ''and'', ''I'', ''want'', ''more'']
+
+    ```
+
+
+    And we can multiply a list by a number. For example, to multi- ply list1 by 5,
+    we write list1 * 5:
+
+
+    ```
+
+    >>> list1 = [1, 2]
+
+    >>> print(list1 * 5)
+
+    [1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
+
+    ```
+
+
+    This is actually telling Python to repeat list1 five times, resulting in 1, 2,
+    1, 2, 1, 2, 1, 2, 1, 2.'
+  merge: -1
+  pgno: 98
+- img_proc: true
+  md: 'On the other hand, division (/) and subtraction (-) give only errors, as in
+    these examples:
+
+
+    ```
+
+    >>> list1 / 20
+
+
+    Traceback (most recent call last):
+
+
+    File "<pyshell>", line 1, in <module>
+
+
+    list1 / 20
+
+
+    TypeError: unsupported operand type(s)
+
+
+    for /: ''list'' and ''int''
+
+
+    >>> list1 - 20
+
+
+    Traceback (most recent call last):
+
+    ```'
+  merge: -1
+  pgno: 99
+- img_proc: true
+  md: '```
+
+    File "<pyshell>", line 1, in <module>
+
+    list1 - 20
+
+
+    TypeError: unsupported operand type(s)
+
+    for -: ''list'' and ''int''
+
+    ```
+
+
+    But why? Well, joining lists with + and repeating lists with * are straightforward
+    enough operations. These concepts also make sense in the real world. For example,
+    if I were to hand you two paper shopping lists and say, “Add these two lists,”
+    you might write out all the items on another sheet of paper in order, end to end.
+    The'
+  merge: -1
+  pgno: 100
+- img_proc: true
+  md: 'same might be true if I said, “Multiply this list by 3.” You could imagine
+    writing a list of all of the list’s items three times on another sheet of paper.
+
+
+    # Tuples
+
+
+    A tuple is like a list that uses parentheses, as in this example:
+
+
+    ```
+
+    >>> fibs = (0, 1, 1, 2, 3)
+
+    >>> print(fibs[3]) 2
+
+    ```
+
+
+    Here we define the variable fibs as the numbers 0, 1, 1, 2, and'
+  merge: -1
+  pgno: 101
+- img_proc: true
+  md: '3. Then, as with a list, we print the item in index position 3 in the tuple
+    using print(fibs[3]).
+
+
+    The main difference between a tuple and a list is that a tuple cannot change once
+    you''ve created it. For example, if we try to replace the first value in the tuple
+    fibs with the number 4 (just as we replaced values in our wizard_list), we get
+    an error message:
+
+
+    ```
+
+    >>> fibs[0] = 4
+
+    Traceback (most recent call last):
+
+    ```'
+  merge: -1
+  pgno: 102
+- img_proc: true
+  md: '```
+
+    File "<pyshell>", line 1, in <module>
+
+    fibs[0] = 4
+
+
+    TypeError: ''tuple'' object does not
+
+    support item assignment
+
+    ```
+
+
+    Why would you use a tuple instead of a list? Basically because sometimes it is
+    useful to use something that you know can never change. If you create a tuple
+    with two elements inside, it will always have those two elements inside.'
+  merge: -1
+  pgno: 103
+- img_proc: true
+  md: '# Python Maps Won’t Help
+
+
+    # You find Your Way
+
+
+    In Python, a map (also referred to as a dict, short for dictionary) is a collection
+    of things, like lists and tuples. The difference between maps and lists or tuples
+    is that each item in a map has a key and a corresponding value.
+
+
+    For example, say we have a list of people and their favorite sports. We could
+    put this information into a Python list, with the person’s name followed by their
+    sport, like so:'
+  merge: -1
+  pgno: 104
+- img_proc: true
+  md: '```
+
+    >>> favorite_sports = [''Ralph Williams, Football'',
+
+    ''Michael Tippett, Basketball'', ''Edward Elgar, Baseball'', ''Rebecca Clarke,
+    Netball'', ''Ethel Smyth, Badminton'', ''Frank Bridge, Rugby'']
+
+    ```
+
+
+    If I asked you what Rebecca Clarke’s favorite sport is, you could skim through
+    that list and find the answer is netball. But what if the list included 100 (or
+    many more) people?
+
+
+    Now, if we store this same information in a map, with the person’s name as the'
+  merge: -1
+  pgno: 105
+- img_proc: true
+  md: 'key and their favorite sport as the value,
+
+    the Python code would look like this:
+
+
+    ```
+
+    >>> favorite_sports = {''Ralph Williams''
+
+    : ''Football'',
+
+
+    ''Michael Tippett'' : ''Basketball'', ''Edward
+
+    Elgar'' : ''Baseball'', ''Rebecca Clarke'' :
+
+    ''Netball'', ''Ethel Smyth'' : ''Badminton'',
+
+    ''Frank Bridge'' : ''Rugby''}
+
+    ```
+
+
+    We use colons to separate each key from
+
+    its value, and each key and value is
+
+    surrounded by single quotes. Notice, too,
+
+    that'
+  merge: -1
+  pgno: 106
+- img_proc: true
+  md: the items in a map are enclosed in braces ({}), not parentheses or square brackets.
+  merge: -1
+  pgno: 107
+toc:
+- - '#'
+  - 面向儿童的Python编程
+- - '#'
+  - 版权所有
+- - '#'
+  - 目录
+- - '#'
+  - 引言
+- - '#'
+  - 安装Python
+- - '##'
+  - 在Windows上安装Python
+- - '##'
+  - 在Mac OS上安装Python
+- - '##'
+  - 在Ubuntu上安装Python
+- - '##'
+  - 保存你的Python程序
+- - '##'
+  - 计算和变量
+- - '###'
+  - 使用Python计算
+- - '###'
+  - Python运算符
+- - '###'
+  - 基本Python运算符
+- - '##'
+  - 运算顺序
+- - '##'
+  - 变量就像标签
+- - '##'
+  - 使用变量
+- - '##'
+  - 字符串、列表、元组和映射
+- - '##'
+  - 字符串
+- - '###'
+  - 创建字符串
+- - '##'
+  - 处理字符串问题
+- - '##'
+  - 在字符串中嵌入值
+- - '##'
+  - 字符串乘法
+- - '##'
+  - 列表比字符串更强大
+- - '##'
+  - 向列表中添加项目
+- - '##'
+  - 从列表中移除项目
+- - '##'
+  - 列表运算
+- - '##'
+  - 元组
+- - '##'
+  - Python 地图不会帮你指路
