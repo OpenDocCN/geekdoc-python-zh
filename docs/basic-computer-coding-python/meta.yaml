@@ -1,0 +1,4169 @@
+pages:
+- img_proc: false
+  md: '![](bbox=[0.0, 0.0, 1.0, 0.72])
+
+
+    # # Basic Computer Coding:
+
+    # Python
+
+
+    2nd Edition
+
+
+    ![](bbox=[0.08, 0.91, 0.3, 0.95])'
+  merge: -1
+  pgno: 0
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 1
+- img_proc: false
+  md: '# BASIC COMPUTER CODING: PYTHON
+
+
+    2nd Edition
+
+
+    ![](bbox=[0.34, 0.79, 0.66, 0.83])
+
+
+    www.bibliotex.com'
+  merge: -1
+  pgno: 2
+- img_proc: false
+  md: '# BASIC COMPUTER CODING: PYTHON
+
+
+    # 2ND EDITION
+
+
+    ![](bbox=[0.08, 0.15, 0.28, 0.19])
+
+
+    www.bibliotex.com
+
+    email: info@bibliotex.com
+
+
+    e-book Edition 2022
+
+    ISBN: 978-1-98467-604-7 (e-book)
+
+
+    This book contains information obtained from highly regarded resources. Reprinted
+    material sources are indicated. Copyright for individual articles remains with
+    the authors as indicated and published under Creative Commons License. A Wide
+    variety of references are listed. Reasonable efforts have been made to publish
+    reliable data and views articulated in the chapters are those of the individual
+    contributors, and not necessarily those of the editors or publishers. Editors
+    or publishers are not responsible for the accuracy of the information in the published
+    chapters or consequences of their use. The publisher assumes no responsibility
+    for any damage or grievance to the persons or property arising out of the use
+    of any materials, instructions, methods or thoughts in the book. The editors and
+    the publisher have attempted to trace the copyright holders of all material reproduced
+    in this publication and apologize to copyright holders if permission has not been
+    obtained. If any copyright holder has not been acknowledged, please write to us
+    so we may rectify.
+
+
+    **Notice:** Registered trademark of products or corporate names are used only
+    for explanation and identification without intent of infringement.
+
+
+    © 2022 3G E-learning LLC
+
+
+    In Collaboration with 3G E-Learning LLC. Originally Published in printed book
+    format by 3G E-Learning LLC with ISBN 978-1-98465-897-5'
+  merge: -1
+  pgno: 3
+- img_proc: false
+  md: '# EDITORIAL BOARD
+
+
+    ![](bbox=[0.08, 0.21, 0.18, 0.33])
+
+
+    **Aleksandar Mratinković** was born on May 5, 1988 in Arandjelovac, Serbia. He
+    has graduated on Economic high school (2007), The College of Tourism in Belgrade
+    (2013), and also has a master degree of Psychology (Faculty of Philosophy, University
+    of Novi Sad). He has been engaged in different fields of psychology (Developmental
+    Psychology, Clinical Psychology, Educational Psychology and Industrial Psychology)
+    and has published several scientific works.
+
+
+    ![](bbox=[0.08, 0.34, 0.18, 0.49])
+
+
+    **Dan Piestun (PhD)** is currently a startup entrepreneur in Israel working on
+    the interface of Agriculture and Biomedical Sciences and was formerly president-CEO
+    of the National Institute of Agricultural Research (INIA) in Uruguay. Dan is a
+    widely published scientist who has received many honours during his career including
+    being a two-time recipient of the Amit Golda Meir Prize from the Hebrew University
+    of Jerusalem, his areas of expertise includes stem cell molecular biology, plant
+    and animal genetics and bioinformatics. Dan’s passion for applied science and
+    technological solutions did not stop him from pursuing a deep connection to the
+    farmer, his family and nature. Among some of his interest and practices counts
+    enjoying working as a beekeeper and onboard fishing.
+
+
+    ![](bbox=[0.08, 0.5, 0.18, 0.62])
+
+
+    **Hazem Shawky Fouda** has a PhD. in Agriculture Sciences, obtained his PhD. From
+    the Faculty of Agriculture, Alexandria University in 2008, He is working in Cotton
+    Arbitration & Testing General Organization (CATGO).
+
+
+    ![](bbox=[0.08, 0.63, 0.18, 0.75])
+
+
+    **Felecia Killings** is the Founder and CEO of LiyahAmore Publishing, a publishing
+    company committed to providing technical and educational services and products
+    to Christian Authors. She operates as the Senior Editor and Writer, the Senior
+    Writing Coach, the Content Marketing Specialist, Editor-in-Chief to the company’s
+    quarterly magazine, the Executive and Host of an international virtual network,
+    and the Executive Director of the company’s online school for Authors. She is
+    a former high-school English instructor and professional development professor.
+    She possesses a Master of Arts degree in Education and a Bachelor’s degree in
+    English and African American studies.
+
+
+    ![](bbox=[0.08, 0.76, 0.18, 0.88])
+
+
+    **Dr. Sandra El Hajj**, Ph.D. in Health Sciences from Nova Southeastern University,
+    Florida, USA is a health professional specialized in Preventive and Global Health.
+    With her 12 years of education obtained from one of the most prominent universities
+    in Beirut, in addition to two leading universities in the State of Florida (USA),
+    Dr. Sandra made sure to incorporate interdisciplinary and multicultural approaches
+    in her work. Her long years of studies helped her create her own miniature world
+    of knowledge linking together the healthcare field with Medical Research, Statistics,
+    Food Technology, Environmental & Occupational Health, Preventive Health and most
+    noteworthy her precious last degree of Global Health. Till today, she is the first
+    and only doctor specialized in Global Health in the Middle East area.'
+  merge: -1
+  pgno: 4
+- img_proc: false
+  md: '![](bbox=[0.08, 0.08, 0.19, 0.2])
+
+
+    **Fozia Parveen** has a Dphil in Sustainable Water Engineering from the University
+    of Oxford. Prior to this she has received MS in Environmental Sciences from National
+    University of Science and Technology (NUST), Islamabad Pakistan and BS in Environmental
+    Sciences from Fatima Jinnah Women University (FJWU), Rawalpindi.
+
+
+    ![](bbox=[0.08, 0.23, 0.19, 0.35])
+
+
+    **Igor Krunic** 2003-2007 in the School of Economics. After graduating in 2007,
+    he went on to study at The College of Tourism, at the University of Belgrade where
+    he got his bachelor degree in 2010. He was active as a third-year student representative
+    in the student parliament.Then he went on the Faculty of science, at the University
+    of Novi Sad where he successfully defended his master’s thesis in 2013. The crown
+    of his study was the work titled Opportunities for development of cultural tourism
+    in Cacak“. Later on, he became part of a multinational company where he got promoted
+    to a deputy director of logistic. Nowadays he is a consultant and writer of academic
+    subjects in the field of tourism.
+
+
+    ![](bbox=[0.08, 0.38, 0.19, 0.5])
+
+
+    **Dr. Jovan Pechevski** obtained his PhD in Computer Science from RMIT University
+    in Melbourne, Australia in 2007. His research interests include big data, business
+    intelligence and predictive analytics, data and information science, information
+    retrieval, XML, web services and service-oriented architectures, and relational
+    and NoSQL database systems. He has published over 30 journal and conference papers
+    and he also serves as a journal and conference reviewer. He is currently working
+    as a Dean and Associate Professor at European University in Skopje, Macedonia.
+
+
+    ![](bbox=[0.08, 0.53, 0.19, 0.65])
+
+
+    **Dr. Tanjina Nur** finished her PhD in Civil and Environmental Engineering in
+    2014 from University of Technology Sydney (UTS). Now she is working as Post-Doctoral
+    Researcher in the Centre for Technology in Water and Wastewater (CTWW) and published
+    about eight International journal papers with 80 citations. Her research interest
+    is wastewater treatment technology using adsorption process.
+
+
+    ![](bbox=[0.08, 0.68, 0.19, 0.8])
+
+
+    **Stephen** obtained his PhD from the University of North Carolina at Charlotte
+    in 2013 where his graduate research focused on cancer immunology and the tumor
+    microenvironment. He received postdoctoral training in regenerative and translational
+    medicine, specifically gastrointestinal tissue engineering, at the Wake Forest
+    Institute of Regenerative Medicine. Currently, Stephen is an instructor for anatomy
+    and physiology and biology at Forsyth Technical Community College.
+
+
+    ![](bbox=[0.08, 0.83, 0.19, 0.95])
+
+
+    **Michelle** holds a Masters of Business Administration from the University of
+    Phoenix, with a concentration in Human Resources Management. She is a professional
+    author and has had numerous articles published in the Henry County Times and has
+    written and revised several employee handbooks for various YMCA organizations
+    throughout the United States.'
+  merge: -1
+  pgno: 5
+- img_proc: false
+  md: '# HOW TO USE THE BOOK
+
+
+    This book has been divided into many chapters. Chapter gives the motivation for
+    this book and the use of templates. The text is presented in the simplest language.
+    Each paragraph has been arranged under a suitable heading for easy retention of
+    concept. Keywords are the words that academics use to reveal the internal structure
+    of an author''s reasoning. Review questions at the end of each chapter ask students
+    to review or explain the concepts. References provides the reader an additional
+    source through which he/she can obtain more information regarding the topic.
+
+
+    # LEARNING OBJECTIVES
+
+
+    See what you are going to cover and what you should already know at the start
+    of each chapter
+
+
+    ![](bbox=[0.5, 0.42, 0.68, 0.55])
+
+
+    ![](bbox=[0.7, 0.42, 0.92, 0.55])
+
+
+    # ABOUT THIS CHAPTER
+
+
+    An introduction is a beginning of section which states the purpose and goals of
+    the topics which are discussed in the chapter. It also starts the topics in brief.
+
+
+    # REMEMBER
+
+
+    This revitalizes a must read information of the topic.
+
+
+    ![](bbox=[0.5, 0.65, 0.92, 0.85])
+
+
+    # KEYWORDS
+
+
+    This section contains some important definitions that are discussed in the chapter.
+    A keyword is an index entry that identifies a specific record or document. It
+    also gives the extra information to the reader and an easy way to remember the
+    word definition.'
+  merge: -1
+  pgno: 6
+- img_proc: false
+  md: '# DID YOU KNOW?
+
+
+    This section equip readers the interesting facts and figures of the topic.
+
+
+    # EXAMPLE
+
+
+    The book cabinets'' examples to illustrate specific ideas in each chapter.
+
+
+    ![](bbox=[0.45, 0.11, 0.92, 0.35])
+
+
+    # ROLE MODEL
+
+
+    A biography of someone who has/had acquired remarkable success in their respective
+    field as Role Models are important because they give us the ability to imagine
+    our future selves.
+
+
+    ![](bbox=[0.45, 0.42, 0.65, 0.65])
+
+
+    ![](bbox=[0.68, 0.42, 0.92, 0.65])
+
+
+    # CASE STUDY
+
+
+    This reveals what students need to create and provide an opportunity for the development
+    of key skills such as communication, group working and problem solving.
+
+
+    # KNOWLEDGE CHECK
+
+
+    This is given to the students for progress check at the end of each chapter.
+
+
+    ![](bbox=[0.45, 0.66, 0.65, 0.9])
+
+
+    ![](bbox=[0.68, 0.66, 0.92, 0.9])
+
+
+    # REVIEW QUESTIONS
+
+
+    This section is to analyze the knowledge and ability of the reader.
+
+
+    # REFERENCES
+
+
+    References refer those books which discuss the topics given in the chapters in
+    almost same manner.'
+  merge: -1
+  pgno: 7
+- img_proc: false
+  md: '# TABLE OF CONTENTS
+
+
+    Preface xv
+
+
+    # Chapter 1 Introduction to Python 1
+
+
+    +   Introduction 1
+
+    1.1 Overview of Python 2
+
+    1.1.1 History of Python 3
+
+    1.1.2 Python Features 3
+
+    1.2 Python Environment Setup 4
+
+    1.2.1 Getting Python 5
+
+    1.2.2 Installing Python 5
+
+    1.2.3 Setting up PATH 6
+
+    1.2.4 Python Environment Variables 7
+
+    1.2.5 Running Python 8
+
+    1.3 Basic Syntax of Python 10
+
+    1.3.1 First Python Program 10
+
+    1.3.2 Python Identifiers 11
+
+    1.3.3 Reserved Words 11
+
+    1.3.4 Lines and Indentation 12
+
+    1.3.5 Multi-Line Statements 13
+
+    1.3.6 Quotation in Python 14
+
+    1.3.7 Comments in Python 14
+
+    1.3.8 Using Blank Lines 15
+
+    1.3.9 Waiting for the User 15
+
+    1.3.10 Multiple Statements on a Single Line 15
+
+    1.3.11 Multiple Statement Groups as Suites 15
+
+    1.3.12 Command Line Arguments 16
+
+    1.4 Python Variables 16
+
+    1.4.1 Assigning Values to Variables 16
+
+    1.4.2 Multiple Assignment 17'
+  merge: -1
+  pgno: 8
+- img_proc: false
+  md: '1.4.3 Standard Data Types 17
+
+    1.4.4 Data Type Conversion 22
+
+
+    # 1.5 Python Basic Operators 24
+
+
+    1.5.1 Types of Operator 24
+
+    1.5.2 Python Operators Precedence 28
+
+
+    Summary 33
+
+    Knowledge Check 34
+
+    Review Questions 35
+
+    References 36
+
+
+    # Chapter 2 Python Functions, Modules and Packages 37
+
+
+    Introduction 37
+
+
+    # 2.1 Function in Python 38
+
+
+    2.1.1 Syntax of Function 38
+
+    2.1.2 Docstring 39
+
+    2.1.3 The Return Statement 40
+
+    2.1.4 How Function works in Python? 41
+
+    2.1.5 Python Function Arguments 41
+
+    2.1.6 The Anonymous Functions 45
+
+    2.1.7 The Return Statement 46
+
+
+    # 2.2 Python Modules 46
+
+
+    2.2.1 More on Modules 48
+
+    2.2.2 Standard Modules 51
+
+
+    # 2.3 Python Packages 54
+
+
+    2.3.1 Importing* From a Package 56
+
+    2.3.2 Intra-package References 57
+
+    2.3.3 Packages in Multiple Directories 58
+
+
+    Summary 59
+
+    Knowledge Check 60
+
+    Review Questions 61
+
+    References 62
+
+
+    # Chapter 3 Dictionaries, Sets, and Files 63
+
+
+    Introduction 63
+
+
+    # 3.1 Python Dictionaries 64
+
+
+    3.1.1 Accessing Dictionary Elements 65
+
+    3.1.2 Modifying Dictionaries 68'
+  merge: -1
+  pgno: 9
+- img_proc: false
+  md: '+   3.1.3 The dict() Constructor 73
+
+    3.1.4 Dictionary Methods 73
+
+    3.1.5 Aliasing and Copying 74
+
+
+    # 3.2 Python Sets 75
+
+
+    +   3.2.1 Defining a Set 75
+
+    3.2.2 Set Size and Membership 79
+
+    3.2.3 Methods for Sets 79
+
+    3.2.4 Creating a Set 80
+
+    3.2.5 Accessing Values in a Set 81
+
+    3.2.6 Adding Items to a Set 81
+
+    3.2.7 Removing Item from a Set 81
+
+    3.2.8 Union of Sets 82
+
+    3.2.9 Intersection of Sets 82
+
+    3.2.10 Difference of Sets 83
+
+    3.2.11 Compare Sets 83
+
+
+    # 3.3 Files 83
+
+
+    +   3.3.1 The open function 84
+
+    3.3.2 Opening a File that Doesn''t Exist 86
+
+    3.3.3 Reading Data from Files 86
+
+
+    # Summary 92
+
+
+    # Knowledge Check 93
+
+
+    # Review Questions 94
+
+
+    # References 95
+
+
+    # Chapter 4 Exceptions, Unit Testing and Comprehensions 97
+
+
+    # Introduction 97
+
+
+    # 4.1 Exceptions 98
+
+
+    +   4.1.1 Handling Exceptions 99
+
+    4.1.2 Raising Exceptions 103
+
+    4.1.3 User-defined Exceptions 104
+
+    4.1.4 Defining Clean-up Actions 106
+
+    4.1.5 Predefined Clean-up Actions 107
+
+
+    # 4.2 Unit testing 108
+
+
+    +   4.2.1 Basic example 109
+
+    4.2.2 Command-Line Interface 111
+
+    4.2.3 Test Discovery 112
+
+    4.2.4 Organizing test code 113
+
+    4.2.5 Re-using old test code 117'
+  merge: -1
+  pgno: 10
+- img_proc: false
+  md: '4.2.6 Skipping tests and expected failures 118
+
+
+    **4.3 Comprehensions** 120
+
+
+    4.3.1 List Comprehensions 120
+
+
+    4.3.2 Dict Comprehensions 121
+
+
+    4.3.3 Set Comprehensions 121
+
+
+    4.3.4 Generator Comprehensions 121
+
+
+    **Summary** 129
+
+
+    **Knowledge Check** 130
+
+
+    **Review Questions** 131
+
+
+    **References** 132
+
+
+    # # Chapter 5 Object Oriented Programming 133
+
+
+    **Introduction** 133
+
+
+    **5.1 Introduction of OOPS In Python** 135
+
+
+    5.1.1 Classes in Python 135
+
+
+    5.1.2 Python Objects (Instances) 136
+
+
+    5.1.3 Instantiating Objects 138
+
+
+    5.1.4 Instance Methods 140
+
+
+    5.1.5 Python Object Inheritance 141
+
+
+    **5.2 Methods of OOPS** 147
+
+
+    5.2.1 Inheritance 148
+
+
+    5.2.2 Encapsulation 151
+
+
+    5.2.3 Polymorphism 155
+
+
+    5.2.4 Abstraction 159
+
+
+    **Summary** 168
+
+
+    **Knowledge Check** 169
+
+
+    **Review Questions** 170
+
+
+    **References** 171
+
+
+    # # Chapter 6 Python Regular Expression 173
+
+
+    **Introduction** 173
+
+
+    **6.1 Regex Search and Match** 174
+
+
+    6.1.1 The Match Function 176
+
+
+    6.1.2 The Search Function 177
+
+
+    6.1.3 Matching Versus Searching 179
+
+
+    6.1.4 Search and Replace 180
+
+
+    **6.2 Regular Expression Modifiers: Option Flags** 180'
+  merge: -1
+  pgno: 11
+- img_proc: false
+  md: '6.2.1 Regular Expression Patterns 181
+
+
+    6.2.2 Regular Expression Examples 184
+
+
+    Summary 197
+
+
+    Knowledge Check 198
+
+
+    Review Questions 199
+
+
+    References 200
+
+
+    # Chapter 7 Python Multithreading 201
+
+
+    Introduction 201
+
+
+    7.1 Python Threading – Python Multithreading 202
+
+
+    7.1.1 Getting Started with Python Multithreading 203
+
+
+    7.1.2 Python Multithreading Modules for Thread Implementation 204
+
+
+    7.1.3 Difference between Multiprocessing and Multithreading 204
+
+
+    7.2 Functions in Python Multithreading 206
+
+
+    7.2.1 Thread-Local Data 208
+
+
+    7.2.2 Thread Objects 209
+
+
+    7.2.3 Lock Objects 212
+
+
+    7.2.4 RLock Objects 213
+
+
+    7.2.5 Condition Objects 214
+
+
+    7.2.6 Semaphore Objects 216
+
+
+    7.2.7 Event Objects 218
+
+
+    7.2.8 Timer Objects 219
+
+
+    7.2.9 Barrier Objects 220
+
+
+    7.2.10 Using locks, Conditions, and Semaphores in the with-statement 221
+
+
+    Summary 224
+
+
+    Knowledge Check 225
+
+
+    Review Questions 226
+
+
+    References 227
+
+
+    # Chapter 8 Operations in Python 229
+
+
+    Introduction 229
+
+
+    8.1 Python - Decision Making 230
+
+
+    8.1.1 Python if Statement 231
+
+
+    8.1.2 Python if-else Statement 233
+
+
+    8.1.3 Python if-elif ladder 235
+
+
+    8.1.4 Python Nested if statement 237
+
+
+    8.2 Python - Loops 239
+
+
+    8.2.1 The range() function 241'
+  merge: -1
+  pgno: 12
+- img_proc: false
+  md: '+   8.2.2 for loop with else 243
+
+    8.2.3 Loop Control Statements 244
+
+
+    # 8.3 Python - Numbers 244
+
+
+    +   8.3.1 Number Type Conversion 246
+
+    8.3.2 Mathematical Functions 246
+
+    8.3.3 Random Number Functions 248
+
+    8.3.4 Trigonometric Functions 248
+
+    8.3.5 Mathematical Constants 249
+
+
+    # 8.4 Python - Strings 249
+
+
+    +   8.4.1 Accessing Values in Strings 250
+
+    8.4.2 Updating Strings 250
+
+    8.4.3 Escape Characters 250
+
+    8.4.4 String Special Operators 251
+
+    8.4.5 String Formatting Operator 252
+
+    8.4.6 Triple Quotes 253
+
+    8.4.7 Unicode String 255
+
+    8.4.8 Built-in String Methods 255
+
+
+    # 8.5 Python - Lists 259
+
+
+    +   8.5.1 Accessing Values in Lists 259
+
+    8.5.2 Updating Lists 260
+
+    8.5.3 Delete List Elements 261
+
+    8.5.4 Basic List Operations 261
+
+    8.5.5 Indexing, Slicing, and Matrixes 262
+
+    8.5.6 Built-in List Functions & Methods 262
+
+
+    # 8.6 Python - Tuples 263
+
+
+    +   8.6.1 Accessing Values in Tuples 264
+
+    8.6.2 Updating Tuples 264
+
+    8.6.3 Delete Tuple Elements 265
+
+    8.6.4 Basic Tuples Operations 266
+
+    8.6.5 Indexing, Slicing, and Matrixes 266
+
+    8.6.6 No Enclosing Delimiters 266
+
+    8.6.7 Built-in Tuple Functions 267
+
+
+    # 8.7 Python - Date & Time 267
+
+
+    +   8.7.1 Getting Current Time 269
+
+    8.7.2 Getting formatted time 270
+
+    8.7.3 Getting calendar for a month 270
+
+    8.7.4 The time Module 271
+
+    8.7.5 The calendar Module 272
+
+
+    # Summary 275'
+  merge: -1
+  pgno: 13
+- img_proc: false
+  md: 'Knowledge Check 276
+
+    Review Questions 277
+
+    References 278
+
+
+    # Chapter 9 Python Database Programming 279
+
+
+    Introduction 279
+
+
+    9.1 DB-API (SQL-API) for Python 281
+
+
+    +   9.1.1 Connection Objects 281
+
+    9.1.2 Cursor objects 282
+
+    9.1.3 Error and Exception Handling in DB-API 283
+
+    9.1.4 Python and MySQL 285
+
+    9.1.5 More SQL operations 286
+
+    9.1.6 Python MySQL – Create Database 289
+
+
+    9.2 MySQL with Python 290
+
+
+    +   9.2.1 Comparing MySQL to Other SQL Databases 291
+
+    9.2.2 Installing MySQL Server and MySQL Connector/Python 293
+
+    9.2.3 Establishing a Connection with MySQL Server 295
+
+
+    9.3 Creating, Altering, and Dropping a Table 300
+
+
+    +   9.3.1 Defining the Database Schema 301
+
+    9.3.2 Creating Tables Using the CREATE TABLE Statement 302
+
+    9.3.3 Showing a Table Schema Using the DESCRIBE Statement 305
+
+    9.3.4 Modifying a Table Schema Using the ALTER Statement 306
+
+    9.3.5 Deleting Tables Using the DROP Statement 308
+
+
+    9.4 Inserting Records in Tables 308
+
+
+    +   9.4.1 Using .execute() 308
+
+    9.4.2 Using .executemany() 310
+
+    9.4.3 Reading Records from the Database 313
+
+    9.4.4 Handling Multiple Tables Using the JOIN Statement 318
+
+
+    9.5 Updating and Deleting Records from the Database 320
+
+
+    +   9.5.1 Update Command 320
+
+    9.5.2 Delete Command 328
+
+    9.5.3 Other Ways to Connect Python and MySQL 329
+
+
+    Summary 332
+
+    Knowledge Check 333
+
+    Review Questions 334
+
+    References 335
+
+
+    # Index 337'
+  merge: -1
+  pgno: 14
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 15
+- img_proc: false
+  md: '# PREFACE
+
+
+    Python is an interpreted, object-oriented, high-level programming language with
+    dynamic semantics. Its high-level built in data structures, combined with dynamic
+    typing and dynamic binding, make it very attractive for Rapid Application Development,
+    as well as for use as a scripting or glue language to connect existing components
+    together. Its high-level built in data structures, combined with dynamic typing
+    and dynamic binding; make it very attractive for Rapid Application Development,
+    as well as for use as a scripting or glue language to connect existing components
+    together. Python has become one of the most popular programming languages in the
+    world in recent years. It''s used in everything from machine learning to building
+    websites and software testing. It can be used by developers and non-developers
+    alike.
+
+
+    **Organization of the Book**
+
+    This edition is organized into nine chapters. This is a comprehensive guide on
+    how to get started in Python, why you should learn it and how you can learn it.
+    This hands-on guide takes you through the language a step at a time, beginning
+    with basic programming concepts including with functions, recursion, data structures,
+    and object-oriented design.
+
+    **Chapter 1** presents an introduction to Python. You will learn the Python environment
+    setup, syntax of Python and Python variables. Basic operators of Python are also
+    discussed.
+
+    **Chapter 2** aims to focus on Python functions, modules and packages. In Python,
+    function is a group of related statements that perform a specific task. Functions
+    help break our program into smaller and modular parts. It also describes the python
+    modules and python packages.'
+  merge: -1
+  pgno: 16
+- img_proc: false
+  md: '**Chapter 3** begins with python dictionaries. It also explains Python sets
+    and files used in Python. They can be used to read and write text memos, audio
+    clips, Excel documents, saved email messages, and whatever else you happen to
+    have stored on your machine.
+
+
+    **Chapter 4** gives an overview of how to use the exceptions? Further, it explains
+    the unit testing used to validate that each unit of the software performs as designed.
+    In last, the chapter focuses on understanding the comprehensions that allow sequences
+    to be built from other sequences.
+
+
+    **Chapter 5** is aimed to discuss the use of OOPS in python, including various
+    types of methods of OOPS. The programming challenge was seen as how to write the
+    logic, not how to define the data. Object-oriented programming takes the view
+    that what we really care about are the objects we want to manipulate rather than
+    the logic required to manipulate them.
+
+
+    **Chapter 6** focuses on Python regular expression that helps you match or find
+    other strings or sets of strings, using a specialized syntax held in a pattern.
+
+
+    **Chapter 7** discusses about Python Multithreading used to implement multithreading
+    in python programs and also used to run multiple threads (tasks, function calls)
+    at the same time.
+
+
+    **Chapter 8** focuses on operations in Python. Python is a powerful general-purpose
+    programming language. It is used in web development, data science, creating software
+    prototypes, and so on. Fortunately for beginners, Python has simple easy-to-use
+    syntax. This makes Python an excellent language to learn to program for beginners.
+
+
+    **Chapter 9** sheds light on Python database programming. A database program is
+    the heart of a business information system and provides file creation, data entry,
+    update, query and reporting functions.'
+  merge: -1
+  pgno: 17
+- img_proc: false
+  md: "# # CHAPTER 1\n# INTRODUCTION TO PYTHON\n\n> > “Now, it’s my belief that Python\
+    \ is a lot easier than to teach to students programming and teach them C or C++\
+    \ or Java at the same time because all the details of the languages are so much\
+    \ harder. Other scripting languages really don’t work very well there either.”\n\
+    > \n> —Guido van Rossum\n\n+   ### LEARNING OBJECTIVES\n\nAfter studying this\
+    \ chapter, you will be able to:\n1. Overview the Python\n2. Learn about Python\
+    \ environment setup\n3. Describe the basic syntax of Python\n4. Understand Python\
+    \ variables\n5. Discuss about basic operators of Python\n\n![](bbox=[0.35, 0.54,\
+    \ 0.91, 0.8])\n\n# ## INTRODUCTION\n\nPython is a general-purpose, versatile,\
+    \ and powerful programming language. It’s a great first language because it’s\
+    \ concise and easy to read. Whatever you want to do,"
+  merge: -1
+  pgno: 18
+- img_proc: false
+  md: 'Python can do it. From web development to machine learning to data science,
+    Python is the language for you.
+
+
+    Python is a high-level, interpreted, interactive and object-oriented scripting
+    language. Python is designed to be highly readable. It uses English keywords frequently
+    where as other languages use punctuation, and it has fewer syntactical constructions
+    than other languages.
+
+
+    Python is a MUST for students and working professionals to become a great Software
+    Engineer specially when they are working in Web Development Domain. It will list
+    down some of the key advantages of learning Python:
+
+
+    +   - Python is Interpreted – Python is processed at runtime by the interpreter.
+    You do not need to compile your program before executing it. This is similar to
+    PERL and PHP.
+
+    - Python is Interactive – You can actually sit at a Python prompt and interact
+    with the interpreter directly to write your programs.
+
+    - Python is Object-Oriented – Python supports Object-Oriented style or technique
+    of programming that encapsulates code within objects.
+
+    - Python is a Beginner’s Language – Python is a great language for the beginner-level
+    programmers and supports the development of a wide range of applications from
+    simple text processing to WWW browsers to games.
+
+
+    # 1.1 OVERVIEW OF PYTHON
+
+
+    Python is a high-level, interpreted, interactive and object-oriented scripting
+    language. Python is designed to be highly readable. It uses English keywords frequently
+    where as other languages use punctuation, and it has fewer syntactical constructions
+    than other languages.
+
+
+    +   - **Python is Interpreted** – Python is processed at runtime by the interpreter.
+    You do not need to compile your program before executing it. This is similar to
+    PERL and PHP.
+
+    - **Python is Interactive** – You can actually sit at a Python prompt and interact
+    with the interpreter directly to write your programs.
+
+    - **Python is Object-Oriented** – Python supports Object-Oriented style or technique
+    of programming that encapsulates code within objects.
+
+    - **Python is a Beginner’s Language** – Python is a great language for the beginner-level
+    programmers and supports the development of a wide range of applications from
+    simple text processing to WWW browsers to games.'
+  merge: -1
+  pgno: 19
+- img_proc: false
+  md: '# 1.1.1 History of Python
+
+
+    Python was developed by Guido van Rossum in the late eighties and early nineties
+    at the National Research Institute for Mathematics and Computer Science in the
+    Netherlands
+
+
+    Python is derived from many other languages, including ABC, Modula-3, C, C++,
+    Algol-68, SmallTalk, and Unix shell and other scripting languages.
+
+
+    Python is copyrighted. Like Perl, Python source code is now available under the
+    GNU General Public License (GPL).
+
+
+    Python is now maintained by a core development team at the institute, although
+    Guido van Rossum still holds a vital role in directing its progress.
+
+
+    # 1.1.2 Python Features
+
+
+    Python’s features include –
+
+
+    +   - **Easy-to-learn** – Python has few keywords, simple structure, and a clearly
+    defined syntax. This allows the student to pick up the language quickly.
+
+    - **Easy-to-read** – Python code is more clearly defined and visible to the eyes.
+
+    - **Easy-to-maintain** – Python’s source code is fairly easy-to-maintain.
+
+    - **A broad standard library** – Python’s bulk of the library is very portable
+    and cross-platform compatible on UNIX, Windows, and Macintosh.
+
+    - **Interactive Mode** – Python has support for an interactive mode which allows
+    interactive testing and debugging of snippets of code.
+
+    - **Portable** – Python can run on a wide variety of hardware platforms and has
+    the same interface on all platforms.
+
+    - **Extendable** – You can add low-level modules to the Python interpreter. These
+    modules enable programmers to add to or customize their tools to be more efficient.
+
+    - **Databases** – Python provides interfaces to all major commercial databases.
+
+
+    > Created by Guido van Rossum and first released in 1991, Python has a design
+    philosophy that emphasizes code readability, notably using significant whitespace.
+    It provides constructs that enable clear programming on both small and large scales.
+    In July 2018, Van Rossum stepped down as the leader in the language community
+    after 30 years.'
+  merge: -1
+  pgno: 20
+- img_proc: false
+  md: '# Basic Computer Coding: Python
+
+
+    ![](bbox=[0.18, 0.12, 0.28, 0.2])
+
+
+    Java is a programming language that produces software for multiple platforms.
+
+
+    +   - **GUI Programming** – Python supports GUI applications that can be created
+    and ported to many system calls, libraries and windows systems, such as Windows
+    MFC, Macintosh, and the X Window system of Unix.
+
+    - **Scalable** – Python provides a better structure and support for large programs
+    than shell scripting.
+
+
+    Apart from the above-mentioned features, Python has a big list of good features,
+    few are listed below –
+
+
+    +   - It supports functional and structured programming methods as well as OOP.
+
+    - It can be used as a scripting language or can be compiled to byte-code for building
+    large applications.
+
+    - It provides very high-level dynamic data types and supports dynamic type checking.
+
+    - It supports automatic garbage collection.
+
+    - It can be easily integrated with C, C++, COM, ActiveX, CORBA, and **Java**.
+
+
+    # 1.2 PYTHON ENVIRONMENT SETUP
+
+
+    Python is available on a wide variety of platforms including Linux and Mac OS
+    X. Let’s understand how to set up our Python environment.
+
+
+    Open a terminal window and type “python” to find out if it is already installed
+    and which version is installed.
+
+
+    +   - Unix (Solaris, Linux, FreeBSD, AIX, HP/UX, SunOS, IRIX, etc.)
+
+    - Win 9x/NT/2000
+
+    - Macintosh (Intel, PPC, 68K)
+
+    - OS/2
+
+    - DOS (multiple versions)
+
+    - PalmOS
+
+    - Nokia mobile phones
+
+    - Windows CE
+
+    - Acorn/RISC OS
+
+    - BeOS
+
+    - Amiga'
+  merge: -1
+  pgno: 21
+- img_proc: false
+  md: '+   - VMS/OpenVMS
+
+    - QNX
+
+    - VxWorks
+
+    - Psion
+
+    - Python has also been ported to the Java and .NET virtual machines
+
+
+    # 1.2.1 Getting Python
+
+
+    The most up-to-date and current source code, binaries, documentation, news, etc.,
+    is available on the official website of Python https://www.python.org/
+
+    You can download Python documentation from https://www.python.org/doc/. The documentation
+    is available in HTML, PDF, and PostScript formats.
+
+
+    # 1.2.2 Installing Python
+
+
+    Python distribution is available for a wide variety of platforms. You need to
+    download only the binary code applicable for your platform and install Python.
+
+    If the binary code for your platform is not available, you need a C compiler to
+    compile the source code manually. Compiling the source code offers more flexibility
+    in terms of choice of features that you require in your installation.
+
+    Here is a quick overview of installing Python on various platforms –
+
+
+    # Unix and Linux Installation
+
+
+    Here are the simple steps to install Python on Unix/Linux machine.
+
+
+    +   - Open a Web browser and go to https://www.python.org/downloads/.
+
+    - Follow the link to download zipped source code available for Unix/Linux.
+
+    - Download and extract files.
+
+    - Editing the *Modules/Setup* file if you want to customize some options.
+
+    - run ./configure script
+
+    - make
+
+    - make install
+
+
+    This installs Python at standard location */usr/local/bin* and its libraries at
+    */usr/local/lib/pythonXX* where XX is the version of Python.'
+  merge: -1
+  pgno: 22
+- img_proc: false
+  md: '# Windows Installation
+
+
+    Here are the steps to install Python on Windows machine.
+
+
+    +   - Open a Web browser and go to https://www.python.org/downloads/.
+
+    - Follow the link for the Windows installer *python-XYZ.msi* file where XYZ is
+    the version you need to install.
+
+    - To use this installer *python-XYZ.msi*, the Windows system must support Microsoft
+    Installer 2.0. Save the installer file to your local machine and then run it to
+    find out if your machine supports MSI.
+
+    - Run the downloaded file. This brings up the Python install wizard, which is
+    really easy to use. Just accept the default settings, wait until the install is
+    finished, and you are done.
+
+
+    ![](bbox=[0.09, 0.32, 0.26, 0.52])
+
+
+    # Macintosh Installation
+
+
+    Recent Macs come with Python installed, but it may be several years out of date.
+    See http://www.python.org/download/mac/ for instructions on getting the current
+    version along with extra tools to support development on the Mac. For older Mac
+    OS''s before Mac OS X 10.3 (released in 2003), MacPython is available.
+
+
+    Jack Jansen maintains it and you can have full access to the entire documentation
+    at his website - http://www.cwi.nl/~jack/macpython.html. You can find complete
+    installation details for Mac OS installation.
+
+
+    # 1.2.3 Setting up PATH
+
+
+    Programs and other executable files can be in many directories, so operating systems
+    provide a search path that lists the directories that the OS searches for executables.
+
+
+    The path is stored in an environment variable, which is a named string maintained
+    by the operating system. This variable contains information available to the command
+    shell and other programs.
+
+
+    The **path** variable is named as PATH in **Unix** or Path in Windows (Unix is
+    case sensitive; Windows is not).
+
+
+    In Mac OS, the installer handles the path details. To invoke'
+  merge: -1
+  pgno: 23
+- img_proc: false
+  md: 'the Python interpreter from any particular directory, you must .add the Python
+    directory to your path
+
+
+    # Setting path at Unix/Linux
+
+
+    To add the Python directory to the path for a particular session in Unix –
+
+
+    +   - **In the csh shell** – type setenv PATH “$PATH:/usr/local/bin/python” and
+    press Enter.
+
+    - **In the bash shell (Linux)** – type export ATH=”$PATH:/usr/local/bin/python”
+    and press Enter.
+
+    - **In the sh or ksh shell** – type PATH=”$PATH:/usr/local/bin/python” and press
+    Enter.
+
+    - **Note** – /usr/local/bin/python is the path of the Python directory
+
+
+    ![](bbox=[0.75, 0.18, 0.95, 0.35])
+
+
+    # Setting path at Windows
+
+
+    To add the Python directory to the path for a particular session – in Windows
+
+
+    **At the command prompt** – type path %path%;C:\Python .and press Enter
+
+
+    # 1.2.4 Python Environment Variables
+
+
+    Here are important environment variables, which can be recognized by Python –
+
+
+    | Sr.No. | Variable & Description |
+
+    |---|---|
+
+    | 1 | **PYTHONPATH**<br>It has a role similar to PATH. This variable tells the
+    Python interpreter where to locate the module files imported into a program. It
+    should include the Python source library directory and the directories containing
+    Python source code. PYTHONPATH is sometimes preset by the Python installer. |
+
+    | 2 | **PYTHONSTARTUP**<br>It contains the path of an initialization file containing
+    Python source code. It is executed every time you start the interpreter. It is
+    named as .pythonrc.py in Unix and it contains commands that load utilities or
+    modify PYTHONPATH. |'
+  merge: -1
+  pgno: 24
+- img_proc: false
+  md: '| 3 | PYTHONCASEOK |
+
+    |---|---|
+
+    | | It is used in Windows to instruct Python to find the first case-insensitive
+    match in an import statement. Set this variable to any value to activate it. |
+
+    | 4 | PYTHONHOME |
+
+    | | It is an alternative module search path. It is usually embedded in the PYTHONSTARTUP
+    or PYTHONPATH directories to make switching module libraries easy. |
+
+
+    # 1.2.5 Running Python
+
+
+    There are three different ways to start Python –
+
+
+    # Interactive Interpreter
+
+
+    You can start Python from Unix, DOS, or any other system that provides you a command-line
+    interpreter or shell window.
+
+
+    Enter **python** the command line.
+
+    Start coding right away in the interactive interpreter.
+
+    $python # Unix/Linux
+
+    or
+
+    python% # Unix/Linux
+
+    or
+
+    C:> python # Windows/DOS
+
+
+    Here is the list of all the available command line options –
+
+
+    | Sr.No. | Option & Description |
+
+    |---|---|
+
+    | 1 | -d |
+
+    | | It provides debug output. |
+
+    | 2 | -O |
+
+    | | It generates optimized bytecode (resulting in .pyo files). |
+
+    | 3 | -S |
+
+    | | Do not run import site to look for Python paths on startup. |
+
+    | 4 | -v |
+
+    | | verbose output (detailed trace on import statements). |'
+  merge: -1
+  pgno: 25
+- img_proc: false
+  md: '| 5 | -X |
+
+    |---|---|
+
+    | | disable class-based built-in exceptions (just use strings); obsolete starting
+    with version 1.6. |
+
+    | 6 | -c cmd |
+
+    | | run Python script sent in as cmd string |
+
+    | 7 | file |
+
+    | | run Python script from given file |
+
+
+    # Script from the Command-line
+
+
+    A Python script can be executed at command line by invoking the interpreter on
+    your application, as in the following –
+
+
+    ```
+
+    $python script.py # Unix/Linux
+
+    or
+
+    python% script.py # Unix/Linux
+
+    or
+
+    C: >python script.py # Windows/DOS
+
+    ```
+
+
+    **Note** – Be sure the file permission mode allows execution.
+
+
+    # Integrated Development Environment
+
+
+    You can run Python from a Graphical User Interface (GUI) environment as well,
+    if you have a GUI application on your system that supports Python.
+
+
+    +   - **Unix** – IDLE is the very first Unix IDE for Python.
+
+    - **Windows** – PythonWin is the first Windows interface for Python and is an
+    IDE with a GUI.
+
+    - **Macintosh** – The Macintosh version of Python along with the IDLE IDE is available
+    from the main website, downloadable as either MacBinary or BinHex’d files.
+
+    - If you are not able to set up the environment properly, then you can take help
+    from your system admin. Make sure the Python environment is properly set up and
+    working perfectly fine.
+
+
+    **Note** – All the examples given in subsequent chapters are executed with Python
+    2.4.3 version available on CentOS flavor of Linux.
+
+
+    ![](bbox=[0.7, 0.56, 0.91, 0.76])'
+  merge: -1
+  pgno: 26
+- img_proc: false
+  md: 'We already have set up Python Programming environment online, so that you can
+    execute all the available examples online at the same time when you are learning
+    theory. Feel free to modify any example and execute it online.
+
+
+    # 1.3 BASIC SYNTAX OF PYTHON
+
+
+    The Python language has many similarities to **Perl**, C, and Java. However, there
+    are some definite differences between the languages.
+
+
+    # 1.3.1 First Python Program
+
+
+    Let us execute programs in different modes of programming.
+
+
+    # Interactive Mode Programming
+
+
+    Invoking the interpreter without passing a script file as a parameter brings up
+    the following prompt –
+
+
+    ```
+
+    $ python
+
+    Python 2.4.3 (#1, Nov 11 2010, 13:34:43)
+
+    [GCC 4.1.2 20080704 (Red Hat 4.1.2-48)] on linux2
+
+    Type "help", "copyright", "credits" or "license" for more information.
+
+    >>>
+
+    Type the following text at the Python prompt and press the Enter –
+
+    >>> print "Hello, Python!"
+
+    ```
+
+
+    If you are running new version of Python, then you would need to use print statement
+    with parenthesis as in **print ("Hello, Python!")**;. However in Python version
+    2.4.3, this produces the following result –
+
+
+    ```
+
+    Hello, Python!
+
+    ```
+
+
+    # Script Mode Programming
+
+
+    Invoking the interpreter with a script parameter begins execution of the script
+    and continues until the script is finished. When the script is finished, the interpreter
+    is no longer active.
+
+
+    Let us write a simple Python program in a script. Python files have extension
+    **.py**. Type the following source code in a test.py file –
+
+
+    ```
+
+    print "Hello, Python!"
+
+    ```
+
+
+    We assume that you have Python interpreter set in PATH variable. Now, try to run
+    this program as follows –'
+  merge: -1
+  pgno: 27
+- img_proc: false
+  md: '```
+
+    $ python test.py
+
+    This produces the following result –
+
+    Hello, Python!
+
+    Let us try another way to execute a Python script. Here is the modified test.py
+    file –
+
+    #!/usr/bin/python
+
+    print "Hello, Python!"
+
+    We assume that you have Python interpreter available in /usr/bin directory. Now,
+    try to run this program as follows –
+
+    $ chmod +x test.py    # This is to make file executable
+
+    $./test.py
+
+    This produces the following result –
+
+    Hello, Python!
+
+    ```
+
+
+    # 1.3.2 Python Identifiers
+
+
+    A Python identifier is a name used to identify a variable, function, class, module
+    or other object. An identifier starts with a letter A to Z or a to z or an underscore
+    (_) followed by zero or more letters, underscores and digits (0 to 9).
+
+    Python does not allow punctuation characters such as @, $, and % within identifiers.
+    Python is a case sensitive programming language. Thus, **Manpower** and **manpower**
+    are two different identifiers in Python.
+
+    Here are naming conventions for Python identifiers –
+
+
+    +   - Class names start with an uppercase letter. All other identifiers start
+    with a lowercase letter.
+
+    - Starting an identifier with a single leading underscore indicates that the identifier
+    is private.
+
+    - Starting an identifier with two leading underscores indicates a strongly private
+    identifier.
+
+    - If the identifier also ends with two trailing underscores, the identifier is
+    a language-defined special name.
+
+
+    # 1.3.3 Reserved Words
+
+
+    The following list shows the Python keywords. These are reserved words and you
+    cannot use them as constant or variable or any other identifier names. All the
+    Python keywords contain lowercase letters only.'
+  merge: -1
+  pgno: 28
+- img_proc: false
+  md: "# Basic Computer Coding: Python\n\n| and | exec | not |\n| --- | --- | ---\
+    \ |\n| assert | finally | or |\n| break | for | pass |\n| class | from | print\
+    \ |\n| continue | global | raise |\n| def | if | return |\n| del | import | try\
+    \ |\n| elif | in | while |\n| else | is | with |\n| except | lambda | yield |\n\
+    \n# 1.3.4 Lines and Indentation\n\nPython provides no braces to indicate blocks\
+    \ of code for class and function definitions or flow control. Blocks of code are\
+    \ denoted by line indentation, which is rigidly enforced.\n\nThe number of spaces\
+    \ in the indentation is variable, but all statements within the block must be\
+    \ indented the same amount. For example –\n\n```\nif True:\n    print \"True\"\
+    \nelse:\n    print \"False\"\n```\n\nHowever, the following block generates an\
+    \ error –\n\n```\nif True:\nprint \"Answer\"\nprint \"True\"\nelse:\nprint \"\
+    Answer\"\nprint \"False\"\n```\n\nThus, in Python all the continuous lines indented\
+    \ with same number of spaces would form a block. The following example has various\
+    \ statement blocks –\n\n```\n#!/usr/bin/python\nimport sys\n```\n\n> Do not try\
+    \ to understand the logic at this point of time. Just make sure you understood\
+    \ various blocks even if they are without braces."
+  merge: -1
+  pgno: 29
+- img_proc: false
+  md: "```\ntry:\n    # open file stream\n    file = open(file_name, \"w\")\nexcept\
+    \ IOError:\n    print \"There was an error writing to\", file_name\n    sys.exit()\n\
+    print \"Enter \", file_finish,\nprint \"' When finished\"\nwhile file_text !=\
+    \ file_finish:\n    file_text = raw_input(\"Enter text: \")\n    if file_text\
+    \ == file_finish:\n        # close the file\n        file.close\n        break\n\
+    \    file.write(file_text)\n    file.write(\"\\n\")\nfile.close()\nfile_name =\
+    \ raw_input(\"Enter filename: \")\nif len(file_name) == 0:\n    print \"Next time\
+    \ please enter something\"\n    sys.exit()\ntry:\n    file = open(file_name, \"\
+    r\")\nexcept IOError:\n    print \"There was an error reading file\"\n    sys.exit()\n\
+    file_text = file.read()\nfile.close()\nprint file_text\n```\n\n# 1.3.5 Multi-Line\
+    \ Statements\n\nStatements in Python typically end with a new line. Python does,\
+    \ however, allow the use of the line continuation character (\\) to denote that\
+    \ the line should continue. For"
+  merge: -1
+  pgno: 30
+- img_proc: false
+  md: "example –\n\n```\ntotal = item_one + \\n        item_two + \\n        item_three\n\
+    ```\n\nStatements contained within the [], {}, or () brackets do not need to use\
+    \ the line continuation character. For example –\n\n```\ndays = ['Monday', 'Tuesday',\
+    \ 'Wednesday',\n        'Thursday', 'Friday']\n```\n\n# 1.3.6 Quotation in Python\n\
+    \nPython accepts single ('), double (\") and triple (''' or \"\"\") quotes to\
+    \ denote string literals, as long as the same type of quote starts and ends the\
+    \ string.\n\nThe triple quotes are used to span the string across multiple lines.\
+    \ For example, all the following are legal –\n\n```\nword = 'word'\nsentence =\
+    \ \"This is a sentence.\"\nparagraph = \"\"\"This is a paragraph. It is\nmade\
+    \ up of multiple lines and sentences.\"\"\"\n```\n\n# 1.3.7 Comments in Python\n\
+    \nA hash sign (#) that is not inside a string literal begins a comment. All characters\
+    \ after the # and up to the end of the physical line are part of the comment and\
+    \ the Python interpreter ignores them.\n\n```\n#!/usr/bin/python\n# First comment\n\
+    print \"Hello, Python!\" # second comment\n```\n\nThis produces the following\
+    \ result –\n\nHello, Python!\n\nYou can type a comment on the same line after\
+    \ a statement or expression –\n\n```\nname = \"Madisetti\" # This is again comment\n\
+    ```\n\nYou can comment multiple lines as follows –\n\n```\n# This is a comment.\n\
+    # This is a comment, too.\n```"
+  merge: -1
+  pgno: 31
+- img_proc: false
+  md: '```
+
+    # This is a comment, too.
+
+    # I said that already.
+
+    ```
+
+
+    # 1.3.8 Using Blank Lines
+
+
+    A line containing only whitespace, possibly with a comment, is known as a blank
+    line and Python totally ignores it.
+
+    In an interactive interpreter session, you must enter an empty physical line to
+    terminate a multiline statement.
+
+
+    # 1.3.9 Waiting for the User
+
+
+    The following line of the program displays the prompt, the statement saying “Press
+    the enter key to exit”, and waits for the user to take action –
+
+
+    ```
+
+    #!/usr/bin/python
+
+    raw_input("\n\nPress the enter key to exit.")
+
+    ```
+
+
+    Here, “\n\n” is used to create two new lines before displaying the actual line.
+    Once the user presses the key, the program ends. This is a nice trick to keep
+    a console window open until the user is done with an application.
+
+
+    ![](bbox=[0.78, 0.42, 0.89, 0.48])
+
+
+    Code block is a lexical structure of source code which is grouped together.
+
+
+    # 1.3.10 Multiple Statements on a Single Line
+
+
+    The semicolon ( ; ) allows multiple statements on the single line given that neither
+    statement starts a new **code block**. Here is a sample snip using the semicolon
+    –
+
+
+    ```
+
+    import sys; x = ''foo''; sys.stdout.write(x + ''\n'')
+
+    ```
+
+
+    # 1.3.11 Multiple Statement Groups as Suites
+
+
+    A group of individual statements, which make a single code block are called **suites**
+    in Python. Compound or complex statements, such as if, while, def, and class require
+    a header line and a suite.
+
+    Header lines begin the statement (with the keyword) and terminate with a colon
+    ( : ) and are followed by one or more lines which make up the suite. For example
+    –
+
+
+    ```
+
+    if expression :
+
+    ```'
+  merge: -1
+  pgno: 32
+- img_proc: false
+  md: "suite\nelif expression :\n    suite\nelse :\n    suite\n\n# 1.3.12 Command\
+    \ Line Arguments\n\nMany programs can be run to provide you with some basic information\
+    \ about how they should be run. Python enables you to do this with -h –\n\n```\n\
+    $ python -h\nusage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...\n\
+    Options and arguments (and corresponding environment variables):\n-c cmd : program\
+    \ passed in as string (terminates option list)\n-d     : debug output from parser\
+    \ (also PYTHONDEBUG=x)\n-E     : ignore environment variables (such as PYTHONPATH)\n\
+    -h     : print this help message and exit\n\n[ etc. ]\n```\n\nYou can also program\
+    \ your script in such a way that it should accept various options. Command Line\
+    \ Arguments is an advanced topic and should be studied a bit later once you have\
+    \ gone through rest of the Python concepts.\n\n# 1.4 PYTHON VARIABLES\n\nVariables\
+    \ are nothing but reserved memory locations to store values. This means that when\
+    \ you create a variable you reserve some space in memory.\nBased on the data type\
+    \ of a variable, the interpreter allocates memory and decides what can be stored\
+    \ in the reserved memory. Therefore, by assigning different data types to variables,\
+    \ you can store integers, decimals or characters in these variables.\n\n# 1.4.1\
+    \ Assigning Values to Variables\n\nPython variables do not need explicit declaration\
+    \ to reserve memory space. The declaration happens automatically when you assign\
+    \ a value to a variable. The equal sign (=) is used to assign values to variables."
+  merge: -1
+  pgno: 33
+- img_proc: false
+  md: 'The operand to the left of the = operator is the name of the variable and the
+    operand to the right of the = operator is the value stored in the variable. *For
+    example* –
+
+    #!/usr/bin/python
+
+
+    ```
+
+    counter = 100       # An integer assignment
+
+    miles   = 1000.0    # A floating point
+
+    name    = "John"    # A string
+
+
+    print counter
+
+    print miles
+
+    print name
+
+    ```
+
+
+    Here, 100, 1000.0 and “John” are the values assigned to *counter*, *miles*, and
+    *name* variables, respectively. This produces the following result –
+
+
+    ```
+
+    100
+
+    1000.0
+
+    John
+
+    ```
+
+
+    # 1.4.2 Multiple Assignment
+
+
+    Python allows you to assign a single value to several variables simultaneously.
+    For example –
+
+
+    ```
+
+    a = b = c = 1
+
+    ```
+
+
+    Here, an integer object is created with the value 1, and all three variables are
+    assigned to the same memory location. You can also assign multiple objects to
+    multiple variables. For example –
+
+
+    ```
+
+    a,b,c = 1,2,"john"
+
+    ```
+
+
+    Here, two integer objects with values 1 and 2 are assigned to variables a and
+    b respectively, and one string object with the value “john” is assigned to the
+    variable c.
+
+
+    # 1.4.3 Standard Data Types
+
+
+    The data stored in memory can be of many types. *For example*, a person’s age
+    is stored as a numeric value and his or her address is stored as alphanumeric
+    characters. Python has various standard data types that are used to define the
+    operations possible on them and the storage method for each of them.'
+  merge: -1
+  pgno: 34
+- img_proc: false
+  md: '# Basic Computer Coding: Python
+
+
+    Python has five standard data types –
+
+
+    +   - Numbers
+
+    - String
+
+    - List
+
+    - Tuple
+
+    - Dictionary
+
+
+    # Python Numbers
+
+
+    Number data types store numeric values. Number objects are created when you assign
+    a value to them. For example –
+
+
+    ```
+
+    var1 = 1
+
+    var2 = 10
+
+    ```
+
+
+    You can also delete the reference to a number object by using the del statement.
+    The syntax of the del statement is –
+
+
+    ```
+
+    del var1[,var2[,var3[....,varN]]]
+
+    ```
+
+
+    You can delete a single object or multiple objects by using the del statement.
+    For example –
+
+
+    ```
+
+    del var
+
+    del var_a, var_b
+
+    ```
+
+
+    Python supports four different numerical types –
+
+
+    +   - int (signed integers)
+
+    - long (long integers, they can also be represented in octal and hexadecimal)
+
+    - float (floating point real values)
+
+    - complex (complex numbers)
+
+
+    # Examples
+
+
+    Here are some examples of numbers –
+
+
+    | int | long | float | complex |
+
+    |---|---|---|---|
+
+    | 10 | 51924361L | 0.0 | 3.14j |
+
+    | 100 | -0x19323L | 15.20 | 45.j |
+
+    | -786 | 0122L | -21.9 | 9.322e-36j |
+
+    | 080 | 0xDEFABCECBDAECBFBAE1 | 32.3+e18 | .876j |
+
+    | -0490 | 535633629843L | -90. | -.6545+0J |'
+  merge: -1
+  pgno: 35
+- img_proc: false
+  md: '| -0x260 | -052318172735L | -32.54e100 | 3e+26J |
+
+    | --- | --- | --- | --- |
+
+    | 0x69 | -4721885298529L | 70.2-E12 | 4.53e-7j |
+
+
+    Python allows you to use a lowercase l with long, but it is recommended that you
+    use only an uppercase L to avoid confusion with the number 1. Python displays
+    long integers with an uppercase L.
+
+
+    +   - A complex number consists of an ordered pair of real floating-point numbers
+    denoted by x + yj, where x and y are the real numbers and j is the imaginary unit.
+
+
+    # Python Strings
+
+
+    Strings in Python are identified as a contiguous set of characters represented
+    in the quotation marks. Python allows for either pairs of single or double quotes.
+    Subsets of strings can be taken using the slice operator ([ ] and [:] ) with indexes
+    starting at 0 in the beginning of the string and working their way from -1 at
+    the end.
+
+
+    The plus (+) sign is the string concatenation operator and the asterisk (*) is
+    the repetition operator. For example –
+
+
+    ```
+
+    #!/usr/bin/python
+
+
+    str = ''Hello World!''
+
+
+    print str       # Prints complete string
+
+    print str[0]    # Prints first character of the string
+
+    print str[2:5]  # Prints characters starting from 3rd to 5th
+
+    print str[2:]   # Prints string starting from 3rd character
+
+    print str * 2   # Prints string two times
+
+    print str + "TEST" # Prints concatenated string
+
+    ```
+
+
+    This will produce the following result –
+
+
+    ```
+
+    Hello World!
+
+    H
+
+    llo
+
+    llo World!
+
+    Hello World!Hello World!
+
+    Hello World!TEST
+
+    ```'
+  merge: -1
+  pgno: 36
+- img_proc: false
+  md: '# Python Lists
+
+
+    Lists are the most versatile of Python’s compound data types. A list contains
+    items separated by commas and enclosed within square brackets ([]). To some extent,
+    lists are similar to arrays in C. One difference between them is that all the
+    items belonging to a list can be of different **data type**.
+
+
+    The values stored in a list can be accessed using the slice operator ([ ] and
+    [:]) with indexes starting at 0 in the beginning of the list and working their
+    way to end -1. The plus (+) sign is the list concatenation operator, and the asterisk
+    (*) is the repetition operator. For example –
+
+
+    ```
+
+    usr/bin/python/!#
+
+
+    list = [ ‘abcd’, 786 , 2.23, ‘john’, 70.2 ]
+
+    tinylist = [123, ‘john’]
+
+
+    print list        # Prints complete list
+
+    print list[0]     # Prints first element of the list
+
+    print list[1:3]   # Prints elements starting from 2nd till 3rd
+
+    print list[2:]    # Prints elements starting from 3rd element
+
+    print tinylist * 2  # Prints list two times
+
+    print list + tinylist # Prints concatenated lists
+
+    ```
+
+
+    This produce the following result –
+
+
+    ```
+
+    [‘abcd’, 786, 2.23, ‘john’, 70.2]
+
+    abcd
+
+    [786, 2.23]
+
+    [2.23, ‘john’, 70.2]
+
+    [123, ‘john’, 123, ‘john’]
+
+    [‘abcd’, 786, 2.23, ‘john’, 70.2, 123, ‘john’]
+
+    ```
+
+
+    # Python Tuples
+
+
+    A tuple is another sequence data type that is similar to the list. A tuple consists
+    of a number of values separated by commas. Unlike lists, however, tuples are enclosed
+    within parentheses.'
+  merge: -1
+  pgno: 37
+- img_proc: false
+  md: 'The main differences between lists and tuples are: Lists are enclosed in brackets
+    ( [ ] ) and their elements and size can be changed, while tuples are enclosed
+    in parentheses ( ( ) ) and cannot be updated. Tuples can be thought of as **read-only**
+    lists. For example – usr/bin/python/!#
+
+
+    ```
+
+    tuple = ( ''abcd'', 786 , 2.23, ''john'', 70.2 )
+
+    tinytuple = (123, ''john'')
+
+
+    print tuple        # Prints complete list
+
+    print tuple[0]     # Prints first element of the list
+
+    print tuple[1:3]   # Prints elements starting from 2nd till 3rd
+
+    print tuple[2:]    # Prints elements starting from 3rd element
+
+    print tinytuple * 2    # Prints list two times
+
+    print tuple + tinytuple # Prints concatenated lists
+
+    ```
+
+
+    This produce the following result –
+
+
+    ```
+
+    (''abcd'', 786, 2.23, ''john'', 70.2)
+
+    abcd
+
+    (786, 2.23)
+
+    (2.23, ''john'', 70.2)
+
+    (123, ''john'', 123, ''john'')
+
+    (''abcd'', 786, 2.23, ''john'', 70.2, 123, ''john'')
+
+    ```
+
+
+    The following code is invalid with tuple, because we attempted to update a tuple,
+    which is not allowed. Similar case is possible with lists –
+
+
+    ```
+
+    #!/usr/bin/python
+
+
+    tuple = ( ''abcd'', 786 , 2.23, ''john'', 70.2 )
+
+    list = [ ''abcd'', 786 , 2.23, ''john'', 70.2 ]
+
+    tuple[2] = 1000    # Invalid syntax with tuple
+
+    list[2] = 1000     # Valid syntax with list
+
+    ```
+
+
+    # Python Dictionary
+
+
+    Python''s dictionaries are kind of hash table type. They work like associative
+    arrays or hashes found in Perl and consist of key-value pairs. A dictionary key
+    can be almost'
+  merge: -1
+  pgno: 38
+- img_proc: false
+  md: 'any Python type, but are usually numbers or strings. Values, on the other hand,
+    can be any arbitrary Python object.
+
+    Dictionaries are enclosed by curly braces ({ }) and values can be assigned and
+    accessed using square braces ([]). For example –
+
+
+    ```
+
+    #!/usr/bin/python
+
+
+    dict = {}
+
+    dict[''one''] = "This is one"
+
+    dict[2]     = "This is two"
+
+
+    tinydict = {''name'': ''john'',''code'':6734, ''dept'': ''sales''}
+
+
+    print dict[''one'']       # Prints value for ''one'' key
+
+    print dict[2]           # Prints value for 2 key
+
+    print tinydict          # Prints complete dictionary
+
+    print tinydict.keys()   # Prints all the keys
+
+    print tinydict.values() # Prints all the values
+
+    ```
+
+
+    This produce the following result –
+
+    This is one
+
+    This is two
+
+    {''dept'': ''sales'', ''code'': 6734, ''name'': ''john''}
+
+    [''dept'', ''code'', ''name'']
+
+    [''sales'', 6734, ''john'']
+
+    Dictionaries have no concept of order among elements. It is incorrect to say that
+    the elements are “out of order”; they are simply unordered.
+
+
+    # 1.4.4 Data Type Conversion
+
+
+    Sometimes, you may need to perform conversions between the built-in types. To
+    convert between types, you simply use the type name as a function.
+
+    There are several built-in functions to perform conversion from one data type
+    to another. These functions return a new object representing the converted value.'
+  merge: -1
+  pgno: 39
+- img_proc: false
+  md: 'Introduction to Python
+
+
+    | Sr.No. | Function & Description |
+
+    | :--- | :--- |
+
+    | 1 | **int(x [,base])**
+
+    Converts x to an integer. base specifies the base if x is a string. |
+
+    | 2 | **long(x [,base] )**
+
+    Converts x to a long integer. base specifies the base if x is a string. |
+
+    | 3 | **float(x)**
+
+    Converts x to a floating-point number. |
+
+    | 4 | **complex(real [,imag])**
+
+    Creates a complex number. |
+
+    | 5 | **str(x)**
+
+    Converts object x to a string representation. |
+
+    | 6 | **repr(x)**
+
+    Converts object x to an expression string. |
+
+    | 7 | **eval(str)**
+
+    Evaluates a string and returns an object. |
+
+    | 8 | **tuple(s)**
+
+    Converts s to a tuple. |
+
+    | 9 | **list(s)**
+
+    Converts s to a list. |
+
+    | 10 | **set(s)**
+
+    Converts s to a set. |
+
+    | 11 | **dict(d)**
+
+    Creates a dictionary. d must be a sequence of (key,value) tuples. |
+
+    | 12 | **frozenset(s)**
+
+    Converts s to a frozen set. |
+
+    | 13 | **chr(x)**
+
+    Converts an integer to a character. |
+
+    | 14 | **unichr(x)**
+
+    Converts an integer to a Unicode character. |'
+  merge: -1
+  pgno: 40
+- img_proc: false
+  md: '| 15 | **ord(x)**<br>Converts a single character to its integer value. |
+
+    | 16 | **hex(x)**<br>Converts an integer to a hexadecimal string. |
+
+    | 17 | **oct(x)**<br>Converts an integer to an octal string. |
+
+
+    # 1.5 PYTHON BASIC OPERATORS
+
+
+    Operators are the constructs which can manipulate the value of operands. Consider
+    the expression 4 + 5 = 9. Here, 4 and 5 are called operands and + is called operator.
+
+
+    # 1.5.1 Types of Operator
+
+
+    Python language supports the following types of operators.
+
+
+    +   - Arithmetic Operators
+
+    - Comparison (Relational) Operators
+
+    - Assignment Operators
+
+    - Logical Operators
+
+    - Bitwise Operators
+
+    - Membership Operators
+
+    - Identity Operators
+
+
+    # Python Arithmetic Operators
+
+
+    Assume variable a holds 10 and variable b holds 20, then –
+
+
+    | Operator | Description | Example |
+
+    | --- | --- | --- |
+
+    | + Addition | Adds values on either side of the operator. | a + b = 30 |
+
+    | - Subtraction | Subtracts right hand operand from left hand operand. | a – b
+    = -10 |
+
+    | * Multiplication | Multiplies values on either side of the operator | a * b
+    = 200 |
+
+    | / Division | Divides left hand operand by right hand operand | b / a = 2 |
+
+    | % Modulus | Divides left hand operand by right hand operand and returns remainder
+    | b % a = 0 |'
+  merge: -1
+  pgno: 41
+- img_proc: false
+  md: '| ** Exponent | Performs exponential (power) calculation on operators | a**b
+    =10 to the power 20 |
+
+    | // | Floor Division - The division of operands where the result is the quotient
+    in which the digits after the decimal point are removed. But if one of the operands
+    is negative, the result is floored, i.e., rounded away from zero (towards negative
+    infinity) – | 9//2 = 4 and 9.0//2.0 = 4.0, -11//3 = -4, -11.0//3 = -4.0 |
+
+
+    # Python Comparison Operators
+
+
+    These operators compare the values on either sides of them and decide the relation
+    among them. They are also called Relational operators
+
+    Assume variable a holds 10 and variable b holds 20, then –
+
+
+    | Operator | Description | Example |
+
+    | --- | --- | --- |
+
+    | == | If the values of two operands are equal, then the condition becomes true.
+    | (a == b) is not true. |
+
+    | != | If values of two operands are not equal, then condition becomes true. |
+    (a != b) is true. |
+
+    | <> | If values of two operands are not equal, then condition becomes true. |
+    (a <> b) is true. This is similar to != operator. |
+
+    | > | If the value of left operand is greater than the value of right operand,
+    then condition becomes true. | (a > b) is not true. |
+
+    | < | If the value of left operand is less than the value of right operand, then
+    condition becomes true. | (a < b) is true. |
+
+    | >= | If the value of left operand is greater than or equal to the value of right
+    operand, then condition becomes true. | (a >= b) is not true. |
+
+    | <= | If the value of left operand is less than or equal to the value of right
+    operand, then condition becomes true. | (a <= b) is true. |'
+  merge: -1
+  pgno: 42
+- img_proc: false
+  md: '# Python Assignment Operators
+
+
+    Assume variable a holds 10 and variable b holds 20, then –
+
+
+    | Operator | Description | Example |
+
+    | :--- | :--- | :--- |
+
+    | = | Assigns values from right side operands to left side operand | c = a + b
+    assigns value of a + b into c |
+
+    | += Add AND | It adds right operand to the left operand and assign the result
+    to left operand | c += a is equivalent to c = c + a |
+
+    | -= Subtract AND | It subtracts right operand from the left operand and assign
+    the result to left operand | c -= a is equivalent to c = c - a |
+
+    | *= Multiply AND | It multiplies right operand with the left operand and assign
+    the result to left operand | c *= a is equivalent to c = c * a |
+
+    | /= Divide AND | It divides left operand with the right operand and assign the
+    result to left operand | c /= a is equivalent to c = c / a |
+
+    | %= Modulus AND | It takes modulus using two operands and assign the result to
+    left operand | c %= a is equivalent to c = c % a |
+
+    | **= Exponent AND | Performs exponential (power) calculation on operators and
+    assign value to the left operand | c **= a is equivalent to c = c ** a |
+
+    | //= Floor Division | It performs floor division on operators and assign value
+    to the left operand | c //= a is equivalent to c = c // a |
+
+
+    # Python Bitwise Operators
+
+
+    Bitwise operator works on bits and performs bit by bit operation. Assume if a
+    = 60; and b = 13; Now in binary format they will be as follows –
+
+
+    ```
+
+    a = 0011 1100
+
+    b = 0000 1101
+
+    -----------------
+
+    a&b = 0000 1100
+
+    a|b = 0011 1101
+
+    a^b = 0011 0001
+
+    ~a  = 1100 0011
+
+    ```
+
+
+    There are following Bitwise operators supported by Python language'
+  merge: -1
+  pgno: 43
+- img_proc: false
+  md: '| Operator | Description | Example |
+
+    | --- | --- | --- |
+
+    | & Binary AND | Operator copies a bit to the result if it exists in both operands
+    | (a & b) (means 0000 1100) |
+
+    | | Binary OR | It copies a bit if it exists in either operand. | (a | b) = 61
+    (means 0011 1101) |
+
+    | ^ Binary XOR | It copies the bit if it is set in one operand but not both. |
+    (a ^ b) = 49 (means 0011 0001) |
+
+    | ~ Binary Ones Complement | It is unary and has the effect of ''flipping'' bits.
+    | (~a) = -61 (means 1100 0011 in 2''s complement form due to a signed binary number.
+    |
+
+    | << Binary Left Shift | The left operands value is moved left by the number of
+    bits specified by the right operand. | a << 2 = 240 (means 1111 0000) |
+
+    | >> Binary Right Shift | The left operands value is moved right by the number
+    of bits specified by the right operand. | a >> 2 = 15 (means 0000 1111) |
+
+
+    # Python Logical Operators
+
+
+    There are following logical operators supported by Python language. Assume variable
+    a holds 10 and variable b holds 20 then
+
+
+    Used to reverse the logical state of its operand.
+
+
+    | Operator | Description | Example |
+
+    | --- | --- | --- |
+
+    | and Logical AND | If both the operands are true then condition becomes true.
+    | (a and b) is true. |
+
+    | or Logical OR | If any of the two operands are non-zero then condition becomes
+    true. | (a or b) is true. |
+
+    | not Logical NOT | Used to reverse the logical state of its operand. | Not(a
+    and b) is false. |
+
+
+    > Relational operators are used for comparing the values. It either returns True
+    or False according to the condition. These operators are also known as Comparison
+    Operators.'
+  merge: -1
+  pgno: 44
+- img_proc: false
+  md: '# Python Membership Operators
+
+
+    Python’s membership operators test for membership in a sequence, such as strings,
+    lists, or tuples. There are two membership operators as explained below –
+
+
+    | Operator | Description | Example |
+
+    | --- | --- | --- |
+
+    | in | Evaluates to true if it finds a variable in the specified sequence and
+    false otherwise. | x in y, here in results in a 1 if x is a member of sequence
+    y. |
+
+    | not in | Evaluates to true if it does not finds a variable in the specified
+    sequence and false otherwise. | x not in y, here not in results in a 1 if x is
+    not a member of sequence y. |
+
+
+    # Python Identity Operators
+
+
+    Identity operators compare the memory locations of two objects. There are two
+    Identity operators explained below –
+
+
+    | Operator | Description | Example |
+
+    | --- | --- | --- |
+
+    | is | Evaluates to true if the variables on either side of the operator point
+    to the same object and false otherwise. | x is y, here **is** results in 1 if
+    id(x) equals id(y). |
+
+    | is not | Evaluates to false if the variables on either side of the operator
+    point to the same object and true otherwise. | x is not y, here **is not** results
+    in 1 if id(x) is not equal to id(y). |
+
+
+    # 1.5.2 Python Operators Precedence
+
+
+    The following table lists all operators from highest precedence to lowest.
+
+
+    | Operator | Description |
+
+    | --- | --- |
+
+    | ** | Exponentiation (raise to the power) |
+
+    | ~ + - | Complement, unary plus and minus (method names for the last two are
+    +@ and -@) |
+
+    | * / % // | Multiply, divide, modulo and floor division |
+
+    | + - | Addition and subtraction |
+
+    | >> << | Right and left bitwise shift |'
+  merge: -1
+  pgno: 45
+- img_proc: false
+  md: '| & | Bitwise ‘AND’td> |
+
+    | ^ | Bitwise exclusive OR’ and regular OR’ |
+
+    | <= <> >= | Comparison operators |
+
+    | <> == != | Equality operators |
+
+    | = %= /= //= -= += *= **= | Assignment operators |
+
+    | is is not | Identity operators |
+
+    | in not in | Membership operators |
+
+    | not or and | Logical operators |
+
+
+    Operator precedence affects how an expression is evaluated.
+
+
+    x = 7 + 3 * 2; here, x is assigned 13, not 20 because operator * has higher precedence
+    than +, so it first multiplies 3*2 and then adds into 7.
+
+
+    Here, operators with the highest precedence appear at the .top of the table, those
+    with the lowest appear at the bottom
+
+
+    # Example
+
+
+    ```
+
+    #!/usr/bin/python
+
+
+    a = 20
+
+    b = 10
+
+    c = 15
+
+    d = 5
+
+    e = 0
+
+
+    e = (a + b) * c / d    #( 30 * 15 ) / 5
+
+    print "Value of (a + b) * c / d is ", e
+
+
+    e = ((a + b) * c) / d  # (30 * 15 ) / 5
+
+    print "Value of ((a + b) * c) / d is ", e
+
+
+    e = (a + b) * (c / d); # (30) * (15/5)
+
+    print "Value of (a + b) * (c / d) is ", e
+
+    ```'
+  merge: -1
+  pgno: 46
+- img_proc: false
+  md: '# Basic Computer Coding: Python
+
+
+    ```
+
+    e = a + (b * c) / d;    # 20 + (150/5)
+
+    print "Value of a + (b * c) / d is ", e
+
+    ```
+
+
+    When you execute the above program, it produces the following result –
+
+
+    Value of (a + b) * c / d is 90
+
+    Value of ((a + b) * c) / d is 90
+
+    Value of (a + b) * (c / d) is 90
+
+    Value of a + (b * c) / d is 50'
+  merge: -1
+  pgno: 47
+- img_proc: false
+  md: '# ROLE MODEL
+
+
+    ![](bbox=[0.69, 0.09, 0.92, 0.21])
+
+
+    # GUIDO VAN ROSSUM
+
+
+    Guido van Rossum; born 31 January 1956) is a Dutch programmer best known as the
+    author of the Python programming language, for which he was the “Benevolent Dictator
+    For Life” (BDFL) .until he stepped down from the position in July 2018
+
+
+    # Education and Life
+
+
+    Van Rossum was born and raised in the Netherlands, where he received a master’s
+    degree in mathematics and computer science from the University of Amsterdam in
+    1982. He has a brother, Just van Rossum, who is a type designer and programmer
+    who designed the typeface used in the “Python Powered” logo.
+
+
+    Guido lives in Belmont, California, with his wife, Kim Knapp, and their son. According
+    to his home page and Dutch naming conventions, the “van” in his name is capitalized
+    when he is referred to by surname alone, but not when using his first and last
+    name together.
+
+
+    # Work
+
+
+    While working at the Centrum Wiskunde & Informatica (CWI), Van Rossum wrote and
+    contributed a glob()routine to BSD Unix in 1986 and helped develop the ABC programming
+    language. He once stated, “I try to mention ABC’s influence because I’m indebted
+    to everything I learned during that project and to the people who worked on it.”
+    He also created Grail, an early web browser written in Python, and engaged in
+    discussions about the HTML standard.
+
+
+    He has worked for various research institutes, including the Centrum Wiskunde
+    & Informatica (CWI) in the Netherlands, the U.S. National Institute of Standards
+    and Technology (NIST), and the Corporation for National Research Initiatives (CNRI).
+    From 2000 until 2003 he worked for Zope corporation. In 2003 van Rossum left Zope
+    for Elemental Security. While there he worked on a custom programming language
+    for the organization. From 2005 to December 2012, he worked at'
+  merge: -1
+  pgno: 48
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 49
+- img_proc: false
+  md: '# SUMMARY
+
+
+    +   - Python is a general-purpose, versatile, and powerful programming language.
+    It''s a great first language because it''s concise and easy to read. Whatever
+    you want to do, Python can do it.
+
+    - Python is a high-level, interpreted, interactive and object-oriented scripting
+    language. Python is designed to be highly readable.
+
+    - Python is a MUST for students and working professionals to become a great Software
+    Engineer specially when they are working in Web Development Domain
+
+    - Python distribution is available for a wide variety of platforms. You need to
+    download only the binary code applicable for your platform and install Python.
+
+    - A Python identifier is a name used to identify a variable, function, class,
+    module or other object.
+
+    - Python provides no braces to indicate blocks of code for class and function
+    definitions or flow control.
+
+    - Statements in Python typically end with a new line. Python does, however, allow
+    the use of the line continuation character (\) to denote that the line should
+    continue.
+
+    - A line containing only whitespace, possibly with a comment, is known as a blank
+    line and Python totally ignores it.'
+  merge: -1
+  pgno: 50
+- img_proc: false
+  md: "# KNOWLEDGE CHECK\n\n1. Which of the following is correct about Python?\n \
+    \   a. Python is a high-level, interpreted, interactive and object-oriented scripting\
+    \ language.\n    b. Python is designed to be highly readable.\n    c. It uses\
+    \ English keywords frequently where as other languages use punctuation, and it\
+    \ has fewer syntactical constructions than other languages.\n    d. All of the\
+    \ above.\n\n2. Which of the following is correct about Python?\n    a. It supports\
+    \ functional and structured programming methods as well as OOP.\n    b. It can\
+    \ be used as a scripting language or can be compiled to byte-code for building\
+    \ large applications.\n    c. It provides very high-level dynamic data types and\
+    \ supports dynamic type checking.\n    d. All of the above.\n\n3. Which of the\
+    \ following environment variable for Python tells the Python interpreter where\
+    \ to locate the module files imported into a program?\n    a. Pythonpath\n   \
+    \ b. Pythonstartup\n    c. Pythoncaseok\n    d. Pythonhome\n\n4. Which of the\
+    \ following data types is not supported in python?\n    a. List\n    b. Slice\n\
+    \    c. String\n    d. Numbers\n\n5. Which of the following is correct about tuples\
+    \ in python?\n    a. A tuple is another sequence data type that is similar to\
+    \ the list.\n    b. A tuple consists of a number of values separated by commas.\n\
+    \    c. Unlike lists, however, tuples are enclosed within parentheses.\n    d.\
+    \ All of the above.\n\n6. What is the maximum possible length of an identifier?\n\
+    \    a. 16\n    b. 32"
+  merge: -1
+  pgno: 51
+- img_proc: false
+  md: 'c. 64
+
+    d. None of these above
+
+
+    7. Who developed the Python language?
+
+    a. Zim Den
+
+    b. Guido van Rossum
+
+    c. Niene Stom
+
+    d. Wick van Rossum
+
+
+    8. In which year was the Python language developed?
+
+    a. 1995
+
+    b. 1972
+
+    c. 1981
+
+    d. 1989
+
+
+    # REVIEW QUESTIONS
+
+
+    +   1. What is Python? Name some of the features of python.
+
+    2. What are the purpose of pythonpath, pythonstartup, Pythoncaseok, and pythonhome
+    environment variable?
+
+    3. What are the supported data types in python?
+
+    4. What are python’s dictionaries?
+
+    5. What is the difference between tuples and lists in python?
+
+
+    # Check Your Result
+
+
+    1. (d) 2. (d) 3. (a) 4. (b) 5. (d)
+
+    6. (d) 7. (b) 8. (d)'
+  merge: -1
+  pgno: 52
+- img_proc: false
+  md: '# REFERENCES
+
+
+    +   1. Deily, Ned (28 March 2018). “Python 3.7.0 is now available”. Python Insider.
+    The Python Core Developers. Retrieved 29 March 2018.
+
+    2. Downey, Allen B. (May 2012). Think Python: How to Think Like a Computer Scientist
+    (Version 1.6.6 ed.).
+
+    3. Guttag, John V. (2016-08-12). Introduction to Computation and Programming Using
+    Python: With Application to Understanding Data. MIT Press.
+
+    4. Hamilton, Naomi (5 August 2008). “The A-Z of Programming Languages: Python”.
+    Computerworld. Archived from the original on 29 December 2008. Retrieved 31 March
+    2010.
+
+    5. Peterson, Benjamin (1 May 2018). “Python 2.7.15 released”. Python Insider.
+    The Python Core Developers. Retrieved 1 May 2018.
+
+    6. Summerfield, Mark (2009). Programming in Python 3 (2nd ed.). Addison-Wesley
+    Professional.'
+  merge: -1
+  pgno: 53
+- img_proc: false
+  md: '# CHAPTER 2
+
+    PYTHON FUNCTIONS, MODULES AND PACKAGES
+
+
+    > “Everyone knows that any scripting language shootout that doesn’t show Python
+    as the best language is faulty by design.”
+
+
+    –Max M
+
+
+    +   LEARNING OBJECTIVES
+
+
+    After studying this chapter, you will be able to:
+
+    1. Discuss the function in python
+
+    2. Describe the python modules and python packages
+
+
+    ![](bbox=[0.35, 0.54, 0.92, 0.8])
+
+
+    # INTRODUCTION
+
+
+    Python Functions is a block of related statements designed to perform a computational,
+    logical, or evaluative task. The idea is to put some commonly or repeatedly done'
+  merge: -1
+  pgno: 54
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 55
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 56
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 57
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 58
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 59
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 60
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 61
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 62
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 63
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 64
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 65
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 66
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 67
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 68
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 69
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 70
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 71
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 72
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 73
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 74
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 75
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 76
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 77
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 78
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 79
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 80
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 81
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 82
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 83
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 84
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 85
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 86
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 87
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 88
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 89
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 90
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 91
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 92
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 93
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 94
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 95
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 96
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 97
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 98
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 99
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 100
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 101
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 102
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 103
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 104
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 105
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 106
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 107
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 108
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 109
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 110
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 111
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 112
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 113
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 114
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 115
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 116
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 117
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 118
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 119
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 120
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 121
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 122
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 123
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 124
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 125
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 126
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 127
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 128
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 129
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 130
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 131
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 132
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 133
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 134
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 135
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 136
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 137
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 138
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 139
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 140
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 141
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 142
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 143
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 144
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 145
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 146
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 147
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 148
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 149
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 150
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 151
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 152
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 153
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 154
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 155
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 156
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 157
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 158
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 159
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 160
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 161
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 162
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 163
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 164
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 165
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 166
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 167
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 168
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 169
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 170
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 171
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 172
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 173
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 174
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 175
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 176
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 177
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 178
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 179
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 180
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 181
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 182
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 183
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 184
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 185
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 186
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 187
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 188
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 189
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 190
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 191
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 192
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 193
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 194
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 195
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 196
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 197
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 198
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 199
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 200
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 201
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 202
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 203
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 204
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 205
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 206
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 207
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 208
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 209
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 210
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 211
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 212
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 213
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 214
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 215
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 216
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 217
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 218
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 219
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 220
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 221
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 222
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 223
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 224
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 225
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 226
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 227
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 228
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 229
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 230
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 231
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 232
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 233
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 234
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 235
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 236
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 237
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 238
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 239
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 240
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 241
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 242
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 243
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 244
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 245
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 246
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 247
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 248
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 249
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 250
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 251
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 252
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 253
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 254
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 255
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 256
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 257
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 258
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 259
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 260
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 261
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 262
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 263
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 264
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 265
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 266
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 267
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 268
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 269
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 270
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 271
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 272
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 273
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 274
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 275
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 276
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 277
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 278
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 279
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 280
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 281
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 282
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 283
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 284
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 285
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 286
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 287
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 288
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 289
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 290
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 291
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 292
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 293
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 294
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 295
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 296
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 297
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 298
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 299
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 300
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 301
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 302
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 303
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 304
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 305
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 306
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 307
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 308
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 309
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 310
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 311
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 312
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 313
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 314
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 315
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 316
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 317
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 318
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 319
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 320
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 321
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 322
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 323
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 324
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 325
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 326
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 327
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 328
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 329
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 330
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 331
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 332
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 333
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 334
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 335
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 336
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 337
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 338
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 339
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 340
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 341
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 342
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 343
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 344
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 345
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 346
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 347
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 348
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 349
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 350
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 351
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 352
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 353
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 354
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 355
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 356
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 357
