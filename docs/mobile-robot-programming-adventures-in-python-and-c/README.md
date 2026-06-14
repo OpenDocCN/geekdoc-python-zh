@@ -1,0 +1,7 @@
+# Python 和 C 移动机器人编程实战
+
+> 原文：[Mobile Robot Programming： Adventures in Python and C]()
+> 
+> 译者：[飞龙](https://github.com/wizardforcel)
+> 
+> 协议：[CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)
