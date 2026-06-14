@@ -1,0 +1,3245 @@
+pages:
+- img_proc: false
+  md: 'Sinan Kalkan
+
+    Onur T. Şehitoğlu
+
+    Göktürk Üçoluk
+
+
+    # Programming with Python for Engineers
+
+
+    ![](bbox=[0.7, 0.9, 0.91, 0.95])'
+  merge: -1
+  pgno: 0
+- img_proc: false
+  md: '# Programming with Python for Engineers'
+  merge: -1
+  pgno: 1
+- img_proc: false
+  md: 'Sinan Kalkan · Onur T. Şehitoğlu · Göktürk Üçoluk
+
+
+    # Programming with Python for Engineers
+
+
+    ![](bbox=[0.29, 0.88, 0.52, 0.92])'
+  merge: -1
+  pgno: 2
+- img_proc: false
+  md: "Sinan Kalkan¹\nDepartment of Computer Engineering\nMiddle East Technical University\n\
+    Ankara, Türkiye\n\nOnur T. Şehitoğlu¹\nDepartment of Computer Engineering\nMiddle\
+    \ East Technical University\nAnkara, Türkiye\n\nGökTürk Üçoluk¹\nDepartment of\
+    \ Computer Engineering\nMiddle East Technical University\nAnkara, Türkiye\n\n\
+    ISBN 978-3-031-57147-3 \t ISBN 978-3-031-57148-0 (eBook)\nhttps://doi.org/10.1007/978-3-031-57148-0\n\
+    \n© The Editor(s) (if applicable) and The Author(s), under exclusive license to\
+    \ Springer Nature Switzerland AG 2024\n\nThis work is subject to copyright. All\
+    \ rights are solely and exclusively licensed by the Publisher, whether the whole\
+    \ or part of the material is concerned, specifically the rights of translation,\
+    \ reprinting, reuse of illustrations, recitation, broadcasting, reproduction on\
+    \ microfilms or in any other physical way, and transmission or information storage\
+    \ and retrieval, electronic adaptation, computer software, or by similar or dissimilar\
+    \ methodology now known or hereafter developed. The use of general descriptive\
+    \ names, registered names, trademarks, service marks, etc. in this publication\
+    \ does not imply, even in the absence of a specific statement, that such names\
+    \ are exempt from the relevant protective laws and regulations and therefore free\
+    \ for general use. The publisher, the authors and the editors are safe to assume\
+    \ that the advice and information in this book are believed to be true and accurate\
+    \ at the date of publication. Neither the publisher nor the authors or the editors\
+    \ give a warranty, expressed or implied, with respect to the material contained\
+    \ herein or for any errors or omissions that may have been made. The publisher\
+    \ remains neutral with regard to jurisdictional claims in published maps and institutional\
+    \ affiliations.\n\nThis Springer imprint is published by the registered company\
+    \ Springer Nature Switzerland AG\nThe registered company address is: Gewerbestrasse\
+    \ 11, 6330 Cham, Switzerland\n\nIf disposing of this product, please recycle the\
+    \ paper."
+  merge: -1
+  pgno: 3
+- img_proc: false
+  md: We dedicate this book to our lonely and beautiful country which we love passionately.
+  merge: -1
+  pgno: 4
+- img_proc: false
+  md: '# Foreword
+
+
+    Questions like "is there an algorithm for this?", "can we compute that?", or "can
+    we approximate the next thing?" used to be the domain of computer scientists;
+    now, almost every train of thought can be enhanced by asking versions of these
+    questions. They’re variants of the practical question “how can I do this better/efficiently/safely?”,
+    which is behind every advance since at least the fire-hardened spear. You really
+    can’t do science or engineering if you ignore computational thinking, and to do
+    science or engineering well requires hearing answers to computational questions
+    in your head by reflex. The most usual (and usually the best) way to start fostering
+    this reflex is to practice programming. This book has important features that
+    will help you practice:
+
+
+    +   - You can browse it online, at <http://pp4e.online/>, if you run into problems.
+
+    - There is interactive content, where you can provide input and see what happens.
+
+    - You can run each example in each chapter, using the Jupyter Notebook version
+    of the book.
+
+    - And there are lots of examples and exercises.
+
+
+    Most people can learn to write simple programs quite well with practice and with
+    careful guidance. But programming is a deep and subtle art. You’ll find as you
+    proceed to learn that writing programs that do what you want them to do can be
+    surprisingly delicate. First, one has to get used to all that syntax. This takes
+    a bit of patience, and you should be willing to forgive yourself silly mistakes
+    as long as you don’t make too many—I’ve been programming for at least 40 years
+    now, and I occasionally use the wrong bracket, omit an indentation, drop a semicolon,
+    or whatever. Then you’ll need to learn to express yourself, so that the program
+    does what you want. This mostly just takes practice, but the next step is hard.
+    You’ll find very often that you didn’t clearly understand what you wanted the
+    program to do, and the program you wrote reflects that failure of understanding—it’s
+    actually doing what you wanted, but you didn’t want the right thing in the first
+    place. While everyone finds this experience annoying on occasion, being forced
+    to very clearly think through what is the right thing is a valuable discipline.
+
+
+    An important help with all these problems is practice. Strong programmers have
+    written and read many different programs. Some lucky people just have gifts, but
+    most strong programmers got that way by practice and'
+  merge: -1
+  pgno: 5
+- img_proc: false
+  md: 'imitation. Some types of problem—for example, sorting a list of numbers—turn
+    up again and again in practice, so strong programmers remember patterns and learn
+    from one another.
+
+
+    Practice will help you develop a valuable habit. Suspect that you might make mistakes,
+    and think about how you can find and fix them (Chap. 9 is good on this). Strong
+    programmers know what behaviors their code should exhibit—for example, squared
+    numbers are never negative—and check it is doing so. So if you have something
+    that should be the square of a number and it’s negative, there’s a problem. Where
+    the problem is, could get interesting; but there is one.
+
+
+    You’ll find that producing programs of even moderate size that are known to be
+    correct is challenging. Among other difficulties, specifying the correct behavior
+    of a program can be difficult. Embracing these challenges has produced astonishing
+    artifacts that have had an impact on a very large number of lives—for example,
+    the fly-by-wire software that is a key part of modern air transportation allows
+    people to visit their relatives cheaply and safely.
+
+
+    As I looked through this book, I found the lovely line “There is no servant without
+    fault, love me with the faults I have”. It captures my own experience of learning
+    to program and continuing to program rather well. I still find it frustrating
+    that programs do what I wrote, rather than what I should have written; and I still
+    find trying to express what I know (or what I suspect) using code to be creative
+    and fruitful. I close by commending the authors for putting so much time and effort
+    into helping you learn to program. My life has certainly been enriched by learning
+    to program, and I hope yours will be too.
+
+
+    June 2023
+
+
+    David Forsyth
+
+    Fulton Watson Copp Chair in Computer Science
+
+    University of Illinois at Urbana-Champaign
+
+    Champaign, IL, USA'
+  merge: -1
+  pgno: 6
+- img_proc: false
+  md: '# Preface
+
+
+    # Target Audience of the Book
+
+
+    This book is intended to be an accompanying textbook for teaching programming
+    to science and engineering students with no prior programming expertise. This
+    endeavor requires a delicate balance between providing in-depth details on computers
+    and programming in a complete manner and the programming needs of science and
+    engineering disciplines. With the hope of providing a suitable balance, the book
+    uses Python as the programming language, since it is easy to learn and program
+    with. Moreover, to keep the balance, the book is made up of three topics:
+
+
+    +   - The Basics of Computers and Computing (Chaps. 1–3): The book starts with
+    the definitions of computation and an introduction to modern hardware and software
+    infrastructure on which programming is commonly performed and the spectrum of
+    programming languages.
+
+    - Programming with Python (Chaps. 4–9): These chapters present the basic building
+    blocks of Python programming and continue with the ground formation for solving
+    a problem in Python. Since almost all science and engineering libraries in Python
+    are written with an object-oriented approach, a gentle introduction to this concept
+    is also provided in this part.
+
+    - Using Python for Science and Engineering Problems (Chaps. 10–12): The book reserves
+    the last chapters to practical and powerful tools that are commonly used in various
+    science and engineering disciplines. These tools provide functionalities for reading
+    and writing data from/to files, working with data (using e.g., algebraic, numerical
+    or statistical computations) and plotting data. These tools are then utilized
+    in example problems and applications at the end of the book.
+
+
+    # A Note on the Python Version Used in This Book
+
+
+    The Python version referred to in this book is 3.6. However, to the best of our
+    knowledge, the version at the time of printing (version 3.11) is compatible with
+    the codes presented in this book.'
+  merge: -1
+  pgno: 7
+- img_proc: false
+  md: '# Preface
+
+
+    Python is a language that was initially introduced in 1991 and has seen regular
+    version upgrades, with new versions typically being released approximately once
+    a year. Starting from Python 3.0, each major version has been maintained for about
+    five years. It’s important to note that Python 3.0 introduced backward incompatibilities,
+    meaning that Python 2 code does not run unmodified with a Python 3 interpreter.
+    However, there are tools available that help in transitioning Python 2 code to
+    Python 3. As of now, all Python 3.x versions maintain backward compatibility.
+    The expectation is that if a future Python 4.0 version is released, it will strive
+    to maintain backward compatibility.
+
+
+    +   - [https://docs.python.org/3.11/whatsnew/index.html](https://docs.python.org/3.11/whatsnew/index.html)
+    for the current version (as of writing this book).
+
+    - [https://devguide.python.org/versions/](https://devguide.python.org/versions/).
+
+    - [https://en.wikipedia.org/wiki/History_of_Python](https://en.wikipedia.org/wiki/History_of_Python).
+
+    - [https://en.wikibooks.org/wiki/Python_Programming/Version_history](https://en.wikibooks.org/wiki/Python_Programming/Version_history).
+
+
+    Please refer to these resources to explore the specific changes and features introduced
+    in different Python versions.
+
+
+    # How to Use the Book
+
+
+    This book takes an “interactive” and “minimalist” approach, focusing on direct
+    interaction with examples and problems rather than emphasizing every detail or
+    specialized subject. It is not intended to serve as a comprehensive reference
+    manual, but rather as a “first things first” and “hands-on” guide. To provide
+    additional information on skipped details, the book will include links to further
+    reading. With this in mind, readers are strongly encouraged to thoroughly read
+    and engage with all of the content of the book.
+
+
+    The book’s interactivity is thanks to Jupyter notebook.¹ Therefore, the book differs
+    from a conventional book by providing some dynamic content. This content can appear
+    in audio-visual form as well as some applets (small applications) embedded in
+    the book. It is also possible that the book asks the reader to complete/write
+    a piece of Python program, run it, and inspect the result, from time to time.
+    The reader is encouraged to complete these minor tasks. Such tasks and interactions
+    are of great help in gaining an acquaintance with Python and building up self-confidence
+    in solving problems with Python.
+
+
+    The printed version of the book and in parallel the e-book extensively contain
+    four types of boxes. They are easily recognizable by their background color and
+    numbered like figures or tables as follows:
+
+
+    ¹https://jupyter.org.'
+  merge: -1
+  pgno: 8
+- img_proc: false
+  md: '# Interactive Example 0.1
+
+
+    This indicates a dynamic content, which can be in the form of a video or a visual
+    tutorial web application, where the output updates in real-time, based on your
+    input. In the e-book version, you can switch to the Web application by clicking
+    the title of the box. However, in the printed version, this interactive feature
+    is not available and the box displays a static image snapshot. It is highly recommended
+    that the reader temporarily switches to the e-book version to access the relevant
+    box and to activate its interactive functionality by clicking on it.
+
+
+    # Hands-on Code 0.1
+
+
+    This indicates a code snippet that is executable and modifiable in the e-book
+    version. In the printed book, the code and its output will be displayed. In the
+    e-book version, when you click on the box, you will be directed to an interactive
+    Python environment. Essentially, you will be taken to a portal containing the
+    Python interpreter with some pretyped code provided. There, you can run the code
+    and experiment with it by making modifications and rerunning it.
+
+
+    # Installation Notes 0.1
+
+
+    After completing your learning period, you will likely find yourself writing code
+    on standalone computers. While it is possible to continue programming on Jupyter
+    Notebook, doing so may introduce additional web connectivity overhead. Moreover,
+    standalone software deployment is often not feasible in those environments. Therefore,
+    it is advisable to learn how to set up a Python run-time environment on your local
+    computer. These boxes provide you with information on this matter.
+
+
+    ```
+
+    >>> x = -34.1905
+
+    >>> y = (x if x > 0 else -x)**0.5
+
+    >>> print(y)
+
+    5.84726431761
+
+    ```
+
+
+    The gray boxes, such as the one above, are integral components of the written
+    tutoring material. They are static and intended for reading purposes only. They
+    do contain sample Python code runs.'
+  merge: -1
+  pgno: 9
+- img_proc: false
+  md: '# Interactive Web Page of the Book
+
+
+    To facilitate dynamic contents and interaction with code segments, all chapters
+    are served at the following Web page and executable in your web browser without
+    installing any software: [https://pp4e.online/](https://pp4e.online/).
+
+
+    # Solutions Manual
+
+
+    A pdf solutions manual for problems posed in this book is available for download
+    by instructors adopting this book for use in their courses from [https://sites.google.com/springernature.com/extramaterial/lecturer-material](https://sites.google.com/springernature.com/extramaterial/lecturer-material).
+
+
+    # Textual Conventions in the Book
+
+
+    +   - Codes and outputs are presented in `teletype` font.
+
+    - The first introduction of a term or a keyword is emphasized in *italic*.
+
+    - The definitions of the key concepts are also provided as a glossary at the end
+    of the book.
+
+    - Python function names, whether built-in or user-defined, are always followed
+    by a pair of parentheses “()” when referenced outside of the code.
+
+    - External references, such as websites or external resources, are provided as
+    footnotes or end-notes.
+
+    - Occasionally, when a term description is lengthy, angle brackets are employed
+    to enclose the description, similar to their use in the syntax of the language.
+
+
+    Ankara, Türkiye
+
+
+    Sinan Kalkan
+
+    Onur T. Şehitoğlu
+
+    Göktürk Üçoluk'
+  merge: -1
+  pgno: 10
+- img_proc: false
+  md: '# Acknowledgements
+
+
+    We would like to express our sincere gratitude and appreciation to the following
+    individuals.
+
+
+    First and foremost, we are deeply indebted to Prof. Dr. Fatoş Yarman Vural for
+    her unwavering support and constant encouragement throughout this journey. Her
+    belief in this project has been invaluable, inspiring us to strive for excellence.
+
+
+    We are profoundly grateful to Burçin Sapaz, Hasan Ulusoy, Dr. Hüseyin Aydın, Jiaee
+    Cheong, Dr. Levent Eksert, and Dr. Özcan Dülger for their meticulous proofreading.
+    Their keen eyes for detail and constructive criticism have been very valuable
+    in shaping the final content.
+
+
+    Furthermore, we would like to thank Dr. Özgür Kaya for his assistance with the
+    technical infrastructure and his unwavering friendship, which have been greatly
+    important. His expertise and willingness to lend a helping hand have made a significant
+    difference.
+
+
+    We are immensely grateful to Prof. David Forsyth, from UIUC, for his time, effort,
+    and dedication in crafting the foreword. We feel privileged to have his endorsement,
+    which has undoubtedly contributed to the overall visibility of this work.
+
+
+    Last but not least, we would also like to extend our heartfelt thanks to our life
+    partners, Dr. Gökçe, Prof. Dr. Solmaz, and Dr. Gülnur. Their constant support
+    and understanding have made this endeavor possible. They have not only tolerated
+    the sacrifices of time and energy that this project demanded, but also provided
+    a continuous stream of love, motivation, and inspiration.'
+  merge: -1
+  pgno: 11
+- img_proc: false
+  md: '# Contents
+
+
+    +   1. Computing and Computers . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+  merge: -1
+  pgno: 12
+- img_proc: false
+  md: "# 3 Representation of Data\n\n+   - 3.1 Representing Integers\n  - 3.1.1 Sign-Magnitude\
+    \ Notation\n  - 3.1.2 Two's Complement Notation\n  - 3.1.3 Why Does Two's Complement\
+    \ Work?\n  - 3.1.4 Benefits of the Two's Complement Notation\n- 3.2 Representing\
+    \ Real Numbers\n  - 3.2.1 The IEEE 754 Representation\n  - 3.2.2 Information Loss\
+    \ in Floating-Point Representations\n- 3.3 Numbers in Python\n- 3.4 Representing\
+    \ Truth Values (Booleans)\n- 3.5 Representing Text\n  - 3.5.1 Characters\n  -\
+    \ 3.5.2 Strings\n- 3.6 Containers\n- 3.7 Important Concepts\n- 3.8 Further Reading\n\
+    - 3.9 Exercises\n- References\n\n# 4 Dive into Python\n\n+   - 4.1 Basic Data\n\
+    \  - 4.1.1 Numbers in Python\n  - 4.1.2 Boolean Values\n- 4.2 Container Data (str,\
+    \ tuple, list, dict, set)\n  - 4.2.1 Accessing Elements in Sequential Containers\n\
+    \  - 4.2.2 Useful and Common Container Operations\n  - 4.2.3 String (str)\n  -\
+    \ 4.2.4 List and Tuple\n  - 4.2.5 Dictionary\n  - 4.2.6 Set\n- 4.3 Expressions\n\
+    \  - 4.3.1 Arithmetic, Logic, Container, and Comparison Operations\n  - 4.3.2\
+    \ Bitwise Operators\n  - 4.3.3 Exercise\n  - 4.3.4 Evaluating Expressions\n  -\
+    \ 4.3.5 Implicit and Explicit Type Conversion (Casting)\n- 4.4 Basic Statements\n\
+    \  - 4.4.1 Assignment Statement and Variables\n  - 4.4.2 Variables and Aliasing\n\
+    \  - 4.4.3 Naming Variables\n  - 4.4.4 Other Basic Statements\n- 4.5 Compound\
+    \ Statements"
+  merge: -1
+  pgno: 13
+- img_proc: false
+  md: "+   4.6 Basic Actions for Interacting with the Environment 87\n    4.6.1 Actions\
+    \ for Input 87\n    4.6.2 Actions for Output 87\n4.7 Actions That Are Ignored\
+    \ 88\n    4.7.1 Comments 88\n    4.7.2 pass Statement 89\n4.8 Actions and Data\
+    \ Packaged in Libraries 89\n4.9 Providing Actions to the Interpreter 90\n    4.9.1\
+    \ Directly Interacting with the Interpreter 91\n    4.9.2 Writing Actions in a\
+    \ File (Script) 91\n    4.9.3 Using Actions from Libraries (Modules) 92\n4.10\
+    \ Important Concepts 93\n4.11 Further Reading 93\n4.12 Exercises 93\nReferences\
+    \ 94\n\n+   5 Conditional and Repetitive Execution 95\n5.1 Conditional Execution\
+    \ 95\n    5.1.1 The if Statement 95\n    5.1.2 Exercise 97\n    5.1.3 Nested if\
+    \ Statements 97\n    5.1.4 Practice 99\n    5.1.5 Conditional Expression 99\n\
+    5.2 Repetitive Execution 100\n    5.2.1 The while Statement 100\n    5.2.2 Examples\
+    \ with the while Statement 101\n    5.2.3 The for Statement 105\n    5.2.4 Examples\
+    \ with the for Statement 106\n    5.2.5 The continue and break Statements 111\n\
+    \    5.2.6 Set and List Comprehension 112\n5.3 Important Concepts 113\n5.4 Further\
+    \ Reading 113\n5.5 Exercises 113\nReference 118\n\n+   6 Functions 119\n6.1 Why\
+    \ Define Functions? 119\n6.2 Defining Functions 120\n6.3 Passing Parameters to\
+    \ Functions 121\n    6.3.1 Default Parameters 122\n6.4 Scope of Variables 123\n\
+    6.5 Higher-Order Functions 126\n6.6 Functions in Programming Versus Functions\
+    \ in Mathematics 127\n6.7 Recursion 128\n6.8 Function Examples 130\n6.9 Programming\
+    \ Style 141\n6.10 Important Concepts 142"
+  merge: -1
+  pgno: 14
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 15
+- img_proc: false
+  md: "+   - 9 Error Handling and Debugging 197\n  - 9.1 Types of Errors 197\n   \
+    \ - 9.1.1 Syntax Errors 197\n    - 9.1.2 Type Errors 199\n    - 9.1.3 Run-Time\
+    \ Errors 199\n    - 9.1.4 Logical Errors 201\n  - 9.2 How to Work with Errors\
+    \ 202\n    - 9.2.1 Program with Care 203\n    - 9.2.2 Place Controls in Your Code\
+    \ 203\n    - 9.2.3 Handle Exceptions 204\n    - 9.2.4 Write Verification Code\
+    \ and Raise Exceptions 206\n    - 9.2.5 Debug Your Code 207\n    - 9.2.6 Write\
+    \ Test Cases 207\n  - 9.3 Debugging 207\n    - 9.3.1 Debugging Using Debugging\
+    \ Outputs 208\n    - 9.3.2 Handle the Exception to Get More Information 211\n\
+    \    - 9.3.3 Use the Python Debugger 212\n  - 9.4 Important Concepts 216\n  -\
+    \ 9.5 Further Reading 216\n  - 9.6 Exercises 216\n  - References 219\n- 10 Scientific\
+    \ and Engineering Libraries 221\n  - 10.1 Numerical Computing with NumPy 221\n\
+    \    - 10.1.1 Arrays and Their Basic Properties 221\n    - 10.1.2 Working with\
+    \ Arrays 224\n    - 10.1.3 Linear Algebra with NumPy 228\n    - 10.1.4 Why Use\
+    \ NumPy? Efficiency Benefits. 232\n  - 10.2 Scientific Computing with SciPy 233\n\
+    \  - 10.3 Data Handling and Analysis with Pandas 234\n    - 10.3.1 Supported File\
+    \ Formats 235\n    - 10.3.2 Data Frames 235\n    - 10.3.3 Accessing Data with\
+    \ DataFrames 237\n    - 10.3.4 Modifying Data with DataFrames 238\n    - 10.3.5\
+    \ Analyzing Data with DataFrames 239\n    - 10.3.6 Presenting Data in DataFrames\
+    \ 240\n  - 10.4 Plotting Data with Matplotlib 241\n    - 10.4.1 Parts of a Figure\
+    \ 241\n    - 10.4.2 Preparing Your Data for Plotting 242\n    - 10.4.3 Drawing\
+    \ Single Plots 243\n    - 10.4.4 Drawing Multiple Plots in a Figure 244\n    -\
+    \ 10.4.5 Changing the Elements of a Plot 247\n  - 10.5 Important Concepts 247\n\
+    \  - 10.6 Further Reading 247\n  - 10.7 Exercises 247\n  - References 248"
+  merge: -1
+  pgno: 16
+- img_proc: false
+  md: "# Hands-on Code 9.1\n\n```\ndef divisible(m, n):\n    return m % n == 0\n\n\
+    def count(m):\n    sum = 0\n    for i in range(1,1000):\n        if divisible(i,\
+    \ m):\n            sum += 1\n    return sum\n\nvalue = int(input())\nprint('input\
+    \ value is:', value)\nprint(value, ' divides ', count(value), ' many integers\
+    \ in range [1, 1000]')\n```\n\nIt works without any problem for non-zero input\
+    \ values. However, if you enter 0, it outputs the long message in Fig.9.1:\n\n\
+    This output is called an Error Traceback. When a run-time error occurs, you will\
+    \ get one of these and the execution of the program will be terminated. Depending\
+    \ on the settings, the output may be more brief but you will get line numbers\
+    \ and the line leading to the error.\n\nThe classification of the error is defined\
+    \ as an Exception and colored red in the error output. It is displayed in the\
+    \ first line and repeated with its explanation in the last line. Traceback also\
+    \ reports the functions involving the error, from the outermost to the innermost.\
+    \ Each arrow (colored green) marks the program line causing the error. The last\
+    \ item in the traceback is the actual position where the error occurred; the 2nd\
+    \ line having return m % n == 0 in this case. The divisible() function containing\
+    \ the error line is called by the 7th line, the count() function, which is called\
+    \ by the 14th line of the program.\n\nFig. A traceback example for a run-time\
+    \ error"
+  merge: -1
+  pgno: 17
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 18
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 19
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 20
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 21
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 22
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 23
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 24
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 25
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 26
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 27
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 28
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 29
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 30
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 31
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 32
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 33
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 34
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 35
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 36
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 37
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 38
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 39
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 40
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 41
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 42
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 43
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 44
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 45
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 46
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 47
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 48
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 49
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 50
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 51
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 52
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 53
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 54
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 55
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 56
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 57
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 58
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 59
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 60
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 61
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 62
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 63
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 64
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 65
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 66
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 67
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 68
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 69
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 70
+- img_proc: false
+  md: '# # 摘要
+
+    基于深度学习的图像去噪算法研究
+
+
+    这种结构的神经网络非常容易通过增加神经元和层数来实现扩展，能够处理包含大量特征的高维数据。此外，神经网络的训练方法相对成熟，通过反向传播算法可以有效地调整网络参数，以最小化预测误差。在图像去噪任务中，深度学习模型能够自动学习从噪声图像到干净图像的映射，避免了传统方法中需要手工设计特征的问题。实验结果表明，基于深度学习的图像去噪算法在多种噪声类型和强度下均能取得优于传统方法的去噪效果，同时保持较好的图像细节和结构信息。'
+  merge: -1
+  pgno: 71
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 72
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 73
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 74
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 75
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 76
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 77
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 78
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 79
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 80
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 81
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 82
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 83
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 84
+- img_proc: false
+  md: '# 小米产品发布会
+
+
+    全新小米15手机搭载最新的骁龙8 Gen 4处理器，配备6.7英寸2K AMOLED屏幕，支持120Hz刷新率。后置5000万像素主摄，搭配5000万像素超广角和5000万像素长焦镜头。
+
+
+    小米15Pro在影像系统上进一步升级，采用了一亿像素主摄传感器，并首次引入AI计算摄影3.0技术。电池容量提升至5500mAh，支持90W有线快充和50W无线快充。
+
+
+    小米平板7 Ultra配备14英寸3.2K OLED屏幕，搭载小米自研的澎湃OS for Pad系统，实现多设备无缝协同。支持小米灵感触控笔和磁吸键盘。
+
+
+    随小米平板7 Ultra同步发布的还有多款配件，包括第二代小米灵感触控笔（支持8192级压感）、全新设计的磁吸保护壳（内置支架）以及支持67W快充的迷你充电器。'
+  merge: -1
+  pgno: 85
+- img_proc: false
+  md: "# # 示例文档标题\n\n这是一个示例段落，用于演示从图片中提取文档内容的过程。忽略页眉和页脚后，主要关注正文部分。\n\n+   - 第一项内容\n\
+    - 第二项内容\n- 第三项内容\n\n```\npython\n# 示例代码块\ndef hello():\n    print('Hello, World!')\n\
+    \n```\n\n| 列1 | 列2 | 列3 |\n|------|------|------|\n| 数据1 | 数据2 | 数据3 |\n\n> >\
+    \ 这是一个引用示例，用于突出显示重要内容。"
+  merge: -1
+  pgno: 86
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 87
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 88
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 89
+- img_proc: false
+  md: '| 项目 | 描述 |
+
+    |------|------|
+
+    | 示例项目 | 这是一个示例项目的描述信息 |
+
+    | 测试数据 | 用于演示的测试数据内容 |'
+  merge: -1
+  pgno: 90
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 91
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 92
+- img_proc: false
+  md: '![](bbox=[0, 0, 1, 1])'
+  merge: -1
+  pgno: 93
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 94
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 95
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 96
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 97
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 98
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 99
+- img_proc: false
+  md: 图片内容未能正确加载，无法提取具体信息。
+  merge: -1
+  pgno: 100
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 101
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 102
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 103
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 104
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 105
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 106
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 107
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 108
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 109
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 110
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 111
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 112
+- img_proc: false
+  md: '# Xiaomi HyperOS
+
+
+    Xiaomi HyperOS 是由小米开发的操作系统，旨在提供跨设备的统一体验。
+
+
+    +   - 支持多种小米设备
+
+    - 优化性能与电池续航
+
+    - 集成小米生态服务
+
+
+    该系统强调流畅性、安全性和智能互联，是小米人车家全生态操作系统的一部分。
+
+
+    > > HyperOS 是一次全新的升级，旨在为用户带来更智能、更便捷的生活。
+
+
+    如需了解更多信息，请访问小米官网。'
+  merge: -1
+  pgno: 113
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 114
+- img_proc: false
+  md: '# 二、考试科目及时间安排
+
+
+    | 考试科目       | 日期       | 时间         | 备注 |
+
+    |----------------|------------|--------------|------|
+
+    | 思想政治理论   | 12月24日   | 8:30-11:30   |      |
+
+    | 英语一         | 12月24日   | 14:00-17:00  |      |
+
+    | 专业课一       | 12月25日   | 8:30-11:30   |      |
+
+    | 专业课二       | 12月25日   | 14:00-17:00  |      |
+
+    | 专业课三       | 12月26日   | 8:30-11:30   |      |
+
+    | 专业课四       | 12月26日   | 14:00-17:00  |      |
+
+
+    # 三、其他事项
+
+
+    +   1. 初试地点由考生报考点所在省级教育招生考试机构统一安排，考生可于考前一周左右登录中国研究生招生信息网打印准考证，凭准考证和有效居民身份证参加考试。
+
+
+    +   2. 复试、调剂、体检及录取等事宜，按照教育部及招生单位有关规定执行。
+
+
+    +   3. 考生应严格遵守考试纪律，对在研究生招生考试中违规或作弊的考生，按照《国家教育考试违规处理办法》严肃处理。
+
+
+    +   4. 本简章未尽事宜，按照教育部及招生单位有关规定执行。
+
+
+    +   5. 招生单位：[XX大学] 咨询电话：[XXX]  监督电话：[XXX]'
+  merge: -1
+  pgno: 115
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 116
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 117
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 118
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 119
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 120
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 121
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 122
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 123
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 124
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 125
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 126
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 127
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 128
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 129
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 130
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 131
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 132
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 133
+- img_proc: false
+  md: <!-- no content -->
+  merge: -1
+  pgno: 134
+- img_proc: false
+  md: '# a
+
+
+    **address** An integer that uniquely identifies a location (byte) in the memory.
+
+
+    **algorithm** A step-by-step procedure that, when executed, leads to an output
+    for the input we provided.
+
+
+    **aliasing** A situation where more than one variable is the name of (or point
+    to) the same location in memory.
+
+
+    **assembler** A machine code program that serves as a translator from some relatively
+    more readable text, the assembly program, into machine code.
+
+
+    **assembly** A human-readable low-level programming language that is very close
+    to binary machine code that is understandable by the CPU.
+
+
+    **Arithmetic Logic Unit (ALU)** One of the important units in the CPU responsible
+    for performing arithmetic (addition, subtraction, multiplication, division) and
+    logic (less-than, greater-than, equal-to, etc.) operations.
+
+
+    # b
+
+
+    **basic data types** The data types that represent single information items, i.e.,
+    integers, floating-point numbers, complex numbers, and Booleans.
+
+
+    **Basic Input Output System (BIOS)** A machine code responsible for initializing
+    the critical computer hardware and the main operating system in the computer.
+    It resides in a memory which, even when the power is off, does not lose its content,
+    much like a flash drive. It is electronically located exactly at the address where
+    the CPU looks for its first instruction.
+
+
+    **bit** The smallest unit of information in digital computers. A bit can be either
+    0 or 1.
+
+
+    **Boolean** A data type which can take only two values, `True` or `False`.
+
+
+    **byte** A sequence of 8 bits.'
+  merge: -1
+  pgno: 135
+- img_proc: false
+  md: '# c
+
+
+    **Central Processing Unit (CPU)** One of the main components of the von Neumann
+    Architecture responsible for executing programs. It has three main units: Control
+    Unit, Arithmetic Logic Unit, and Registers.
+
+
+    **class** A prescription that defines a particular object. The blueprint of an
+    object.
+
+
+    **compiler** A program that can translate code written in a high-level human-readable
+    programming language into binary machine code. The binary code produced by a compiler
+    is generally stored in a file that can be loaded into the memory and executed
+    by the CPU when requested.
+
+
+    **complexity (of algorithms)** A measure for comparing different algorithms, in
+    general, with respect to their running times.
+
+
+    **computer** An electronic device that has a “microprocessor” in it. In a broader
+    sense, any physical entity that can do “computation” can also be called a computer.
+
+
+    **computer program** Instructions and data that perform a certain task.
+
+
+    **computing** The process of inferring data from other data.
+
+
+    **constructor** A special member function of an object that is responsible for
+    initializing the object, e.g., its member variables.
+
+
+    **container data types** Data types that represent multiple information items.
+    Commonly used container data types are tuple, list, str, dict, and set data types.
+
+
+    **Control Unit (CU)** A special unit in the CPU responsible for fetching instructions
+    from the memory, interpreting (“decoding”) them, and executing them. After executing
+    an instruction finishes, the control unit continues with the next instruction
+    in the memory. This “fetch–decode–execute” cycle is constantly executed by the
+    control unit.
+
+
+    # d
+
+
+    **debugging** An act of looking for errors in a code, finding their causes, and
+    correcting them.
+
+
+    **dictionary (dict)** A mutable container data type in Python for storing pairs
+    of (key, value).
+
+
+    **directory** A file system structure that contains files and other directories.
+    Directories are used by operating systems to provide an easy-to-use (file system)
+    hierarchical access to information in storage devices.
+
+
+    # e
+
+
+    **electronics** Circuits or devices constructed using transistors, microchips,
+    and other hardware components.
+
+
+    **encapsulation** One of the important features of object-oriented programming.
+    It describes that data and actions are glued together in a data–action structure
+    called “object” that conforms to a rule of “need-to-know” and “maximal-privacy”.
+
+
+    **exception** An event that occurs due to a specific error (e.g., division by
+    zero) during the execution of a program.'
+  merge: -1
+  pgno: 136
+- img_proc: false
+  md: '**expression** Specification of a calculation (e.g., 3 + 4 * 5), which, when
+    evaluated (performed), yields some data as a result.
+
+
+    **f**
+
+
+    **Fetch–Decode–Execute Cycle** The cycle followed by a CPU while running a program.
+    A computer typically follows this cycle from the moment it is turned on until
+    it is turned off.
+
+
+    **file** A sequence of bytes stored on a secondary storage, typically a hard drive
+    (alternative secondary storage devices include CD, DVD, USB disk, tape drive).
+
+
+    **file system** A hierarchical organization of data into files. It usually consists
+    of files separated into directories where directories can contain files or other
+    directories.
+
+
+    **floating point** The data type used to represent real numbers.
+
+
+    **flowchart** A graphical representation of an algorithm. A flowchart uses boxes
+    with specific shapes to denote the steps and arrows to describe the flow of an
+    algorithm. See also pseudo-code.
+
+
+    **folder** —see directory.
+
+
+    **function** A grouping of actions under a given name that performs a specific
+    task.
+
+
+    **i**
+
+
+    **immutable** An immutable data type cannot be changed after being initialized.
+    Common examples are the tuple, str, and frozenset data types.
+
+
+    **index** An integer representing the position of an item in a container. It can
+    be positive or negative. If it is positive, the index of the first element is
+    zero. If it is negative, the index of the last item is –1.
+
+
+    **inheritance** One of the important features of object-oriented programming.
+    It refers to defining ‘descendant’ objects from ‘parent’ objects so that the descendant
+    objects inherit all functions and data of their ancestors.
+
+
+    **instruction** A machine-understandable specification of an operation that can
+    be understood and executed by a CPU. It is often used to refer to binary machine
+    instruction.
+
+
+    **Instruction Register (IR)** A special-purpose register in the CPU to hold the
+    current instruction being executed.
+
+
+    **interpreter** An interactive program that translates code written in a high-level
+    human-readable programming language into binary machine code. An interpreter does
+    not provide binary machine code to the programmer but, instead, it always acts
+    as an intermediary between the programmer (i.e., the programmer’s code) and the
+    binary machine code.
+
+
+    **interrupt** A low-level mechanism that facilitates communication between peripheral
+    devices and the CPU.
+
+
+    **iteration** A fundamental programming ingredient that facilitates repeating
+    a sequence of instructions over and over.
+
+
+    **iterator** An object that provides a countable number of values on demand.'
+  merge: -1
+  pgno: 137
+- img_proc: false
+  md: '# l
+
+
+    +   - **library** A package that contains a wide spectrum of predefined and organized
+    actions and data.
+
+    - **list comprehension** A compact mechanism for specifying the elements of a
+    list.
+
+    - **loop** —see iteration.
+
+
+    # m
+
+
+    +   - **Master Boot Record (MBR)** A small table at the beginning of a storage
+    device, which contains a short machine code program to load the operating system
+    if there is one.
+
+    - **memory** An electronical table composed of a set of rows with a fixed set
+    of cells each. Each cell is responsible for representing a bit. Each consecutive
+    8 bits (bytes) has a unique address, and reading or modifying a byte is possible
+    by providing its address.
+
+    - **mutable** A mutable data type may be changed after being initialized. Common
+    examples are the list and dict data types.
+
+
+    # n
+
+
+    +   - **nesting** The mechanism with which certain compound statements (or data
+    structures) can be defined within other compound statements (or data structures).
+    For example, iterative statements (while and for) and function definitions can
+    be nested.
+
+
+    # o
+
+
+    +   - **object** A computational structure that has functions and data fields
+    built according to the blueprint, namely the class.
+
+    - **Operating System (OS)** A program that, after being loaded into the memory,
+    manages resources and services such as the memory, the CPU, and the devices. It
+    essentially hides the internal details of the hardware and makes the ugly binary
+    machine understandable and manageable to us.
+
+    - **operation code, or opcode** A fixed-length binary sequence that identifies
+    the type of the operation in an instruction.
+
+
+    # p
+
+
+    +   - **package** —see library.
+
+    - **paradigm** —see programming paradigm.
+
+    - **peripheral** Any device outside of the von Neumann structure, namely the CPU
+    and the memory. Examples include the keyboard, the storage devices, the monitor,
+    and the printer.
+
+    - **polling** A mechanism where the CPU regularly asks the peripheral devices
+    if there is anything the CPU needs to take care of. See also interrupt.
+
+    - **polymorphism** A mechanism allowing a descendant object to appear and function
+    like its ancestor object when necessary.
+
+    - **program** —see computer program.
+
+    - **programming paradigm** A style or an approach to programming that outlines
+    rules, concepts, and practices for developing computer programs.'
+  merge: -1
+  pgno: 138
+- img_proc: false
+  md: '**pseudo-code** A natural language description of the steps that are followed
+    in an algorithm. It is not as specific or restricted as a programming language,
+    but it is not as free as the language we use for communicating with other humans:
+    A pseudo-code should be composed of precise and feasible steps and avoid ambiguous
+    descriptions. See also flowchart.
+
+
+    **Program Counter (PC)** A special register in the CPU that holds the address
+    of the next instruction in the memory.
+
+
+    **Random Access Memory (RAM)** An addressable memory which provides constant-time
+    access to data for reading or writing purposes given the address of the data.
+
+
+    **recursion** A fundamental tool of the functional paradigm for defining a function
+    such that the function being defined is called while defining the function.
+
+
+    **register** A small memory unit in the CPU that is typically addressed with a
+    special name, e.g., Program Counter, Instruction Register, and Data Register.
+
+
+    **script** A human-readable program code that can be executed by an interpreter.
+
+
+    **sign-magnitude notation** An intuitive method for representing integers in binary
+    such that the first bit is reserved for the sign of the number and the remaining
+    bits for the magnitude. See also Two’s complement notation.
+
+
+    **set comprehension** A compact mechanism for specifying the elements of a set.
+
+
+    **slicing** An indexing mechanism for describing the indices of a range of elements.
+
+
+    **string** A data type for representing a sequence of characters, i.e., text.
+
+
+    **two’s complement notation** An ingenious method for representing integers in
+    binary such that a negative number is represented by flipping the bits of its
+    magnitude (in binary) and adding 1 to it. See also sign-magnitude notation.
+
+
+    **type conversion** Transforming data from one data type to another; e.g., from
+    a floating point number to an integer.
+
+
+    **variable** A name or reference to a memory location that holds data.
+
+
+    **von Neumann Architecture** An architecture that describes the organization of
+    the main hardware components and their interaction.'
+  merge: -1
+  pgno: 139
+- img_proc: false
+  md: "# # Index\n\n+   - **_._**\n- **__init__**, 154\n- **__str__**, 154\n- **type()**,\
+    \ 57\n- **A**\n    - address, 7\n    - address bus, 6, 8\n    - Al-Khwarizmi,\
+    \ 20\n    - algorithm, 19, 20\n    - aliasing, 83\n    - Arithmetic Logic Unit\
+    \ (ALU), 8\n    - ASCII table, 48\n    - assembler, 12, 25\n    - assembly, 11,\
+    \ 12, 25\n    - assignment, 80, 81\n- **B**\n    - base-2, 36\n    - basic data,\
+    \ 56\n        - Boolean, 58\n        - complex numbers, 57\n        - floating\
+    \ point numbers, 57\n        - integer, 57\n    - Basic Input Output System (BIOS),\
+    \ 13\n    - binary search, 137\n    - bit, 6\n    - bool, 58\n    - Boolean, 47,\
+    \ 58\n    - break, 111\n    - bubble sort, 139\n    - built-in scope, 125\n  \
+    \  - bus, 6, 13\n    - byte, 8\n- **C**\n    - Central Processing Unit (CPU),\
+    \ 5-8, 11\n    - characters, 48\n        - graphemes, 48\n        - unprintables,\
+    \ 48\n    - check digit, 133\n    - class, 152\n    - comments, 88, 89\n    -\
+    \ compiler, 27\n    - complex numbers, 57\n    - complexity, 23\n    - computer,\
+    \ 4\n    - computer program, *see program*\n    - computing, 1\n    - conditional\
+    \ expression, 99\n    - conditional statement, 95\n    - constructor, 154\n  \
+    \  - container data, 59\n        - dictionary (dict), 71\n        - frozenset,\
+    \ 74\n        - list, 66\n        - set, 73\n        - string (str), 62\n    \
+    \    - tuple, 66\n    - continue, 111\n    - Control Unit (CU), 8, 9\n    - CTRL-D,\
+    \ 91\n- **D**\n    - data bus, 6\n    - DataFrame, 235\n    - debugger, 212\n\
+    \    - debugging, 207\n    - decimal-to-binary conversion, 37\n    - decorator,\
+    \ 210\n    - device driver, 15\n    - device management, 15\n    - dictionary\
+    \ (dict), 71\n    - dir(), 90, 91\n    - directory, 15, 189\n    - driver, 15"
+  merge: -1
+  pgno: 140
+- img_proc: false
+  md: "+   ## E\n\n- encapsulation, 148\n- enclosing scope, 124\n- examples\n  - application\n\
+    \    - finding minimum, 259\n    - linear regression, 267\n    - Newton’s method\
+    \ for finding root, 254\n    - non-linear regression, 272\n    - Taylor series,\
+    \ 250\n  - file\n    - CSV files, 184\n  - function\n    - average of numbers,\
+    \ 130\n    - binary search, 137\n    - bubble sort, 139\n    - check digit, 133\n\
+    \    - sequential search, 135\n    - standard deviation, 130\n  - iteration\n\
+    \    - angle between vectors, 109\n    - average of numbers, 101\n    - dot product,\
+    \ 108\n    - factorial, 103\n    - list split, 108\n    - matrix multiplication,\
+    \ 110\n    - permutation, 107\n    - run-length encoding, 107\n    - standard\
+    \ deviation, 102\n    - Taylor expansion for sine, 103\n    - words with vowels\
+    \ & consonants, 106\n  - OOP\n    - counter, 156\n    - rational number, 157\n\
+    \    - shape drawing, 159\n- exception, 200, 204\n- exec(), 92\n- exit(), 91\n\
+    - expression, 55, 74\n\n+   ## F\n\n- Fetch–Decode–Execute Cycle, 8, 9\n- file,\
+    \ 173\n  - close, 174\n  - CSV, 184\n  - formatting, 186\n  - line-by-line, 179\n\
+    \  - open, 174\n  - parsing, 176\n  - read, 175\n  - readline, 180\n  - sequential\
+    \ access, 175\n  - write, 174\n- file management, 15\n- file system, 15\n- filter(),\
+    \ 126\n- float, 57\n- floating point\n  - IEEE 754 representation, 43\n\n+   -\
+    \ information loss, 44\n- floating point numbers, 57\n- flowchart, 21\n- folder,\
+    \ 189\n- for statement, 105\n- frozenset, 74\n- function minimum, 257\n- function\
+    \ roots, 252\n- functions\n  - benefits, 119\n  - defining, 120\n  - higher-order\
+    \ functions, 126\n  - parameter passing, 121\n\n+   ## G\n\n- global scope, 124\n\
+    - global statement, 125\n- Graphical User Interface (GUI), 16\n\n+   ## I\n\n\
+    - if statement, 95\n- immutable, 60\n- implementation, 20\n- import, 89, 90\n\
+    - indentation, 96\n- index, 60\n  - negative, 60\n  - slice, 60\n- indexing, 60\n\
+    - inheritance, 150, 159\n- Input sanitization, 203\n- input(), 87\n- instruction,\
+    \ 8, 9\n- Instruction Register (IR), 9\n- int, 57\n- integer, 57\n- integer representation\n\
+    \  - sign-magnitude, 37\n  - two’s complement, 39\n- interpreter, 27\n- interrupt,\
+    \ 13\n- iteration, 100\n- iterator, 105\n\n+   ## J\n\n- John von Neumann, 6\n\
+    \n+   ## L\n\n- library, 27, 89, 90\n- list, 66\n- list comprehension, 112\n-\
+    \ local scope, 124\n- logical errors, 201\n- loop, 100"
+  merge: -1
+  pgno: 141
+- img_proc: false
+  md: '# M
+
+
+    machine code, 12, 25
+
+
+    map(), 126
+
+
+    Master Boot Record (MBR), 14
+
+
+    math library, 89–91
+
+
+    Matplotlib, 241
+
+
+    matrix, 69
+
+
+    matrix product, 230
+
+
+    memory, 6–8, 11
+
+
+    memory management, 14
+
+
+    microprocessor, 5
+
+
+    mutable, 60
+
+
+    # N
+
+
+    nesting, 97
+
+
+    Newton''s Method, 252
+
+
+    NumPy, 221
+
+
+    # O
+
+
+    object, 147, 152
+
+
+    object-oriented programming, 147
+
+
+    opcode, 10
+
+
+    Operating System (OS), 14
+
+
+    operation code (opcode), 9
+
+
+    # P
+
+
+    package, 89, 90
+
+
+    Pandas, 234
+
+
+    pass, 89, 90
+
+
+    peripheral, 13
+
+
+    polling, 13
+
+
+    polymorphism, 151
+
+
+    Power-On Self-Test (POST), 14
+
+
+    print(), 87, 88
+
+
+    process, 14
+
+
+    process management, 14
+
+
+    program, 11, 20
+
+
+    Program Counter (PC), 9
+
+
+    programming, 5
+
+
+    programming languages, 24
+
+
+    +   - high-level, 26
+
+    - low-level, 25
+
+    - paradigms, 28
+
+
+    pseudo-code, 21
+
+
+    # Q
+
+
+    quit(), 91
+
+
+    # R
+
+
+    raise statement, 205
+
+
+    Random Access Memory (RAM), 8
+
+
+    range(), 105
+
+
+    real numbers, 42
+
+
+    recursion, 128
+
+
+    register, 8
+
+
+    regression, 263
+
+
+    representing integers, 37
+
+
+    run-time errors, 199
+
+
+    # S
+
+
+    SciPy, 233
+
+
+    scope
+
+
+    +   - built-in, 125
+
+    - enclosing, 124
+
+    - global, 124
+
+    - local, 124
+
+
+    scope of variables, 123
+
+
+    script, 91, 92
+
+
+    secondary storage devices, 173
+
+
+    security, 15
+
+
+    sequential search, 135
+
+
+    set, 73
+
+
+    set comprehension, 112
+
+
+    Sign-Magnitude Notation, 37
+
+
+    slice, 60
+
+
+    slicing, 60
+
+
+    sorting, 139
+
+
+    start-up of a computer, 13
+
+
+    statement, 55, 80
+
+
+    +   - basic statement, 55, 80
+
+    - compound statement, 55, 86, 87
+
+
+    stored program concept, 11
+
+
+    str, 62
+
+
+    string, 62
+
+
+    syntax, 26
+
+
+    syntax errors, 197
+
+
+    # T
+
+
+    Taylor Series, 103, 249
+
+
+    try-except, 204
+
+
+    tuple, 66
+
+
+    tuple matching, 82
+
+
+    Two''s Complement Notation, 39
+
+
+    type conversion
+
+
+    +   - explicit, 80
+
+    - implicit, 79, 80
+
+
+    type conversion (casting), 79, 80
+
+
+    type errors, 199
+
+
+    # U
+
+
+    Unicode Transformation Format (UTF), 50
+
+
+    user interface, 16
+
+
+    # V
+
+
+    variable, 80, 81
+
+
+    +   - naming, 85
+
+    - scope, 123
+
+
+    von Neumann Architecture, 6, 7, 12
+
+
+    # W
+
+
+    while statement, 100'
+  merge: -1
+  pgno: 142
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 143
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 144
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 145
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 146
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 147
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 148
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 149
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 150
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 151
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 152
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 153
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 154
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 155
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 156
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 157
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 158
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 159
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 160
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 161
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 162
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 163
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 164
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 165
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 166
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 167
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 168
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 169
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 170
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 171
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 172
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 173
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 174
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 175
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 176
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 177
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 178
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 179
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 180
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 181
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 182
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 183
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 184
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 185
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 186
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 187
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 188
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 189
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 190
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 191
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 192
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 193
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 194
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 195
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 196
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 197
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 198
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 199
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 200
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 201
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 202
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 203
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 204
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 205
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 206
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 207
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 208
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 209
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 210
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 211
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 212
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 213
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 214
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 215
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 216
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 217
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 218
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 219
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 220
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 221
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 222
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 223
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 224
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 225
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 226
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 227
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 228
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 229
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 230
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 231
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 232
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 233
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 234
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 235
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 236
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 237
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 238
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 239
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 240
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 241
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 242
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 243
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 244
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 245
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 246
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 247
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 248
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 249
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 250
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 251
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 252
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 253
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 254
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 255
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 256
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 257
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 258
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 259
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 260
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 261
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 262
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 263
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 264
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 265
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 266
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 267
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 268
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 269
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 270
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 271
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 272
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 273
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 274
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 275
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 276
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 277
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 278
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 279
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 280
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 281
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 282
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 283
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 284
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 285
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 286
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 287
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 288
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 289
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 290
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 291
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 292
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 293
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 294
