@@ -1,0 +1,2800 @@
+
+
+# Python 高级编程
+
+## 高级编程
+
+学习 Python 编程的指南
+包含关于动态编程、多线程、多进程、调试、测试等方面的练习与示例参考
+
+Marcus Richards
+
+由 Marcus Richards 于 2024 年出版。
+
+尽管在本书的编写过程中已采取了各种预防措施，但出版商对其中可能存在的错误或遗漏，或因使用其中信息而导致的任何损害不承担任何责任。
+
+# PYTHON 高级编程：学习 Python 编程的指南。包含关于动态编程、多线程、多进程、调试、测试等方面的练习与示例参考
+
+**第一版。2024 年 3 月 19 日。**
+
+版权所有 © 2024 Marcus Richards。
+
+ISBN: 979-8224869794
+
+作者：Marcus Richards。
+
+# 目录
+
+- [书名页](#)
+- [版权页](#)
+- [第 1 章：高级编程技术](#)
+  - [深入过程式编程](#)
+  - [使用字典进行分支](#)
+  - [生成器表达式与函数](#)
+- [第 2 章：动态代码执行](#)
+  - [动态代码执行](#)
+  - [动态导入模块](#)
+  - [函数与方法装饰器](#)
+  - [函数注解](#)
+- [第 3 章：深入面向对象编程](#)
+  - [控制属性访问](#)
+  - [函数式对象](#)
+  - [上下文管理器](#)
+  - [描述符](#)
+  - [类装饰器](#)
+  - [抽象基类](#)
+  - [多重继承](#)
+  - [元类](#)
+- [第 4 章：函数式编程](#)
+  - [偏函数应用](#)
+  - [协程](#)
+  - [对数据执行独立操作](#)
+- [第 5 章：调试、测试与性能分析](#)
+- [第 6 章：调试](#)
+  - [处理语法错误](#)
+  - [处理运行时错误](#)
+  - [科学调试](#)
+  - [单元测试](#)
+  - [性能分析](#)
+- [第 7 章：进程与线程](#)
+  - [使用多进程模块](#)
+- [订阅 Marcus Richards 的邮件列表](#)
+
+# 第 1 章：高级编程技术
+
+在本章中，我们将探讨广泛的编程方法，并介绍各种额外的、通常更高级的 Python 语法结构。本节的部分内容颇具挑战性，但请记住，最动态的技术并非总是必需的，你通常可以先快速浏览一遍，了解可能实现的功能，待有需要时再仔细研读。
+
+本节的第一部分将更深入地探讨 Python 的过程式特性。它首先介绍如何以新颖的方式运用我们之前已涵盖的内容，然后回归到生成器的主题。接着，该部分介绍了动态编程——在运行时按名称加载模块以及在运行时执行任意代码。该部分还回到了局部（嵌套）函数的主题，但额外涵盖了 `nonlocal` 关键字和递归函数的使用。之前我们了解了如何使用 Python 的内置装饰器——在本节中，我们将学习如何创建自己的装饰器。该部分最后介绍了注解。
+
+第二部分涵盖了所有与面向对象编程相关的新内容。它首先介绍了 `__slots__`，这是一种最小化任何对象内存使用量的机制。然后，它展示了如何在不使用其属性的情况下访问对象属性。
+
+该部分还描述了函数式对象和上下文管理器——它们与 `with` 关键字结合使用，并且在许多情况下（例如文件处理），它们可以用来用更简单的 `try ... except` 结构替代 `try ... except ... finally` 结构。该部分还展示了如何创建自定义上下文管理器，并介绍了其他高级特性，包括类装饰器、抽象基类、多重继承和元类。
+
+第三部分介绍了函数式编程的一些基本概念，并展示了 `functools`、`itertools` 和 `operator` 模块中的一些实用函数。本节还介绍了如何使用偏函数应用来简化代码，以及如何创建和使用协程。
+
+本章将我们刚刚涵盖的所有内容转化为“豪华 Python 工具箱”，其中包含所有基础工具（方法和语法），以及许多可以使我们的编程更简单、更简洁、更高效的新工具。其中一些工具可以互换使用，例如，某些任务可以使用类装饰器或元类来完成，而其他工具，如描述符，则可以以不同的方式使用以实现不同的效果。本节涵盖的一些工具，例如上下文管理器，我们将经常使用，而其他工具则将随时待命，以应对那些它们是理想解决方案的特定情况。
+
+## 深入过程式编程
+
+本节的大部分内容涉及与过程式编程和函数相关的额外设施，但第一个小节有所不同，因为它展示了一种基于我们之前已涵盖内容的实用编程技巧，而没有引入任何新的语法。
+
+## 使用字典进行分支
+
+正如我们之前提到的，函数是 Python 中像其他任何东西一样的对象，而函数的名称是一个指向该函数的对象引用。如果我们编写一个不带括号的函数名，Python 就知道我们指的是该引用，我们可以像传递任何其他引用一样传递这些引用。我们可以利用这一事实，用单个函数调用来替代包含大量 `elif` 子句的 `if` 语句。
+
+我们将观察一个名为 `dvds-dbm.py` 的交互式控制台，其菜单如下：
+
+(A)添加 (E)编辑 (L)列表 (R)移除 (I)导入 e(X)导出 (Q)退出
+
+该软件有一个函数用于获取用户的选择，并且只会返回有效的选择，在本例中是 "a"、"e"、"l"、"r"、"i"、"x" 和 "q" 中的一个。以下是两个等效的代码片段，用于根据用户的选择调用相应的函数：
+
+```python
+if action == "a":
+    add_dvd(db)
+elif action == "e":
+    edit_dvd(db)
+elif action == "l":
+    list_dvds(db)
+elif action == "r":
+    remove_dvd(db)
+elif action == "i":
+    import_(db)
+elif action == "x":
+    export(db)
+elif action == "q":
+    quit(db)
+```
+
+```python
+functions = dict(a=add_dvd, e=edit_dvd, l=list_dvds, r=remove_dvd,
+                  i=import_, x=export, q=quit)
+
+functions[action](db)
+```
+
+选择存储在 `action` 变量中，是一个单字符字符串，要使用的数据库存储在 `db` 变量中。`import_()` 函数末尾有一个下划线，以区别于内置的 `import` 语句。
+
+在右侧的代码片段中，我们创建了一个字典，其键是有效的菜单选择，其值是函数引用。在第二个语句中，我们检索与给定操作对应的函数引用，并使用调用运算符 `()` 调用该函数，在本例中传递了 `db` 参数。右侧的代码不仅比左侧的代码短得多，而且可以扩展（拥有更多的字典条目）而不影响其性能，不像左侧的代码，其速度取决于需要测试多少个 `elif` 才能找到合适的函数进行调用。
+
+`convert-incidents.py` 程序在其 `import_()` 方法中使用了这种技术，如该方法的摘录所示：
+
+```python
+call = {(".aix", "dom"): self.import_xml_dom,
+        (".aix", "etree"): self.import_xml_etree,
+        (".aix", "sax"): self.import_xml_sax,
+        (".ait", "manual"): self.import_text_manual,
+        (".ait", "regex"): self.import_text_regex,
+```
+
+### 生成器表达式与函数
+
+此外，还可以创建生成器表达式。它们在语法上与列表推导式几乎相同，区别在于它们使用圆括号而非方括号。其语法如下：
+
+*(expression for item in iterable)*
+
+*(expression for item in iterable if condition)*
+
+以下是两段等效的代码，展示了如何将一个包含 `yield` 语句的简单 `for ... in` 循环编写为生成器：
+
+```python
+def items_in_key_order(d):
+    for key in sorted(d):
+        yield key, d[key]
+
+def items_in_key_order(d):
+    return ((key, d[key])
+            for key in sorted(d))
+```
+
+这两个函数都返回一个生成器，该生成器为给定的字典生成一系列键值对。如果我们需要一次性获取所有项，可以将函数返回的生成器传递给 `list()` 或 `tuple()`；否则，我们可以迭代生成器，按需获取各项。
+
+生成器提供了一种执行惰性求值的方法，这意味着它们只计算实际需要的值。这比一次性处理一个巨大的列表可能更高效。一些生成器产生的值数量与我们请求的一样多——没有上限。例如：
+
+```python
+def quarters(next_quarter=0.0):
+    while True:
+        yield next_quarter
+        next_quarter += 0.25
+```
+
+这个函数将永远返回 0.0、0.25、0.5 等等。以下是我们如何使用这个生成器：
+
+```python
+result = []
+for x in quarters():
+    result.append(x)
+    if x >= 1.0:
+        break
+```
+
+`break` 命令很有用——没有它，`for ... in` 循环将永远不会结束！
+
+最终，结果列表是 `[0.0, 0.25, 0.5, 0.75, 1.0]`。
+
+每次我们调用 `quarters()`，都会得到一个从 0.0 开始、每次增加 0.25 的生成器；但假设我们需要重置生成器的当前值。可以向生成器传递一个值，正如这个新版本的生成器函数所示：
+
+```python
+def quarters(next_quarter=0.0):
+    while True:
+        received = (yield next_quarter)
+        if received is None:
+            next_quarter += 0.25
+        else:
+            next_quarter = received
+```
+
+`yield` 表达式每次都会向调用者返回一个值。此外，如果调用者调用生成器的 `send()` 方法，发送的值将作为 `yield` 表达式的结果在生成器函数中被接收。以下是我们如何使用新的生成器函数：
+
+```python
+result = []
+generator = quarters()
+while len(result) < 5:
+    x = next(generator)
+    if abs(x - 0.5) < sys.float_info.epsilon:
+        x = generator.send(1.0)
+    result.append(x)
+```
+
+我们创建一个变量来引用生成器，并调用内置的 `next()` 函数，该函数从给定的生成器中检索下一个项。（通过调用生成器的 `__next__()` 特殊方法也可以达到相同效果，即 `x = generator.__next__()`。）如果值等于 0.5，我们就将值 1.0 发送到生成器（它会立即返回这个值）。这次结果列表是 `[0.0, 0.25, 1.0, 1.25, 1.5]`。
+
+在下一小节中，我们将研究 `magicnumbers.py` 程序，该程序处理命令行上给出的文件。遗憾的是，Windows shell 程序（`cmd.exe`）不提供通配符扩展（也称为文件通配），因此如果一个程序在 Windows 上使用参数 `*.*` 运行，严格的字符串 `*.*` 将进入 `sys.argv` 列表，而不是当前目录中的所有文件。我们通过创建两个不同的 `get_files()` 函数来解决这个问题，一个用于 Windows，另一个用于 Unix，两者都使用生成器。代码如下：
+
+```python
+if sys.platform.startswith("win"):
+    def get_files(names):
+        for name in names:
+            if os.path.isfile(name):
+                yield name
+            else:
+                for file in glob.iglob(name):
+                    if not os.path.isfile(file):
+                        continue
+                    yield file
+else:
+    def get_files(names):
+        return (file for file in names if os.path.isfile(file))
+```
+
+无论哪种情况，该函数都期望以文件名列表（例如 `sys.argv[1:]`）作为其参数被调用。
+
+在 Windows 上，该函数遍历列出的每个名称。对于每个文件名，函数会 yield 该名称，但对于非文件（通常是目录），则使用 `glob` 模块的 `glob.iglob()` 函数来返回一个迭代器，该迭代器生成通配符扩展后该名称所代表的文件名。对于像 `autoexec.bat` 这样的标准名称，会返回一个生成一个项（该名称）的迭代器；对于像 `*.txt` 这样使用通配符的名称，会返回一个生成所有匹配文件（在本例中是扩展名为 `.txt` 的文件）的迭代器。（还有一个 `glob.glob()` 函数返回列表而不是迭代器。）
+
+在 Linux 上，shell 会为我们进行通配符扩展，所以我们只需要为所有给定名称的文件返回一个生成器。
+
+生成器函数也可以用作协程，前提是我们正确地构建它们。协程是可以在执行过程中暂停（在 `yield` 语句处）的函数，等待 `yield` 提供一个结果来处理，一旦收到结果，它们就继续处理。
+
+# 第2章：动态代码执行
+
+有时，编写一段生成所需代码的代码比直接编写所需代码更容易。此外，在某些情况下，允许用户输入代码（例如，电子表格中的函数），并让 Python 为我们执行输入的代码，而不是自己编写解析器并处理它，这很有用——尽管执行这样的任意代码可能是一个潜在的安全风险，当然。另一个可能需要动态代码执行的例子是提供插件来扩展程序的功能。使用这些插件有一个显著的缺点：所有必要的功能并未与程序集成（这可能使程序更难分发，并且有插件丢失的风险），但优点是插件可以单独更新和提供，也许是为了提供最初未预料到的增强功能。
+
+## 动态代码执行
+
+执行表达式的最简单方法是使用内置的 `eval()` 函数。例如：
+
+```python
+x = eval("(2 ** 31) - 1")  # x === 2147483647
+```
+
+这对于用户输入的表达式来说很好，但如果我们需要更动态地创建一个函数呢？为此，我们可以使用内置的 `exec()` 函数。例如，用户可能给我们一个公式，如 $4\pi r^2$ 和名称“球体面积”，他们希望将其转换为一个函数。假设 `x` 将被替换为 `math.pi`，他们想要的函数可以这样创建：
+
+```python
+import math
+
+code = """
+def area_of_sphere(r):
+    return 4 * math.pi * r ** 2
+"""
+
+context = {}
+context["math"] = math
+exec(code, context)
+```
+
+我们应该使用适当的缩进——毕竟，引用的代码是标准的 Python。（尽管在这种情况下，我们可以将所有内容写在一行上，因为代码块只有一行。）
+
+如果 `exec()` 仅以代码作为其唯一参数被调用，则无法访问因执行代码而创建的任何函数或变量。此外，`exec()` 无法访问任何已导入的模块，也无法访问调用点作用域内的任何变量、函数或其他对象。这两个问题都可以通过传递一个字典作为第二个参数来解决。该字典提供了一个位置，可以在 `exec()` 调用完成后用于存储对象引用以供访问。例如，使用上下文字典意味着在 `exec()` 调用之后，该字典拥有一个对由 `exec()` 创建的 `area_of_sphere()` 函数的对象引用。在这个例子中，我们需要 `exec()` 能够访问 `math` 模块，因此我们在上下文字典中插入了一个项，其键是模块的名称，其值是对相应模块对象的对象引用。这确保了在 `exec()` 调用内部，`math.pi` 是可访问的。
+
+有时，将整个全局上下文提供给 `exec()` 是方便的。这可以通过传递 `globals()` 函数返回的字典来实现。这种方法的一个缺点是，在 `exec()` 调用中创建的任何对象都将被添加到全局字典中。
+
+答案是将全局设置复制到一个字典中，例如，`setting = globals().copy()`。这仍然允许`exec()`访问已导入的模块以及作用域内的变量和不同对象，并且由于我们进行了复制，在`exec()`调用内对设置所做的任何更改都保留在设置字典中，而不会传播到全局环境。（使用`copy.deepcopy()`可能看起来更安全，但如果安全是首要考虑，最好完全避免使用`exec()`。）我们也可以传递局部设置，例如，通过将`locals()`作为第三个参数传递——这使得局部作用域中的对象对`exec()`执行的代码可用。
+
+在`exec()`调用之后，上下文字典包含一个名为`"area_of_sphere"`的键，其值是`area_of_sphere()`函数。以下是我们如何访问和调用该函数的方法：
+
+```
+area_of_sphere = context["area_of_sphere"]
+
+area = area_of_sphere(5)  # area == 314.15926535897933
+```
+
+`area_of_sphere`对象是对我们刚刚创建的函数的对象引用，可以像使用任何其他函数一样使用。此外，尽管我们在`exec()`调用中只创建了一个函数，但与只能处理单个表达式的`eval()`不同，`exec()`可以处理任意数量的Python语句，包括整个模块，正如我们将在下一小节中看到的那样。
+
+## 动态导入模块
+
+Python提供了三种简单的机制来创建插件，所有这些机制都涉及在运行时按名称导入模块。并且，当我们动态导入了额外的模块后，我们可以利用Python的反射函数来检查所需功能的可用性，并根据需要访问它。
+
+在本小节中，我们将审视`magic_numbers.py`程序。该程序读取命令行上给出的每个文件的前1000个字节，并为每个文件输出文件的类型（或内容“未知”）以及文件名。以下是一个示例命令行及其输出摘录：
+
+```
+C:\Python31\python.exe magic-numbers.py c:\windows\*.*
+...
+XML.................c:\windows\WindowsShell.Manifest
+Unknown.............c:\windows\WindowsUpdate.log
+Windows Executable..c:\windows\winhelp.exe
+Windows Executable..c:\windows\winhlp32.exe
+Windows BMP Image...c:\windows\winnt.bmp
+...
+```
+
+该程序尝试加载与程序位于同一目录中且名称包含内容“magic”的任何模块。此类模块需要提供一个公共函数`get_file_type()`。书中提供了两个非常简单的示例模块`StandardMagicNumbers.py`和`WindowsMagicNumbers.py`，它们各自都有一个`get_file_type()`函数。
+
+我们将分两部分审视程序的`main()`函数。
+
+```
+def main():
+
+    modules = load_modules()
+
+    get_file_type_functions = []
+
+    for module in modules:
+        get_file_type = get_function(module, "get_file_type")
+
+        if get_file_type is not None:
+            get_file_type_functions.append(get_file_type)
+```
+
+稍后，我们将查看`load_modules()`函数的三种不同实现，该函数返回一个（可能为空的）模块对象列表，我们稍后还将查看`get_function()`函数。对于发现的每个模块，我们都尝试检索一个`get_file_type()`函数，并将获得的任何此类函数添加到此类函数的列表中。
+
+```
+    for file in get_files(sys.argv[1:]):
+
+        fh = None
+
+        try:
+            fh = open(file, "rb")
+            magic = fh.read(1000)
+            for get_file_type in get_file_type_functions:
+                filetype = get_file_type(magic,
+                                         os.path.splitext(file)[1])
+                if filetype is not None:
+                    print("{0:<20} {1}".format(filetype, file))
+                    break
+            else:
+                print("{0:<20} {1}".format("Unknown", file))
+        except EnvironmentError as err:
+            print(err)
+        finally:
+            if fh is not None:
+                fh.close()
+```
+
+此循环遍历命令行上列出的每个文件，并为每个文件读取其前1000个字节。然后它依次尝试每个`get_file_type()`函数，以查看是否能确定当前文件的类型。如果确定了文件类型，则打印详细信息并跳出内层循环，继续处理下一个文件。如果没有任何函数能确定文件类型——或者没有发现`get_file_type()`函数——则打印一行“未知”。
+
+我们现在将审视三种不同（但等效）的动态导入模块的方法，从最长且最困难的方法开始，因为它明确地展示了每个步骤：
+
+```
+def load_modules():
+    modules = []
+
+    for name in os.listdir(os.path.dirname(__file__) or "."):
+        if name.endswith(".py") and "magic" in name.lower():
+            filename = name
+            name = os.path.splitext(name)[0]
+            if name.isidentifier() and name not in sys.modules:
+                fh = None
+                try:
+                    fh = open(filename, "r", encoding="utf8")
+                    code = fh.read()
+                    module = type(sys)(name)
+                    sys.modules[name] = module
+                    exec(code, module.__dict__)
+                    modules.append(module)
+                except (EnvironmentError, SyntaxError) as err:
+                    sys.modules.pop(name, None)
+                    print(err)
+                finally:
+                    if fh is not None:
+                        fh.close()
+    return modules
+```
+
+我们首先遍历程序目录中的所有文件。如果这是当前目录，`os.path.dirname(__file__)`将返回一个空字符串，这会导致`os.listdir()`引发异常，因此我们在必要时传递`"."`。对于每个候选文件（以`.py`结尾且包含内容“magic”），我们通过切掉文件扩展名来获取模块名称。如果名称是有效的标识符，则它是一个合适的模块名称，并且如果它尚未在`sys.modules`字典中维护的全局模块列表中，我们就可以尝试导入它。
+
+我们将文件内容读入`code`字符串。下一行`module = type(sys)(name)`非常微妙。当我们调用`type()`时，它返回给定对象的类型对象。因此，如果我们调用`type(1)`，我们将得到`int`。如果我们打印类型对象，我们只会得到类似`"int"`的可读内容，但如果我们像函数一样调用类型对象，我们将检索到该类型的对象。例如，我们可以通过编写`x = 5`，或`x = int(5)`，或`x = type(0)(5)`，或`int_type = type(0); x = int_type(5)`来在变量`x`中获得整数5。在这种情况下，我们使用了`type(sys)`，而`sys`是一个模块，因此我们得到模块类型对象（基本上等同于一个类对象），并可以使用它来创建一个具有给定名称的新模块。就像`int`示例中使用哪个整数来获取`int`类型对象并不重要一样，使用哪个模块（只要它是一个存在的模块，即已被导入）来获取模块类型对象也不重要。
+
+当我们有一个新的（空的）模块时，我们将其添加到全局模块列表中，以防止模块被意外重新导入。这是在调用`exec()`之前完成的，以更紧密地模拟`import`语句的行为。然后我们调用`exec()`来执行我们读取的代码——并且我们使用模块的字典作为代码的上下文。最后，我们将模块添加到我们将返回的模块列表中。此外，如果出现问题，我们从全局模块字典中删除该模块（如果它已被添加）——如果发生错误，它不会被添加到模块列表中。注意`exec()`可以处理任何
+
+## 动态编程与内省函数
+
+| 语法 | 描述 |
+| :--- | :--- |
+| `__import__(...)` | 按名称导入模块；参见正文 |
+| `compile(source, file, mode)` | 返回编译源文本后得到的代码对象；file应为文件名，或`"<string>"`；mode必须是`"single"`、`"eval"`或`"exec"` |
+| `delattr(obj, name)` | 从对象obj中删除名为name的属性 |
+| `dir(obj)` | 返回局部作用域中的名称列表，或者如果给出了obj，则返回obj的名称（例如，其属性和方法） |
+
+`eval(source, globals, locals)` 返回对 `source` 中单个表达式求值的结果；如果提供了 `globals`，则它是全局上下文，`locals` 是局部上下文（作为字典）。
+
+`exec(obj, globals, locals)` 执行对象 `obj`，它可以是字符串或来自 `compile()` 的代码对象，并返回 `None`；如果提供了 `globals`，则它是全局上下文，`locals` 是局部上下文。
+
+`getattr(obj, name, val)` 返回对象 `obj` 中名为 `name` 的属性的值，如果提供了 `val` 且不存在该属性，则返回 `val`。
+
+`globals()` 返回当前全局上下文的字典。
+
+`hasattr(obj, name)` 如果对象 `obj` 具有名为 `name` 的属性，则返回 `True`。
+
+`locals()` 返回当前局部上下文的字典。
+
+`setattr(obj, name, val)` 为对象 `obj` 设置名为 `name` 的属性的值为 `val`，如果必要则创建该属性。
+
+`type(obj)` 返回对象 `obj` 的类型对象。
+
+`vars(*obj*)` 返回对象 *obj* 的上下文作为字典；如果未提供 *obj*，则返回局部上下文。
+
+代码量（其中 `eval()` 对表达式求值——参见表 8.1），并可能引发 `SyntaxError` 异常。
+
+这是第二种在运行时动态加载模块的方法——此处显示的代码替换了第一种方法的 `try ... except` 块：
+
+```
+try:
+    exec("import " + name)
+    modules.append(sys.modules[name])
+except SyntaxError as err:
+    print(err)
+```
+
+这种方法的一个假设性问题是它可能不确定。`name` 变量可能以 `sys` 开头；并跟随着一些破坏性代码。
+
+此外，这是第三种方法，同样简单地演示了对主要方法的 `try ... except` 块的替换：
+
+```
+try:
+    module = __import__(name)
+    modules.append(module)
+except (ImportError, SyntaxError) as err:
+    print(err)
+```
+
+这是处理能够导入模块的最简单方法，并且比使用 `exec()` 相当安全，尽管像任何其他导入一样，它绝非安全，因为我们完全不知道模块导入时执行了什么。
+
+此处展示的系统都没有以不同方式处理包或模块，但扩展代码以适应这些并不困难——尽管如果需要更高级的功能，值得查阅在线文档，特别是 `__import__()` 的文档。
+
+导入模块后，我们应该能够访问它提供的值。这可以利用 Python 内置的自省函数 `getattr()` 和 `hasattr()` 来实现。以下是我们如何使用它们来实现 `get_function()` 函数：
+
+```
+def get_function(module, function_name):
+    function = get_function.cache.get((module, function_name), None)
+    if function is None:
+        try:
+            function = getattr(module, function_name)
+            if not hasattr(function, "__call__"):
+                raise AttributeError()
+            get_function.cache[module, function_name] = function
+        except AttributeError:
+            function = None
+    return function
+
+get_function.cache = {}
+```
+
+暂时忽略缓存相关代码，该函数的作用是使用我们需要的函数名对模块对象调用 `getattr()`。如果不存在这样的属性，会引发 `AttributeError` 异常，但如果存在这样的属性，我们使用 `hasattr()` 来确认该属性本身具有 `__call__` 属性——这是所有可调用对象（函数和方法）都具有的。
+
+（稍后我们将看到一种更优雅的方法来检查属性是否可调用。）如果该属性存在且可调用，我们可以将其返回给调用者；否则，我们返回 `None` 以表示该函数不可用。
+
+如果正在处理多个文件（例如，由于在 `C:\windows` 目录中使用 `*.*`），我们不想为每个文件的每个模块都经历查询过程。因此，在定义 `get_function()` 函数后，我们向该函数添加一个属性，一个名为 `cache` 的字典。（总的来说，Python 允许我们向任意对象添加任意属性。）第一次调用 `get_function()` 时，`cache` 字典是空的，因此 `dict.get()` 调用将返回 `None`。然而，每次找到合适的函数时，它都会被放入字典中，使用模块和函数名的 2 元组作为键，函数本身作为值。因此，第二次及以后每次提到特定函数时，该函数会立即从缓存中返回，根本不会发生属性查询。
+
+用于存储 `get_function()` 对于给定参数集的返回值的方法称为记忆化。它可以用于任何没有副作用（不改变任何全局变量）并且对于相同（不变的）参数始终返回相同结果的函数。由于为每个被记忆的函数创建和管理缓存所需的代码是相同的，它是函数装饰器的理想候选者，并且在 Python Cookbook（code.activestate.com/plans/langs/python/）中提供了一些 `@memorize` 装饰器设计。然而，模块对象是可变的，因此一些现成的记忆化装饰器无法以当前方式与我们的 `get_function()` 函数一起工作。一个简单的解决方案是使用每个模块的 `__name__` 字符串而不是模块本身作为键元组的第一部分。
+
+进行动态模块导入很简单，使用 `exec()` 函数执行任意 Python 代码也是如此。这可能非常有用，例如，允许我们将代码存储在数据库中。然而，我们无法控制导入或执行的代码会做什么。请记住，除了变量、函数和类之外，模块还可以包含在导入时执行的代码——如果代码来自不受信任的来源，它可能会做一些可怕的事情。解决这个问题的最佳方法取决于具体情况，尽管在某些情况下或对于某些项目，它可能根本不是问题。
+
+## 函数和方法装饰器
+
+装饰器是一种函数，它可以接受一个函数或方法作为其唯一参数，并返回另一个函数或方法，该函数或方法将原始函数或方法与一些额外的功能结合在一起。我们已经使用了一些预定义的装饰器，例如 `@property` 和 `@classmethod`。在本小节中，我们将学习如何创建自己的函数装饰器，并在本节后面学习如何创建类装饰器。
+
+对于我们的第一个装饰器示例，假设我们有许多执行计算的函数，其中一些必须始终产生正结果。我们可以为每个函数添加一个断言，但使用装饰器更简单、更清晰。这是一个用 `@positive_result` 装饰器装饰的函数，我们稍后将创建它：
+
+```
+@positive_result
+def discriminant(a, b, c):
+    return (b ** 2) - (4 * a * c)
+```
+
+由于装饰器的存在，如果结果小于 0，将引发 `AssertionError` 异常，程序将终止。当然，我们可以根据需要在任意数量的函数上使用该装饰器。以下是装饰器的实现：
+
+```
+def positive_result(function):
+    def wrapper(*args, **kwargs):
+        result = function(*args, **kwargs)
+        assert result >= 0, function.__name__ + "() result isn't >= 0"
+        return result
+    wrapper.__name__ = function.__name__
+    wrapper.__doc__ = function.__doc__
+    return wrapper
+```
+
+装饰器定义了一个新的局部函数，该函数调用原始函数。在这里，局部函数是 `wrapper()`；它接受原始函数并存储结果，并使用断言来确保结果是正数（否则程序将终止）。`wrapper` 通过返回被包装函数计算的结果来结束。创建 `wrapper` 后，我们将其名称和文档字符串设置为原始函数的名称和文档字符串。这有助于自省，因为我们希望错误消息指定原始函数的名称，而不是包装器的名称。最后，我们返回 `wrapper` 函数——这个函数将被用来代替原始函数。
+
+```
+def positive_result(function):
+    @functools.wraps(function)
+```
+
+def wrapper(*args, **kwargs):
+    result = function(*args, **kwargs)
+    assert result >= 0, function.__name__ + "() result isn't >= 0"
+    return result
+
+return wrapper
+
+这是 `@positive_result` 装饰器的一个略微更清晰的变体。包装器本身使用了 `functools` 模块的 `@functools.wraps` 装饰器进行包装，这确保了 `wrapper()` 函数具有第一个函数的名称和文档字符串。
+
+有时，能够参数化一个装饰器会很有用，但起初这似乎是不可能的，因为装饰器只接受一个参数，即一个函数或方法。然而，有一个完美的解决方案。我们可以用所需的参数调用一个函数，该函数返回一个装饰器，然后该装饰器可以装饰紧随其后的函数。例如：
+
+```
+@bounded(0, 100)
+
+def percent(amount, total):
+
+    return (amount / total) * 100
+```
+
+这里，`bounded()` 函数被调用时传入了两个参数，并返回一个装饰器，该装饰器用于装饰 `percent()` 函数。在这种情况下，装饰器的目的是确保返回的数字始终在 0 到 100 的范围内（包含边界值）。以下是 `bounded()` 函数的实现：
+
+```
+def bounded(minimum, maximum):
+    def decorator(function):
+        @functools.wraps(function)
+        def wrapper(*args, **kwargs):
+            result = function(*args, **kwargs)
+            if result < minimum:
+                return minimum
+            elif result > maximum:
+                return maximum
+            return result
+        return wrapper
+    return decorator
+```
+
+该函数创建一个装饰器函数，该装饰器函数本身又创建一个包装器函数。包装器执行计算并返回一个在限定范围内的结果。`decorator()` 函数返回 `wrapper()` 函数，而限定函数返回装饰器。
+
+另一个需要注意的点是，每次在限定函数内部创建包装器时，特定的包装器都使用传递给 `limited` 的最小值和最大值。
+
+我们将在本小节中创建的最后一个装饰器更为复杂。它是一个日志记录函数，用于记录它所装饰的任何函数的名称、参数和结果。例如：
+
+```
+@logged
+
+def discounted_price(price, percentage, make_integer=False):
+
+result = price * ((100 - percentage) / 100)
+
+if not (0 < result <= price):
+
+raise ValueError("invalid price")
+
+return result if not make_integer else int(round(result))
+```
+
+如果 Python 在调试模式下运行（默认模式），每次调用 `limited` 值函数时，一条日志消息将被添加到机器本地临时目录中的 `logged.log` 文件中，正如这条日志记录摘录所示：
+
+```
+called: discounted_price(100, 10) -> 90.0
+
+called: discounted_price(210, 5) -> 199.5
+
+called: discounted_price(210, 5, make_integer=True) -> 200
+
+called: discounted_price(210, 14, True) -> 181
+
+called: discounted_price(210, -8) <type 'ValueError'>: invalid price
+```
+
+如果 Python 在优化模式下运行（使用 `-O` 命令行选项，或者 `PYTHONOPTIMIZE` 环境变量被设置为 `-O`），那么将不会发生日志记录。以下是初始化日志记录和装饰器的代码：
+
+```
+if __debug__:
+
+logger = logging.getLogger("Logger")
+
+logger.setLevel(logging.DEBUG)
+
+handler = logging.FileHandler(os.path.join( tempfile.gettempdir(),
+"logged.log"))
+
+logger.addHandler(handler)
+
+def logged(function):
+
+@functools.wraps(function)
+
+def wrapper(*args, **kwargs):
+
+log = "called: " + function.__name__ + "("
+
+log += ", ".join(["{0!r}".format(a) for a in args] + ["{0!s}={1!r}".format(k, v)
+
+for k, v in kwargs.items()])
+
+result = exception = None
+
+try:
+
+result = function(*args, **kwargs)
+
+return result
+
+except Exception as err:
+
+exception = err
+
+finally:
+
+log += ((") -> " + str(result)) if exception is None else ") {0}:
+
+{1}".format(type(exception),
+
+exception))
+
+logger.debug(log)
+
+if exception is not None:
+    raise exception
+    return wrapper
+else:
+    def logged(function):
+        return function
+```
+
+在调试模式下，全局变量 `__debug__` 为 `True`。如果是这样，我们使用 `logging` 模块设置日志记录，然后创建 `@logged` 装饰器。`logging` 模块非常强大和灵活——它可以记录到文件、轮转文件、电子邮件、网络连接、HTTP 服务器等等。这里我们只使用了最基本的功能，创建了一个日志记录对象，设置其日志级别（支持多个级别），并选择使用文件作为输出。
+
+包装器的代码首先使用函数的名称和参数设置日志字符串。然后我们尝试调用函数并存储其结果。如果发生任何异常，我们将其存储。在所有情况下，最后的 `finally` 块都会执行，在那里我们将返回值（或异常）添加到日志字符串并写入日志。如果没有发生异常，则返回结果；否则，我们重新引发异常以准确模拟原始函数的行为。
+
+如果 Python 在优化模式下运行，`__debug__` 为 `False`；在这种情况下，我们将 `logged()` 函数定义为简单地返回给它的函数，因此除了函数首次创建时的这个间接调用的小开销外，没有任何运行时开销。
+
+请注意，标准库的 `trace` 和 `cProfile` 模块可以运行和分析程序和模块，以生成各种跟踪和性能分析报告。两者都使用内省，因此与我们这里使用的 `@logged` 装饰器不同，`trace` 和 `cProfile` 都不需要任何源代码更改。
+
+## 函数注解
+
+函数和方法可以用注解来定义——注解是可以在函数签名中使用的表达式。以下是通用语法：
+
+```
+def functionName(par1 : exp1, par2 : exp2, ..., parN : expN) ->rexp:
+
+suite
+```
+
+每个冒号声明部分（`:expX`）都是可选的注解，箭头返回声明部分（`->rexp`）也是如此。最后一个（或唯一的）位置参数（如果存在）可以是 `*args` 的形式，带或不带注解；同样，最后一个（或唯一的）关键字参数（如果存在）可以是 `**kwargs` 的形式，同样带或不带注解。
+
+如果存在注解，它们会被添加到函数的 `__annotations__` 字典中；如果不存在，这个字典就是空的。字典的键是参数名，值是相应的表达式。这种语法允许我们注解所有、部分或不注解任何参数，以及注解或不注解返回值。注解对 Python 没有特殊意义。Python 对注解所做的唯一事情就是将它们放入 `__annotations__` 字典中；任何其他操作都取决于我们。以下是 `Util` 模块中一个带注解的函数示例：
+
+```
+def is_unicode_punctuation(s : str) -> bool:
+
+for c in s:
+
+if unicodedata.category(c)[0] != "P":
+    return False
+return True
+```
+
+每个 Unicode 字符都属于一个特定的类别，每个类别都由一个两个字符的标识符标识。所有以 P 开头的类别都是标点字符。
+
+这里我们使用了 Python 数据类型作为注解表达式。然而，它们对 Python 没有特殊意义，正如这些调用应该阐明的那样：
+
+```
+Util.is_unicode_punctuation("zebr\a")
+```
+
+```
+### 返回：False
+```
+
+```
+Util.is_unicode_punctuation(s="!@#?")
+```
+
+```
+### 返回：True
+```
+
+```
+Util.is_unicode_punctuation(("!", "@"))
+```
+
+```
+### 返回：True
+```
+
+第一个调用使用位置参数，第二个调用使用关键字参数，只是为了演示两种类型都正常工作。最后一个调用传递一个元组而不是字符串，这是被接受的，因为 Python 只是将注解记录在 `__annotations__` 字典中。
+
+如果我们想为注解赋予意义，例如，提供类型检查，一种方法是用一个合适的装饰器装饰我们希望意义适用的函数。以下是一个基本的类型检查装饰器：
+
+```
+def strictly_typed(function):
+
+annotations = function.__annotations__
+```
+
+```python
+arg_spec = inspect.getfullargspec(function)
+
+assert "return" in annotations, "missing type for return value"
+
+for arg in arg_spec.args + arg_spec.kwonlyargs:
+    assert arg in annotations, ("missing type for parameter '" + arg + "'")
+
+@functools.wraps(function)
+def wrapper(*args, **kwargs):
+    for name, arg in (list(zip(arg_spec.args, args)) + list(kwargs.items())):
+        assert isinstance(arg, annotations[name]), (
+            "expected argument '{0}' of {1} got {2}".format(
+                name, annotations[name], type(arg)))
+    result = function(*args, **kwargs)
+    assert isinstance(result, annotations["return"]), ("expected return of {0} got {1}".format(annotations["return"], type(result)))
+    return result
+
+return wrapper
+```
+
+这个装饰器要求每个参数和返回值都必须用正确的类型进行注解。它会在被装饰的函数定义时，检查函数的参数和返回类型是否都已完全注解其类型，并在运行时检查实际参数的类型是否与指定的类型匹配。
+
+`inspect` 模块为对象提供了强大的内省服务。这里，我们只使用了它返回的参数规范对象的一小部分，来获取每个位置参数和关键字参数的名称——对于位置参数，还能获取正确的顺序。然后，这些名称与注解字典一起使用，以确保每个参数和返回值都已注解。
+
+在装饰器内部创建的包装函数首先遍历给定的位置参数和关键字参数的每个名称-参数对。由于 `zip()` 返回一个迭代器，而 `dictionary.items()` 返回一个字典视图，我们不能直接将它们连接起来，所以首先将它们都转换为列表。如果任何实际参数的类型与其对应的注解不同，断言将会失败；否则，将调用实际函数，并检查返回值的类型，如果类型正确，则返回该值。在 `strictly_typed()` 函数的最后，我们当然返回被包装的函数。请注意，检查仅在调试模式下进行（这是 Python 的默认模式——由 `-O` 命令行选项和 `PYTHONOPTIMIZE` 环境变量控制）。
+
+如果我们用 `@strictly_typed` 装饰器装饰 `is_unicode_punctuation()` 函数，并尝试使用装饰后的形式运行之前的相同示例，注解将被强制执行：
+
+```python
+is_unicode_punctuation("zebr\a")
+```
+
+```python
+### 返回: False
+```
+
+```python
+is_unicode_punctuation(s="!@#?")
+```
+
+```python
+### 返回: True
+```
+
+```python
+is_unicode_punctuation(("!", "@"))
+```
+
+```python
+### 抛出 AssertionError
+```
+
+现在参数类型会被检查，所以在最后一种情况下会抛出 `AssertionError`，因为元组不是字符串或 `str` 的子类。
+
+现在我们将看看注解的一个完全不同的用途。这是一个与内置 `range()` 函数功能相同的小函数，只是它总是返回浮点数：
+
+```python
+def range_of_floats(*args) -> "author=Reginald Perrin":
+    return (float(x) for x in range(*args))
+```
+
+函数本身并未使用该注解，但很容易想象一个工具，它导入项目的所有模块，并创建一个函数名和作者名的列表，从每个函数的 `__name__` 属性中提取函数名，从 `__annotations__` 字典的 "return" 项的值中提取作者名。
+
+注解是 Python 的另一个特性，由于 Python 不对其施加任何预定义的含义，它们的用途仅受限于我们的想象力。
+
+# 第三章：进一步的面向对象编程
+
+在本节中，我们将更深入地探讨 Python 对面向对象的支持，学习许多可以减少我们所需编写代码量的技术，并扩展我们可用的编程特性的功能和能力。然而，我们将从一个简单的小新特性开始。这是一个 `Point` 类定义的开头。
+
+```python
+class Point:
+    __slots__ = ("x", "y")
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+```
+
+当一个类在创建时没有使用 `__slots__`，Python 会在后台为每个实例创建一个名为 `__dict__` 的私有字典，该字典保存实例的数据属性。这就是为什么我们可以向对象添加或删除属性。
+
+如果我们只需要访问现有属性而不需要添加或删除属性的对象，我们可以创建没有 `__dict__` 的类。这只需通过定义一个名为 `__slots__` 的类属性来实现，其值是一个属性名称的元组。此类的每个对象都将具有指定名称的属性，而没有 `__dict__`；不能从这些类中添加或删除属性。这些对象比常规对象消耗更少的内存并且更快，尽管除非创建大量对象，否则这可能不会产生太大影响。如果我们从一个使用 `__slots__` 的类继承，我们必须在子类中声明 slots，即使为空，例如 `__slots__ = ();`，否则内存和速度的节省将会丢失。
+
+## 控制属性访问
+
+有时，拥有一个属性值是动态计算而不是存储的类会很有用。以下是这样一个类的完整实现：
+
+```python
+class Ord:
+    def __getattr__(self, char):
+        return ord(char)
+```
+
+有了 `Ord` 类，我们可以创建一个实例 `ord = Ord()`，然后拥有一个内置 `ord()` 函数的替代方案，该替代方案适用于任何作为有效标识符的字符。例如，`ord.a` 返回 97，`ord.Z` 返回 90，`ord.å` 返回 229。（然而，`ord.!` 和类似的写法是语法错误。）
+
+请注意，如果我们在 IDLE 中输入 `Ord` 类，然后输入 `ord = Ord()`，它将无法工作。这是因为实例与 `Ord` 类使用的内置 `ord()` 函数同名，因此 `ord()` 调用实际上会变成对 `ord` 实例的调用，并导致 `TypeError` 异常。如果我们导入一个包含 `Ord` 类的模块，就不会出现这个问题，因为交互式创建的 `ord` 对象和 `Ord` 类使用的内置 `ord()` 函数将位于两个不同的模块中，因此一个不会取代另一个。如果我们确实需要在交互式环境中创建一个类并重用内置函数的名称，我们可以通过确保该类调用内置函数来实现——对于这种情况，可以导入 `builtins` 模块，该模块提供了对所有内置函数的明确访问，并调用 `builtins.ord()` 而不是简单的 `ord()`。
+
+这是另一个小而完整的类。这个类允许我们创建“常量”。尽管类的意图如此，但更改值并不难，但它至少可以防止简单的错误。
+
+```python
+class Const:
+    def __setattr__(self, name, value):
+        if name in self.__dict__:
+            raise ValueError("cannot change a const attribute")
+        self.__dict__[name] = value
+
+    def __delattr__(self, name):
+        if name in self.__dict__:
+            raise ValueError("cannot delete a const attribute")
+        raise AttributeError("'{0}' object has no attribute '{1}'".format(self.__class__.__name__, name))
+```
+
+使用这个类，我们可以创建一个常量对象，比如 `const = Const()`，并在其上设置我们喜欢的任何属性，例如 `const.limit = 591`。然而，当
+
+## 属性访问特殊方法
+
+| 特殊方法 | 用法 | 描述 |
+|---|---|---|
+| __delattr__(self, name) | del x.n | 删除对象 x 的 n 属性 |
+| __dir__(self) | dir(x) | 返回 x 的属性名列表 |
+| __getattr__(self, name) | v = x.n | 如果未直接找到，则返回对象 x 的 n 属性的值 |
+| __getattribute__(self, name) | v = x.n | 返回对象 x 的 n 属性的值；详见正文 |
+| __setattr__(self, name, value) | x.n = v | 将对象 x 的 n 属性的值设置为 v |
+
+属性的值已被设置，尽管它可以像我们希望的那样被频繁读取，但任何尝试更改或删除它的操作都会引发一个 `ValueError` 异常。我们没有重新实现 `__getattr__()`，因为基类 `object.__getattr__()` 方法正是我们所需要的——它返回给定属性的值，或者在没有该属性时引发一个 `AttributeError` 异常。在 `__delattr__()` 方法中，我们模仿了 `__getattr__()` 方法针对不存在属性的错误信息，为此我们必须获取当前类的名称以及不存在的属性的名称。
+
+这个类之所以有效，是因为我们使用了对象的 `__dict__` 属性，这正是其基类 `__getattr__()`、`__setattr__()` 和 `__delattr__()` 方法所使用的，即使这次我们只使用了基类的 `__getattr__()`。
+
+管理常量还有另一种方式：我们也可以使用具名元组。这里有几个例子：
+
+```
+Const = collections.namedtuple("_", "min max")(191, 591)
+
+Const.min, Const.max # 返回：(191, 591)
+
+Offset = collections.namedtuple("_", "id name description")(*range(3))
+
+Offset.id, Offset.name, Offset.description # 返回：(0, 1, 2)
+```
+
+在这两种情况下，我们都为具名元组使用了一个丢弃的名称，因为我们每次只需要一个具名元组实例，而不是一个用于创建具名元组实例的元组子类。尽管 Python 不支持枚举数据类型，但我们可以像现在这样使用元组来达到类似的效果。
+
+在我们最后查看属性访问特殊方法时，我们将创建一个 `Image` 类，其宽度、高度和背景颜色在创建 `Image` 时是固定的（尽管如果加载了图像，它们会被更改）。我们使用只读属性来访问它们。例如，我们有：
+
+```
+@property
+
+def width(self):
+
+return self.__width
+```
+
+这很容易编码，但如果有很多只读属性，可能会变得冗余。这里有一个不同的方案，它在一个方法中处理所有 `Image` 类的只读属性：
+
+```
+def __getattr__(self, name):
+
+if name == "colors":
+
+return set(self.__colors)
+
+classname = self.__class__.__name__
+
+if name in frozenset({"background", "width", "height"}):
+
+return self.__dict__["_{classname}__{name}".format(
+**locals())]
+
+raise AttributeError("'{classname}' object has no "
+"attribute '{name}'".format(**locals()))
+```
+
+如果我们尝试访问一个对象的属性而该属性未被找到，Python 将调用 `__getattr__()` 方法（前提是它已实现，并且我们没有重新实现 `__getattribute__()`），并将属性的名称作为参数传递。`__getattr__()` 的实现必须引发一个 `AttributeError` 异常，如果它们不处理给定的属性。
+
+例如，如果我们有语句 `image.colors`，Python 将搜索 `colors` 属性，如果未找到，则将调用 `Image.__getattr__(image, "colors")`。在这种情况下，`__getattr__()` 方法处理 "colors" 属性名，并返回图像所使用的颜色集合的副本。
+
+其他属性是不可变的，因此可以安全地直接返回给调用者。我们本可以为每个属性编写单独的 `elif` 语句，像这样：
+
+```
+elif name == "background":
+    return self.__background
+```
+
+然而，这次我们选择了一种简洁的方式。
+
+我们知道，在底层，每个对象的非特殊属性都保存在 `self.__dict__` 中，我们选择直接访问它们。
+
+另外，请记住，对于私有属性，其名称被修饰为 `_className__attributeName` 的形式，因此在从对象获取属性值时必须考虑到这一点。
+
+为了查找私有属性所需的名称修饰以及提供标准的 `AttributeError` 错误文本，我们需要知道当前类的名称。（它可能不是 `Image`，因为对象可能是 `Image` 子类的实例。）每个对象都有一个 `__class__` 特殊属性，因此 `self.__class__` 在方法内部始终可用，并且可以安全地被 `__getattr__()` 访问，而不会导致不必要的递归。
+
+请注意，使用 `__getattr__()` 和 `self.__class__` 提供了对实例类（可能是子类）中属性的访问，而直接访问属性则使用定义该属性的类，这之间存在细微差别。
+
+我们尚未涵盖的一个特殊方法是 `__getattribute__()`。虽然 `__getattr__()` 方法在搜索（非特殊）属性时最后被调用，但 `__getattribute__()` 方法在每次属性访问时首先被调用。尽管有时调用 `__getattribute__()` 可能是有用的甚至是必要的，但重新实现 `__getattribute__()` 方法可能很棘手。重新实现必须注意不要递归调用自身——在这种情况下，通常使用 `super().__getattribute__()` 或 `object.__getattribute__()`。同样，由于每次属性访问都需要 `__getattribute__()`，重新实现它很容易导致性能下降，与直接属性访问或属性相比。本书中介绍的类都没有重新实现 `__getattribute__()` 函数。
+
+## 函子
+
+在 Python 中，函数对象是对任何可调用对象的引用，例如函数、lambda 函数或方法。该定义也包括类，因为对类的引用是一个可调用对象，当被调用时，它返回给定类的对象——例如，`x = int(5)`。在计算机科学中，函子是一个可以像函数一样被调用的对象。因此，在 Python 术语中，函子只是另一种函数对象。任何具有 `__call__()` 特殊方法的类都是函子。函子提供的主要优势是它们可以维护一些状态数据。例如，我们可以创建一个函子，它总是从交易的组成部分中删除基本标点符号。我们将这样创建和使用它：
+
+```
+strip_punctuation = Strip(",;:.!?")
+
+strip_punctuation("Land ahoy!") # 返回：'Land ahoy'
+```
+
+这里我们创建了一个 `Strip` 函子的实例，并用值 ",;:.!?" 初始化它。每当该实例被调用时，它返回传入的字符串，并删除任何标点符号字符。以下是 `Strip` 类的完整实现：
+
+```
+class Strip:
+
+    def __init__(self, characters):
+
+        self.characters = characters
+
+    def __call__(self, string):
+
+        return string.strip(self.characters)
+```
+
+我们可以使用普通函数或 lambda 来实现类似的功能，但如果我们需要存储更多状态或执行更复杂的处理，函子通常是正确的解决方案。
+
+函子通过使用类来捕获状态的能力是灵活且强大的，但有时它超出了我们真正需要的范围。捕获状态的另一种方式是使用闭包。闭包是一个捕获了一些外部状态的函数或方法。例如：
+
+```
+def make_strip_function(characters):
+
+    def strip_function(string):
+
+        return string.strip(characters)
+
+    return strip_function
+
+strip_punctuation = make_strip_function(",;:.!?")
+
+strip_punctuation("Land ahoy!") # 返回：'Land ahoy'
+```
+
+这个 `make_strip_function()` 函数接受要删除的字符作为其唯一参数，并返回另一个函数 `strip_function()`，该函数接受一个字符串参数，并删除在创建闭包时给定的字符。因此，就像我们可以创建任意数量的我们可以根据需要创建任意多个 Strip 类的实例，每个实例都有自己要剥离的字符集。同样，我们也可以根据需要创建任意多个具有各自特定字符集的剥离函数。
+
+函子的一个重要用例是为排序例程提供关键函数。
+
+这是一个非排他性的 SortKey 函子类（来自文档 SortKey.py）：
+
+```
+class SortKey:
+
+    def __init__(self, *attribute_names):
+        self.attribute_names = attribute_names
+
+    def __call__(self, instance):
+        values = []
+        for attribute_name in self.attribute_names:
+            values.append(getattr(instance, attribute_name))
+        return values
+```
+
+当创建一个 SortKey 对象时，它会保存一个元组，其中包含初始化时传入的属性名。当该对象被调用时，它会为传入的实例生成一个属性值列表——顺序与 SortKey 初始化时指定的顺序一致。例如，假设我们有一个 Person 类：
+
+```
+class Person:
+
+    def __init__(self, forename, surname, email):
+        self.forename = forename
+        self.surname = surname
+        self.email = email
+```
+
+假设我们有一个包含 Person 对象的列表 `people`。我们现在可以按姓氏对列表进行排序，如下所示：`people.sort(key=SortKey("surname"))`。如果人员众多，很可能会有一些姓氏冲突，因此我们可以先按姓氏排序，然后在姓氏相同的情况下按名字排序，就像这样：`people.sort(key=SortKey("surname", "forename"))`。此外，如果我们有姓氏和名字都相同的人员，我们还可以包含 email 属性。当然，我们也可以通过改变提供给 SortKey 函子的属性名顺序，来先按名字再按姓氏排序。
+
+另一种实现相同功能的方法，完全不需要创建函子，就是使用 `operator` 模块的 `operator.attrgetter()` 函数。例如，要按姓氏排序，我们可以这样写：`people.sort(key=operator.attrgetter("surname"))`。同样，要按姓氏和名字排序：`people.sort(key=operator.attrgetter("surname", "forename"))`。`operator.attrgetter()` 函数返回一个函数（一个闭包），当该函数被传入一个对象时，它会返回在创建闭包时指定的那些对象属性。
+
+在 Python 中，函子的使用频率可能低于支持函子的其他语言，因为 Python 有多种方法可以实现相同的功能——例如，使用闭包或对象和属性获取器。
+
+## 上下文管理器
+
+上下文管理器使我们能够简化代码，确保在执行特定代码块时执行某些特定操作。这种行为之所以能够实现，是因为上下文管理器定义了两个特殊方法：`__enter__()` 和 `__exit__()`，Python 在 `with` 语句的范围内会特殊处理这两个方法。当在 `with` 语句中创建一个上下文管理器时，其 `__enter__()` 方法会被自动调用；当上下文管理器在其 `with` 语句之后超出作用域时，其 `__exit__()` 方法会被自动调用。
+
+我们可以创建自己的自定义上下文管理器，也可以使用预定义的上下文管理器——正如我们将在本小节后面看到的，内置 `open()` 函数返回的文件对象就是上下文管理器。使用上下文管理器的语法如下：
+
+```
+with expression as variable:
+    suite
+```
+
+该表达式必须是或必须产生一个上下文管理器对象；如果指定了可选的 `as variable` 部分，则该变量将被设置为引用上下文管理器的 `__enter__()` 方法返回的对象（这通常是上下文管理器本身）。由于上下文管理器保证会执行其“离开”代码（即使发生异常），因此上下文管理器可以用来完全消除对 `finally` 代码块的需求。
+
+Python 的一些类型是上下文管理器——例如，`open()` 可以返回的所有文件对象——因此在进行文件处理时，我们可以省去 `finally` 代码块，正如以下等效代码片段所示（假设 `process()` 是在其他地方定义的函数）：
+
+```
+fh = None
+try:
+    fh = open(filename)
+    for line in fh:
+        process(line)
+except EnvironmentError as err:
+    print(err)
+finally:
+    if fh is not None:
+        fh.close()
+```
+
+```
+try:
+    with open(filename) as fh:
+        for line in fh:
+            process(line)
+except EnvironmentError as err:
+    print(err)
+```
+
+文件对象是一个上下文管理器，其离开代码始终会在文件被打开的情况下关闭它。无论是否发生异常，离开代码都会执行，但在后一种情况下，异常会被传播。这确保了文件会被关闭，同时我们仍然有机会处理任何错误，在这种情况下是通过向用户打印一条消息来实现的。
+
+事实上，上下文管理器不必传播异常，但不这样做实际上会隐藏任何异常，这很可能是一个编码错误。所有内置和标准库的上下文管理器都会传播异常。
+
+有时我们需要同时使用多个上下文管理器。例如：
+
+```
+try:
+    with open(source) as fin:
+        with open(target, "w") as fout:
+            for line in fin:
+                fout.write(process(line))
+except EnvironmentError as err:
+    print(err)
+```
+
+这里我们从源文件读取行，并将处理后的版本写入目标文件。
+
+使用嵌套的 `with` 语句会很快导致大量缩进。幸运的是，标准库的 `contextlib` 模块为上下文管理器提供了一些额外支持，包括 `contextlib.nested()` 函数，它允许在同一个 `with` 语句中处理两个或多个上下文管理器，而不是嵌套 `with` 语句。这是刚才显示的代码的替代方案，但省略了与之前大部分相同的行：
+
+```
+try:
+    with contextlib.nested(open(source), open(target, "w")) as (fin, fout):
+        for line in fin:
+```
+
+`contextlib.nested()` 只在 Python 3.0 中需要使用；从 Python 3.1 开始，此函数已被弃用，因为 Python 3.1 可以在单个 `with` 语句中处理多个上下文管理器。这是相同的示例——同样省略了不必要的行——但这次是针对 Python 3.1 的：
+
+```
+try:
+    with open(source) as fin, open(target, "w") as fout:
+        for line in fin:
+```
+
+使用这种语法可以将上下文管理器及其关联的变量放在一起，使得 `with` 语句比嵌套它们或使用 `contextlib.nested()` 更加清晰易读。
+
+不仅仅是文件对象是上下文管理器。例如，一些用于锁定的线程相关类也是上下文管理器。上下文管理器也可以与 `decimal.Decimal` 数字一起使用；如果我们需要在特定设置（例如特定精度）下执行一些计算，这会很有用。
+
+如果我们需要创建一个自定义上下文管理器，我们应该创建一个提供两个方法的类：`__enter__()` 和 `__exit__()`。每当在这样一个类的实例上使用 `with` 语句时，`__enter__()` 方法会被调用，其返回值用于 `as` 变量（如果没有 `as` 变量，则被丢弃）。当控制离开 `with` 语句的作用域时，`__exit__()` 方法会被调用（如果发生了异常，则异常的详细信息会作为参数传递）。
+
+假设我们需要以原子方式对列表执行一些操作——也就是说，我们要么需要所有操作都完成，要么一个都不完成，这样结果列表始终处于已知状态。例如，如果我们有一个整数列表，需要附加一个整数、删除一个整数并更改一些整数，所有这些作为一个操作，我们可以这样编写代码：
+
+```
+try:
+```
+
+使用 `AtomicList(items)` 作为原子操作：
+    atomic.append(58289)
+    del atomic[3]
+    atomic[8] = 81738
+    atomic[index] = 38172
+except (AttributeError, IndexError, ValueError) as err:
+    print("未应用任何更改：", err)
+```
+
+如果没有异常发生，所有操作都会应用到主列表上；否则，任何更改都不会被应用。现在让我们看看 `AtomicList` 上下文管理器的代码：
+
+```
+class AtomicList:
+    def __init__(self, alist, shallow_copy=True):
+        self.original = alist
+        self.shallow_copy = shallow_copy
+
+    def __enter__(self):
+        self.modified = (self.original[:] if self.shallow_copy else copy.deepcopy(self.original))
+        return self.modified
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type is None:
+            self.original[:] = self.modified
+```
+
+在创建 `AtomicList` 项时，我们持有对第一个列表的引用，并记录是否使用浅复制。（浅复制对于数字或字符串列表来说是没问题的；但对于包含列表或其他集合的列表，浅复制是不够的。）
+
+然后，当在 `with` 语句中使用 `AtomicList` 上下文管理器时，其 `__enter__()` 方法被调用。此时我们复制原始列表并返回副本，以便所有更改都在副本上进行。
+
+当我们到达 `with` 语句作用域的末尾时，`__exit__()` 方法被调用。如果没有异常发生，`exc_type`（“异常类型”）将为 `None`，我们知道可以安全地用修改后的列表项替换原始列表的项。（我们不能执行 `self.original = self.modified`，因为那只会用另一个对象引用替换当前引用，而不会影响原始列表。）但如果发生了异常，我们不会对原始列表做任何操作，修改后的列表将被丢弃。
+
+`__exit__()` 的返回值用于指示发生的任何异常是否应该被传播。`True` 值意味着我们已经处理了任何异常，因此不应发生传播。通常我们总是返回 `False` 或在布尔上下文中评估为 `False` 的值，以允许发生的任何异常传播。通过不提供显式返回值，我们的 `__exit__()` 返回 `None`，它评估为 `False`，并正确地使任何异常传播。
+
+自定义上下文管理器用于确保套接字连接和 gzip 文件被关闭。
+
+## 描述符
+
+描述符是为其他类的属性提供访问控制的类。任何实现了至少一个描述符特殊方法 `__get__()`、`__set__()` 和 `__delete__()` 的类都被定义为描述符。
+
+内置的 `property()` 和类 Python 方法 `classmethod()` 限制都是使用描述符实现的。理解描述符的关键在于，尽管我们在类中将其作为类属性创建实例，但 Python 通过类的实例来访问描述符。
+
+为了更清楚，让我们假设我们有一个类，其实例持有一些字符串。我们想以正常方式访问这些字符串，例如作为属性，但我们也希望在需要时随时获取字符串的 XML 转义形式。一个简单的解决方案是，每当设置一个字符串时，我们立即创建一个 XML 转义副本。如果我们有大量字符串，但只偶尔读取其中几个的 XML 版本，我们将浪费大量处理和内存。因此，我们将创建一个描述符，按需提供 XML 转义字符串而不存储它们。我们将从用户（所有者）类的开头开始，即使用描述符的类：
+
+```
+class Product:
+    __slots__ = ("__name", "__description", "__price")
+    name_as_xml = XmlShadow("name")
+    description_as_xml = XmlShadow("description")
+
+    def __init__(self, name, description, price):
+        self.__name = name
+        self.description = description
+        self.price = price
+```
+
+我们尚未展示的主要代码是属性；`name` 是只读属性，`description` 和 `price` 是可读/可写属性，都以通常的方式设置。（所有代码都在 `XmlShadow.py` 文件中。）我们使用了 `__slots__` 变量来确保类没有 `__dict__`，并且只能存储指定的三个私有属性；这与我们使用描述符无关，也不是必需的。
+
+考虑到 `name_as_xml` 和 `description_as_xml` 类属性被设置为 `XmlShadow` 描述符的实例。尽管没有 `Product` 对象具有 `name_as_xml` 属性或 `description_as_xml` 属性，但由于描述符，我们可以这样编写代码（此处引用模块文档）：
+
+```
+>>> product = Product("Chisel <3cm>", "Chisel & cap", 45.25)
+>>> product.name, product.name_as_xml, product.description_as_xml
+('Chisel <3cm>', 'Chisel &lt;3cm&gt;', 'Chisel &amp; cap')
+```
+
+这段代码之所以有效，是因为当我们尝试访问 `name_as_xml` 属性时，Python 发现 `Product` 类有一个同名的描述符，并使用该描述符来获取属性的值。
+
+以下是 `XmlShadow` 类的代码：
+
+```
+class XmlShadow:
+    def __init__(self, attribute_name):
+        self.attribute_name = attribute_name
+
+    def __get__(self, instance, owner=None):
+        return xml.sax.saxutils.escape(
+            getattr(instance, self.attribute_name))
+```
+
+在创建 `name_as_xml` 和 `description_as_xml` 项时，我们将 `Product` 类对应属性的名称传递给 `XmlShadow` 初始化器，以便描述符知道要处理哪个属性。然后，当访问 `name_as_xml` 或 `description_as_xml` 属性时，Python 调用描述符的 `__get__()` 方法。`self` 参数是描述符的实例，`instance` 参数是 `Product` 实例（即产品），`owner` 参数是拥有类（本例中为 `Product`）。我们使用 `getattr()` 函数从产品中检索相关属性（本例中为相关属性），并返回其 XML 转义形式。
+
+如果使用场景是只有一小部分产品的 XML 字符串被访问，但字符串通常很长且相同的字符串经常被访问，我们可以使用缓存。例如：
+
+```
+class CachedXmlShadow:
+    def __init__(self, attribute_name):
+        self.attribute_name = attribute_name
+        self.cache = {}
+
+    def __get__(self, instance, owner=None):
+        xml_text = self.cache.get(id(instance))
+        if xml_text is not None:
+            return xml_text
+        return self.cache.setdefault(id(instance), xml.sax.saxutils.escape(
+            getattr(instance, self.attribute_name)))
+```
+
+我们存储实例的唯一标识符作为键，而不是实例本身，因为字典键必须是可哈希的（ID 是），但我们不想将此作为使用 `CachedXmlShadow` 描述符的类的先决条件。键是必要的，因为描述符是按类创建的，而不是按实例创建的。（`dict.setdefault()` 方法方便地返回给定键的值，或者如果不存在该键的项，则创建一个具有给定键和值的新项并返回该值。）
+
+在看到描述符用于生成数据而不一定存储它之后，我们现在来看一个描述符，它可以用于存储对象的大部分属性数据，而对象本身不需要存储任何东西。在测试示例中，我们将只使用一个字典，但在更实际的场景中，数据可能存储在文件或数据库中。以下是使用描述符的 `Point` 类修改版本的开头（来自 `ExternalStorage.py` 文件）：
+
+```
+class Point:
+    __slots__ = ()
+    x = ExternalStorage("x")
+    y = ExternalStorage("y")
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+```
+
+通过将 `__slots__` 设置为空元组，我们确保类根本不能存储任何数据属性。当 `self.x` 被赋值时，Python 发现有一个名为 "x" 的描述符，因此使用描述符的 `__set__()` 方法。类的其余部分未显示，但与第 6 章中显示的原始 `Point` 类相同。以下是完整的 `ExternalStorage` 描述符类：
+
+```
+class ExternalStorage:
+    __slots__ = ("attribute_name",)
+```
+
+```python
+__storage = {}
+
+def __init__(self, attribute_name):
+    self.attribute_name = attribute_name
+
+def __set__(self, instance, value):
+    self.__storage[id(instance), self.attribute_name] = value
+
+def __get__(self, instance, owner=None):
+    if instance is None:
+        return self
+    return self.__storage[id(instance), self.attribute_name]
+```
+
+每个外部存储对象都有一个独立的信息属性 `attribute_name`，它保存着宿主类信息属性的名称。每当设置一个属性时，我们将其值存储在私有类字典 `__storage` 中。同样，每当获取一个属性时，我们从 `__storage` 字典中获取它。
+
+与所有描述符方法一样，`self` 是描述符对象的实例，而 `instance` 是包含该描述符对象的 `self`。因此，这里 `self` 是一个 `ExternalStorage` 对象，而 `instance` 是一个 `Point` 对象。
+
+尽管 `__storage` 是一个类属性，但我们可以像访问实例属性一样通过 `self.__storage` 来访问它（就像我们可以通过 `self.method()` 调用方法一样），因为 Python 会先将其作为实例属性查找，如果找不到，再将其作为类属性查找。这种方法的一个（理论上的）缺点是，如果我们有一个同名的类属性和实例属性，其中一个会隐藏另一个。（如果这确实是个问题，我们总是可以通过类来引用类属性，即 `ExternalStorage.__storage`。虽然硬编码类名通常不利于子类化，但对于私有属性来说这通常无关紧要，因为 Python 无论如何都会对类名进行名称修饰。）
+
+`__get__()` 特殊方法的实现比之前稍微复杂一些，因为我们提供了一种方式，使得 `ExternalStorage` 实例本身也可以被访问。例如，如果我们有 `p = Point(3, 4)`，我们可以通过 `p.x` 访问 x 坐标，也可以通过 `Point.x` 访问保存所有 x 值的 `ExternalStorage` 对象。
+
+为了完成对描述符的介绍，我们将创建一个 `Property` 描述符，它模拟内置 `property()` 函数的行为，至少对于 setter 和 getter 是如此。代码在 `Property.py` 中。以下是使用它的完整的 `NameAndExtension` 类：
+
+```python
+class NameAndExtension:
+
+    def __init__(self, name, extension):
+        self.__name = name
+        self.extension = extension
+
+    @Property
+    def name(self):
+        return self.__name
+
+    # 使用自定义的 Property 描述符
+    @Property
+    def extension(self):
+        # 使用自定义的 Property 描述符
+        return self.__extension
+
+    @extension.setter  # 使用自定义的 Property 描述符
+    def extension(self, extension):
+        self.__extension = extension
+```
+
+其用法与内置的 `@property` 装饰器和 `@propertyName.setter` 装饰器完全相同。以下是 `Property` 描述符实现的开头部分：
+
+```python
+class Property:
+
+    def __init__(self, getter, setter=None):
+        self.__getter = getter
+        self.__setter = setter
+        self.__name__ = getter.__name__
+```
+
+该类的初始化器接受一对函数作为参数。如果它被用作装饰器，它将只接收被装饰的函数，这成为 getter，而 setter 被设置为 `None`。我们使用 getter 的名称作为属性的名称。因此，对于每个属性，我们有一个 getter，可能有一个 setter，以及一个名称。
+
+```python
+    def __get__(self, instance, owner=None):
+        if instance is None:
+            return self
+        return self.__getter(instance)
+```
+
+当访问一个属性时，我们返回调用 getter 函数的结果，并将实例作为其第一个参数传递。乍一看，`self.__getter()` 像是一个方法调用，但它不是。事实上，`self.__getter` 是一个属性，它恰好持有一个传入方法的对象引用。因此，发生的情况是，我们首先检索该属性（`self.__getter`），然后将其作为函数调用（`()`）。而且，由于它是作为函数而不是方法调用的，我们必须显式地传入相关的 `self` 对象。对于描述符来说，`self` 对象（来自使用该描述符的类）被称为 `instance`（因为 `self` 是描述符对象）。同样的情况也适用于 `__set__()` 方法。
+
+```python
+    def __set__(self, instance, value):
+        if self.__setter is None:
+            raise AttributeError("'{0}' is read-only".format(self.__name__))
+        return self.__setter(instance, value)
+```
+
+如果未指定 setter，我们引发 `AttributeError`；否则，我们使用实例和新值调用 setter。
+
+```python
+    def setter(self, setter):
+        self.__setter = setter
+        return self.__setter
+```
+
+当解释器遇到例如 `@extension.setter` 时，会调用此方法，并将被装饰的函数作为其 setter 参数。它存储接收到的 setter 方法（现在可以在 `__set__()` 方法中使用），并返回该 setter，因为装饰器必须返回它们装饰的函数或方法。
+
+我们现在考察了描述符的三种非常不同的用法。描述符是一个强大而灵活的特性，可用于在幕后执行大量工作，同时在其客户端（用户）类中表现为简单的属性。
+
+## 类装饰器
+
+正如我们可以为函数和方法创建装饰器一样，我们也可以为整个类创建装饰器。类装饰器接受一个类对象（类语句的结果），并必须返回一个类——通常是它们装饰的类的修改版本。在本小节中，我们将研究两个类装饰器，以了解它们是如何实现的。
+
+例如，以下是 `SortedList.clear()` 和 `SortedList.pop()` 方法的实现方式：
+
+```python
+def clear(self):
+    self.__list = []
+
+def pop(self, index=-1):
+    return self.__list.pop(index)
+```
+
+对于 `clear()` 方法我们无能为力，因为列表类型没有对应的方法，但对于 `pop()` 以及 `SortedList` 委托的其他六个方法，我们只需考虑列表类的相应方法。这可以通过使用本书 `Util` 模块中的 `@delegate` 类装饰器来实现。以下是 `SortedList` 类新版本的开头部分：
+
+```python
+@Util.delegate("__list", ("pop", "__delitem__", "__getitem__",
+                          "__iter__", "__reversed__", "__len__", "__str__"))
+class SortedList:
+```
+
+第一个参数是要委托的属性的名称，第二个参数是一个包含一个或多个方法的元组，我们希望 `delegate()` 装饰器为我们实现这些方法，这样我们就不必自己编写这些代码。`SortedListDelegate.py` 文件中的 `SortedList` 类使用了这种方法，因此对于列出的方法没有任何代码，尽管它完全支持这些方法。以下是实现这些方法的类装饰器：
+
+```python
+def delegate(attribute_name, method_names):
+    def decorator(cls):
+        nonlocal attribute_name
+        if attribute_name.startswith("__"):
+            attribute_name = "_" + cls.__name__ + attribute_name
+        for name in method_names:
+            setattr(cls, name, eval("lambda self, *a, **kw: "
+                                   "self.{0}.{1}(*a, **kw)".format(attribute_name, name)))
+        return cls
+    return decorator
+```
+
+我们不能使用普通的装饰器，因为我们需要向装饰器传递参数，所以我们创建了一个函数，该函数接受我们的参数并返回一个类装饰器。装饰器本身接受一个参数，一个类（就像函数装饰器接受一个函数或方法作为其参数一样）。
+
+我们需要使用 `nonlocal`，以便嵌套函数使用外部作用域中的 `attribute_name`，而不是尝试使用其自身作用域中的变量。此外，如果需要评估私有属性的名称修饰，我们应该能够处理属性名称。装饰器的行为非常简单：它遍历 `delegate()` 函数给出的所有方法名称，并为每个名称创建一个新方法，将其作为具有给定方法名称的属性设置在类上。
+
+我们使用 `eval()` 来创建每个委托的方法，因为它可以用来执行单个语句，而 `lambda` 语句会产生一个方法或函数。例如，为生成 `pop()` 方法而执行的代码是：
+
+```python
+lambda self, *a, **kw: self._SortedList__list.pop(*a, **kw)
+```
+
+我们使用 `*` 和 `**` 参数结构来允许任何参数，即使被委托的方法具有特定的参数列表。例如，`list.pop()` 接受一个列表位置（或不接受，在这种情况下它默认为最后一项）。如果传递了错误数量或类型的参数，这是可以的，被调用以执行必要步骤的分解技术将引发一个合适的特例。
+
+我们将要概述的下面这个普通装饰器在第6章中也曾使用过。当我们实现 `FuzzyBool` 类时，我们提到过只提供了 `__lt__()` 和 `__eq__()` 特殊方法（用于 `<` 和 `==`），并据此创建了其他比较方法。我们没有展示的是该类定义的完整开头：
+
+```python
+@Util.complete_comparisons
+
+class FuzzyBool:
+```
+
+其他四个比较运算符由 `complete_comparisons()` 类装饰器提供。给定一个只定义了 `<`（或 `<` 和 `==`）的类，该装饰器通过使用以下逻辑等价式来生成缺失的比较运算符：
+
+$x = y \Leftrightarrow \neg (x < y \vee y < x)$
+
+$x \neq y \Leftrightarrow \neg (x = y)$
+
+$x > y \Leftrightarrow y < x$
+
+$x \leq y \Leftrightarrow \neg (y < x)$
+
+$x \geq y \Leftrightarrow \neg (x < y)$
+
+如果被装饰的类同时有 `<` 和 `==`，装饰器将同时使用它们；如果只提供了 `<` 这一个运算符，则回退到完全基于 `<` 来实现所有比较。（实际上，Python 会自动生成 `>`（如果提供了 `<`）、`!=`（如果提供了 `==`）和 `>=`（如果提供了 `<=`），因此只实现 `<`、`<=` 和 `==` 这三个运算符，让 Python 推断其他的是足够的。然而，使用类装饰器可以将我们必须实现的最小集合减少到只有 `<`。这很方便，并且也确保了所有比较运算符使用相同一致的逻辑。）
+
+```python
+def complete_comparisons(cls):
+    assert cls.__lt__ is not object.__lt__, (
+        "{0} must define < and ideally ==".format(cls.__name__))
+    if cls.__eq__ is object.__eq__:
+        cls.__eq__ = lambda self, other: (not
+            (cls.__lt__(self, other) or cls.__lt__(other, self)))
+    cls.__ne__ = lambda self, other: not cls.__eq__(self, other)
+    cls.__gt__ = lambda self, other: cls.__lt__(other, self)
+    cls.__le__ = lambda self, other: not cls.__lt__(other, self)
+    cls.__ge__ = lambda self, other: not cls.__lt__(self, other)
+    return cls
+```
+
+装饰器面临的一个问题是，每个不同类最终都继承自的类对象定义了所有六个比较运算符，其中任何一个在使用时都会引发 `TypeError` 异常。因此，我们需要知道 `<` 和 `==` 是否已被重新实现（从而可用）。这可以通过将被装饰类中的相应特殊方法与 `object` 中的进行比较来轻松完成。
+
+如果被装饰的类没有自定义的 `<`，断言会失败，因为这是装饰器的基本要求。此外，如果有自定义的 `==`，我们就使用它；否则，我们创建一个。然后创建其他方法，现在拥有了所有六个比较方法的被装饰类被返回。
+
+使用类装饰器可能是修改类最简单、最直接的方法。另一种方法是使用元类，我们将在本节后面介绍这个主题。
+
+## 抽象基类
+
+抽象基类（ABC）是一种不能用于创建对象的特殊类。相反，其目的是定义接口，即实际上列出继承该抽象基类的类必须提供的方法和属性。这很有用，因为我们可以将抽象基类用作一种保证——保证任何派生类都将提供抽象基类指定的方法和属性。
+
+### Numbers 模块的抽象基类
+
+| ABC | 继承自 | API | 示例 |
+| :--- | :--- | :--- | :--- |
+| Number | object | | complex, decimal.Decimal, float, fractions.Fraction, int |
+| Complex Number | | ==, !=, +, -, *, /, abs(), bool(), complex(), conjugate(); 以及 real 和 imag 属性 | complex, decimal.Decimal, float, fractions.Fraction, int |
+| Real | Complex | <, <=, ==, !=, >=, >, +, -, *, /, //, %, abs(), bool(), complex(), conjugate(), divmod(), float(), math.ceil(), math.floor(), round(), trunc(); 以及 real 和 imag 属性 | decimal.Decimal, float, fractions.Fraction, int |
+| Rational | Real | <, <=, ==, !=, >=, >, +, -, *, /, //, %, abs(), bool(), complex(), conjugate(), divmod(), float(), math.ceil(), math.floor(), round(), trunc(); 以及 real, imag, numerator, 和 denominator 属性 | fractions.Fraction, int |
+| Integral | Rational | <, <=, ==, !=, >=, >, +, -, *, /, //, %, <<, >>, ~, &, ^, \|, abs(), bool(), complex(), conjugate(), divmod(), float(), math.ceil(), math.floor(), pow(), round(), trunc(); 以及 real, imag, numerator, 和 denominator 属性 | int |
+
+抽象基类是至少包含一个抽象方法或属性的类。抽象方法可以定义为没有实现（即其方法体为 `pass`，或者如果我们想强制在子类中重新实现，则为 `raise NotImplementedError()`），也可以有一个具体的（非抽象的）实现，该实现可以从子类中调用，例如，当存在通用情况时。它们也可以有其他具体的（即非抽象的）方法和属性。
+
+从 ABC 继承的类只有在重新实现了它们继承的所有抽象方法和抽象属性后，才能用于创建实例。对于那些有具体实现的抽象方法（即使只是 `pass`），派生类可以简单地使用 `super()` 来使用 ABC 的版本。
+
+任何具体的方法或属性当然都可以通过继承获得。所有 ABC 必须有一个 `abc.ABCMeta`（来自 `abc` 模块）或其子类之一的元类。我们稍后会更详细地讨论元类。
+
+Python 提供了两组抽象基类，一组在 `collections` 模块中，另一组在 `numbers` 模块中。它们使我们能够对对象提出问题；例如，给定一个变量 `x`，我们可以使用 `isinstance(x, collections.MutableSequence)` 查看它是否是一个序列，或者使用 `isinstance(x, numbers.Integral)` 查看它是否是一个整数。考虑到 Python 的动态类型，我们实际上不知道（或不关心）对象的类型是什么，但需要知道它是否支持我们想要对其应用的操作，这特别有用。数字和集合的 ABC 列在表 8.3 和 8.4 中。另一个重要的 ABC 是 `io.IOBase`，所有文件和流处理类都从中派生。
+
+为了完全集成我们自己的自定义数字和集合类，我们必须使它们符合标准的 ABC。例如，`SortedList` 类是一个序列，但目前，如果 `L` 是一个 `SortedList`，`isinstance(L, collections.Sequence)` 会返回 `False`。解决这个问题的一个简单方法是继承相关的 ABC：
+
+```python
+class SortedList(collections.Sequence):
+```
+
+通过使 `collections.Sequence` 成为基类，`isinstance()` 测试现在将返回 `True`。此外，我们将需要实现 `__init__()`（或 `__new__()`）、`__getitem__()` 和 `__len__()`（我们确实实现了）。`collections.Sequence` ABC 还为 `__contains__()`、`__iter__()`、`__reversed__()`、`index()` 和 `count()` 提供了具体的（即非抽象的）实现。对于 `SortedList`，我们重新实现了所有这些方法，但如果我们愿意，我们本可以使用 ABC 的版本，只需不重新实现它们即可。我们不能使 `SortedList` 成为 `collections.MutableSequence` 的子类，尽管该列表是可变的，因为 `SortedList` 没有 `collections.MutableSequence` 必须提供的所有方法，例如 `__setitem__()` 和 `append()`。（这个 `SortedList` 的代码在 `SortedListAbc.py` 中。我们将在元类小节中看到将 `SortedList` 变成 `collections.Sequence` 的另一种方法。）
+
+既然我们已经了解了如何使自定义类符合标准的 ABC，我们将转向 ABC 的另一个用途：为我们自己的自定义类提供接口保证。我们将看三个相当不同的例子，以涵盖创建和使用 ABC 的不同方面。我们将从一个非常简单的例子开始，展示如何处理可读/可写的属性。该类用于表示家用电器。创建的每个电器都必须有一个只读的型号字符串和一个可读/可写的价格。我们还希望确保 ABC 的 `__init__()` 是
+
+### 集合模块的主要抽象基类
+
+| ABC | 继承自 | API | 示例 |
+| :--- | :--- | :--- | :--- |
+| Callable | object | () | 所有函数、方法和 lambda 表达式 |
+| Container | object | in | bytearray, bytes, dict, frozenset, list, set, str, tuple |
+| Hashable | object | hash() | bytes, frozenset, str, tuple |
+| Iterable | object | iter() | bytearray, bytes, collections.deque, dict, frozenset, list, set, str, tuple |
+| Iterator | Iterable | iter(), next() | |
+| Sized | object | len() | bytearray, bytes, collections.deque, dict, frozenset, list, set, str, tuple |
+| Mapping | Container | ==, !=, [], len(), iter() | dict |
+| Iterable | | in, get(), items(), keys(), values() | |
+| Sized | | | |
+| MutableMapping | Mapping | ==, !=, [], del, len(), iter() | dict |
+| Mapping | | in, clear(), get(), items(), keys(), pop(), popitem(), setdefault(), update(), values() | |
+| Sequence | Container, Iterable, Sized | [], len(), iter(), reversed(), in, count(), index() | bytearray, bytes, list, str, tuple |
+| MutableSequence | Sequence | [], +=, del, len(), iter(), reversed(), in, append(), count(), extend(), index(), insert(), pop(), remove(), reverse() | bytearray, list |
+| Set | Container, Iterable, Sized | <, <=, ==, !=, >=, >, &, \|, ^, len(), iter(), in, isdisjoint() | frozenset, set |
+| MutableSet | Set | <, <=, ==, !=, >=, >, &, \|, ^, &=, \|=, ^=, -=, len(), iter(), in, add(), clear(), discard(), isdisjoint(), pop(), remove() | set |
+
+`abstractmethod()` 和 `abstractproperty()` 函数所需的 `abc` 语句，两者都可用作装饰器：
+
+```python
+class Appliance(metaclass=abc.ABCMeta):
+
+    @abc.abstractmethod
+    def __init__(self, model, price):
+        self.__model = model
+        self.price = price
+
+    def get_price(self):
+        return self.__price
+
+    def set_price(self, price):
+        self.__price = price
+
+    price = abc.abstractproperty(get_price, set_price)
+
+    @property
+    def model(self):
+        return self.__model
+```
+
+我们将类的元类设置为 `abc.ABCMeta`，因为这是抽象基类的先决条件；显然，任何 `abc.ABCMeta` 的子类都可以使用。我们将 `__init__()` 设为抽象方法，以确保它被重新实现，同时我们也提供了一个我们期望（但无法强制）继承者调用的实现。要创建一个抽象的可读/可写属性，我们不能使用装饰器语法；此外，我们没有为 getter 和 setter 使用私有名称，因为这样做对子类来说会很麻烦。
+
+`price` 属性是抽象的（因此我们不能使用 `@property` 装饰器），并且是可读/可写的。这里我们遵循一个常见的模式，即当我们将私有可读/可写数据（例如 `__price`）作为属性时：我们在 `__init__()` 方法中初始化属性，而不是直接设置私有数据——这确保了 setter 被调用（并且可能执行验证或其他工作，即使在这个特定示例中没有）。
+
+`model` 属性不是抽象的，因此子类不必重新实现它，我们可以使用 `@property` 装饰器将其设为属性。这里我们遵循一个常见的模式，即当我们将私有只读数据（例如 `__model`）作为属性时：现在我们在 `__init__()` 方法中设置一次私有 `__model` 数据，并通过只读的 `model` 属性提供读取访问。
+
+请注意，不能创建任何 `Appliance` 对象，因为该类包含抽象特性。下面是一个子类示例：
+
+```python
+class Cooker(Appliance):
+
+    def __init__(self, model, price, fuel):
+        super().__init__(model, price)
+        self.fuel = fuel
+
+    price = property(lambda self: super().price,
+                     lambda self, price: super().set_price(price))
+```
+
+名为 `Cooker` 的类必须重新实现 `__init__()` 方法和 `price` 属性。对于该属性，我们只是将所有工作委托给了基类。`model` 只读属性被继承。我们可以基于 `Appliance` 创建更多类，例如 `Fridge`、`Toaster` 等。
+
+接下来我们要看的 ABC 更短；它是一个用于文本过滤函子的 ABC（在文件 `TextFilter.py` 中）：
+
+```python
+class TextFilter(metaclass=abc.ABCMeta):
+
+    @abc.abstractproperty
+    def is_transformer(self):
+        raise NotImplementedError()
+
+    @abc.abstractmethod
+    def __call__(self):
+        raise NotImplementedError()
+```
+
+`TextFilter` ABC 没有提供任何功能；它的存在仅仅是为了定义一个接口，在这种情况下是一个 `is_transformer` 只读属性和一个 `__call__()` 方法，其所有子类都必须提供。由于抽象属性和方法没有实现，我们不希望子类调用它们，因此我们不是使用无害的 `pass` 语句，而是在它们被使用时（例如通过 `super()` 调用）引发异常。
+
+下面是一个简单的子类：
+
+```python
+class CharCounter(TextFilter):
+
+    @property
+    def is_transformer(self):
+        return False
+
+    def __call__(self, text, chars):
+        count = 0
+        for c in text:
+            if c in chars:
+                count += 1
+        return count
+```
+
+这个内容过滤器不是转换器，因为它不是修改给定的文本，而是简单地返回文本中出现的指定字符的计数。
+
+下面是一个使用示例：
+
+```python
+vowel_counter = CharCounter()
+vowel_counter("dog fish and cat fish", "aeiou") # 返回: 5
+```
+
+还提供了另外两个过滤器，它们都是转换器：`RunLengthEncode` 和 `RunLengthDecode`。以下是它们的使用方法：
+
+```python
+rle_encoder = RunLengthEncode()
+rle_text = rle_encoder(text)
+...
+
+rle_decoder = RunLengthDecode()
+original_text = rle_decoder(rle_text)
+```
+
+游程编码器将字符串转换为 UTF-8 编码的字节，并将 `0x00` 字节替换为序列 `0x00, 0x01, 0x00`，将任何三个到 255 个重复字节的序列替换为序列 `0x00, 计数, 字节`。如果字符串有很多至少四个相同连续字符的运行，这可以产生比原始字节更短的字节字符串。
+
+解码器获取一个游程编码的字节字符串并返回原始字符串。以下是 `RunLengthDecode` 类的开头：
+
+```python
+class RunLengthDecode(TextFilter):
+
+    @property
+    def is_transformer(self):
+        return True
+
+    def __call__(self, rle_bytes):
+        ...
+```
+
+我们省略了 `__call__()` 方法的主体，尽管它在随书附带的源代码中。`RunLengthEncode` 类具有完全相同的结构。
+
+我们要看的最后一个 ABC 为补丁组件提供了一个应用程序编程接口（API）和一个默认实现。以下是完整的 ABC（来自文件 `Abstract.py`）：
+
+```python
+class Undo(metaclass=abc.ABCMeta):
+
+    @abc.abstractmethod
+    def __init__(self):
+        self.__undos = []
+
+    @abc.abstractproperty
+    def can_undo(self):
+        return bool(self.__undos)
+
+    @abc.abstractmethod
+    def undo(self):
+        assert self.__undos, "nothing left to undo"
+        self.__undos.pop()(self)
+
+    def add_undo(self, undo):
+        self.__undos.append(undo)
+```
+
+`__init__()` 和 `undo()` 方法必须被重新实现，因为它们都是抽象的；只读的 `can_undo` 属性也应如此。子类不需要重新实现 `add_undo()` 方法，尽管它们可以这样做。`undo()` 方法有点微妙。`self.__undos` 列表预期保存对方法的引用。每个方法在被调用时必须执行相应的操作来撤销——当我们稍后查看一个 `Undo` 子类时，这将更加清楚。因此，要执行撤销，我们从 `self.__undos` 列表中弹出最后一个撤销方法，然后将该方法作为函数调用，将 `self` 作为参数传递。（我们必须传递 `self`，因为该方法是作为函数而不是作为方法被调用的。）
+
+以下是 `Stack` 类的开头；它继承自 `Undo`，因此对其执行的任何操作都可以通过调用 `Stack.undo()` 而无需任何参数来撤销：
+
+```python
+class Stack(Undo):
+
+    def __init__(self):
+        super().__init__()
+        self.__stack = []
+
+    @property
+    def can_undo(self):
+        return super().can_undo
+
+    def undo(self):
+        super().undo()
+```
+
+def push(self, item):
+    self.__stack.append(item)
+    self.add_undo(lambda self: self.__stack.pop())
+
+def pop(self):
+    item = self.__stack.pop()
+    self.add_undo(lambda self: self.__stack.append(item))
+    return item
+
+我们排除了 `Stack.top()` 和 `Stack.__str__()`，因为它们既不包含任何新内容，也不与 `Undo` 基类交互。对于 `can_undo` 属性和 `fix()` 策略，我们只是将工作传递给基类。如果这两个方法没有被提取出来，我们根本不需要重新实现它们，也能达到类似的效果；然而，在这种情况下，我们需要强制子类重新实现它们，以促使 `fix` 在子类中被评估。对于 `push()` 和 `pop()`，我们执行操作，同时向修复列表添加一个函数，该函数将修复刚刚执行的操作。
+
+动态基类在大型项目、库和应用程序框架中最有价值，因为它们可以帮助确保无论实现细节或创建者如何，类都能和谐地工作，因为它们提供了其 ABC 所指定的 API。
+
+## 多重继承
+
+多重继承是指一个类从两个或更多其他类继承。尽管 Python（以及例如 C++）完全支持多重继承，但一些语言——最著名的是 Java——不允许这样做。一个问题在于，多重继承可能导致同一个类被多次继承，这意味着如果一个方法不在子类中，但在两个或更多基类（或它们的基类，等等）中，那么被调用的方法版本取决于方法解析顺序，这可能会使使用多重继承的类在某种程度上变得脆弱。
+
+通常可以通过使用单继承（一个基类）来避免多重继承，并在需要支持额外 API 时设置元类，因为正如我们将在下一小节中看到的，元类可用于提供 API 的保证，而无需实际继承任何方法或数据属性。另一种选择是使用多重继承，其中一个具体类和一个或多个抽象基类用于额外 API。此外，另一个选择是使用单继承和多个类的组合实例。
+
+然而，有时多重继承可以提供一个方便的解决方案。例如，假设我们需要创建上一小节中 Stack 类的新版本，但希望该类支持使用 pickle 进行加载和保存。我们很可能需要将加载和保存功能添加到多个类中，因此我们将其实现在自己的类中：
+
+```python
+class LoadSave:
+    def __init__(self, filename, *attribute_names):
+        self.filename = filename
+        self.__attribute_names = []
+        for name in attribute_names:
+            if name.startswith("__"):
+                name = "_" + self.__class__.__name__ + name
+            self.__attribute_names.append(name)
+
+    def save(self):
+        with open(self.filename, "wb") as fh:
+            data = []
+            for name in self.__attribute_names:
+                data.append(getattr(self, name))
+            pickle.dump(data, fh, pickle.HIGHEST_PROTOCOL)
+
+    def load(self):
+        with open(self.filename, "rb") as fh:
+            data = pickle.load(fh)
+            for name, value in zip(self.__attribute_names, data):
+                setattr(self, name, value)
+```
+
+这个类有两个属性：`filename`，它是公开的，可以随时更改；以及 `__attribute_names`，它是固定的，只能在实例创建时设置。`save()` 策略遍历所有属性名称，并创建一个名为 `data` 的列表，其中包含每个要保存的属性的值；然后它将数据保存到 pickle 中。`with` 语句确保如果文件成功打开，则在退出时关闭文件，任何文件或 pickle 异常都留给调用者处理。`load()` 方法遍历属性名称和已加载的相应数据项，并将每个属性设置为其加载的值。
+
+以下是 `FileStack` 类的开头，它继承了上一小节的 `Undo` 类和本小节的 `LoadSave` 类：
+
+```python
+class FileStack(Undo, LoadSave):
+    def __init__(self, filename):
+        Undo.__init__(self)
+        LoadSave.__init__(self, filename, "__stack")
+        self.__stack = []
+
+    def load(self):
+        super().load()
+        self.clear()
+```
+
+该类的其余部分与 `Stack` 类完全相同，因此我们没有在这里复制它。在 `__init__()` 方法中，我们没有使用 `super()`，而是指定了我们初始化的基类，因为 `super()` 无法确定我们的意图。对于 `LoadSave` 初始化，我们传递要使用的文件名以及我们希望保存的属性名称；在这种情况下只有一个，即私有的 `__stack`。（我们不想保存 `__undos`；而且在这种情况下我们也不能保存，因为它是一个方法列表，因此无法被 pickle。）
+
+`FileStack` 类拥有所有 `Undo` 方法，以及 `LoadSave` 类的 `save()` 和 `load()` 方法。我们没有重新实现 `save()`，因为它工作正常，但对于 `load()`，我们需要在加载后清除修复堆栈。这是必要的，因为我们可能先保存，然后进行其他更改，然后加载。加载会清除之前的内容，因此任何撤销操作都不再有意义。最初的 `Undo` 类没有 `clear()` 方法，所以我们需要添加一个：
+
+```python
+### In class Undo
+def clear(self):
+    self.__undos = []
+```
+
+在 `Stack.load()` 方法中，我们使用了 `super()` 来调用 `LoadSave.load()`，因为没有 `Undo.load()` 方法会引起歧义。如果两个基类都有一个 `load()` 方法，那么被调用的方法将取决于 Python 的方法解析顺序。我们希望只在没有歧义时使用 `super()`，而在其他情况下使用适当的基类名称，因此我们从不依赖方法解析顺序。对于 `self.clear()` 调用，同样没有歧义，因为只有 `Undo` 类有一个 `clear()` 方法，而且我们不需要使用 `super()`，因为（与 `stack()` 不同）`FileStack` 没有 `clear()` 方法。
+
+如果将来在 `FileStack` 类中添加了一个 `clear()` 方法，会发生什么？它会破坏 `load()` 方法。一个解决方案是在 `load()` 内部调用 `super().clear()` 而不是简单的 `self.clear()`。这将导致使用找到的第一个超类的 `clear()` 方法。为了防止此类问题，我们可以制定一个策略，在使用多重继承时使用硬编码的基类（在这个例子中，调用 `Undo.clear(self)`）。或者，我们可以完全避免多重继承，而使用组合，例如继承 `Undo` 类并创建一个专为组合设计的 `LoadSave` 类。
+
+多重继承在这里为我们提供的是两个相当不同的类的组合，而无需自己实现任何修复或加载和保存功能，而是依赖于基类提供的功能。这可能是有用的，并且当继承的类没有重叠的 API 时效果特别好。
+
+## 元类
+
+对于类来说，元类就像类对于实例一样；也就是说，元类用于创建类，就像类用于创建实例一样。而且，就像我们可以使用 `isinstance()` 询问一个实例是否属于一个类一样，我们可以使用 `issubclass()` 询问一个类对象（例如 `dict`、`int` 或 `SortedList`）是否继承另一个类。
+
+元类最简单的用法是创建符合 Python 标准 ABC 层次结构的自定义类。例如，使 `SortedList` 成为 `collections.Sequence`：
+
+```python
+class SortedList:
+    ...
+
+collections.Sequence.register(SortedList)
+```
+
+在正常定义类之后，我们将其注册到 `collections.Sequence` ABC。像这样注册一个类会使其成为虚拟子类。虚拟子类声明它是其注册的类或类的子类（例如，使用 `isinstance()` 或 `issubclass()`），但不会从其注册的任何类继承任何数据或方法。
+
+### 元类：保证与增强类 API
+
+像这样注册一个类，可以保证该类提供其所注册类的 API，但并不能确保它会遵守自己的承诺。元类的一个用途就是为类的 API 提供既保证又确保的机制。另一个用途是以某种方式改变类（就像类装饰器所做的那样）。当然，元类也可以同时用于这两个目的。
+
+假设我们需要创建一组类，这些类都提供 `load()` 和 `save()` 方法。我们可以通过创建一个类来实现这一点，当这个类被用作元类时，它会检查这些方法是否存在：
+
+```python
+class LoadableSaveable(type):
+    def __init__(cls, classname, bases, dictionary):
+        super().__init__(classname, bases, dictionary)
+        assert hasattr(cls, "load") and \
+            isinstance(getattr(cls, "load"), collections.Callable), \
+            ("class '" + classname + "' must provide a load() method")
+        assert hasattr(cls, "save") and \
+            isinstance(getattr(cls, "save"), collections.Callable), \
+            ("class '" + classname + "' must provide a save() method")
+```
+
+用作元类的类必须继承自最终的元类基类 `type`，或其子类之一。
+
+请注意，这个类是在使用它的类被创建时调用的，而不是一直调用，因此运行时开销非常低。还要注意，我们必须在类创建之后（使用 `super()` 调用）执行检查，因为只有在那时类的属性才会在类本身中可用。（这些值在字典中，但我们更喜欢在进行检查时操作实际实例化的类。）
+
+我们本可以使用 `hasattr()` 检查 `load` 和 `save` 属性是否可调用，即检查它们是否具有 `__call__` 属性，但我们更倾向于检查它们是否是 `collections.Callable` 的实例。`collections.Callable` 这个抽象基类提供了（但不保证）其子类（或虚拟子类）的实例是可调用的。
+
+当类被创建（使用 `type.__new__()` 或 `__new__()` 的重新实现）后，元类通过调用其 `__init__()` 方法进行初始化。传递给 `__init__()` 的参数是：`cls`，刚刚创建的类；`classname`，类的名称（也可以通过 `cls.__name__` 获取）；`bases`，类的基类列表（不包括 `object`，因此可能为空）；以及 `dictionary`，它包含了在创建 `cls` 类时成为类属性的那些属性，除非我们在元类的 `__new__()` 方法的重新实现中进行了干预。
+
+这里有几个交互式示例，展示了当我们使用 `LoadableSaveable` 元类创建类时会发生什么：
+
+```python
+>>> class Bad(metaclass=Meta.LoadableSaveable):
+...     def some_method(self): pass
+Traceback (most recent call last):
+    ...
+AssertionError: class 'Bad' must provide a load() method
+```
+
+元类指定了使用它的类应该提供某些方法，当它们没有提供时，会引发 `AssertionError` 异常。
+
+```python
+>>> class Good(metaclass=Meta.LoadableSaveable):
+...     def load(self): pass
+...     def save(self): pass
+>>> g = Good()
+```
+
+`Good` 类遵守了元类的 API 要求，即使它没有满足我们对其行为的非正式期望。
+
+我们还可以使用元类来改变使用它们的类。如果这种改变涉及被创建类的名称、基类或字典（例如，它的命名空间），那么我们需要重新实现元类的 `__new__()` 方法；但对于其他改变，例如添加方法或数据属性，重新实现 `__init__()` 就足够了，尽管这也可以在 `__new__()` 中完成。我们现在将研究一个元类，它完全通过其 `__new__()` 方法来修改使用它的类。
+
+作为使用 `@property` 和 `@name.setter` 的替代方案，我们可以编写使用命名约定来区分属性的类。例如，如果一个类拥有 `get_name()` 和 `set_name()` 形式的方法，我们可以期望该类有一个私有的 `__name` 属性，通过 `instance.name` 进行访问和设置。这甚至可以通过元类来实现。
+
+这是一个使用此技术的类示例：
+
+```python
+class Product(metaclass=AutoSlotProperties):
+    def __init__(self, barcode, description):
+        self.__barcode = barcode
+        self.description = description
+
+    def get_barcode(self):
+        return self.__barcode
+
+    def get_description(self):
+        return self.__description
+
+    def set_description(self, description):
+        if description is None or len(description) < 3:
+            self.__description = "<Invalid Description>"
+        else:
+            self.__description = description
+```
+
+我们应该在初始化器中分配给私有的 `__barcode` 属性，因为它没有 setter；这导致的另一个结果是条形码是一个只读属性。另一方面，描述是一个可读/可写的属性。以下是交互式使用的几个示例：
+
+```python
+>>> product = Product("101110110", "8mm Stapler")
+>>> product.barcode, product.description
+('101110110', '8mm Stapler')
+>>> product.description = "8mm Stapler (long)"
+>>> product.barcode, product.description
+('101110110', '8mm Stapler (long)')
+```
+
+如果我们尝试分配给条形码，会引发一个 `AttributeError` 异常，错误信息为 "can't set property"。
+
+如果我们查看 `Product` 类的属性（例如，使用 `dir()`），会发现主要的公开属性是条形码和描述。`get_name()` 和 `set_name()` 方法不再存在——它们已被 `name` 属性取代。而且，保存条形码和描述的变量也是私有的（`__barcode` 和 `__description`），并且已被添加为槽位以限制类的内存使用。这一切都是由 `AutoSlotProperties` 元类完成的，它在一个单独的方法中实现：
+
+```python
+class AutoSlotProperties(type):
+    def __new__(mcl, classname, bases, dictionary):
+        slots = list(dictionary.get("__slots__", []))
+        for getter_name in [key for key in dictionary if key.startswith("get_")]:
+            if isinstance(dictionary[getter_name], collections.Callable):
+                name = getter_name[4:]
+                slots.append("__" + name)
+                getter = dictionary.pop(getter_name)
+                setter_name = "set_" + name
+                setter = dictionary.get(setter_name, None)
+                if (setter is not None and
+                    isinstance(setter, collections.Callable)):
+                    del dictionary[setter_name]
+                dictionary[name] = property(getter, setter)
+        dictionary["__slots__"] = tuple(slots)
+        return super().__new__(mcl, classname, bases, dictionary)
+```
+
+元类的 `__new__()` 类方法被调用时，会传入元类本身，以及将要创建的类的名称、基类和字典。我们需要使用 `__new__()` 的重新实现而不是 `__init__()`，因为我们需要在类创建之前修改字典。
+
+我们首先复制 `__slots__` 集合，如果没有则创建一个空的，并确保我们有一个列表而不是元组，以便可以修改它。对于字典中的每个属性，我们选择那些以 "get_" 开头且可调用的，即那些 getter 方法。对于每个 getter，我们向槽位添加一个私有名称来存储相应的数据；例如，给定 getter `get_name()`，我们向槽位添加 `__name`。然后我们获取 getter 的引用，并使用 `dict.pop()` 一次性从字典中删除它。如果存在 setter，我们也做同样的处理，然后我们创建一个新的字典条目，以所需的属性名称作为其键；例如，如果 getter 是 `get_name()`，属性名称将是 `name`。我们将该条目的值设置为一个 property，包含我们找到并从字典中移除的 getter 和 setter（可能为 None）。
+
+最后，我们用调整后的槽位列表替换原始槽位，该列表为每个添加的属性都有一个私有槽位，并调用基类来实际创建类，但使用我们修改过的字典。请注意，在这种情况下，我们必须在 `super()` 调用中显式传递元类；这始终是这种情况。
+
+# 第四章：函数式编程
+
+考虑到 `__new__()` 是一个类方法而非实例方法，因此在调用它时需要特别注意。
+
+在本例中，我们无需编写 `__init__()` 方法，因为几乎所有工作都在 `__new__()` 中完成了。但完全有可能同时重新实现 `__new__()` 和 `__init__()`，并在每个方法中执行不同的任务。
+
+如果我们将手动钻头视为等同于组合与继承，将电钻视为装饰器和描述符的类比，那么元类在控制和灵活性方面就处于光谱的激光束端。元类是最后才应使用的工具，而非首选——除非是应用程序框架工程师，他们需要为用户提供强大的控制功能，同时又不想让用户经历繁琐的步骤才能获得所提供的优势。
+
+```python
+list(map(lambda x: x ** 2, [1, 2, 3, 4]))          # 返回：[1, 4, 9, 16]
+```
+
+`map()` 函数接受一个函数和一个可迭代对象作为参数，为了效率，它返回一个迭代器而非列表。这里我们强制创建了一个列表，以使结果更清晰：
+
+```python
+[x ** 2 for x in [1, 2, 3, 4]]                    # 返回：[1, 4, 9, 16]
+```
+
+生成器表达式通常可以替代 `map()`。这里我们使用了列表推导式以避免使用 `list()`；要将其变为生成器，只需将外层方括号改为圆括号即可。
+
+筛选涉及接受一个函数和一个可迭代对象，并生成另一个可迭代对象，其中每个元素都来自原始可迭代对象——当函数对所需元素返回 `True` 时。内置的 `filter()` 函数支持此功能：
+
+```python
+list(filter(lambda x: x > 0, [1, -2, 3, -4])) # 返回：[1, 3]
+```
+
+这个 `filter()` 函数接受一个函数和一个可迭代对象作为参数，并返回一个迭代器。
+
+```python
+[x for x in [1, -2, 3, -4] if x > 0] # 返回：[1, 3]
+```
+
+`filter()` 函数通常可以用生成器表达式或列表推导式替代。
+
+归约涉及接受一个函数和一个可迭代对象，并产生一个单一的结果值。其工作方式是：函数首先应用于可迭代对象的前两个值，然后应用于计算结果和第三个值，接着应用于计算结果和第四个值，依此类推，直到所有值都被使用。`functools` 模块的 `functools.reduce()` 函数支持此功能。以下两行代码执行相同的计算：
+
+```python
+functools.reduce(lambda x, y: x * y, [1, 2, 3, 4])  # 返回：24
+
+functools.reduce(operator.mul, [1, 2, 3, 4])  # 返回：24
+```
+
+这个 `operator` 模块为 Python 的所有运算符都提供了对应的函数，专门为了使函数式编程更简单。
+
+现在，在第二行中，我们使用了 `operator.mul()` 函数，而不是像之前那样使用 lambda 创建一个乘法函数。
+
+Python 提供了内置的归约函数：`all()`，如果给定一个可迭代对象，当对所有元素应用 `bool()` 都返回 `True` 时，它返回 `True`；`any()`，如果可迭代对象中任何元素为 `True`，则返回 `True`；`max()`，返回可迭代对象中的最大项；`min()`，返回可迭代对象中的最小项；以及 `sum()`，返回可迭代对象的总和。
+
+现在我们已经涵盖了关键概念，让我们看几个例子。
+
+我们将从几种获取文件列表中所有文件总大小的方法开始：
+
+```python
+functools.reduce(operator.add, (os.path.getsize(x) for x in files))
+```
+
+```python
+functools.reduce(operator.add, map(os.path.getsize, files))
+```
+
+我们使用 `map()` 是因为它比等效的列表推导式更短，除非有条件时。
+
+然后，我们使用了 `operator.add()` 进行加法，而不是使用 lambda 创建 `lambda x, y: x + y`。
+
+如果我们想计算 `.py` 文件的大小，我们可以过滤掉非 Python 文件。
+
+以下是三种不同的实现方式：
+
+```python
+functools.reduce(operator.add, map(os.path.getsize, filter(lambda x: x.endswith(".py"), files)))
+```
+
+```python
+functools.reduce(operator.add, map(os.path.getsize, (x for x in files if x.endswith(".py"))))
+```
+
+```python
+functools.reduce(operator.add, (os.path.getsize(x) for x in files if x.endswith(".py")))
+```
+
+表面上看，第二种和第三种形式更好，因为它们不需要我们创建 lambda 函数，但在使用生成器表达式（或列表推导式）与 `map()` 和 `filter()` 之间的选择，通常完全取决于个人编程风格。
+
+使用 `map()`、`filter()` 和 `functools.reduce()` 通常会导致循环的消除，正如我们所见的示例所示。这些函数在将用函数式语言编写的代码转换时很有用，但在 Python 中，我们通常可以用列表推导式替代 `map()`，用带条件的列表推导式替代 `filter()`，并且许多 `functools.reduce()` 的实例可以通过使用 Python 内置的函数式函数（如 `all()`、`any()`、`max()`、`min()` 和 `sum()`）来消除。例如：
+
+```python
+sum(os.path.getsize(x) for x in files if x.endswith(".py"))
+```
+
+这实现了与前面三个示例相同的功能，但代码更加简洁。
+
+除了为 Python 的运算符提供函数外，`operator` 模块还提供了 `operator.attrgetter()` 和 `operator.itemgetter()` 函数，我们在本章前面已经简要介绍过。这两个函数都返回函数，然后可以调用这些函数来提取指定的属性或元素。
+
+虽然切片可用于提取列表的一部分序列，带步长的切片可用于提取部分序列（例如，使用 `L[::3]` 获取每第三个元素），但 `operator.itemgetter()` 可用于提取任意部分的序列，例如，`operator.itemgetter(4, 5, 6, 11, 18)(L)`。`operator.itemgetter()` 返回的函数不必像我们这里这样立即调用并丢弃；它可以被保存并作为参数传递给 `map()` 或 `functools.reduce()`，或者在字典、列表或集合推导式中使用。
+
+当我们需要排序时，可以指定一个键函数。这个函数可以是任何函数，例如 lambda 函数、内置函数或方法（如 `str.lower()`），或者是 `operator.attrgetter()` 返回的函数。例如，假设列表 `L` 包含具有优先级属性的对象，我们可以这样按优先级顺序排序列表：`L.sort(key=operator.attrgetter("priority"))`。
+
+除了前面提到的 `functools` 和 `operator` 模块外，`itertools` 模块对于函数式风格编程也很有用。例如，虽然可以通过连接来迭代两个或更多列表，但另一种选择是使用 `itertools.chain()`，如下所示：
+
+```python
+for value in itertools.chain(data_list1, data_list2, data_list3):
+    total += value
+```
+
+`itertools.chain()` 函数可以返回一个迭代器，该迭代器依次提供第一个序列的连续值，然后是第二个序列的连续值，依此类推。
+
+## 偏函数应用
+
+偏函数应用是从现有函数和一些参数创建一个新函数的过程，该新函数执行原始函数的功能，但某些参数已固定，因此调用者无需传递它们。这里有一个简单的例子：
+
+```python
+enumerate1 = functools.partial(enumerate, start=1)
+
+for lino, line in enumerate1(lines):
+
+    process_line(i, line)
+```
+
+第一行创建了一个新函数 `enumerate1()`，它包装了给定的函数（`enumerate()`）和一个关键字参数（`start=1`），因此当调用 `enumerate1()` 时，它会使用固定的参数调用原始函数——以及调用时提供的任何其他参数，在本例中是 `lines`。这里我们使用了 `enumerate1()` 函数来提供从第 1 行开始的常规行计数。
+
+使用偏函数应用可以改进我们的代码，特别是当我们需要反复使用相同的参数调用相同的函数时。例如，与其每次调用 `open()` 处理 UTF-8 编码的内容文件时都指定模式和编码参数，我们可以创建几个参数固定的函数：
+
+```python
+reader = functools.partial(open, mode="rt", encoding="utf8")
+
+writer = functools.partial(open, mode="wt", encoding="utf8")
+```
+
+现在我们可以通过调用 `reader(*filename*)` 来打开文本文件进行读取，通过调用 `writer(*filename*)` 来打开文本文件进行写入。
+
+偏函数应用的一个基本用例是在 GUI（图形用户界面）编程中，当需要为众多按钮中的任何一个按下时调用一个特定函数，这通常是很方便的。例如：
+
+```python
+loadButton = tkinter.Button(frame, text="Load",
+command=functools.partial(doAction, "load"))
+
+saveButton = tkinter.Button(frame, text="Save",
+command=functools.partial(doAction, "save"))
+```
+
+这个例子应用了 tkinter GUI 库，它是 Python 的标准库之一。
+
+`tkinter.Button` 类用于绘制按钮——这里我们创建了两个按钮，它们都包含在同一个框架内，并且每个按钮都有一个表明其用途的文本。
+
+每个按钮的 `command` 参数都被设置为 tkinter 在按钮被激活时必须调用的函数名，在本例中是 `doAction()` 函数。我们使用了偏函数应用来确保 `doAction()` 函数的第一个参数将是一个字符串，该字符串指示是哪个按钮调用了它。
+
+## 协程
+
+协程是其执行可以在显式点被挂起和继续的函数。这样，通常一个协程会执行到一个特定的表达式，在该点暂停执行，同时等待某些数据。现在程序的不同部分可以继续执行（通常是未被挂起的其他协程）。当数据被接收后，协程从它被挂起的点恢复执行，进行处理（可能依赖于它获得的数据），并可能将其结果发送给另一个协程。协程被认为具有不同的入口点和出口点，因为它们可以有多个挂起和继续的位置。
+
+当我们需要将各种函数应用于相似的数据片段，或者需要构建数据处理管道，或者需要一个主函数与从函数配合时，协程非常有用。协程同样可以用来提供比线程更简单、开销更低的替代方案。一些基于协程的、提供轻量级线程功能的包可以从 Python 包索引（pypi.python.org/pypi）获取。
+
+在 Python 中，协程是一个从 `yield` 表达式获取其输入的函数。它也可以将结果发送给一个接收函数（该函数本身必须是一个协程）。每当协程到达一个 `yield` 表达式时，它就会挂起等待数据；一旦它获得数据，它就从那里恢复执行。一个协程可以有多个 `yield` 表达式，尽管我们将要审查的每个协程模型都只有一个。
+
+## 对数据执行独立操作
+
+如果我们需要对某些数据执行一系列独立操作，通常的方法是依次应用每个操作。这样做的缺点是，如果其中一个操作很慢，整个程序就必须等待该操作完成才能继续下一个操作。解决这个问题的一个方法是使用协程。我们可以将每个操作作为一个协程来执行，然后启动它们全部。如果其中一个很慢，它不会影响其他协程——至少在它们用完要处理的数据之前不会——因为它们都是独立工作的。
+
+下图说明了使用协程进行并发处理。在图中，三个协程（每个可能执行不同的任务）处理相同的两个数据项——并且完成工作所需的时间不同。在图中，`coroutine1()` 工作得相当快，`coroutine2()` 工作缓慢，而 `coroutine3()` 的速度则有变化。一旦所有三个协程都获得了它们的初始数据进行处理，如果其中一个在等待（因为它先完成），其他协程继续工作，这最大限度地减少了处理器的空闲时间。一旦我们使用完协程，我们就在每个协程上调用 `close()`；这会阻止它们等待更多数据，这意味着它们将不再消耗任何处理器时间。
+
+| 步骤 | 操作 | coroutine1() | coroutine2() | coroutine3() |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | 创建协程 | 等待 | 等待 | 等待 |
+| 2 | coroutine1.send("a") | 处理 "a" | 等待 | 等待 |
+| 3 | coroutine2.send("a") | 处理 "a" | 处理 "a" | 等待 |
+| 4 | coroutine3.send("a") | 等待 | 处理 "a" | 处理 "a" |
+| 5 | coroutine1.send("b") | 处理 "b" | 处理 "a" | 处理 "a" |
+| 6 | coroutine2.send("b") | 处理 "b" | 处理 "a" | 处理 "a" |
+| | | | ("b" 待处理) | |
+| 7 | coroutine3.send("b") | 等待 | 处理 "a" | 处理 "b" |
+| | | | ("b" 待处理) | |
+| 8 | 等待 | 处理 "b" | 处理 "b" | 处理 "b" |
+| 9 | 等待 | 处理 "b" | 等待 | 等待 |
+| 10 | 等待 | 处理 "b" | 等待 | 等待 |
+| 11 | 等待 | 等待 | 等待 | 等待 |
+| 12 | coroutineN.close() | 完成 | 完成 | 完成 |
+
+*向三个协程发送两个数据项*
+
+在 Python 中创建一个协程，我们本质上是创建一个至少包含一个 `yield` 表达式的函数——通常在一个无限循环内。当到达一个 `yield` 时，协程的执行被挂起，等待数据。当数据被接收后，协程恢复处理（从 `yield` 表达式之后开始），当它完成后，它会循环回到 `yield` 以等待更多数据。当一个或多个协程因等待数据而挂起时，另一个协程可以执行。这可以产生比简单地依次执行函数更高的吞吐量。
+
+我们将通过将一些正则表达式应用于一组 HTML 文档中的内容，来演示如何执行独立操作。目标是提取每个文档的 URL 以及一级和二级标题。我们将首先查看正则表达式，然后是协程“匹配器”的创建，最后我们将查看协程及其使用方式。
+
+```python
+URL_RE = re.compile(r"""href=(?P<quote>['"])(?P<url>[^\1]+?)\1""" r"""(?P=quote)""", re.IGNORECASE)
+
+flags = re.MULTILINE|re.IGNORECASE|re.DOTALL
+
+H1_RE = re.compile(r"<h1>(?P<h1>.+?)</h1>", flags)
+```
+
+这些正则表达式（从现在起称为“正则”）匹配 HTML href 的 URL 以及 `<h1>` 和 `<h2>` 标题标签中包含的内容。（正则表达式在第 13 章介绍；理解它们对于理解本示例并非必需。）
+
+```python
+receiver = reporter()
+
+matchers = (regex_matcher(receiver, URL_RE), regex_matcher(receiver,
+H1_RE), regex_matcher(receiver, H2_RE))
+```
+
+由于协程总是有一个 `yield` 表达式，它们是生成器。因此，尽管这里我们创建了一个匹配器协程的元组，实际上我们创建的是一个生成器元组。每个 `regex_matcher()` 都是一个协程，它接受一个接收函数（本身是一个协程）和一个要匹配的正则表达式。每当匹配器匹配成功时，它就将匹配结果发送给接收者。
+
+```python
+@coroutine
+
+def regex_matcher(receiver, regex):
+
+    while True:
+
+        text = (yield)
+
+        for match in regex.finditer(text):
+
+            receiver.send(match)
+```
+
+匹配器首先进入一个大循环，并立即挂起执行，期望 `yield` 表达式将恢复一个要应用正则表达式的文本。当文本被接收后，匹配器遍历它找到的每个匹配项，并将每个匹配项发送给接收者。当匹配完成后，协程循环回到 `yield` 并再次挂起，等待更多文本。
+
+（未装饰的）匹配器有一个小问题——当它第一次被创建时，它应该开始执行，以便它推进到 `yield` 并准备好接收其第一个文本。我们可以通过在发送任何数据之前，对我们创建的每个协程调用内置的 `next()` 函数来实现这一点。然而，为了方便起见，我们创建了 `@coroutine` 装饰器来为我们做这件事。
+
+```python
+def coroutine(function):
+
+    @functools.wraps(function)
+
+    def wrapper(*args, **kwargs):
+
+        generator = function(*args, **kwargs)
+
+        next(generator)
+
+        return generator
+
+    return wrapper
+```
+
+`@coroutine` 装饰器接受一个协程函数，并对其调用 `next()` 函数——这会导致该函数被处理到第一个表达式。
+
+现在我们已经看到了匹配器协程，接下来我们将看看匹配器是如何被使用的，然后我们将看看接收匹配器输出的 `reporter()` 协程。
+
+try:
+
+    for file in sys.argv[1:]:
+
+        print(file)
+
+        html = open(file, encoding="utf8").read()
+
+        for matcher in matchers:
+
+            matcher.send(html)
+
+finally:
+
+    for matcher in matchers:
+
+        matcher.close()
+
+    receiver.close()
+
+该程序会遍历命令行中记录的文件名，为每个文件打印文件名，然后使用UTF-8编码将文档的全部内容添加到`html`变量中。接着，程序会遍历所有的匹配器（本例中有三个），并将内容发送给每一个匹配器。每个匹配器随后独立运行，将其找到的每个匹配项发送给报告协程。最后，我们对每个匹配器和报告器调用`close()`——这会终止它们，因为否则它们会继续（处于挂起状态）等待内容（或对于报告器来说是匹配项），因为它们包含无限循环。
+
+```python
+@coroutine
+
+def reporter():
+
+    ignore = frozenset({"style.css", "favicon.png", "index.html"})
+
+    while True:
+
+        match = (yield)
+
+        if match is not None:
+
+            groups = match.groupdict()
+
+            if "url" in groups and groups["url"] not in ignore:
+
+                print("        URL:", groups["url"])
+
+            elif "h1" in groups:
+
+                print("        H1: ", groups["h1"])
+
+            elif "h2" in groups:
+
+                print("        H2: ", groups["h2"])
+```
+
+`reporter()`协程用于产生结果。它是由我们之前看到的语句`receiver = reporter()`创建的，并作为接收者参数传递给每个匹配器。`reporter()`会暂停（挂起），直到有匹配项发送给它，然后打印匹配项的详细信息，接着再次等待，如此无限循环——只有在对其调用`close()`时才会停止。
+
+像这样使用协程可能会带来性能上的好处，但要求我们采用一种在某种程度上不同的视角来看待处理过程。
+
+# 第五章：调试、测试与性能分析
+
+编写程序是艺术、技艺和科学的结合，由于它是由人完成的，因此会犯错。幸运的是，我们可以使用一些方法来帮助避免问题的发生，以及在问题变得明显时识别和修复错误的流程。
+
+错误分为几类。最快暴露且最容易修复的是语法错误，因为这些通常是由拼写错误引起的。更困难的是逻辑错误——对于这类错误，程序可以运行，但其行为的某些部分并非我们所期望或预期的。许多此类错误可以通过使用TDD（测试驱动开发）来避免，即当我们需要添加一个新功能时，我们首先为该功能编写一个测试——由于我们尚未添加该功能，测试将会失败——然后实现该功能本身。另一个错误是创建一个性能异常糟糕的程序。这几乎总是由于选择了糟糕的算法或数据结构，或两者兼有。然而，在尝试任何优化之前，我们应该首先准确找出性能瓶颈所在——因为它可能不在我们预期的地方——然后我们应该仔细决定需要进行何种优化，而不是盲目地工作。
+
+在本章的第一部分，我们将研究Python的回溯信息，以了解如何发现和修复语法错误以及如何处理未处理的异常。然后我们将了解如何将科学方法应用于调试，以尽可能快速轻松地发现错误。我们还将了解Python的调试支持。在第二部分，我们将了解Python对编写单元测试的支持，特别是`doctest`模块和`unittest`模块。我们将了解如何使用这些模块来支持TDD。在本章的最后一部分，我们将简要介绍性能分析，以识别性能瓶颈，从而能够合理地集中我们的优化工作。
+
+# 第六章：调试
+
+在本节中，我们将首先了解Python在遇到语法错误时的行为，然后了解Python在发生未处理异常时生成的回溯信息，接着我们将了解如何将科学方法应用于调试。但在所有这些之前，我们将简要讨论备份和版本控制。
+
+在编辑程序以修复错误时，总是存在这样的风险：我们最终得到的程序不仅有原始错误，还引入了新错误，也就是说，它比我们开始时更糟糕！而且，如果我们没有任何备份（或者有备份但已经过时了几个版本），并且我们不使用版本控制，那么甚至可能很难回到我们只有原始错误的状态。
+
+定期备份是编程的基本组成部分——无论我们的机器和操作系统多么可靠，故障多么罕见——因为故障仍然会发生。然而，备份往往是粗粒度的，文件可能已经过时数小时甚至数天。
+
+版本控制系统使我们能够以所需的任何粒度级别逐步保存更改——每一次更改，或每一组相关更改，或者仅仅每隔一定时间的工作。版本控制系统允许我们应用更改（例如，尝试修复错误），如果它们不成功，我们可以将更改恢复到最后一个“良好”的代码版本。因此，在开始调试之前，最好将我们的代码注册到版本控制系统中，这样我们就有一个已知的位置，如果陷入困境，可以回退到该位置。
+
+有许多优秀的跨平台开源版本控制系统可用——本书使用Bazaar（bazaar-vcs.org），但其他流行的系统包括Mercurial（mercurial.selenic.com）、Git（git-scm.com）和Subversion（subversion.tigris.org）。顺便说一句，Bazaar和Mercurial主要都是用Python编写的。这些系统都不难使用（至少对于基本功能而言），但使用其中任何一个都将有助于避免许多不必要的痛苦。
+
+## 处理语法错误
+
+如果我们尝试运行一个有语法错误的程序，Python将停止执行并打印文件名、行号和有问题的行，并在下方用一个插入符号（^）准确指示错误被检测到的位置。这里有一个例子：
+
+```
+File "blocks.py", line 383
+
+if BlockOutput.save_blocks_as_svg(blocks, svg)
+
+^
+
+SyntaxError: invalid syntax
+```
+
+你能看出错误吗？我们忘记了在包含`if`语句条件的行末尾添加冒号。
+
+有一个经常出现的例子，但问题并不那么明显：
+
+```
+File "blocks.py", line 385
+
+except ValueError as err:
+
+^
+
+SyntaxError: invalid syntax
+```
+
+显示的行中没有语法错误，因此行号和插入符号的位置都不正确。通常，当我们遇到一个确信不在指定行的错误时，几乎在所有情况下，错误都会出现在前面的某一行。这是从`try`到`except`的代码，Python报告错误就在这里——在阅读下面的解释之前，看看你是否能识别出错误：
+
+```python
+try:
+
+    blocks = parse(blocks)
+
+    svg = file.replace(".blk", ".svg")
+
+    if not BlockOutput.save_blocks_as_svg(blocks, svg):
+
+        print("Error: failed to save {0}".format(svg)
+
+except ValueError as err:
+```
+
+你发现问题了吗？它确实很难被注意到，因为它位于Python报告为有错误的那一行的前一行。我们关闭了`str.format()`方法的括号，但没有关闭`print()`函数的括号，也就是说，我们在末尾缺少一个右括号，但Python直到在下一行遇到`except`关键字时才意识到这一点。在一行末尾缺少最后一个括号是非常常见的，尤其是在使用`print()`和`str.format()`时，但错误通常在下一行被报告。同样，如果一个列表的结束方括号，或一个集合或字典的结束花括号
+
+## 处理运行时错误
+
+万一运行时发生未处理的异常，Python 将停止执行我们的程序并打印回溯信息。以下是一个未处理异常的回溯示例：
+
+```
+Traceback (most recent call last):
+
+File "blocks.py", line 392, in <module> main()
+
+File "blocks.py", line 381, in main
+
+blocks = parse(blocks)
+
+File "blocks.py", line 174, in recursive_descent_parse return data.stack[1]
+
+IndexError: list index out of range
+```
+
+像这样的回溯（也称为回溯信息）应该从最后一行开始向前阅读到第一行。最后一行指明了发生的未处理异常。在此行之上，显示了文件名、行号和函数名，以及导致异常的代码行（分布在两行上）。如果引发异常的函数是由另一个函数调用的，那么该函数的文件名、行号、函数名和调用行会显示在更前面。同样，如果那个函数又是由另一个函数调用的，情况也一样，一直追溯到调用栈的起点。（注意，回溯中的文件名带有路径，但为了清晰起见，我们在示例中通常省略了路径。）
+
+因此，在这个例子中，发生了一个 `IndexError`，这意味着 `data.stack` 是某种序列，但在位置 1 没有元素。错误发生在 `blocks.py` 程序的 `recursive_descent_parse()` 函数的第 174 行，因此该函数是在 `main()` 函数的第 381 行被调用的。（函数名在第 381 行不同，即 `parse()` 而不是 `recursive_descent_parse()`，是因为 `parse` 变量根据传递给程序的命令行参数被设置为几个不同函数中的一个；在正常情况下，名称总是匹配的。）对 `main()` 的调用发生在第 392 行，这是程序执行开始的语句。
+
+尽管一开始回溯看起来可能令人生畏，但现在我们理解了它的结构，就很容易看出它是多么有用。在这种情况下，它准确地告诉了我们去哪里寻找问题，尽管显然我们需要自己弄清楚解决方案是什么。
+
+以下是另一个回溯示例：
+
+```
+Traceback (most recent call last):
+
+File "blocks.py", line 392, in <module>
+    main()
+
+File "blocks.py", line 383, in main
+    if BlockOutput.save_blocks_as_svg(blocks, svg):
+
+File "BlockOutput.py", line 141, in save_blocks_as_svg
+
+widths, rows = compute_widths_and_rows(cells, SCALE_BY) File "BlockOutput.py", line 95, in compute_widths_and_rows
+
+width = len(cell.text) // cell.columns ZeroDivisionError: integer division or modulo by zero
+```
+
+现在，问题发生在一个被 `blocks.py` 程序调用的模块（`BlockOutput.py`）中。这个回溯引导我们找到问题变得*明显*的地方，但不是问题*发生*的地方。
+
+在 `BlockOutput.py` 模块的 `compute_widths_and_rows()` 函数的第 95 行，`cell.columns` 的值显然是 0——毕竟，这就是引发 `ZeroDivisionError` 异常的原因——但我们需要查看前面的行，以找出 `cell.columns` 被赋予这个错误值的位置和原因。
+
+有时回溯会揭示发生在 Python 标准库或第三方库中的异常。尽管这可能意味着库中存在错误，但在几乎所有情况下，这都是由于我们自己的代码中的错误造成的。以下是使用 Python 3.0 的此类回溯示例：
+
+```
+Traceback (most recent call last):
+
+File "blocks.py", line 392, in <module>
+main()
+
+File "blocks.py", line 379, in main
+
+blocks = open(file, encoding="utf8").read()
+
+File "/usr/lib/python3.0/lib/python3.0/io.py", line 278, in __new__ return
+open(*args, **kwargs)
+
+File "/usr/lib/python3.0/lib/python3.0/io.py", line 222, in open closefd)
+
+File "/usr/lib/python3.0/lib/python3.0/io.py", line 619, in __init__
+_fileio._FileIO.__init__(self, name, mode, closefd)
+
+IOError: [Errno 2] No such file or directory: 'hierarchy.blk'
+```
+
+最后的 `IOError` 异常清楚地告诉了我们问题所在。然而，异常是在标准库的 `io` 模块中引发的。在这种情况下，最好继续向上阅读，直到找到我们程序文件（或我们为其创建的模块之一）中列出的第一个文件。因此，在这个例子中，我们发现对我们程序的第一次引用是在 `blocks.py` 文件的第 379 行，`main()` 函数中。看起来我们调用了 `open()`，但没有将调用放在 `try...except` 块中，也没有使用 `with` 语句。
+
+Python 3.1 比 Python 3.0 更聪明一些，它明白我们需要在自己的代码中查找错误，而不是在标准库中，因此它生成了一个更简洁、更有帮助的回溯。例如：
+
+```
+Traceback (most recent call last):
+
+File "blocks.py", line 392, in <module>
+
+main()
+
+File "blocks.py", line 379, in main
+
+blocks = open(file, encoding="utf8").read()
+
+IOError: [Errno 2] No such file or directory: 'hierarchy.blk'
+```
+
+这消除了所有不必要的细节，使得很容易看出问题是什么（在最后一行）以及它发生在哪里（在它上面的行）。
+
+因此，无论回溯有多长，最后一行总是指明未处理的异常，我们只需要回溯直到找到我们程序的文件或我们自己的模块之一。问题很可能发生在 Python 指定的行上，或者在更早的行上。
+
+这个特定的例子说明，我们应该修改 `blocks.py` 程序，以便在给定不存在的文件名时能够优雅地处理。这是一个可用性错误，也应该被标记为一致性错误，因为终止并打印回溯不能被视为可接受的程序行为。
+
+实际上，作为良好设计和对用户礼貌的问题，我们应该始终捕获所有相关异常，接受我们认为可能发生的特定异常，例如 `EnvironmentError`。总的来说，我们不应该使用 `except:` 或 `except Exception:` 这样的通配符，尽管在程序顶层使用后者以避免崩溃可能是合适的——但前提是我们总是报告它捕获的任何异常，这样它们就不会被悄无声息地忽略掉。
+
+我们捕获但无法恢复的异常应该作为错误消息报告，而不是让我们的用户面对看起来令外行害怕的回溯。对于 GUI 程序，同样的情况也适用，只是通常我们会使用消息框来通知用户问题。对于通常无人值守运行的服务器程序，我们应该将错误消息写入服务器的日志。
+
+Python 的异常层次结构设计使得捕获 `Exception` 并不完全覆盖所有异常。具体来说，它不捕获 `KeyboardInterrupt` 异常，因此对于交互式应用程序，如果用户按下 Ctrl+C，程序将终止。如果我们捕获了这个异常，就有可能将用户困在一个他们无法终止的程序中。这是因为我们异常处理代码中的错误可能会阻止程序终止或异常传播。（显然，即使是“不可中断”的程序也可以被终止其进程，但并非所有用户都知道如何操作。）因此，如果我们确实捕获了 `KeyboardInterrupt` 异常，我们应该非常小心，只做必要的最少保存和清理工作——然后终止程序。对于不需要保存或清理的程序，最好不要捕获 `KeyboardInterrupt`，而是让程序直接结束。
+
+Python 3 的一个令人惊叹的理念是，它明确区分了原始字节和字符串。然而，这有时会导致在传递字节对象而非期望的字符串对象（或反之）时，发生意外的异常。例如：
+
+```
+Traceback (most recent call last):
+
+File "program.py", line 918, in <module>
+    print(datetime.datetime.strptime(date, format))
+
+TypeError: strptime() argument 1 must be str, not bytes
+```
+
+遇到此类问题时，我们可以选择进行转换——例如，传递 `date.decode("utf8")`——或者仔细回溯，找出变量为何是字节对象而非字符串对象，并在源头修复问题。
+
+如果我们传递的是字符串而期望的是字节，错误信息则不那么明确，并且在 Python 3.0 和 3.1 之间有所不同。例如，在 Python 3.0 中：
+
+```
+Traceback (most recent call last):
+
+File "program.py", line 2139, in <module> data.write(info)
+
+TypeError: expected an object with a buffer interface
+```
+
+在 Python 3.1 中，错误信息的文本略有改进：
+
+```
+Traceback (most recent call last):
+
+File "program.py", line 2139, in <module> data.write(info)
+
+TypeError: 'str' does not have the buffer interface
+```
+
+在这两种情况下，问题都在于我们传递的是字符串，而期望的是字节、字节数组或类似对象。我们可以选择进行转换——例如，传递 `info.encode("utf8")`——或者回溯找出问题的根源并加以修复。
+
+Python 3.0 引入了异常绑定支持——这意味着基于另一个异常引发的异常可以包含原始异常的详细信息。当一个绑定的异常未被捕获时，回溯信息不仅包含未捕获的异常，还包含导致它的异常（如果它被绑定的话）。处理绑定异常的方法与之前几乎相同：我们从末尾开始，反向追溯，直到在我们自己的代码中找到问题。然而，我们可能需要对每个绑定的异常重复此过程，直到找到问题的真正根源。
+
+我们可以在自己的代码中利用异常绑定——例如，如果我们想使用自定义异常类，同时又希望底层问题可见。
+
+```python
+class InvalidDataError(Exception): pass
+
+def process(data):
+    try:
+        i = int(data)
+        ...
+    except ValueError as err:
+        raise InvalidDataError("Invalid data received") from err
+```
+
+现在，`int()` 转换失败，`ValueError` 被引发并捕获。然后我们调用自定义异常，但使用了 `from err`，这创建了一个链式异常。如果异常被引发但未被捕获，回溯信息将如下所示：
+
+```
+Traceback (most recent call last):
+  File "application.py", line 249, in process i = int(data)
+ValueError: invalid literal for int() with base 10: '17.5 '
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "application.py", line 288, in <module> print(process(line))
+  File "application.py", line 283, in process
+    raise InvalidDataError("Invalid data received") from err
+__main__.InvalidDataError: Invalid data received
+```
+
+我们自定义异常的基类和消息阐明了问题所在，其上方的行显示了异常被引发的位置（第 283 行）以及导致它的位置（第 288 行）。然而，我们还可以进一步回溯到绑定的异常，它提供了关于具体错误的更多细节，并显示了触发自定义异常的行（第 249 行）。
+
+## 科学调试
+
+如果我们的程序运行了，但没有表现出预期或期望的行为，那么我们就有了一个 bug——一个逻辑错误——需要消除。消除此类错误的最佳方法是通过使用 TDD（测试驱动开发）来防止它们发生。然而，一些 bug 总会漏网，因此即使使用了 TDD，调试仍然是一项需要学习的关键技能。
+
+在本小节中，我们将概述一种基于科学方法的调试方法。该方法解释得非常详细，以至于处理一个“简单”的 bug 似乎工作量过大。然而，通过严格遵循该过程，我们将避免在“随机”调试上浪费时间，过一段时间后，我们将内化该过程，从而能够无意识地、快速地进行调试。
+
+要修复一个 bug，我们需要能够……
+
+- 1. 复现它。
+- 2. 定位它。
+- 3. 修复它。
+- 4. 测试。
+
+复现 bug 有时很简单——它通常在每次运行时都会发生；有时则很困难——它偶尔发生。无论哪种情况，我们都应该尝试缩小 bug 的条件，即找到仍然能产生 bug 的最小输入和最少处理量。
+
+一旦我们能够复现 bug，我们就拥有了应用科学方法来查找和修复它所需的数据——输入数据、选项和错误结果。
+
+运行分析应该能找出 bug，并且还应该让我们对解决方案有所了解。（我们很快会回到如何创建和运行分析。）一旦我们确定了如何消除 bug——并且已经将我们的代码提交到版本控制系统中，以便在必要时回滚修复——我们就可以编写修复代码。
+
+当修复就位后，我们应该对其进行测试。通常，我们应该测试以检查预期修复的 bug 是否已消失。但这还不够；毕竟，我们的修复可能解决了我们关注的 bug，但修复也可能引入了另一个 bug，影响程序的其他部分。因此，除了测试 bug 修复本身，我们还应该运行程序的所有测试，以增加我们对修复没有产生任何不良副作用的信心。
+
+一些 bug 具有特定的结构，因此每当我们修复一个 bug 时，都值得询问程序或其模块中是否还有其他地方可能存在类似的 bug。如果有，我们可以检查是否已有测试能在这些 bug 存在时发现它们；如果没有，我们应该添加此类测试；如果这揭示了 bug，那么我们应该如前所述处理它们。
+
+既然我们已经对调试过程有了很好的概述，我们将专注于如何创建和运行分析来检验我们的假设。我们从尝试隔离 bug 开始。根据程序和 bug 的性质，我们或许可以编写测试来运行程序，例如，向其提供已知能被正确处理的数据，并逐步修改数据，以便我们能准确找出处理失败的位置。一旦我们对问题所在有了想法——无论是通过测试还是基于推理——我们就可以检验我们的假设。
+
+我们可能会提出什么样的假设？嗯，最初可能很简单，比如怀疑某个特定函数或方法在使用某些输入数据和选项时返回了错误的信息。然后，如果这个假设被证明是正确的，我们可以将其细化得更具体——例如，确定函数中我们认为在特定情况下执行了错误计算的特定语句或代码块。
+
+为了检验我们的假设，我们需要在函数返回之前检查它接收的参数、其局部变量的值以及返回值。然后，我们可以使用已知会产生错误的数据运行程序，并检查可疑函数。如果传入函数的参数不是我们预期的，那么问题很可能在调用栈的更上层，因此我们现在需要重新开始这个过程，这次假设调用我们正在查看的函数的那个函数有问题。然而，如果所有传入的参数始终……在这一点上，我们应该查看局部变量和返回值。如果这些始终正确，那么我们需要提出另一个假设，因为被怀疑的函数运行正常。然而，如果返回值不正确，那么我们就知道需要进一步检查该函数。
+
+在实践中，我们如何进行调查，即如何测试某个函数行为异常的假设？一种开始的方法是“理性地执行”该函数——这对于一些小函数是可行的，对于较大的函数通过练习也可以做到，并且还有一个额外的好处，即让我们熟悉该函数的行为。在最佳情况下，这可以导致一个改进或更明确的假设——例如，某个特定的语句或代码块是问题所在。然而，为了恰当地进行调查，我们必须对程序进行插桩，以便在调用被怀疑的函数时能够识别发生了什么。
+
+有两种方法可以对程序进行插桩——粗略地，通过插入 `print()` 语句；或者（通常）非粗略地，通过使用调试器。这两种方法都用于实现相同的目的，并且都是有效的，但一些程序员对其中一种有强烈的偏好。我们将简要描述这两种方法，从使用 `print()` 语句开始。
+
+使用 `print()` 语句时，我们可以在函数的最开始放置一个 `print()` 语句，并让它打印函数的参数。然后，在（或每个）返回语句之前（或者如果函数没有返回语句，则在函数结束时），添加 `print(locals(), "\n")`。内置的 `locals()` 函数返回一个字典，其键是局部变量的名称，其值是变量的值。我们当然可以只打印我们特别感兴趣的变量。注意我们添加了一个额外的换行符——我们也应该在第一个 `print()` 语句中这样做，以便在每组变量之间出现一个空行，以帮助提高清晰度。
+
+添加 `print()` 语句的替代方法是使用调试器。Python 有两个标准调试器。一个作为模块（`pdb`）提供，可以在控制台中交互式使用——例如，`python3 -m pdb my_program.py`。（在 Windows 上，当然，我们会将 `python3` 替换为类似 `C:\Python31\python.exe` 的内容。）然而，使用它的最简单方法是在程序本身中添加 `import pdb`，并在我们想要检查的函数的开头添加语句 `pdb.set_trace()`。当程序运行时，`pdb` 会在 `pdb.set_trace()` 调用后停止它，并允许我们单步执行程序、设置断点和检查变量。
+
+下面是一个程序的模型运行示例，该程序通过在其导入部分添加 `import pdb` 语句，并在其 `calculate_median()` 函数内部添加 `pdb.set_trace()` 作为第一条语句来进行插桩。（我们输入的内容以粗体显示，尽管我们输入 `Enter` 的位置未显示。）
+
+```
+python3 statistics.py sum.dat
+```
+
+```
+> statistics.py(73)calculate_median() -> numbers = sorted(numbers)
+```
+
+```
+(Pdb) s
+> statistics.py(74)calculate_median() -> middle = len(numbers) // 2
+(Pdb)
+> statistics.py(75)calculate_median() -> median = numbers[middle]
+(Pdb)
+> statistics.py(76)calculate_median() -> if len(numbers) % 2 == 0:
+(Pdb)
+> statistics.py(78)calculate_median() -> return median
+(Pdb) p middle, median, numbers
+(8, 5.0, [-17.0, -9.5, 0.0, 1.0, 3.0, 4.0, 4.0, 5.0, 5.0, 5.0, 5.5, 6.0, 7.0, 7.0, 8.0, 9.0, 17.0])
+(Pdb) c
+```
+
+通过在 `(Pdb)` 提示符下输入命令名称并按回车键来向 `pdb` 发出指令。如果我们只按回车键，最后一个命令将被重复。因此，这里我们输入了 `s`（表示 step，即执行显示的语句），然后重复此操作（基本上通过按回车键），以单步执行 `calculate_median()` 函数中的语句。当我们到达返回语句时，我们使用 `p`（print）命令打印出我们感兴趣的值。最后，我们使用 `c`（continue）命令继续执行到结束。这个小例子应该能让我们对 `pdb` 有一个初步的了解，当然该模块的功能远比我们这里展示的要多。
+
+在像我们这样插桩过的程序上使用 `pdb` 比在未插桩的程序上要简单得多。但是，由于这需要我们添加一个导入和一个对 `pdb.set_trace()` 的调用，很明显使用 `pdb` 与使用 `print()` 语句一样具有侵入性，尽管它提供了有用的设施，例如断点。
+
+## 单元测试
+
+为我们的程序编写测试——如果做得好——可以帮助减少错误的发生，并增加我们对程序按预期运行的信心。然而，总的来说，测试无法保证正确性，因为对于大多数非平凡的程序，潜在输入的范围和潜在计算的范围是如此之大，以至于只有其中极小的一部分能够被实际测试。尽管如此，通过仔细选择我们测试的内容，我们可以提高代码的质量。
+
+可以进行各种各样的测试技术，例如可用性测试、功能测试和集成测试。但在这里，我们将纯粹关注单元测试——测试单个函数、类和方法，以确保它们按照我们的预期运行。
+
+测试驱动开发（TDD）的一个关键目的是，当我们需要添加一个功能时——例如，向一个类添加一个新方法——我们首先为它编写一个测试。当然，这个测试会失败，因为我们还没有编写该方法。现在我们编写该方法，一旦它通过了测试，我们就可以重新运行所有测试，以确保我们的添加没有产生任何意外的副作用。当所有测试都运行通过（包括我们为新功能添加的测试）时，我们就可以签入我们的代码，相当确信它做了我们期望的事情——当然前提是我们的测试是充分的。
+
+如果你需要创建一个在指定索引位置插入字符串的函数，你将开始像这样使用 TDD：
+
+```
+def insert_at(string, position, insert):
+    """Returns a copy of string with insert inserted at the position
+
+    >>> string = "ABCDE"
+    >>> result = []
+    >>> for i in range(-2, len(string) + 2):
+    ...     result.append(insert_at(string, i, "-"))
+    >>> result[:5]
+    ['ABC-DE', 'ABCD-E', '-ABCDE', 'A-BCDE', 'AB-CDE']
+    >>> result[5:]
+    ['ABC-DE', 'ABCD-E', 'ABCDE-', 'ABCDE-']
+    """
+    return string
+```
+
+对于不返回任何内容（它们实际上返回 `None`）的函数或方法，我们通常给它们一个包含 `pass` 的代码块；对于那些使用返回值的函数，我们返回一个常量（例如，`0`）或其中一个参数，未做更改——这就是我们在这里所做的。（在更复杂的情况下，返回假对象可能更有用——第三方模块提供“模拟”对象可用于此类情况。）
+
+当运行 doctest 时，它会失败，列出它期望的所有字符串（'ABCD-EF'、'ABCDE-F' 等）以及它实际收到的字符串（全部是 'ABCDEF'）。当我们确信 doctest 是充分且正确时，我们就可以编写函数体，在这种情况下基本上就是 `return string[:position] + insert + string[position:]`。（而且，如果我们写了 `return string[:position] + insert`，然后为了节省一些输入而在末尾重复了 `string[:position]`，doctest 会立即发现这个错误。）
+
+Python 的标准库提供了两个单元测试模块：`doctest`，我们之前已经在这里和之前（第 5 章；202 ▶，和第 6 章；247 ▶）简要看过；以及 `unittest`。此外，还有用于 Python 的第三方测试工具。其中最著名的两个是 `nose`（code.google.com/p/python-nose），它旨在比标准的 `unittest` 模块更全面、更有用，同时仍然与之兼容；以及 `py.test`（codespeak.net/py/dist/test/test.html）——它采用了一种与 `unittest` 稍有不同的方法，并尽可能消除标准测试代码。这两个第三方工具都支持测试发现，因此没有必要编写一个通用的测试程序——因为它们会自己搜索测试。这使得测试整个代码树或仅测试树的一部分（例如，仅测试那些正在处理的模块）变得容易。对于那些认真对待测试的人来说，值得研究这两个第三方模块。
+
+## doctest 与 unittest 模块
+
+在选择使用哪些测试工具之前，可以先尝试各种你感兴趣的工具。
+
+创建 doctest 非常简单：我们可以在模块、函数、类或方法的文档字符串中编写测试，或者对于模块，只需在代码后添加以下几行：
+
+```python
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+```
+
+如果需要在程序内部使用 doctest，这也是完全可行的。例如，`blocks.py` 文件为其函数编写了 doctest，它以如下代码结尾：
+
+```python
+if __name__ == "__main__":
+    main()
+```
+
+这本质上是调用程序的 `main()` 函数，而不会执行程序的 doctest。要运行程序的 doctest，我们可以遵循两种方法。第一种是导入 `doctest` 模块，然后运行程序——例如，在命令行中输入 `python3 -m doctest blocks.py`（在 Windows 上，将 `python3` 替换为类似 `C:\Python31\python.exe` 的路径）。如果所有测试都通过，则没有输出，因此我们可能希望执行 `python3 -m doctest blocks.py -v`，因为这将列出每个执行的 doctest，并在最后给出结果摘要。
+
+另一种执行 doctest 的方法是使用 `unittest` 模块创建一个单独的测试程序。`unittest` 模块在理论上借鉴了 Java 的 JUnit 单元测试库，用于创建包含测试用例的测试套件。`unittest` 模块可以基于 doctest 创建测试用例，而无需了解程序或模块包含什么内容，只知道它包含 doctest。因此，要为 `blocks.py` 程序创建一个测试套件，我们可以创建以下简单程序（我们将其命名为 `test_blocks.py`）：
+
+```python
+import doctest
+import unittest
+import blocks
+
+suite = unittest.TestSuite()
+suite.addTest(doctest.DocTestSuite(blocks))
+runner = unittest.TextTestRunner()
+print(runner.run(suite))
+```
+
+请注意，如果我们采用这种方法，对项目名称有一定的限制：它们必须是合法的模块名称，因此名为 `convert-incidents.py` 的程序不能为此编写这样的测试，因为 `import convert-occurrences` 不是有效的 Python 标识符。（虽然可以绕过这个问题，但最简单的解决方案是使用也是有效模块名称的程序文件名，例如，用下划线替换连字符。）
+
+这里展示的结构——创建一个测试套件，添加一个或多个测试用例或测试套件，运行整个测试套件，并输出结果——是基于 `unittest` 的测试的典型特征。运行时，此特定示例产生以下输出：
+
+```
+...
+
+Ran 3 tests in 0.244s
+
+OK
+
+<unittest._TextTestResult run=3 errors=0 failures=0>
+```
+
+每次执行一个测试用例时，都会输出一个句点（因此输出开头有三个句点），然后是一行连字符，最后是测试摘要。（通常，如果有任何测试失败，输出会多得多。）
+
+如果我们希望为每个程序和模块进行单独的测试，那么与其使用 doctest，我们可能更愿意直接使用 `unittest` 模块的功能——特别是如果我们习惯于 JUnit 的测试方法。`unittest` 模块将我们的测试与代码分开——这对于测试编写者和开发人员不是同一个人的大型项目尤其有用。此外，`unittest` 单元测试是作为独立的 Python 模块编写的，因此不受我们可以在文档字符串中舒适合理编写的内容的限制。
+
+`unittest` 模块定义了四个关键概念。测试夹具是用于描述设置测试（以及之后清理）所需代码的术语。常见的例子是为测试创建一个数据文件，最后删除数据文件和生成的输出文件。测试套件是测试用例的集合，而测试用例是测试的基本单元——测试套件是测试用例或其他测试套件的集合——我们稍后会看到实际例子。测试运行器是执行一个或多个测试套件的对象。
+
+通常，通过创建 `unittest.TestCase` 的子类来创建测试套件，其中每个以 "test" 开头的方法都是一个测试用例。如果需要任何设置，我们可以在名为 `setUp()` 的方法中进行；同样，对于任何清理，我们可以实现一个名为 `tearDown()` 的方法。在测试内部，有多种 `unittest.TestCase` 方法可以使用，包括 `assertTrue()`、`assertEqual()`、`assertAlmostEqual()`（对于测试浮点数很有用）、`assertRaises()` 等等，还包括许多反向方法，例如 `assertFalse()`、`assertNotEqual()`、`failIfEqual()`、`failUnlessEqual()` 等。
+
+`unittest` 模块文档齐全且功能丰富，但这里我们仅通过评估一个非常简单的测试套件来展示其用法。任务是创建一个 `Atomic` 模块，该模块可用作上下文管理器，以确保要么将一组更改全部应用于列表、集合或字典，要么都不应用。示例中提供的 `Atomic.py` 模块使用 30 行代码实现 `Atomic` 类，并包含约 100 行模块级 doctest。我们将创建 `test_Atomic.py` 模块，用 `unittest` 测试替换 doctest，然后我们可以删除 doctest，使 `Atomic.py` 仅包含提供其功能所需的代码。
+
+在深入编写测试模块之前，我们需要考虑需要哪些测试。我们应该测试三种不同的数据类型：列表、集合和字典。对于列表，我们需要测试附加和插入项目、删除项目以及更改项目的值。对于集合，我们应该测试添加和删除项目。对于字典，我们应该测试插入项目、更改项目的值以及删除项目。此外，我们应该测试在失败的情况下，没有更改被应用。
+
+基本上，测试不同的数据类型本质上是相同的，因此我们只为列表编写测试用例，其余的留作练习。`test_Atomic.py` 模块必须同时导入 `unittest` 模块和它要测试的 `Atomic` 模块。
+
+创建 `unittest` 文件时，我们通常创建模块而不是程序，并在每个模块中定义一个或多个 `unittest.TestCase` 子类。对于 `test_Atomic.py` 模块，它定义了一个 `unittest.TestCase` 子类 `TestAtomic`（我们稍后会查看），并以以下两行结尾：
+
+```python
+if __name__ == "__main__":
+    unittest.main()
+```
+
+有了这些行，该模块可以独立运行。当然，它也可以从另一个测试程序导入并运行——如果这只是众多测试套件中的一个，这是有意义的。
+
+如果我们想从另一个测试程序运行 `test_Atomic.py` 模块，我们可以编写一个类似于我们使用 `unittest` 模块执行 doctest 的程序。例如：
+
+```python
+import unittest
+import test_Atomic
+
+suite = unittest.TestLoader().loadTestsFromTestCase(
+    test_Atomic.TestAtomic)
+runner = unittest.TextTestRunner()
+print(runner.run(suite))
+```
+
+在这里，我们通过告诉 `unittest` 模块读取 `test_Atomic` 模块并使用其每个 `test*()` 方法（在此示例中为 `test_list_success()` 和 `test_list_fail()`，我们稍后会看到）作为测试用例，创建了一个单独的套件。
+
+我们现在将查看 `TestAtomic` 类的实现。与通常的子类不同，尽管对于 `unittest.TestCase` 子类来说并非如此，不需要实现初始化器。在这种情况下，我们需要一个设置方法，但不需要拆卸方法。我们将实现两个测试用例。
+
+```python
+def setUp(self):
+    self.original_list = list(range(10))
+```
+
+我们使用了 `unittest.TestCase.setUp()` 方法来创建单个测试数据。
+
+```python
+def test_list_succeed(self):
+    items = self.original_list[:]
+    with Atomic.Atomic(items) as atomic:
+        atomic.append(1999)
+        atomic.insert(2, -915)
+        del atomic[5]
+```
+
+## 性能分析
+
+atomic[4] = -782
+
+atomic.insert(0, -9)
+
+self.assertEqual(items,
+[-9, 0, 1, -915, 2, -782, 5, 6, 7, 8, 9, 1999])
+
+此实验用于测试对列表进行的大量更改是否被正确应用。该测试执行了一次追加、一次在中间插入、一次在开头插入、一次删除以及一次值更改。虽然这远非详尽无遗，但该测试至少涵盖了基本操作。
+
+测试不应引发异常，但如果确实引发，`unittest.TestCase`基类会将其转换为合适的错误消息来处理。最后，我们期望`items`列表等于测试中包含的精确列表，而不是原始列表。`unittest.TestCase.assertEqual()`方法可以比较任何两个Python对象，但其简化性意味着它无法提供特别具有指导意义的错误消息。
+
+从Python 3.1开始，`unittest.TestCase`类拥有更多方法，包括许多特定于数据类型的断言方法。以下是我们如何使用Python 3.1编写断言：
+
+```
+self.assertListEqual(items,
+[-9, 0, 1, -915, 2, -782, 5, 6, 7, 8, 9, 1999])
+```
+
+如果列表不相等，由于数据类型已知，`unittest`模块能够提供更精确的错误信息，包括列表在何处存在差异。
+
+```
+def test_list_fail(self):
+    def process():
+        nonlocal items
+        with Atomic.Atomic(items) as atomic:
+            atomic.append(1999)
+            atomic.insert(2, -915)
+            del atomic[5]
+            atomic[4] = -782
+            atomic.poop()  # Typo
+    items = self.original_list[:]
+    self.assertRaises(AttributeError, process)
+    self.assertEqual(items, self.original_list)
+```
+
+要测试失败情况，即在执行原子操作时引发异常的情况，我们需要测试列表未被更改，并且引发了合适的异常。为了检查异常，我们使用`unittest.TestCase.assertRaises()`方法，在Python 3.0的情况下，我们传递期望得到的异常和一个应该引发异常的可调用对象。这迫使我们封装要测试的代码，这就是为什么我们需要创建此处显示的`process()`内部函数。
+
+在Python 3.1中，`unittest.TestCase.assertRaises()`方法可以用作上下文管理器，因此我们可以用更自然的方式编写测试：
+
+```
+def test_list_fail(self):
+    items = self.original_list[:]
+    with self.assertRaises(AttributeError):
+        with Atomic.Atomic(items) as atomic:
+            atomic.append(1999)
+            atomic.insert(2, -915)
+            del atomic[5]
+            atomic[4] = -782
+            atomic.poop()  # Typo
+    self.assertListEqual(items, self.original_list)
+```
+
+这里我们直接在测试方法中编写了测试代码，无需内部函数，而是使用`unittest.TestCase.assertRaised()`作为上下文管理器，期望代码引发`AttributeError`。我们还在最后使用了Python 3.1的`unittest.TestCase.assertListEqual()`方法。
+
+正如我们所见，Python的测试模块易于使用且非常有用，特别是如果我们使用TDD（测试驱动开发）。它们还具有比此处展示的更多功能和特性——例如，跳过测试的能力，这对于说明平台差异很有用——并且它们也有良好的文档记录。一个缺失的特性——`nose`和`py.test`提供的——是测试发现，尽管此特性预计将在以后的Python版本中出现（可能最早在Python 3.2中）。
+
+如果一个程序运行缓慢或消耗的内存远超预期，问题通常源于我们选择的算法或数据结构，或者源于我们进行了低效的实现。无论问题的原因是什么，最好准确找出问题所在，而不是仅仅评估我们的代码并试图优化它。随意优化可能会引入错误，或者加速程序中实际上对整体性能没有影响的部分，因为改进并未发生在解释器花费大部分时间的地方。
+
+在深入探讨性能分析之前，了解一些易于学习和应用且对性能有益的Python编程习惯很重要。这些方法都不是特定于Python版本的，并且都是优秀的、可靠的Python编程风格。首先，当需要只读序列时，优先选择元组而非列表。其次，使用生成器而不是创建大型元组或列表来迭代。第三，使用Python的内置数据结构——字典、列表和元组——而不是用Python实现的自定义数据结构，因为内置结构通常经过高度优化。第四，当从许多小字符串构建大字符串时，不要连接小字符串，而是将它们全部收集到一个列表中，最后将字符串列表连接成一个字符串。第五，也是最后一点，如果一个对象（包括函数或方法）通过属性访问（例如，访问模块中的函数）或从数据结构中被大量访问，创建并使用一个引用该对象的局部变量可能会提供更快的访问速度。
+
+Python的标准库提供了两个模块，当我们需要研究代码性能时特别有用。其中之一是`timeit`模块——这对于计时小段Python代码很有用，例如，可用于比较特定函数或方法的两个或多个实现的性能。另一个是`cProfile`模块，可用于分析程序的性能——它提供了调用次数和时间的详细细分，因此可用于发现性能瓶颈。
+
+为了展示`timeit`模块的用法，我们将看一个小例子。假设我们有三个函数：`function_a()`、`function_b()`和`function_c()`，它们都执行相同的计算，但每个使用不同的算法。如果我们将每个函数放入一个模块（或导入它们），我们可以使用`timeit`模块运行它们，看看它们的表现如何。以下是我们可以在模块末尾使用的代码：
+
+```
+if __name__ == "__main__":
+    repeats = 1000
+    for function in ("function_a", "function_b", "function_c"):
+        t = timeit.Timer("{0}(X, Y)".format(function),
+                         "from __main__ import {0}, X, Y".format(function))
+        sec = t.timeit(repeats) / repeats
+        print("{function}() {sec:.6f} sec".format(**locals()))
+```
+
+传递给`timeit.Timer()`构造函数的第一个参数是我们要执行和计时的代码，以字符串形式。这里，循环的第一次迭代，字符串是`"function_a(X, Y)"`。第二个参数是可选的；同样是一个要执行的字符串，这次是在要计时的代码之前执行，以进行一些设置。这里我们从`__main__`（即当前）模块导入了要测试的函数，以及作为输入传递的两个变量（`X`和`Y`），它们在模块中作为全局变量可用。我们也可以从不同的模块导入函数和数据。
+
+当调用`timeit.Timer`对象的`timeit()`方法时，它将首先执行构造函数的第二个参数（如果有的话）进行设置，然后执行构造函数的第一个参数——并计时执行所需的时间。`timeit.Timer.timeit()`方法的返回值是所花费的时间，以浮点数表示。默认情况下，`timeit()`方法重复100万次并返回所有这些执行的总秒数，但在这个特定案例中，我们只需要1000次重复就能得到有用的结果，因此我们明确指定了重复次数。在计时每个函数后，我们将总时间除以重复次数以获得其平均（平均）执行时间，并在控制台上打印函数名称和执行时间。
+
+function_a() 0.001618 秒
+
+function_b() 0.012786 秒
+
+function_c() 0.003248 秒
+
+在示例中，`function_a()` 是最快的——至少在我们使用的输入数据下是如此。在某些情况下——例如，性能可能因输入数据的不同而有显著差异——我们可能需要用多组输入数据测试每个函数，以覆盖具有代表性的案例集合，然后比较总的或平均的执行时间。
+
+持续地对代码进行插桩以获取计时信息并不总是有帮助的，因此 `timeit` 模块提供了一种从命令行对代码进行计时的方法。例如，要对 `MyModule.py` 模块中的 `function_a()` 进行计时，我们会在控制台输入以下命令：`python3 -m timeit -n 1000 -s "from MyModule import function_a, X, Y" "function_a(X, Y)"`。（当然，对于 Windows 系统，我们应该将 `python3` 替换为类似 `C:\Python31\python.exe` 的路径。）`-m` 选项是给 Python 解释器的，告诉它加载指定的模块（在这种情况下是 `timeit`），而不同的选项则由 `timeit` 模块处理。`-n` 选项决定了迭代次数，`-s` 选项指定了设置代码，最后一个参数是要执行和计时的代码。命令完成后，它会在控制台打印结果，例如：
+
+1000 loops, best of 3: 1.41 msec per loop
+
+我们毫不费力地就可以为另外两个函数重复计时过程，以便将它们全部进行比较。
+
+`cProfile` 模块同样可用于分析函数和方法的性能。而且，与只提供原始计时信息的 `timeit` 模块不同，`cProfile` 模块能准确地显示被调用的是什么以及每次调用花费了多长时间。以下是我们用来分析之前那三个相同函数的代码：
+
+```python
+if __name__ == "__main__":
+    for function in ("function_a", "function_b", "function_c"):
+        cProfile.run("for i in range(1000): {0}(X, Y)".format(function))
+```
+
+我们应该将重复次数放在传递给 `cProfile.run()` 函数的代码中，但我们不需要做任何设置，因为该模块函数使用反射来发现我们需要使用的函数和变量。没有显式的 `print()` 语句，因为 `cProfile.run()` 函数默认会将其输出打印到控制台。以下是每个函数的结果（省略了一些无关的行，并略微重新格式化以适应页面）：
+
+1003 function calls in 1.661 CPU seconds
+
+```
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     1    0.003    0.003    1.661    1.661 <string>:1(<module>)
+  1000    1.658    0.002    1.658    0.002 MyModule.py:21(function_a)
+     1    0.000    0.000    1.661    1.661 {built-in method exec}
+```
+
+5132003 function calls in 22.700 CPU seconds
+
+`ncalls`（“调用次数”）部分记录了对指定函数（记录在 `filename:lineno(function)` 部分）的调用次数。请记住，我们重复调用了 1000 次，所以应该考虑到这一点。`tottime`（“总时间”）部分记录了在该函数中花费的总时间，但不包括在该函数调用的其他函数中花费的时间。第一个 `percall` 部分记录了对该函数的每次调用的平均时间（`tottime/ncalls`）。`cumtime`（“累计时间”）部分记录了在该函数中花费的时间，并包括在该函数调用的其他函数中花费的时间。第二个 `percall` 部分记录了对该函数的每次调用的平均时间，包括它调用的函数。
+
+这个输出显然比 `timeit` 模块的原始计时信息更具启发性。我们可以立即看到，`function_b()` 和 `function_c()` 都使用了被调用超过 5000 次的生成器，这使得它们都至少比 `function_a()` 慢一个数量级。此外，`function_b()` 总体上调用了更多的函数，包括对内置 `sorted()` 函数的调用，这使得它比 `function_c()` 慢了一倍。显然，`timeit()` 模块给了我们足够的信息来观察这些计时差异，但 `cProfile` 模块使我们能够看到这些差异存在的细节原因。
+
+正如 `timeit` 模块使我们无需插桩就能对代码进行计时一样，`cProfile` 模块也是如此。然而，当从命令行使用 `cProfile` 模块时，我们无法精确指定需要执行的内容——它只是执行给定的程序或模块并报告所有内容的计时信息。要使用的命令行是 `python3 -m cProfile programOrModule.py`，生成的输出格式与我们之前看到的相同；以下是经过轻微重新格式化并省略了大部分行的摘录：
+
+10272458 function calls (10272457 primitive calls) in 37.718 CPU secs
+
+```
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     1    0.000    0.000   37.718   37.718 <string>:1(<module>)
+     1    0.719    0.719   37.717   37.717 <string>:12(<module>)
+  1000    1.569    0.002    1.569    0.002 <string>:20(function_a)
+  1000    0.011    0.000   22.560    0.023 <string>:27(function_b)
+5128000    7.078    0.000    7.078    0.000 <string>:28(<genexpr>)
+  1000    6.510    0.007   12.825    0.013 <string>:35(function_c)
+5128000    6.316    0.000    6.316    0.000 <string>:36(<genexpr>)
+```
+
+在 `cProfile` 的命名中，*原始*调用是指非递归调用。
+
+以这种方式使用 `cProfile` 模块可能有助于识别值得进一步检查的区域。例如，现在我们可以很容易地看到 `function_b()` 运行时间很长。我们如何进一步探究细节呢？我们可以通过将对 `function_b()` 的调用替换为类似的代码来修改程序：`cProfile.run("function_b()")`。或者，我们可以保存完整的性能分析数据并使用 `pstats` 模块进行检查。要保存性能分析数据，我们必须稍微修改命令行：`python3 -m cProfile -o profileDataFile programOrModule.py`。然后我们可以分析性能分析数据，例如，通过启动 IDLE，导入 `pstats` 模块，并提供保存的 `profileDataFile`，或者在控制台中交互式地使用 `pstats`。现在，这里有一个非常简单的控制台会话示例，已经过整理以适应本页，并且输入部分用粗体标出：
+
+```
+$ python3 -m cProfile -o profile.dat MyModule.py
+$ python3 -m pstats
+Welcome to the profile statistics browser. % read profile.dat
+profile.dat% callers function_b
+Random listing order was used
+List reduced from 44 to 1 due to restriction <'function_b'>
+Function was called by...
+    ncalls  tottime  cumtime
+<string>:27(function_b) <- 1000    0.011   22.251 <string>:12(<module>)
+profile.dat% callees function_b
+Random listing order was used
+List reduced from 44 to 1 due to restriction <'function_b'>
+Function called...
+    ncalls  tottime  cumtime
+<string>:27(function_b) ->
+     1000    0.005    0.005 built-in method bisect_left
+     1000    0.001    0.001 built-in method len
+     1000   15.297   22.234 built-in method sorted
+profile.dat% quit
+```
+
+输入 `help` 可以获取命令列表，输入 `help` 后跟命令名称可以获取有关该命令的更多信息。例如，`help details` 将列出可以提供给 `stats` 命令的参数。还有其他工具可以提供性能分析数据的图形化视图，例如 RunSnakeRun (www.vrplumber.com/programming/runsnakerun)，它依赖于 wxPython GUI 库。
+
+通过使用 `timeit` 和 `cProfile` 模块，我们可以识别代码中可能比预期花费更多时间的区域，并且使用 `cProfile` 模块，我们可以准确地发现时间花在了哪里。
+
+# 第7章：进程与线程
+
+得益于多核处理器成为常态而非例外，想要扩展处理压力以充分利用所有可用核心，比以往任何时候都更具吸引力且更有效率。扩展工作负载有两种主要策略。一种是使用多个进程，另一种是使用不同的线程。本节将解释如何使用这两种方法。
+
+使用多个进程，即运行独立的程序，其优点是每个进程独立运行。这将处理并发的所有负担都留给了底层操作系统。缺点是调用程序与其调用的独立进程之间的通信和数据共享可能不太方便。在 Unix 系统上，这可以通过使用 `exec` 和 `fork` 范式来解决，但对于跨平台程序，必须使用其他解决方案。最简单的方法，也是这里展示的方法，是让调用程序向其运行的进程提供数据，并让它们独立产生输出。一种更灵活的方法，可以大大简化双向通信，那就是使用网络。当然，在许多情况下，这种通信并不需要——我们只需要从一个协调程序运行一个或多个其他程序。
+
+将工作交给独立进程的另一种替代方案是创建一个线程程序，将工作分配给独立的执行线程。这样做的优点是我们可以通过共享数据进行简单的通信（前提是我们确保共享数据一次只被一个线程访问），但将管理并发的负担完全留给了程序员。Python 对创建线程程序提供了良好的支持，最大限度地减少了我们必须完成的工作。尽管如此，多线程程序本质上比单线程程序更复杂，在创建和维护时需要更加小心。
+
+在本章的第一节中，我们将创建两个小程序。第一个程序由用户调用，第二个程序由第一个程序调用，第二个程序针对每个所需的不同方法调用一次。在下一节中，我们将首先提供线程编程的简要介绍。然后，我们将构建一个与第一节中两个程序组合功能相同的线程应用程序，以展示多进程和多线程方法之间的差异。接着，我们将描述另一个比第一个更高级的线程程序，它既能分发操作，又能将所有输出分组在一起。
+
+## 使用多进程模块
+
+在某些情况下，我们已经有了具备所需功能的程序，但我们希望自动化它们的使用。我们可以通过使用 Python 的子进程模块来实现这一点，该模块提供了运行其他程序、传递任何我们想要的命令行选项以及（如果需要）使用管道与它们通信的功能。我们在第 5 章中使用 `subprocess.call()` 函数以平台特定的方式清除控制台时，看到了一个非常简单的例子。但我们也可以使用这些功能来创建“父-子”程序对，其中父程序由用户运行，然后根据需要运行任意数量的子程序实例，每个实例执行不同的工作。本节将介绍这种方法。
+
+在第 3 章中，我们演示了一个非常简单的程序 `grepword.py`，它在命令行中查找一个单词，并在该单词之后记录的记录中搜索。在本节中，我们将构建一个越来越高级的版本，它可以递归到子目录中查找要浏览的记录，并且可以将工作分配给我们想要的任意数量的独立子进程。输出仅是一个包含预定搜索词的文件列表（带路径）。
+
+父程序是 `grepword-p.py`，子程序是 `grepword-p-child.py`。两个程序运行时的连接关系如图 10.1 所示。
+
+`grepword-p.py` 的核心体现在其 `main()` 函数中，我们将分三个部分查看：
+
+```python
+def main():
+
+    child = os.path.join(os.path.dirname(__file__), "grepword-p-child.py")
+
+    opts, word, args = parse_options()
+
+    filelist = get_files(args, opts.recurse)
+
+    files_per_process = len(filelist) // opts.count
+
+    start, end = 0, files_per_process + (len(filelist) % opts.count)
+    number = 1
+```
+
+### grepword-p.py
+
+grepword-p-child.py grepword-p-child.py ...
+
+### 父程序和子程序
+
+我们首先获取子程序的名称。然后获取用户的命令行选项。`parse_options()` 函数使用 `optparse` 模块。它返回一个名为 `opts` 的元组，该元组指示程序是否应递归到子目录以及要使用的进程数量——默认值是 7，程序有一个自选的上限 20。它还返回要搜索的单词以及命令行上给出的名称列表（文件名和目录名）。`get_files()` 函数返回要浏览的文件列表。
+
+当我们拥有执行任务所需的信息后，我们计算每个进程必须处理多少个文件。`start` 和 `end` 变量用于指定将传递给下一个子进程处理的 `filelist` 切片。通常文件数量不会是进程数量的整数倍，因此我们将第一个进程分配的文件数量增加剩余的部分。`number` 变量仅用于调试，以便我们可以看到哪一行输出是由哪个进程产生的。
+
+```python
+pipes = []
+
+while start < len(filelist):
+
+    command = [sys.executable, child]
+
+    if opts.debug:
+
+        command.append(str(number))
+
+    pipe = subprocess.Popen(command, stdin=subprocess.PIPE)
+
+    pipes.append(pipe)
+
+    pipe.stdin.write(word.encode("utf8") + b"\n")
+
+    for filename in filelist[start:end]:
+
+        pipe.stdin.write(filename.encode("utf8") + b"\n")
+
+    pipe.stdin.close()
+
+    number += 1
+
+    start, end = end, end + files_per_process
+```
+
+对于 `filelist` 的每个 `start:end` 切片，我们创建一个命令列表，包括 Python 解释器（方便地在 `sys.executable` 中）、我们希望 Python 执行的子程序以及命令行选项——在本例中，如果我们在调试，则只包括子程序编号。如果子程序有合适的 shebang 行或文件关联，我们可以将其列在前面，而不必包含 Python 解释器，但我们更喜欢这种方法，因为它确保子程序使用与父程序相同的 Python 解释器。
+
+当我们准备好命令后，我们创建一个 `subprocess.Popen` 对象，指定要执行的命令（作为字符串列表），并在本例中指定写入进程的标准输入。（也可以通过设置类似的关键词参数来读取进程的标准输出。）然后我们写入搜索词，后跟一个换行符，然后写入文件列表相关切片中的每个文件。`subprocess` 模块读写的是字节，而不是字符串，但它创建的进程总是期望从 `sys.stdin` 接收的字节是本地编码的字符串——即使我们发送的字节使用了不同的编码，例如我们这里使用的 UTF-8。我们很快就会看到如何解决这个恼人的问题。当单词和文件列表写入子进程后，我们关闭其标准输入并继续。
+
+严格来说，不需要保留对每个进程的引用（`pipe` 变量在每次循环中都会被重新赋值给一个新的 `subprocess.Popen` 对象），因为每个进程都是独立运行的，但我们将其添加到一个列表中，以便我们可以使它们可中断。同样，我们不收集结果，而是让每个进程自行将其结果写入控制台。这意味着来自不同进程的输出可能会交错。（你将在练习中找到避免交错的方法。）
+
+```python
+while pipes:
+
+    pipe = pipes.pop()
+
+    pipe.wait()
+```
+
+当所有进程启动后，我们等待每个子进程完成。这并非必需，但在类 Unix 系统上，它确保当所有进程完成时，我们返回到控制台提示符（否则，当它们全部完成时，我们需要按 Enter 键）。等待的另一个好处是，如果我们中断程序（例如，按 Ctrl+C），所有仍在运行的进程都将被中断，并以未捕获的 `KeyboardInterrupt` 异常结束——如果我们不等待，主程序将完成（因此不可中断），而子程序将继续运行（除非被终止程序或任务管理器杀死）。
+
+除了注释和导入，以下是完整的 `grepword-p-child.py` 程序。我们将分两部分查看该程序——第一部分有两个版本，第一个适用于任何 Python 3.x 版本，第二个适用于 Python 3.1 或更高版本：
+
+```python
+BLOCK_SIZE = 8000
+
+number = "{0}: ".format(sys.argv[1]) if len(sys.argv) == 2 else ""
+stdin = sys.stdin.buffer.read()
+
+lines = stdin.decode("utf8", "ignore").splitlines()
+
+word = lines[0].rstrip()
+```
+
+程序首先将 `number` 字符串设置为给定的数字，或者如果不在调试模式下则设置为空字符串。由于程序作为子进程运行，并且 `subprocess` 模块只读写二进制数据并始终使用本地编码，我们必须读取 `sys.stdin` 底层的二进制数据缓冲区并自行执行解码。
+
+一旦我们读取了二进制数据，我们将其解码为 Unicode 字符串并按行分割。然后子进程读取第一行，因为其中包含搜索词。
+
+以下是 Python 3.1 中不同的行：
+
+```python
+sys.stdin = sys.stdin.detach()
+
+stdin = sys.stdin.read()
+```
+
+lines = stdin.decode("utf8", "ignore").splitlines()
+
+Python 3.1 提供了 `sys.stdin.detach()` 方法，该方法返回一个二进制文件对象。然后我们读取所有数据，使用我们选择的编码将其解码为 Unicode，再将 Unicode 字符串按行分割。
+
+```python
+for filename in lines[1:]:
+    filename = filename.rstrip()
+    previous = ""
+    try:
+        with open(filename, "rb") as fh:
+            while True:
+                current = fh.read(BLOCK_SIZE)
+                if not current:
+                    break
+                current = current.decode("utf8", "ignore")
+                if (word in current or
+                    word in previous[-len(word):] +
+                    current[:len(word)]):
+
+                    print("{0} {1}".format(number, filename))
+
+                    break
+
+                if len(current) != BLOCK_SIZE:
+
+                    break
+
+                previous = current
+
+    except EnvironmentError as err:
+
+        print("{0} {1}".format(number, err))
+```
+
+第一行之后的所有行都是文件名（包含路径）。对于每个文件，我们打开相关文件，读取它，并在文件包含搜索词时打印其文件名。某些文件可能非常大，这可能会成为一个问题，尤其是在有 20 个子进程并发运行且都在读取大文件时。我们通过按块（block）读取每个记录来处理这个问题，保留上一次读取的块，以确保我们不会错过搜索词的主要部分恰好跨越两个块边界的情况。按块读取的另一个优势是，如果搜索词从文档开头就出现，我们可以在没有读取全部内容的情况下完成处理，因为我们只关心这个词是否在文档中，而不是它在文档中的具体位置。
+
+文档是以二进制模式读取的，因此在搜索之前，我们需要将每个块转换为字符串，因为查询词是一个字符串。我们假设所有文件都使用 UTF-8 编码，但这在某些情况下很可能是错误的。一个更高级的程序会尝试确定实际的编码，然后使用正确的编码关闭并重新打开文件。正如我们在第 2 章中提到的，至少有两个用于自动检测文件编码的 Python 包可以从 Python 包索引（pypi.python.org/pypi）获取。（可能会想将查询词转换为字节对象并进行字节与字节的比较，但这种方法并不可靠，因为某些字符有不止一种有效的 UTF-8 表示。）
+
+`subprocess` 模块提供的功能远比我们在此处预期使用的要多，包括提供对 shell 反引号和 shell 管道的替代方案，以及对 `os.system()` 和 `generate` 函数的替代方案。
+
+### 不要错过！
+
+点击下方按钮，您就可以注册在 Marcus Richards 发布新书时接收电子邮件通知。无需付费，也无任何义务。
+
+https://books2read.com/r/B-H-INBFB-BEQZC
+
+![](img/2015845128b2840873b7b1f8c0676aae_225_0.png)
+
+https://books2read.com/r/B-H-INBFB-BEQZC
+
+![](img/2015845128b2840873b7b1f8c0676aae_225_1.png)
+
+连接独立的读者与独立的作者。

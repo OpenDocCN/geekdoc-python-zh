@@ -1,0 +1,3173 @@
+groups:
+- md: "# PYTHON ADVANCED GUIDE\n\nAlec Dennis\n\n# PYTHON ADVANCED GUIDE\n\nYour Advanced\
+    \ Python Tutorial\nin 7 Days. A Step-by-Step Guide\nfrom Intermediate to Advanced.\n\
+    (2022 Crash Course)\n\nAlec Dennis\n\n# PYTHON ADVANCED GUIDE\n\nChapter 1: Object-oriented\
+    \ programming 5\n\nPolymorphism 7\n\nEncapsulation 10\n\nChapter two 12\n\nEssential\
+    \ programming tools bash script\n\nRegEx in Python 14\n\nPython Package Manager\
+    \ 16\n\nSourceControl 16\n\nBringing It All Together 17\n\nChapter three 19\n\n\
+    # Working with files\n\n- Creating new files 20\n- What exactly are binary files?\
+    \ 22\n- Opening Your File Up 23\n\n# Chapter four 26\n\n# Exception handling\n\
+    \n- Handling the Zero Division Error Exception 27\n- Reading an Exception Error\
+    \ Trace Back 31\n- Using exceptions to prevent crashes 32\n\nThe Else Block 34\n\
+    \nFailing Silently 37\n\nHow to Handle the File Not Found Exception Error 38\n\
+    \nChecking to See if a File Exists 38\n\nTry and Except 39\n\nPractice\n\nExercise\
+    \ 40\n\nCONCLUSION 41\n\n# CHAPTER ONE\nOBJECT-ORIENTED\nPROGRAMMING\n\nWe'll\
+    \ now look at the four object-oriented programming concepts and how they apply\
+    \ to Python.\n\n## Inheritance\n\nThe first major notion is referred to as \"\
+    inheritance.\" This refers to the ability of one object to derive from another.\
+    \ Take, for example, sports automobiles. Vehicles are all sports cars, but not\
+    \ all vehicles are sports cars. Furthermore, all sedans are vehicles, but not\
+    \ all vehicles are sedans, and sedans are most emphatically not sports cars, despite\
+    \ the fact that they are both vehicles.\n\nBasically, this Object-Oriented programming\
+    \ principle states that objects can and should be split up into as little and\
+    \ precise notions as feasible.\n\n```python\nclass Vehicle(object):\n    def __init__(self,\
+    \ makeAndModel, prodYear, airConditioning):\n        self.makeAndModel = makeAndModel\n\
+    \        self.prodYear = prodYear\n        self.airConditioning = airConditioning\n\
+    \        self.doors = 4\n```\n\nThis is accomplished in Python by deriving classes.\n\
+    \nAssume we've created a new class called SportsCar.\nNow, construct a new class\
+    \ called SportsCar, but instead of deriving from object, we'll derive from Vehicle.\n\
+    \n```python\nclass SportsCar(Vehicle):\n    def __init__(self, makeAndModel, prodYear,\
+    \ airConditioning):\n        self.makeAndModel = makeAndModel\n        self.prodYear\
+    \ = prodYear\n        self.airConditioning = airConditioning\n        self.doors\
+    \ = 4\n```\n\nWe don't need the honk function here; only the constructor function\
+    \ is required. Declare a sporty car now. I'm going to stick with the Ferrari.\n\
+    \n```python\nferrari = SportsCar(\"Ferrari LaFerrari\", 2016, True)\n```\n\nNow\
+    \ test this by calling\n\n```python\nferrari.honk()\n```\n\nAfter that, save and\
+    \ run. Everything should go off without a hitch.\nWhy is this the case? This is\
+    \ due to the concept of inheritance, which states that a child class inherits\
+    \ functions and class variables from a parent class. It's a simple enough concept\
+    \ to grasp. The next one is a little more difficult.\n\n## Polymorphism\n\nThe\
+    \ concept of polymorphism is that the same process can be carried out in various\
+    \ ways depending on the circumstances. In Python, this can be accomplished in\
+    \ two ways: method overloading and method overriding.\n\nOverloading a method\
+    \ means defining the same function twice with different arguments. For example,\
+    \ we might provide our Vehicle class with two distinct initializer procedures.\
+    \ It currently assumes a car has four doors. If we wanted to specify the number\
+    \ of doors on a car, we could add a new initializer function below our present\
+    \ one with a doors parameter, as shown below (the newer one is at the bottom):\n\
+    \n```python\ndef __init__(self, makeAndModel, prodYear, airConditioning):\n  \
+    \  self.makeAndModel = makeAndModel\n    self.prodYear = prodYear\n    self.airConditioning\
+    \ = airConditioning\n    self.doors = 4\n\ndef __init__(self, makeAndModel, prodYear,\
+    \ airConditioning, doors):\n    self.makeAndModel = makeAndModel\n    self.prodYear\
+    \ = prodYear\n    self.airConditioning = airConditioning\n    self.doors = doors\n\
+    ```\n\nSomeone can now select whether or not to define the number of doors when\
+    \ creating an instance of the Vehicle class. If they do not, it is believed that\
+    \ the number of doors is four.\n\nMethod overriding occurs when a child class\
+    \ uses its code to override a parent class's method.\n\nAs an example, make a\
+    \ new class called Moped that extends Vehicle. Set the doors to zero, which is\
+    \ ludicrous, and the air conditioning to fake. The only arguments that matter\
+    \ are the make/model and the year of manufacture. This is how it should look:\n\
+    \n```python\nclass Moped(Vehicle):\n    def __init__(self, makeAndModel, prodYear):\n\
+    \        self.makeAndModel = makeAndModel\n        self.prodYear = prodYear\n\
+    \        self.airConditioning = False\n        self.doors = 0\n\n    def honk(self):\n\
+    \        print(\"%s says: Beep! Beep!\" % self.makeAndModel)\n```\n\nNow, if we\
+    \ made an instance of the Moped class and called the honk() method, it would honk.\
+    \ But it is common knowledge that mopeds don't honk, they beep. So let's override\
+    \ the parent class's honk method with our own. This is super simple. We just redefine\
+    \ the function in the child class:\n\nI'm part of the 299,000,000 Americans who\
+    \ couldn't name a make and model of moped if their life depended on it, but you\
+    \ can test out if this works for yourself by declaring an instance.\n\n## Abstraction\n\
+    \nAbstraction is the next key topic in object-oriented programming. This is the\
+    \ idea that the programmer and user should be kept away from the computer's inner\
+    \ workings. This has two advantages.\n\nThe first is that it reduces the inherent\
+    \ security concerns and the danger of catastrophic system malfunctions, whether\
+    \ caused by humans or not. By isolating the programmer from the inner workings\
+    \ of the computer, such as memory and the CPU, and, in some cases, even the operating\
+    \ system, there is a low risk of irreparable damage.\n\nThe second benefit of\
+    \ abstraction is that it naturally makes the language easier to grasp, read, and\
+    \ learn. Though it reduces the language's strength by removing some of the user's\
+    \ control over the complete computer architecture, this is exchanged for the ability\
+    \ to write fast and effectively in the language, without wasting time dealing\
+    \ with trivialities like memory addresses or the like.\n\nThese are applicable\
+    \ in Python because, well, it's quite simple. You can't get into the computer's\
+    \ nitty-gritty, or do anything with memory allocation, or even precisely allot\
+    \ an array size, but this is a tradeoff for incredible readability, a highly safe\
+    \ language in a very secure environment, and ease of use with programming. Compare\
+    \ the following C code snippet:\n\n```c\n#include <stdio.h>\nint main(void) {\n\
+    \    printf(\"hello world\");\n    return 0;\n}\n```\n\nto the Python code for\
+    \ doing the same:\n\n```python\nprint(\"hello world\")\n# That's it. That's all\
+    \ there is to it.\n```\n\nAbstraction is generally a net advantage for a vast\
+    \ majority of programs produced today, which is why Python and other object-oriented\
+    \ programming languages are so popular.\n\n## Encapsulation\n\nEncapsulation is\
+    \ the final important notion in object-oriented programming. This is the simplest\
+    \ to explain. This is the idea that common data should be combined and programs\
+    \ should be modular. I'm not going to go into detail because it's a very simple\
+    \ concept. Classes are as succinct an example of encapsulation as you can get:\
+    \ common traits and methods are bound together under one coherent structure, making\
+    \ it very easy to make objects of the type without having to generate a ton of\
+    \ super-specific variables for each instance.\n\nSo there you have it. We had\
+    \ finally reached the end of our Python trip. First and foremost, I'd want to\
+    \ thank you for reading all the way through Python for Beginners: The Ultimate\
+    \ Guide to Python Programming. Let us hope it was informative and provided you\
+    \ with all of the tools you need to reach your objectives, whatever they may be.\n\
+    \nThe next step is to put this knowledge to use. You just made one of the best\
+    \ decisions of your life by learning the foundations of Python, whether as a hobby\
+    \ or a career move, and your objective now should be finding ways to use it in\
+    \ your day-to-day life to make life easier or to do tasks you've wanted to."
+  mdcn: "# PYTHON 高级指南\n\nAlec Dennis\n\n# PYTHON 高级指南\n\n你的高级 Python 教程\n7 天掌握。从中级到高级的\n\
+    分步指南。\n（2022 速成课程）\n\nAlec Dennis\n\n# PYTHON 高级指南\n\n第 1 章：面向对象编程 5\n\n多态 7\n\
+    \n封装 10\n\n第 2 章 12\n\n必备编程工具 bash 脚本\n\nPython 中的正则表达式 14\n\nPython 包管理器 16\n\
+    \n版本控制 16\n\n融会贯通 17\n\n第 3 章 19\n\n# 文件操作\n\n- 创建新文件 20\n- 二进制文件究竟是什么？ 22\n-\
+    \ 打开你的文件 23\n\n# 第 4 章 26\n\n# 异常处理\n\n- 处理零除错误异常 27\n- 阅读异常错误回溯信息 31\n- 使用异常防止程序崩溃\
+    \ 32\n\nElse 代码块 34\n\n静默失败 37\n\n如何处理文件未找到异常错误 38\n\n检查文件是否存在 38\n\nTry 和 Except\
+    \ 39\n\n练习\n\n练习 40\n\n结语 41\n\n# 第一章\n面向对象编程\n\n我们现在将探讨面向对象编程的四个概念及其在 Python\
+    \ 中的应用。\n\n## 继承\n\n第一个主要概念被称为“继承”。这指的是一个对象从另一个对象派生的能力。以跑车为例。所有跑车都是车辆，但并非所有车辆都是跑车。此外，所有轿车都是车辆，但并非所有车辆都是轿车，而且轿车绝对不是跑车，尽管它们都是车辆。\n\
+    \n基本上，这个面向对象编程原则指出，对象可以也应该被分解成尽可能小且精确的概念。\n\n```python\nclass Vehicle(object):\n\
+    \    def __init__(self, makeAndModel, prodYear, airConditioning):\n        self.makeAndModel\
+    \ = makeAndModel\n        self.prodYear = prodYear\n        self.airConditioning\
+    \ = airConditioning\n        self.doors = 4\n```\n\n这在 Python 中是通过派生类来实现的。\n\n\
+    假设我们创建了一个名为 SportsCar 的新类。\n现在，构建一个名为 SportsCar 的新类，但不是从 object 派生，而是从 Vehicle\
+    \ 派生。\n\n```python\nclass SportsCar(Vehicle):\n    def __init__(self, makeAndModel,\
+    \ prodYear, airConditioning):\n        self.makeAndModel = makeAndModel\n    \
+    \    self.prodYear = prodYear\n        self.airConditioning = airConditioning\n\
+    \        self.doors = 4\n```\n\n我们这里不需要 honk 函数；只需要构造函数。现在声明一辆跑车。我打算用法拉利。\n\n\
+    ```python\nferrari = SportsCar(\"Ferrari LaFerrari\", 2016, True)\n```\n\n现在通过调用来测试这个\n\
+    \n```python\nferrari.honk()\n```\n\n之后，保存并运行。一切应该顺利进行。\n为什么会这样？这是由于继承的概念，它指出子类从父类继承函数和类变量。这个概念很容易理解。下一个概念有点更难。\n\
+    \n## 多态\n\n多态的概念是，根据情况的不同，相同的过程可以以不同的方式执行。在 Python 中，这可以通过两种方式实现：方法重载和方法重写。\n\n\
+    重载方法意味着用不同的参数定义两次相同的函数。例如，我们可以为我们的 Vehicle 类提供两个不同的初始化程序。它目前假定一辆车有四个门。如果我们想指定车门的数量，我们可以在当前初始化函数下面添加一个新的初始化函数，带有一个\
+    \ doors 参数，如下所示（较新的在底部）：\n\n```python\ndef __init__(self, makeAndModel, prodYear,\
+    \ airConditioning):\n    self.makeAndModel = makeAndModel\n    self.prodYear =\
+    \ prodYear\n    self.airConditioning = airConditioning\n    self.doors = 4\n\n\
+    def __init__(self, makeAndModel, prodYear, airConditioning, doors):\n    self.makeAndModel\
+    \ = makeAndModel\n    self.prodYear = prodYear\n    self.airConditioning = airConditioning\n\
+    \    self.doors = doors\n```\n\n现在，有人在创建 Vehicle 类的实例时可以选择是否定义车门的数量。如果他们不定义，则假定车门数量为四。\n\
+    \n方法重写发生在子类使用自己的代码覆盖父类的方法时。\n\n例如，创建一个名为 Moped 的新类，它扩展自 Vehicle。将车门设置为零（这很荒谬），空调设置为假。唯一重要的参数是品牌/型号和制造年份。它应该看起来像这样：\n\
+    \n```python\nclass Moped(Vehicle):\n    def __init__(self, makeAndModel, prodYear):\n\
+    \        self.makeAndModel = makeAndModel\n        self.prodYear = prodYear\n\
+    \        self.airConditioning = False\n        self.doors = 0\n\n    def honk(self):\n\
+    \        print(\"%s says: Beep! Beep!\" % self.makeAndModel)\n```\n\n现在，如果我们创建一个\
+    \ Moped 类的实例并调用 honk() 方法，它会鸣笛。但众所周知，轻便摩托车不鸣笛，它们发出哔哔声。所以让我们用我们自己的方法覆盖父类的 honk\
+    \ 方法。这非常简单。我们只需在子类中重新定义该函数：\n\n我是 2.99 亿美国人中的一员，即使性命攸关也说不出轻便摩托车的品牌和型号，但你可以通过声明一个实例来自己测试这是否有效。\n\
+    \n## 抽象\n\n抽象是面向对象编程的下一个关键主题。这是指程序员和用户应该远离计算机内部工作原理的理念。这有两个好处。\n\n第一个是它减少了固有的安全问题和灾难性系统故障的风险，无论是人为造成的还是其他原因。通过将程序员与计算机的内部工作（如内存和\
+    \ CPU）隔离，在某些情况下甚至与操作系统隔离，造成不可修复损害的风险很低。\n\n抽象的第二个好处是它自然地使语言更容易理解、阅读和学习。虽然它通过移除用户对完整计算机架构的一些控制而降低了语言的强度，但这换来了用该语言快速有效地编写代码的能力，而无需浪费时间处理内存地址之类的琐事。\n\
+    \n这些在 Python 中是适用的，因为，嗯，这很简单。你无法深入计算机的细节，无法处理内存分配，甚至无法精确分配数组大小，但这是一种权衡，换来的是极高的可读性、在非常安全的环境中高度安全的语言，以及编程的易用性。比较以下\
+    \ C 代码片段：\n\n```c\n#include <stdio.h>\nint main(void) {\n    printf(\"hello world\"\
+    );\n    return 0;\n}\n```\n\n与执行相同操作的 Python 代码：\n\n```python\nprint(\"hello world\"\
+    )\n# 就这样。仅此而已。\n```\n\n抽象对于当今生产的绝大多数程序来说通常是一个净优势，这就是为什么 Python 和其他面向对象编程语言如此受欢迎的原因。\n\
+    \n## 封装\n\n封装是面向对象编程中最后一个重要的概念。这是最容易解释的。这是指应该将共同的数据组合在一起，程序应该是模块化的。我不会详细说明，因为这是一个非常简单的概念。类是封装最简洁的例子：共同的特征和方法被绑定在一个连贯的结构下，使得创建该类型的对象非常容易，而无需为每个实例生成大量超级特定的变量。\n\
+    \n所以，这就是全部了。我们终于到达了 Python 之旅的终点。首先，我想感谢你从头到尾阅读了《Python 初学者：Python 编程终极指南》。希望它内容丰富，并为你提供了实现目标所需的所有工具，无论目标是什么。\n\
+    \n下一步是将这些知识付诸实践。你刚刚做出了人生中最明智的决定之一，学习了 Python 的基础知识，无论是作为爱好还是职业转变，你现在的目标应该是找到在日常生活中使用它的方法，让生活更轻松或完成你一直想做的任务。"
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    # PYTHON ADVANCED GUIDE
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_0_0.png)
+
+
+    Alec Dennis'
+  - '[PAGE 1]
+
+
+    # PYTHON
+
+    ADVANCED GUIDE
+
+
+    Your Advanced Python Tutorial
+
+    in 7 Days. A Step-by-Step Guide
+
+    from Intermediate to Advanced.
+
+    (2022 Crash Course)
+
+
+    Alec Dennis'
+  - '[PAGE 2]
+
+
+    # PYTHON
+
+    ADVANCED GUIDE
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_2_0.png)'
+  - '[PAGE 3]
+
+
+    Chapter 1: Object-oriented programming 5
+
+
+    Polymorphism 7
+
+
+    Encapsulation 10
+
+
+    Chapter two 12
+
+
+    Essential programming tools bash script
+
+
+    RegEx in Python 14
+
+
+    Python Package Manager 16
+
+
+    SourceControl 16
+
+
+    Bringing It All Together 17
+
+
+    Chapter three 19'
+  - '[PAGE 4]
+
+
+    # Working with files
+
+
+    +   - Creating new files 20
+
+    - What exactly are binary files? 22
+
+    - Opening Your File Up 23
+
+
+    # Chapter four 26
+
+
+    # Exception handling
+
+
+    +   - Handling the Zero Division Error Exception 27
+
+    - Reading an Exception Error Trace Back 31
+
+    - Using exceptions to prevent crashes 32'
+  - '[PAGE 5]
+
+
+    The Else Block 34
+
+
+    Failing Silently 37
+
+
+    How to Handle the File Not Found Exception Error 38
+
+
+    Checking to See if a File Exists 38
+
+
+    Try and Except 39
+
+
+    Practice
+
+
+    Exercise 40
+
+
+    CONCLUSION 41'
+  - '[PAGE 6]
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_6_0.png)
+
+
+    # # CHAPTER ONE
+
+    OBJECT-ORIENTED
+
+    PROGRAMMING
+
+
+    We''ll now look at the four object-oriented programming concepts and how they
+    apply to Python.
+
+
+    # ## Inheritance
+
+
+    The first major notion is referred to as "inheritance." This refers to the ability
+    of one object to derive from another. Take, for example, sports automobiles. Vehicles
+    are all sports cars, but not all vehicles are sports'
+  - "[PAGE 7]\n\ncars. Furthermore, all sedans are vehicles, but not all vehicles\
+    \ are sedans, and sedans are most emphatically not sports cars, despite the fact\
+    \ that they are both vehicles.\n\nBasically, this Object-Oriented programming\
+    \ principle states that objects can and should be split up into as little and\
+    \ precise notions as feasible.\n\n```\nclassVehicle(object):\n\n    def init\n\
+    \        (self,makeAndModel,prodYear,airConditioning):self.makeAnd\n        Model\
+    \ = makeAndModel\n        self.prodYear =\n        prodYearself.airConditionin\n\
+    \        g =\n        airConditioningself.doors =\n        4\n```\n\nThis is accomplished\
+    \ in Python by deriving classes.\n\nAssume we've created a new class called SportsCar.\n\
+    Now, construct a new class called SportsCar,"
+  - "[PAGE 8]\n\nbut instead of deriving from object, we'll derivate from Vehicle.\n\
+    \n```\nclass SportsCar(Vehicle)\n    def __init__(self, makeAndModel, prodYear,\
+    \ airConditioning):\n        self.makeAndModel = makeAndModel\n        self.prodYear\
+    \ = prodYear\n        self.airConditioning = airConditioning\n\n        self.doors\
+    \ = 4\n```"
+  - '[PAGE 9]
+
+
+    We don''t need the honk function here; only the constructor function is required.
+    Declare a sporty car now. I''m going to stick with the Ferrari.
+
+
+    ```
+
+    ferrari = SportsCar("Ferrari LaFerrari", 2016, True)
+
+    ```
+
+
+    Now test this by calling
+
+
+    ```
+
+    ferrari.honk()
+
+    ```
+
+
+    After that, save and run. Everything should go off without a hitch.
+
+    Why is this the case? This is due to the concept of inheritance, which states
+    that a child class inherits functions and class variables from a parent class.
+    It''s a simple enough concept to grasp. The next one is a little more difficult.
+
+
+    # Polymorphism
+
+
+    The concept of polymorphism is that the same process can be carried out in various
+    ways depending on the circumstances. In Python, this can be accomplished in two
+    ways: method overloading and method overriding.'
+  - "[PAGE 10]\n\nOverloading a method means defining the same function twice with\
+    \ different arguments. For example, we might provide our Vehicle class with two\
+    \ distinct initializer procedures. It currently assumes a car has four doors.\
+    \ If we wanted to specify the number of doors on a car, we could add a new initializer\
+    \ function below our present one with a doors parameter, as shown below (the newer\
+    \ one is at the bottom):\n\n```\ndef __init__(self, makeAndModel, prodYear, airConditioning):\n\
+    \    self.makeAndModel = makeAndModel\n    self.prodYear = prodYear\n    self.airConditioning\
+    \ = airConditioning\n    self.doors = 4\n\ndef __init__(self, makeAndModel, prodYear,\
+    \ airConditioning, doors):\n    self.makeAndModel = makeAndModel\n    self.prodYear\
+    \ = prodYear\n    self.airConditioning = airConditioning\n    self.doors = doors\n\
+    ```"
+  - '[PAGE 11]
+
+
+    Someone can now select whether or not to define the number of doors when creating
+    an instance of the Vehicle class. If they do not, it is believed that the number
+    of doors is four.
+
+
+    Method overriding occurs when a child class uses its code to override a parent
+    class''s method.
+
+
+    As an example, make a new class called Moped that extends Vehicle. Set the doors
+    to zero, which is ludicrous, and the air conditioning to fake. The only arguments
+    that matter are the make/model and the year of manufacture. This is how it should
+    look:'
+  - "[PAGE 12]\n\n```\npython\nclass Moped(Vehicle):\n\n    def __init__(self, makeAndModel,\
+    \ prodYear):\n        self.makeAndModel = makeAndModel\n        self.prodYear\
+    \ = prodYear\n        self.airConditioning = False\n        self.doors = 0\n\n\
+    \    def honk(self):\n        print \"%s says: Beep! Beep!\" % self.makeAndModel\n\
+    ```\n\nNow, if we made an instance of the Moped class and called the honk() method,\
+    \ it would honk. But it is common knowledge that mopeds don't honk, they beep.\
+    \ So let's override the parent class's honk method with our own. This is super\
+    \ simple. We just redefine the function in the child class:\n\nI'm part of the\
+    \ 299,000,000 Americans who couldn't name a make and model of moped if their life\
+    \ depended on it, but you can test out if this works for yourself but declaring\
+    \ an instance\n\n# Abstraction\n\nAbstraction is the next key topic in object-oriented\
+    \ programming. This is the idea that the programmer and user should be kept"
+  - '[PAGE 13]
+
+
+    away from the computer''s inner workings. This has two advantages.
+
+
+    The first is that it reduces the inherent security concerns and the danger of
+    catastrophic system malfunctions, whether caused by humans or not. By isolating
+    the programmer from the inner workings of the computer, such as memory and the
+    CPU, and, in some cases, even the operating system, there is a low risk of irreparable
+    damage.
+
+
+    The second benefit of abstraction is that it naturally makes the language easier
+    to grasp, read, and learn. Though it reduces the language''s strength by removing
+    some of the user''s control over the complete computer architecture, this is exchanged
+    for the ability to write fast and effectively in the language, without wasting
+    time dealing with trivialities like memory addresses or the like.
+
+
+    These are applicable in Python because, well, it''s quite simple. You can''t get
+    into the computer''s nitty-gritty, or do anything with memory allocation, or even
+    precisely allot an array size, but this is a tradeoff for incredible'
+  - "[PAGE 14]\n\nreadability, a highly safe language in a very secure environment,\
+    \ and ease of use with programming. Compare the following C code snippet:\n\n\
+    ```\n#include <stdio.h>\nint main(void) {\n    printf(\"hello world\");\n    return\
+    \ 0;\n}\n```\n\nto the Python code for doing the same:\n\n```\nprint \"hello world\"\
+    \n# That's it. That's all there is to it.\n```\n\nAbstraction is generally a net\
+    \ advantage for a vast majority of programs produced today, which is why Python\
+    \ and other object-oriented programming languages are so popular.\n\n# Encapsulation\n\
+    \nEncapsulation is the final important notion in object-oriented programming.\
+    \ This is the simplest to explain. This is the idea that"
+  - '[PAGE 15]
+
+
+    common data should be combined and programs should be modular. I''m not going
+    to go into detail because it''s a very simple concept. Classes are as succinct
+    an example of encapsulation as you can get: common traits and methods are bound
+    together under one coherent structure, making it very easy to make objects of
+    the type without having to generate a ton of super-specific variables for each
+    instance.
+
+
+    So there you have it. We had finally reached the end of our Python trip. First
+    and foremost, I''d want to thank you for reading all the way through Python for
+    Beginners: The Ultimate Guide to Python Programming. Let us hope it was informative
+    and provided you with all of the tools you need to reach your objectives, whatever
+    they may be.
+
+
+    The next step is to put this knowledge to use. You just made one of the best decisions
+    of your life by learning the foundations of Python, whether as a hobby or a career
+    move, and your objective now should be finding ways to use it in your day-to-day
+    life to make life easier or to do tasks you''ve wanted to'
+- md: "## CHAPTER TWO\n### ESSENTIAL PROGRAMMING TOOLS BASH SCRIPT\n\nA Bash script\
+    \ is a data file that comprises a series of commands that you can generally code\
+    \ but that will save you time if you don't. Take notice that in programming, any\
+    \ code that would typically be put on the command line can be placed on the script\
+    \ and executed exactly as is. Similarly, any code that might be included in a\
+    \ script can usually be performed exactly as is.\n\nThere may be several processes\
+    \ manifesting one program running in memory at the same time. You can, for example,\
+    \ use two terminals and run the command prompt at the same time. In such a circumstance,\
+    \ the system will have two command prompt processes running at the same time.\
+    \ When they have finished their execution, the system can terminate them, and\
+    \ there will be no more processes representing the command prompt.\n\nYou can\
+    \ use the terminal to run the Bash script, which will provide you with a shell.\
+    \ When you start a script, it will not execute in current process, but will instead\
+    \ start a new process that will be executed inside. However, as a beginner in\
+    \ programming, you don't need to be concerned about the mechanism of this script\
+    \ because running Bash might be extremely simple.\n\nYou may also come across\
+    \ some tutorials on script execution, which is essentially the same thing. Before\
+    \ running the script, make sure it has permission, as the software will return\
+    \ an error message if you don't.\n\nBelow is a sample Bash script:\n\n```\n#!/bin/bash\n\
+    # declare STRING variable\nSTRING=\"Hello Python\"\n#print variable on a screen\n\
+    echo $STRING\n```\n\nYou can use the 755 shorthand to alter the script and ensure\
+    \ that it can be shared with others to execute.\n\n### RegEx in Python\n\nRegEx\
+    \ is a regular expression that specifies a text string and allows you to construct\
+    \ patterns for managing, matching, and locating text. Python is an example of\
+    \ a programming language that makes use of regex. Regex can also be used to search\
+    \ for text within a file in text editors and from the command line.\n\nWhen you\
+    \ first see regex, you may believe it is a new programming language. However,\
+    \ if you work with text or need to parse massive volumes of data, knowing regex\
+    \ could save you countless hours.\n\nIn Python, the RE module provides full regex\
+    \ functionality. If there is a mistake while using or compiling a regex, it additionally\
+    \ raises the exception re.error. When using regex in Python, you must be familiar\
+    \ with two fundamental functions. But first, you should grasp that distinct characters\
+    \ have different meanings when employed in a regular expression. So that you are\
+    \ not perplexed when working with regex, we will use the term r'expression' to\
+    \ refer to Raw Strings.\n\nThe search and match functions are the most crucial\
+    \ in Python regex.\n\nThe search function looks for the first occurrence of a\
+    \ RE pattern within a string that includes optional flags. The search function\
+    \ contains the following parameters (the syntax is below):\n\n- String - will\
+    \ be searched to match the pattern within the string\n- Pattern - regex to be\
+    \ matched\n- Flags - modifiers that can be specified using bitwise\n\nIf successful,\
+    \ the re.search function will return an object match; otherwise, it will return\
+    \ object none. To discover a matched expression, utilize the groups() or groups(num)\
+    \ function of object match.\n\nHere's an example of code that makes use of the\
+    \ search function:\n\n```\nimport re\n\n#Check if the string starts with \"The\"\
+    \ and ends with \"Spain\":\ntxt = \"The rain in Spain\"\nx = re.search(\"^The.*Spain$\"\
+    , txt)\n\nif (x):\n    print(\"YES! We have a match!\")\nelse:\n    print(\"No\
+    \ match\")\n```\n\nThe output will be:\n\n```\nYES! We have a match!\n```\n\n\
+    Meanwhile, the match function will attempt to match the RE pattern to string with\
+    \ appropriate flags. The syntax for the match function is as follows:\n\nThe following\
+    \ parameters are available for the match function:\n\n- String - this will be\
+    \ searched to match the pattern at the start of the string\n- Pattern - this is\
+    \ the regex to be matched\n- Flags - modifiers that can be specified using bitwise\n\
+    \n### Python Package Manager\n\nPackage managers are tools used in programming\
+    \ to automate the process of installing, configuring, upgrading, and uninstalling\
+    \ programs for a certain language system in an organized manner.\n\nIt is also\
+    \ known as a package management system because it deals with the distribution\
+    \ and archiving of data files that include the name of the software, version,\
+    \ number, purpose, and a list of dependencies required for the language to operate\
+    \ properly.\n\nWhen you use a package management, the metadata is normally preserved\
+    \ in the local database to prevent code incompatibilities and missing permissions.\n\
+    \nA utility in Python can be used to locate, install, upgrade, and remove Python\
+    \ packages. It can also determine the most recent version of a package installed\
+    \ on the system and upgrade the existing package from a distant or local server.\n\
+    \nPython Package Manager is not free, and it can only be accessed via ActivePython.\
+    \ It also makes use of repositories, which are collections of pre-installed packages\
+    \ that contain various types of modules.\n\n### SourceControl\n\nA source control\
+    \ (also known as version control or revision control) in programming manages changes\
+    \ to the codes, which are recognized by a letter or number code referred to as\
+    \ the revision number or simply revision. For example, revision 1 refers to the\
+    \ initial set of code, whereas revision 2 refers to the first alteration. Every\
+    \ edit will be accompanied with a timestamp as well as the identity of the person\
+    \ who made the modification. Revisions are necessary so that the code may be restored\
+    \ or compared.\n\nWhen working with a group, source control is essential. You\
+    \ can combine your code changes with other code changes made by a developer using\
+    \ different views that reveal detailed changes, and then merge the correct code\
+    \ into the primary code branch.\n\nSource control is essential for coding projects,\
+    \ whether you're using Python or another language. Keep in mind that each coding\
+    \ project should begin with the use of a source control system such as Mercurial\
+    \ or Git.\n\nSince the dawn of programming, various source control techniques\
+    \ have emerged. Previously, specialized control systems provided features that\
+    \ were tailored to huge coding projects and specific project procedures. However,\
+    \ open-source solutions may now be used for source control whether you are working\
+    \ on a solitary project or as part of a large team.\n\nIn your early Python programming,\
+    \ it is best to use an open-source version control system. You can use Mercurial\
+    \ or Git, both of which are open source and utilized for source control distribution.\n\
+    \nSubversion is also available, which can be used to centralize the system in\
+    \ order to examine files and reduce conflicting merges.\n\n### Bringing It All\
+    \ Together\n\nProgramming tools will facilitate your task. The tools covered in\
+    \ this section will save you a lot of time, make it easier to communicate, and\
+    \ make your coding smoother. In conclusion, we have discovered the following:\n\
+    \n- A Bash Script can save you a significant amount of coding time while also\
+    \ making your code lines more organized and readable.\n- Regular Expressions (RegEx)\
+    \ can help you identify, search, and match text strings within your code, saving\
+    \ you from having to browse line by line or evaluate each code on your own.\n\
+    - Package Managers will automate the system so that you can easily install, upgrade,\
+    \ configure, or delete certain programs that will help you with your development.\n\
+    - Source Control is essential for maintaining revisions, whether you work alone\
+    \ or with a team, so you can restore changes or compare revisions.\n\nYou can\
+    \ still work on your scripts without these tools, but they will make your life\
+    \ easier.\n\n## CHAPTER THREE\n### WORKING WITH FILES\n\nWhen it comes to working\
+    \ with Python, the next thing we need to focus on is making sure we know how to\
+    \ work with and handle files. It is possible that you are working with data and\
+    \ want to preserve it while ensuring that it is accessible for you to pick up\
+    \ and utilize as needed later. You do have various options in terms of how you\
+    \ save the data, how it is found later on, and how it reacts in your code.\n\n\
+    When you work with the files, you will see"
+  mdcn: "## 第二章\n### 基本编程工具：Bash 脚本\n\nBash 脚本是一种数据文件，包含一系列命令，这些命令通常你可以手动输入，但使用脚本可以节省时间。请注意，在编程中，任何通常在命令行输入的代码都可以放入脚本中并原样执行。同样，任何可能包含在脚本中的代码通常也可以原样执行。\n\
+    \n内存中可能同时运行着多个进程来体现一个程序。例如，你可以使用两个终端同时运行命令提示符。在这种情况下，系统将同时运行两个命令提示符进程。当它们执行完毕后，系统可以终止它们，之后就不会再有代表命令提示符的进程了。\n\
+    \n你可以使用终端来运行 Bash 脚本，它会为你提供一个 shell。当你启动一个脚本时，它不会在当前进程中执行，而是会启动一个新的进程并在其中执行。然而，作为编程初学者，你不需要担心这个脚本的机制，因为运行\
+    \ Bash 可能非常简单。\n\n你可能还会遇到一些关于脚本执行的教程，这本质上是同一件事。在运行脚本之前，请确保它具有执行权限，否则软件会返回错误信息。\n\
+    \n下面是一个 Bash 脚本示例：\n\n```\n#!/bin/bash\n# declare STRING variable\nSTRING=\"Hello\
+    \ Python\"\n#print variable on a screen\necho $STRING\n```\n\n你可以使用 755 权限快捷方式来修改脚本，确保它可以与他人共享执行。\n\
+    \n### Python 中的正则表达式\n\n正则表达式（RegEx）是一种指定文本字符串的模式，允许你构建用于管理、匹配和定位文本的模式。Python\
+    \ 是使用正则表达式的一种编程语言示例。正则表达式也可用于在文本编辑器和命令行中搜索文件中的文本。\n\n当你第一次看到正则表达式时，你可能会认为它是一种新的编程语言。然而，如果你处理文本或需要解析大量数据，了解正则表达式可以为你节省无数小时。\n\
+    \n在 Python 中，`re` 模块提供了完整的正则表达式功能。如果在使用或编译正则表达式时出现错误，它还会引发 `re.error` 异常。在 Python\
+    \ 中使用正则表达式时，你必须熟悉两个基本函数。但首先，你应该理解不同的字符在正则表达式中具有不同的含义。为了让你在使用正则表达式时不会感到困惑，我们将使用术语\
+    \ `r'expression'` 来指代原始字符串（Raw Strings）。\n\n`search` 和 `match` 函数是 Python 正则表达式中最重要的。\n\
+    \n`search` 函数在字符串中查找正则表达式模式的第一次出现，可以包含可选的标志。`search` 函数包含以下参数（语法如下）：\n\n-   字符串\
+    \ - 将被搜索以匹配其中的模式\n-   模式 - 要匹配的正则表达式\n-   标志 - 可以使用按位运算指定的修饰符\n\n如果成功，`re.search`\
+    \ 函数将返回一个匹配对象；否则，它将返回 `None` 对象。要发现匹配的表达式，请使用匹配对象的 `groups()` 或 `groups(num)`\
+    \ 函数。\n\n这是一个使用 `search` 函数的代码示例：\n\n```\nimport re\n\n#Check if the string starts\
+    \ with \"The\" and ends with \"Spain\":\ntxt = \"The rain in Spain\"\nx = re.search(\"\
+    ^The.*Spain$\", txt)\n\nif (x):\n    print(\"YES! We have a match!\")\nelse:\n\
+    \    print(\"No match\")\n```\n\n输出将是：\n\n```\nYES! We have a match!\n```\n\n\
+    同时，`match` 函数将尝试使用适当的标志将正则表达式模式与字符串匹配。`match` 函数的语法如下：\n\n`match` 函数有以下可用参数：\n\
+    \n-   字符串 - 将被搜索以匹配字符串开头的模式\n-   模式 - 要匹配的正则表达式\n-   标志 - 可以使用按位运算指定的修饰符\n\n###\
+    \ Python 包管理器\n\n包管理器是编程中使用的工具，用于以有组织的方式自动化安装、配置、升级和卸载特定语言系统的程序。\n\n它也被称为包管理系统，因为它处理包含软件名称、版本号、用途以及语言正常运行所需依赖项列表的数据文件的分发和归档。\n\
+    \n当你使用包管理器时，元数据通常保存在本地数据库中，以防止代码不兼容和权限缺失。\n\nPython 中的一个实用程序可用于查找、安装、升级和删除 Python\
+    \ 包。它还可以确定系统上安装的包的最新版本，并从远程或本地服务器升级现有包。\n\nPython 包管理器不是免费的，只能通过 ActivePython\
+    \ 访问。它还使用存储库，即包含各种类型模块的预安装包集合。\n\n### 源代码控制\n\n编程中的源代码控制（也称为版本控制或修订控制）管理代码的更改，这些更改通过称为修订号或简称修订的字母或数字代码来标识。例如，修订\
+    \ 1 指的是初始代码集，而修订 2 指的是第一次更改。每次编辑都会附带时间戳以及进行修改的人员的身份。修订是必要的，以便可以恢复或比较代码。\n\n与团队合作时，源代码控制至关重要。你可以使用不同的视图将你的代码更改与其他开发者的代码更改合并，这些视图显示详细的更改，然后将正确的代码合并到主代码分支中。\n\
+    \n无论你使用 Python 还是其他语言，源代码控制对于编码项目都至关重要。请记住，每个编码项目都应从使用源代码控制系统（如 Mercurial 或 Git）开始。\n\
+    \n自编程诞生以来，出现了各种源代码控制技术。以前，专门的控制系统提供了针对大型编码项目和特定项目流程量身定制的功能。然而，现在无论你是在进行单个项目还是作为大型团队的一部分，都可以使用开源解决方案进行源代码控制。\n\
+    \n在你早期的 Python 编程中，最好使用开源版本控制系统。你可以使用 Mercurial 或 Git，它们都是开源的，用于源代码控制分发。\n\nSubversion\
+    \ 也可用，可用于集中系统以检查文件并减少合并冲突。\n\n### 综合运用\n\n编程工具将使你的任务更轻松。本节介绍的工具将为你节省大量时间，使沟通更容易，并使你的编码更顺畅。总之，我们发现了以下几点：\n\
+    \n-   Bash 脚本可以为你节省大量编码时间，同时使你的代码行更有条理、更易读。\n-   正则表达式（RegEx）可以帮助你识别、搜索和匹配代码中的文本字符串，使你不必逐行浏览或自己评估每段代码。\n\
+    -   包管理器将自动化系统，使你可以轻松安装、升级、配置或删除某些程序，这些程序将帮助你进行开发。\n-   源代码控制对于维护修订至关重要，无论你是独自工作还是与团队合作，这样你就可以恢复更改或比较修订。\n\
+    \n没有这些工具你仍然可以编写脚本，但它们会让你的生活更轻松。\n\n## 第三章\n### 处理文件\n\n在使用 Python 时，我们需要关注的下一件事是确保我们知道如何处理和操作文件。你可能正在处理数据并希望保存它，同时确保它可供你以后根据需要拾取和使用。在如何保存数据、以后如何找到它以及它在代码中如何反应方面，你确实有多种选择。\n\
+    \n当你处理文件时，你会看到"
+  merge: 0
+  raw:
+  - '[PAGE 16]
+
+
+    complete for a long time.'
+  - '[PAGE 17]
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_17_0.png)
+
+
+    # # CHAPTER TWO
+
+    ## ESSENTIAL
+
+    ## PROGRAMMING
+
+    ## TOOLS BASH SCRIPT
+
+
+    A Bash script is a data file that comprises a series of commands that you can
+    generally code but that will save you time if you don''t. Take notice that in
+    programming, any code that would typically be put on the command line can be placed
+    on the script and executed'
+  - '[PAGE 18]
+
+
+    exactly as is. Similarly, any code that might be included in a script can usually
+    be performed exactly as is.
+
+    There may be several processes manifesting one program running in memory at the
+    same time. You can, for example, use two terminals and run the command prompt
+    at the same time. In such a circumstance, the system will have two command prompt
+    processes running at the same time. When they have finished their execution, the
+    system can terminate them, and there will be no more processes representing the
+    command prompt.
+
+    You can use the terminal to run the Bash script, which will provide you with a
+    shell. When you start a script, it will not execute in current process, but will
+    instead start a new process that will be executed inside. However, as a beginner
+    in programming, you don''t need to be concerned about the mechanism of this script
+    because running Bash might be extremely simple.
+
+    You may also come across some tutorials on script execution, which is essentially
+    the same thing. Before running the script, make'
+  - '[PAGE 19]
+
+
+    sure it has permission, as the software will return an error message if you don''t.
+
+
+    Below is a sample Bash script:
+
+
+    ```
+
+    #!/bin/bash
+
+    # declare STRING variable
+
+    STRING="Hello Python"
+
+    #print variable on a screen
+
+    echo $STRING
+
+    ```
+
+
+    You can use the 755 shorthand to alter the script and ensure that it can be shared
+    with others to execute.
+
+
+    # RegEx in Python'
+  - '[PAGE 20]
+
+
+    RegEx is a regular expression that specifies a text string and allows you to construct
+    patterns for managing, matching, and locating text. Python is an example of a
+    programming language that makes use of regex. Regex can also be used to search
+    for text within a file in text editors and from the command line.
+
+
+    When you first see regex, you may believe it is a new programming language. However,
+    if you work with text or need to parse massive volumes of data, knowing regex
+    could save you countless hours.
+
+
+    In Python, the RE module provides full regex functionality. If there is a mistake
+    while using or compiling a regex, it additionally raises the exception re.error.
+    When using regex in Python, you must be familiar with two fundamental functions.
+    But first, you should grasp that distinct characters have different meanings when
+    employed in a regular expression. So that you are not perplexed when working with
+    regex, we will use the term r''expression'' to refer to Raw Strings.
+
+
+    The search and match functions are the most'
+  - '[PAGE 21]
+
+
+    crucial in Python regex.
+
+
+    The search function looks for the first occurrence of a RE pattern within a string
+    that includes optional flags. The search function contains the following parameters
+    (the syntax is below):
+
+
+    +   - String - will be searched to match the pattern within the string
+
+    - Pattern - regex to be matched
+
+    - Flags - modifiers that can be specified using bitwise
+
+
+    If successful, the re.search function will return an object match; otherwise,
+    it will return object none. To discover a matched expression, utilize the groups()
+    or groups(num) function of object match.
+
+
+    Here''s an example of code that makes use of the search function:'
+  - "[PAGE 22]\n\n```\nimport re\n\n#Check if the string starts with \"The\" and ends\
+    \ with \"Spain\":\ntxt = \"The rain in Spain\"\nx = re.search(\"^The.*Spain$\"\
+    , txt)\n\nif (x):\n    print(\"YES! We have a match!\")\nelse:\n    print(\"No\
+    \ match\")\n```\n\nThe output will be:\n\n```\nYES! We have a match!\n```\n\n\
+    Meanwhile, the match function will attempt to match the RE pattern to string with\
+    \ appropriate flags. The syntax for the match function is as follows:\n\nThe following\
+    \ parameters are available for the match function:\n\n+   - String - this will\
+    \ be searched to match the pattern at the start of the string\n- Pattern - this\
+    \ is the regex to be matched\n- Flags - modifiers that can be specified using\
+    \ bitwise"
+  - '[PAGE 23]
+
+
+    # Python Package Manager
+
+
+    Package managers are tools used in programming to automate the process of installing,
+    configuring, upgrading, and uninstalling programs for a certain language system
+    in an organized manner.
+
+
+    It is also known as a package management system because it deals with the distribution
+    and archiving of data files that include the name of the software, version, number,
+    purpose, and a list of dependencies required for the language to operate properly.
+
+
+    When you use a package management, the metadata is normally preserved in the local
+    database to prevent code incompatibilities and missing permissions.
+
+
+    A utility in Python can be used to locate, install, upgrade, and remove Python
+    packages. It can also determine the most recent version of a package installed
+    on the system and upgrade the existing package from a distant or local server.
+
+
+    Python Package Manager is not free, and it can only be accessed via ActivePython.
+    It'
+  - '[PAGE 24]
+
+
+    also makes use of repositories, which are collections of pre-installed packages
+    that contain various types of modules.
+
+
+    # SourceControl
+
+
+    A source control (also known as version control or revision control) in programming
+    manages changes to the codes, which are recognized by a letter or number code
+    referred to as the revision number or simply revision. For example, revision 1
+    refers to the initial set of code, whereas revision 2 refers to the first alteration.
+    Every edit will be accompanied with a timestamp as well as the identity of the
+    person who made the modification. Revisions are necessary so that the code may
+    be restored or compared.
+
+
+    When working with a group, source control is essential. You can combine your code
+    changes with other code changes made by a developer using different views that
+    reveal detailed changes, and then merge the correct code into the primary code
+    branch.
+
+
+    Source control is essential for coding'
+  - '[PAGE 25]
+
+
+    projects, whether you''re using Python or another language. Keep in mind that
+    each coding project should begin with the use of a source control system such
+    as Mercurial or Git.
+
+
+    Since the dawn of programming, various source control techniques have emerged.
+    Previously, specialized control systems provided features that were tailored to
+    huge coding projects and specific project procedures. However, open-source solutions
+    may now be used for source control whether you are working on a solitary project
+    or as part of a large team.
+
+
+    In your early Python programming, it is best to use an open-source version control
+    system. You can use Mercurial or Git, both of which are open source and utilized
+    for source control distribution.
+
+
+    Subversion is also available, which can be used to centralize the system in order
+    to examine files and reduce conflicting merges.'
+  - '[PAGE 26]
+
+
+    # Bringing It All Together
+
+
+    Programming tools will facilitate your task. The tools covered in this section
+    will save you a lot of time, make it easier to communicate, and make your coding
+    smoother. In conclusion, we have discovered the following:
+
+
+    +   - A Bash Script can save you a significant amount of coding time while also
+    making your code lines more organized and readable.
+
+    - Regular Expressions (RegEx) can help you identify, search, and match text strings
+    within your code, saving you from having to browse line by line or evaluate each
+    code on your own.
+
+    - Package Managers will automate the system so that you can easily install, upgrade,
+    configure, or delete certain programs that will help you with your development.
+
+    - Source Control is essential for maintaining revisions, whether you'
+  - '[PAGE 27]
+
+
+    work alone or with a team, so you can restore changes or compare revisions.
+
+
+    You can still work on your scripts without these tools, but they will make your
+    life easier.'
+  - '[PAGE 28]
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_28_0.png)
+
+
+    # CHAPTER THREE
+
+    WORKING WITH FILES
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_28_1.png)
+
+
+    When it comes to working with Python, the next thing we need to focus on is making
+    sure we know how to work with and handle files. It is possible that you are working
+    with data and want to preserve it while ensuring that it is accessible for you
+    to pick up and utilize as needed later. You do have various options in terms of
+    how you save the data, how it is found later on, and how it reacts in your code.
+
+
+    When you work with the files, you will see'
+- md: "that the data is saved on a disk, or you may re-use in the code as many times\
+    \ as you like. This chapter will teach us a little bit more about how to manage\
+    \ some of the work that we need to perform to ensure the files function properly,\
+    \ among other things.\n\nNow, we'll switch to the Python language's file mode,\
+    \ which will give you a few more options along the way. A simple approach to think\
+    \ about this is to imagine yourself working on a Word document. You might try\
+    \ to save one of the documents you're working on at some time so that it doesn't\
+    \ get lost and you can find it later. In Python, these types of files will be\
+    \ comparable. However, instead of storing pages like you did in Word, you will\
+    \ save sections of your code.\n\nWhen it comes to working with files, you will\
+    \ see that there are a few procedures or ways from which to choose. Among these\
+    \ alternatives will be:\n\n- Closing a file you're working on.\n- Making a new\
+    \ file to work on.\n- Seeking out or relocating a file to a new location to make\
+    \ it easier to find.\n- Writing a new section of code on an earlier-created file.\n\
+    \n## Creating new files\n\nThe first thing we'll look at doing here is working\
+    \ on generating a file. It is difficult to complete many of the other duties if\
+    \ we do not first have a file in place to assist us. If you want to create a new\
+    \ file and subsequently add code to it, you must first ensure that the file is\
+    \ open in IDLE. Then, when writing your code, you can select the mode you want\
+    \ to utilize.\n\nWhen it comes to generating files in Python, you will see that\
+    \ there are three options available to you. The three basic modes that we will\
+    \ look at here are append (a), mode(x), and write (w).\n\nWhen you wish to open\
+    \ a file and make changes to it, you should use the write mode. This is the most\
+    \ straightforward of the three to work with. The write method will make it easier\
+    \ for you to get the appropriate pieces of the code set up and working in the\
+    \ end. The write function will be simple to use and will allow you to make any\
+    \ modifications or changes to the file that you like. You can add new information\
+    \ to the file, alter what is already there, and do a variety of other things.\
+    \ If you want to see what you can do with this part of the code using the write\
+    \ method, open your compiler and run the following code:\n\n```python\n#file handling\
+    \ operations\n#writing to a new file hello.txt\nf = open('hello.txt', 'w', encoding\
+    \ = 'utf-8' )\nf.write(\"Hello Python Developers!\")\nf.write(\"Welcome to Python\
+    \ World\")\nf.flush()\nf.close()\n```\n\nFrom here, we'll talk about what you\
+    \ can do with the directories we're dealing with. The current directory will always\
+    \ be the default directory. You can go through and modify the directory where\
+    \ the code information is kept, but you must do so in the beginning, or it will\
+    \ not end up in the location that you want.\n\nWhatever directory you worked in\
+    \ while writing the code is the one you'll need to return to if you want to find\
+    \ the file afterwards. If you want it to appear in a different directory, make\
+    \ sure you move it there before saving it and the code. With the option that we\
+    \ mentioned above, you will be able to open the file and view the message that\
+    \ you wrote out there when you go to the current directory (or the directory that\
+    \ you specified for this attempt).\n\nWe built a little piece of code for this\
+    \ one. Of course, as time goes on, you'll be developing far more intricate codes.\
+    \ And with those scripts, there will be instances when you want to alter or overwrite\
+    \ part of the information in that file. This is doable with Python, and it only\
+    \ requires a minor adjustment to the syntax you're using. Here's an example of\
+    \ what you can do with this one:\n\n```python\n#file handling operations\n#writing\
+    \ to a new file hello.txt\nf = open('hello.txt', 'w', encoding = 'utf-8')\nf.write(\"\
+    Hello Python Developers!\")\nf.write(\"Welcome to Python World\")\nmylist = [\"\
+    Apple\", \"Orange\", \"Banana\"]\n#writelines() is used to write multiple lines\
+    \ into the file\nf.write(mylist)\n```\n\nBecause you only need to add one new\
+    \ line, the preceding example is ideal for making minor modifications to a previously\
+    \ worked-on file. This example doesn't need the third line because it only includes\
+    \ a few simple words, but you may add anything you want to the program by using\
+    \ the syntax above and changing it up to suit your needs.\n\n## What exactly are\
+    \ binary files?\n\nAnother thing we should consider before going on is the idea\
+    \ of printing out some of your files and data in the code as a binary file. This\
+    \ may appear to be a difficult task, but Python will help you with it. All you\
+    \ have to do to make this happen is convert the data you have to a sound or image\
+    \ file rather than a text one.\n\nPython allows you to convert any piece of code\
+    \ into a binary file. It makes no difference what type of file it was in the past.\
+    \ However, you must ensure that you operate on the data correctly in order for\
+    \ it to be easier to reveal in the manner that you choose later on. The syntax\
+    \ that will be required to ensure that this works successfully for you is as follows:\n\
+    \n```python\n# write binary data to a file\n# writing the file hello.dat write\
+    \ binary mode\nf = open('hello.dat', 'wb')\n# writing as byte strings\nf.write(\"\
+    I am writing data in binary file!\\n\")\nf.write(\"Let's write another list\\\
+    n\")\nf.close()\n```\n\nIf you take the time to use this code in your files, it\
+    \ will assist you in creating the binary file that you desire. Some programmers\
+    \ choose to adopt this strategy because it helps them organize their work and\
+    \ makes it easier to retrieve information when needed.\n\n## Opening Your File\
+    \ Up\n\nSo far, we've worked on creating a new file and saving it, as well as\
+    \ working with a binary file. In these examples, we covered some of the fundamentals\
+    \ of working with files so that you can make them work for you and access them\
+    \ whenever you want.\n\nNow that you've completed this section, it's time to learn\
+    \ how to open the file and use it, as well as make modifications to it at any\
+    \ time. When you open that file, it will be much easier to utilize it again and\
+    \ again as much as you like. When you are ready to examine the steps required\
+    \ to open and use a file, you will need the following syntax.\n\n```python\n#\
+    \ read binary data to a file\n# writing the file hello.dat write append binary\
+    \ mode\nwith open(\"hello.dat\", 'rb') as f:\n    data = f.read()\n    text =\
+    \ data.decode('utf-8')\n    print(text)\n```\n\nThe output that you would get\
+    \ from putting this into the system would be like the following:\n\n```\nHello,world!\n\
+    This is a demo using with\nThis file contains three lines\nHello world\nThis is\
+    \ a demo using with\nThis file contains three lines\nSeeking out a file you need\n\
+    ```\n\nFinally, we'll look at how you may find some of the files you'll need for\
+    \ this type of coding language. We've already discussed how to create files, how\
+    \ to store them in various ways, how to open and rewrite on them, and how to locate\
+    \ the file. However, there are situations when you can transfer one of your files\
+    \ to a new location.\n\nFor example, if you're working on a file and you see that\
+    \ things aren't showing up the way you'd like them to, it's time to change this.\
+    \ Maybe you didn't spell the name of the identifier correctly, or the directory\
+    \ isn't where you want it to be, in which case the seek option may be the best\
+    \ approach to find this missing file and then make the necessary changes to make\
+    \ it simpler to find later.\n\nYou will be able to modify the location of the\
+    \ file using this method, ensuring that it is always in the correct location or\
+    \ even making it easier for you to find it when needed. You only need to utilize\
+    \ syntax similar to what is shown above to assist you in making these modifications.\n\
+    \nWorking through all of the different methods discussed in this chapter will\
+    \ allow you to do a variety of things within your code. Whether you want to create\
+    \ a new file, change the code, move the file around, or do something else, you'll\
+    \ be able to accomplish it all with the codes we've covered in this chapter."
+  mdcn: "数据保存在磁盘上，或者你可以在代码中根据需要重复使用。本章将教我们更多关于如何管理我们需要执行的一些工作，以确保文件正常运行等内容。\n\n现在，我们将切换到Python语言的文件模式，这将为你提供更多选项。一个简单的思考方式是想象自己正在处理一个Word文档。你可能会在某个时候尝试保存你正在处理的文档之一，以免丢失，以便以后能找到。在Python中，这些类型的文件将是可比较的。然而，你不会像在Word中那样存储页面，而是保存代码的各个部分。\n\
+    \n在处理文件时，你会看到有一些程序或方法可供选择。这些选项包括：\n\n-   关闭你正在处理的文件。\n-   创建一个新文件进行处理。\n-   查找或重新定位文件到新位置，以便更容易找到。\n\
+    -   在先前创建的文件上编写新的代码部分。\n\n## 创建新文件\n\n我们首先要看的是生成一个文件。如果我们没有一个文件来协助我们，就很难完成许多其他任务。如果你想创建一个新文件并随后向其中添加代码，你必须首先确保文件在IDLE中打开。然后，在编写代码时，你可以选择要使用的模式。\n\
+    \n在Python中生成文件时，你会看到有三个选项可供选择。我们将在这里介绍的三种基本模式是追加（a）、模式（x）和写入（w）。\n\n当你希望打开一个文件并对其进行更改时，你应该使用写入模式。这是三种模式中最直接的一种。写入方法将使你更容易设置和运行代码的适当部分。写入函数将易于使用，并允许你对文件进行任何修改或更改。你可以向文件添加新信息，更改现有内容，并执行各种其他操作。如果你想看看使用写入方法可以对这部分代码做什么，请打开你的编译器并运行以下代码：\n\
+    \n```python\n#file handling operations\n#writing to a new file hello.txt\nf =\
+    \ open('hello.txt', 'w', encoding = 'utf-8' )\nf.write(\"Hello Python Developers!\"\
+    )\nf.write(\"Welcome to Python World\")\nf.flush()\nf.close()\n```\n\n接下来，我们将讨论你可以对正在处理的目录做些什么。当前目录始终是默认目录。你可以浏览并修改存储代码信息的目录，但你必须在开始时这样做，否则它最终不会出现在你想要的位置。\n\
+    \n无论你在编写代码时使用的是哪个目录，如果你想以后找到该文件，都需要返回到该目录。如果你希望它出现在不同的目录中，请确保在保存文件和代码之前将其移动到那里。使用我们上面提到的选项，当你转到当前目录（或你为本次尝试指定的目录）时，你将能够打开文件并查看你写入的消息。\n\
+    \n我们为此编写了一小段代码。当然，随着时间的推移，你将开发更复杂的代码。对于这些脚本，有时你会想要更改或覆盖该文件中的部分信息。这在Python中是可行的，只需要对你使用的语法进行微小的调整。以下是一个你可以用这个做什么的例子：\n\
+    \n```python\n#file handling operations\n#writing to a new file hello.txt\nf =\
+    \ open('hello.txt', 'w', encoding = 'utf-8')\nf.write(\"Hello Python Developers!\"\
+    )\nf.write(\"Welcome to Python World\")\nmylist = [\"Apple\", \"Orange\", \"Banana\"\
+    ]\n#writelines() is used to write multiple lines into the file\nf.write(mylist)\n\
+    ```\n\n由于你只需要添加一个新行，前面的示例非常适合对先前处理过的文件进行微小修改。此示例不需要第三行，因为它只包含一些简单的单词，但你可以使用上面的语法并根据需要进行修改，向程序添加任何你想要的内容。\n\
+    \n## 什么是二进制文件？\n\n在继续之前，我们应该考虑的另一件事是将代码中的一些文件和数据打印为二进制文件的想法。这可能看起来是一项艰巨的任务，但Python会帮助你。你只需要将数据转换为音频或图像文件而不是文本文件即可实现这一点。\n\
+    \nPython允许你将任何代码转换为二进制文件。无论它过去是什么类型的文件都没有关系。但是，你必须确保正确处理数据，以便以后更容易以你选择的方式显示。确保这对你成功工作所需的语法如下：\n\
+    \n```python\n# write binary data to a file\n# writing the file hello.dat write\
+    \ binary mode\nf = open('hello.dat', 'wb')\n# writing as byte strings\nf.write(\"\
+    I am writing data in binary file!\\n\")\nf.write(\"Let's write another list\\\
+    n\")\nf.close()\n```\n\n如果你花时间在文件中使用此代码，它将帮助你创建所需的二进制文件。一些程序员选择采用这种策略，因为它有助于他们组织工作，并在需要时更容易检索信息。\n\
+    \n## 打开你的文件\n\n到目前为止，我们已经处理了创建新文件并保存它，以及处理二进制文件。在这些示例中，我们介绍了一些处理文件的基础知识，以便你可以让它们为你工作，并在需要时访问它们。\n\
+    \n既然你已经完成了这一部分，现在是时候学习如何打开文件并使用它，以及随时对其进行修改了。当你打开该文件时，再次使用它会容易得多。当你准备好检查打开和使用文件所需的步骤时，你需要以下语法。\n\
+    \n```python\n# read binary data to a file\n# writing the file hello.dat write\
+    \ append binary mode\nwith open(\"hello.dat\", 'rb') as f:\n    data = f.read()\n\
+    \    text = data.decode('utf-8')\n    print(text)\n```\n\n将此放入系统后，你将获得的输出如下：\n\
+    \n```\nHello,world!\nThis is a demo using with\nThis file contains three lines\n\
+    Hello world\nThis is a demo using with\nThis file contains three lines\nSeeking\
+    \ out a file you need\n```\n\n最后，我们将看看如何找到你可能需要的一些文件，用于这种类型的编程语言。我们已经讨论了如何创建文件、如何以不同方式存储它们、如何打开和重写它们以及如何定位文件。然而，在某些情况下，你可以将其中一个文件移动到新位置。\n\
+    \n例如，如果你正在处理一个文件，并且你发现事情没有按照你希望的方式显示，那么是时候改变这一点了。也许你没有正确拼写标识符的名称，或者目录不在你想要的位置，在这种情况下，查找选项可能是找到这个缺失文件并进行必要更改的最佳方法，以便以后更容易找到。\n\
+    \n你将能够使用此方法修改文件的位置，确保它始终位于正确的位置，甚至在需要时更容易找到。你只需要使用类似于上面所示的语法来帮助你进行这些修改。\n\n通过本章讨论的所有不同方法，你将能够在代码中执行各种操作。无论你是想创建一个新文件、更改代码、移动文件还是做其他事情，你都可以使用本章涵盖的代码来完成所有这些操作。"
+  merge: 1
+  raw:
+  - '[PAGE 29]
+
+
+    that the data is saved on a disk, or you may re-use in the code as many times
+    as you like. This chapter will teach us a little bit more about how to manage
+    some of the work that we need to perform to ensure the files function properly,
+    among other things.
+
+
+    Now, we''ll switch to the Python language''s file mode, which will give you a
+    few more options along the way. A simple approach to think about this is to imagine
+    yourself working on a Word document. You might try to save one of the documents
+    you''re working on at some time so that it doesn''t get lost and you can find
+    it later. In Python, these types of files will be comparable. However, instead
+    of storing pages like you did in Word, you will save sections of your code.
+
+
+    When it comes to working with files, you will see that there are a few procedures
+    or ways from which to choose. Among these alternatives will be:
+
+
+    +   - Closing a file you''re working on.
+
+    - Making a new file to work on.
+
+    - Seeking out or relocating a file to a'
+  - '[PAGE 30]
+
+
+    new location to make it easier to find.
+
+
+    +   - Writing a new section of code on an earlier-created file.
+
+
+    # Creating new files
+
+
+    The first thing we''ll look at doing here is working on generating a file. It
+    is difficult to complete many of the other duties if we do not first have a file
+    in place to assist us. If you want to create a new file and subsequently add code
+    to it, you must first ensure that the file is open in IDLE. Then, when writing
+    your code, you can select the mode you want to utilize.
+
+
+    When it comes to generating files in Python, you will see that there are three
+    options available to you. The three basic modes that we will look at here are
+    append (a), mode(x), and write (w).
+
+
+    When you wish to open a file and make changes to it, you should use the write
+    mode. This is the most straightforward of the three to work with. The write method
+    will make it'
+  - '[PAGE 31]
+
+
+    easier for you to get the appropriate pieces of the code set up and working in
+    the end.
+
+    The write function will be simple to use and will allow you to make any modifications
+    or changes to the file that you like. You can add new information to the file,
+    alter what is already there, and do a variety of other things. If you want to
+    see what you can do with this part of the code using the write method, open your
+    compiler and run the following code:
+
+
+    ```
+
+    #file handling operations
+
+    #writing to a new file hello.txt
+
+    f = open(''hello.txt'', ''w'', encoding = ''utf-8'' )
+
+    f.write("Hello Python Developers!")
+
+    f.write("Welcome to Python World")
+
+    f.flush()
+
+    f.close()
+
+    ```'
+  - '[PAGE 32]
+
+
+    From here, we''ll talk about what you can do with the directories we''re dealing
+    with. The current directory will always be the default directory. You can go through
+    and modify the directory where the code information is kept, but you must do so
+    in the beginning, or it will not end up in the location that you want.
+
+
+    Whatever directory you worked in while writing the code is the one you''ll need
+    to return to if you want to find the file afterwards. If you want it to appear
+    in a different directory, make sure you move it there before saving it and the
+    code. With the option that we mentioned above, you will be able to open the file
+    and view the message that you wrote out there when you go to the current directory
+    (or the directory that you specified for this attempt).
+
+
+    We built a little piece of code for this one. Of course, as time goes on, you''ll
+    be developing far more intricate codes. And with those scripts, there will be
+    instances when you want to alter or overwrite part of the information in that
+    file. This is doable with Python, and it only requires a minor adjustment to the'
+  - '[PAGE 33]
+
+
+    syntax you''re using. Here''s an example of what you can do with this one:
+
+
+    ```
+
+    #file handling
+
+    operation
+
+    s#writingtoanewfil
+
+    ehello.txt
+
+
+    f=open(''hello.txt'',''w'',encoding=''ut
+
+    f-8'')f.write("Hello Python
+
+    Developers!")f.write("WelcometoP
+
+    ythonWorld")mylist= ["Apple",
+
+    "Orange", "Banana"]
+
+
+    #writelines() is used to write multiple lines into
+
+    the filef.write(mylist)
+
+    ```
+
+
+    Because you only need to add one new line, the preceding example is ideal for
+    making'
+  - '[PAGE 34]
+
+
+    minor modifications to a previously worked-on file. This example doesn''t need
+    the third line because it only includes a few simple words, but you may add anything
+    you want to the program by using the syntax above and changing it up to suit your
+    needs.
+
+
+    # What exactly are binary files?
+
+
+    Another thing we should consider before going on is the idea of printing out some
+    of your files and data in the code as a binary file. This may appear to be a difficult
+    task, but Python will help you with it. All you have to do to make this happen
+    is convert the data you have to a sound or image file rather than a text one.
+
+
+    Python allows you to convert any piece of code into a binary file. It makes no
+    difference what type of file it was in the past. However, you must ensure that
+    you operate on the data correctly in order for it to be easier to reveal in the
+    manner that you choose later on. The syntax that will be required to ensure that
+    this works successfully for you is as follows:'
+  - '[PAGE 35]
+
+
+    ```
+
+    # write binary data to a file
+
+
+    # writing the file hello.dat write binary mode
+
+    F = open(''hello.dat'', ''wb'')
+
+
+    # writing as byte strings
+
+    f.write("I am writing data in binary file!/n")
+
+    f.write("Let''s write another list/n")
+
+    f.close()
+
+    ```
+
+
+    If you take the time to use this code in your files, it will assist you in creating
+    the binary file that you desire. Some programmers choose to adopt this strategy
+    because it helps them organize their work and makes it easier to retrieve information
+    when needed.
+
+
+    # Opening Your File Up
+
+
+    So far, we''ve worked on creating a new file and saving it, as well as working
+    with a binary file. In these examples, we covered some of the fundamentals of
+    working with files so that you can make them work for you and access them whenever
+    you want.
+
+
+    Now that you''ve completed this section, it''s time to learn how to open the file
+    and use it, as well as make modifications to it at any time. When you open that
+    file, it will be'
+  - '[PAGE 36]
+
+
+    much easier to utilize it again and again as much as you like. When you are ready
+    to examine the steps required to open and use a file, you will need the following
+    syntax.
+
+
+    ```
+
+    # read binary data to a file
+
+    #writing the file hello.dat write append binary mode
+
+    with open("hello.dat", ''rb'') as f:
+
+    data = f.read()
+
+    text = data.decode(''utf-8'')
+
+    print(text)
+
+    ```
+
+
+    The output that you would get form putting this into the system would be like
+    the following:
+
+
+    ```
+
+    Hello,world!
+
+    This is a demo using
+
+    withThisfilecontainsthreelines
+
+    Hello world
+
+    ThisisademousingwihThisfileco
+
+    ntainsthreelines
+
+    Seekingout a fileyou need
+
+    ```'
+  - '[PAGE 37]
+
+
+    Finally, we''ll look at how you may find some of the files you''ll need for this
+    type of coding language. We''ve already discussed how to create files, how to
+    store them in various ways, how to open and rewrite on them, and how to locate
+    the file. However, there are situations when you can transfer one of your files
+    to a new location.
+
+
+    For example, if you''re working on a file and you see that things aren''t showing
+    up the way you''d like them to, it''s time to change this. Maybe you didn''t spell
+    the time of the identifier correctly, or the directory isn''t where you want it
+    to be, in which case the seek option may be the best approach to find this missing
+    file and then make the necessary changes to make it simpler to find later.
+
+
+    You will be able to modify the location of the file using this method, ensuring
+    that it is always in the correct location or even making it easier for you to
+    find it when needed. You only need to utilize syntax similar to what is shown
+    above to assist you in making these modifications.'
+  - '[PAGE 38]
+
+
+    Working through all of the different methods discussed in this chapter will allow
+    you to do a variety of things within your code. Whether you want to create a new
+    file, change the code, move the file around, or do something else, you''ll be
+    able to accomplish it all with the codes we''ve covered in this chapter.'
+- md: "## CHAPTER FOUR\n### EXCEPTION HANDLING\n\nException handling is synonymous\
+    \ with error management. It serves three functions.\n\n1. It enables debugging\
+    \ of your program.\n2. It enables your software to continue executing in the face\
+    \ of an error or exception.\n3. It enables you to build your own customized errors\
+    \ to aid in debugging, removing and controlling some of Python's quirks, and making\
+    \ your program perform as you expect it to.\n\n## Handling the Zero Division Error\
+    \ Exception\n\nException handling can be a simple or tough process, depending\
+    \ on how you want your program to run and how creative you are. You might have\
+    \ raised an eyebrow at the word \"creativity.\" Isn't programming all about logic?\
+    \ No.\n\nThe primary goal of programming is to solve problems. A solution to a\
+    \ problem necessitates more than just reasoning. It also necessitates imagination.\
+    \ Have you ever heard the expression \"think beyond the box?\" Program-breaking\
+    \ exceptions are inconvenient and are frequently referred to as bugs. The solution\
+    \ to such issues is frequently elusive. And you must find a solution or risk having\
+    \ to rewrite your application from start.\n\nWhen you divide, for example, you\
+    \ have a calculator software with this chunk of code:\n\n```\n>>> def div(dividend,\
+    \ divisor):\n        print(dividend / divisor)\n>>> div(5, 0)\nTraceback (most\
+    \ recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<stdin>\"\
+    , line 2, in div\nZeroDivisionError: division by zero\n```\n\nOf course, division\
+    \ by zero is a mathematically impossible operation. As a result, when this occurs,\
+    \ Python terminates the program since it does not know what you intend to accomplish.\
+    \ It is unaware of any valid answer or response.\n\nThat being stated, the issue\
+    \ here is that the mistake terminates your program completely. You have two alternatives\
+    \ for dealing with this exception. To begin, you can ensure that such an operation\
+    \ does not occur in your program. Second, you can let the operation and errors\
+    \ to occur while instructing Python to continue your application.\n\nHere's how\
+    \ the first solution looks:\n\n```\n>>> def div(dividend, divisor):\n    if (divisor\
+    \ != 0):\n        print(dividend / divisor)\n    else:\n        print(\"Cannot\
+    \ Divide by Zero.\")\n>>> div(5, 0)\nCannot Divide by Zero.\n```\n\nHere is what\
+    \ the second solution looks like:\n\n```\n>>> def div(dividend, divisor):\n  \
+    \  try:\n        print(dividend / divisor)\n    except:\n        print(\"Cannot\
+    \ Divide by Zero.\")\n>>> div(5, 0)\nCannot Divide by Zero.\n```\n\nKeep in mind\
+    \ the two main solutions to errors and exceptions. One, avoid making the mistake\
+    \ in the first place. Two, deal with the fallout from the error.\n\n## Using Try-Except\
+    \ Blocks\n\nThe try except block was used to manage the error in the preceding\
+    \ example. However, you or your user can still wreak havoc on your solution. As\
+    \ an example:\n\n```\n>>> def div(dividend, divisor):\n    try:\n        print(dividend\
+    \ / divisor)\n    except :\n        print(\"Cannot Divide by Zero.\")\n>>> div(5,\
+    \ \"a\")\nCannot Divide by Zero.\n```\n\nThe statement written for the \"except\"\
+    \ block is insufficient to justify the error caused by the input. A \"Cannot Divide\
+    \ by Zero.\" warning is not displayed when dividing a number by a string.\n\n\
+    To make this work, you must first understand how to utilize it unless block correctly.\
+    \ First and foremost, by giving the specific exception, you may describe the error\
+    \ that it will collect and respond to. As an example:\n\n```\n>>> def div(dividend,\n\
+    \            divisor):\n    try:\n        print(dividend / divisor)\n    except\
+    \ ZeroDivisionError:\n        print(\"Cannot Divide by Zero.\")\n\n>>> div(5,\
+    \ 0)\nCannot Divide by Zero.\n\n>>> div(5, \"a\")\nTraceback (most recent call\
+    \ last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<stdin>\", line 3,\
+    \ in div\nTypeError: unsupported operand type(s) for /: 'int' and 'str'\n```\n\
+    \nThe error to be handled has now been provided. When the program meets the given\
+    \ error, it will run the statements in the \"except\" block that caught it. If\
+    \ no except block is specified to catch further failures, Python will step in,\
+    \ halt the program, and throw an exception.\n\nBut how could this happen? When\
+    \ the error was not specified in the example, it handled everything. Yes, it is\
+    \ right. When there is no defined error to search for in the \"except\" block,\
+    \ it will catch any error. As an example:\n\n```\n>>> def div(dividend, divisor):\n\
+    \    try:\n        print(dividend / divisor)\n    except:\n        print(\"An\
+    \ error happened.\")\n>>> div(5, 0)\nAn error happened.\n>>> div(5, \"a\")\nAn\
+    \ error happened.\n```\n\nIf you don't know what kind of error you might encounter,\
+    \ this is a better approach to use the \"unless\" block.\n\n## Reading an Exception\
+    \ Error Trace Back\n\nThe most crucial aspect of error handling is understanding\
+    \ how to read the traceback message. It is not difficult to accomplish. The traceback\
+    \ message is:\n\n```\n<Traceback Stack Header>\n<File Name>, <Line Number>, <Function/Module>\n\
+    <Exception>: <Exception Description>\n```\n\nHere are things you need to remember:\n\
+    An error has occurred, according to the traceback stack header.\n\n- The filename\
+    \ indicates the name of the file containing the issue. Because the examples in\
+    \ the book are coded using the interpreter, the file name is always \"stdin>\"\
+    \ or standard input.\n- The line number specifies the specific line number in\
+    \ the file where the issue occurred. Because the examples are run through the\
+    \ interpreter, it will always say line. If the error is located in a code block\
+    \ or module, it will report the statement's line number in relation to the code\
+    \ block or module.\n- The function/module component specifies which function or\
+    \ module is in charge of the statement. If the code block lacks an identifier\
+    \ or the statement is stated outside of code blocks, the default value is module>.\n\
+    - The exception specifies the type of issue that occurred. Some are built-in classes\
+    \ (e.g., ZeroDivisionError, TypeError, and so on), while others are simply errors\
+    \ (e.g., SyntaxError). They can be used on your unless blocks.\n- The exception\
+    \ description provides extra information about how the error happened. The format\
+    \ of the description may differ from error to mistake.\n\n## Using exceptions\
+    \ to prevent crashes\n\nIn any case, all you need to do to find out which exceptions\
+    \ you can use is to make an error. For example, using the TypeError from the previous\
+    \ example, you may capture that issue as well and respond with the appropriate\
+    \ sentences.\n\n```\n>>> def div(dividend, divisor):\n    try:\n        print(dividend\
+    \ / divisor)\n    except ZeroDivisionError:\n        print(\"Cannot Divide by\
+    \ Zero.\")\n    except TypeError:\n        print(\"Cannot Divide by Anything Other\
+    \ Than a Number.\")\n    except:\n        print(\"An unknown error has been detected.\"\
+    )\n>>> div(5, 0)\nCannot Divide by Zero.\n>>> div(5, \"a\")\nCannot Divide by\
+    \ Anything Other Than a Number.\n>>> div(undeclaredVariable / 20)\nAn unknown\
+    \ error has been detected.\n```\n\nHowever, catching problems in this manner can\
+    \ still be difficult. It does allow you to avoid an accident or stop, but you\
+    \ have no idea what happened. To find out about an unknown issue, use the as a\
+    \ keyword to give the Exception data to a variable. The variable detail is a common\
+    \ convention for this purpose.\n\nAs an example:\n\n```\n>>> def div(dividend,\
+    \ divisor):\n    try:\n        print(dividend / divisor)\n    except Exception\
+    \ as detail:\n        print(\"An error has been detected.\")\n        print(detail)\n\
+    \        print(\"Continuing with the program.\")\n>>> div(5, 0)\nAn error has\
+    \ been detected.\nDivision by zero\nContinuing with the program.\n>>> div(5, \"\
+    a\")\nAn error has been detected.\nunsupported operand type(s) for /: 'int' and\
+    \ 'str'\nContinuing with the program.\n```\n\n## The Else Block\n\nSometimes an\
+    \ error occurs in the middle of your code block. Using try and except, you can\
+    \ catch the error. If an error occurs, you may not want to execute any of the\
+    \ statements in that code block. As an example:\n\n```\n>>> def div(dividend,\
+    \ divisor):\n    try:\n        quotient = dividend / divisor\n    except Exception\
+    \ as detail:\n        print(\"An error has been detected.\")\n```"
+  mdcn: "## 第四章\n### 异常处理\n\n异常处理等同于错误管理。它有三个功能。\n\n1.  它使你能够调试程序。\n2.  它使你的软件在遇到错误或异常时能够继续执行。\n\
+    3.  它使你能够构建自定义错误，以辅助调试、移除和控制 Python 的一些怪异行为，并使你的程序按预期运行。\n\n## 处理零除错误异常\n\n异常处理可以是一个简单或困难的过程，这取决于你希望程序如何运行以及你有多大的创造力。你可能对“创造力”这个词感到惊讶。编程不都是关于逻辑的吗？不是。\n\
+    \n编程的主要目标是解决问题。问题的解决方案不仅需要推理，还需要想象力。你是否听过“跳出框框思考”这个说法？破坏程序的异常很不方便，通常被称为 bug。这类问题的解决方案往往难以捉摸。你必须找到解决方案，否则可能不得不从头开始重写应用程序。\n\
+    \n例如，当你进行除法运算时，你有一个计算器软件，包含以下代码块：\n\n```\n>>> def div(dividend, divisor):\n  \
+    \      print(dividend / divisor)\n>>> div(5, 0)\nTraceback (most recent call last):\n\
+    \  File \"<stdin>\", line 1, in <module>\n  File \"<stdin>\", line 2, in div\n\
+    ZeroDivisionError: division by zero\n```\n\n当然，除以零在数学上是不可能的操作。因此，当这种情况发生时，Python\
+    \ 会终止程序，因为它不知道你打算完成什么。它不知道任何有效的答案或回应。\n\n话虽如此，这里的问题是错误会完全终止你的程序。你有两种选择来处理这个异常。首先，你可以确保这样的操作不会在你的程序中发生。其次，你可以让操作和错误发生，同时指示\
+    \ Python 继续你的应用程序。\n\n以下是第一种解决方案的样子：\n\n```\n>>> def div(dividend, divisor):\n\
+    \    if (divisor != 0):\n        print(dividend / divisor)\n    else:\n      \
+    \  print(\"Cannot Divide by Zero.\")\n>>> div(5, 0)\nCannot Divide by Zero.\n\
+    ```\n\n以下是第二种解决方案的样子：\n\n```\n>>> def div(dividend, divisor):\n    try:\n    \
+    \    print(dividend / divisor)\n    except:\n        print(\"Cannot Divide by\
+    \ Zero.\")\n>>> div(5, 0)\nCannot Divide by Zero.\n```\n\n请记住处理错误和异常的两个主要解决方案。一、首先避免犯错。二、处理错误带来的后果。\n\
+    \n## 使用 Try-Except 块\n\n在前面的例子中，使用了 try except 块来管理错误。然而，你或你的用户仍然可能对你的解决方案造成破坏。例如：\n\
+    \n```\n>>> def div(dividend, divisor):\n    try:\n        print(dividend / divisor)\n\
+    \    except :\n        print(\"Cannot Divide by Zero.\")\n>>> div(5, \"a\")\n\
+    Cannot Divide by Zero.\n```\n\n为“except”块编写的语句不足以解释输入引起的错误。当用一个数除以一个字符串时，不会显示“Cannot\
+    \ Divide by Zero.”警告。\n\n要使此工作正常，你必须首先了解如何正确使用 unless 块。首先，通过提供特定的异常，你可以描述它将收集和响应的错误。例如：\n\
+    \n```\n>>> def div(dividend,\n            divisor):\n    try:\n        print(dividend\
+    \ / divisor)\n    except ZeroDivisionError:\n        print(\"Cannot Divide by\
+    \ Zero.\")\n\n>>> div(5, 0)\nCannot Divide by Zero.\n\n>>> div(5, \"a\")\nTraceback\
+    \ (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"\
+    <stdin>\", line 3, in div\nTypeError: unsupported operand type(s) for /: 'int'\
+    \ and 'str'\n```\n\n现在提供了要处理的错误。当程序遇到给定的错误时，它将运行捕获该错误的“except”块中的语句。如果没有指定 except\
+    \ 块来捕获进一步的失败，Python 将介入，停止程序并抛出异常。\n\n但这怎么可能发生呢？在示例中未指定错误时，它处理了所有情况。是的，这是正确的。当“except”块中没有定义要搜索的错误时，它将捕获任何错误。例如：\n\
+    \n```\n>>> def div(dividend, divisor):\n    try:\n        print(dividend / divisor)\n\
+    \    except:\n        print(\"An error happened.\")\n>>> div(5, 0)\nAn error happened.\n\
+    >>> div(5, \"a\")\nAn error happened.\n```\n\n如果你不知道可能遇到什么类型的错误，这是使用“unless”块的更好方法。\n\
+    \n## 阅读异常错误回溯\n\n错误处理最关键的方面是了解如何阅读回溯消息。这并不难做到。回溯消息是：\n\n```\n<Traceback Stack\
+    \ Header>\n<File Name>, <Line Number>, <Function/Module>\n<Exception>: <Exception\
+    \ Description>\n```\n\n以下是你需要记住的事项：\n根据回溯堆栈头，发生了一个错误。\n\n- 文件名表示包含问题的文件的名称。因为书中的示例是使用解释器编码的，所以文件名始终是“stdin>”或标准输入。\n\
+    - 行号指定文件中发生问题的具体行号。因为示例是通过解释器运行的，所以它总是说行。如果错误位于代码块或模块中，它将报告相对于代码块或模块的语句行号。\n-\
+    \ 函数/模块部分指定哪个函数或模块负责该语句。如果代码块没有标识符或语句在代码块外声明，则默认值为 module>。\n- 异常指定发生的错误类型。有些是内置类（例如，ZeroDivisionError、TypeError\
+    \ 等），而有些只是错误（例如，SyntaxError）。它们可以在你的 unless 块上使用。\n- 异常描述提供了有关错误如何发生的额外信息。描述的格式可能因错误而异。\n\
+    \n## 使用异常防止崩溃\n\n无论如何，你需要做的就是找出可以使用哪些异常，只需制造一个错误。例如，使用前面示例中的 TypeError，你也可以捕获该问题并用适当的句子响应。\n\
+    \n```\n>>> def div(dividend, divisor):\n    try:\n        print(dividend / divisor)\n\
+    \    except ZeroDivisionError:\n        print(\"Cannot Divide by Zero.\")\n  \
+    \  except TypeError:\n        print(\"Cannot Divide by Anything Other Than a Number.\"\
+    )\n    except:\n        print(\"An unknown error has been detected.\")\n>>> div(5,\
+    \ 0)\nCannot Divide by Zero.\n>>> div(5, \"a\")\nCannot Divide by Anything Other\
+    \ Than a Number.\n>>> div(undeclaredVariable / 20)\nAn unknown error has been\
+    \ detected.\n```\n\n然而，以这种方式捕获问题仍然可能很困难。它确实允许你避免事故或停止，但你不知道发生了什么。要了解未知问题，请使用 as\
+    \ 关键字将异常数据分配给一个变量。变量 detail 是此目的的常用约定。\n\n例如：\n\n```\n>>> def div(dividend, divisor):\n\
+    \    try:\n        print(dividend / divisor)\n    except Exception as detail:\n\
+    \        print(\"An error has been detected.\")\n        print(detail)\n     \
+    \   print(\"Continuing with the program.\")\n>>> div(5, 0)\nAn error has been\
+    \ detected.\nDivision by zero\nContinuing with the program.\n>>> div(5, \"a\"\
+    )\nAn error has been detected.\nunsupported operand type(s) for /: 'int' and 'str'\n\
+    Continuing with the program.\n```\n\n## Else 块\n\n有时错误发生在代码块的中间。使用 try 和 except，你可以捕获错误。如果发生错误，你可能不想执行该代码块中的任何语句。例如：\n\
+    \n```\n>>> def div(dividend, divisor):\n    try:\n        quotient = dividend\
+    \ / divisor\n    except Exception as detail:\n        print(\"An error has been\
+    \ detected.\")\n```"
+  merge: 0
+  raw:
+  - '[PAGE 39]
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_39_0.png)
+
+
+    # # CHAPTER FOUR
+
+    ## EXCEPTION HANDLING
+
+
+    Exception handling is synonymous with error management. It serves three functions.
+
+
+    +   1. It enables debugging of your program.
+
+    2. It enables your software to continue executing in the face of an error or exception.
+
+    3. It enables you to build your own customized errors to aid in debugging, removing
+    and controlling some of Python''s quirks, and making your program perform as'
+  - '[PAGE 40]
+
+
+    you expect it to.
+
+
+    # Handling the Zero Division Error Exception
+
+
+    Exception handling can be a simple or tough process, depending on how you want
+    your program to run and how creative you are. You might have raised an eyebrow
+    at the word "creativity." Isn''t programming all about logic? No.
+
+
+    The primary goal of programming is to solve problems. A solution to a problem
+    necessitates more than just reasoning. It also necessitates imagination. Have
+    you ever heard the expression "think beyond the box?" Program-breaking exceptions
+    are inconvenient and are frequently referred to as bugs. The solution to such
+    issues is frequently elusive. And you must find a solution or risk having to rewrite
+    your application from start.
+
+
+    When you divide, for example, you have a calculator software with this chunk of
+    code:'
+  - "[PAGE 41]\n\n```\n>>> def div(dividend, divisor):\n        print(dividend / divisor)\n\
+    >>> div(5, 0)\nTraceback (most recent call last):\n  File \"<stdin>\", line 1,\
+    \ in <module>\n  File \"<stdin>\", line 2, in div\nZeroDivisionError: division\
+    \ by zero\n```\n\nOf course, division by zero is a mathematically impossible operation.\
+    \ As a result, when this occurs, Python terminates the program since it does not\
+    \ know what you intend to accomplish. It is unaware of any valid answer or response.\n\
+    \nThat being stated, the issue here is that the mistake terminates your program\
+    \ completely. You have two alternatives for dealing with this exception. To begin,\
+    \ you can ensure that such an operation does not occur in your program. Second,\
+    \ you can let the operation and errors to occur while instructing Python to continue\
+    \ your application.\n\nHere's how the first solution looks:"
+  - "[PAGE 42]\n\n```\n>>> def div(dividend, divisor):\n    if (divisor != 0):\n \
+    \       print(dividend / divisor)\n    else:\n        print(\"Cannot Divide by\
+    \ Zero.\")\n>>> div(5, 0)\nCannot Divide by Zero.\n```\n\nHere is what the second\
+    \ solution looks like:\n\n```\n>>> def div(dividend, divisor):\n    try:\n   \
+    \     print(dividend / divisor)\n    except:\n        print(\"Cannot Divide by\
+    \ Zero.\")\n>>> div(5, 0)\nCannot Divide by Zero.\n```\n\nKeep in mind the two\
+    \ main solutions to errors and exceptions. One, avoid making the mistake in the\
+    \ first place. Two, deal with the fallout from the error.\n\n# Using Try-Except\
+    \ Blocks\n\nThe try except block was used to manage the"
+  - "[PAGE 43]\n\nerror in the preceding example. However, you or your user can still\
+    \ wreak havoc on your solution. As an example:\n\n```\n>>> def div(dividend, divisor):\n\
+    \    try:\n        print(dividend / divisor)\n    except :\n        print(\"Cannot\
+    \ Divide by Zero.\")\n>>> div(5, \"a\")\nCannot Divide by Zero.\n```\n\nThe statement\
+    \ written for the \"except\" block is insufficient to justify the error caused\
+    \ by the input. A \"Cannot Divide by Zero.\" warning is not displayed when dividing\
+    \ a number by a string.\n\nTo make this work, you must first understand how to\
+    \ utilize it unless block correctly. First and foremost, by giving the specific\
+    \ exception, you may describe the error that it will collect and respond to. As\
+    \ an example:"
+  - "[PAGE 44]\n\n```\n>>> def div(dividend,\n            divisor):\n    try:\n  \
+    \      print(dividend / divisor)\n    except ZeroDivisionError:\n        print(\"\
+    Cannot Divide by Zero.\")\n\n>>> div(5, 0)\nCannot Divide by Zero.\n\n>>> div(5,\
+    \ \"a\")\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n\
+    \  File \"<stdin>\", line 3, in div\nTypeError: unsupported operand type(s) for\
+    \ /: 'int' and 'str'\n```\n\nThe error to be handled has now been"
+  - "[PAGE 45]\n\nprovided. When the program meets the given error, it will run the\
+    \ statements in the \"except\" block that caught it. If no except block is specified\
+    \ to catch further failures, Python will step in, halt the program, and throw\
+    \ an exception.\n\nBut how could this happen? When the error was not specified\
+    \ in the example, it handled everything. Yes, it is right. When there is no defined\
+    \ error to search for in the \"except\" block, it will catch any error. As an\
+    \ example:\n\n```\n>>> def div(dividend, divisor):\n    try:\n        print(dividend\
+    \ / divisor)\n    except:\n        print(\"An error happened.\")\n>>> div(5, 0)\n\
+    An error happened.\n>>> div(5, \"a\")\nAn error happened.\n```\n\nIf you don't\
+    \ know what kind of error you might encounter, this is a better approach to use\
+    \ the \"unless\" block.\n\n# Reading an Exception Error Trace Back"
+  - '[PAGE 46]
+
+
+    The most crucial aspect of error handling is understanding how to read the traceback
+    message. It is not difficult to accomplish. The traceback message is:
+
+
+    ```
+
+    <Traceback Stack Header>
+
+    <File Name>, <Line Number>, <Function/Module>
+
+    <Exception>: <Exception Description>
+
+    ```
+
+
+    Here are things you need to remember:
+
+    An error has occurred, according to the traceback stack header.
+
+
+    +   - The filename indicates the name of the file containing the issue. Because
+    the examples in the book are coded using the interpreter, the file name is always
+    "stdin>" or standard input.
+
+    - The line number specifies the specific line number in the file where the issue
+    occurred. Because the examples are run through the interpreter, it will always
+    say line. If the error is located in a code block'
+  - '[PAGE 47]
+
+
+    or module, it will report the statement''s line number in relation to the code
+    block or module.
+
+
+    +   - The function/module component specifies which function or module is in charge
+    of the statement. If the code block lacks an identifier or the statement is stated
+    outside of code blocks, the default value is module>.
+
+    - The exception specifies the type of issue that occurred. Some are built-in classes
+    (e.g., ZeroDivisionError, TypeError, and so on), while others are simply errors
+    (e.g., SyntaxError). They can be used on your unless blocks.
+
+    - The exception description provides extra information about how the error happened.
+    The format of the description may differ from error to mistake.
+
+
+    # Using exceptions to prevent crashes
+
+
+    In any case, all you need to do to find out'
+  - "[PAGE 48]\n\nwhich exceptions you can use is to make an error. For example, using\
+    \ the TypeError from the previous example, you may capture that issue as well\
+    \ and respond with the appropriate sentences.\n\n```\n>>> def div(dividend, divisor):\n\
+    \    try:\n        print(dividend / divisor)\n    except ZeroDivisionError:\n\
+    \        print(\"Cannot Divide by Zero.\")\n    except TypeError:\n        print(\"\
+    Cannot Divide by Anything Other Than a Number.\")\n    except:\n        print(\"\
+    An unknown error has been detected.\")\n>>> div(5, 0)\nCannot Divide by Zero.\n\
+    >>> div(5, \"a\")\nCannot Divide by Anything Other Than a Number.\n>>> div(undeclaredVariable\
+    \ / 20)\nAn unknown error has been detected.\n```\n\nHowever, catching problems\
+    \ in this manner can still be difficult. It does allow you to avoid an accident\
+    \ or stop, but you have no idea what happened. To find out about an unknown issue,\
+    \ use the as a keyword to give the Exception data to a variable. The variable"
+  - "[PAGE 49]\n\ndetail is a common convention for this purpose.\n\nAs an example:\n\
+    \n```\n>>> def div(dividend, divisor):\n    try:\n        print(dividend / divisor)\n\
+    \    except Exception as detail:\n        print(\"An error has been detected.\"\
+    )\n        print(detail)\n        print(\"Continuing with the program.\")\n>>>\
+    \ div(5, 0)\nAn error has been detected.\n```\n\n# Division by zero\n\n```\nContinuing\
+    \ with the program.\n>>> div(5, \"a\")\nAn error has been detected.\nunsupported\
+    \ operand type(s) for /: 'int' and 'str'\nContinuing with the program.\n```\n\n\
+    # The Else Block"
+  - "[PAGE 50]\n\nSometimes an error occurs in the middle of your code block. Using\
+    \ try and except, you can catch the error. If an error occurs, you may not want\
+    \ to execute any of the statements in that code block. As an example:\n\n```\n\
+    > def\ndiv(dividend,\ndivisor):\n    try:\n        quotient = dividend / divisor\n\
+    \    except Exception as detail:\n        print(\"An error has been detected.\"\
+    )\n```"
+- md: "## Failing Silently\n\nSilent fails, sometimes known as failing silently, is\
+    \ a programming word that is frequently used during error and exception handling.\n\
+    \nSilent failure is a state in which a program fails at a given moment but never\
+    \ alerts the user.\n\nA quiet failure is a situation in which the parser, runtime\
+    \ development environment, or compiler fails to emit an error or exception and\
+    \ continues with the program. This frequently results in unforeseen consequences.\n\
+    \nWhen a programmer ignores or bypasses exceptions, he might potentially cause\
+    \ quiet failures. Alternatively, he openly conceals them and devises workarounds\
+    \ to ensure that the program continues to function normally even if an error occurs.\
+    \ He may do so for a variety of reasons, including the fact that the fault is\
+    \ not program-breaking or that the user does not need to be aware of the issue.\n\
+    \n## How to Handle the File Not Found Exception Error\n\nYou will occasionally\
+    \ see the FileNotFoundError. Handling such an issue is dependent on your aim or\
+    \ purpose for opening the file. Here are some of the most typical causes of this\
+    \ error:\n\n- You did not pass the directory and filename as a string.\n- You\
+    \ misspelled the directory and filename.\n- You did not specify the directory.\n\
+    - You did not include the correct file extension.\n- The file does not exist.\n\
+    \nThe first step in dealing with the FileNotFoundError issue is to ensure that\
+    \ none of the common causes are to blame. Once you've done that, you'll need to\
+    \ decide how to handle the issue, which is entirely dependent on why you're accessing\
+    \ the file in the first place.\n\n## Checking to See if a File Exists\n\nAgain,\
+    \ there are two approaches to dealing with an exception: preventive and reactive.\
+    \ The preventive method is to determine whether or not the file exists in the\
+    \ first place.\n\nYou will need to use the `os` module that comes with your Python\
+    \ installation to accomplish this. Then you can utilize the `isfile()` function\
+    \ from the `path` module. The file name of the `path` module is determined by\
+    \ the operating system (`posixpath` for UNIX, `ntpath` for Windows, `macpath`\
+    \ for old MacOS). As an example:\n\n```python\n>>> from os import path\n>>> path.isfile(\"\
+    random.txt\")\nFalse\n>>> path.isfile(\"sampleFile.txt\")\nTrue\n```\n\n## Try\
+    \ and Except\n\nYou can also do it the hard way by using `try`, `except`, and\
+    \ `else` blocks.\n\n```python\n>>> def openFile(filename):\n    try:\n       \
+    \ x = open(filename, \"r\")\n    except FileNotFoundError:\n        print(\"The\
+    \ file '\" + filename + \"' does not exist.\")\n    except FileNotFound:\n   \
+    \     print(\"The file '\" + filename + \"' does exist.\")\n>>> openFile(\"random.txt\"\
+    )\n```\n\n## Creating a New File\n\nIf the file does not exist and your purpose\
+    \ is to overwrite any existing file, you should use the \"w\" or \"w+\" access\
+    \ mode. If the file does not exist, the access mode creates it for you. As an\
+    \ example:\n\n```python\n>>> x = open(\"new.txt\", \"w\")\n>>> x.tell()\n0\n```\n\
+    \nIf you are going to read and write, use \"w+\" access mode instead.\n\n## Practice\
+    \ Exercise\n\nMake an attempt to break your Python by finding at least ten separate\
+    \ exceptions.\n\nCreate a loop after that.\n\nCreate ten statements in the loop\
+    \ that will generate each of the ten different exceptions found within one try\
+    \ block.\n\nEach time the loop loops, the statement following the one that caused\
+    \ an exception should cause another, and so on.\n\nCreate a separate except block\
+    \ for each of the mistakes.\n\n## Solution\n\n## CONCLUSION\n\nThank you for sticking\
+    \ with me until the end!\nThere are many different coding languages that you may\
+    \ use, but Python is one of the best for most new programmers, providing the power\
+    \ and ease of use that you are seeking for when you first get started with this\
+    \ type of coding language. This guidebook went through how Python works as well\
+    \ as some of the many sorts of coding that you can accomplish with it.\n\nWe spent\
+    \ some time looking at how to work with Python in the worlds of machine learning,\
+    \ artificial intelligence, and data analysis, in addition to seeing a lot of examples\
+    \ of how to write in Python and construct some of your own programs in this language.\
+    \ These are topics and aspects of technology that are gaining popularity, and\
+    \ many programmers are attempting to learn more about them. And, with the help\
+    \ of this guidebook, you will be able to handle all of these even if you are a\
+    \ Python beginner.\nWhen you are ready to learn more about how to work with the\
+    \ Python coding language and how to ensure that you can utilize Python with data\
+    \ analysis, artificial intelligence, and machine learning, make sure to revisit\
+    \ this guidebook to get started."
+  mdcn: "## 静默失败\n\n静默失败，有时也称为悄无声息地失败，是一个在错误和异常处理过程中经常使用的编程术语。\n\n静默失败是指程序在某个时刻失败，但从未向用户发出警报的状态。\n\
+    \n静默失败是指解析器、运行时开发环境或编译器未能发出错误或异常，并继续执行程序的情况。这通常会导致不可预见的后果。\n\n当程序员忽略或绕过异常时，他可能会导致静默失败。或者，他公开地隐藏异常并设计变通方法，以确保即使发生错误，程序也能继续正常运行。他这样做可能有多种原因，例如该错误不会破坏程序，或者用户不需要知道该问题。\n\
+    \n## 如何处理 FileNotFoundError 异常错误\n\n你有时会遇到 FileNotFoundError。处理此类问题取决于你打开文件的目标或目的。以下是此错误的一些最常见原因：\n\
+    \n- 你没有将目录和文件名作为字符串传递。\n- 你拼错了目录和文件名。\n- 你没有指定目录。\n- 你没有包含正确的文件扩展名。\n- 文件不存在。\n\
+    \n处理 FileNotFoundError 问题的第一步是确保这些常见原因都不是罪魁祸首。一旦你完成了这一步，你将需要决定如何处理该问题，这完全取决于你最初访问文件的原因。\n\
+    \n## 检查文件是否存在\n\n同样，处理异常有两种方法：预防性和反应性。预防性方法是首先确定文件是否存在。\n\n你需要使用 Python 安装中自带的\
+    \ `os` 模块来完成此操作。然后你可以使用 `path` 模块中的 `isfile()` 函数。`path` 模块的文件名由操作系统决定（UNIX 使用\
+    \ `posixpath`，Windows 使用 `ntpath`，旧版 MacOS 使用 `macpath`）。例如：\n\n```python\n>>>\
+    \ from os import path\n>>> path.isfile(\"random.txt\")\nFalse\n>>> path.isfile(\"\
+    sampleFile.txt\")\nTrue\n```\n\n## Try 和 Except\n\n你也可以使用 `try`、`except` 和 `else`\
+    \ 块来完成此操作，虽然这比较麻烦。\n\n```python\n>>> def openFile(filename):\n    try:\n     \
+    \   x = open(filename, \"r\")\n    except FileNotFoundError:\n        print(\"\
+    The file '\" + filename + \"' does not exist.\")\n    except FileNotFound:\n \
+    \       print(\"The file '\" + filename + \"' does exist.\")\n>>> openFile(\"\
+    random.txt\")\n```\n\n## 创建新文件\n\n如果文件不存在，并且你的目的是覆盖任何现有文件，你应该使用 \"w\" 或 \"w+\"\
+    \ 访问模式。如果文件不存在，访问模式会为你创建它。例如：\n\n```python\n>>> x = open(\"new.txt\", \"w\")\n\
+    >>> x.tell()\n0\n```\n\n如果你打算读写，请改用 \"w+\" 访问模式。\n\n## 练习\n\n尝试通过找到至少十个不同的异常来破坏你的\
+    \ Python 程序。\n\n然后创建一个循环。\n\n在循环中创建十个语句，这些语句将在一个 try 块内生成十个不同的异常中的每一个。\n\n每次循环迭代时，导致异常的语句之后的语句应导致另一个异常，依此类推。\n\
+    \n为每个错误创建一个单独的 except 块。\n\n## 解答\n\n## 结论\n\n感谢你一直坚持到最后！\n你可以使用许多不同的编程语言，但对于大多数新程序员来说，Python\
+    \ 是最好的语言之一，它提供了你在刚开始使用这种编程语言时所寻求的强大功能和易用性。本指南介绍了 Python 的工作原理以及你可以用它完成的一些编码类型。\n\
+    \n除了看到许多如何用 Python 编写代码和用这种语言构建你自己的一些程序的例子之外，我们还花了一些时间研究如何在机器学习、人工智能和数据分析领域使用\
+    \ Python。这些是日益流行的技术主题和方面，许多程序员正试图了解更多关于它们的知识。而且，在本指南的帮助下，即使你是 Python 初学者，你也能够处理所有这些内容。\n\
+    当你准备好了解更多关于如何使用 Python 编程语言以及如何确保你可以将 Python 用于数据分析、人工智能和机器学习时，请务必重新阅读本指南以开始学习。"
+  merge: 0
+  raw:
+  - "[PAGE 51]\n\n```\n>>>div(4, 2)\n4 divided by 2 is:\n2.0\n>>>div(5, 0)\nAn error\
+    \ has been\ndetected.division by\nzero\nContinuing with the program.5 divided\n\
+    by 0 is:\nTraceback(mostrecentcalllast):\n  File \"<stdin>\", line 1, in\n<module>File\
+    \ \"<stdin>\",\nline 8, in div\n    Print(quotient)\n```\n\nUnboundLocalError:\
+    \ local variable 'quotient' referenced before assignment"
+  - '[PAGE 52]
+
+
+    As you can see, the statements following the initial error are dependant on it,
+    and hence they are also affected. When utilized after the try and except block
+    in this example, the variable quotient returned an error since its supposed value
+    was not assigned because the expression assigned to it was impossible to evaluate.
+
+
+    In this situation, you should remove the remaining statements that are dependent
+    on the try clause''s contents. You must utilize the else block to accomplish this.
+    As an example:'
+  - "[PAGE 53]\n\n```\n>>> def div(dividend, divisor):\n    try:\n        quotient\
+    \ = dividend / divisor\n    except Exception as detail:\n        print(\"An error\
+    \ has been detected.\")\n        print(detail)\n        print(\"Continuing with\
+    \ the program.\")\n    else:\n        print(str(dividend) + \" divided by \" +\
+    \ str(divisor) + \" is:\")\n        print(quotient)\n>>> div(4, 2)\n4 divided\
+    \ by 2 is:\n2\n>>> div(5, 0)\nAn error has been detected.\ndivision by zero\n\
+    Continuing with the program.\n```\n\nThe first try at using the function with\
+    \ suitable arguments was successful.\n\nThe program did not execute the last two\
+    \ statements in the else block on the second attempt because it returned an error.\n\
+    \nExcept for blocks, the else block always comes first. The otherwise block's\
+    \ function is to allow Python to execute the lines contained within it when the\
+    \ try block does not return and to disregard them if an exception occurs."
+  - '[PAGE 54]
+
+
+    # Failing Silently
+
+
+    Silent fails, sometimes known as failing silently, is a programming word that
+    is frequently used during error and exception handling.
+
+
+    Silent failure is a state in which a program fails at a given moment but never
+    alerts the user.
+
+
+    A quiet failure is a situation in which the parser, runtime development environment,
+    or compiler fails to emit an error or exception and continues with the program.
+    This frequently results in unforeseen consequences.
+
+
+    When a programmer ignores or bypasses exceptions, he might potentially cause quiet
+    failures. Alternatively, he openly conceals them and devises workarounds to ensure
+    that the program continues to function normally even if an error occurs. He may
+    do so for a variety of reasons, including the fact that the fault is not program-breaking
+    or that the user does not need to be aware of the issue.'
+  - '[PAGE 55]
+
+
+    # How to Handle the File Not Found Exception Error
+
+
+    You will occasionally see the FileNotFoundError. Handling such an issue is dependent
+    on your aim or purpose for opening the file. Here are some of the most typical
+    causes of this error:
+
+
+    +   - You did not pass the directory and filename as a string.
+
+    - You misspelled the directory and filename.
+
+    - You did not specify the directory.
+
+    - You did not include the correct file extension.
+
+    - The file does not exist.
+
+
+    The first step in dealing with the FileNotFoundError issue is to ensure that none
+    of the common causes are to blame. Once you''ve done that, you''ll need to decide
+    how to handle the issue, which is entirely dependant on why you''re accessing
+    the file in the first place.'
+  - '[PAGE 56]
+
+
+    # Checking to See if a File Exists
+
+
+    Again, there are two approaches to dealing with an exception: preventive and reactive.
+    The preventive method is to determine whether or not the file exists in the first
+    place.
+
+
+    You will need to use the os (os.py) module that comes with your Python installation
+    to accomplish this. Then you can utilize the isfile() function from the path module.
+    The file name of the path module is determined by the operating system (posixpath
+    for UNIX, ntpath for Windows, macpath for old MacOS). As an example:
+
+
+    ```
+
+    >>> from os import path
+
+    >>> path.isfile("random.txt")
+
+    False
+
+    >>> path.isfile("sampleFile.txt")
+
+    True
+
+    ```
+
+
+    # Try and Except
+
+
+    You can also do it the hard way by using try, except, and else blocks.'
+  - "[PAGE 57]\n\n```\n>>> def openFile(filename):\n    try:\n        x = open(filename,\
+    \ \"r\")\n    except FileNotFoundError:\n        print(\"The file '\" + filename\
+    \ + \"' does not exist.\")\n    except FileNotFound:\n        print(\"The file\
+    \ '\" + filename + \"' does exist.\")\n>>> openFile(\"random.txt\")\n```"
+  - '[PAGE 58]
+
+
+    # Creating a New File
+
+
+    If the file does not exist and your purpose is to overwrite any existing file,
+    you should use the "w" or "w+" access mode. If the file does not exist, the access
+    mode creates it for you. As an example:
+
+
+    ```
+
+    >>> x =open("new.txt", "w")
+
+    >>> x.tell()
+
+    0
+
+    ```
+
+
+    If you are going to read and write, use "w+" access mode instead.
+
+
+    # Practice Exercise
+
+
+    Make an attempt to break your Python by finding at least ten separate exceptions.
+
+
+    Create a loop after that.
+
+
+    Create ten statements in the loop that will generate each of the ten different
+    exceptions found within one try block.
+
+
+    Each time the loop loops, the statement following the one that caused an exception
+    should cause another, and so on.
+
+
+    Create a separate except block for each of the'
+  - '[PAGE 59]
+
+
+    mistakes.
+
+
+    # Solution'
+  - '[PAGE 60]
+
+
+    # CONCLUSION
+
+
+    Thank you for sticking with me until the end!
+
+    There are many different coding languages that you may use, but Python is one
+    of the best for most new programmers, providing the power and ease of use that
+    you are seeking for when you first get started with this type of coding language.
+    This guidebook went through how Python works as well as some of the many sorts
+    of coding that you can accomplish with it.
+
+
+    We spent some time looking at how to work with Python in the worlds of machine
+    learning, artificial intelligence, and data analysis, in addition to seeing a
+    lot of examples of how to write in Python and construct some of your own programs
+    in this language. These are topics and aspects of technology that are gaining
+    popularity, and many programmers are attempting to learn more about them. And,
+    with the help of this guidebook, you will be able to handle all of'
+  - '[PAGE 61]
+
+
+    these even if you are a Python beginner.
+
+    When you are ready to learn more about how to work with the Python coding language
+    and how to ensure that you can utilize Python with data analysis, artificial intelligence,
+    and machine learning, make sure to revisit this guidebook to get started.'
+pages:
+- img_proc: true
+  md: '# PYTHON ADVANCED GUIDE
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_0_0.png)
+
+
+    Alec Dennis'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: '# PYTHON
+
+    ADVANCED GUIDE
+
+
+    Your Advanced Python Tutorial
+
+    in 7 Days. A Step-by-Step Guide
+
+    from Intermediate to Advanced.
+
+    (2022 Crash Course)
+
+
+    Alec Dennis'
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: '# PYTHON
+
+    ADVANCED GUIDE
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_2_0.png)'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: 'Chapter 1: Object-oriented programming 5
+
+
+    Polymorphism 7
+
+
+    Encapsulation 10
+
+
+    Chapter two 12
+
+
+    Essential programming tools bash script
+
+
+    RegEx in Python 14
+
+
+    Python Package Manager 16
+
+
+    SourceControl 16
+
+
+    Bringing It All Together 17
+
+
+    Chapter three 19'
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: '# Working with files
+
+
+    +   - Creating new files 20
+
+    - What exactly are binary files? 22
+
+    - Opening Your File Up 23
+
+
+    # Chapter four 26
+
+
+    # Exception handling
+
+
+    +   - Handling the Zero Division Error Exception 27
+
+    - Reading an Exception Error Trace Back 31
+
+    - Using exceptions to prevent crashes 32'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: 'The Else Block 34
+
+
+    Failing Silently 37
+
+
+    How to Handle the File Not Found Exception Error 38
+
+
+    Checking to See if a File Exists 38
+
+
+    Try and Except 39
+
+
+    Practice
+
+
+    Exercise 40
+
+
+    CONCLUSION 41'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: '![](img/21587a8ed06959b3d69b17a651b73b67_6_0.png)
+
+
+    # # CHAPTER ONE
+
+    OBJECT-ORIENTED
+
+    PROGRAMMING
+
+
+    We''ll now look at the four object-oriented programming concepts and how they
+    apply to Python.
+
+
+    # ## Inheritance
+
+
+    The first major notion is referred to as "inheritance." This refers to the ability
+    of one object to derive from another. Take, for example, sports automobiles. Vehicles
+    are all sports cars, but not all vehicles are sports'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: "cars. Furthermore, all sedans are vehicles, but not all vehicles are sedans,\
+    \ and sedans are most emphatically not sports cars, despite the fact that they\
+    \ are both vehicles.\n\nBasically, this Object-Oriented programming principle\
+    \ states that objects can and should be split up into as little and precise notions\
+    \ as feasible.\n\n```\nclassVehicle(object):\n\n    def init\n        (self,makeAndModel,prodYear,airConditioning):self.makeAnd\n\
+    \        Model = makeAndModel\n        self.prodYear =\n        prodYearself.airConditionin\n\
+    \        g =\n        airConditioningself.doors =\n        4\n```\n\nThis is accomplished\
+    \ in Python by deriving classes.\n\nAssume we've created a new class called SportsCar.\n\
+    Now, construct a new class called SportsCar,"
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: "but instead of deriving from object, we'll derivate from Vehicle.\n\n```\n\
+    class SportsCar(Vehicle)\n    def __init__(self, makeAndModel, prodYear, airConditioning):\n\
+    \        self.makeAndModel = makeAndModel\n        self.prodYear = prodYear\n\
+    \        self.airConditioning = airConditioning\n\n        self.doors = 4\n```"
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: 'We don''t need the honk function here; only the constructor function is required.
+    Declare a sporty car now. I''m going to stick with the Ferrari.
+
+
+    ```
+
+    ferrari = SportsCar("Ferrari LaFerrari", 2016, True)
+
+    ```
+
+
+    Now test this by calling
+
+
+    ```
+
+    ferrari.honk()
+
+    ```
+
+
+    After that, save and run. Everything should go off without a hitch.
+
+    Why is this the case? This is due to the concept of inheritance, which states
+    that a child class inherits functions and class variables from a parent class.
+    It''s a simple enough concept to grasp. The next one is a little more difficult.
+
+
+    # Polymorphism
+
+
+    The concept of polymorphism is that the same process can be carried out in various
+    ways depending on the circumstances. In Python, this can be accomplished in two
+    ways: method overloading and method overriding.'
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: "Overloading a method means defining the same function twice with different\
+    \ arguments. For example, we might provide our Vehicle class with two distinct\
+    \ initializer procedures. It currently assumes a car has four doors. If we wanted\
+    \ to specify the number of doors on a car, we could add a new initializer function\
+    \ below our present one with a doors parameter, as shown below (the newer one\
+    \ is at the bottom):\n\n```\ndef __init__(self, makeAndModel, prodYear, airConditioning):\n\
+    \    self.makeAndModel = makeAndModel\n    self.prodYear = prodYear\n    self.airConditioning\
+    \ = airConditioning\n    self.doors = 4\n\ndef __init__(self, makeAndModel, prodYear,\
+    \ airConditioning, doors):\n    self.makeAndModel = makeAndModel\n    self.prodYear\
+    \ = prodYear\n    self.airConditioning = airConditioning\n    self.doors = doors\n\
+    ```"
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: 'Someone can now select whether or not to define the number of doors when creating
+    an instance of the Vehicle class. If they do not, it is believed that the number
+    of doors is four.
+
+
+    Method overriding occurs when a child class uses its code to override a parent
+    class''s method.
+
+
+    As an example, make a new class called Moped that extends Vehicle. Set the doors
+    to zero, which is ludicrous, and the air conditioning to fake. The only arguments
+    that matter are the make/model and the year of manufacture. This is how it should
+    look:'
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: "```\npython\nclass Moped(Vehicle):\n\n    def __init__(self, makeAndModel,\
+    \ prodYear):\n        self.makeAndModel = makeAndModel\n        self.prodYear\
+    \ = prodYear\n        self.airConditioning = False\n        self.doors = 0\n\n\
+    \    def honk(self):\n        print \"%s says: Beep! Beep!\" % self.makeAndModel\n\
+    ```\n\nNow, if we made an instance of the Moped class and called the honk() method,\
+    \ it would honk. But it is common knowledge that mopeds don't honk, they beep.\
+    \ So let's override the parent class's honk method with our own. This is super\
+    \ simple. We just redefine the function in the child class:\n\nI'm part of the\
+    \ 299,000,000 Americans who couldn't name a make and model of moped if their life\
+    \ depended on it, but you can test out if this works for yourself but declaring\
+    \ an instance\n\n# Abstraction\n\nAbstraction is the next key topic in object-oriented\
+    \ programming. This is the idea that the programmer and user should be kept"
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: 'away from the computer''s inner workings. This has two advantages.
+
+
+    The first is that it reduces the inherent security concerns and the danger of
+    catastrophic system malfunctions, whether caused by humans or not. By isolating
+    the programmer from the inner workings of the computer, such as memory and the
+    CPU, and, in some cases, even the operating system, there is a low risk of irreparable
+    damage.
+
+
+    The second benefit of abstraction is that it naturally makes the language easier
+    to grasp, read, and learn. Though it reduces the language''s strength by removing
+    some of the user''s control over the complete computer architecture, this is exchanged
+    for the ability to write fast and effectively in the language, without wasting
+    time dealing with trivialities like memory addresses or the like.
+
+
+    These are applicable in Python because, well, it''s quite simple. You can''t get
+    into the computer''s nitty-gritty, or do anything with memory allocation, or even
+    precisely allot an array size, but this is a tradeoff for incredible'
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: "readability, a highly safe language in a very secure environment, and ease\
+    \ of use with programming. Compare the following C code snippet:\n\n```\n#include\
+    \ <stdio.h>\nint main(void) {\n    printf(\"hello world\");\n    return 0;\n}\n\
+    ```\n\nto the Python code for doing the same:\n\n```\nprint \"hello world\"\n\
+    # That's it. That's all there is to it.\n```\n\nAbstraction is generally a net\
+    \ advantage for a vast majority of programs produced today, which is why Python\
+    \ and other object-oriented programming languages are so popular.\n\n# Encapsulation\n\
+    \nEncapsulation is the final important notion in object-oriented programming.\
+    \ This is the simplest to explain. This is the idea that"
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: 'common data should be combined and programs should be modular. I''m not going
+    to go into detail because it''s a very simple concept. Classes are as succinct
+    an example of encapsulation as you can get: common traits and methods are bound
+    together under one coherent structure, making it very easy to make objects of
+    the type without having to generate a ton of super-specific variables for each
+    instance.
+
+
+    So there you have it. We had finally reached the end of our Python trip. First
+    and foremost, I''d want to thank you for reading all the way through Python for
+    Beginners: The Ultimate Guide to Python Programming. Let us hope it was informative
+    and provided you with all of the tools you need to reach your objectives, whatever
+    they may be.
+
+
+    The next step is to put this knowledge to use. You just made one of the best decisions
+    of your life by learning the foundations of Python, whether as a hobby or a career
+    move, and your objective now should be finding ways to use it in your day-to-day
+    life to make life easier or to do tasks you''ve wanted to'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: complete for a long time.
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: '![](img/21587a8ed06959b3d69b17a651b73b67_17_0.png)
+
+
+    # # CHAPTER TWO
+
+    ## ESSENTIAL
+
+    ## PROGRAMMING
+
+    ## TOOLS BASH SCRIPT
+
+
+    A Bash script is a data file that comprises a series of commands that you can
+    generally code but that will save you time if you don''t. Take notice that in
+    programming, any code that would typically be put on the command line can be placed
+    on the script and executed'
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: 'exactly as is. Similarly, any code that might be included in a script can usually
+    be performed exactly as is.
+
+    There may be several processes manifesting one program running in memory at the
+    same time. You can, for example, use two terminals and run the command prompt
+    at the same time. In such a circumstance, the system will have two command prompt
+    processes running at the same time. When they have finished their execution, the
+    system can terminate them, and there will be no more processes representing the
+    command prompt.
+
+    You can use the terminal to run the Bash script, which will provide you with a
+    shell. When you start a script, it will not execute in current process, but will
+    instead start a new process that will be executed inside. However, as a beginner
+    in programming, you don''t need to be concerned about the mechanism of this script
+    because running Bash might be extremely simple.
+
+    You may also come across some tutorials on script execution, which is essentially
+    the same thing. Before running the script, make'
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: 'sure it has permission, as the software will return an error message if you
+    don''t.
+
+
+    Below is a sample Bash script:
+
+
+    ```
+
+    #!/bin/bash
+
+    # declare STRING variable
+
+    STRING="Hello Python"
+
+    #print variable on a screen
+
+    echo $STRING
+
+    ```
+
+
+    You can use the 755 shorthand to alter the script and ensure that it can be shared
+    with others to execute.
+
+
+    # RegEx in Python'
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: 'RegEx is a regular expression that specifies a text string and allows you to
+    construct patterns for managing, matching, and locating text. Python is an example
+    of a programming language that makes use of regex. Regex can also be used to search
+    for text within a file in text editors and from the command line.
+
+
+    When you first see regex, you may believe it is a new programming language. However,
+    if you work with text or need to parse massive volumes of data, knowing regex
+    could save you countless hours.
+
+
+    In Python, the RE module provides full regex functionality. If there is a mistake
+    while using or compiling a regex, it additionally raises the exception re.error.
+    When using regex in Python, you must be familiar with two fundamental functions.
+    But first, you should grasp that distinct characters have different meanings when
+    employed in a regular expression. So that you are not perplexed when working with
+    regex, we will use the term r''expression'' to refer to Raw Strings.
+
+
+    The search and match functions are the most'
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: 'crucial in Python regex.
+
+
+    The search function looks for the first occurrence of a RE pattern within a string
+    that includes optional flags. The search function contains the following parameters
+    (the syntax is below):
+
+
+    +   - String - will be searched to match the pattern within the string
+
+    - Pattern - regex to be matched
+
+    - Flags - modifiers that can be specified using bitwise
+
+
+    If successful, the re.search function will return an object match; otherwise,
+    it will return object none. To discover a matched expression, utilize the groups()
+    or groups(num) function of object match.
+
+
+    Here''s an example of code that makes use of the search function:'
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: "```\nimport re\n\n#Check if the string starts with \"The\" and ends with \"\
+    Spain\":\ntxt = \"The rain in Spain\"\nx = re.search(\"^The.*Spain$\", txt)\n\n\
+    if (x):\n    print(\"YES! We have a match!\")\nelse:\n    print(\"No match\")\n\
+    ```\n\nThe output will be:\n\n```\nYES! We have a match!\n```\n\nMeanwhile, the\
+    \ match function will attempt to match the RE pattern to string with appropriate\
+    \ flags. The syntax for the match function is as follows:\n\nThe following parameters\
+    \ are available for the match function:\n\n+   - String - this will be searched\
+    \ to match the pattern at the start of the string\n- Pattern - this is the regex\
+    \ to be matched\n- Flags - modifiers that can be specified using bitwise"
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: '# Python Package Manager
+
+
+    Package managers are tools used in programming to automate the process of installing,
+    configuring, upgrading, and uninstalling programs for a certain language system
+    in an organized manner.
+
+
+    It is also known as a package management system because it deals with the distribution
+    and archiving of data files that include the name of the software, version, number,
+    purpose, and a list of dependencies required for the language to operate properly.
+
+
+    When you use a package management, the metadata is normally preserved in the local
+    database to prevent code incompatibilities and missing permissions.
+
+
+    A utility in Python can be used to locate, install, upgrade, and remove Python
+    packages. It can also determine the most recent version of a package installed
+    on the system and upgrade the existing package from a distant or local server.
+
+
+    Python Package Manager is not free, and it can only be accessed via ActivePython.
+    It'
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: 'also makes use of repositories, which are collections of pre-installed packages
+    that contain various types of modules.
+
+
+    # SourceControl
+
+
+    A source control (also known as version control or revision control) in programming
+    manages changes to the codes, which are recognized by a letter or number code
+    referred to as the revision number or simply revision. For example, revision 1
+    refers to the initial set of code, whereas revision 2 refers to the first alteration.
+    Every edit will be accompanied with a timestamp as well as the identity of the
+    person who made the modification. Revisions are necessary so that the code may
+    be restored or compared.
+
+
+    When working with a group, source control is essential. You can combine your code
+    changes with other code changes made by a developer using different views that
+    reveal detailed changes, and then merge the correct code into the primary code
+    branch.
+
+
+    Source control is essential for coding'
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: 'projects, whether you''re using Python or another language. Keep in mind that
+    each coding project should begin with the use of a source control system such
+    as Mercurial or Git.
+
+
+    Since the dawn of programming, various source control techniques have emerged.
+    Previously, specialized control systems provided features that were tailored to
+    huge coding projects and specific project procedures. However, open-source solutions
+    may now be used for source control whether you are working on a solitary project
+    or as part of a large team.
+
+
+    In your early Python programming, it is best to use an open-source version control
+    system. You can use Mercurial or Git, both of which are open source and utilized
+    for source control distribution.
+
+
+    Subversion is also available, which can be used to centralize the system in order
+    to examine files and reduce conflicting merges.'
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: '# Bringing It All Together
+
+
+    Programming tools will facilitate your task. The tools covered in this section
+    will save you a lot of time, make it easier to communicate, and make your coding
+    smoother. In conclusion, we have discovered the following:
+
+
+    +   - A Bash Script can save you a significant amount of coding time while also
+    making your code lines more organized and readable.
+
+    - Regular Expressions (RegEx) can help you identify, search, and match text strings
+    within your code, saving you from having to browse line by line or evaluate each
+    code on your own.
+
+    - Package Managers will automate the system so that you can easily install, upgrade,
+    configure, or delete certain programs that will help you with your development.
+
+    - Source Control is essential for maintaining revisions, whether you'
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: 'work alone or with a team, so you can restore changes or compare revisions.
+
+
+    You can still work on your scripts without these tools, but they will make your
+    life easier.'
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: '![](img/21587a8ed06959b3d69b17a651b73b67_28_0.png)
+
+
+    # CHAPTER THREE
+
+    WORKING WITH FILES
+
+
+    ![](img/21587a8ed06959b3d69b17a651b73b67_28_1.png)
+
+
+    When it comes to working with Python, the next thing we need to focus on is making
+    sure we know how to work with and handle files. It is possible that you are working
+    with data and want to preserve it while ensuring that it is accessible for you
+    to pick up and utilize as needed later. You do have various options in terms of
+    how you save the data, how it is found later on, and how it reacts in your code.
+
+
+    When you work with the files, you will see'
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: 'that the data is saved on a disk, or you may re-use in the code as many times
+    as you like. This chapter will teach us a little bit more about how to manage
+    some of the work that we need to perform to ensure the files function properly,
+    among other things.
+
+
+    Now, we''ll switch to the Python language''s file mode, which will give you a
+    few more options along the way. A simple approach to think about this is to imagine
+    yourself working on a Word document. You might try to save one of the documents
+    you''re working on at some time so that it doesn''t get lost and you can find
+    it later. In Python, these types of files will be comparable. However, instead
+    of storing pages like you did in Word, you will save sections of your code.
+
+
+    When it comes to working with files, you will see that there are a few procedures
+    or ways from which to choose. Among these alternatives will be:
+
+
+    +   - Closing a file you''re working on.
+
+    - Making a new file to work on.
+
+    - Seeking out or relocating a file to a'
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: 'new location to make it easier to find.
+
+
+    +   - Writing a new section of code on an earlier-created file.
+
+
+    # Creating new files
+
+
+    The first thing we''ll look at doing here is working on generating a file. It
+    is difficult to complete many of the other duties if we do not first have a file
+    in place to assist us. If you want to create a new file and subsequently add code
+    to it, you must first ensure that the file is open in IDLE. Then, when writing
+    your code, you can select the mode you want to utilize.
+
+
+    When it comes to generating files in Python, you will see that there are three
+    options available to you. The three basic modes that we will look at here are
+    append (a), mode(x), and write (w).
+
+
+    When you wish to open a file and make changes to it, you should use the write
+    mode. This is the most straightforward of the three to work with. The write method
+    will make it'
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: 'easier for you to get the appropriate pieces of the code set up and working
+    in the end.
+
+    The write function will be simple to use and will allow you to make any modifications
+    or changes to the file that you like. You can add new information to the file,
+    alter what is already there, and do a variety of other things. If you want to
+    see what you can do with this part of the code using the write method, open your
+    compiler and run the following code:
+
+
+    ```
+
+    #file handling operations
+
+    #writing to a new file hello.txt
+
+    f = open(''hello.txt'', ''w'', encoding = ''utf-8'' )
+
+    f.write("Hello Python Developers!")
+
+    f.write("Welcome to Python World")
+
+    f.flush()
+
+    f.close()
+
+    ```'
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: 'From here, we''ll talk about what you can do with the directories we''re dealing
+    with. The current directory will always be the default directory. You can go through
+    and modify the directory where the code information is kept, but you must do so
+    in the beginning, or it will not end up in the location that you want.
+
+
+    Whatever directory you worked in while writing the code is the one you''ll need
+    to return to if you want to find the file afterwards. If you want it to appear
+    in a different directory, make sure you move it there before saving it and the
+    code. With the option that we mentioned above, you will be able to open the file
+    and view the message that you wrote out there when you go to the current directory
+    (or the directory that you specified for this attempt).
+
+
+    We built a little piece of code for this one. Of course, as time goes on, you''ll
+    be developing far more intricate codes. And with those scripts, there will be
+    instances when you want to alter or overwrite part of the information in that
+    file. This is doable with Python, and it only requires a minor adjustment to the'
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: 'syntax you''re using. Here''s an example of what you can do with this one:
+
+
+    ```
+
+    #file handling
+
+    operation
+
+    s#writingtoanewfil
+
+    ehello.txt
+
+
+    f=open(''hello.txt'',''w'',encoding=''ut
+
+    f-8'')f.write("Hello Python
+
+    Developers!")f.write("WelcometoP
+
+    ythonWorld")mylist= ["Apple",
+
+    "Orange", "Banana"]
+
+
+    #writelines() is used to write multiple lines into
+
+    the filef.write(mylist)
+
+    ```
+
+
+    Because you only need to add one new line, the preceding example is ideal for
+    making'
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: 'minor modifications to a previously worked-on file. This example doesn''t need
+    the third line because it only includes a few simple words, but you may add anything
+    you want to the program by using the syntax above and changing it up to suit your
+    needs.
+
+
+    # What exactly are binary files?
+
+
+    Another thing we should consider before going on is the idea of printing out some
+    of your files and data in the code as a binary file. This may appear to be a difficult
+    task, but Python will help you with it. All you have to do to make this happen
+    is convert the data you have to a sound or image file rather than a text one.
+
+
+    Python allows you to convert any piece of code into a binary file. It makes no
+    difference what type of file it was in the past. However, you must ensure that
+    you operate on the data correctly in order for it to be easier to reveal in the
+    manner that you choose later on. The syntax that will be required to ensure that
+    this works successfully for you is as follows:'
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: '```
+
+    # write binary data to a file
+
+
+    # writing the file hello.dat write binary mode
+
+    F = open(''hello.dat'', ''wb'')
+
+
+    # writing as byte strings
+
+    f.write("I am writing data in binary file!/n")
+
+    f.write("Let''s write another list/n")
+
+    f.close()
+
+    ```
+
+
+    If you take the time to use this code in your files, it will assist you in creating
+    the binary file that you desire. Some programmers choose to adopt this strategy
+    because it helps them organize their work and makes it easier to retrieve information
+    when needed.
+
+
+    # Opening Your File Up
+
+
+    So far, we''ve worked on creating a new file and saving it, as well as working
+    with a binary file. In these examples, we covered some of the fundamentals of
+    working with files so that you can make them work for you and access them whenever
+    you want.
+
+
+    Now that you''ve completed this section, it''s time to learn how to open the file
+    and use it, as well as make modifications to it at any time. When you open that
+    file, it will be'
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: 'much easier to utilize it again and again as much as you like. When you are
+    ready to examine the steps required to open and use a file, you will need the
+    following syntax.
+
+
+    ```
+
+    # read binary data to a file
+
+    #writing the file hello.dat write append binary mode
+
+    with open("hello.dat", ''rb'') as f:
+
+    data = f.read()
+
+    text = data.decode(''utf-8'')
+
+    print(text)
+
+    ```
+
+
+    The output that you would get form putting this into the system would be like
+    the following:
+
+
+    ```
+
+    Hello,world!
+
+    This is a demo using
+
+    withThisfilecontainsthreelines
+
+    Hello world
+
+    ThisisademousingwihThisfileco
+
+    ntainsthreelines
+
+    Seekingout a fileyou need
+
+    ```'
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: 'Finally, we''ll look at how you may find some of the files you''ll need for
+    this type of coding language. We''ve already discussed how to create files, how
+    to store them in various ways, how to open and rewrite on them, and how to locate
+    the file. However, there are situations when you can transfer one of your files
+    to a new location.
+
+
+    For example, if you''re working on a file and you see that things aren''t showing
+    up the way you''d like them to, it''s time to change this. Maybe you didn''t spell
+    the time of the identifier correctly, or the directory isn''t where you want it
+    to be, in which case the seek option may be the best approach to find this missing
+    file and then make the necessary changes to make it simpler to find later.
+
+
+    You will be able to modify the location of the file using this method, ensuring
+    that it is always in the correct location or even making it easier for you to
+    find it when needed. You only need to utilize syntax similar to what is shown
+    above to assist you in making these modifications.'
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: Working through all of the different methods discussed in this chapter will
+    allow you to do a variety of things within your code. Whether you want to create
+    a new file, change the code, move the file around, or do something else, you'll
+    be able to accomplish it all with the codes we've covered in this chapter.
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: '![](img/21587a8ed06959b3d69b17a651b73b67_39_0.png)
+
+
+    # # CHAPTER FOUR
+
+    ## EXCEPTION HANDLING
+
+
+    Exception handling is synonymous with error management. It serves three functions.
+
+
+    +   1. It enables debugging of your program.
+
+    2. It enables your software to continue executing in the face of an error or exception.
+
+    3. It enables you to build your own customized errors to aid in debugging, removing
+    and controlling some of Python''s quirks, and making your program perform as'
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: 'you expect it to.
+
+
+    # Handling the Zero Division Error Exception
+
+
+    Exception handling can be a simple or tough process, depending on how you want
+    your program to run and how creative you are. You might have raised an eyebrow
+    at the word "creativity." Isn''t programming all about logic? No.
+
+
+    The primary goal of programming is to solve problems. A solution to a problem
+    necessitates more than just reasoning. It also necessitates imagination. Have
+    you ever heard the expression "think beyond the box?" Program-breaking exceptions
+    are inconvenient and are frequently referred to as bugs. The solution to such
+    issues is frequently elusive. And you must find a solution or risk having to rewrite
+    your application from start.
+
+
+    When you divide, for example, you have a calculator software with this chunk of
+    code:'
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: "```\n>>> def div(dividend, divisor):\n        print(dividend / divisor)\n>>>\
+    \ div(5, 0)\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in\
+    \ <module>\n  File \"<stdin>\", line 2, in div\nZeroDivisionError: division by\
+    \ zero\n```\n\nOf course, division by zero is a mathematically impossible operation.\
+    \ As a result, when this occurs, Python terminates the program since it does not\
+    \ know what you intend to accomplish. It is unaware of any valid answer or response.\n\
+    \nThat being stated, the issue here is that the mistake terminates your program\
+    \ completely. You have two alternatives for dealing with this exception. To begin,\
+    \ you can ensure that such an operation does not occur in your program. Second,\
+    \ you can let the operation and errors to occur while instructing Python to continue\
+    \ your application.\n\nHere's how the first solution looks:"
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: "```\n>>> def div(dividend, divisor):\n    if (divisor != 0):\n        print(dividend\
+    \ / divisor)\n    else:\n        print(\"Cannot Divide by Zero.\")\n>>> div(5,\
+    \ 0)\nCannot Divide by Zero.\n```\n\nHere is what the second solution looks like:\n\
+    \n```\n>>> def div(dividend, divisor):\n    try:\n        print(dividend / divisor)\n\
+    \    except:\n        print(\"Cannot Divide by Zero.\")\n>>> div(5, 0)\nCannot\
+    \ Divide by Zero.\n```\n\nKeep in mind the two main solutions to errors and exceptions.\
+    \ One, avoid making the mistake in the first place. Two, deal with the fallout\
+    \ from the error.\n\n# Using Try-Except Blocks\n\nThe try except block was used\
+    \ to manage the"
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: "error in the preceding example. However, you or your user can still wreak havoc\
+    \ on your solution. As an example:\n\n```\n>>> def div(dividend, divisor):\n \
+    \   try:\n        print(dividend / divisor)\n    except :\n        print(\"Cannot\
+    \ Divide by Zero.\")\n>>> div(5, \"a\")\nCannot Divide by Zero.\n```\n\nThe statement\
+    \ written for the \"except\" block is insufficient to justify the error caused\
+    \ by the input. A \"Cannot Divide by Zero.\" warning is not displayed when dividing\
+    \ a number by a string.\n\nTo make this work, you must first understand how to\
+    \ utilize it unless block correctly. First and foremost, by giving the specific\
+    \ exception, you may describe the error that it will collect and respond to. As\
+    \ an example:"
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: "```\n>>> def div(dividend,\n            divisor):\n    try:\n        print(dividend\
+    \ / divisor)\n    except ZeroDivisionError:\n        print(\"Cannot Divide by\
+    \ Zero.\")\n\n>>> div(5, 0)\nCannot Divide by Zero.\n\n>>> div(5, \"a\")\nTraceback\
+    \ (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"\
+    <stdin>\", line 3, in div\nTypeError: unsupported operand type(s) for /: 'int'\
+    \ and 'str'\n```\n\nThe error to be handled has now been"
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: "provided. When the program meets the given error, it will run the statements\
+    \ in the \"except\" block that caught it. If no except block is specified to catch\
+    \ further failures, Python will step in, halt the program, and throw an exception.\n\
+    \nBut how could this happen? When the error was not specified in the example,\
+    \ it handled everything. Yes, it is right. When there is no defined error to search\
+    \ for in the \"except\" block, it will catch any error. As an example:\n\n```\n\
+    >>> def div(dividend, divisor):\n    try:\n        print(dividend / divisor)\n\
+    \    except:\n        print(\"An error happened.\")\n>>> div(5, 0)\nAn error happened.\n\
+    >>> div(5, \"a\")\nAn error happened.\n```\n\nIf you don't know what kind of error\
+    \ you might encounter, this is a better approach to use the \"unless\" block.\n\
+    \n# Reading an Exception Error Trace Back"
+  merge: -1
+  pgno: 45
+- img_proc: true
+  md: 'The most crucial aspect of error handling is understanding how to read the
+    traceback message. It is not difficult to accomplish. The traceback message is:
+
+
+    ```
+
+    <Traceback Stack Header>
+
+    <File Name>, <Line Number>, <Function/Module>
+
+    <Exception>: <Exception Description>
+
+    ```
+
+
+    Here are things you need to remember:
+
+    An error has occurred, according to the traceback stack header.
+
+
+    +   - The filename indicates the name of the file containing the issue. Because
+    the examples in the book are coded using the interpreter, the file name is always
+    "stdin>" or standard input.
+
+    - The line number specifies the specific line number in the file where the issue
+    occurred. Because the examples are run through the interpreter, it will always
+    say line. If the error is located in a code block'
+  merge: -1
+  pgno: 46
+- img_proc: true
+  md: 'or module, it will report the statement''s line number in relation to the code
+    block or module.
+
+
+    +   - The function/module component specifies which function or module is in charge
+    of the statement. If the code block lacks an identifier or the statement is stated
+    outside of code blocks, the default value is module>.
+
+    - The exception specifies the type of issue that occurred. Some are built-in classes
+    (e.g., ZeroDivisionError, TypeError, and so on), while others are simply errors
+    (e.g., SyntaxError). They can be used on your unless blocks.
+
+    - The exception description provides extra information about how the error happened.
+    The format of the description may differ from error to mistake.
+
+
+    # Using exceptions to prevent crashes
+
+
+    In any case, all you need to do to find out'
+  merge: -1
+  pgno: 47
+- img_proc: true
+  md: "which exceptions you can use is to make an error. For example, using the TypeError\
+    \ from the previous example, you may capture that issue as well and respond with\
+    \ the appropriate sentences.\n\n```\n>>> def div(dividend, divisor):\n    try:\n\
+    \        print(dividend / divisor)\n    except ZeroDivisionError:\n        print(\"\
+    Cannot Divide by Zero.\")\n    except TypeError:\n        print(\"Cannot Divide\
+    \ by Anything Other Than a Number.\")\n    except:\n        print(\"An unknown\
+    \ error has been detected.\")\n>>> div(5, 0)\nCannot Divide by Zero.\n>>> div(5,\
+    \ \"a\")\nCannot Divide by Anything Other Than a Number.\n>>> div(undeclaredVariable\
+    \ / 20)\nAn unknown error has been detected.\n```\n\nHowever, catching problems\
+    \ in this manner can still be difficult. It does allow you to avoid an accident\
+    \ or stop, but you have no idea what happened. To find out about an unknown issue,\
+    \ use the as a keyword to give the Exception data to a variable. The variable"
+  merge: -1
+  pgno: 48
+- img_proc: true
+  md: "detail is a common convention for this purpose.\n\nAs an example:\n\n```\n\
+    >>> def div(dividend, divisor):\n    try:\n        print(dividend / divisor)\n\
+    \    except Exception as detail:\n        print(\"An error has been detected.\"\
+    )\n        print(detail)\n        print(\"Continuing with the program.\")\n>>>\
+    \ div(5, 0)\nAn error has been detected.\n```\n\n# Division by zero\n\n```\nContinuing\
+    \ with the program.\n>>> div(5, \"a\")\nAn error has been detected.\nunsupported\
+    \ operand type(s) for /: 'int' and 'str'\nContinuing with the program.\n```\n\n\
+    # The Else Block"
+  merge: -1
+  pgno: 49
+- img_proc: true
+  md: "Sometimes an error occurs in the middle of your code block. Using try and except,\
+    \ you can catch the error. If an error occurs, you may not want to execute any\
+    \ of the statements in that code block. As an example:\n\n```\n> def\ndiv(dividend,\n\
+    divisor):\n    try:\n        quotient = dividend / divisor\n    except Exception\
+    \ as detail:\n        print(\"An error has been detected.\")\n```"
+  merge: -1
+  pgno: 50
+- img_proc: true
+  md: "```\n>>>div(4, 2)\n4 divided by 2 is:\n2.0\n>>>div(5, 0)\nAn error has been\n\
+    detected.division by\nzero\nContinuing with the program.5 divided\nby 0 is:\n\
+    Traceback(mostrecentcalllast):\n  File \"<stdin>\", line 1, in\n<module>File \"\
+    <stdin>\",\nline 8, in div\n    Print(quotient)\n```\n\nUnboundLocalError: local\
+    \ variable 'quotient' referenced before assignment"
+  merge: -1
+  pgno: 51
+- img_proc: true
+  md: 'As you can see, the statements following the initial error are dependant on
+    it, and hence they are also affected. When utilized after the try and except block
+    in this example, the variable quotient returned an error since its supposed value
+    was not assigned because the expression assigned to it was impossible to evaluate.
+
+
+    In this situation, you should remove the remaining statements that are dependent
+    on the try clause''s contents. You must utilize the else block to accomplish this.
+    As an example:'
+  merge: -1
+  pgno: 52
+- img_proc: true
+  md: "```\n>>> def div(dividend, divisor):\n    try:\n        quotient = dividend\
+    \ / divisor\n    except Exception as detail:\n        print(\"An error has been\
+    \ detected.\")\n        print(detail)\n        print(\"Continuing with the program.\"\
+    )\n    else:\n        print(str(dividend) + \" divided by \" + str(divisor) +\
+    \ \" is:\")\n        print(quotient)\n>>> div(4, 2)\n4 divided by 2 is:\n2\n>>>\
+    \ div(5, 0)\nAn error has been detected.\ndivision by zero\nContinuing with the\
+    \ program.\n```\n\nThe first try at using the function with suitable arguments\
+    \ was successful.\n\nThe program did not execute the last two statements in the\
+    \ else block on the second attempt because it returned an error.\n\nExcept for\
+    \ blocks, the else block always comes first. The otherwise block's function is\
+    \ to allow Python to execute the lines contained within it when the try block\
+    \ does not return and to disregard them if an exception occurs."
+  merge: -1
+  pgno: 53
+- img_proc: true
+  md: '# Failing Silently
+
+
+    Silent fails, sometimes known as failing silently, is a programming word that
+    is frequently used during error and exception handling.
+
+
+    Silent failure is a state in which a program fails at a given moment but never
+    alerts the user.
+
+
+    A quiet failure is a situation in which the parser, runtime development environment,
+    or compiler fails to emit an error or exception and continues with the program.
+    This frequently results in unforeseen consequences.
+
+
+    When a programmer ignores or bypasses exceptions, he might potentially cause quiet
+    failures. Alternatively, he openly conceals them and devises workarounds to ensure
+    that the program continues to function normally even if an error occurs. He may
+    do so for a variety of reasons, including the fact that the fault is not program-breaking
+    or that the user does not need to be aware of the issue.'
+  merge: -1
+  pgno: 54
+- img_proc: true
+  md: '# How to Handle the File Not Found Exception Error
+
+
+    You will occasionally see the FileNotFoundError. Handling such an issue is dependent
+    on your aim or purpose for opening the file. Here are some of the most typical
+    causes of this error:
+
+
+    +   - You did not pass the directory and filename as a string.
+
+    - You misspelled the directory and filename.
+
+    - You did not specify the directory.
+
+    - You did not include the correct file extension.
+
+    - The file does not exist.
+
+
+    The first step in dealing with the FileNotFoundError issue is to ensure that none
+    of the common causes are to blame. Once you''ve done that, you''ll need to decide
+    how to handle the issue, which is entirely dependant on why you''re accessing
+    the file in the first place.'
+  merge: -1
+  pgno: 55
+- img_proc: true
+  md: '# Checking to See if a File Exists
+
+
+    Again, there are two approaches to dealing with an exception: preventive and reactive.
+    The preventive method is to determine whether or not the file exists in the first
+    place.
+
+
+    You will need to use the os (os.py) module that comes with your Python installation
+    to accomplish this. Then you can utilize the isfile() function from the path module.
+    The file name of the path module is determined by the operating system (posixpath
+    for UNIX, ntpath for Windows, macpath for old MacOS). As an example:
+
+
+    ```
+
+    >>> from os import path
+
+    >>> path.isfile("random.txt")
+
+    False
+
+    >>> path.isfile("sampleFile.txt")
+
+    True
+
+    ```
+
+
+    # Try and Except
+
+
+    You can also do it the hard way by using try, except, and else blocks.'
+  merge: -1
+  pgno: 56
+- img_proc: true
+  md: "```\n>>> def openFile(filename):\n    try:\n        x = open(filename, \"r\"\
+    )\n    except FileNotFoundError:\n        print(\"The file '\" + filename + \"\
+    ' does not exist.\")\n    except FileNotFound:\n        print(\"The file '\" +\
+    \ filename + \"' does exist.\")\n>>> openFile(\"random.txt\")\n```"
+  merge: -1
+  pgno: 57
+- img_proc: true
+  md: '# Creating a New File
+
+
+    If the file does not exist and your purpose is to overwrite any existing file,
+    you should use the "w" or "w+" access mode. If the file does not exist, the access
+    mode creates it for you. As an example:
+
+
+    ```
+
+    >>> x =open("new.txt", "w")
+
+    >>> x.tell()
+
+    0
+
+    ```
+
+
+    If you are going to read and write, use "w+" access mode instead.
+
+
+    # Practice Exercise
+
+
+    Make an attempt to break your Python by finding at least ten separate exceptions.
+
+
+    Create a loop after that.
+
+
+    Create ten statements in the loop that will generate each of the ten different
+    exceptions found within one try block.
+
+
+    Each time the loop loops, the statement following the one that caused an exception
+    should cause another, and so on.
+
+
+    Create a separate except block for each of the'
+  merge: -1
+  pgno: 58
+- img_proc: true
+  md: 'mistakes.
+
+
+    # Solution'
+  merge: -1
+  pgno: 59
+- img_proc: true
+  md: '# CONCLUSION
+
+
+    Thank you for sticking with me until the end!
+
+    There are many different coding languages that you may use, but Python is one
+    of the best for most new programmers, providing the power and ease of use that
+    you are seeking for when you first get started with this type of coding language.
+    This guidebook went through how Python works as well as some of the many sorts
+    of coding that you can accomplish with it.
+
+
+    We spent some time looking at how to work with Python in the worlds of machine
+    learning, artificial intelligence, and data analysis, in addition to seeing a
+    lot of examples of how to write in Python and construct some of your own programs
+    in this language. These are topics and aspects of technology that are gaining
+    popularity, and many programmers are attempting to learn more about them. And,
+    with the help of this guidebook, you will be able to handle all of'
+  merge: -1
+  pgno: 60
+- img_proc: true
+  md: 'these even if you are a Python beginner.
+
+    When you are ready to learn more about how to work with the Python coding language
+    and how to ensure that you can utilize Python with data analysis, artificial intelligence,
+    and machine learning, make sure to revisit this guidebook to get started.'
+  merge: -1
+  pgno: 61
+toc:
+- - '#'
+  - PYTHON 高级指南
+- - '##'
+  - 文件操作
+- - '###'
+  - 第 4 章 26
+- - '###'
+  - 异常处理
+- - '##'
+  - 第一章
+- - '###'
+  - 继承
+- - '###'
+  - 多态
+- - '###'
+  - 抽象
+- - '##'
+  - 就这样。仅此而已。
+- - '###'
+  - 封装
+- - '##'
+  - 第二章
+- - '####'
+  - 基本编程工具：Bash 脚本
+- - '####'
+  - Python 中的正则表达式
+- - '####'
+  - Python 包管理器
+- - '####'
+  - 源代码控制
+- - '####'
+  - 综合运用
+- - '##'
+  - 第三章
+- - '###'
+  - 处理文件
+- - '####'
+  - 创建新文件
+- - '####'
+  - 什么是二进制文件？
+- - '####'
+  - 打开你的文件
+- - '##'
+  - 第四章
+- - '###'
+  - 异常处理
+- - '####'
+  - 处理零除错误异常
+- - '####'
+  - 使用 Try-Except 块
+- - '####'
+  - 阅读异常错误回溯
+- - '####'
+  - 使用异常防止崩溃
+- - '####'
+  - Else 块
+- - '####'
+  - 静默失败
+- - '####'
+  - 如何处理 FileNotFoundError 异常错误
+- - '####'
+  - 检查文件是否存在
+- - '####'
+  - Try 和 Except
+- - '####'
+  - 创建新文件
+- - '####'
+  - 练习
+- - '####'
+  - 解答
+- - '####'
+  - 结论

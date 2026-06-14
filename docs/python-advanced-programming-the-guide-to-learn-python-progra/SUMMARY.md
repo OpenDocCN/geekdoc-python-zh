@@ -1,0 +1,2 @@
++   [Python 高级编程：Python 编程学习指南。参考手册，包含动态编程、多线程、多进程、调试、测试等练习与示例](README.md)
++   [Python 高级编程：Python 编程学习指南。参考手册，包含动态编程、多线程、多进程、调试、测试等练习与示例](python-advanced-programming-the-guide-to-learn-python-progra.md)
