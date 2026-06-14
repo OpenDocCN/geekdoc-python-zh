@@ -1,0 +1,3603 @@
+pages:
+- img_proc: false
+  md: '![](bbox=[0.77, 0.02, 0.94, 0.06])
+
+
+    ![](bbox=[0.06, 0.08, 0.94, 0.36])
+
+
+    1ST EDITION
+
+
+    # # Building ETL Pipelines with Python
+
+
+    Create and deploy enterprise-ready ETL pipelines by employing modern methods
+
+
+    BRIJ KISHORE PANDEY | EMILY RO SCHOOF'
+  merge: -1
+  pgno: 0
+- img_proc: false
+  md: '![](bbox=[0.12, 0.09, 0.56, 0.19])
+
+
+    # Building ETL Pipelines with Python
+
+
+    Copyright © 2023 Packt Publishing
+
+
+    *All rights reserved*. No part of this book may be reproduced, stored in a retrieval
+    system, or transmitted in any form or by any means, without the prior written
+    permission of the publisher, except in the case of brief quotations embedded in
+    critical articles or reviews.
+
+
+    Every effort has been made in the preparation of this book to ensure the accuracy
+    of the information presented. However, the information contained in this book
+    is sold without warranty, either express or implied. Neither the authors, nor
+    Packt Publishing or its dealers and distributors, will be held liable for any
+    damages caused or alleged to have been caused directly or indirectly by this book.
+
+
+    Packt Publishing has endeavored to provide trademark information about all of
+    the companies and products mentioned in this book by the appropriate use of capitals.
+    However, Packt Publishing cannot guarantee the accuracy of this information.
+
+
+    **Group Product Manager:** Reshma Raman
+
+
+    **Publishing Product Managers:** Birjees Patel and Heramb Bhavsar
+
+
+    **Content Development Editor:** Shreya Moharir'
+  merge: -1
+  pgno: 1
+- img_proc: false
+  md: '**Project Coordinator:** Hemangi Lotlikar
+
+
+    **Technical Editor:** Rahul Limbachiya
+
+
+    **Copy Editor:** Safis Editing
+
+
+    **Proofreader:** Safis Editing
+
+
+    **Indexer:** Subalakshmi Govindhan
+
+
+    **Production Designer:** Prashant Ghare
+
+
+    **DevRel Marketing Coordinator:** Nivedita Singh
+
+
+    First published: September 2023
+
+
+    Production reference: 1250923
+
+
+    Published by Packt Publishing Ltd.
+
+
+    Grosvenor House
+
+
+    11 St Paul’s Square
+
+
+    Birmingham
+
+
+    B3 1RB
+
+
+    ISBN 978-1-80461-525-6
+
+
+    [www.packtpub.com](http://www.packtpub.com)
+
+
+    > To my daughter, Yashvi, who lights up my life; to Khushboo, my wife, my rock,
+    and my inspiration; to my parents, Madhwa Nand and Veena, who taught me everything
+    I know; and to my brothers, who have always stood by my side.
+
+
+    – Brij Kishore Pandey'
+  merge: -1
+  pgno: 2
+- img_proc: false
+  md: '# Contributors
+
+
+    # About the authors
+
+
+    **Brij Kishore Pandey** stands as a testament to dedication, innovation, and mastery
+    in the vast domains of software engineering, data engineering, machine learning,
+    and architectural design. His illustrious career, spanning over 14 years, has
+    seen him wear multiple hats, transitioning seamlessly between roles and consistently
+    pushing the boundaries of technological advancement.
+
+
+    Hailing from the renowned SRM Institute of Science and Technology in Chennai,
+    India, Brij’s academic foundation in electrical and electronics engineering has
+    served as the bedrock upon which he built his dynamic career. He has had the privilege
+    of collaborating with industry behemoths such as JP Morgan Chase, American Express,
+    3M Company, Alaska Airlines, and Cigna Healthcare, contributing immensely with
+    his diverse skill set. Presently, Brij assumes a dual role, guiding teams as a
+    principal software engineer and providing visionary architectural solutions at
+    ADP (Automatic Data Processing Inc.).
+
+
+    A fervent believer in continuous learning and sharing knowledge, Brij has graced
+    various international platforms as a speaker, sharing insights, experiences, and
+    best practices with budding engineers and seasoned professionals alike. His influence
+    doesn’t end there; he has also taken on mentorship roles, guiding the next generation
+    of tech aficionados, in association with Mentor Cruise Inc.'
+  merge: -1
+  pgno: 3
+- img_proc: false
+  md: 'Beyond the world of code, algorithms, and systems, Brij finds profound solace
+    in spiritual pursuits. He devotes times to the ardent practice of meditation and
+    myriad yoga disciplines, echoing his belief in a holistic approach to well-being.
+    Deep spiritual guidance from his revered guru, Avdhoot Shivanand, has been pivotal
+    in shaping his inner journey and perspective.
+
+
+    Originally from India, Brij Kishore Pandey resides in Parsippany, New Jersey,
+    USA, with his wife and daughter.
+
+
+    **Emily Ro Schoof** is a dedicated data specialist with a global perspective,
+    showcasing her expertise as a data scientist and data engineer on both national
+    and international platforms. Drawing from a background rooted in healthcare and
+    experimental design, she brings a unique perspective of expertise to her data
+    analytic roles. Emily’s multifaceted career ranges from working with UNICEF to
+    design automated forecasting algorithms to identify conflict anomalies using near
+    real-time media monitoring to serving as a subject matter expert for General Assembly’s
+    Data Engineering course content and design. Her mission is to empower individuals
+    to leverage data for positive impact. Emily holds the strong belief that providing
+    easy access to resources that merge theory and real-world applications is the
+    essential first step in this process.
+
+
+    # About the reviewers
+
+
+    **Adonis Castillo Cordero** has been working in software engineering, data engineering,
+    and business intelligence for the last five years. He is passionate about systems
+    engineering, data, and leadership. His recent focus'
+  merge: -1
+  pgno: 4
+- img_proc: false
+  md: 'areas include cloud-native landscape, business strategy, and data engineering
+    and analytics. Based in Alajuela, Costa Rica, Adonis currently works as a lead
+    data engineer and has worked for Fortune 500 companies such as Experian and 3M.
+
+
+    > I’m grateful for my family and friends’ unwavering support during this project.
+    Thanks to the publisher for their professionalism and guidance. I sincerely hope
+    the book brings joy and is useful to readers.
+
+
+    **Dr. Bipul Kumar** is an AI consultant who brings over seven years of experience
+    in deep learning and machine learning to the table. His journey in AI has encompassed
+    various domains, including conversational AI, computer vision, and speech recognition.
+    Bipul has had the privilege to work on impactful projects, including contributing
+    to developing software as a medical device as the head of AI at Kaliber Labs.
+    He also served as an AI consultant at AIX, specializing in developing conversational
+    AI. His academic pursuits led him to earn a PhD from IIM Ranchi and a B.Tech from
+    SRMIST. With a passion for research and innovation, Bipul has authored numerous
+    publications and contributed to a patent application, humbly making his mark on
+    the AI landscape.'
+  merge: -1
+  pgno: 5
+- img_proc: false
+  md: '# Table of Contents
+
+
+    [Preface](Preface)'
+  merge: -1
+  pgno: 6
+- img_proc: false
+  md: '# Part 1: Introduction to ETL, Data Pipelines, and Design Principles
+
+
+    # 1
+
+
+    # A Primer on Python and the Development Environment
+
+
+    +   - Introducing Python fundamentals
+
+    - An overview of Python data structures
+
+    - Python if...else conditions or conditional statements
+
+    - Python looping techniques
+
+    - Python functions
+
+    - Object-oriented programming with Python
+
+    - Working with files in Python
+
+    - Establishing a development environment
+
+    - Version control with Git tracking
+
+    - Documenting environment dependencies with requirements.txt
+
+    - Utilizing module management systems (MMSs)
+
+    - Configuring a Pipenv environment in PyCharm'
+  merge: -1
+  pgno: 7
+- img_proc: false
+  md: '# Summary
+
+
+    # 2
+
+
+    # Understanding the ETL Process and Data Pipelines
+
+
+    +   - What is a data pipeline?
+
+    - How do we create a robust pipeline?
+
+    - Pre-work – understanding your data
+
+    - Design planning – planning your workflow
+
+    - Architecture development – developing your resources
+
+    - Putting it all together – project diagrams
+
+    - What is an ETL data pipeline?
+
+    - Batch processing
+
+    - Streaming method
+
+    - Cloud-native
+
+    - Automating ETL pipelines
+
+    - Exploring use cases for ETL pipelines
+
+    - Summary
+
+    - References'
+  merge: -1
+  pgno: 8
+- img_proc: false
+  md: "# 3\n\n# Design Principles for Creating Scalable and Resilient Pipelines\n\n\
+    +   - Technical requirements\n- Understanding the design patterns for ETL\n  -\
+    \ Basic ETL design pattern\n  - ETL-P design pattern\n  - ETL-VP design pattern\n\
+    \  - ELT two-phase pattern\n- Preparing your local environment for installations\n\
+    - Open source Python libraries for ETL pipelines\n  - Pandas\n  - NumPy\n- Scaling\
+    \ for big data packages\n  - Dask\n  - Numba\n- Summary\n- References"
+  merge: -1
+  pgno: 9
+- img_proc: false
+  md: '# Part 2: Designing ETL Pipelines with Python
+
+
+    4
+
+
+    # Sourcing Insightful Data and Data Extraction Strategies
+
+
+    +   - Technical requirements
+
+    - What is data sourcing?
+
+    - Accessibility to data
+
+    - Types of data sources
+
+    - Getting started with data extraction
+
+    - CSV and Excel data files
+
+    - Parquet data files
+
+    - API connections
+
+    - Databases
+
+    - Data from web pages
+
+    - Creating a data extraction pipeline using Python
+
+    - Data extraction
+
+    - Logging'
+  merge: -1
+  pgno: 10
+- img_proc: false
+  md: 'Summary
+
+
+    References
+
+
+    5
+
+
+    # Data Cleansing and Transformation
+
+
+    Technical requirements
+
+
+    Scrubbing your data
+
+
+    Data transformation
+
+
+    Data cleansing and transformation in ETL pipelines
+
+
+    Understanding the downstream applications of your data
+
+
+    Strategies for data cleansing and transformation in Python
+
+
+    Preliminary tasks – the importance of staging data
+
+
+    Transformation activities in Python
+
+
+    Creating data pipeline activity in Python
+
+
+    Summary
+
+
+    6'
+  merge: -1
+  pgno: 11
+- img_proc: false
+  md: '# Loading Transformed Data
+
+
+    +   - Technical requirements
+
+    - Introduction to data loading
+
+    - Choosing the load destination
+
+    - Types of load destinations
+
+    - Best practices for data loading
+
+    - Optimizing data loading activities by controlling the data import method
+
+    - Creating demo data
+
+    - Full data loads
+
+    - Incremental data loads
+
+    - Precautions to consider
+
+    - Tutorial – preparing your local environment for data loading activities
+
+    - Downloading and installing PostgreSQL
+
+    - Creating data schemas in PostgreSQL
+
+    - Summary
+
+
+    # 7
+
+
+    # Tutorial – Building an End-to-End ETL Pipeline in Python'
+  merge: -1
+  pgno: 12
+- img_proc: false
+  md: '+   - [Technical requirements](Technical requirements)
+
+    - [Introducing the project](Introducing the project)
+
+    - [The approach](The approach)
+
+    - [The data](The data)
+
+    - [Creating tables in PostgreSQL](Creating tables in PostgreSQL)
+
+    - [Sourcing and extracting the data](Sourcing and extracting the data)
+
+    - [Transformation and data cleansing](Transformation and data cleansing)
+
+    - [Loading data into PostgreSQL tables](Loading data into PostgreSQL tables)
+
+    - [Making it deployable](Making it deployable)
+
+    - [Summary](Summary)
+
+
+    8
+
+
+    # [Powerful ETL Libraries and Tools in Python](Powerful ETL Libraries and Tools
+    in Python)
+
+
+    +   - [Technical requirements](Technical requirements)
+
+    - [Architecture of Python files](Architecture of Python files)
+
+    - [Configuring your local environment](Configuring your local environment)
+
+    - [config.ini](config.ini)
+
+    - [config.yaml](config.yaml)
+
+    - [Part 1 – ETL tools in Python](Part 1 – ETL tools in Python)
+
+    - [Bonobo](Bonobo)'
+  merge: -1
+  pgno: 13
+- img_proc: false
+  md: '[Odo](https://example.com)
+
+
+    [Mito ETL](https://example.com)
+
+
+    [Riko](https://example.com)
+
+
+    [pETL](https://example.com)
+
+
+    [Luigi](https://example.com)
+
+
+    [Part 2 – pipeline workflow management platforms in Python](https://example.com)
+
+
+    [Airflow](https://example.com)
+
+
+    [Summary](https://example.com)'
+  merge: -1
+  pgno: 14
+- img_proc: false
+  md: "# Part 3: Creating ETL Pipelines in AWS\n\n9\n\n# A Primer on AWS Tools for\
+    \ ETL Processes\n\n+   - Common data storage tools in AWS\n  - Amazon RDS\n  -\
+    \ Amazon Redshift\n  - Amazon S3\n  - Amazon EC2\n- Discussion – Building flexible\
+    \ applications in AWS\n  - Leveraging S3 and EC2\n- Computing and automation with\
+    \ AWS\n  - AWS Glue\n  - AWS Lambda\n  - AWS Step Functions\n- AWS big data tools\
+    \ for ETL pipelines\n  - AWS Data Pipeline\n  - Amazon Kinesis"
+  merge: -1
+  pgno: 15
+- img_proc: false
+  md: '[Amazon EMR](https://example.com)
+
+
+    [Walk-through – creating a Free Tier AWS account](https://example.com)
+
+
+    [Prerequisites for running AWS from your device in AWS](https://example.com)
+
+
+    [AWS CLI](https://example.com)
+
+
+    [Docker](https://example.com)
+
+
+    [LocalStack](https://example.com)
+
+
+    [AWS SAM CLI](https://example.com)
+
+
+    [Summary](https://example.com)
+
+
+    [10](https://example.com)
+
+
+    [Tutorial – Creating an ETL Pipeline in AWS](https://example.com)
+
+
+    [Technical requirements](https://example.com)
+
+
+    [Creating a Python pipeline with Amazon S3, Lambda, and Step Functions](https://example.com)
+
+
+    [Setting the stage with the AWS CLI](https://example.com)
+
+
+    [Creating a “proof of concept” data pipeline in Python](https://example.com)
+
+
+    [Using Boto3 and Amazon S3 to read data](https://example.com)
+
+
+    [AWS Lambda functions](https://example.com)'
+  merge: -1
+  pgno: 16
+- img_proc: false
+  md: '# AWS Step Functions
+
+
+    An introduction to a scalable ETL pipeline using Bonobo, EC2, and RDS
+
+
+    Configuring your AWS environment with EC2 and RDS
+
+
+    Creating an RDS instance
+
+
+    Creating an EC2 instance
+
+
+    Creating a data pipeline locally with Bonobo
+
+
+    Adding the pipeline to AWS
+
+
+    Summary
+
+
+    11
+
+
+    # Building Robust Deployment Pipelines in AWS
+
+
+    Technical requirements
+
+
+    What is CI/CD and why is it important?
+
+
+    The six key elements of CI/CD
+
+
+    Essential steps for CI/CD adoption
+
+
+    CI/CD is a continual process
+
+
+    Creating a robust CI/CD process for ETL pipelines in AWS
+
+
+    Creating a CI/CD pipeline'
+  merge: -1
+  pgno: 17
+- img_proc: false
+  md: '# Building an ETL pipeline using various AWS services
+
+
+    Setting up a CodeCommit repository
+
+
+    Orchestrating with AWS CodePipeline
+
+
+    Testing the pipeline
+
+
+    Summary'
+  merge: -1
+  pgno: 18
+- img_proc: false
+  md: '# Part 4: Automating and Scaling ETL Pipelines
+
+
+    # 12
+
+
+    # Orchestration and Scaling in ETL Pipelines
+
+
+    +   - Technical requirements
+
+    - Performance bottlenecks
+
+    - Inflexibility
+
+    - Limited scalability
+
+    - Operational overheads
+
+    - Exploring the types of scaling
+
+    - Vertical scaling
+
+    - Horizontal scaling
+
+    - Choose your scaling strategy
+
+    - Processing requirements
+
+    - Data volume
+
+    - Cost
+
+    - Complexity and skills
+
+    - Reliability and availability'
+  merge: -1
+  pgno: 19
+- img_proc: false
+  md: '+   - Data pipeline orchestration
+
+    - Task scheduling
+
+    - Error handling and recovery
+
+    - Resource management
+
+    - Monitoring and logging
+
+    - Putting it together with a practical example
+
+    - Summary
+
+
+    # 13
+
+
+    # Testing Strategies for ETL Pipelines
+
+
+    +   - Technical requirements
+
+    - Benefits of testing data pipeline code
+
+    - How to choose the right testing strategies for your ETL pipeline
+
+    - How often should you test your ETL pipeline?
+
+    - Creating tests for a simple ETL pipeline
+
+    - Unit testing
+
+    - Validation testing
+
+    - Integration testing
+
+    - End-to-end testing
+
+    - Performance testing'
+  merge: -1
+  pgno: 20
+- img_proc: false
+  md: '[Resilience testing](Resilience testing)
+
+
+    [Best practices for a testing environment for ETL pipelines](Best practices for
+    a testing environment for ETL pipelines)
+
+
+    [Defining testing objectives](Defining testing objectives)
+
+
+    [Establishing a testing framework](Establishing a testing framework)
+
+
+    [Automating ETL tests](Automating ETL tests)
+
+
+    [Monitoring ETL pipelines](Monitoring ETL pipelines)
+
+
+    [ETL testing challenges](ETL testing challenges)
+
+
+    [Data privacy and security](Data privacy and security)
+
+
+    [Environment parity](Environment parity)
+
+
+    [Top ETL testing tools](Top ETL testing tools)
+
+
+    [Summary](Summary)
+
+
+    [14](14)
+
+
+    # [Best Practices for ETL Pipelines](Best Practices for ETL Pipelines)
+
+
+    [Technical requirements](Technical requirements)
+
+
+    [Data quality](Data quality)
+
+
+    [Poor scalability](Poor scalability)
+
+
+    [Lack of error-handling and recovery methods](Lack of error-handling and recovery
+    methods)
+
+
+    [ETL logging in Python](ETL logging in Python)
+
+
+    [Debugging and issue resolution](Debugging and issue resolution)'
+  merge: -1
+  pgno: 21
+- img_proc: false
+  md: '+   - Auditing and compliance
+
+    - Performance monitoring
+
+    - Including contextual information
+
+    - Handling exceptions and errors
+
+    - The Goldilocks principle
+
+    - Implementing logging in Python
+
+    - Checkpoint for recovery
+
+    - Avoiding SPOFs
+
+    - Modularity and auditing
+
+    - Modularity
+
+    - Auditing
+
+    - Summary
+
+
+    # 15
+
+
+    # Use Cases and Further Reading
+
+
+    +   - Technical requirements
+
+    - New York Yellow Taxi data, ETL pipeline, and deployment
+
+    - Step 1 – configuration
+
+    - Step 2 – ETL pipeline script
+
+    - Step 3 – unit tests'
+  merge: -1
+  pgno: 22
+- img_proc: false
+  md: '# Building a robust ETL pipeline with US construction data in AWS
+
+
+    Prerequisites
+
+
+    Step 1 – data extraction
+
+
+    Step 2 – data transformation
+
+
+    Step 3 – data loading
+
+
+    Running the ETL pipeline
+
+
+    Bonus – deploying your ETL pipeline
+
+
+    Summary
+
+
+    Further reading
+
+
+    Index
+
+
+    Other Books You May Enjoy'
+  merge: -1
+  pgno: 23
+- img_proc: false
+  md: '# Preface
+
+
+    We’re living in an era where the volume of generated data is rapidly outgrowing
+    its practicality in its unprocessed state. In order to gain valuable insights
+    from this data, it needs to be transformed into digestible pieces of information.
+    There is no shortage of quick and easy ways to accomplish this using numerous
+    licensed tools on the market to create “plug-and-play” data ingestion environments.
+    However, the data requirements of industry-level projects often exceed the capabilities
+    of existing tools and technologies. This is because the processing capacity needed
+    to handle large amounts of data increases exponentially, and the cost of processing
+    also increases exponentially. As a result, it can be prohibitively expensive to
+    process the data requirements of industry-level projects using traditional methods.
+
+
+    This growing demand for highly customizable data processing at a reasonable price
+    point goes hand in hand with a growing demand for skilled data engineers. Data
+    engineers handle the extraction, transformation, and loading of data, which is
+    commonly referred to as the **Extract, Transform, and Load (ETL)** process. ETL
+    workflows, also known as ETL pipelines, enable data engineers to create customized
+    solutions that are not only strategic but also enable developers to create flexible
+    deployment environments that can scale up or down depending on any data requirement
+    fluctuations that occur between pipeline runs.
+
+
+    Popular programming languages, such as SQL, Python, R, and Spark, are some of
+    the most popular languages used to develop custom data solutions. Python, in particular,
+    has emerged as a frontrunner. This is mainly because'
+  merge: -1
+  pgno: 24
+- img_proc: false
+  md: 'of its adaptability and how user-friendly it is, making collaboration easier
+    for developers. In simpler terms, think of Python as the “universal tool” in the
+    data world – it’s flexible and people love working with it.
+
+
+    *Building ETL Pipelines in Python* introduces the fundamentals of data pipelines
+    using open source tools and technologies in Python. It provides a comprehensive
+    guide to creating robust, scalable ETL pipelines broken down into clear and repeatable
+    steps. Our goal for this book is to provide readers with a resource that combines
+    knowledge and practical application to encourage the pursuit of a career in data.
+
+
+    Our aim with this book is to offer you a comprehensive guide as you explore the
+    diverse tools and technologies Python provides to create customized data pipelines.
+    By the time you finish reading, you will have first-hand experience developing
+    robust, scalable, and resilient pipelines using Python. These pipelines can seamlessly
+    transition into a production environment, often without needing further adjustments.
+
+
+    We are excited to embark on this learning journey with you, sharing insights and
+    expertise that can empower you to transform the way you approach data pipeline
+    development. Let’s get to it!'
+  merge: -1
+  pgno: 25
+- img_proc: false
+  md: '# Who this book is for
+
+
+    This book is a comprehensive guide to ETL data pipelines in Python. It is targeted
+    toward data enthusiasts and software professionals who want to learn about the
+    core concepts of ETL designs and applications. To get the most out of this book,
+    a basic understanding of Python is recommended.'
+  merge: -1
+  pgno: 26
+- img_proc: false
+  md: '# What this book covers
+
+
+    *Chapter 1, A Primer on Python and the Development Environment*, introduces Python,
+    the core of this book. You must have prior experience with Python to understand
+    this book. This chapter will not cover anything in detail; instead, it will give
+    a primer on Python that’s needed for this book. Also, it will illustrate how to
+    set up a development environment with an IDE and check out the code in Git.
+
+
+    *Chapter 2, Understanding the ETL Process and Data Pipelines*, explains the ETL
+    process and the significance of a robust ETL pipeline. This starts with an example
+    of how and when to implement an ETL process and how a good pipeline can help automate
+    the ETL process. This also explains the difference between ETL and ELT.
+
+
+    *Chapter 3, Design Principles for Creating Scalable and Resilient Pipelines*,
+    deals with the implementation of the best design patterns with open source Python
+    libraries to create an enterprise-grade ETL pipeline. It illustrates how to install
+    these libraries and primers on all the functions available to create robust pipelines.
+    This also explains all the design patterns and approaches available to create
+    an ETL process.
+
+
+    *Chapter 4, Sourcing Insightful Data and Data Extraction Strategies*, deals with
+    sourcing data from different source systems. Firstly, we identify an open source
+    to get high-quality, insightful data that can act as an input for ETL pipelines.
+    Secondly, we discuss various strategies to ingest the sourced data.'
+  merge: -1
+  pgno: 27
+- img_proc: false
+  md: '*Chapter 5, Data Cleansing and Transformation*, deals with various data transformation
+    techniques in Python. We start with a hands-on example of data cleansing and massaging.
+    We also learn how to handle missing data. Finally, we apply various transformation
+    techniques to transform the data in the desired format
+
+
+    *Chapter 6, Loading Transformed Data*, deals with various data loading techniques
+    in Python. We start with a hands-on example of data loading in an RDBMS and then
+    we repeat this process for NoSQL databases. We’ll also learn about various use
+    cases of data loading. Finally, we’ll look into some of the best practices for
+    data loading.
+
+
+    *Chapter 7, Tutorial – Building an End-to-End ETL Pipeline in Python*, creates
+    a full-fledged ETL pipeline using various tools and technologies we have learned
+    about so far. We’ll source data, ingest data, transform data, and finally, load
+    the data into final tables. We use the MySQL database for the example.
+
+
+    *Chapter 8, Powerful ETL Libraries and Tools in Python*, explores various open
+    source tools to create a modern data pipeline. First, we’ll explore Python libraries
+    such as Bonobo, Odo, mETL, and Riko. We’ll go through the pros and cons and create
+    an ETL pipeline by applying these libraries. Finally, we’ll move to big data and
+    study tools such as Apache Airflow, Luigi, and pETL.
+
+
+    *Chapter 9, A Primer on AWS Tools for ETL Processes*, explains various AWS tools
+    for creating ETL pipelines. It goes from explaining various strategies to selecting
+    the best tools and design patterns. You’ll learn how to create a development environment
+    for AWS and deploy the code locally.'
+  merge: -1
+  pgno: 28
+- img_proc: false
+  md: 'We’ll also explore the best strategies for deployment and testing. Finally,
+    we’ll use some automation techniques to automate boring stuff.
+
+
+    *Chapter 10*, *Tutorial – Creating an ETL Pipeline in AWS*, creates an ETL pipeline
+    in AWS in conjunction with Python. We start by creating a mini pipeline using
+    a step function and AWS Lambda. Then, we go on to create a full-fledged pipeline
+    using Bonobo, EC2, and RDS.
+
+
+    *Chapter 11*, *Building Robust Deployment Pipelines in AWS*, creates a basic CI/CD
+    pipeline for ETL jobs. We’ll use AWS CodePipeline, CodeDeploy, and CodeCommit
+    to create a robust CI/CD pipeline to automate the code deployment. We’ll see an
+    example of how Git can be leveraged for a CI/CD pipeline in AWS. We’ll also get
+    familiar with using Terraform for code deployment.
+
+
+    *Chapter 12*, *Orchestration and Scaling in ETL Pipelines*, covers the limitations
+    of ETL pipelines and how to scale ETL pipelines to handle increasing demand seamlessly.
+    It goes on to explain how to choose the best scaling strategies. It also explains
+    how to create robust orchestration for ETL pipelines. Finally, we’ll work on a
+    hands-on exercise to create an ETL pipeline and apply scaling and orchestration
+    strategies.
+
+
+    *Chapter 13*, *Testing Strategies for ETL Pipelines*, deals with ETL testing strategies.
+    A pipeline may contain bugs and it is very important to catch them before they
+    make it to production. Unit testing using pytest does cover most errors, but an
+    external ETL testing strategy is central to creating a high-performance, resilient
+    ETL pipeline.
+
+
+    *Chapter 14*, *Best Practices for ETL Pipelines*, covers some of the industry
+    best practices for creating ETL pipelines in production. It also identifies'
+  merge: -1
+  pgno: 29
+- img_proc: false
+  md: 'some of the common pitfalls that users should avoid while building ETL pipelines.
+
+
+    *Chapter 15*, *Use Cases and Further Reading*, covers practical exercises and
+    mini-project outlines, with further reading suggestions included in this chapter.
+    Also, it exposes you to a use case of creating a robust ETL pipeline for New York
+    yellow-taxi data for analysis. Finally, we’ll get US construction market data
+    through AWS Marketplace and create a production-ready, fault-tolerant, high-quality
+    data pipeline in AWS.
+
+
+    # To get the most out of this book
+
+
+    To effectively utilize the resources and code examples referenced within this
+    book, ensure that your system meets the following technical requirements:
+
+
+    | Software/hardware covered in the book | Operating system requirements |
+
+    | :--- | :--- |
+
+    | PyCharm 2023.2 | Windows, macOS, or Linux |
+
+    | Jupyter Notebook 7.0.2 | |
+
+    | Python 3.6+ | |
+
+
+    We recommend using PyCharm as the preferred **Integrated Development Environment
+    (IDE)** for working with Python, and we might make specific references to PyCharm
+    throughout this book. However, you are free to use any Python-compatible IDE of
+    your choice.'
+  merge: -1
+  pgno: 30
+- img_proc: false
+  md: 'We also recommend installing `pipenv` as it is used for managing dependencies.
+
+
+    # Download the example code files
+
+
+    You can download the example code files for this book from GitHub at [https://github.com/PacktPublishing/Building-ETL-Pipelines-with-Python](https://github.com/PacktPublishing/Building-ETL-Pipelines-with-Python).
+    If there’s an update to the code, it will be updated in the GitHub repository.
+    We recommend that you fork and clone the repository to your local machine
+
+
+    We also have other code bundles from our rich catalog of books and videos available
+    at [https://github.com/PacktPublishing/](https://github.com/PacktPublishing/).
+    Check them out!
+
+
+    # Conventions used
+
+
+    There are a number of text conventions used throughout this book.
+
+
+    **Code in text**: Indicates code words in text, database table names, folder names,
+    filenames, file extensions, pathnames, dummy URLs, user input, and Twitter (now,
+    X) handles. Here is an example: “For example, let’s write a simple data pipeline
+    that imports three CSVs, `traffic_crashes.csv`, `traffic_crash_vehicle.csv`, and
+    `traffic_crash_people.csv`, as input data.”
+
+
+    A block of code is set as follows:
+
+
+    ```
+
+    # Merge the three dataframes into a single dataframe
+
+    merge_01_df = pd.merge(df, df2, on=''CRASH_RECORD_ID'')
+
+    all_data_df = pd.merge(merge_01_df, df3, on=''CRASH_RECORD_ID'')
+
+    ```
+
+
+    When we wish to draw your attention to a particular part of a code block, the
+    relevant lines or items are set in bold:'
+  merge: -1
+  pgno: 31
+- img_proc: false
+  md: '```
+
+    aws lambda create-function -s3-key-function
+
+    ReverseStringFunction \ --zip-file fileb:// s3_key_function.zip -
+
+    -handler lambda_function. lambda_handler \n--runtime python3.8 --role <YOUR IAM
+    ARN ROLE>
+
+    ```
+
+
+    Any command-line input or output is written as follows:
+
+
+    ```
+
+    psql -U postgres
+
+    ```
+
+
+    **Bold**: Indicates a new term, an important word, or words that you see onscreen.
+    For instance, words in menus or dialog boxes appear in **bold**. Here is an example:
+    “Select **System info** from the **Administration** panel.”
+
+
+    # TIPS OR IMPORTANT NOTES
+
+
+    *Appear like this.*
+
+
+    # Get in touch
+
+
+    Feedback from our readers is always welcome.
+
+
+    **General feedback**: If you have questions about any aspect of this book, email
+    us at [customercare@packtpub.com](mailto:customercare@packtpub.com) and mention
+    the book title in the subject of your message.
+
+
+    **Errata**: Although we have taken every care to ensure the accuracy of our content,
+    mistakes do happen. If you have found a mistake in this book, we would be grateful
+    if you would report this to us. Please visit [www.packtpub.com/support/errata](http://www.packtpub.com/support/errata)
+    and fill in the form.
+
+
+    **Piracy**: If you come across any illegal copies of our works in any form on
+    the internet, we would be grateful if you would provide us with the location'
+  merge: -1
+  pgno: 32
+- img_proc: false
+  md: 'address or website name. Please contact us at [copyright@packtpub.com](mailto:copyright@packtpub.com)
+    with a link to the material.
+
+
+    **If you are interested in becoming an author**: If there is a topic that you
+    have expertise in and you are interested in either writing or contributing to
+    a book, please visit [authors.packtpub.com](http://authors.packtpub.com).
+
+
+    # Share Your Thoughts
+
+
+    Once you’ve read *Building ETL Pipelines with Python*, we’d love to hear your
+    thoughts! Please [click here to go straight to the Amazon review page](http://click
+    here to go straight to the Amazon review page) for this book and share your feedback.
+
+
+    Your review is important to us and the tech community and will help us make sure
+    we’re delivering excellent quality content.
+
+
+    # Download a free PDF copy of this book
+
+
+    Thanks for purchasing this book!
+
+
+    Do you like to read on the go but are unable to carry your print books everywhere?
+
+
+    Is your eBook purchase not compatible with the device of your choice?
+
+
+    Don’t worry, now with every Packt book you get a DRM-free PDF version of that
+    book at no cost.
+
+
+    Read anywhere, any place, on any device. Search, copy, and paste code from your
+    favorite technical books directly into your application.'
+  merge: -1
+  pgno: 33
+- img_proc: false
+  md: 'The perks don’t stop there, you can get exclusive access to discounts, newsletters,
+    and great free content in your inbox daily
+
+
+    Follow these simple steps to get the benefits:
+
+
+    +   1. Scan the QR code or visit the link below
+
+
+    ![](bbox=[0.37, 0.25, 0.62, 0.44])
+
+
+    [https://packt.link/free-ebook/978-1-80461-525-6](https://packt.link/free-ebook/978-1-80461-525-6)
+
+
+    +   2. Submit your proof of purchase
+
+
+    +   3. That’s it! We’ll send your free PDF and other benefits to your email directly'
+  merge: -1
+  pgno: 34
+- img_proc: false
+  md: '# Part 1:Introduction to ETL, Data Pipelines, and Design Principles
+
+
+    For the first part of this book, we will introduce the fundamentals of data pipelines
+    in Python and set up your local development environment with **Integrated Development
+    Environments (IDEs)**, virtual environments, and Git version control. We will
+    provide you with an overview of what **Extract-Load-Transform (ETL)** data pipelines
+    are and how to design them yourself. As a word of caution, Python is at the core
+    of this book; you must have a basic familiarity with Python in order to follow
+    along accordingly.
+
+
+    This section contains the following chapters:
+
+
+    +   - [Chapter 1](Chapter 1), *A Primer on Python and the Development Environment*
+
+    - [Chapter 2](Chapter 2), *Understanding the ETL Process and Data Pipelines*
+
+    - [Chapter 3](Chapter 3), *Design Principles for Creating Scalable and Resilient
+    Pipelines*'
+  merge: -1
+  pgno: 35
+- img_proc: false
+  md: '# 1
+
+
+    # A Primer on Python and the Development Environment
+
+
+    Whether your production environment caters to only one data pipeline at a time
+    or a whole multitude of overlapping systems, the core tenets of data environment
+    management remain the same.
+
+
+    We have dedicated this chapter to breaking down the foundational roots of all
+    successful applications by discussing the basic principles of the Python programming
+    language and how utilizing package management applications can create clean, flexible,
+    and reproducible development environments. We will walk you through a step-by-step
+    tutorial on how to install and establish a basic Git-tracked development environment
+    that will prevent future confounding modular incompatibilities from impacting
+    the successful deployment of your data pipelines in production.
+
+
+    By the end of this chapter, you will have a strong understanding of why Python
+    is a powerful tool that can be used to develop highly-customized and powerful
+    data transformation ecosystems. We will cover the following topics:
+
+
+    +   - Python fundamentals
+
+    - Using Python attributes to build an application’s foundation
+
+    - Key attributes of an effective development environment'
+  merge: -1
+  pgno: 36
+- img_proc: false
+  md: '+   - Downloading and installing a local **integrated development environment
+    (IDE)**
+
+    - Creating and cloning a Git-tracked repository into your IDE
+
+    - Managing project packages and circular dependencies with a **module management
+    system (MMS)**
+
+
+    # Introducing Python fundamentals
+
+
+    Since Python is the language in which we will design pipelines, it is a good idea
+    to go through Python’s core fundamentals.
+
+
+    Python is a general-purpose, dynamically typed programming language with a highly
+    versatile nature that can be powerfully used for scripting, object-oriented, procedural,
+    or functional programming. Built on top of C, a low-memory but complex imperative
+    procedural language that efficiently maps machine instructions with minimal runtime
+    support, this human-readable language has become one of the most popular programming
+    languages of the 21st century.
+
+
+    Python’s ubiquitous nature is echoed by its vast online community and well-supported
+    open source libraries.
+
+
+    In this section, we are going to cover the following topics:
+
+
+    +   - Python data structures
+
+    - `if..else` conditions
+
+    - Looping techniques
+
+    - Python functions'
+  merge: -1
+  pgno: 37
+- img_proc: false
+  md: '+   - Object-oriented programming using Python
+
+    - Working with files in Python
+
+
+    To brush up on the key concepts necessary for ETL pipelines, let’s take a look
+    at each of these topics in detail so that we can understand them better.
+
+
+    # An overview of Python data structures
+
+
+    Here are the data structures available natively in Python:
+
+
+    +   - **List**: This is like a one-dimensional dynamic array but can hold heterogeneous
+    or homogeneous elements separated by commas. Python lists are mutable and ordered.
+    Like arrays, the index of the first item is 0. The index of the last item in a
+    list starts from -1 and counts arguments toward the beginning in descending order.
+    Lists are represented by []. An index can be used to get a value from a list.
+    In the following section, we will discuss some of the most important indexing
+    operations on lists:
+
+
+    ```
+
+    sample_list = [1, "another", "list", "a",
+
+    [3,4]]print(sample_list[0]) # 1print(sample_list[1]) #
+
+    "another",print(sample_list[-1]) #
+
+    [3,4]]print(sample_list[1:4])# ["another", "list",
+
+    "a"]print(sample_list[:4])# [1, "another", "list",
+
+    "a"]print(sample_list[3:])# ["a",[3,4]]]
+
+    ```
+
+
+    We can work with lists in Python using a variety of methods that are available
+    for working with lists.
+
+
+    Python list methods can be found in the following documentation:
+
+    https://docs.python.org/3/tutorial/datastructures.xhtml.'
+  merge: -1
+  pgno: 38
+- img_proc: false
+  md: '+   - **Dictionary**: Dictionaries are like HashMaps in Python. Dictionaries
+    are represented by key-value comma-separated pairs inside curly braces. Dictionary
+    keys are unique and can be of any Python immutable data type except for a few.
+    The main purpose of a dictionary is to store a value with some key and return
+    the value for that key when needed. Like lists, there are various methods for
+    dictionaries:
+
+
+    ```
+
+    sample_dict = {"Key1": "Value1", 2: 3, "Age": 23}print(sample_dict["Age"]) # 23print(sample_dict[2])
+    # 3
+
+    ```
+
+
+    You can refer to the following documentation for more details on dictionary methods:
+
+    https://docs.python.org/3/tutorial/datastructures.xhtml#dictionaries.
+
+
+    +   - **Tuple**: Tuples are an ordered collection of elements. Like lists, they
+    can hold both heterogeneous and homogenous data. The only major difference between
+    a tuple and a list is that tuples are immutable while lists aren’t.
+
+
+    Tuples are represented by parentheses or round brackets:
+
+
+    ```
+
+    sample_tuple = (1,"2","brij")print(sample_tuple [0]) # 1
+
+    ```
+
+
+    Refer to the following documentation for more details on tuples:
+
+    https://docs.python.org/3/tutorial/datastructures.xhtml#tuples-and-sequences.
+
+
+    +   - **Sets**: Python sets are collections of items that are unordered, changeable,
+    and do not allow duplicate values. It is useful to use sets when you need to store
+    a collection of elements, but do not care about order or duplicates.'
+  merge: -1
+  pgno: 39
+- img_proc: false
+  md: 'Like dictionaries, sets are represented by curly braces:
+
+
+    ```
+
+    sample_set = {5,9}sample_set.add(4)print(sample_set) # {5,9,4}sample_set.remove(9)print(sample_set)
+    # {5, 4}
+
+    ```
+
+
+    In this section, we covered Python data structures. Other data structures, such
+    as the frozen set, are not very frequently used, so we will skip them.
+
+
+    In the next section, we will discuss **if...else** conditions in Python.
+
+
+    # Python if...else conditions or conditional statements
+
+
+    We often need decision-making capabilities in programming languages to execute
+    a block of code based on certain conditions. These are known as **if...else**
+    conditions or conditional statements.
+
+
+    A conditional statement in Python allows you to specify a certain action to be
+    taken only if a certain condition is met. This is useful because it allows you
+    to make your code more efficient by only performing certain actions when they
+    are necessary.
+
+
+    For example, if you wanted to check if a number is divisible by 3, you could use
+    a conditional statement to only perform the division operation if the number is
+    actually divisible by 3. This would save time and resources because you would
+    not have to perform unnecessary calculations.
+
+
+    The following is an example of a sample **if...else** condition:
+
+
+    ```
+
+    ''''''In this program,we check if a number is divisible by 3 and
+
+    display an appropriate message''''''
+
+    num = 9
+
+    ```'
+  merge: -1
+  pgno: 40
+- img_proc: false
+  md: "```\n# Try below two as well:\n# num = 7\n# num = 6\nif num == 0:\n    print(\"\
+    This is a Zero\")\nelif num%3 ==0:\n    print(\"Number is divisible by 3\")\n\
+    else:\n    print(\"Number is not divisible by 3\")\n```\n\nThose of you who are\
+    \ familiar with Python will be aware that the else-if condition in Python is symbolized\
+    \ by `elif`. The next section will be dedicated to looping techniques, so let’s\
+    \ get started!\n\n# Python looping techniques\n\nA loop iterates over a sequence\
+    \ or block of code until a condition is met or until a fixed number of iterations\
+    \ are performed.\n\nThe Python language supports various looping techniques. They\
+    \ are very useful in programming and in maintaining code structures. Unlike traditional\
+    \ loops, they also save time and memory by avoiding the need to declare extra\
+    \ variables. There are two types of loops in Python:\n\n+   - **for loop**: Python\
+    \ `for` loops are used to traverse through sequences such as strings, lists, sets,\
+    \ and so on. Once started, the loop continues until it reaches the last element\
+    \ of the sequence. The `break` statements terminate the iteration prematurely:\n\
+    \n```\n# Program to return a list of even number from a given list# Given listnumbers\
+    \ = [7,4,3,5,8,9,8,6,14]# Declare an empty listeven_numbers = []# iterate over\
+    \ the listfor num in numbers:    #Add the even numbers to even_numbers list  \
+    \  if\n```"
+  merge: -1
+  pgno: 41
+- img_proc: false
+  md: '```
+
+    num%2 == 0:     even_numbers.append(num)print("The Even number list is ", numbers)
+
+    ```
+
+
+    +   - **while loop:** while loops in Python are used to iterate through sequences
+    until a given condition is satisfied. The while loop will continue indefinitely
+    if a condition is not given:
+
+
+    ```
+
+    count = 0while (count < 11):   print (''The current number is :'', count)   count
+    = count + 1print(''While loop terminates here.'')
+
+    ```
+
+
+    Now that we have gained an understanding of Python loops, let’s move on to discussing
+    functions. Functions are a vital part of Python programming as they allow us to
+    create reusable blocks of code that can be easily executed multiple times. By
+    utilizing functions, we can write more efficient and organized code, making it
+    easier to debug and maintain. In the upcoming section, we will discuss how to
+    create and utilize functions in our programs.
+
+
+    # Python functions
+
+
+    A **function** is a reusable block of code that can be used to execute certain
+    tasks. A Python function starts with the `def` keyword. The Python function can
+    be thought of as a recipe in a cookbook – it tells the computer what steps to
+    follow to complete a certain task. You can give a function a name, and then use
+    that name to call the function whenever you need to perform that task. Functions
+    can also accept input (**arguments**) and can return a result (**return values**).
+    Functions are useful because they allow you to reuse code, making your programs
+    more efficient and easier to read.'
+  merge: -1
+  pgno: 42
+- img_proc: false
+  md: "The following is an example of a function in Python:\n\n```\ndef div_of_numbers(num1,\
+    \ num2):    \"\"\"This function returns the\ndivision of num1 by num2\"\"\"\n\
+    \    # This function takes two parameters namely num1 and num2.\n    if num2==0:\n\
+    \        #Below is a return statement.\n        return 'num2 is zero.'\n    else:\n\
+    \        #Below is another return statement.\n        return num1/num2\n#This\
+    \ is how a python function is called.\nprint(div_of_numbers(8,0))\nprint(div_of_numbers(8,4))\n\
+    ```\n\nWe just saw how to write a sample function in Python and call it with arguments.\
+    \ The next step will be to see how a function can be used as a method within a\
+    \ Python class.\n\n# Object-oriented programming with Python\n\nPython is a programming\
+    \ language that allows the use of multiple programming paradigms, including object-oriented\
+    \ programming. In object-oriented programming, everything is considered an object,\
+    \ which can have attributes and behaviors. This means that in Python, every element\
+    \ in the language is considered an object. Additionally, Python supports the concept\
+    \ of multiple inheritance, which allows an object to inherit characteristics and\
+    \ behaviors from multiple parent objects. This allows greater flexibility and\
+    \ customization within the language. Overall, Python’s support for object-oriented\
+    \ programming and multiple inheritance make it a powerful and versatile language.\
+    \ Let’s take a look at this in more detail:"
+  merge: -1
+  pgno: 43
+- img_proc: false
+  md: "+   - **Class**: A class is the blueprint of objects. Python uses the `class`\
+    \ keyword to create a class:\n\n    python\n    Class DataPipeline():\n      \
+    \  first_tool = \"AirFlow\"\n    \n\n    The following is how we can create an\
+    \ instance (or object) of this class:\n\n    python\n    datapipeline = DataPipeline()\n\
+    \    \n\n    We can pass parameters while creating an instance of the class. These\
+    \ parameters are collected in an initializer method known as `__init__`. This\
+    \ method is called as soon as the object is created.\n\n    We can also write\
+    \ functions inside a class. A function inside a class is known as a method.\n\n\
+    \    A method can be called using a dot operator on the instance of the class.\
+    \ The first parameter is `self`. We can use any names other than `self` but it\
+    \ is discouraged as it will impair the readability of the code.\n\n+   - **Inheritance**:\
+    \ Inheritance is a fundamental aspect of object-oriented programming that allows\
+    \ developers to create new classes based on the properties and behaviors of existing\
+    \ classes.\n\n    By utilizing inheritance, we can create a new class that inherits\
+    \ the data and methods of an existing class without having to modify the original\
+    \ class in any way. This means that we can create a new class that has all the\
+    \ same features as the original class but with the added ability to modify or\
+    \ extend the inherited data and methods to fit the needs of the new class. Inheritance\
+    \ is a powerful tool that enables developers to create complex and reusable code,\
+    \ and it is a key aspect of object-oriented programming languages such as Java,\
+    \ C++, and Python."
+  merge: -1
+  pgno: 44
+- img_proc: false
+  md: 'The following example illustrates inheritance:
+
+
+    ```
+
+    # parent classclass DataPipelineBook:    def
+
+    __init__(self):        print("This book is very hot in
+
+    market")        self.pages =300    def
+
+    what_is_this(self):        print("Book")    def
+
+    pages(self):        return self.pages
+
+    ```
+
+
+    The preceding code defines a class called `DataPipelineBook` in Python. A class
+    is a template for creating objects, and an object is an instance of a class.
+
+
+    The `__init__` method is a special method in Python classes that is called when
+    an object is created from a class. It is commonly known as the constructor. In
+    this case, the `__init__` method prints a message to the console and sets the
+    value of the `pages` attribute to 300.
+
+
+    The `what_is_this` method is a regular method that is defined within the class.
+    It simply prints the `Book` string to the console.
+
+
+    The `pages` method is also defined within the class. It returns the value of the
+    `pages` attribute, which is set to 300 in the `__init__` method.
+
+
+    To use this class, you would need to create an object from it and then call its
+    methods. The next step is to create a child class. An example of creating a `child`
+    class is shown here:
+
+
+    ```
+
+    # child classclass
+
+    PythonDataPipelineBook(DataPipelineBook):    def
+
+    __init__(self):        # call super()
+
+    function        super().__init__()        print("Create Data
+
+    Pipeline with Python")    def
+
+    what_technology_is_used(self):        return "Python"pipeline
+
+    =
+
+    PythonDataPipelineBook()pipeline.what_is_this()peggy.what_tech
+
+    nology_is_used()
+
+    ```'
+  merge: -1
+  pgno: 45
+- img_proc: false
+  md: "The preceding code is defining a child class called `PythonDataPipelineBook`\
+    \ that inherits from a parent class called `DataPipelineBook`. The child class\
+    \ has a constructor method (`init`) that calls the `super()` function to initialize\
+    \ the parent class. It also has a method called `what_technology_is_used` that\
+    \ returns the `Python` string.\n\nThe code then creates an object of the `PythonDataPipelineBook`\
+    \ class called `pipeline` and calls the `what_is_this` method from the parent\
+    \ class on it. Finally, it calls the `what_technology_is_used` method on the `pipeline`\
+    \ object.\n\nNext, we’ll talk about how Python handles files.\n\n# Working with\
+    \ files in Python\n\nThe Python language is powerful and makes handling files\
+    \ a breeze. In Python, several operations can be performed on files, including\
+    \ opening, reading, writing, and appending. Let’s take a look at how each of these\
+    \ operations can be performed in Python:\n\n+   - **Open:** To read or write to\
+    \ a file, you first need to open it. Here’s how you can open a file in Python:\n\
+    \n    python\n    f = open(\"yellowtaxidata.txt\")\n    \n- **Read, write, or\
+    \ append:** When you open a file, you can specify the mode in which you want to\
+    \ open it. The three most common modes are `r` (for reading), `w` (for writing),\
+    \ and `a` (for appending)\n\nHere’s an example of how you can open a file in each\
+    \ of these modes:"
+  merge: -1
+  pgno: 46
+- img_proc: false
+  md: '```
+
+    f = open("test_file.txt", "r")  #This file is opened in read mode.f = open("test_file.txt",
+    "w") #This file is opened in read mode.f = open("test_file.txt", "a") #This file
+    is opened in append mode.
+
+    ```
+
+
+    +   - **Close:** Did you know that every time you open a file, it’s important
+    to close it once you’re finished with it? It’s easy to do – just use the `f.close()`
+    function.
+
+
+    But there’s an even better way to ensure your files are closed properly: using
+    a context manager. When you open a file using a context manager, the file is automatically
+    closed once you’re done with it. This helps prevent any potential issues or errors
+    that could arise from leaving a file open.
+
+
+    So, the next time you’re working with files, remember to close them properly by
+    using either `f.close()` or a context manager. It’s a simple step that can save
+    you a lot of headaches in the long run!
+
+
+    Are you tired of constantly forgetting to close your file after writing to it?
+    Don’t worry – Python has a solution for that! Using a context manager, you can
+    easily make sure that your file is closed after performing a write operation.
+
+
+    Take a look at the following code:
+
+
+    ```
+
+    with open("test_file.txt", "w") as f:f.write("This is test data")
+
+    ```
+
+
+    By using the `with` keyword, you can ensure that the `test_file.txt` file will
+    be closed automatically after the write operation is completed. No more worrying
+    about leaving your file open and causing issues down the line!'
+  merge: -1
+  pgno: 47
+- img_proc: false
+  md: 'For more information on file handling in Python, check out the official Python
+    documentation.
+
+
+    In this section, we introduced Python and its various capabilities as a programming
+    language. We saw that Python can be used for scripting, object-oriented programming,
+    functional programming, and creating machine learning models and interactive data
+    visualizations. We also discussed that Python has a large online community and
+    many well-supported open source libraries. We also covered several fundamental
+    Python concepts, including data structures (lists and dictionaries), if-else conditions,
+    looping techniques, functions, object-oriented programming, and working with files.
+
+
+    In the next section, we will learn how to set up a development environment for
+    Python, which will allow us to easily start working with the language. This includes
+    installing the necessary software and tools and configuring our system to support
+    Python development.
+
+
+    # Establishing a development environment
+
+
+    Before you hit the ground running creating an exciting project with Python, it
+    is essential to create a development environment with a strong foundation in system
+    integrity.
+
+
+    A unique way to think of a Python project is to think in terms of a lab experiment.
+    When designing a lab experiment, a scientist first starts by jotting down the
+    purpose of the experiment and all possible expected outcomes of the experiment.
+    *Why are we creating this experiment?* and *What outputs do we reasonably expect
+    to get from this experiment?* This'
+  merge: -1
+  pgno: 48
+- img_proc: false
+  md: 'frame of reference is important to maintain because it leads into the next,
+    and arguably the most important, perspective: *How can we limit confounding factors
+    from impacting the results?* This is where the idea of a clean, sterile, experimental
+    environment comes to the forefront; this idea is synonymous with the needs of
+    a programming environment with a clear and reproducible workflow.
+
+
+    So, how do we design a development environment that not only limits both known
+    and unknown confounding factors from impacting end-pipeline products but is also
+    highly reproducible and shareable? In this section, we will review the primary
+    building blocks of a highly effective and “sterile” development environment:
+
+
+    +   - Version control with Git tracking
+
+    - Making development easy with local **integrated development environments (IDEs)**
+
+    - Documenting environment dependencies with `requirements.txt`
+
+    - Utilizing **module management systems (MMSs)**
+
+
+    Let’s get started!
+
+
+    # Version control with Git tracking
+
+
+    The first step of any programming project is to instantiate a version control
+    repository unique to your environment. This keeps the project’s development and
+    production environments in separate buckets.'
+  merge: -1
+  pgno: 49
+- img_proc: false
+  md: 'Several version control systems use the Git version control software and protocol.
+    They each offer similar functionality, but some key differences may make one a
+    better fit for your needs than the others.
+
+
+    We will be using GitHub to track and store our data pipelines throughout this
+    book.
+
+
+    One reason to choose GitHub is that it is the most popular platform for hosting
+    and collaborating on Git repositories. It has a large user base, which means that
+    it is well-supported and has a wealth of resources and documentation available.
+    GitHub also has several features specifically designed for collaboration, such
+    as pull requests, which allow users to propose changes to a repository and discuss
+    them with other contributors before merging them into the main code base.
+
+
+    While there are several internet-hosting Git-tracking providers (GitLab and Bitbucket
+    come to mind), we will be using GitHub to track and store our data pipelines throughout
+    this book.
+
+
+    # The importance of Git-tracking your code
+
+
+    You might have seen the term “Git” an uncountable number of times but as a general
+    overview, “Git” is any distributed **version control system (VCS)** designed to
+    track changes in source code and manage a code base. GitHub is one of these systems.
+    When you’ve created and cloned a new GitHub repository onto your local device,
+    any changes you make can be tracked, committed, and pushed up to your online storage
+    location.
+
+
+    It’s best practice to get into the habit of always committing and pushing your
+    changes frequently so that your work is backed up with Git; this way, you won’t
+    lose all of your hard-earned code if you ever do something silly'
+  merge: -1
+  pgno: 50
+- img_proc: false
+  md: 'such as spill coffee all over your laptop... (like we have... more than once...).
+    Additionally, your GitHub repositories serve as a portfolio to showcase your code
+    projects publicly (or keep them private, if you prefer).
+
+
+    GitHub also allows others to contribute to your code base. Git version control
+    enables collaboration without the fear of losing or overwriting changes since
+    multiple developers can work on different branches, and changes can be reviewed
+    and merged through pull requests. Code reviews ensure that the code quality of
+    your projects remains high, and helps catch bugs or issues early in the development
+    life cycle.
+
+
+    Additionally, GitHub can be integrated with various services, such as project
+    management tools and various CI/CD tools, and allows automated testing and deployment
+    of your code. We will learn more about project testing and CI/CD tools later in
+    this book.
+
+
+    For now, we encourage you to leverage Git-tracking with GitHub to push code changes
+    “early and often” so that your work is not only backed up online but you can also
+    add your developing data engineering skills to a public code portfolio.
+
+
+    Before moving on to the next section, take a moment to fork the GitHub repository
+    associated with this book so that it is available in your own personal GitHub
+    profile: [https://github.com/PacktPublishing/Building-ETL-Pipelines-with-Python](https://github.com/PacktPublishing/Building-ETL-Pipelines-with-Python).
+
+
+    # Making development easy with IDEs
+
+
+    As Python programmers, you most likely have a preference in terms of local development
+    environments. However, to avoid the risk of instilling any redundancies, we will
+    walk you through our preferred local'
+  merge: -1
+  pgno: 51
+- img_proc: false
+  md: 'development landscape in case you want to mimic the same workflow we’ll follow
+    for this tutorial.
+
+
+    # iTerm2
+
+
+    We pride ourselves on being superfans of *strategic laziness*, where we set up
+    programming landscapes that are not only easy on the eyes but also take little
+    to nothing to maintain. As Mac programmers, the Terminal interface can be quite
+    dull; that’s why we recommend installing iTerm2, which works well on Macs that
+    run macOS 10.14 or newer. As stated on their website, “*iTerm2 brings the Terminal
+    into the modern age with features you never knew you always wanted.*” Take some
+    time to install and customize your new iTerm2 Terminal so that it’s aesthetically
+    pleasing; it’s much easier to fall into the creativity of development design when
+    your eyes are intrigued by your Terminal.
+
+
+    You can follow the instructions mentioned here to download and set up iTerm2:
+    [https://iterm2.com/downloads.xhtml](https://iterm2.com/downloads.xhtml).
+
+
+    # PyCharm
+
+
+    Next, we recommend using your newly remodeled Terminal to download our favorite
+    IDE: PyCharm. For those of you unfamiliar with IDEs, you can think of an IDE in
+    a similar fashion to iTerm: a visual interface that not only creates an aesthetically
+    pleasing coding environment but also allows you to quickly, efficiently format
+    and structure files with a few short commands. Our local PyCharm environment will
+    be where we choose to clone the Git repository that we created in the previous
+    section.'
+  merge: -1
+  pgno: 52
+- img_proc: false
+  md: 'You can follow the instructions mentioned here to download and set up PyCharm:
+    [https://www.jetbrains.com/pycharm/download/#section=mac](https://www.jetbrains.com/pycharm/download/#section=mac).
+
+
+    You will also need to register your GitHub account to your new PyCharm app by
+    following these steps:
+
+    [https://www.jetbrains.com/help/pycharm/github.xhtml](https://www.jetbrains.com/help/pycharm/github.xhtml).
+
+
+    # Jupyter Notebook
+
+
+    Lastly, since we will be working with data, visualizing sections of DataFrames
+    can be quite difficult in a standard Python script without a bit of finagling.
+    Staying with the theme of strategic laziness, we recommend downloading the beautiful
+    and user-friendly Jupyter Notebook for easy data visualization. As a word of warning,
+    Jupyter Notebooks is an amazing tool for development, but we stress that it is
+    not recommended that you deploy Jupyter scripts in a production environment. Jupyter’s
+    friendly UI interface and easy visualization of code are due to its memory- and
+    processing-heavy framework that is inevitably quite clunky and slow in a pipeline.
+
+
+    You can follow the instructions mentioned here to download and set up Jupyter
+    Notebook: [https://jupyter.org/install](https://jupyter.org/install).
+
+
+    Next, we will document the environmental dependencies using a `requirements.txt`
+    file.
+
+
+    # Documenting environment dependencies with requirements.txt'
+  merge: -1
+  pgno: 53
+- img_proc: false
+  md: 'Creating and maintaining a `requirements.txt` document is a standard practice
+    in Python application development. Future updates or major changes to dependencies
+    could potentially break the application, but developers can always install the
+    recorded previous versions, ensuring smooth execution of the code without errors.
+    By freezing the application to specific versions of dependencies, it ensures that,
+    given the correct requirements, your project will maintain its original state.
+    This approach proves beneficial, providing a win-win situation for developers
+    and the application’s reliability.
+
+
+    Let’s look at how to install dependencies using the `requirements.txt` file:
+
+
+    ```
+
+    (base) usr@project%  pip install -r requirements.txtex:
+
+    requirements.txt
+
+    pip==3.9
+
+    python==3.9.4
+
+    pandas==1.4.2
+
+    requests==2.28.0
+
+    ```
+
+
+    Additionally, you can update and store the new package imports and versions with
+    the following command to keep the `requirements.txt` file up to date:
+
+
+    ```
+
+    (base) usr@project %  pip freeze >> requirements.txt
+
+    ```
+
+
+    That is how we can collect dependencies in the `requirements.txt` file. The next
+    section will review some key concepts that are essential to know before we start
+    building data pipelines.
+
+
+    # Accounting for circular dependencies
+
+
+    The concept of circular dependency is not always talked about when first learning
+    Python, but it’s a concept where one or more modules depend on'
+  merge: -1
+  pgno: 54
+- img_proc: false
+  md: 'each other:
+
+
+    ![](bbox=[0.13, 0.14, 0.87, 0.54])
+
+
+    Figure 1.1: A circular dependency
+
+
+    While there are many useful aspects of this interdependency, underlying second
+    and third-degree inconsistencies, such as one Python module version being incompatible
+    with another Python module version, can result in a cascading effect of uncontrolled
+    errors that lead to a smorgasbord of application failures. Alluding back to our
+    initial analogy about a development project being similar to a laboratory experiment,
+    this is why system *sterility* comes into play. To create an internally consistent
+    environment, versions of the dependencies must be flexibly adjusted to account
+    for the circular interdependencies of imports. This magic of MMS begins!'
+  merge: -1
+  pgno: 55
+- img_proc: false
+  md: '# Utilizing module management systems (MMSs)
+
+
+    MMSs are like special folders that only work in certain environments. They do
+    this by changing `sys.prefix` and `sys.exec_prefix` so that they point to the
+    base directory of the virtual environment. This is helpful because it lets developers
+    create “clean” applications and also makes sure that all the different parts of
+    the project work well together.
+
+
+    There are many different module management systems to choose from, but Anaconda
+    is the most popular. However, it doesn’t always have the most up-to-date packages
+    for data engineers, and `pip`, the regular package manager for Python, doesn’t
+    work well with Anaconda. That’s why we’re using `pipenv` in this book. It’s a
+    virtual environment and package management system that uses `Pipfile` and `Pipfile.lock`,
+    similar to a `requirements.txt` file.
+
+
+    # Instigating a virtual MMS environment within your local IDE
+
+
+    Creating a virtual MMS environment within your local IDE can be a helpful way
+    to test and run your code before you implement it in a larger system. This virtual
+    environment allows you to simulate different scenarios and conditions to ensure
+    that your code is working properly and efficiently. It can also help you identify
+    and fix any errors or bugs that may arise during the development process.
+
+
+    Overall, setting up a virtual MMS environment within your local IDE can be a valuable
+    tool for streamlining your coding workflow and ensuring that your projects are
+    successful.'
+  merge: -1
+  pgno: 56
+- img_proc: false
+  md: '# Configuring a Pipenv environment in PyCharm
+
+
+    In Python development, managing project environments is crucial to keep your project’s
+    dependencies organized and controlled. One way to achieve this is by using pipenv.
+    Let’s start the process by installing Pipenv. Open your Terminal and execute the
+    following command:
+
+
+    ```
+
+    (base) usr@project % pip install --user pipenv
+
+    ```
+
+
+    This command instructs `pip` (a Python package manager) to install Pipenv in your
+    user space. The `--user` option ensures that Pipenv is installed in the user install
+    directory for your platform.
+
+
+    After successful installation, this is what your Terminal should look like:'
+  merge: -1
+  pgno: 57
+- img_proc: false
+  md: '![](bbox=[0.125, 0.088, 0.875, 0.665])
+
+
+    Figure 1.2: Command-line view of installing pipenv
+
+
+    Once installed, remember to activate the `pipenv` environment before you begin
+    to work on your new project. This way, the entirety of your project is developed
+    within the isolated virtual environment.
+
+
+    Each time you activate `pipenv`, the command line will display the following:'
+  merge: -1
+  pgno: 58
+- img_proc: false
+  md: "```\n(base) usr@project %   pipenv shellCreating a virtualenv for this project...\n\
+    Pipfile: /Users/usr/project/Pipfile\nUsing /Users/usr/.pyenv/versions/3.10.4/bin/python3\
+    \ (3.10.4) to create virtualenv...\n•\n•\n•\n  Creating virtual environment...created\
+    \ virtual environment\nCPython3.10.4.final.0-64 in 903ms\n  creator CPython3Posix(dest=/Users/usr/.local/share/virtualenvs/\n\
+    project-dGXB4pbM, clear=False, no_vcs_ignore=False, global=False)\n  seeder FromAppData(download=False,\
+    \ pip=bundle,\nsetuptools=bundle, wheel=bundle, via=copy,\napp_data_dir=/Users/usr/Library/Application\
+    \ Support/virtualenv)\n    added seed packages: pip==22.1.2, setuptools==62.6.0,\n\
+    wheel==0.37.1\n  activators\nBashActivator,CShellActivator,FishActivator,NushellActivator,Power\n\
+    ShellActivator,PythonActivator\n✔ Successfully created virtual environment!\n\
+    Virtualenv location:\n/Users/usr/.local/share/virtualenvs/TestFiles-dGXB4pbM\n\
+    Launching subshell in virtual environment...\n. /Users/usr/.local/share/virtualenvs/project-\n\
+    dGXB4pbM/bin/activate\n(Project) usr@project %%  .\n/Users/usr/.local/share/virtualenvs/project\n\
+    -dGXB4pbM/bin/activate\n```\n\nNow that we have learned how to activate a virtual\
+    \ environment using `pip`, we can move on to installing packages within that environment.\n\
+    \n# Installing packages\n\n`pip`- packages can be added or removed from the environment\
+    \ via simple `$ pipenv install` OR `$ pipenv uninstall` commands since activating\
+    \ the `pipenv` environment is designed to replace the need for the `pip`- tag\
+    \ in the command line."
+  merge: -1
+  pgno: 59
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 60
+- img_proc: false
+  md: 'Now, let’s summarize what we have learned in this chapter in the next section.
+
+
+    # Summary
+
+
+    In this chapter, we learned about various data structures in Python, including
+    if-else conditions and looping techniques. We also learned about functions and
+    object-oriented programming in Python. Then, we covered working with files in
+    Python, including version control with Git tracking and documenting environment
+    dependencies with `requirements.txt`. Additionally, we learned about utilizing
+    module management systems and instigating a virtual MMS environment within a local
+    IDE. Finally, we covered installing packages and working with `Pipfile` and `Pipfile.lock`.
+
+
+    In the next chapter, we will discuss the concept of data pipelines and how to
+    create robust ones, including the process of automating ETL pipelines and how
+    to ensure that data is consistently and accurately moved and transformed. See
+    you in [Chapter 2](Chapter 2)!'
+  merge: -1
+  pgno: 61
+- img_proc: false
+  md: '# 2
+
+
+    # Understanding the ETL Process and Data Pipelines
+
+
+    With a firm foundation of Python under our belts and a clean development environment
+    established, we can now pivot to talking about the fundamentals of data pipelines.
+
+
+    Within this chapter, we will define what a data pipeline is, as well as take a
+    more in-depth look at the process of building robust pipelines. We will then discuss
+    different approaches, such as the **Extract, Transform, and Load (ETL)** and **Extract,
+    Load, and Transform (ELT)** methodologies, and how they tie into effectively automating
+    data movement.
+
+
+    By the end of this chapter, you will have an established workflow for building
+    data pipelines within your local environment and will have covered the following
+    topics:
+
+
+    +   - What is a data pipeline?
+
+    - Creating robust data pipelines
+
+    - What is an ETL pipeline? How do ETL pipelines differ from ELT pipelines?
+
+    - Automating ETL pipelines
+
+    - Examples of use cases of ETL pipelines'
+  merge: -1
+  pgno: 62
+- img_proc: false
+  md: '# What is a data pipeline?
+
+
+    A data pipeline is a series of tasks, such as transformations, filters, aggregations,
+    and merging multiple sources, before outputting the processed data into some target.
+    In layman’s terms, a data pipeline gets data from the “source” to the “target,”
+    as depicted in the following diagram:
+
+
+    ![](bbox=[0.12, 0.28, 0.88, 0.68])
+
+
+    Figure 2.1: A sample ETL process illustration
+
+
+    You can think of pipelines as transport tubes in a mailroom. Mail can be placed
+    in specific tubes and *sucked* up to specific processing centers. Based on specific
+    labels, the mail is then moved and sorted into specific pathways that eventually
+    bring it to its destination. The core concept of data pipelines is quite similar.
+    Like mail, packets of raw data are ingested into the entry of'
+  merge: -1
+  pgno: 63
+- img_proc: false
+  md: 'the pipeline and, through a series of steps and processes, the raw material
+    is formatted and packaged into an output location, which is most commonly used
+    for storage.
+
+
+    From a business perspective, the driving incentive for creating data pipelines
+    is to design a system to transform their most valuable asset – raw data – into
+    actionable information (*Reference #2*). Typically, data pipeline architectures
+    feature a unidirectional (one-way) communication flow between the flow of input
+    data sources to output data storage systems (*Reference #1*):'
+  merge: -1
+  pgno: 64
+- img_proc: false
+  md: '# Metadata layer
+
+
+    # End user layer
+
+
+    Analytical applications (e.g., modelling, forcasting)
+
+
+    Data visualization tools
+
+
+    OLAP, Data mining
+
+
+    Query and reporting tools
+
+
+    Data mining metadata
+
+
+    Metadata
+
+
+    Data
+
+
+    Data
+
+
+    Data
+
+
+    # Data warehouse layer
+
+
+    OLAP metadata
+
+
+    Metadata
+
+
+    Operational Data Store (ODS)
+
+
+    Data warehouse
+
+
+    Data mart
+
+
+    Data mart
+
+
+    Data mart
+
+
+    ETL
+
+
+    ETL
+
+
+    ETL
+
+
+    ETL
+
+
+    Detailed near real-time data
+
+
+    - Summarised data
+
+    - Historical data
+
+
+    Reposting metadata
+
+
+    # ETL layer
+
+
+    Loading process
+
+
+    Send back for corrections close to data errors
+
+
+    Cleansed data
+
+
+    Staging area
+
+
+    Metadata
+
+
+    Transformation and cleansing process
+
+
+    Extracted data
+
+
+    Staging area
+
+
+    Data warehouse metadata
+
+
+    Extraction process
+
+
+    Internal data
+
+
+    External data
+
+
+    # Data source layer
+
+
+    Internal sources (e.g., CRM, ERP systems)
+
+
+    External sources (e.g., business partners, Internet)
+
+
+    Metadata
+
+
+    ETL metadata
+
+
+    Data source metadata
+
+
+    # Legend
+
+
+    Data flow
+
+
+    Process flow'
+  merge: -1
+  pgno: 65
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 66
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 67
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 68
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 69
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 70
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 71
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 72
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 73
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 74
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 75
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 76
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 77
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 78
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 79
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 80
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 81
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 82
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 83
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 84
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 85
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 86
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 87
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 88
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 89
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 90
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 91
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 92
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 93
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 94
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 95
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 96
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 97
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 98
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 99
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 100
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 101
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 102
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 103
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 104
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 105
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 106
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 107
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 108
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 109
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 110
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 111
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 112
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 113
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 114
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 115
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 116
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 117
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 118
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 119
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 120
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 121
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 122
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 123
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 124
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 125
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 126
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 127
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 128
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 129
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 130
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 131
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 132
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 133
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 134
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 135
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 136
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 137
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 138
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 139
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 140
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 141
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 142
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 143
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 144
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 145
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 146
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 147
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 148
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 149
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 150
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 151
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 152
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 153
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 154
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 155
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 156
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 157
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 158
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 159
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 160
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 161
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 162
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 163
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 164
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 165
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 166
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 167
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 168
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 169
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 170
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 171
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 172
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 173
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 174
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 175
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 176
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 177
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 178
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 179
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 180
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 181
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 182
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 183
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 184
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 185
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 186
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 187
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 188
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 189
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 190
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 191
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 192
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 193
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 194
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 195
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 196
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 197
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 198
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 199
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 200
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 201
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 202
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 203
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 204
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 205
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 206
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 207
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 208
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 209
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 210
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 211
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 212
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 213
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 214
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 215
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 216
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 217
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 218
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 219
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 220
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 221
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 222
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 223
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 224
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 225
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 226
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 227
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 228
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 229
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 230
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 231
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 232
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 233
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 234
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 235
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 236
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 237
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 238
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 239
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 240
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 241
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 242
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 243
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 244
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 245
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 246
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 247
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 248
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 249
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 250
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 251
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 252
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 253
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 254
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 255
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 256
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 257
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 258
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 259
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 260
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 261
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 262
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 263
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 264
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 265
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 266
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 267
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 268
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 269
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 270
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 271
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 272
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 273
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 274
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 275
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 276
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 277
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 278
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 279
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 280
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 281
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 282
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 283
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 284
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 285
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 286
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 287
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 288
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 289
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 290
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 291
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 292
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 293
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 294
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 295
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 296
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 297
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 298
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 299
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 300
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 301
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 302
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 303
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 304
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 305
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 306
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 307
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 308
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 309
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 310
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 311
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 312
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 313
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 314
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 315
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 316
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 317
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 318
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 319
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 320
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 321
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 322
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 323
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 324
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 325
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 326
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 327
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 328
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 329
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 330
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 331
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 332
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 333
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 334
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 335
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 336
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 337
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 338
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 339
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 340
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 341
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 342
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 343
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 344
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 345
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 346
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 347
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 348
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 349
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 350
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 351
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 352
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 353
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 354
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 355
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 356
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 357
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 358
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 359
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 360
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 361
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 362
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 363
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 364
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 365
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 366
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 367
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 368
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 369
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 370
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 371
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 372
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 373
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 374
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 375
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 376
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 377
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 378
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 379
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 380
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 381
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 382
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 383
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 384
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 385
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 386
+- img_proc: false
+  md: ''
+  merge: -1
+  pgno: 387
