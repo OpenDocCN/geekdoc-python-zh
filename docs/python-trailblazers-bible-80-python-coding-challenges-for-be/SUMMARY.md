@@ -1,0 +1,2 @@
++   [Python 先锋宝典：80+ Python 编程挑战初学者指南：让你成为更优秀程序员的 Python 练习。无需经验：80+ Python 挑战开启你的编程之旅](README.md)
++   [Python 先锋宝典：80+ Python 编程挑战初学者指南：让你成为更优秀程序员的 Python 练习。无需经验：80+ Python 挑战开启你的编程之旅](python-trailblazers-bible-80-python-coding-challenges-for-be.md)
