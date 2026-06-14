@@ -1,0 +1,3932 @@
+groups:
+- md: '# PYTHON CRASH COURSE. GAME APP COOKBOOK
+
+
+    Easy Game App Development in Python, Even for Beginners
+
+
+    SATOCCHI
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_0_0.png)
+
+
+    Python
+
+
+    LEARNING FOR BEGINNER. PROGRAMMING IS VERY FUN.
+
+
+    ## Getting Started
+
+
+    You don''t have to have any experience at all to make a game app.
+
+
+    Hello, my name is Satocchi (@stcheeee).
+
+
+    This time, I created a book on game programming.
+
+
+    The reason for this is that I want beginners to enjoy the challenge of programming.
+
+    I wanted to make it fun for beginners to try programming.
+
+
+    To learn programming, it is good to make something that actually works and be
+    impressed by it.
+
+    I think it is better to do it in this order.
+
+
+    As Horiemon(@takapon_jp) and Hiroyuki(@hirox246) said.
+
+    "First of all, I have something I want to make.
+
+
+    Then, they learn the skills by working backward from that state.
+
+    That is the order in which they are learning.
+
+
+    I wrote this book so that you can experience this phase as well.
+
+    In this book, I will show you how to make Tetris using the popular Python language.
+
+
+    ## Target Audience
+
+
+    The target audience of this book is people who want to start programming.
+
+
+    This book is intended for people who want to start programming.
+
+
+    Specifically, this book is intended for people who have just finished a series
+    of Python courses on Progate and other sites.
+
+
+    I want to share the joy of programming.
+
+
+    I used to do programming in class and think, "Damn, that''s boring!"
+
+    I can learn programming, I can have a full remote job, I can finish in 8 hours
+
+
+    The work can be done in one shot, etc.
+
+    I started to like programming after I realized that it was a great environmental
+    advantage. I fell in love with programming after realizing that
+
+
+    In the past, I was ridiculed as a "digital earthworker" and forced to work like
+    a cart horse for subcontractors.
+
+    However, nowadays there are many jobs available, and if you have the skills and
+    communication abilities, you can freely choose your own working environment.
+
+
+    The shortest way to improve is to "get absorbed in programming."
+
+
+    We hope that this book will awaken you to the joy of programming.
+
+
+    ## Chapter 1: Even a self-taught person can create game applications
+
+
+    Why I decided to make Tetris
+
+
+    ### Key Points
+
+
+    - (1) Everyone seems to want to make it.
+
+    - (2) Let''s enjoy the sense of accomplishment
+
+
+    Because beginners can learn in a fun way
+
+
+    This book is for learning programming, but most general books explain the syntax,
+    and it''s hard to find something specific that you want to make.
+
+
+    So, I wanted to try making a fun game by myself. I wanted to try to make a fun
+    game by myself.
+
+
+    Later on, I want you to go deep and wonder why it works.
+
+
+    To make Tetris in Python, there are a lot of things to learn.
+
+    You will probably have a lot of questions like, "Why does it work like this?
+
+
+    If you get into the habit of looking things up line by line on Google or looking
+    at official references, it will take a lot of time, but you will become very proficient.
+
+
+    That''s what makes programming an accomplishment.
+
+
+    At first, some people may feel self-loathing and wonder why it takes so long,
+    but SATOCHI''s advice is to be curious and ask yourself, "Why does it work like
+    this? I want you to try programming with a genuine feeling of "Why does it work
+    like this?
+
+
+    It''s a lot of fun.
+
+
+    You can customize it later.
+
+
+    Once you have a certain level of programming skills, you may want to add sound,
+    or add more shapes to the Tetris blocks, etc. You can do all kinds of things you
+    want. With game programming, there are many motivations to customize afterwards.
+
+
+    With game programming, it is easy to be motivated to customize later, so let''s
+    try programming Tetris this time.
+
+
+    ### Summary of this section
+
+
+    - (1) Let''s learn programming while having fun!
+
+    - (2) Leave a legacy in the world!
+
+
+    ## Chapter 2: Know the Technology Used in Tetris
+
+
+    Prerequisite knowledge required to create an application
+
+
+    ### Key Points
+
+
+    - (1) Let''s check the programming language.
+
+    - (2) Let''s check the development environment
+
+
+    #### ☆Knowledge of Python
+
+
+    Python is a programming language. In this book, we will try programming Tetris
+    using Python.
+
+
+    Some of the basics will be explained in this book, but if you want to learn it
+    systematically, please try to learn programming on the website Progate. Progate
+    is a great way for beginners to learn programming in a thorough and easy-to-understand
+    way. If you first learn Python with Progate and then try this book, you will be
+    able to make progress in your learning.
+
+
+    # プログラミングで
+
+    人生の可能性を広げよう
+
+
+    👤 2,600,000 ユーザー 🌐 提供国数 100+
+
+
+    ## Chapter 3: Learn Python
+
+
+    ### Learn the basics with Progate
+
+
+    #### Key Points
+
+
+    - 1. Let''s do Progate''s Python course 1 to 5.
+
+    - 2. Keep basic learning to a minimum.
+
+
+    #### Why choose Progate?
+
+
+    Progate is a very easy-to-understand online learning service.
+
+
+    Satochi has been looking at various learning services, and I think Progate is
+    the best choice for learning a language quickly. Progate offers courses from 1
+    to 5.
+
+
+    Progate''s courses range from 1 to 5, so it will take you about 10 hours to complete
+    them all, but I recommend you give it a try.
+
+
+    ### What about programming schools?
+
+
+    Learning at a programming school generally depends on the school, but a course
+    of about 200,000 yen for about one month of intensive learning
+
+
+    You can learn about unclear points 1-on-1 with an engineer about 10 times with
+    mentoring. In my opinion, the attributes of the school are very good.
+
+
+    In Satocchi''s opinion, this is unnecessary for people whose attribute is originally
+    an engineer. I think it is unnecessary for people who are engineers by nature.
+
+
+    It may be possible for a complete beginner to use a school as an environment to
+    try to learn. However, I am concerned about the high cost.
+
+
+    But I am still concerned about the high cost. (If you have the money, it would
+    be OK.)
+
+
+    Basic learning should be kept to a minimum.
+
+
+    The curriculum you can learn at Progate is just the rudiments of actual Python
+    programming.
+
+
+    After you have learned some of the basics, you will be better off actually taking
+    on projects and building software, so I don''t recommend you to do the Progate
+    10-week course.
+
+
+    ### Summary of this section
+
+
+    - (1) For basic learning, use Progate for a quick start.
+
+    - (2) If you have the money, you can go to a programming school.
+
+
+    ### You can also learn by video (youtube)
+
+
+    #### Key Points
+
+
+    - (1) You can learn on the go!
+
+    - (2) Let''s actually move your hands!
+
+
+    #### Advantages of learning on Youtube
+
+
+    There are many good programming learning materials on Youtube. And they are free
+    of charge. Therefore, we also recommend learning by video.
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_13_0.png)
+
+
+    ### Satocchi TV (youtube) is also open.
+
+
+    Satocchi opened youtube not only for Kindle books but also for videos to help
+    everyone learn programming in an easy-to-understand way.
+
+
+    https://www.youtube.com/channel/UC-5DcUCMb3g-28FRK3EtlfQ
+
+
+    We will be adding various curriculum in the future, so please take a look.
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_14_0.png)
+
+
+    ### A Note on Video Learning
+
+
+    Studying with videos tends to make you feel like you''ve done some programming.
+    However, I want you to be sure to "move your hands."
+
+
+    If you don''t actually move your hands, you will only end up "feeling like you
+    understand."
+
+
+    If you are going to go through the trouble of learning, do it yourself.
+
+
+    ### Summary of this section
+
+
+    - (1) Video learning is free of charge, and there are many high-quality contents.
+
+    - (2) It is important to do hands-on activities by yourself.
+
+
+    ## Chapter 4: Make Preparations in Advance
+
+
+    ### Let''s buy a Macbook!
+
+
+    #### Key Points
+
+
+    - (1) Macbook is the only choice for engineers.
+
+    - (2) Let''s enjoy programming in style!
+
+
+    ### Why Mac?
+
+
+    (1) Because everyone''s a Mac (easy to Google).
+
+
+    This is the center pin.
+
+
+    System development is 70% bug catching.
+
+
+    When we hit a wall, we Google, but most of the articles are about Mac.
+
+
+    Therefore, Mac is a must to increase the amount of information.
+
+
+    (2) The possibility of virus infection is much lower than Windows.
+
+
+    (3) It''s cool.
+
+
+    This is just as it is.
+
+
+    (4) Good performance
+
+
+    My main machine is a 12-inch MacBook.
+
+
+    I think it was about 12 man yen, and it was one of the best purchases I ever made
+    in my life.
+
+
+    (5) Lightweight
+
+
+    It is easy to carry around when it is light.
+
+
+    (6) Linux-based
+
+
+    The command line is almost the same as that of Linux, so it is easy to use for
+    Linux users, and even if you have never used Linux before, I think you will be
+    able to use Linux normally after learning with this.'
+  mdcn: '# Python速成课程：游戏应用食谱
+
+
+    即使对于初学者，也能轻松用Python开发游戏应用
+
+
+    SATOCCHI
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_0_0.png)
+
+
+    Python
+
+
+    **初学者学习指南。编程非常有趣。**
+
+
+    ## 开始之前
+
+
+    制作游戏应用，你完全不需要任何经验。
+
+
+    大家好，我是Satocchi (@stcheeee)。
+
+
+    这次，我编写了一本关于游戏编程的书。
+
+
+    原因是我想让初学者也能享受编程挑战的乐趣。
+
+    我希望初学者尝试编程时也能乐在其中。
+
+
+    学习编程，最好是动手制作一个能实际运行的东西，并为之感到震撼。
+
+    我认为按这个顺序来效果更好。
+
+
+    正如Horiemon(@takapon_jp)和Hiroyuki(@hirox246)所说：
+
+    “首先，你心里得有个想做的东西。”
+
+
+    然后，他们会从这个目标出发倒推，去学习所需的技能。
+
+    这就是他们的学习顺序。
+
+
+    我写这本书，就是为了让你也能体验这个过程。
+
+    在本书中，我将向你展示如何使用流行的Python语言制作俄罗斯方块。
+
+
+    ## 目标读者
+
+
+    本书的目标读者是想要开始编程的人。
+
+
+    本书适合那些想要开始编程的人。
+
+
+    具体来说，本书适合那些刚刚在Progate等网站完成一系列Python课程的人。
+
+
+    我想分享编程的乐趣。
+
+
+    我以前上编程课时会想：“该死，太无聊了！”
+
+    学会编程后，我能拥有全远程的工作，8小时就能完成工作。
+
+    工作可以一口气做完，诸如此类。
+
+    在我意识到这些巨大的环境优势后，我开始喜欢编程。在认识到这些后，我爱上了编程。
+
+
+    过去，我曾被嘲笑为“数字民工”，像骡马一样为分包商卖命。
+
+    然而，如今的工作机会很多，如果你有技能和沟通能力，就可以自由选择自己的工作环境。
+
+
+    提升的最快方式就是“沉浸在编程中”。
+
+
+    希望这本书能唤醒你对编程的乐趣。
+
+
+    ## 第1章：即使是自学者也能创建游戏应用
+
+
+    为什么我决定制作俄罗斯方块
+
+
+    ### 要点
+
+
+    - (1) 大家似乎都想做这个。
+
+    - (2) 享受成就感
+
+
+    因为初学者可以以有趣的方式学习
+
+
+    这本书是用来学习编程的，但大多数通用书籍都只讲解语法，很难找到你想做的具体东西。
+
+
+    所以，我想自己尝试做一个有趣的游戏。我想自己尝试制作一个有趣的游戏。
+
+
+    我希望之后你能深入钻研，思考它为什么能运行。
+
+    要用Python制作俄罗斯方块，有很多东西要学。
+
+    你可能会有很多疑问，比如“为什么它能这样运行？”
+
+
+    如果你养成在Google上逐行查找或查看官方文档的习惯，虽然会花很多时间，但你会变得非常熟练。
+
+    这正是编程的成就感所在。
+
+
+    起初，有些人可能会感到自厌，纳闷为什么这么耗时，但SATOCCHI的建议是保持好奇，问自己：“为什么它能这样运行？”我希望你能抱着“为什么它能这样运行？”的真实感受去尝试编程。
+
+    这非常有趣。
+
+
+    以后可以自定义。
+
+    一旦你具备了一定的编程技能，你可能会想添加声音，或者给俄罗斯方块方块添加更多形状等等。你可以做任何你想做的事。游戏编程有很多后续自定义的动力。
+
+    因为游戏编程很容易让人产生后续自定义的动力，所以这次让我们尝试编程制作俄罗斯方块吧。
+
+
+    ### 本节小结
+
+
+    - (1) 在快乐中学习编程！
+
+    - (2) 为世界留下遗产！
+
+
+    ## 第2章：了解俄罗斯方块所用的技术
+
+
+    创建应用所需的前置知识
+
+
+    ### 要点
+
+
+    - (1) 了解一下编程语言。
+
+    - (2) 确认一下开发环境
+
+
+    #### ☆Python知识
+
+
+    Python是一种编程语言。在本书中，我们将尝试使用Python编程制作俄罗斯方块。
+
+
+    本书会讲解一些基础内容，但如果你想系统学习，建议尝试在Progate网站上学习编程。Progate非常适合初学者透彻、易懂地学习编程。如果你先通过Progate学习Python，然后再看本书，你的学习会进展得更顺利。
+
+
+    # 用编程
+
+    拓展人生的更多可能
+
+
+    👤 2,600,000 用户 🌐 覆盖国家/地区 100+
+
+
+    ## 第3章：学习Python
+
+
+    ### 通过Progate学习基础
+
+
+    #### 要点
+
+
+    - 1. 完成Progate的Python课程1到5。
+
+    - 2. 将基础学习保持在最低限度。
+
+
+    #### 为什么选择Progate？
+
+
+    Progate是一个非常易于理解的在线学习服务。
+
+
+    Satochi研究过各种学习服务，我认为Progate是快速学习一门语言的最佳选择。Progate提供课程1到5。
+
+
+    Progate的课程从1到5，完成所有课程大约需要10小时，但我推荐你尝试一下。
+
+
+    ### 编程学校怎么样？
+
+
+    在编程学校学习通常取决于学校，但大约20万日元的课程可以进行约一个月的密集学习。
+
+    你可以获得大约10次与工程师的1对1辅导，以解答不清楚的地方。在我看来，学校的属性非常好。
+
+
+    在Satocchi看来，对于本身属性就是工程师的人来说，这是不必要的。我认为对于天生就是工程师的人来说，这是不必要的。
+
+    对于完全的初学者来说，或许可以把学校当作一个尝试学习的环境。但我担心成本太高。
+
+    但我仍然担心高昂的费用。（如果你有钱，那没问题。）
+
+
+    基础学习应保持在最低限度。
+
+    在Progate上能学到的课程只是Python实际编程的皮毛。
+
+    在学了一些基础之后，最好亲自接手项目、构建软件，所以我不推荐你参加Progate 10周的课程。
+
+
+    ### 本节小结
+
+
+    - (1) 基础学习，使用Progate快速起步。
+
+    - (2) 如果你有钱，可以去编程学校。
+
+
+    ### 也可以通过视频（youtube）学习
+
+
+    #### 要点
+
+
+    - (1) 可以在路上学习！
+
+    - (2) 一定要动手实践！
+
+
+    #### 在Youtube上学习的优势
+
+
+    Youtube上有很多优质的编程学习资料，而且免费。因此，我们也推荐通过视频学习。
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_13_0.png)
+
+
+    ### Satocchi TV（youtube）频道也开放了。
+
+
+    Satocchi不仅为Kindle书籍开设了youtube频道，还通过视频帮助大家以易懂的方式学习编程。
+
+
+    https://www.youtube.com/channel/UC-5DcUCMb3g-28FRK3EtlfQ
+
+
+    未来我们会添加各种课程，请务必来看看。
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_14_0.png)
+
+
+    ### 关于视频学习的一点说明
+
+
+    学习视频往往会让人产生“我已经学了编程”的错觉。但我希望你一定要“动手实践”。
+
+    如果不实际动手，最终只会“感觉懂了”。
+
+    如果要费心学习，就自己动手去做。
+
+
+    ### 本节小结
+
+
+    - (1) 视频学习免费，且有很多高质量内容。
+
+    - (2) 重要的是要自己动手实践。
+
+
+    ## 第4章：提前做好准备
+
+
+    ### 买一台Macbook吧！
+
+
+    #### 要点
+
+
+    - (1) Macbook是工程师的唯一选择。
+
+    - (2) 享受有格调的编程！
+
+
+    ### 为什么是Mac？
+
+
+    (1) 因为人人都用Mac（容易搜到解决方案）。
+
+
+    这是核心。
+
+    系统开发70%的时间在抓bug。
+
+    当我们遇到瓶颈时会去Google搜索，但大多数文章都是关于Mac的。
+
+    因此，为了增加信息量，Mac是必备的。
+
+
+    (2) 感染病毒的可能性比Windows低得多。
+
+
+    (3) 它很酷。
+
+
+    字面意思。
+
+
+    (4) 性能好。
+
+
+    我的主力机是一台12英寸MacBook。
+
+    我记得大约花了12万日元，这是我人生中最划算的购买之一。
+
+
+    (5) 轻便。
+
+    轻便就易于携带。
+
+
+    (6) 基于Linux。
+
+    命令行与Linux几乎相同，因此对Linux用户来说易于使用，即使你从未使用过Linux，我想通过这本书学习后，你也能正常地使用Linux。'
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    # PYTHON CRASH COURSE. GAME APP COOKBOOK
+
+
+    Easy Game App Development in Python, Even for Beginners
+
+
+    SATOCCHI
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_0_0.png)
+
+
+    Python
+
+
+    LEARNING FOR BEGINNER. PROGRAMMING IS VERY FUN.'
+  - '[PAGE 1]
+
+
+    # Getting Started
+
+
+    You don''t have to have any experience at all to make a game app.
+
+
+    Hello, my name is Satocchi (@stcheeee).
+
+
+    This time, I created a book on game programming.
+
+
+    The reason for this is that I want beginners to enjoy the challenge of programming.
+
+    I wanted to make it fun for beginners to try programming.
+
+
+    To learn programming, it is good to make something that actually works and be
+    impressed by it.
+
+    I think it is better to do it in this order.
+
+
+    As Horiemon(@takapon_jp) and Hiroyuki(@hirox246) said.
+
+    "First of all, I have something I want to make.
+
+
+    Then, they learn the skills by working backward from that state.
+
+    That is the order in which they are learning.
+
+
+    I wrote this book so that you can experience this phase as well.
+
+    In this book, I will show you how to make Tetris using the popular Python language.'
+  - '[PAGE 2]
+
+
+    # Target Audience
+
+
+    The target audience of this book is people who want to start programming.
+
+
+    This book is intended for people who want to start programming.
+
+
+    Specifically, this book is intended for people who have just finished a series
+    of Python courses on Progate and other sites.'
+  - '[PAGE 3]
+
+
+    I want to share the joy of programming.
+
+
+    I used to do programming in class and think, "Damn, that''s boring!"
+
+    I can learn programming, I can have a full remote job, I can finish in 8 hours
+
+
+    The work can be done in one shot, etc.
+
+    I started to like programming after I realized that it was a great environmental
+    advantage. I fell in love with programming after realizing that
+
+
+    In the past, I was ridiculed as a "digital earthworker" and forced to work like
+    a cart horse for subcontractors.
+
+    However, nowadays there are many jobs available, and if you have the skills and
+    communication abilities, you can freely choose your own working environment.
+
+
+    The shortest way to improve is to "get absorbed in programming.
+
+
+    We hope that this book will awaken you to the joy of programming.'
+  - '[PAGE 4]
+
+
+    # Chapter 1: Even a self-taught person can create game applications
+
+    Why I decided to make Tetris
+
+
+    Key Points
+
+    (1) Everyone seems to want to make it.
+
+    (2) Let''s enjoy the sense of accomplishment
+
+
+    Because beginners can learn in a fun way
+
+
+    This book is for learning programming, but most general books explain the syntax,
+    and it''s hard to find something specific that you want to make.
+
+
+    So, I wanted to try making a fun game by myself. I wanted to try to make a fun
+    game by myself.
+
+
+    Later on, I want you to go deep and wonder why it works.
+
+
+    To make Tetris in Python, there are a lot of things to learn.
+
+    You will probably have a lot of questions like, "Why does it work like this?
+
+
+    If you get into the habit of looking things up line by line on Google or looking
+    at official references, it will take a lot of time, but you will become very proficient.
+
+
+    That''s what makes programming an accomplishment.
+
+
+    At first, some people may feel self-loathing and wonder why it takes so long,
+    but SATOCHI''s advice is to be curious and ask yourself, "Why does it work like
+    this? I want you to try programming with a genuine feeling of "Why does it work
+    like this?'
+  - '[PAGE 5]
+
+
+    It''s a lot of fun.'
+  - '[PAGE 6]
+
+
+    You can customize it later.
+
+
+    Once you have a certain level of programming skills, you may want to add sound,
+    or add more shapes to the Tetris blocks, etc. You can do all kinds of things you
+    want. With game programming, there are many motivations to customize afterwards.
+
+
+    With game programming, it is easy to be motivated to customize later, so let''s
+    try programming Tetris this time.
+
+
+    # Summary of this section
+
+
+    +   (1)Let''s learn programming while having fun!
+
+    (2) Leave a legacy in the world!'
+  - '[PAGE 7]
+
+
+    <!-- no content -->'
+  - '[PAGE 8]
+
+
+    # ## Chapter 2: Know the Technology Used in Tetris
+
+    Prerequisite knowledge required to create an application
+
+
+    # ### Key Points
+
+
+    +   (1) Let''s check the programming language.
+
+    (2) Let''s check the development environment
+
+
+    # #### ☆Knowledge of Python
+
+
+    Python is a programming language. In this book, we will try programming Tetris
+    using Python.
+
+
+    Some of the basics will be explained in this book, but if you want to learn it
+    systematically, please try to learn programming on the website Progete. Progate
+    is a great way for beginners to learn programming in a thorough and easy-to-understand
+    way. If you first learn Python with Progate and then try this book, you will be
+    able to make progress in your learning.'
+  - '[PAGE 9]
+
+
+    # プログラミングで
+
+    人生の可能性を広げよう
+
+
+    👤 2,600,000 ユーザー 🌐 提供国数 100+'
+  - '[PAGE 10]
+
+
+    # # Chapter 3: Learn Python
+
+
+    # ## Learn the basics with Progate
+
+
+    ### Key Points
+
+
+    +   1. Let''s do Progate''s Python course 1 to 5.
+
+    2. Keep basic learning to a minimum.
+
+
+    ### Why choose Progate?
+
+
+    Progate is a very easy-to-understand online learning service.
+
+
+    Satochi has been looking at various learning services, and I think Progate is
+    the best choice for learning a language quickly. Progate offers courses from 1
+    to 5.
+
+
+    Progate''s courses range from 1 to 5, so it will take you about 10 hours to complete
+    them all, but I recommend you give it a try.'
+  - '[PAGE 11]
+
+
+    # What about programming schools?
+
+
+    Learning at a programming school generally depends on the school, but a course
+    of about 200,000 yen for about one month of intensive learning
+
+
+    You can learn about unclear points 1-on-1 with an engineer about 10 times with
+    mentoring. In my opinion, the attributes of the school are very good.
+
+
+    In Satocchi''s opinion, this is unnecessary for people whose attribute is originally
+    an engineer. I think it is unnecessary for people who are engineers by nature.
+
+
+    It may be possible for a complete beginner to use a school as an environment to
+    try to learn. However, I am concerned about the high cost.
+
+
+    But I am still concerned about the high cost. (If you have the money, it would
+    be OK.)'
+  - '[PAGE 12]
+
+
+    Basic learning should be kept to a minimum.
+
+
+    The curriculum you can learn at Progate is just the rudiments of actual Python
+    programming.
+
+
+    After you have learned some of the basics, you will be better off actually taking
+    on projects and building software, so I don''t recommend you to do the Progate
+    10-week course.
+
+
+    # Summary of this section
+
+
+    +   (1) For basic learning, use Progate for a quick start.
+
+    (2) If you have the money, you can go to a programming school.'
+  - '[PAGE 13]
+
+
+    # # You can also learn by video (youtube)
+
+
+    # ## Key Points
+
+
+    +   (1) You can learn on the go!
+
+    (2) Let''s actually move your hands!
+
+
+    # ## Advantages of learning on Youtube
+
+
+    There are many good programming learning materials on Youtube. And they are free
+    of charge. Therefore, we also recommend learning by video.
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_13_0.png)'
+  - '[PAGE 14]
+
+
+    # Satocchi TV (youtube) is also open.
+
+
+    Satocchi opened youtube not only for Kindle books but also for videos to help
+    everyone learn programming in an easy-to-understand way.
+
+
+    https://www.youtube.com/channel/UC-5DcUCMb3g-28FRK3EtlfQ
+
+
+    We will be adding various curriculum in the future, so please take a look.
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_14_0.png)'
+  - '[PAGE 15]
+
+
+    # A Note on Video Learning
+
+
+    Studying with videos tends to make you feel like you''ve done some programming.
+    However, I want you to be sure to "move your hands."
+
+
+    If you don''t actually move your hands, you will only end up "feeling like you
+    understand."
+
+
+    If you are going to go through the trouble of learning, do it yourself.
+
+
+    # Summary of this section
+
+
+    +   (1) Video learning is free of charge, and there are many high-quality contents.
+
+
+    +   (2) It is important to do hands-on activities by yourself.'
+  - '[PAGE 16]
+
+
+    <!-- no content -->'
+  - '[PAGE 17]
+
+
+    # # Chapter 4: Make Preparations in Advance
+
+    ## Let''s buy a Macbook!
+
+
+    Key Points
+
+
+    +   (1) Macbook is the only choice for engineers.
+
+    (2) Let''s enjoy programming in style!'
+  - '[PAGE 18]
+
+
+    # Why Mac?
+
+
+    (1) Because everyone''s a Mac (easy to Google).
+
+
+    This is the center pin.
+
+
+    System development is 70% bug catching.
+
+
+    When we hit a wall, we Google, but most of the articles are about Mac.
+
+
+    Therefore, Mac is a must to increase the amount of information.
+
+
+    (2) The possibility of virus infection is much lower than Windows.
+
+
+    (3) It''s cool.
+
+
+    This is just as it is.
+
+
+    (4) Good performance
+
+
+    My main machine is a 12-inch MacBook.
+
+
+    I think it was about 12 man yen, and it was one of the best purchases I ever made
+    in my life.
+
+
+    (5) Lightweight
+
+
+    It is easy to carry around when it is light.
+
+
+    (6) Linux-based
+
+
+    The command line is almost the same as that of Linux, so it is easy to use for
+    Linux users, and even if you have never used Linux before, I think you will be
+    able to use Linux normally after learning with this.'
+- md: "## Summary of this section\n\n- (1) If you are an engineer, choose Mac.\n-\
+    \ (2) If you don't like it, sell it on Mercari.\n\n## Let's Create an Environment\n\
+    \n### Considerations for Google Collaboration\n\nWe sought an environment where\
+    \ even beginners can develop.\nOne of the easiest is Google Collaboration.\nIt\
+    \ only takes a minute to get a development environment. And it's free.\n\nI thought\
+    \ I was done with this, and continued to create content, but I ran into difficulties\
+    \ in the execution phase.\n\nI could not use functions for drawing objects.\n\
+    The reason was that the application was running on the cloud.\nTherefore, I decided\
+    \ to put the environment on my own device.\nSince I only have a Mac and the development\
+    \ community is full of Macs, I decided to proselytize Mac.\n\n## How to set up\
+    \ a development environment on a Mac\n\n### STEP1 Preparation to start building\
+    \ the environment\n\n1. Check the version of Python\n\n```\npython --version\n\
+    ```\n\nThe default version is 2 series. So, install pyenv and install the 3rd\
+    \ series.\n\n### STEP2 Install Homebrew\n\n```\nbrew -v\n```\n\nConfirm that Homebrew\
+    \ x.x.x and version information are displayed.\n\n### STEP3 Install pyenv\n\n\
+    1. pyenv -v\n\nExecute the following commands when \"pyenv: command not found\"\
+    \ is displayed.\n\n```\nbrew install pyenv\n```\n\n### STEP4 Install Python\n\n\
+    1. pyenv install --list\n\n2. pyenv install 3.x.x\n\nIt is recommended to install\
+    \ the latest version of Python 3.x.x. In this case, the latest version is 3.10.x.\
+    \ In this case, we chose 3.10.4.\n\n3. pyenv versions\n\n4. pyenv global 3.x.x\n\
+    \n5. python --version\n\n### STEP5 Execute Python code\n\n1. python XXXX.py\n\n\
+    ## Chapter 5: Let's Write the Code for Tetris\n\nLet's take a look at the overall\
+    \ code.\n\n```python\nimport tkinter as tk\nfrom queue import Queue\nimport numpy\
+    \ as np\nfrom random import randint\nfrom time import time\n\nGAME_W , GAME_H\
+    \ = 10, 18\nSCN_W , SCN_H = 400, 720\nBLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H\
+    \ // GAME_H\nTIMER_WAIT = 50\n\nget_time = lambda: time() * 1000\nout_of_screen\
+    \ = lambda x, y: x < 0 or x >= GAME_W or y < 0 or y >= GAME_H\ng_pos = {'x': 0,\
+    \ 'y': 0}\ng_events = Queue()\n\ndef init_game():\n    global g_buf, g_pat, g_time,\
+    \ g_scene\n    g_buf = [[0 for _ in range(GAME_W)] for _ in range(GAME_H)]\n \
+    \   g_pat, g_time, g_scene = None, get_time(), 0 # g_scene = 0: Playing, 1: Game\
+    \ Over\n```\n\n```python\ndef create_pattern():\n    pats = [['0100', '0100',\
+    \ '0100', '0100'], ['0000', '0100', '0110', '0100'],\n            ['0000', '0110',\
+    \ '0100', '0100'], ['0000', '0110', '0010', '0010'],\n            ['0000', '0010',\
+    \ '0110', '0100'], ['0000', '0100', '0110', '0010']]\n    return [p := pats[randint(0,\
+    \ 5)], [p := np.rot90(np.array(list(map(lambda x: [int(v) for v in x], p)), int).tolist()\
+    \ for _ in range(randint(1, 4))][-1][1]]\n```\n\n```python\ndef is_crashed(pat,\
+    \ x, y):\n    for i in range(16):\n        if pat[i // 4][i % 4]:\n          \
+    \  if out_of_screen(i % 4 + x, i // 4 + y) or pat[i // 4][i % 4] & g_buf[i //\
+    \ 4 + y][i % 4 + x]:\n                return True\n    return False\n```\n\n```python\n\
+    def draw_one_block(canvas, x, y):\n    if not out_of_screen(x, y):\n        x1,\
+    \ y1 = x * BLOCK_W, y * BLOCK_H\n        x2, y2 = x1 + BLOCK_W - 1, y1 + BLOCK_H\
+    \ - 1\n        canvas.create_rectangle(x1, y1, x2, y2, fill='white', width=0,\
+    \ tag='objects')\n```\n\n```python\ndef draw_game(canvas):\n    canvas.delete('objects')\n\
+    \    for i in range(GAME_W * GAME_H):\n        if g_buf[i // GAME_W][i % GAME_W]:\n\
+    \            draw_one_block(canvas, i % GAME_W, i // GAME_W)\n    if g_pat:\n\
+    \        for i in range(4 * 4):\n            if g_pat[i // 4][i % 4]:\n      \
+    \          draw_one_block(canvas, i % 4 + g_pos['x'], i // 4 + g_pos['y'])\n \
+    \   if g_scene == 1:\n        canvas.create_rectangle(40, SCN_H // 2 - 50, SCN_W\
+    \ - 40, SCN_H // 2 + 50, fill='gray', tag='objects')\n        canvas.create_text(SCN_W\
+    \ // 2, SCN_H // 2, text='Game Over\\n\\nPlease Space Key', font=('Monospace',\
+    \ 14, 'bold'), justify='center', fill='white', anchor='center', tag='objects')\n\
+    ```\n\n```python\ndef main_proc(root, canvas):\n    global g_buf, g_pat, g_time,\
+    \ g_scene\n\n    if (e := g_events.get() if not g_events.empty() else None) is\
+    \ not None:\n        if g_scene == 0 and g_pat is not None:\n            if e\
+    \ == 'Left':     g_pos['x'] += -1 if not is_crashed(g_pat, g_pos['x'] - 1, g_pos['y'])\
+    \ else 0\n            elif e == 'Right':  g_pos['x'] += 1 if not is_crashed(g_pat,\
+    \ g_pos['x'] + 1, g_pos['y']) else 0\n            elif e == 'space':  g_pat =\
+    \ pat if not is_crashed(pat := np.rot90(np.array(g_pat, int)).tolist(), **g_pos)\
+    \ else g_pat\n        elif g_scene == 1 and e == 'space':\n            init_game()\n\
+    \n    if g_scene == 0:\n        if g_pat is None:\n            g_pat = create_pattern()\n\
+    \            for top in range(4):\n                if any(g_pat[top]):\n     \
+    \               g_pos['x'], g_pos['y'] = (GAME_W - 4) // 2, -top\n           \
+    \         break\n            g_scene = 1 if is_crashed(g_pat, **g_pos) else 0\n\
+    \n        if get_time() - g_time > 400 or e == 'Down':\n            if is_crashed(g_pat,\
+    \ g_pos['x'], g_pos['y'] + 1):\n                for y in range(4):\n         \
+    \           for x in range(4):\n                        if not out_of_screen(g_pos['x']\
+    \ + x, g_pos['y'] + y):\n                            g_buf[g_pos['y'] + y][g_pos['x']\
+    \ + x] |= g_pat[y][x]\n                g_pat = None\n                new_buf =\
+    \ list(filter(lambda line: not all(line), g_buf))\n                g_buf = [[0\
+    \ for _ in range(GAME_W)] for _ in range(GAME_H - len(new_buf))] + new_buf\n \
+    \           else:\n                g_pos['y'] += 1\n\n            g_time = get_time()\n\
+    \n    draw_game(canvas)\n    root.after(TIMER_WAIT, main_proc, root, canvas)\n\
+    ```\n\n```python\nif __name__ == '__main__':\n    root = tk.Tk()\n    root.geometry(f'{SCN_W}x{SCN_H}')\n\
+    \    canvas = tk.Canvas(root, width=SCN_W, height=SCN_H, bg='black')\n    canvas.place(x=0,\
+    \ y=0)\n    root.bind('<Key>', lambda e: g_events.put(e.keysym) if e.keysym in\
+    \ ('Left', 'Right', 'Down', 'space') else None)\n    init_game()\n    root.after(TIMER_WAIT,\
+    \ main_proc, root, canvas)\n    root.mainloop()\n```\n\n全体を見ても、あまりイメージがつかないと思いますので、順番に説明していきます。\n\
+    \n## What you need to play Tetris\n\nThis hits on the question of where to start\
+    \ when it comes to programming.\n\n### Necessary functions\n\n1. Screen\n2. Blocks\n\
+    3. Controller\n4. Timer\n\n#### (1) Screen\n\nPython has a library dedicated to\
+    \ games.\nFor screen functions, there is a library called tkinter, which has a\
+    \ function called Canvas.\n\n#### (2) Blocks\n\nThe function to attach blocks\
+    \ to the screen can be created in tkinter.\n\n#### (3) To operate with the keyboard\n\
+    \nThe function \"bind()\" of the window created by tkinter can be used to implement\
+    \ this function.\n\n#### (4) Timer\n\nA mechanism is needed to make the blocks\
+    \ fall down when time elapses.\nA timer can be implemented with the function \"\
+    after\" in Tkinter.\n\nI thought about the flow of the program for this game.\n\
+    \nI divided the program into steps.\n\n1. Define the existence of blocks in the\
+    \ array\n2. Function to draw blocks\n3. Function to create a pattern of blocks\n\
+    4. Determination of collision of blocks\n5. Function to prevent the blocks from\
+    \ going out of the screen\n6. Erase when one line is aligned\n7. Looping with\
+    \ the main function\n\nLet's put this into actual programming.\n\n## Let's make\
+    \ a declaration.\n\n```python\nimport tkinter as tk\nfrom queue import Queue\n\
+    import numpy as np\nfrom random import randint\nfrom time import time\n```\n\n\
+    Explanation\n\ntkinter. a library for creating screens.\nqueue is used to manage\
+    \ the keys pressed on the keyboard.\nnumpy is a library for fast processing of\
+    \ vectors and matrices.\nrandom is used to generate random numbers.\ntime is used\
+    \ to get the passage of time."
+  mdcn: "## 本节总结\n\n-   (1) 如果你是工程师，选择 Mac。\n-   (2) 如果你不喜欢，就在 Mercari 上卖掉它。\n\n##\
+    \ 让我们创建一个环境\n\n### 关于 Google 协作的考量\n\n我们寻找一个即使初学者也能进行开发的环境。\n最简单的选择之一是 Google\
+    \ 协作。\n只需一分钟即可获得开发环境。而且它是免费的。\n\n我以为这样就完成了，于是继续创建内容，但在执行阶段遇到了困难。\n\n我无法使用绘制对象的功能。\n\
+    原因在于应用程序运行在云端。\n因此，我决定将环境部署到自己的设备上。\n由于我只有 Mac，而开发社区又充斥着 Mac，所以我决定大力推荐 Mac。\n\n\
+    ## 如何在 Mac 上设置开发环境\n\n### 步骤 1：准备开始构建环境\n\n1.  检查 Python 版本\n\n```\npython --version\n\
+    ```\n\n默认版本是 2 系列。因此，请安装 pyenv 并安装 3 系列。\n\n### 步骤 2：安装 Homebrew\n\n```\nbrew\
+    \ -v\n```\n\n确认显示了 Homebrew x.x.x 和版本信息。\n\n### 步骤 3：安装 pyenv\n\n1.  pyenv -v\n\
+    \n当显示 \"pyenv: command not found\" 时，执行以下命令。\n\n```\nbrew install pyenv\n```\n\
+    \n### 步骤 4：安装 Python\n\n1.  pyenv install --list\n\n2.  pyenv install 3.x.x\n\n\
+    建议安装最新版本的 Python 3.x.x。本例中，最新版本是 3.10.x。此处，我们选择了 3.10.4。\n\n3.  pyenv versions\n\
+    \n4.  pyenv global 3.x.x\n\n5.  python --version\n\n### 步骤 5：执行 Python 代码\n\n\
+    1.  python XXXX.py\n\n## 第 5 章：让我们为俄罗斯方块编写代码\n\n让我们来看看整体代码。\n\n```python\nimport\
+    \ tkinter as tk\nfrom queue import Queue\nimport numpy as np\nfrom random import\
+    \ randint\nfrom time import time\n\nGAME_W , GAME_H = 10, 18\nSCN_W , SCN_H =\
+    \ 400, 720\nBLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H\nTIMER_WAIT =\
+    \ 50\n\nget_time = lambda: time() * 1000\nout_of_screen = lambda x, y: x < 0 or\
+    \ x >= GAME_W or y < 0 or y >= GAME_H\ng_pos = {'x': 0, 'y': 0}\ng_events = Queue()\n\
+    \ndef init_game():\n    global g_buf, g_pat, g_time, g_scene\n    g_buf = [[0\
+    \ for _ in range(GAME_W)] for _ in range(GAME_H)]\n    g_pat, g_time, g_scene\
+    \ = None, get_time(), 0 # g_scene = 0: Playing, 1: Game Over\n```\n\n```python\n\
+    def create_pattern():\n    pats = [['0100', '0100', '0100', '0100'], ['0000',\
+    \ '0100', '0110', '0100'],\n            ['0000', '0110', '0100', '0100'], ['0000',\
+    \ '0110', '0010', '0010'],\n            ['0000', '0010', '0110', '0100'], ['0000',\
+    \ '0100', '0110', '0010']]\n    return [p := pats[randint(0, 5)], [p := np.rot90(np.array(list(map(lambda\
+    \ x: [int(v) for v in x], p)), int).tolist() for _ in range(randint(1, 4))][-1][1]]\n\
+    ```\n\n```python\ndef is_crashed(pat, x, y):\n    for i in range(16):\n      \
+    \  if pat[i // 4][i % 4]:\n            if out_of_screen(i % 4 + x, i // 4 + y)\
+    \ or pat[i // 4][i % 4] & g_buf[i // 4 + y][i % 4 + x]:\n                return\
+    \ True\n    return False\n```\n\n```python\ndef draw_one_block(canvas, x, y):\n\
+    \    if not out_of_screen(x, y):\n        x1, y1 = x * BLOCK_W, y * BLOCK_H\n\
+    \        x2, y2 = x1 + BLOCK_W - 1, y1 + BLOCK_H - 1\n        canvas.create_rectangle(x1,\
+    \ y1, x2, y2, fill='white', width=0, tag='objects')\n```\n\n```python\ndef draw_game(canvas):\n\
+    \    canvas.delete('objects')\n    for i in range(GAME_W * GAME_H):\n        if\
+    \ g_buf[i // GAME_W][i % GAME_W]:\n            draw_one_block(canvas, i % GAME_W,\
+    \ i // GAME_W)\n    if g_pat:\n        for i in range(4 * 4):\n            if\
+    \ g_pat[i // 4][i % 4]:\n                draw_one_block(canvas, i % 4 + g_pos['x'],\
+    \ i // 4 + g_pos['y'])\n    if g_scene == 1:\n        canvas.create_rectangle(40,\
+    \ SCN_H // 2 - 50, SCN_W - 40, SCN_H // 2 + 50, fill='gray', tag='objects')\n\
+    \        canvas.create_text(SCN_W // 2, SCN_H // 2, text='Game Over\\n\\nPlease\
+    \ Space Key', font=('Monospace', 14, 'bold'), justify='center', fill='white',\
+    \ anchor='center', tag='objects')\n```\n\n```python\ndef main_proc(root, canvas):\n\
+    \    global g_buf, g_pat, g_time, g_scene\n\n    if (e := g_events.get() if not\
+    \ g_events.empty() else None) is not None:\n        if g_scene == 0 and g_pat\
+    \ is not None:\n            if e == 'Left':     g_pos['x'] += -1 if not is_crashed(g_pat,\
+    \ g_pos['x'] - 1, g_pos['y']) else 0\n            elif e == 'Right':  g_pos['x']\
+    \ += 1 if not is_crashed(g_pat, g_pos['x'] + 1, g_pos['y']) else 0\n         \
+    \   elif e == 'space':  g_pat = pat if not is_crashed(pat := np.rot90(np.array(g_pat,\
+    \ int)).tolist(), **g_pos) else g_pat\n        elif g_scene == 1 and e == 'space':\n\
+    \            init_game()\n\n    if g_scene == 0:\n        if g_pat is None:\n\
+    \            g_pat = create_pattern()\n            for top in range(4):\n    \
+    \            if any(g_pat[top]):\n                    g_pos['x'], g_pos['y'] =\
+    \ (GAME_W - 4) // 2, -top\n                    break\n            g_scene = 1\
+    \ if is_crashed(g_pat, **g_pos) else 0\n\n        if get_time() - g_time > 400\
+    \ or e == 'Down':\n            if is_crashed(g_pat, g_pos['x'], g_pos['y'] + 1):\n\
+    \                for y in range(4):\n                    for x in range(4):\n\
+    \                        if not out_of_screen(g_pos['x'] + x, g_pos['y'] + y):\n\
+    \                            g_buf[g_pos['y'] + y][g_pos['x'] + x] |= g_pat[y][x]\n\
+    \                g_pat = None\n                new_buf = list(filter(lambda line:\
+    \ not all(line), g_buf))\n                g_buf = [[0 for _ in range(GAME_W)]\
+    \ for _ in range(GAME_H - len(new_buf))] + new_buf\n            else:\n      \
+    \          g_pos['y'] += 1\n\n            g_time = get_time()\n\n    draw_game(canvas)\n\
+    \    root.after(TIMER_WAIT, main_proc, root, canvas)\n```\n\n```python\nif __name__\
+    \ == '__main__':\n    root = tk.Tk()\n    root.geometry(f'{SCN_W}x{SCN_H}')\n\
+    \    canvas = tk.Canvas(root, width=SCN_W, height=SCN_H, bg='black')\n    canvas.place(x=0,\
+    \ y=0)\n    root.bind('<Key>', lambda e: g_events.put(e.keysym) if e.keysym in\
+    \ ('Left', 'Right', 'Down', 'space') else None)\n    init_game()\n    root.after(TIMER_WAIT,\
+    \ main_proc, root, canvas)\n    root.mainloop()\n```\n\n我认为，光是看整体代码，可能很难形成一个清晰的印象，所以接下来我将按顺序进行说明。\n\
+    \n## 玩俄罗斯方块需要什么\n\n这涉及到从哪里开始学习编程的问题。\n\n### 必要的功能\n\n1.  屏幕\n2.  方块\n3.  控制器\n\
+    4.  定时器\n\n#### (1) 屏幕\n\nPython 有一个专门用于游戏的库。\n关于屏幕功能，有一个名为 tkinter 的库，它有一个叫做\
+    \ Canvas 的功能。\n\n#### (2) 方块\n\n将方块附着到屏幕上的功能可以在 tkinter 中创建。\n\n#### (3) 通过键盘操作\n\
+    \n使用 tkinter 创建的窗口的 \"bind()\" 函数可以实现此功能。\n\n#### (4) 定时器\n\n需要一个机制，使得方块在时间流逝时下落。\n\
+    定时器可以通过 Tkinter 中的 \"after\" 函数实现。\n\n我思考了这个游戏的程序流程。\n\n我将程序分成了几个步骤。\n\n1.  在数组中定义方块的存在\n\
+    2.  绘制方块的函数\n3.  创建方块图案的函数\n4.  方块碰撞的判定\n5.  防止方块移出屏幕的函数\n6.  消除已对齐的一行\n7.  用主函数进行循环\n\
+    \n让我们把这些内容转化为实际的编程。\n\n## 让我们做出声明。\n\n```python\nimport tkinter as tk\nfrom queue\
+    \ import Queue\nimport numpy as np\nfrom random import randint\nfrom time import\
+    \ time\n```\n\n说明\n\ntkinter. 一个用于创建屏幕的库。\nqueue 用于管理键盘上按下的键。\nnumpy 是一个用于快速处理向量和矩阵的库。\n\
+    random 用于生成随机数。\ntime 用于获取时间的流逝。"
+  merge: 0
+  raw:
+  - '[PAGE 19]
+
+
+    Satocchi was really unhappy because all the PCs in his school days (technical
+    college) were Linux, but now he is glad that he used Linux.
+
+
+    (7) You can sell them at a high price on Mercari.
+
+
+    Mac gadgets have high resale value, so if you don''t like it, you can find a buyer
+    on Mercari as much as you want.
+
+
+    # Summary of this section
+
+
+    +   (1) If you are an engineer, choose Mac.
+
+    (2) If you don''t like it, sell it on Mercari.'
+  - '[PAGE 20]
+
+
+    # Let''s Create an Environment
+
+
+    # Considerations for Google Collaboration
+
+
+    We sought an environment where even beginners can develop.
+
+    One of the easiest is Google Collaboration.
+
+    It only takes a minute to get a development environment. And it''s free.
+
+
+    I thought I was done with this, and continued to create content, but I ran into
+    difficulties in the execution phase.
+
+
+    I could not use functions for drawing objects.
+
+    The reason was that the application was running on the cloud.
+
+    Therefore, I decided to put the environment on my own device.
+
+    Since I only have a Mac and the development community is full of Macs, I decided
+    to proselytize Mac.'
+  - '[PAGE 21]
+
+
+    # # How to set up a development environment on a Mac
+
+
+    # ## STEP1 Preparation to start building the environment
+
+
+    +   1. Check the version of Python
+
+
+    ```
+
+
+    python --version
+
+
+    ```
+
+
+    The default version is 2 series. So, install pyenv and install the 3rd series.
+
+
+    # ## STEP2 Install Homebrew
+
+
+    ```
+
+
+    brew -v
+
+
+    ```
+
+
+    Confirm that Homebrew x.x.x and version information are displayed.
+
+
+    # ## STEP3 Install pyenv
+
+
+    +   1. pyenv- v
+
+
+    Execute the following commands when "pyenv: command not found" is displayed.
+
+
+    ```
+
+
+    brew install pyenv
+
+
+    ```
+
+
+    # ## STEP4 Install Python
+
+
+    +   1. pyenv install --list
+
+
+    +   2. pyenv install 3.x.x
+
+
+    It is recommended to install the latest version of Python 3.x.x. In this case,
+    the latest version is 3.10.x. In this case, we chose 3.10.4.'
+  - '[PAGE 22]
+
+
+    +   (3)pyenv versions
+
+
+    +   (4)pyenv global 3.x.x
+
+
+    +   (5)python --version
+
+
+    # STEP5  Execute Python code
+
+
+    +   (1) python XXXX.py'
+  - '[PAGE 23]
+
+
+    <!-- no content -->'
+  - '[PAGE 24]
+
+
+    # Chapter 5: Let''s Write the Code for Tetris
+
+
+    Let''s take a look at the overall code.'
+  - "[PAGE 25]\n\n```\nimport tkinter as tk\nfrom queue import Queue\nimport numpy\
+    \ as np\nfrom random import randint\nfrom time import time\n\nGAME_W , GAME_H\
+    \ = 10, 18\nSCN_W , SCN_H = 400, 720\nBLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H\
+    \ // GAME_H\nTIMER_WAIT = 50\n\nget_time = lambda: time() * 1000\nout_of_screen\
+    \ = lambda x, y: x < 0 or x >= GAME_W or y < 0 or y >=\nGAME_H\ng_pos = {'x':\
+    \ 0, 'y': 0}\ng_events = Queue()\n\ndef init_game():\n    global g_buf, g_pat,\
+    \ g_time, g_scene\n    g_buf = [[0 for _ in range(GAME_W)] for _ in\nrange(GAME_H)]\n\
+    \    g_pat, g_time, g_scene = None, get_time(), 0 # g_scene = 0:\nPlaying, 1:\
+    \ Game Over\n```"
+  - "[PAGE 26]\n\n```\ndef create_pattern():\n    pats = [['0100', '0100', '0100',\
+    \ '0100'], ['0000', '0100', '0110', '0100'],\n            ['0000', '0110', '0100',\
+    \ '0100'], ['0000', '0110', '0010', '0010'],\n            ['0000', '0010', '0110',\
+    \ '0100'], ['0000', '0100', '0110', '0010']]\n    return [p := pats[randint(0,\
+    \ 5)], [p := np.rot90(np.array(list(map(lambda x: [int(v) for v in x], p)), int).tolist()\
+    \ for _ in range(randint(1, 4))][-1][1]]\n```\n\n```\ndef is_crashed(pat, x, y):\n\
+    \    for i in range(16):\n        if pat[i // 4][i % 4]:\n            if out_of_screen(i\
+    \ % 4 + x, i // 4 + y) or pat[i // 4][i % 4] & g_buf[i // 4 + y][i % 4 + x]:\n\
+    \                return True\n    return False\n```\n\n```\ndef draw_one_block(canvas,\
+    \ x, y):\n    if not out_of_screen(x, y):\n        x1, y1 = x * BLOCK_W, y * BLOCK_H\n\
+    \        x2, y2 = x1 + BLOCK_W - 1, y1 + BLOCK_H - 1\n        canvas.create_rectangle(x1,\
+    \ y1, x2, y2, fill='white', width=0, tag='objects')\n```\n\n```\ndef draw_game(canvas):\n\
+    \    canvas.delete('objects')\n    for i in range(GAME_W * GAME_H):\n        if\
+    \ g_buf[i // GAME_W][i % GAME_W]:\n            draw_one_block(canvas, i % GAME_W,\
+    \ i // GAME_W)\n    if g_pat:\n        for i in range(4 * 4):\n            if\
+    \ g_pat[i // 4][i % 4]:\n                draw_one_block(canvas, i % 4 + g_pos['x'],\
+    \ i // 4 + g_pos['y'])\n    if g_scene == 1:\n        canvas.create_rectangle(40,\
+    \ SCN_H // 2 - 50, SCN_W - 40, SCN_H // 2 + 50, fill='gray', tag='objects')\n\
+    \        canvas.create_text(SCN_W // 2, SCN_H // 2, text='Game Over\\n\\nPlease\
+    \ Space Key', font=('Monospace', 14, 'bold'), justify='center', fill='white',\
+    \ anchor='center', tag='objects')\n```"
+  - '[PAGE 27]
+
+
+    <!-- no content -->'
+  - '[PAGE 28]
+
+
+    <!-- no content -->'
+  - "[PAGE 29]\n\n```\npython\ndef main_proc(root, canvas):\n    global g_buf, g_pat,\
+    \ g_time, g_scene\n\n    if (e := g_events.get() if not g_events.empty() else\
+    \ None) is not None:\n        if g_scene == 0 and g_pat is not None:\n       \
+    \     if e == 'Left':     g_pos['x'] += -1 if not is_crashed(g_pat, g_pos['x']\
+    \ - 1, g_pos['y']) else 0\n            elif e == 'Right':  g_pos['x'] += 1 if\
+    \ not is_crashed(g_pat, g_pos['x'] + 1, g_pos['y']) else 0\n            elif e\
+    \ == 'space':  g_pat = pat if not is_crashed(pat := np.rot90(np.array(g_pat, int)).tolist(),\
+    \ **g_pos) else g_pat\n        elif g_scene == 1 and e == 'space':\n         \
+    \   init_game()\n\n    if g_scene == 0:\n        if g_pat is None:\n         \
+    \   g_pat = create_pattern()\n            for top in range(4):\n             \
+    \   if any(g_pat[top]):\n                    g_pos['x'], g_pos['y'] = (GAME_W\
+    \ - 4) // 2, -top\n                    break\n            g_scene = 1 if is_crashed(g_pat,\
+    \ **g_pos) else 0\n\n        if get_time() - g_time > 400 or e == 'Down':\n  \
+    \          if is_crashed(g_pat, g_pos['x'], g_pos['y'] + 1):\n               \
+    \ for y in range(4):\n                    for x in range(4):\n               \
+    \         if not out_of_screen(g_pos['x'] + x, g_pos['y'] + y):\n            \
+    \                g_buf[g_pos['y'] + y][g_pos['x'] + x] |= g_pat[y][x]\n      \
+    \          g_pat = None\n                new_buf = list(filter(lambda line: not\
+    \ all(line), g_buf))\n                g_buf = [[0 for _ in range(GAME_W)] for\
+    \ _ in range(GAME_H - len(new_buf))] + new_buf\n            else:\n          \
+    \      g_pos['y'] += 1\n\n            g_time = get_time()\n\n    draw_game(canvas)\n\
+    \    root.after(TIMER_WAIT, main_proc, root, canvas)\n```\n\n```\npython\nif __name__\
+    \ == '__main__':\n    root = tk.Tk()\n    root.geometry(f'{SCN_W}x{SCN_H}')\n\
+    \    canvas = tk.Canvas(root, width=SCN_W, height=SCN_H, bg='black')\n    canvas.place(x=0,\
+    \ y=0)\n    root.bind('<Key>', lambda e: g_events.put(e.keysym) if e.keysym in\
+    \ ('Left', 'Right', 'Down', 'space') else None)\n    init_game()\n    root.after(TIMER_WAIT,\
+    \ main_proc, root, canvas)\n    root.mainloop()\n```"
+  - '[PAGE 30]
+
+
+    全体を見ても、あまりイメージがつかないと思いますので、順番に説明していきます。'
+  - '[PAGE 31]
+
+
+    # # What you need to play Tetris
+
+
+    This hits on the question of where to start when it comes to programming.
+
+
+    # ## Necessary functions
+
+
+    +   1. Screen
+
+    2. Blocks
+
+    3. Controller
+
+    4. Timer
+
+
+    # ### (1) Screen
+
+
+    Python has a library dedicated to games.
+
+    For screen functions, there is a library called tkinter, which has a function
+    called Canvas.
+
+
+    # ### (2) Blocks
+
+
+    The function to attach blocks to the screen can be created in tkinter.
+
+
+    # ### (3) To operate with the keyboard
+
+
+    The function "bind()" of the window created by tkinter can be used to implement
+    this function.
+
+
+    # ### (4) Timer
+
+
+    A mechanism is needed to make the blocks fall down when time elapses.
+
+    A timer can be implemented with the function "after" in Tkinter.'
+  - '[PAGE 32]
+
+
+    <!-- no content -->'
+  - '[PAGE 33]
+
+
+    # I thought about the flow of the program for this game.
+
+
+    program for this game.
+
+
+    I divided the program into steps.
+
+
+    +   (1)Define the existence of blocks in the array
+
+    (2)Function to draw blocks
+
+    (3) Function to create a pattern of blocks
+
+    (4) Determination of collision of blocks
+
+    (5) Function to prevent the blocks from going out of the screen
+
+    (6) Erase when one line is aligned
+
+    (7) Looping with the main function
+
+
+    Let''s put this into actual programming.'
+  - '[PAGE 34]
+
+
+    # Let''s make a declaration.
+
+
+    ```
+
+    import tkinter as tk
+
+    from queue import Queue
+
+    import numpy as np
+
+    from random import randint
+
+    from time import time
+
+    ```
+
+
+    Explanation
+
+
+    tkinter. a library for creating screens.
+
+    queue is used to manage the keys pressed on the keyboard.
+
+    numpy is a library for fast processing of vectors and matrices.
+
+    random is used to generate random numbers.
+
+    time is used to get the passage of time.'
+- md: "# Let's define variables\n\n```python\nGAME_W, GAME_H = 10, 18\nSCN_W, SCN_H\
+    \ = 400, 720\nBLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H\nTIMER_WAIT\
+    \ = 50\n\nget_time = lambda: time() * 1000\nout_of_screen = lambda x, y: x < 0\
+    \ or x >= GAME_W or y < 0 or y >= GAME_H\ng_pos = {'x': 0, 'y': 0}\ng_events =\
+    \ Queue()\n```\n\n## Explanation\n\n- `GAME_W`, `GAME_H = 10, 18`：指定可绘制方块的范围。\n\
+    - `SCN_W`, `SCN_H = 400, 720`：指定屏幕尺寸（像素）。\n- `BLOCK_W, BLOCK_H = SCN_W // GAME_W,\
+    \ SCN_H // GAME_H`：定义每个方块的像素大小。使用 `//` 运算符返回整数。\n- `TIMER_WAIT = 50`：指定计时器等待时间（毫秒）。\n\
+    - `get_time = lambda: time() * 1000`：`time()` 返回经过的秒数。此处使用毫秒，因此乘以 1000。\n- `out_of_screen\
+    \ = lambda x, y: x < 0 or x >= GAME_W or y < 0 or y >= GAME_H`：测试以方块为单位的坐标 x 和\
+    \ y 是否在屏幕外。如果在屏幕外则返回 True。\n- `g_pos = {'x': 0, 'y': 0}`：管理操作过程中方块图案的坐标。\n- `g_events\
+    \ = Queue()`：用于存储和管理键盘按键的队列。实际上，当按下键盘上的 ←、→、↓ 或空格键时，它会被填入队列，并在主循环中检索。\n\n# Function\
+    \ creation (function to initialize the game)\n\n```python\ndef init_game():\n\
+    \    global g_buf, g_pat, g_time, g_scene\n    g_buf = [[0 for _ in range(GAME_W)]\
+    \ for _ in range(GAME_H)]\n    g_pat, g_time, g_scene = None, get_time(), 0  #\
+    \ g_scene = 0: Playing, 1: Game Over\n```\n\n## Explanation\n\n创建一个用 0 初始化的 10x18\
+    \ 数组。\n- `g_pat`：表示操作过程中方块图案的数组（列表）。初始化时设置为 None。\n- `g_time`：主循环中方块图案最后一次下落的时间。\n\
+    - `g_scene`：指示游戏状态的标志。0 表示游戏中，1 表示正在显示游戏结束画面。\n\n# Function creation (block pattern\
+    \ creation)\n\n```python\ndef create_pattern():\n    pats = [['0100', '0100',\
+    \ '0100', '0100'], ['0000', '0100', '0110', '0100'],\n            ['0000', '0110',\
+    \ '0100', '0100'], ['0000', '0110', '0010', '0010'],\n            ['0000', '0010',\
+    \ '0110', '0100'], ['0000', '0100', '0110', '0010']]\n    return [p := pats[randint(0,\
+    \ 5)], [p := np.rot90(np.array(list(map(lambda x: [int(v) for v in x], p)),\n\
+    \    int)).tolist() for _ in range(randint(1, 4))][-1][1]\n```\n\n## Explanation\n\
+    \n在 `pats` 中定义图案，它是一个包含字符串的列表（0 表示无方块，1 表示有方块）。\n\n# Function Creation (Block\
+    \ Collision Detection)\n\n```python\ndef is_crashed(pat, x, y):\n    for i in\
+    \ range(16):\n        if pat[i // 4][i % 4]:\n            if out_of_screen(i %\
+    \ 4 + x, i // 4 + y) or pat[i // 4][i % 4] & g_buf[i // 4 + y][i % 4 + x]:\n \
+    \               return True\n    return False\n```\n\n## Description\n\n接收方块图案\
+    \ `pat` 及其左上角坐标 `x`, `y`。然后，判断已放置的方块与正在操作的方块图案之间的碰撞。这是检查坐标是否超出屏幕，或者正在操作的方块图案中的方块是否与已放置的方块发生碰撞的地方。如果两个方块都存在，结果为\
+    \ 1，表示发生碰撞。\n\n# Function Creation (Block Drawing)\n\n```python\ndef draw_one_block(canvas,\
+    \ x, y):\n    if not out_of_screen(x, y):\n        x1, y1 = x * BLOCK_W, y * BLOCK_H\n\
+    \        x2, y2 = x1 + BLOCK_W - 1, y1 + BLOCK_H - 1\n        canvas.create_rectangle(x1,\
+    \ y1, x2, y2, fill='white', width=0, tag='objects')\n```\n\n## Description\n\n\
+    这部分在 tkinter 的 Canvas 中绘制一个方块。在绘制方块之前，会检查其坐标是否在屏幕外。如果在屏幕外，则不绘制。\n\n# Function\
+    \ Creation (Block Pattern Drawing)\n\n```python\ndef draw_game(canvas):\n    canvas.delete('objects')\n\
+    \n    for i in range(GAME_W * GAME_H):\n        if g_buf[i // GAME_W][i % GAME_W]:\n\
+    \            draw_one_block(canvas, i % GAME_W, i // GAME_W)\n    if g_pat:\n\
+    \        for i in range(4 * 4):\n            if g_pat[i // 4][i % 4]:\n      \
+    \          draw_one_block(canvas, i % 4 + g_pos['x'], i // 4 + g_pos['y'])\n \
+    \   if g_scene == 1:\n        canvas.create_rectangle(40, SCN_H // 2 - 50, SCN_W\
+    \ - 40, SCN_H // 2 + 50, fill='gray', tag='objects')\n        canvas.create_text(SCN_W\
+    \ // 2, SCN_H // 2, text='Game Over\\n\\nPlease Space Key', font=('Monospace',\
+    \ 14, 'bold'), justify='center', fill='white', anchor='center', tag='objects')\n\
+    ```\n\n## Description\n\n此函数绘制已放置的方块和正在操作的方块图案。没有它，游戏会随着进行逐渐变得过于沉重而无法运行。\n\n#\
+    \ Function creation (main function)\n\n```python\ndef main_proc(root, canvas):\n\
+    \    global g_buf, g_pat, g_time, g_scene\n\n    if (e := g_events.get() if not\
+    \ g_events.empty() else None) is not None:\n        if g_scene == 0 and g_pat\
+    \ is not None:\n            if e == 'Left':    g_pos['x'] += -1 if not is_crashed(g_pat,\
+    \ g_pos['x'] - 1, g_pos['y']) else 0\n            elif e == 'Right': g_pos['x']\
+    \ += 1 if not is_crashed(g_pat, g_pos['x'] + 1, g_pos['y']) else 0\n         \
+    \   elif e == 'space': g_pat = pat if not is_crashed(pat := np.rot90(np.array(g_pat,\
+    \ int)).tolist(), **g_pos) else g_pat\n        elif g_scene == 1 and e == 'space':\n\
+    \            init_game()\n\n    if g_scene == 0:\n        if g_pat is None:\n\
+    \            g_pat = create_pattern()\n            for top in range(4):\n    \
+    \            if any(g_pat[top]):\n                    g_pos['x'], g_pos['y'] =\
+    \ (GAME_W - 4) // 2, -top\n                    break\n            g_scene = 1\
+    \ if is_crashed(g_pat, **g_pos) else 0\n\n        if get_time() - g_time > 400\
+    \ or e == 'Down':\n            if is_crashed(g_pat, g_pos['x'], g_pos['y'] + 1):\n\
+    \                for y in range(4):\n                    for x in range(4):\n\
+    \                        if not out_of_screen(g_pos['x'] + x, g_pos['y'] + y):\n\
+    \                            g_buf[g_pos['y'] + y][g_pos['x'] + x] |= g_pat[y][x]\n\
+    \                g_pat = None\n                new_buf = list(filter(lambda line:\
+    \ not all(line), g_buf))\n                g_buf = [[0 for _ in range(GAME_W)]\
+    \ for _ in range(GAME_H - len(new_buf))] + new_buf\n            else:\n      \
+    \          g_pos['y'] += 1\n\n            g_time = get_time()\n\n    draw_game(canvas)\n\
+    \    root.after(TIMER_WAIT, main_proc, root, canvas)\n```\n\n## Explanation\n\n\
+    这是主函数。\n从 `g_events`（队列）中检索按下的键并进行处理。\n处理左右方向键，并覆盖方块图案的坐标。\n使用空格键执行旋转处理。\n当显示游戏结束时，也处理空格键。\n\
+    如果 `g_pat` 为 None，则生成方块图案。\n如果图案与方块发生碰撞，则游戏结束。\n还执行速度控制。\n与已放置的方块进行碰撞检测。\n如果发生碰撞，则停止（将\
+    \ `g_pat` 的内容移动到 `g_buf`）。\n检查已放置的方块，并删除该行。\n然后，将坐标向下移动一个单位。\n更新之前的下落处理时间。\n通过调用\
+    \ `main_proc()` 更新的信息反映在屏幕上。\n设置从现在起多少毫秒后调用 `main_proc()`，并且随着 `main_proc()` 的持续调用更新游戏。\n\
+    \n# Function creation (function to be initially started)\n\n```python\nif __name__\
+    \ == '__main__':\n    root = tk.Tk()\n    root.geometry(f'{SCN_W}x{SCN_H}')\n\
+    \    canvas = tk.Canvas(root, width=SCN_W, height=SCN_H, bg='black')\n    canvas.place(x=0,\
+    \ y=0)\n    root.bind('<Key>', lambda e: g_events.put(e.keysym) if e.keysym in\
+    \ ('Left', 'Right', 'Down', 'space') else None)\n    init_game()\n    root.after(TIMER_WAIT,\
+    \ main_proc, root, canvas)\n    root.mainloop()\n```\n\n## Explanation\n\n这是移动的第一部分。\n\
+    如果代码直接执行，名为 `__name__` 的全局变量将变为 `'__main__'`。\n此处生成 tkinter 的窗口。\n生成画布并放置在窗口中。\n\
+    当按下键时，使用 `bind()` 将其打包到 `g_events`（队列）中。\n通过调用 `init_game()` 初始化游戏。\n该过程在指定时间后调用\
+    \ `main_proc()`。\n这是用于控制窗口的 tkinter 主循环。在屏幕关闭之前不会返回。换句话说，它会在此处停止。"
+  mdcn: "# 让我们定义变量\n\n```python\nGAME_W, GAME_H = 10, 18\nSCN_W, SCN_H = 400, 720\n\
+    BLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H\nTIMER_WAIT = 50\n\nget_time\
+    \ = lambda: time() * 1000\nout_of_screen = lambda x, y: x < 0 or x >= GAME_W or\
+    \ y < 0 or y >= GAME_H\ng_pos = {'x': 0, 'y': 0}\ng_events = Queue()\n```\n\n\
+    ## 解释\n\n- `GAME_W`, `GAME_H = 10, 18`：指定可绘制方块的范围。\n- `SCN_W`, `SCN_H = 400, 720`：指定屏幕尺寸（像素）。\n\
+    - `BLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H`：定义每个方块的像素大小。使用 `//` 运算符返回整数。\n\
+    - `TIMER_WAIT = 50`：指定计时器等待时间（毫秒）。\n- `get_time = lambda: time() * 1000`：`time()`\
+    \ 返回经过的秒数。此处使用毫秒，因此乘以 1000。\n- `out_of_screen = lambda x, y: x < 0 or x >= GAME_W\
+    \ or y < 0 or y >= GAME_H`：测试以方块为单位的坐标 x 和 y 是否在屏幕外。如果在屏幕外则返回 True。\n- `g_pos\
+    \ = {'x': 0, 'y': 0}`：管理操作过程中方块图案的坐标。\n- `g_events = Queue()`：用于存储和管理键盘按键的队列。实际上，当按下键盘上的\
+    \ ←、→、↓ 或空格键时，它会被填入队列，并在主循环中检索。\n\n# 函数创建（用于初始化游戏的函数）\n\n```python\ndef init_game():\n\
+    \    global g_buf, g_pat, g_time, g_scene\n    g_buf = [[0 for _ in range(GAME_W)]\
+    \ for _ in range(GAME_H)]\n    g_pat, g_time, g_scene = None, get_time(), 0  #\
+    \ g_scene = 0: 游戏中, 1: 游戏结束\n```\n\n## 解释\n\n创建一个用 0 初始化的 10x18 数组。\n- `g_pat`：表示操作过程中方块图案的数组（列表）。初始化时设置为\
+    \ None。\n- `g_time`：主循环中方块图案最后一次下落的时间。\n- `g_scene`：指示游戏状态的标志。0 表示游戏中，1 表示正在显示游戏结束画面。\n\
+    \n# 函数创建（方块图案创建）\n\n```python\ndef create_pattern():\n    pats = [['0100', '0100',\
+    \ '0100', '0100'], ['0000', '0100', '0110', '0100'],\n            ['0000', '0110',\
+    \ '0100', '0100'], ['0000', '0110', '0010', '0010'],\n            ['0000', '0010',\
+    \ '0110', '0100'], ['0000', '0100', '0110', '0010']]\n    return [p := pats[randint(0,\
+    \ 5)], [p := np.rot90(np.array(list(map(lambda x: [int(v) for v in x], p)),\n\
+    \    int)).tolist() for _ in range(randint(1, 4))][-1][1]\n```\n\n## 解释\n\n在 `pats`\
+    \ 中定义图案，它是一个包含字符串的列表（0 表示无方块，1 表示有方块）。\n\n# 函数创建（方块碰撞检测）\n\n```python\ndef is_crashed(pat,\
+    \ x, y):\n    for i in range(16):\n        if pat[i // 4][i % 4]:\n          \
+    \  if out_of_screen(i % 4 + x, i // 4 + y) or pat[i // 4][i % 4] & g_buf[i //\
+    \ 4 + y][i % 4 + x]:\n                return True\n    return False\n```\n\n##\
+    \ 描述\n\n接收方块图案 `pat` 及其左上角坐标 `x`, `y`。然后，判断已放置的方块与正在操作的方块图案之间的碰撞。这是检查坐标是否超出屏幕，或者正在操作的方块图案中的方块是否与已放置的方块发生碰撞的地方。如果两个方块都存在，结果为\
+    \ 1，表示发生碰撞。\n\n# 函数创建（方块绘制）\n\n```python\ndef draw_one_block(canvas, x, y):\n\
+    \    if not out_of_screen(x, y):\n        x1, y1 = x * BLOCK_W, y * BLOCK_H\n\
+    \        x2, y2 = x1 + BLOCK_W - 1, y1 + BLOCK_H - 1\n        canvas.create_rectangle(x1,\
+    \ y1, x2, y2, fill='white', width=0, tag='objects')\n```\n\n## 描述\n\n这部分在 tkinter\
+    \ 的 Canvas 中绘制一个方块。在绘制方块之前，会检查其坐标是否在屏幕外。如果在屏幕外，则不绘制。\n\n# 函数创建（方块图案绘制）\n\n```python\n\
+    def draw_game(canvas):\n    canvas.delete('objects')\n\n    for i in range(GAME_W\
+    \ * GAME_H):\n        if g_buf[i // GAME_W][i % GAME_W]:\n            draw_one_block(canvas,\
+    \ i % GAME_W, i // GAME_W)\n    if g_pat:\n        for i in range(4 * 4):\n  \
+    \          if g_pat[i // 4][i % 4]:\n                draw_one_block(canvas, i\
+    \ % 4 + g_pos['x'], i // 4 + g_pos['y'])\n    if g_scene == 1:\n        canvas.create_rectangle(40,\
+    \ SCN_H // 2 - 50, SCN_W - 40, SCN_H // 2 + 50, fill='gray', tag='objects')\n\
+    \        canvas.create_text(SCN_W // 2, SCN_H // 2, text='Game Over\\n\\nPlease\
+    \ Space Key', font=('Monospace', 14, 'bold'), justify='center', fill='white',\
+    \ anchor='center', tag='objects')\n```\n\n## 描述\n\n此函数绘制已放置的方块和正在操作的方块图案。没有它，游戏会随着进行逐渐变得过于沉重而无法运行。\n\
+    \n# 函数创建（主函数）\n\n```python\ndef main_proc(root, canvas):\n    global g_buf, g_pat,\
+    \ g_time, g_scene\n\n    if (e := g_events.get() if not g_events.empty() else\
+    \ None) is not None:\n        if g_scene == 0 and g_pat is not None:\n       \
+    \     if e == 'Left':    g_pos['x'] += -1 if not is_crashed(g_pat, g_pos['x']\
+    \ - 1, g_pos['y']) else 0\n            elif e == 'Right': g_pos['x'] += 1 if not\
+    \ is_crashed(g_pat, g_pos['x'] + 1, g_pos['y']) else 0\n            elif e ==\
+    \ 'space': g_pat = pat if not is_crashed(pat := np.rot90(np.array(g_pat, int)).tolist(),\
+    \ **g_pos) else g_pat\n        elif g_scene == 1 and e == 'space':\n         \
+    \   init_game()\n\n    if g_scene == 0:\n        if g_pat is None:\n         \
+    \   g_pat = create_pattern()\n            for top in range(4):\n             \
+    \   if any(g_pat[top]):\n                    g_pos['x'], g_pos['y'] = (GAME_W\
+    \ - 4) // 2, -top\n                    break\n            g_scene = 1 if is_crashed(g_pat,\
+    \ **g_pos) else 0\n\n        if get_time() - g_time > 400 or e == 'Down':\n  \
+    \          if is_crashed(g_pat, g_pos['x'], g_pos['y'] + 1):\n               \
+    \ for y in range(4):\n                    for x in range(4):\n               \
+    \         if not out_of_screen(g_pos['x'] + x, g_pos['y'] + y):\n            \
+    \                g_buf[g_pos['y'] + y][g_pos['x'] + x] |= g_pat[y][x]\n      \
+    \          g_pat = None\n                new_buf = list(filter(lambda line: not\
+    \ all(line), g_buf))\n                g_buf = [[0 for _ in range(GAME_W)] for\
+    \ _ in range(GAME_H - len(new_buf))] + new_buf\n            else:\n          \
+    \      g_pos['y'] += 1\n\n            g_time = get_time()\n\n    draw_game(canvas)\n\
+    \    root.after(TIMER_WAIT, main_proc, root, canvas)\n```\n\n## 解释\n\n这是主函数。\n\
+    从 `g_events`（队列）中检索按下的键并进行处理。\n处理左右方向键，并覆盖方块图案的坐标。\n使用空格键执行旋转处理。\n当显示游戏结束时，也处理空格键。\n\
+    如果 `g_pat` 为 None，则生成方块图案。\n如果图案与方块发生碰撞，则游戏结束。\n还执行速度控制。\n与已放置的方块进行碰撞检测。\n如果发生碰撞，则停止（将\
+    \ `g_pat` 的内容移动到 `g_buf`）。\n检查已放置的方块，并删除该行。\n然后，将坐标向下移动一个单位。\n更新之前的下落处理时间。\n通过调用\
+    \ `main_proc()` 更新的信息反映在屏幕上。\n设置从现在起多少毫秒后调用 `main_proc()`，并且随着 `main_proc()` 的持续调用更新游戏。\n\
+    \n# 函数创建（最初启动的函数）\n\n```python\nif __name__ == '__main__':\n    root = tk.Tk()\n\
+    \    root.geometry(f'{SCN_W}x{SCN_H}')\n    canvas = tk.Canvas(root, width=SCN_W,\
+    \ height=SCN_H, bg='black')\n    canvas.place(x=0, y=0)\n    root.bind('<Key>',\
+    \ lambda e: g_events.put(e.keysym) if e.keysym in ('Left', 'Right', 'Down', 'space')\
+    \ else None)\n    init_game()\n    root.after(TIMER_WAIT, main_proc, root, canvas)\n\
+    \    root.mainloop()\n```\n\n## 解释\n\n这是移动的第一部分。\n如果代码直接执行，名为 `__name__` 的全局变量将变为\
+    \ `'__main__'`。\n此处生成 tkinter 的窗口。\n生成画布并放置在窗口中。\n当按下键时，使用 `bind()` 将其打包到 `g_events`（队列）中。\n\
+    通过调用 `init_game()` 初始化游戏。\n该过程在指定时间后调用 `main_proc()`。\n这是用于控制窗口的 tkinter 主循环。在屏幕关闭之前不会返回。换句话说，它会在此处停止。"
+  merge: 0
+  raw:
+  - '[PAGE 35]
+
+
+    # Let''s define variables
+
+
+    ```
+
+    python
+
+    GAME_W , GAME_H = 10, 18
+
+    SCN_W , SCN_H = 400, 720
+
+    BLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H
+
+    TIMER_WAIT = 50
+
+
+    get_time = lambda: time() * 1000
+
+    out_of_screen = lambda x, y: x < 0 or x >= GAME_W or y < 0 or y >= GAME_H
+
+    g_pos = {''x'': 0, ''y'': 0}
+
+    g_events = Queue()
+
+
+    ```
+
+
+    Explanation
+
+
+    GAME_W , GAME_H = 10, 18 #Specify the range of blocks that can be drawn
+
+
+    SCN_W , SCN_H = 400, 720 #Specify screen size in pixels.
+
+
+    #Define how many pixels a block is. Use operator // and return an integer
+
+    BLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H
+
+
+    TIMER_WAIT = 50 #Specify how long to wait for the timer in milliseconds
+
+
+    get_time = lambda: time() * 1000#time() returns the number of elapsed seconds.
+
+    #milliseconds are used in this case, so multiply by 1000.
+
+
+    #tests if the coordinates in blocks of x and y are outside the screen.
+
+    #Returns True if out of screen.
+
+    out_of_screen = lambda x, y: x < 0 or x >= GAME_W or y < 0 or y >= GAME_H
+
+
+    g_pos = {''x'': 0, ''y'': 0} #Manages the coordinates of the block pattern during
+    operation.
+
+
+    #Cue to store and manage keys pressed on the keyboard.
+
+    #In practice, when the ← , → , ↓, or Space key on the keyboard is pressed, it
+    is filled
+
+    into the queue and retrieved in the main loop.'
+  - '[PAGE 36]
+
+
+    ```
+
+    g_events = Queue()
+
+    ```'
+  - "[PAGE 37]\n\n# Function creation (function to initialize the game)\n\n```\ndef\
+    \ init_game():\n    global g_buf, g_pat, g_time, g_scene\n    g_buf = [[0 for\
+    \ _ in range(GAME_W)] for _ in range(GAME_H)]\n    g_pat, g_time, g_scene = None,\
+    \ get_time(), 0 # g_scene = 0:\nPlaying, 1: Game Over\n```\n\n# Explanation\n\n\
+    Creates a 10x18 array initialized with 0.\ng_pat Array (list) representing the\
+    \ block patterns during operation. Set to None for initialization.\ng_time is\
+    \ the time when the block pattern was last dropped in the main loop.\ng_scene\
+    \ is a flag indicating the status in the game. 0 means in play, 1 means game over\
+    \ screen is being displayed."
+  - "[PAGE 38]\n\n# # Function creation (block pattern creation)\n\n```\npython\n\
+    def create_pattern():\n    pats = [['0100', '0100', '0100', '0100'], ['0000',\
+    \ '0100', '0110', '0100'],\n            ['0000', '0110', '0100', '0100'], ['0000',\
+    \ '0110', '0010', '0010'],\n            ['0000', '0010', '0110', '0100'], ['0000',\
+    \ '0100', '0110', '0010']]\n    return [p := pats[randint(0, 5)], [p := np.rot90(np.array(list(map(lambda\
+    \ x: [int(v) for v in x], p)),\n    int)).tolist() for _ in range(randint(1, 4))][-1][1]\n\
+    \n```\n\n# ## Explanation\n\nDefines a pattern in pats as a list with strings\
+    \ (0 is no block, 1 is blocked)."
+  - "[PAGE 39]\n\n# Function Creation (Block Collision Detection)\n\n```\ndef is_crashed(pat,\
+    \ x, y):\n    for i in range(16):\n        if pat[i // 4][i % 4]:\n          \
+    \  if out_of_screen(i % 4 + x, i // 4 + y) or pat[i // 4][i % 4] & g_buf[i //\
+    \ 4 + y][i % 4 + x]:\n                return True\n    return False\n```\n\n#\
+    \ Description\n\nReceives a block pattern in pat and its upper left coordinate\
+    \ in x, y. Then, it judges the collision between the placed block and the block\
+    \ pattern under operation. #This is where we check if the coordinates are off\
+    \ the screen, or if a block in the block pattern under operation collides with\
+    \ a block that has already been placed. #If both blocks are present, the result\
+    \ is 1, indicating a collision."
+  - "[PAGE 40]\n\n# # Function Creation (Block Drawing)\n\n```\npython\ndef draw_one_block(canvas,\
+    \ x, y):\n    if not out_of_screen(x, y):\n        x1, y1 = x * BLOCK_W, y * BLOCK_H\n\
+    \        x2, y2 = x1 + BLOCK_W - 1, y1 + BLOCK_H - 1\n        canvas.create_rectangle(x1,\
+    \ y1, x2, y2, fill='white', width=0, tag='objects')\n\n```\n\n# ## Description\n\
+    \nThis part draws a block in tkinter's Canvas.\nBefore drawing the block, it is\
+    \ checked to see if its coordinates are off the screen. If it is off the screen,\
+    \ it is not drawn."
+  - "[PAGE 41]\n\n# Function Creation (Block Pattern Drawing)\n\n```\ndef draw_game(canvas):\n\
+    \    canvas.delete('objects')\n\n    for i in range(GAME_W * GAME_H):\n      \
+    \  if g_buf[i // GAME_W][i % GAME_W]:\n            draw_one_block(canvas, i %\
+    \ GAME_W, i // GAME_W)\n    if g_pat:\n        for i in range(4 * 4):\n      \
+    \      if g_pat[i // 4][i % 4]:\n                draw_one_block(canvas, i % 4\
+    \ + g_pos['x'], i // 4 + g_pos['y'])\n    if g_scene == 1:\n        canvas.create_rectangle(40,\
+    \ SCN_H // 2 - 50, SCN_W - 40, SCN_H // 2 + 50, fill='gray', tag='objects')\n\
+    \        canvas.create_text(SCN_W // 2, SCN_H // 2, text='Game Over\\n\\nPlease\
+    \ Space Key', font=('Monospace', 14, 'bold'), justify='center', fill='white',\
+    \ anchor='center', tag='objects')\n```\n\n# Description\n\nThis function draws\
+    \ the placed blocks and the block pattern being manipulated. Without it, the game\
+    \ will gradually become too heavy to run as it progresses."
+  - "[PAGE 42]\n\n# Function creation (main function)\n\n```\ndef main_proc(root,\
+    \ canvas):\n    global g_buf, g_pat, g_time, g_scene\n\n    if (e := g_events.get()\
+    \ if not g_events.empty() else None) is not None:\n        if g_scene == 0 and\
+    \ g_pat is not None:\n            if e == 'Left':    g_pos['x'] += -1 if not is_crashed(g_pat,\
+    \ g_pos['x'] - 1, g_pos['y']) else 0\n            elif e == 'Right': g_pos['x']\
+    \ += 1 if not is_crashed(g_pat, g_pos['x'] + 1, g_pos['y']) else 0\n         \
+    \   elif e == 'space': g_pat = pat if not is_crashed(pat := np.rot90(np.array(g_pat,\
+    \ int)).tolist(), **g_pos) else g_pat\n        elif g_scene == 1 and e == 'space':\n\
+    \            init_game()\n\n    if g_scene == 0:\n        if g_pat is None:\n\
+    \            g_pat = create_pattern()\n            for top in range(4):\n    \
+    \            if any(g_pat[top]):\n                    g_pos['x'], g_pos['y'] =\
+    \ (GAME_W - 4) // 2, -top\n                    break\n            g_scene = 1\
+    \ if is_crashed(g_pat, **g_pos) else 0\n\n        if get_time() - g_time > 400\
+    \ or e == 'Down':\n            if is_crashed(g_pat, g_pos['x'], g_pos['y'] + 1):\n\
+    \                for y in range(4):\n                    for x in range(4):\n\
+    \                        if not out_of_screen(g_pos['x'] + x, g_pos['y'] + y):\n\
+    \                            g_buf[g_pos['y'] + y][g_pos['x'] + x] |= g_pat[y][x]\n\
+    \                g_pat = None\n                new_buf = list(filter(lambda line:\
+    \ not all(line), g_buf))\n                g_buf = [[0 for _ in range(GAME_W)]\
+    \ for _ in range(GAME_H - len(new_buf))] + new_buf\n            else:\n      \
+    \          g_pos['y'] += 1\n\n            g_time = get_time()\n\n    draw_game(canvas)\n\
+    \    root.after(TIMER_WAIT, main_proc, root, canvas)\n```"
+  - '[PAGE 43]
+
+
+    # Explanation
+
+
+    This is the main function.
+
+    Pressed keys are retrieved from g_events (queue) and processed.
+
+    The left and right direction keys are processed, and the coordinates of the block
+    pattern are overwritten.
+
+    Rotation processing is also performed using the Space key.
+
+    The space key is also processed when game over is displayed.
+
+    If g_pat is None, a block pattern is generated.
+
+    If the pattern collides with a block, the game is over.
+
+    Speed control is also performed.
+
+    Collision detection is performed with placed blocks.
+
+    If a collision occurs, it stops (moves the contents of g_pat to g_buf).
+
+    The placed block is investigated, and the line is deleted.
+
+    Then, the coordinates are moved down by one.
+
+    Update the previous fall processing time.
+
+    The information updated by the call to main_proc() is reflected on the screen.
+
+    Sets how many milliseconds from now main_proc() will be called, and
+
+    update the game as main_proc() continues to be called.
+
+
+    Translated with www.DeepL.com/Translator (free version)'
+  - "[PAGE 44]\n\n# Function creation (function to be initially started)\n\n```\n\
+    if __name__ == '__main__':\n    root = tk.Tk()\n    root.geometry(f'{SCN_W}x{SCN_H}')\n\
+    \    canvas = tk.Canvas(root, width=SCN_W, height=SCN_H, bg='black')\n    canvas.place(x=0,\
+    \ y=0)\n    root.bind('<Key>', lambda e: g_events.put(e.keysym) if e.keysym in\
+    \ ('Left', 'Right', 'Down', 'space') else None)\n    init_game()\n    root.after(TIMER_WAIT,\
+    \ main_proc, root, canvas)\n    root.mainloop()\n```\n\n# Explanation\n\nThis\
+    \ is the first part of the move.\nIf the code is executed as is, the global variable\
+    \ named __name__ becomes '__main__'.\nThe window of tkinter is generated here.\n\
+    A canvas is generated and placed in the window.\nWhen a key is pressed, bind()\
+    \ is used and it is packed into g_events (queue).\nThe game is initialized by\
+    \ calling init_game().\nThe process calls main_proc() after the specified time.\n\
+    This is tkinter's main loop for controlling the window. It does not return until\
+    \ the screen is closed. In other words, it stops here."
+- md: "## Chapter 6 Welcome to the World of Programming What to do when an error occurs\n\
+    \n### Key Points\n\n- (1) Know what to do when an error occurs.\n- (2) Know how\
+    \ to isolate the problem from the error.\n\n### What to be prepared for when an\
+    \ error occurs\n\nErrors are one of the reasons why programming beginners give\
+    \ up programming.\n\nEspecially when you have just started programming, you tend\
+    \ to think that you are not suited for programming because you do not know how\
+    \ to deal with them.\n\nHowever, once you get the hang of it, error countermeasures\
+    \ are not a problem, so here are some specific things you should do.\n\n### Coding\
+    \ spelling errors\n\nWhen programming, you type only English characters, so it\
+    \ is easy to make spelling mistakes if you are a beginner.\n\nCheck the error\
+    \ message first to make sure there are no spelling mistakes.\n\n### Checking Error\
+    \ Messages\n\nWhen an error occurs during program execution, an error message\
+    \ is displayed.\n\nDo a Google search for this message.\n\nYou will probably find\
+    \ an article in which someone has already encountered the same error and solved\
+    \ it.\n\nAlso, if you have any questions, you can ask them on teratail or stackoverflow.\n\
+    \n### Summary of this section\n\n- (1) If an error occurs, don't dwell on it.\
+    \ (The path everyone takes)\n- (2) Bakfix is 80% of program development.\n\n##\
+    \ How to learn in the future\n\n### Key Points\n\n- (1) Create what you want to\
+    \ create\n- (2) Try out the basics and send out information\n\nLet's decide what\
+    \ you want to make.\n\n- (1) First, clarify what you want to make.\n- (2) Let’s\
+    \ come up with various ideas and make what you want to use.\n\nLet's ask how to\
+    \ make it.\n\nOnce you have a clear idea, ask how you can make it technically.\
+    \ Let's ask.\n\nMentoring by an actual engineer is recommended.\n\nAlso, it might\
+    \ be a good idea to actually order a project through crowdsourcing.\n\nDisseminate\
+    \ information\n\nTry actually creating a programming project and post your technical\
+    \ problems on Qiita or your own blog.\n\nBy sending out information, you will\
+    \ be able to objectively prove your technical skills.\n\n### Get a job\n\n- ◎Crowdsourcing\n\
+    Try taking on crowdsourcing projects based on the skills you have acquired. You\
+    \ will enjoy earning money in your spare time.\n- ◎Employment\nTry to find a job\
+    \ as an engineer.\n\nUse your Qiita articles and other achievements to promote\
+    \ your job search.\n\nI believe that some companies will be interested in you\
+    \ depending on how you usually build up your work.\n\nIf you change your job to\
+    \ become an engineer, there are many jobs that are fully remote, so you don't\
+    \ have to come to the office, you don't have to be on the phone anymore, and you\
+    \ don't have to be a low-productivity guy anymore.\n\nBy all means, try changing\
+    \ careers to become an engineer.\n\n### Summary of this section\n\n- (1) Make\
+    \ what you want to make.\n- (2) Live happily!\n\n## In Conclusion\n\nGoodbye,\
+    \ old men.\n\nProductivity in Japan has hit its ceiling, and there is a large\
+    \ number of \"old men who don't work\" in companies.\n\nI was picturing myself\
+    \ in the future, riding the commuter train every day, indulging in a job I don't\
+    \ even want to do.\n\nI just want to get out of this situation somehow. I want\
+    \ to get out of this situation somehow.\n\nLearning programming is the way out\
+    \ of this hell.\n\n## Graduation from a society where you are told to answer the\
+    \ phone\n\nEven a seriously stupid person can answer the phone, but this lack\
+    \ of productivity is enough to make you feel sick and tired of it.\n\nA lot of\
+    \ the reason I hate my job is that all the higher layers fill the post with incompetent\
+    \ people.\nI believe that this is the reason why I hate my job.\n\nThe Japanese-style\
+    \ employment system is completely over.\nThe lower level employees are sick of\
+    \ it because it is \"full defense and clinch hell\" on the job because the \"\
+    old guys who don't work\" are the ones who have learned the hardest.\n\nI believe\
+    \ that many companies are seeing more and more young people leaving the workforce,\
+    \ but let's get out of these companies with these old men as soon as possible.\
+    \ NO FUTURE.”\n\n## Stay local and become a Silicon Valley engineer while being\
+    \ a fisherman.\n\nSatocchi loves Satoshi Nakajima, and I am listening to VOICY\
+    \ as I write \"The End\".\n\nSo, working in Silicon Valley with remote work. He\
+    \ recommended \"working remotely in Silicon Valley.\n\nSatocchi is aiming for\
+    \ that.\n\nEven after achieving FIRE, working remotely at a company in Silicon\
+    \ Valley sounded seriously fun.\n\nIn the past few years, I've been working hard\
+    \ on my English and programming, and I'm going to change jobs overseas.\n\nAnd\
+    \ all while staying in Japan. This is Satocchi's most recent goal.\n\nI will not\
+    \ study for the sake of studying.\n\nI will not change jobs to another company\
+    \ in order to quit my current company. I will sell digital content and make a\
+    \ profit.\n\nI will create a tech blog in English based on my achievements.\n\n\
+    I will befriend an overseas engineer and intern at an American company.\n\nAfter\
+    \ 2.3 years of full commitment, you will have a Satochi that can work anywhere\
+    \ in the world.\n\nRight now, I only feel that I can do it.\n\nI would like to\
+    \ play Shawshank Sky in my own way.\n\nSatocchi.\n\n## Book Introduction\n\n###\
+    \ Introduction to NFT for Beginners\n\n![NFT Book Cover](img/f23e236ec7f2be5ce38dbe377258f6bf_55_0.png)\n\
+    \nLet's try NFT for the first time. Please read this book when you are ready to\
+    \ start trading with NFT. It introduces the necessary steps to start trading,\
+    \ so even beginners will enjoy reading it.\n\n### Introduction to the Metaverse\
+    \ for Beginners\n\n![Metaverse Book Cover](img/f23e236ec7f2be5ce38dbe377258f6bf_56_0.png)\n\
+    \nWondering what the Metaverse is all about? This is recommended for those who\
+    \ are interested in learning more about it. Please use it as an introductory book\
+    \ as it gives a quick overview of the metaverse.\n\n### Introduction to FIRE with\
+    \ NISA ideco\n\n![FIRE Book Cover](img/f23e236ec7f2be5ce38dbe377258f6bf_57_0.png)\n\
+    \nWe will explain the hot topic of FIRE in an easy-to-understand manner. Let's\
+    \ accumulate assets over a long period of time with a solid understanding of the\
+    \ taxation system by utilizing the “tsumitate NISA\" and \"ideco\".\n\n### A Superintroduction\
+    \ to Python for Beginners\n\n![Python Book Cover](img/f23e236ec7f2be5ce38dbe377258f6bf_58_0.png)\n\
+    \nThis book is designed to help complete beginners take their first steps in programming.\
+    \ Learn the basics of programming using the now popular Python language. This\
+    \ book is the first in a series. Please feel free to look through it.\n\n## About\
+    \ the Author\n\n### **Satocchi**\n\nWorked for 15 years as an in-house SE for\
+    \ a financial institution.\n\nHe has been through many hardships and hard work\
+    \ as a \"one-person information system.\n\nNow, he is trying to help many \"one-person\
+    \ system administrators\" or those who want to learn new programming techniques.\n\
+    \nHe is also helping those who want to learn new programming skills and those\
+    \ who want to work as a financial planner.\n\nHe is mentoring many people who\
+    \ want to challenge \"FIRE\" based on his experience as a financial planner, and\
+    \ helping them to build their assets.\n\n### **Blog**\n\n- 1. A blog where Satocchi\
+    \ talks about thoroughly maniacal topics.\n   https://stcheeeee.com/\n- 2. Happy\
+    \ Life with Python and Virtual Currency\n   https://py.stcheeeee.com/py/\n\n###\
+    \ **TechBlog**\n\n- 1. crypto tech babes\n   https://tech.stcheeeee.com/tech/\n\
+    \n### **Youtube**\n\n- 1. satocchi TV\n   https://www.youtube.com/channel/UC-5DcUCMb3g-28FRK3EtIfQ"
+  mdcn: "## 第六章 欢迎来到编程世界 发生错误时该怎么办\n\n### 要点\n\n- (1) 了解发生错误时该怎么做。\n- (2) 学会如何将问题与错误隔离开来。\n\
+    \n### 发生错误时需要准备什么\n\n错误是编程初学者放弃编程的原因之一。\n\n尤其是当你刚开始编程时，你往往会因为不知道如何处理错误而认为自己不适合编程。\n\
+    \n然而，一旦你掌握了窍门，错误应对就不再是问题，所以这里列出了一些你应该做的具体事情。\n\n### 编码拼写错误\n\n编程时，你只输入英文字符，所以作为初学者很容易出现拼写错误。\n\
+    \n首先检查错误信息，确保没有拼写错误。\n\n### 检查错误信息\n\n当程序执行过程中发生错误时，会显示错误信息。\n\n用谷歌搜索这条信息。\n\n\
+    你很可能会找到一篇有人已经遇到同样错误并解决了它的文章。\n\n此外，如果你有任何问题，可以在 teratail 或 stackoverflow 上提问。\n\
+    \n### 本节小结\n\n- (1) 如果发生错误，不要钻牛角尖。（这是每个人都会走的路）\n- (2) 修复错误占程序开发的80%。\n\n## 未来如何学习\n\
+    \n### 要点\n\n- (1) 创造你想创造的东西\n- (2) 尝试基础知识并发布信息\n\n让我们决定你想做什么。\n\n- (1) 首先，明确你想做什么。\n\
+    - (2) 让我们想出各种点子，制作你想用的东西。\n\n让我们询问如何制作。\n\n一旦你有了明确的想法，就去询问如何从技术上实现它。让我们去问。\n\n\
+    建议由实际的工程师进行指导。\n\n另外，通过众包实际订购一个项目可能是个好主意。\n\n传播信息\n\n尝试实际创建一个编程项目，并将你的技术问题发布在\
+    \ Qiita 或你自己的博客上。\n\n通过发布信息，你将能够客观地证明你的技术能力。\n\n### 找工作\n\n- ◎众包\n尝试基于你已掌握的技能承接众包项目。你会享受在业余时间赚钱的乐趣。\n\
+    - ◎就业\n尝试找一份工程师的工作。\n\n利用你的 Qiita 文章和其他成果来促进你的求职。\n\n我相信，根据你平时如何积累工作成果，一些公司会对你感兴趣。\n\
+    \n如果你转行成为工程师，有很多工作是完全远程的，所以你不必来办公室，不必再接电话，也不必再做一个低生产力的人。\n\n务必尝试转行成为工程师。\n\n###\
+    \ 本节小结\n\n- (1) 制作你想制作的东西。\n- (2) 快乐地生活！\n\n## 结语\n\n再见了，老家伙们。\n\n日本的生产力已经触及天花板，公司里有大量“不工作的老家伙”。\n\
+    \n我想象着自己未来的样子，每天乘坐通勤列车，沉溺于一份自己甚至都不想做的工作。\n\n我只想设法摆脱这种处境。我想设法摆脱这种处境。\n\n学习编程是逃离这个地狱的出路。\n\
+    \n## 从一个被要求接电话的社会毕业\n\n即使是严重愚蠢的人也能接电话，但这种缺乏生产力的情况足以让你感到恶心和厌倦。\n\n我讨厌工作的一个重要原因是，所有高层职位都被无能的人占据了。\n\
+    我相信这就是我讨厌工作的原因。\n\n日式雇佣制度已经彻底终结了。\n底层员工对此感到厌倦，因为在工作中是“全面防守和缠斗地狱”，因为那些“不工作的老家伙”是学习最刻苦的人。\n\
+    \n我相信许多公司看到越来越多的年轻人离开劳动力市场，但让我们尽快离开这些有老家伙的公司。没有未来。”\n\n## 留在本地，成为硅谷工程师，同时当个渔夫。\n\
+    \nSatocchi 喜欢中里聪，我一边听着 VOICY 一边写下“终章”。\n\n所以，在硅谷远程工作。他推荐“在硅谷远程工作”。\n\nSatocchi\
+    \ 正在朝这个目标努力。\n\n即使在实现 FIRE 之后，在硅谷的公司远程工作听起来也真的很有趣。\n\n在过去的几年里，我一直在努力学习英语和编程，我打算去海外工作。\n\
+    \n而且这一切都发生在日本国内。这是 Satocchi 最近的目标。\n\n我不会为了学习而学习。\n\n我不会为了辞掉现在的工作而跳槽到另一家公司。我会销售数字内容并获利。\n\
+    \n我将基于我的成果创建一个英文技术博客。\n\n我将与一位海外工程师交朋友，并在美国公司实习。\n\n经过2.3年的全身心投入，你将拥有一个可以在世界任何地方工作的\
+    \ Satocchi。\n\n现在，我只觉得我能做到。\n\n我想以我自己的方式玩肖申克的天空。\n\nSatocchi。\n\n## 书籍介绍\n\n###\
+    \ NFT 初学者指南\n\n![NFT 书籍封面](img/f23e236ec7f2be5ce38dbe377258f6bf_55_0.png)\n\n\
+    让我们第一次尝试 NFT。当你准备好开始使用 NFT 进行交易时，请阅读本书。它介绍了开始交易所需的步骤，即使是初学者也会喜欢阅读。\n\n### 元宇宙初学者指南\n\
+    \n![元宇宙书籍封面](img/f23e236ec7f2be5ce38dbe377258f6bf_56_0.png)\n\n想知道元宇宙到底是怎么回事吗？这适合那些有兴趣了解更多的人。请将其作为入门书籍使用，因为它快速概述了元宇宙。\n\
+    \n### 使用 NISA 和 ideco 进行 FIRE 入门\n\n![FIRE 书籍封面](img/f23e236ec7f2be5ce38dbe377258f6bf_57_0.png)\n\
+    \n我们将以易于理解的方式解释热门话题 FIRE。通过利用“积立 NISA”和“ideco”，扎实理解税收制度，让我们长期积累资产。\n\n### Python\
+    \ 初学者超级入门\n\n![Python 书籍封面](img/f23e236ec7f2be5ce38dbe377258f6bf_58_0.png)\n\n\
+    本书旨在帮助完全的初学者迈出编程的第一步。使用现在流行的 Python 语言学习编程基础。本书是该系列的第一本。请随意翻阅。\n\n## 关于作者\n\n\
+    ### **Satocchi**\n\n在金融机构担任内部 SE 15年。\n\n作为“一人信息系统”，他经历了许多艰辛和努力。\n\n现在，他试图帮助许多“一人系统管理员”或那些想学习新编程技术的人。\n\
+    \n他还帮助那些想学习新编程技能的人和那些想成为理财规划师的人。\n\n他基于自己作为理财规划师的经验，指导许多想要挑战“FIRE”的人，并帮助他们建立资产。\n\
+    \n### **博客**\n\n- 1. Satocchi 谈论极其小众话题的博客。\n   https://stcheeeee.com/\n- 2. Python\
+    \ 和虚拟货币带来的幸福生活\n   https://py.stcheeeee.com/py/\n\n### **技术博客**\n\n- 1. crypto\
+    \ tech babes\n   https://tech.stcheeeee.com/tech/\n\n### **Youtube**\n\n- 1. satocchi\
+    \ TV\n   https://www.youtube.com/channel/UC-5DcUCMb3g-28FRK3EtIfQ"
+  merge: 0
+  raw:
+  - '[PAGE 45]
+
+
+    <!-- no content -->'
+  - '[PAGE 46]
+
+
+    # # Chapter 6 Welcome to the World of Programming What to do when an error occurs
+
+
+    # ## Key Points
+
+
+    +   - (1) Know what to do when an error occurs.
+
+    - (2) Know how to isolate the problem from the error.
+
+
+    # ## What to be prepared for when an error occurs
+
+
+    Errors are one of the reasons why programming beginners give up programming.
+
+
+    Especially when you have just started programming, you tend to think that you
+    are not suited for programming because you do not know how to deal with them.
+
+
+    However, once you get the hang of it, error countermeasures are not a problem,
+    so here are some specific things you should do.
+
+
+    # ## Coding spelling errors
+
+
+    When programming, you type only English characters, so it is easy to make spelling
+    mistakes if you are a beginner.
+
+
+    Check the error message first to make sure there are no spelling mistakes.'
+  - '[PAGE 47]
+
+
+    # Checking Error Messages
+
+
+    When an error occurs during program execution, an error message is displayed.
+
+
+    Do a Google search for this message.
+
+
+    You will probably find an article in which someone has already encountered the
+    same error and solved it.
+
+
+    Also, if you have any questions, you can ask them on teratail or stackoverflow.
+
+
+    # Summary of this section
+
+
+    +   (1) If an error occurs, don''t dwell on it. (The path everyone takes)
+
+    (2) Bakfix is 80% of program development.'
+  - '[PAGE 48]
+
+
+    # # How to learn in the future
+
+
+    Key Points
+
+
+    +   (1) Create what you want to create
+
+    (2) Try out the basics and send out information
+
+
+    Let''s decide what you want to make.
+
+
+    +   (1)First, clarify what you want to make.
+
+    (2)Let’s come up with various ideas and make what you want to use.
+
+
+    Let''s ask how to make it.
+
+
+    Once you have a clear idea, ask how you can make it technically. Let''s ask.
+
+
+    Mentoring by an actual engineer is recommended.
+
+
+    Also, it might be a good idea to actually order a project through crowdsourcing.
+
+
+    Disseminate information
+
+
+    Try actually creating a programming project and post your technical problems on
+    Qiita or your own blog.'
+  - '[PAGE 49]
+
+
+    By sending out information, you will be able to objectively prove your technical
+    skills.
+
+
+    # Get a job
+
+
+    ◎Crowdsourcing
+
+    Try taking on crowdsourcing projects based on the skills you have acquired. You
+    will enjoy earning money in your spare time.
+
+
+    ◎Employment
+
+    Try to find a job as an engineer.
+
+
+    Use your Qiita articles and other achievements to promote your job search.
+
+
+    I believe that some companies will be interested in you depending on how you usually
+    build up your work.
+
+
+    If you change your job to become an engineer, there are many jobs that are fully
+    remote, so you don''t have to come to the office, you don''t have to be on the
+    phone anymore, and you don''t have to be a low-productivity guy anymore.
+
+
+    By all means, try changing careers to become an engineer.
+
+
+    # Summary of this section
+
+
+    +   (1) Make what you want to make.
+
+    (2) Live happily!'
+  - '[PAGE 50]
+
+
+    <!-- no content -->'
+  - '[PAGE 51]
+
+
+    # In Conclusion
+
+
+    Goodbye, old men.
+
+
+    Productivity in Japan has hit its ceiling, and there is a large number of "old
+    men who don''t work" in companies.
+
+
+    I was picturing myself in the future, riding the commuter train every day, indulging
+    in a job I don''t even want to do.
+
+
+    I just want to get out of this situation somehow. I want to get out of this situation
+    somehow.
+
+
+    Learning programming is the way out of this hell.'
+  - '[PAGE 52]
+
+
+    # Graduation from a society where you are told to answer the phone
+
+
+    Even a seriously stupid person can answer the phone, but this lack of productivity
+    is enough to make you feel sick and tired of it.
+
+
+    A lot of the reason I hate my job is that all the higher layers fill the post
+    with incompetent people.
+
+    I believe that this is the reason why I hate my job.
+
+
+    The Japanese-style employment system is completely over.
+
+    The lower level employees are sick of it because it is "full defense and clinch
+    hell" on the job because the "old guys who don''t work" are the ones who have
+    learned the hardest.
+
+
+    I believe that many companies are seeing more and more young people leaving the
+    workforce, but let''s get out of these companies with these old men as soon as
+    possible. NO FUTURE.”'
+  - '[PAGE 53]
+
+
+    # # Stay local and become a Silicon Valley engineer while being a fisherman.
+
+
+    Satocchi loves Satoshi Nakajima, and I am listening to VOICY as I write "The End".
+
+
+    So, working in Silicon Valley with remote work. He recommended "working remotely
+    in Silicon Valley.
+
+
+    Satocchi is aiming for that.
+
+
+    Even after achieving FIRE, working remotely at a company in Silicon Valley sounded
+    seriously fun.
+
+
+    In the past few years, I''ve been working hard on my English and programming,
+    and I''m going to change jobs overseas.
+
+
+    And all while staying in Japan. This is Satocchi''s most recent goal.
+
+
+    I will not study for the sake of studying.
+
+
+    I will not change jobs to another company in order to quit my current company.
+    I will sell digital content and make a profit.
+
+
+    I will create a tech blog in English based on my achievements.
+
+
+    I will befriend an overseas engineer and intern at an American company.
+
+
+    After 2.3 years of full commitment, you will have a Satochi that can work anywhere
+    in the world.
+
+
+    Right now, I only feel that I can do it.
+
+
+    I would like to play Shawshank Sky in my own way.'
+  - '[PAGE 54]
+
+
+    Satocchi.'
+  - '[PAGE 55]
+
+
+    # # Book Introduction
+
+
+    # ## Introduction to NFT for Beginners
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_55_0.png)
+
+
+    Let''s try NFT for the first time. Please read this book when you are ready to
+    start trading with NFT. It introduces the necessary steps to start trading, so
+    even beginners will enjoy reading it.'
+  - '[PAGE 56]
+
+
+    # Book Introduction
+
+
+    # Introduction to the Metaverse for Beginners
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_56_0.png)
+
+
+    Wondering what the Metaverse is all about? This is recommended for those who are
+    interested in learning more about it. Please use it as an introductory book as
+    it gives a quick overview of the metaverse.'
+  - '[PAGE 57]
+
+
+    # Book Introduction
+
+
+    # Introduction to FIRE with NISA ideco
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_57_0.png)
+
+
+    We will explain the hot topic of FIRE in an easy-to-understand manner. Let''s
+    accumulate assets over a long period of time with a solid understanding of the
+    taxation system by utilizing the “tsumitate NISA" and "ideco".'
+  - '[PAGE 58]
+
+
+    # Book Introduction
+
+
+    # A Superintroduction to Python for Beginners
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_58_0.png)
+
+
+    This book is designed to help complete beginners take their first steps in programming.
+    Learn the basics of programming using the now popular Python language. This book
+    is the first in a series. Please feel free to look through it.'
+  - "[PAGE 59]\n\n# # About the Author\n\n# **Satocchi**\n\nWorked for 15 years as\
+    \ an in-house SE for a financial institution.\n\nHe has been through many hardships\
+    \ and hard work as a \"one-person information system.\n\nNow, he is trying to\
+    \ help many \"one-person system administrators\" or those who want to learn new\
+    \ programming techniques.\n\nHe is also helping those who want to learn new programming\
+    \ skills and those who want to work as a financial planner.\n\nHe is mentoring\
+    \ many people who want to challenge \"FIRE\" based on his experience as a financial\
+    \ planner, and helping them to build their assets.\n\n# **Blog**\n\n+   1. A blog\
+    \ where Satocchi talks about thoroughly maniacal topics.\n   https://stcheeeee.com/\n\
+    2. Happy Life with Python and Virtual Currency\n   https://py.stcheeeee.com/py/\n\
+    \n# **TechBlog**\n\n+   1. crypto tech babes\n   https://tech.stcheeeee.com/tech/\n\
+    \n# **Youtube**\n\n+   1. satocchi TV\n   https://www.youtube.com/channel/UC-5DcUCMb3g-28FRK3EtIfQ"
+pages:
+- img_proc: true
+  md: '# PYTHON CRASH COURSE. GAME APP COOKBOOK
+
+
+    Easy Game App Development in Python, Even for Beginners
+
+
+    SATOCCHI
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_0_0.png)
+
+
+    Python
+
+
+    LEARNING FOR BEGINNER. PROGRAMMING IS VERY FUN.'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: '# Getting Started
+
+
+    You don''t have to have any experience at all to make a game app.
+
+
+    Hello, my name is Satocchi (@stcheeee).
+
+
+    This time, I created a book on game programming.
+
+
+    The reason for this is that I want beginners to enjoy the challenge of programming.
+
+    I wanted to make it fun for beginners to try programming.
+
+
+    To learn programming, it is good to make something that actually works and be
+    impressed by it.
+
+    I think it is better to do it in this order.
+
+
+    As Horiemon(@takapon_jp) and Hiroyuki(@hirox246) said.
+
+    "First of all, I have something I want to make.
+
+
+    Then, they learn the skills by working backward from that state.
+
+    That is the order in which they are learning.
+
+
+    I wrote this book so that you can experience this phase as well.
+
+    In this book, I will show you how to make Tetris using the popular Python language.'
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: '# Target Audience
+
+
+    The target audience of this book is people who want to start programming.
+
+
+    This book is intended for people who want to start programming.
+
+
+    Specifically, this book is intended for people who have just finished a series
+    of Python courses on Progate and other sites.'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: 'I want to share the joy of programming.
+
+
+    I used to do programming in class and think, "Damn, that''s boring!"
+
+    I can learn programming, I can have a full remote job, I can finish in 8 hours
+
+
+    The work can be done in one shot, etc.
+
+    I started to like programming after I realized that it was a great environmental
+    advantage. I fell in love with programming after realizing that
+
+
+    In the past, I was ridiculed as a "digital earthworker" and forced to work like
+    a cart horse for subcontractors.
+
+    However, nowadays there are many jobs available, and if you have the skills and
+    communication abilities, you can freely choose your own working environment.
+
+
+    The shortest way to improve is to "get absorbed in programming.
+
+
+    We hope that this book will awaken you to the joy of programming.'
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: '# Chapter 1: Even a self-taught person can create game applications
+
+    Why I decided to make Tetris
+
+
+    Key Points
+
+    (1) Everyone seems to want to make it.
+
+    (2) Let''s enjoy the sense of accomplishment
+
+
+    Because beginners can learn in a fun way
+
+
+    This book is for learning programming, but most general books explain the syntax,
+    and it''s hard to find something specific that you want to make.
+
+
+    So, I wanted to try making a fun game by myself. I wanted to try to make a fun
+    game by myself.
+
+
+    Later on, I want you to go deep and wonder why it works.
+
+
+    To make Tetris in Python, there are a lot of things to learn.
+
+    You will probably have a lot of questions like, "Why does it work like this?
+
+
+    If you get into the habit of looking things up line by line on Google or looking
+    at official references, it will take a lot of time, but you will become very proficient.
+
+
+    That''s what makes programming an accomplishment.
+
+
+    At first, some people may feel self-loathing and wonder why it takes so long,
+    but SATOCHI''s advice is to be curious and ask yourself, "Why does it work like
+    this? I want you to try programming with a genuine feeling of "Why does it work
+    like this?'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: It's a lot of fun.
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: 'You can customize it later.
+
+
+    Once you have a certain level of programming skills, you may want to add sound,
+    or add more shapes to the Tetris blocks, etc. You can do all kinds of things you
+    want. With game programming, there are many motivations to customize afterwards.
+
+
+    With game programming, it is easy to be motivated to customize later, so let''s
+    try programming Tetris this time.
+
+
+    # Summary of this section
+
+
+    +   (1)Let''s learn programming while having fun!
+
+    (2) Leave a legacy in the world!'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: '# ## Chapter 2: Know the Technology Used in Tetris
+
+    Prerequisite knowledge required to create an application
+
+
+    # ### Key Points
+
+
+    +   (1) Let''s check the programming language.
+
+    (2) Let''s check the development environment
+
+
+    # #### ☆Knowledge of Python
+
+
+    Python is a programming language. In this book, we will try programming Tetris
+    using Python.
+
+
+    Some of the basics will be explained in this book, but if you want to learn it
+    systematically, please try to learn programming on the website Progete. Progate
+    is a great way for beginners to learn programming in a thorough and easy-to-understand
+    way. If you first learn Python with Progate and then try this book, you will be
+    able to make progress in your learning.'
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: '# プログラミングで
+
+    人生の可能性を広げよう
+
+
+    👤 2,600,000 ユーザー 🌐 提供国数 100+'
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: '# # Chapter 3: Learn Python
+
+
+    # ## Learn the basics with Progate
+
+
+    ### Key Points
+
+
+    +   1. Let''s do Progate''s Python course 1 to 5.
+
+    2. Keep basic learning to a minimum.
+
+
+    ### Why choose Progate?
+
+
+    Progate is a very easy-to-understand online learning service.
+
+
+    Satochi has been looking at various learning services, and I think Progate is
+    the best choice for learning a language quickly. Progate offers courses from 1
+    to 5.
+
+
+    Progate''s courses range from 1 to 5, so it will take you about 10 hours to complete
+    them all, but I recommend you give it a try.'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: '# What about programming schools?
+
+
+    Learning at a programming school generally depends on the school, but a course
+    of about 200,000 yen for about one month of intensive learning
+
+
+    You can learn about unclear points 1-on-1 with an engineer about 10 times with
+    mentoring. In my opinion, the attributes of the school are very good.
+
+
+    In Satocchi''s opinion, this is unnecessary for people whose attribute is originally
+    an engineer. I think it is unnecessary for people who are engineers by nature.
+
+
+    It may be possible for a complete beginner to use a school as an environment to
+    try to learn. However, I am concerned about the high cost.
+
+
+    But I am still concerned about the high cost. (If you have the money, it would
+    be OK.)'
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: 'Basic learning should be kept to a minimum.
+
+
+    The curriculum you can learn at Progate is just the rudiments of actual Python
+    programming.
+
+
+    After you have learned some of the basics, you will be better off actually taking
+    on projects and building software, so I don''t recommend you to do the Progate
+    10-week course.
+
+
+    # Summary of this section
+
+
+    +   (1) For basic learning, use Progate for a quick start.
+
+    (2) If you have the money, you can go to a programming school.'
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: '# # You can also learn by video (youtube)
+
+
+    # ## Key Points
+
+
+    +   (1) You can learn on the go!
+
+    (2) Let''s actually move your hands!
+
+
+    # ## Advantages of learning on Youtube
+
+
+    There are many good programming learning materials on Youtube. And they are free
+    of charge. Therefore, we also recommend learning by video.
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_13_0.png)'
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: '# Satocchi TV (youtube) is also open.
+
+
+    Satocchi opened youtube not only for Kindle books but also for videos to help
+    everyone learn programming in an easy-to-understand way.
+
+
+    https://www.youtube.com/channel/UC-5DcUCMb3g-28FRK3EtlfQ
+
+
+    We will be adding various curriculum in the future, so please take a look.
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_14_0.png)'
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: '# A Note on Video Learning
+
+
+    Studying with videos tends to make you feel like you''ve done some programming.
+    However, I want you to be sure to "move your hands."
+
+
+    If you don''t actually move your hands, you will only end up "feeling like you
+    understand."
+
+
+    If you are going to go through the trouble of learning, do it yourself.
+
+
+    # Summary of this section
+
+
+    +   (1) Video learning is free of charge, and there are many high-quality contents.
+
+
+    +   (2) It is important to do hands-on activities by yourself.'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: '# # Chapter 4: Make Preparations in Advance
+
+    ## Let''s buy a Macbook!
+
+
+    Key Points
+
+
+    +   (1) Macbook is the only choice for engineers.
+
+    (2) Let''s enjoy programming in style!'
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: '# Why Mac?
+
+
+    (1) Because everyone''s a Mac (easy to Google).
+
+
+    This is the center pin.
+
+
+    System development is 70% bug catching.
+
+
+    When we hit a wall, we Google, but most of the articles are about Mac.
+
+
+    Therefore, Mac is a must to increase the amount of information.
+
+
+    (2) The possibility of virus infection is much lower than Windows.
+
+
+    (3) It''s cool.
+
+
+    This is just as it is.
+
+
+    (4) Good performance
+
+
+    My main machine is a 12-inch MacBook.
+
+
+    I think it was about 12 man yen, and it was one of the best purchases I ever made
+    in my life.
+
+
+    (5) Lightweight
+
+
+    It is easy to carry around when it is light.
+
+
+    (6) Linux-based
+
+
+    The command line is almost the same as that of Linux, so it is easy to use for
+    Linux users, and even if you have never used Linux before, I think you will be
+    able to use Linux normally after learning with this.'
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: 'Satocchi was really unhappy because all the PCs in his school days (technical
+    college) were Linux, but now he is glad that he used Linux.
+
+
+    (7) You can sell them at a high price on Mercari.
+
+
+    Mac gadgets have high resale value, so if you don''t like it, you can find a buyer
+    on Mercari as much as you want.
+
+
+    # Summary of this section
+
+
+    +   (1) If you are an engineer, choose Mac.
+
+    (2) If you don''t like it, sell it on Mercari.'
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: '# Let''s Create an Environment
+
+
+    # Considerations for Google Collaboration
+
+
+    We sought an environment where even beginners can develop.
+
+    One of the easiest is Google Collaboration.
+
+    It only takes a minute to get a development environment. And it''s free.
+
+
+    I thought I was done with this, and continued to create content, but I ran into
+    difficulties in the execution phase.
+
+
+    I could not use functions for drawing objects.
+
+    The reason was that the application was running on the cloud.
+
+    Therefore, I decided to put the environment on my own device.
+
+    Since I only have a Mac and the development community is full of Macs, I decided
+    to proselytize Mac.'
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: '# # How to set up a development environment on a Mac
+
+
+    # ## STEP1 Preparation to start building the environment
+
+
+    +   1. Check the version of Python
+
+
+    ```
+
+
+    python --version
+
+
+    ```
+
+
+    The default version is 2 series. So, install pyenv and install the 3rd series.
+
+
+    # ## STEP2 Install Homebrew
+
+
+    ```
+
+
+    brew -v
+
+
+    ```
+
+
+    Confirm that Homebrew x.x.x and version information are displayed.
+
+
+    # ## STEP3 Install pyenv
+
+
+    +   1. pyenv- v
+
+
+    Execute the following commands when "pyenv: command not found" is displayed.
+
+
+    ```
+
+
+    brew install pyenv
+
+
+    ```
+
+
+    # ## STEP4 Install Python
+
+
+    +   1. pyenv install --list
+
+
+    +   2. pyenv install 3.x.x
+
+
+    It is recommended to install the latest version of Python 3.x.x. In this case,
+    the latest version is 3.10.x. In this case, we chose 3.10.4.'
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: '+   (3)pyenv versions
+
+
+    +   (4)pyenv global 3.x.x
+
+
+    +   (5)python --version
+
+
+    # STEP5  Execute Python code
+
+
+    +   (1) python XXXX.py'
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: '# Chapter 5: Let''s Write the Code for Tetris
+
+
+    Let''s take a look at the overall code.'
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: "```\nimport tkinter as tk\nfrom queue import Queue\nimport numpy as np\nfrom\
+    \ random import randint\nfrom time import time\n\nGAME_W , GAME_H = 10, 18\nSCN_W\
+    \ , SCN_H = 400, 720\nBLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H\nTIMER_WAIT\
+    \ = 50\n\nget_time = lambda: time() * 1000\nout_of_screen = lambda x, y: x < 0\
+    \ or x >= GAME_W or y < 0 or y >=\nGAME_H\ng_pos = {'x': 0, 'y': 0}\ng_events\
+    \ = Queue()\n\ndef init_game():\n    global g_buf, g_pat, g_time, g_scene\n  \
+    \  g_buf = [[0 for _ in range(GAME_W)] for _ in\nrange(GAME_H)]\n    g_pat, g_time,\
+    \ g_scene = None, get_time(), 0 # g_scene = 0:\nPlaying, 1: Game Over\n```"
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: "```\ndef create_pattern():\n    pats = [['0100', '0100', '0100', '0100'], ['0000',\
+    \ '0100', '0110', '0100'],\n            ['0000', '0110', '0100', '0100'], ['0000',\
+    \ '0110', '0010', '0010'],\n            ['0000', '0010', '0110', '0100'], ['0000',\
+    \ '0100', '0110', '0010']]\n    return [p := pats[randint(0, 5)], [p := np.rot90(np.array(list(map(lambda\
+    \ x: [int(v) for v in x], p)), int).tolist() for _ in range(randint(1, 4))][-1][1]]\n\
+    ```\n\n```\ndef is_crashed(pat, x, y):\n    for i in range(16):\n        if pat[i\
+    \ // 4][i % 4]:\n            if out_of_screen(i % 4 + x, i // 4 + y) or pat[i\
+    \ // 4][i % 4] & g_buf[i // 4 + y][i % 4 + x]:\n                return True\n\
+    \    return False\n```\n\n```\ndef draw_one_block(canvas, x, y):\n    if not out_of_screen(x,\
+    \ y):\n        x1, y1 = x * BLOCK_W, y * BLOCK_H\n        x2, y2 = x1 + BLOCK_W\
+    \ - 1, y1 + BLOCK_H - 1\n        canvas.create_rectangle(x1, y1, x2, y2, fill='white',\
+    \ width=0, tag='objects')\n```\n\n```\ndef draw_game(canvas):\n    canvas.delete('objects')\n\
+    \    for i in range(GAME_W * GAME_H):\n        if g_buf[i // GAME_W][i % GAME_W]:\n\
+    \            draw_one_block(canvas, i % GAME_W, i // GAME_W)\n    if g_pat:\n\
+    \        for i in range(4 * 4):\n            if g_pat[i // 4][i % 4]:\n      \
+    \          draw_one_block(canvas, i % 4 + g_pos['x'], i // 4 + g_pos['y'])\n \
+    \   if g_scene == 1:\n        canvas.create_rectangle(40, SCN_H // 2 - 50, SCN_W\
+    \ - 40, SCN_H // 2 + 50, fill='gray', tag='objects')\n        canvas.create_text(SCN_W\
+    \ // 2, SCN_H // 2, text='Game Over\\n\\nPlease Space Key', font=('Monospace',\
+    \ 14, 'bold'), justify='center', fill='white', anchor='center', tag='objects')\n\
+    ```"
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: "```\npython\ndef main_proc(root, canvas):\n    global g_buf, g_pat, g_time,\
+    \ g_scene\n\n    if (e := g_events.get() if not g_events.empty() else None) is\
+    \ not None:\n        if g_scene == 0 and g_pat is not None:\n            if e\
+    \ == 'Left':     g_pos['x'] += -1 if not is_crashed(g_pat, g_pos['x'] - 1, g_pos['y'])\
+    \ else 0\n            elif e == 'Right':  g_pos['x'] += 1 if not is_crashed(g_pat,\
+    \ g_pos['x'] + 1, g_pos['y']) else 0\n            elif e == 'space':  g_pat =\
+    \ pat if not is_crashed(pat := np.rot90(np.array(g_pat, int)).tolist(), **g_pos)\
+    \ else g_pat\n        elif g_scene == 1 and e == 'space':\n            init_game()\n\
+    \n    if g_scene == 0:\n        if g_pat is None:\n            g_pat = create_pattern()\n\
+    \            for top in range(4):\n                if any(g_pat[top]):\n     \
+    \               g_pos['x'], g_pos['y'] = (GAME_W - 4) // 2, -top\n           \
+    \         break\n            g_scene = 1 if is_crashed(g_pat, **g_pos) else 0\n\
+    \n        if get_time() - g_time > 400 or e == 'Down':\n            if is_crashed(g_pat,\
+    \ g_pos['x'], g_pos['y'] + 1):\n                for y in range(4):\n         \
+    \           for x in range(4):\n                        if not out_of_screen(g_pos['x']\
+    \ + x, g_pos['y'] + y):\n                            g_buf[g_pos['y'] + y][g_pos['x']\
+    \ + x] |= g_pat[y][x]\n                g_pat = None\n                new_buf =\
+    \ list(filter(lambda line: not all(line), g_buf))\n                g_buf = [[0\
+    \ for _ in range(GAME_W)] for _ in range(GAME_H - len(new_buf))] + new_buf\n \
+    \           else:\n                g_pos['y'] += 1\n\n            g_time = get_time()\n\
+    \n    draw_game(canvas)\n    root.after(TIMER_WAIT, main_proc, root, canvas)\n\
+    ```\n\n```\npython\nif __name__ == '__main__':\n    root = tk.Tk()\n    root.geometry(f'{SCN_W}x{SCN_H}')\n\
+    \    canvas = tk.Canvas(root, width=SCN_W, height=SCN_H, bg='black')\n    canvas.place(x=0,\
+    \ y=0)\n    root.bind('<Key>', lambda e: g_events.put(e.keysym) if e.keysym in\
+    \ ('Left', 'Right', 'Down', 'space') else None)\n    init_game()\n    root.after(TIMER_WAIT,\
+    \ main_proc, root, canvas)\n    root.mainloop()\n```"
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: 全体を見ても、あまりイメージがつかないと思いますので、順番に説明していきます。
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: '# # What you need to play Tetris
+
+
+    This hits on the question of where to start when it comes to programming.
+
+
+    # ## Necessary functions
+
+
+    +   1. Screen
+
+    2. Blocks
+
+    3. Controller
+
+    4. Timer
+
+
+    # ### (1) Screen
+
+
+    Python has a library dedicated to games.
+
+    For screen functions, there is a library called tkinter, which has a function
+    called Canvas.
+
+
+    # ### (2) Blocks
+
+
+    The function to attach blocks to the screen can be created in tkinter.
+
+
+    # ### (3) To operate with the keyboard
+
+
+    The function "bind()" of the window created by tkinter can be used to implement
+    this function.
+
+
+    # ### (4) Timer
+
+
+    A mechanism is needed to make the blocks fall down when time elapses.
+
+    A timer can be implemented with the function "after" in Tkinter.'
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: '# I thought about the flow of the program for this game.
+
+
+    program for this game.
+
+
+    I divided the program into steps.
+
+
+    +   (1)Define the existence of blocks in the array
+
+    (2)Function to draw blocks
+
+    (3) Function to create a pattern of blocks
+
+    (4) Determination of collision of blocks
+
+    (5) Function to prevent the blocks from going out of the screen
+
+    (6) Erase when one line is aligned
+
+    (7) Looping with the main function
+
+
+    Let''s put this into actual programming.'
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: '# Let''s make a declaration.
+
+
+    ```
+
+    import tkinter as tk
+
+    from queue import Queue
+
+    import numpy as np
+
+    from random import randint
+
+    from time import time
+
+    ```
+
+
+    Explanation
+
+
+    tkinter. a library for creating screens.
+
+    queue is used to manage the keys pressed on the keyboard.
+
+    numpy is a library for fast processing of vectors and matrices.
+
+    random is used to generate random numbers.
+
+    time is used to get the passage of time.'
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: '# Let''s define variables
+
+
+    ```
+
+    python
+
+    GAME_W , GAME_H = 10, 18
+
+    SCN_W , SCN_H = 400, 720
+
+    BLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H
+
+    TIMER_WAIT = 50
+
+
+    get_time = lambda: time() * 1000
+
+    out_of_screen = lambda x, y: x < 0 or x >= GAME_W or y < 0 or y >= GAME_H
+
+    g_pos = {''x'': 0, ''y'': 0}
+
+    g_events = Queue()
+
+
+    ```
+
+
+    Explanation
+
+
+    GAME_W , GAME_H = 10, 18 #Specify the range of blocks that can be drawn
+
+
+    SCN_W , SCN_H = 400, 720 #Specify screen size in pixels.
+
+
+    #Define how many pixels a block is. Use operator // and return an integer
+
+    BLOCK_W, BLOCK_H = SCN_W // GAME_W, SCN_H // GAME_H
+
+
+    TIMER_WAIT = 50 #Specify how long to wait for the timer in milliseconds
+
+
+    get_time = lambda: time() * 1000#time() returns the number of elapsed seconds.
+
+    #milliseconds are used in this case, so multiply by 1000.
+
+
+    #tests if the coordinates in blocks of x and y are outside the screen.
+
+    #Returns True if out of screen.
+
+    out_of_screen = lambda x, y: x < 0 or x >= GAME_W or y < 0 or y >= GAME_H
+
+
+    g_pos = {''x'': 0, ''y'': 0} #Manages the coordinates of the block pattern during
+    operation.
+
+
+    #Cue to store and manage keys pressed on the keyboard.
+
+    #In practice, when the ← , → , ↓, or Space key on the keyboard is pressed, it
+    is filled
+
+    into the queue and retrieved in the main loop.'
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: '```
+
+    g_events = Queue()
+
+    ```'
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: "# Function creation (function to initialize the game)\n\n```\ndef init_game():\n\
+    \    global g_buf, g_pat, g_time, g_scene\n    g_buf = [[0 for _ in range(GAME_W)]\
+    \ for _ in range(GAME_H)]\n    g_pat, g_time, g_scene = None, get_time(), 0 #\
+    \ g_scene = 0:\nPlaying, 1: Game Over\n```\n\n# Explanation\n\nCreates a 10x18\
+    \ array initialized with 0.\ng_pat Array (list) representing the block patterns\
+    \ during operation. Set to None for initialization.\ng_time is the time when the\
+    \ block pattern was last dropped in the main loop.\ng_scene is a flag indicating\
+    \ the status in the game. 0 means in play, 1 means game over screen is being displayed."
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: "# # Function creation (block pattern creation)\n\n```\npython\ndef create_pattern():\n\
+    \    pats = [['0100', '0100', '0100', '0100'], ['0000', '0100', '0110', '0100'],\n\
+    \            ['0000', '0110', '0100', '0100'], ['0000', '0110', '0010', '0010'],\n\
+    \            ['0000', '0010', '0110', '0100'], ['0000', '0100', '0110', '0010']]\n\
+    \    return [p := pats[randint(0, 5)], [p := np.rot90(np.array(list(map(lambda\
+    \ x: [int(v) for v in x], p)),\n    int)).tolist() for _ in range(randint(1, 4))][-1][1]\n\
+    \n```\n\n# ## Explanation\n\nDefines a pattern in pats as a list with strings\
+    \ (0 is no block, 1 is blocked)."
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: "# Function Creation (Block Collision Detection)\n\n```\ndef is_crashed(pat,\
+    \ x, y):\n    for i in range(16):\n        if pat[i // 4][i % 4]:\n          \
+    \  if out_of_screen(i % 4 + x, i // 4 + y) or pat[i // 4][i % 4] & g_buf[i //\
+    \ 4 + y][i % 4 + x]:\n                return True\n    return False\n```\n\n#\
+    \ Description\n\nReceives a block pattern in pat and its upper left coordinate\
+    \ in x, y. Then, it judges the collision between the placed block and the block\
+    \ pattern under operation. #This is where we check if the coordinates are off\
+    \ the screen, or if a block in the block pattern under operation collides with\
+    \ a block that has already been placed. #If both blocks are present, the result\
+    \ is 1, indicating a collision."
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: "# # Function Creation (Block Drawing)\n\n```\npython\ndef draw_one_block(canvas,\
+    \ x, y):\n    if not out_of_screen(x, y):\n        x1, y1 = x * BLOCK_W, y * BLOCK_H\n\
+    \        x2, y2 = x1 + BLOCK_W - 1, y1 + BLOCK_H - 1\n        canvas.create_rectangle(x1,\
+    \ y1, x2, y2, fill='white', width=0, tag='objects')\n\n```\n\n# ## Description\n\
+    \nThis part draws a block in tkinter's Canvas.\nBefore drawing the block, it is\
+    \ checked to see if its coordinates are off the screen. If it is off the screen,\
+    \ it is not drawn."
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: "# Function Creation (Block Pattern Drawing)\n\n```\ndef draw_game(canvas):\n\
+    \    canvas.delete('objects')\n\n    for i in range(GAME_W * GAME_H):\n      \
+    \  if g_buf[i // GAME_W][i % GAME_W]:\n            draw_one_block(canvas, i %\
+    \ GAME_W, i // GAME_W)\n    if g_pat:\n        for i in range(4 * 4):\n      \
+    \      if g_pat[i // 4][i % 4]:\n                draw_one_block(canvas, i % 4\
+    \ + g_pos['x'], i // 4 + g_pos['y'])\n    if g_scene == 1:\n        canvas.create_rectangle(40,\
+    \ SCN_H // 2 - 50, SCN_W - 40, SCN_H // 2 + 50, fill='gray', tag='objects')\n\
+    \        canvas.create_text(SCN_W // 2, SCN_H // 2, text='Game Over\\n\\nPlease\
+    \ Space Key', font=('Monospace', 14, 'bold'), justify='center', fill='white',\
+    \ anchor='center', tag='objects')\n```\n\n# Description\n\nThis function draws\
+    \ the placed blocks and the block pattern being manipulated. Without it, the game\
+    \ will gradually become too heavy to run as it progresses."
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: "# Function creation (main function)\n\n```\ndef main_proc(root, canvas):\n\
+    \    global g_buf, g_pat, g_time, g_scene\n\n    if (e := g_events.get() if not\
+    \ g_events.empty() else None) is not None:\n        if g_scene == 0 and g_pat\
+    \ is not None:\n            if e == 'Left':    g_pos['x'] += -1 if not is_crashed(g_pat,\
+    \ g_pos['x'] - 1, g_pos['y']) else 0\n            elif e == 'Right': g_pos['x']\
+    \ += 1 if not is_crashed(g_pat, g_pos['x'] + 1, g_pos['y']) else 0\n         \
+    \   elif e == 'space': g_pat = pat if not is_crashed(pat := np.rot90(np.array(g_pat,\
+    \ int)).tolist(), **g_pos) else g_pat\n        elif g_scene == 1 and e == 'space':\n\
+    \            init_game()\n\n    if g_scene == 0:\n        if g_pat is None:\n\
+    \            g_pat = create_pattern()\n            for top in range(4):\n    \
+    \            if any(g_pat[top]):\n                    g_pos['x'], g_pos['y'] =\
+    \ (GAME_W - 4) // 2, -top\n                    break\n            g_scene = 1\
+    \ if is_crashed(g_pat, **g_pos) else 0\n\n        if get_time() - g_time > 400\
+    \ or e == 'Down':\n            if is_crashed(g_pat, g_pos['x'], g_pos['y'] + 1):\n\
+    \                for y in range(4):\n                    for x in range(4):\n\
+    \                        if not out_of_screen(g_pos['x'] + x, g_pos['y'] + y):\n\
+    \                            g_buf[g_pos['y'] + y][g_pos['x'] + x] |= g_pat[y][x]\n\
+    \                g_pat = None\n                new_buf = list(filter(lambda line:\
+    \ not all(line), g_buf))\n                g_buf = [[0 for _ in range(GAME_W)]\
+    \ for _ in range(GAME_H - len(new_buf))] + new_buf\n            else:\n      \
+    \          g_pos['y'] += 1\n\n            g_time = get_time()\n\n    draw_game(canvas)\n\
+    \    root.after(TIMER_WAIT, main_proc, root, canvas)\n```"
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: '# Explanation
+
+
+    This is the main function.
+
+    Pressed keys are retrieved from g_events (queue) and processed.
+
+    The left and right direction keys are processed, and the coordinates of the block
+    pattern are overwritten.
+
+    Rotation processing is also performed using the Space key.
+
+    The space key is also processed when game over is displayed.
+
+    If g_pat is None, a block pattern is generated.
+
+    If the pattern collides with a block, the game is over.
+
+    Speed control is also performed.
+
+    Collision detection is performed with placed blocks.
+
+    If a collision occurs, it stops (moves the contents of g_pat to g_buf).
+
+    The placed block is investigated, and the line is deleted.
+
+    Then, the coordinates are moved down by one.
+
+    Update the previous fall processing time.
+
+    The information updated by the call to main_proc() is reflected on the screen.
+
+    Sets how many milliseconds from now main_proc() will be called, and
+
+    update the game as main_proc() continues to be called.
+
+
+    Translated with www.DeepL.com/Translator (free version)'
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: "# Function creation (function to be initially started)\n\n```\nif __name__\
+    \ == '__main__':\n    root = tk.Tk()\n    root.geometry(f'{SCN_W}x{SCN_H}')\n\
+    \    canvas = tk.Canvas(root, width=SCN_W, height=SCN_H, bg='black')\n    canvas.place(x=0,\
+    \ y=0)\n    root.bind('<Key>', lambda e: g_events.put(e.keysym) if e.keysym in\
+    \ ('Left', 'Right', 'Down', 'space') else None)\n    init_game()\n    root.after(TIMER_WAIT,\
+    \ main_proc, root, canvas)\n    root.mainloop()\n```\n\n# Explanation\n\nThis\
+    \ is the first part of the move.\nIf the code is executed as is, the global variable\
+    \ named __name__ becomes '__main__'.\nThe window of tkinter is generated here.\n\
+    A canvas is generated and placed in the window.\nWhen a key is pressed, bind()\
+    \ is used and it is packed into g_events (queue).\nThe game is initialized by\
+    \ calling init_game().\nThe process calls main_proc() after the specified time.\n\
+    This is tkinter's main loop for controlling the window. It does not return until\
+    \ the screen is closed. In other words, it stops here."
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 45
+- img_proc: true
+  md: '# # Chapter 6 Welcome to the World of Programming What to do when an error
+    occurs
+
+
+    # ## Key Points
+
+
+    +   - (1) Know what to do when an error occurs.
+
+    - (2) Know how to isolate the problem from the error.
+
+
+    # ## What to be prepared for when an error occurs
+
+
+    Errors are one of the reasons why programming beginners give up programming.
+
+
+    Especially when you have just started programming, you tend to think that you
+    are not suited for programming because you do not know how to deal with them.
+
+
+    However, once you get the hang of it, error countermeasures are not a problem,
+    so here are some specific things you should do.
+
+
+    # ## Coding spelling errors
+
+
+    When programming, you type only English characters, so it is easy to make spelling
+    mistakes if you are a beginner.
+
+
+    Check the error message first to make sure there are no spelling mistakes.'
+  merge: -1
+  pgno: 46
+- img_proc: true
+  md: '# Checking Error Messages
+
+
+    When an error occurs during program execution, an error message is displayed.
+
+
+    Do a Google search for this message.
+
+
+    You will probably find an article in which someone has already encountered the
+    same error and solved it.
+
+
+    Also, if you have any questions, you can ask them on teratail or stackoverflow.
+
+
+    # Summary of this section
+
+
+    +   (1) If an error occurs, don''t dwell on it. (The path everyone takes)
+
+    (2) Bakfix is 80% of program development.'
+  merge: -1
+  pgno: 47
+- img_proc: true
+  md: '# # How to learn in the future
+
+
+    Key Points
+
+
+    +   (1) Create what you want to create
+
+    (2) Try out the basics and send out information
+
+
+    Let''s decide what you want to make.
+
+
+    +   (1)First, clarify what you want to make.
+
+    (2)Let’s come up with various ideas and make what you want to use.
+
+
+    Let''s ask how to make it.
+
+
+    Once you have a clear idea, ask how you can make it technically. Let''s ask.
+
+
+    Mentoring by an actual engineer is recommended.
+
+
+    Also, it might be a good idea to actually order a project through crowdsourcing.
+
+
+    Disseminate information
+
+
+    Try actually creating a programming project and post your technical problems on
+    Qiita or your own blog.'
+  merge: -1
+  pgno: 48
+- img_proc: true
+  md: 'By sending out information, you will be able to objectively prove your technical
+    skills.
+
+
+    # Get a job
+
+
+    ◎Crowdsourcing
+
+    Try taking on crowdsourcing projects based on the skills you have acquired. You
+    will enjoy earning money in your spare time.
+
+
+    ◎Employment
+
+    Try to find a job as an engineer.
+
+
+    Use your Qiita articles and other achievements to promote your job search.
+
+
+    I believe that some companies will be interested in you depending on how you usually
+    build up your work.
+
+
+    If you change your job to become an engineer, there are many jobs that are fully
+    remote, so you don''t have to come to the office, you don''t have to be on the
+    phone anymore, and you don''t have to be a low-productivity guy anymore.
+
+
+    By all means, try changing careers to become an engineer.
+
+
+    # Summary of this section
+
+
+    +   (1) Make what you want to make.
+
+    (2) Live happily!'
+  merge: -1
+  pgno: 49
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 50
+- img_proc: true
+  md: '# In Conclusion
+
+
+    Goodbye, old men.
+
+
+    Productivity in Japan has hit its ceiling, and there is a large number of "old
+    men who don''t work" in companies.
+
+
+    I was picturing myself in the future, riding the commuter train every day, indulging
+    in a job I don''t even want to do.
+
+
+    I just want to get out of this situation somehow. I want to get out of this situation
+    somehow.
+
+
+    Learning programming is the way out of this hell.'
+  merge: -1
+  pgno: 51
+- img_proc: true
+  md: '# Graduation from a society where you are told to answer the phone
+
+
+    Even a seriously stupid person can answer the phone, but this lack of productivity
+    is enough to make you feel sick and tired of it.
+
+
+    A lot of the reason I hate my job is that all the higher layers fill the post
+    with incompetent people.
+
+    I believe that this is the reason why I hate my job.
+
+
+    The Japanese-style employment system is completely over.
+
+    The lower level employees are sick of it because it is "full defense and clinch
+    hell" on the job because the "old guys who don''t work" are the ones who have
+    learned the hardest.
+
+
+    I believe that many companies are seeing more and more young people leaving the
+    workforce, but let''s get out of these companies with these old men as soon as
+    possible. NO FUTURE.”'
+  merge: -1
+  pgno: 52
+- img_proc: true
+  md: '# # Stay local and become a Silicon Valley engineer while being a fisherman.
+
+
+    Satocchi loves Satoshi Nakajima, and I am listening to VOICY as I write "The End".
+
+
+    So, working in Silicon Valley with remote work. He recommended "working remotely
+    in Silicon Valley.
+
+
+    Satocchi is aiming for that.
+
+
+    Even after achieving FIRE, working remotely at a company in Silicon Valley sounded
+    seriously fun.
+
+
+    In the past few years, I''ve been working hard on my English and programming,
+    and I''m going to change jobs overseas.
+
+
+    And all while staying in Japan. This is Satocchi''s most recent goal.
+
+
+    I will not study for the sake of studying.
+
+
+    I will not change jobs to another company in order to quit my current company.
+    I will sell digital content and make a profit.
+
+
+    I will create a tech blog in English based on my achievements.
+
+
+    I will befriend an overseas engineer and intern at an American company.
+
+
+    After 2.3 years of full commitment, you will have a Satochi that can work anywhere
+    in the world.
+
+
+    Right now, I only feel that I can do it.
+
+
+    I would like to play Shawshank Sky in my own way.'
+  merge: -1
+  pgno: 53
+- img_proc: true
+  md: Satocchi.
+  merge: -1
+  pgno: 54
+- img_proc: true
+  md: '# # Book Introduction
+
+
+    # ## Introduction to NFT for Beginners
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_55_0.png)
+
+
+    Let''s try NFT for the first time. Please read this book when you are ready to
+    start trading with NFT. It introduces the necessary steps to start trading, so
+    even beginners will enjoy reading it.'
+  merge: -1
+  pgno: 55
+- img_proc: true
+  md: '# Book Introduction
+
+
+    # Introduction to the Metaverse for Beginners
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_56_0.png)
+
+
+    Wondering what the Metaverse is all about? This is recommended for those who are
+    interested in learning more about it. Please use it as an introductory book as
+    it gives a quick overview of the metaverse.'
+  merge: -1
+  pgno: 56
+- img_proc: true
+  md: '# Book Introduction
+
+
+    # Introduction to FIRE with NISA ideco
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_57_0.png)
+
+
+    We will explain the hot topic of FIRE in an easy-to-understand manner. Let''s
+    accumulate assets over a long period of time with a solid understanding of the
+    taxation system by utilizing the “tsumitate NISA" and "ideco".'
+  merge: -1
+  pgno: 57
+- img_proc: true
+  md: '# Book Introduction
+
+
+    # A Superintroduction to Python for Beginners
+
+
+    ![](img/f23e236ec7f2be5ce38dbe377258f6bf_58_0.png)
+
+
+    This book is designed to help complete beginners take their first steps in programming.
+    Learn the basics of programming using the now popular Python language. This book
+    is the first in a series. Please feel free to look through it.'
+  merge: -1
+  pgno: 58
+- img_proc: true
+  md: "# # About the Author\n\n# **Satocchi**\n\nWorked for 15 years as an in-house\
+    \ SE for a financial institution.\n\nHe has been through many hardships and hard\
+    \ work as a \"one-person information system.\n\nNow, he is trying to help many\
+    \ \"one-person system administrators\" or those who want to learn new programming\
+    \ techniques.\n\nHe is also helping those who want to learn new programming skills\
+    \ and those who want to work as a financial planner.\n\nHe is mentoring many people\
+    \ who want to challenge \"FIRE\" based on his experience as a financial planner,\
+    \ and helping them to build their assets.\n\n# **Blog**\n\n+   1. A blog where\
+    \ Satocchi talks about thoroughly maniacal topics.\n   https://stcheeeee.com/\n\
+    2. Happy Life with Python and Virtual Currency\n   https://py.stcheeeee.com/py/\n\
+    \n# **TechBlog**\n\n+   1. crypto tech babes\n   https://tech.stcheeeee.com/tech/\n\
+    \n# **Youtube**\n\n+   1. satocchi TV\n   https://www.youtube.com/channel/UC-5DcUCMb3g-28FRK3EtIfQ"
+  merge: -1
+  pgno: 59
+toc:
+- - '#'
+  - Python速成课程：游戏应用食谱
+- - '##'
+  - 开始之前
+- - '##'
+  - 目标读者
+- - '##'
+  - 第1章：即使是自学者也能创建游戏应用
+- - '###'
+  - 要点
+- - '###'
+  - 本节小结
+- - '##'
+  - 第2章：了解俄罗斯方块所用的技术
+- - '###'
+  - 要点
+- - '####'
+  - ☆Python知识
+- - '####'
+  - 用编程
+- - '##'
+  - 第3章：学习Python
+- - '###'
+  - 通过Progate学习基础
+- - '####'
+  - 要点
+- - '####'
+  - 为什么选择Progate？
+- - '###'
+  - 编程学校怎么样？
+- - '###'
+  - 本节小结
+- - '###'
+  - 也可以通过视频（youtube）学习
+- - '####'
+  - 要点
+- - '####'
+  - 在Youtube上学习的优势
+- - '###'
+  - Satocchi TV（youtube）频道也开放了。
+- - '###'
+  - 关于视频学习的一点说明
+- - '###'
+  - 本节小结
+- - '##'
+  - 第4章：提前做好准备
+- - '###'
+  - 买一台Macbook吧！
+- - '####'
+  - 要点
+- - '###'
+  - 为什么是Mac？
+- - '###'
+  - 本节总结
+- - '###'
+  - 让我们创建一个环境
+- - '####'
+  - 关于 Google 协作的考量
+- - '###'
+  - 如何在 Mac 上设置开发环境
+- - '####'
+  - 步骤 1：准备开始构建环境
+- - '####'
+  - 步骤 2：安装 Homebrew
+- - '####'
+  - 步骤 3：安装 pyenv
+- - '####'
+  - 步骤 4：安装 Python
+- - '####'
+  - 步骤 5：执行 Python 代码
+- - '##'
+  - 第 5 章：让我们为俄罗斯方块编写代码
+- - '###'
+  - 玩俄罗斯方块需要什么
+- - '####'
+  - 必要的功能
+- - '#####'
+  - (1) 屏幕
+- - '#####'
+  - (2) 方块
+- - '#####'
+  - (3) 通过键盘操作
+- - '#####'
+  - (4) 定时器
+- - '###'
+  - 让我们做出声明。
+- - '###'
+  - 让我们定义变量
+- - '####'
+  - 解释
+- - '###'
+  - 函数创建（用于初始化游戏的函数）
+- - '####'
+  - 解释
+- - '###'
+  - 函数创建（方块图案创建）
+- - '####'
+  - 解释
+- - '###'
+  - 函数创建（方块碰撞检测）
+- - '####'
+  - 描述
+- - '###'
+  - 函数创建（方块绘制）
+- - '####'
+  - 描述
+- - '###'
+  - 函数创建（方块图案绘制）
+- - '####'
+  - 描述
+- - '###'
+  - 函数创建（主函数）
+- - '####'
+  - 解释
+- - '###'
+  - 函数创建（最初启动的函数）
+- - '####'
+  - 解释
+- - '##'
+  - 第六章 欢迎来到编程世界 发生错误时该怎么办
+- - '###'
+  - 要点
+- - '###'
+  - 发生错误时需要准备什么
+- - '###'
+  - 编码拼写错误
+- - '###'
+  - 检查错误信息
+- - '###'
+  - 本节小结
+- - '##'
+  - 未来如何学习
+- - '###'
+  - 要点
+- - '###'
+  - 找工作
+- - '###'
+  - 本节小结
+- - '##'
+  - 结语
+- - '###'
+  - 从一个被要求接电话的社会毕业
+- - '###'
+  - 留在本地，成为硅谷工程师，同时当个渔夫。
+- - '##'
+  - 书籍介绍
+- - '###'
+  - NFT 初学者指南
+- - '###'
+  - 元宇宙初学者指南
+- - '###'
+  - 使用 NISA 和 ideco 进行 FIRE 入门
+- - '###'
+  - Python 初学者超级入门
+- - '##'
+  - 关于作者
+- - '###'
+  - '**Satocchi**'
+- - '###'
+  - '**博客**'
+- - '###'
+  - '**技术博客**'
+- - '###'
+  - '**Youtube**'
