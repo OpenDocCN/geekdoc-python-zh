@@ -1,6 +1,6 @@
-# Python 编程
+# Python 编程指南
 
-> 原文：[ Python Programming]()
+> 原文：[Python Programming]()
 > 
 > 译者：[飞龙](https://github.com/wizardforcel)
 > 
