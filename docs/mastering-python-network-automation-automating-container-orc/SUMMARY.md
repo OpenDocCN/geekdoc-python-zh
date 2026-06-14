@@ -1,0 +1,2 @@
++   [Python 网络自动化精通：使用 Terraform、Calico、HAProxy 和 Istio 自动化容器编排、配置与网络](README.md)
++   [Python 网络自动化精通：使用 Terraform、Calico、HAProxy 和 Istio 自动化容器编排、配置与网络](mastering-python-network-automation-automating-container-orc.md)
