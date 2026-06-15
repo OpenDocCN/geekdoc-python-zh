@@ -2155,3 +2155,203 @@ Your Code as a Crime Scene, Second Edition.epub
 Your First Python Program： Get the basics to start your python journey today.epub
 Zero to Py： A Comprehensive Guide to Learning the Python Programming Language (Updated).epub
 Алгоритмы неформально. Инструкция для начинающих питонистов.epub
+#1 Book for Python Programming： Learn From Basic Programming to AI and Automation.pdf
+250+ Killer Python One-Liners.pdf
+3D Data Science with Python (for True Epub).pdf
+3D Data Science with Python： Building Accurate Digital Environments with 3D Point Cloud Workflows.pdf
+A First Course in Statistical Learning： With Data Examples and Python Code (Statistics and Computing).pdf
+Absolute Beginner's Guide to Python Programming Master Coding Quickly.pdf
+Advanced Python Programming： Techniques.pdf
+Advanced Robotics Programming with ROS2 and Python： Mastering Navigation, Sensing, and Multi-Robot Systems in Real-World Applications.pdf
+AI Agents with Python： Build Autonomous Systems That Think, Learn, and Act.pdf
+AI with Python： Practical Applicaitons & Advanced Techniques： Reactive Publishing.pdf
+Altair in Python ApplicationsDefinitive Reference for Developers and Engineers.pdf
+Applied Statistics with Python , Volume 2, Multivariate Models.pdf
+Applied Statistics with Python Volume I： Introductory Statistics and Regression.pdf
+Applied Statistics with Python： Volume I： Introductory Statistics and Regression.pdf
+Artificial Intelligence and Deep Learning with python.pdf
+Automate the Boring Stuff with Python Workbook： Projects and Exercises to Sharpen Your Python Skills.pdf
+Automate the Boring Stuff with Python Workbook.pdf
+Automate the Boring Stuff with Python, 3rd Edition.pdf
+Automate the Boring Stuff With Python, Third Edition： Practical Programming for Total Beginners.pdf
+Basic Python for Data Science： For Beginners with No Coding Knowledge.pdf
+Basics to Python 2024.pdf
+BiteSize Python for Absolute Beginners： With Practice Labs, Real-World Examples, and Generative AI Assistance.pdf
+BiteSize Python for Absolute Beginners.pdf
+Bitesize Python for Intermediate Learners： With Practice Labs, Real-World Examples, and Generative AI Assistance.pdf
+Blender Scripting with Python： Automate Tasks, Write Helper Tools, and Procedurally Generate Models in Blender 4.pdf
+Building Recommendation Systems in Python and JAX： Hands-On Production Systems at Scale.pdf
+Calculus ： With Full Python Code.pdf
+Calculus Unraveled： Intuition, Proofs, and Python.pdf
+Causal Inference and Discovery in Python ： Unlock the Secrets of Modern Causal Machine Learning with DoWhy, EconML, PyTorch and More.pdf
+Classical Mechanics： A Computational Approach with Examples Using Mathematica and Python： Second Edition.pdf
+Cloud-Native Python, DevOps & LLMOps. Containerization, Kubernetes, and Serving AI Models at Scale.pdf
+Coding Examples from Simple to Complex：application in python.pdf
+Complete Guide to Django 4.2 Web Development： With Practical Exercises, Clear and Well-Explained Code Examples, Build Real-World Apps in no Time. Learn ... maintainable. (Python Trailblazer’s Bible).pdf
+Computer Science From Scratch： Building Interpreters, Art, Emulators and ML in Python.pdf
+Core Python Cheatsheet.pdf
+Cryptocurrency Trading with Python： Master Algorithmic Strategies, Build Automated Bots, and Achieve Consistent Profits with Essential Coding Techniques. (Making Money Online Legitimately Book 7).pdf
+Cryptography with Python 2024.pdf
+Cybersecurity Crash Course： Learn Fast, Protect Faster! Don't Be the Next Victim. Secure your computers, smartphones, and tablets. (Python Trailblazer’s Bible).pdf
+Data Clustering with Python： From Theory to Implementation.pdf
+Data Science ： A First Introduction with Python.pdf
+Data Science, Machine Learning and Analytics with Python.pdf
+Data Structure in Python. Essential Techniques 2024.pdf
+Data Universe： Organizational Insights with Python： Embracing Data Driven Decision Making.pdf
+Data Visualization in Finance with Python： A Comprehensive Guide to effective visuals in Financial Planning & Analysis FP&A.pdf
+Deep Dive Python： Techniques and Best Practices for Developers.pdf
+Deep Learning For Physics Research Using Python： A Comprehensive Guide To Modern Ai Techniques In Scientific Discovery.pdf
+Digital Image Processing： Illustration using Python.pdf
+Econometric Python： Harnessing Data Science for Economic Analysis.pdf
+Effective Python： 125 Specific Ways to Write Better Python, 3rd Edition (for Raymond Rhine).pdf
+Engineering with Python and AI A Practical Guide for Modern Engineers.pdf
+Esri Advanced Guide to Python in ArcGIS.pdf
+Essential Python Programming For Game Development ： Mastering Python Fundamentals, Game Logic, and Graphics Programming with Pygame and Panda3D for Aspiring ... (The Essential python workbooks Book 4).pdf
+Ethical Hacking with Python. Developing Cybersecurity Tools 2024.pdf
+Explainable AI with Python.pdf
+Exploratory Data Analysis： Descriptive Analysis, Visualization, and Dashboard Design (with Code Snippets in Python).pdf
+Fortran with Python： Integrating legacy systems with Python.pdf
+Fundamentals of Robotics： Applied Case Studies with MATLAB® & Python.pdf
+Generative AI Tools for Developers： a Practical Guide.pdf
+GPT for Python-Coding in Computational Materials Science and Mechanics： From Prompt Engineering to Solutions in Worked-Out Examples.pdf
+Graph Neural Networks In Action With Python： A Complete Practitioner's Guide To Building, Scaling, And Deploying Gnn Applications.pdf
+Grokking Algorithms in Python： Learn Algorithms, Simplify Problem-Solving.pdf
+Guide to Distributed Algorithms： Design, Analysis and Implementation Using Python.pdf
+Hands On Penetration. Testing with Python. Enhance your ethical hacking.pdf
+Hands-On APIs for AI and Data Science： Python Development with FastAPI.pdf
+Hands-On Network Machine Learning with Python.pdf
+Hands-On Probabilistic Programming With Python： Building Intelligent Systems with Bayesian Networks and Markov Models.pdf
+Hands-On Python Seaborn： A Practical Guide to Data Visualization.pdf
+Health Analytics with Python： A Comprehensive Guide for 2024.pdf
+High Performance Python (for True Epub).pdf
+High Performance Python, 3rd Edition： Practical Performant Programming for Humans.pdf
+HYBRID IMAGING AND VISUALIZATION ： employing machine learning with mathematica - python.pdf
+Image Analysis, Classification and Change Detection in Remote Sensing： With Algorithms for Python： Fifth Edition.pdf
+Image Processing and Computer Vision Masterclass with Python.pdf
+Industrial Vision Systems with Raspberry Pi..Python and OpenCV 2024.pdf
+Innovative Robotics with ROS2 and Python ： Advanced Concepts for Building Intelligent, Interactive, and Multi-Robot Systems.pdf
+Intelligent Banking： Python Programming for Banking and Finance.pdf
+Introducing Python (for True Epub).pdf
+Introducing Python, 3rd Edition (Early release).pdf
+Introducing Python, 3rd Edition： Modern Computing in Simple Packages.pdf
+Introduction to GIS Programming： A Practical Python Guide to Open Source Geospatial Tools.pdf
+Introduction to Machine Learning with Security： Theory and Practice Using Python in the Cloud (Synthesis Lectures on Engineering, Science, and Technology).pdf
+Kalman and Bayesian Filters in Python.pdf
+Keras 3： The Comprehensive Guide to Deep Learning with the Keras API and Python.pdf
+learn Linux system programming with C++： Understand how the Linux kernel works and how to interact with it. (Python Trailblazer’s Bible).pdf
+Learn Python by Doing： 100 Practical Projects for Beginners.pdf
+Learn Python Generative AI： Journey from autoencoders to transformers to large language models (English Edition).pdf
+Learn Python Programming - From Basics to Advanced Techniques (Series 1).pdf
+Learning OpenCV 5 Computer Vision with Python Fourth Edition.pdf
+Learning Python - Powerful Object-Oriented Programming.pdf
+LEARNING PYTHON ： powerful object-oriented programming.pdf
+Learning Python, 6th Edition.pdf
+Linear Algebra for Data Science with Python.pdf
+Machine Learning for FInance： Master Financial Strategies with Python-Powered Machine Learning.pdf
+Machine Learning in Python for everyone.pdf
+Machine Learning Perspectives of Agent-Based Models： Practical Applications to Economic Crises and Pandemics with Python, R, Netlogo and Julia.pdf
+MACHINE LEARNING WITH PYTHON ： principles and practical techniques.pdf
+Machine Learning： Algorithms, Theory, and Practice — A Comprehensive Hands-On Guide with Python.pdf
+Make games with Python...with Raspberry Pi (Essentials) 2ed 2025.pdf
+Mastering Advanced Python TypingUnlock the Secrets of Expert-Level Skills.pdf
+Mastering AI Projects： From Concept to Deployment with Precision and Scale： AI with Python made simple.pdf
+Mastering Asynchronous Network Programming with Python： Grasp the Fundamentals. Learn Sockets and Protocols, Master Tasks and Coroutines, Excel in Async／Await Syntax, and Perform ... aiohttp.pdf
+Mastering Design Patterns for Layered Testing： Master Strategic Test Design, Enhance Automation, and Integrate CI／CD Seamlessly Across API and UI Layers with Python.pdf
+MASTERING PYTHON – A Comprehensive Approach for Beginners and Beyond.pdf
+Mastering Python 3 Programming： Ultimate guide to learn Python coding fundamentals and real-world applications.pdf
+Mastering Python Automation： A Comprehensive Guide to Automate Everything： Unlock the Power of Python to Automate Tasks Across Cloud, DevOps, Data Processing, and More.pdf
+MASTERING PYTHON FOR ARTIFICIAL INTELLIGENCE： The Trilogy – Part I： The Essentials of Python Programming.pdf
+MASTERING PYTHON FOR DATA SCIENCE WITH NUMPY AND PANDAS： A Comprehensive Guide To Python Programming,Numpy and Pandas for Data Science Mastery.pdf
+Model to Meaning： How to Interpret Statistical Models with R and Python.pdf
+MULTIVARIATE ANALYSIS AND MACHINE LEARNING TECHNIQUES ： feature analysis in data science... using python.pdf
+Multivariate Statistics and Machine Learning： An Introduction to Applied Data Science Using R and Python.pdf
+MYSQL Guide for Beginner (Programming Languages - JavaScript, Java, MySQL, PHP & Automate with Python).pdf
+Natural Language Processing with Transformers and Python： Practical AI Solutions.pdf
+Natural Language Processing： A Textbook with Python Implementation, 2nd Edition.pdf
+Natural Language Processing： A Textbook with Python Implementation.pdf
+Object-Oriented Programming with Python 2024.pdf
+Optical Electromagnetic Field Analysis Using Python： Practical Application in Metallic and Dielectric Nanostructures.pdf
+Practical Data Science Environments with Python and R： Build and Manage Streamlined Workflows with Python and R for Real-World Insights and Analysis.pdf
+Practical Deep Learning - A Python-Based Introduction, 2nd Edition.pdf
+Practical Deep Learning： A Python-Based Introduction.pdf
+Practical Healthcare Statistics with Examples in Python and R： A Guide for the Uninitiated.pdf
+Practical Post-Quantum Signatures： FALCON and SOLMAE with Python.pdf
+Problem Solving with Python： Using Computational Thinking in Everyday Life.pdf
+PyNoetic： A modular python framework for no-code development of EEG brain-computer interfaces.pdf
+PyQt： Cross-Platform GUI Development with Python： Run your software seamlessly on Windows, macOS, and Linux without rewriting a single line of code..pdf
+Python & SQL：： The Essential Guide for Programmers & Analysts.pdf
+Python 3 - Advanced Python Techniques： Expert-Level Coding and Best Practices.pdf
+Python Algorithms Step by StepA Practical Guide with Examples.pdf
+Python All-in-One For Dummies, 3rd Edition.pdf
+Python at Work： Automate Your Way to 5 PM.pdf
+Python by Example.pdf
+Python by Samples： Easy Reading For Your Lunch Break.pdf
+Python Coding Manual, Ed 24, 2025.pdf
+Python Data Science Cookbook. Practical solutions...2025.pdf
+Python Debugging from ScratchA Practical Guide with Examples.pdf
+Python Essentials For Dummies (For Dummies (Computer／Tech)).pdf
+Python Experiments in Physics and Astronomy 2025.pdf
+Python for Absolute Beginners： Rocket through the basics in an afternoon.pdf
+Python for Agriculturists.pdf
+Python for Arduino： Create, Code, and Control Electronic Projects Like A Pro.pdf
+Python for Beginners： Learn Python from scratch with a practical and straightforward guide, covering essential fundamentals, flow control, data manipulation, and much more. Part 1.pdf
+Python for Business Analytics.pdf
+Python for Data Analysis： A Beginner's Guide to Data Science.pdf
+Python for Data Science： Master Python Programming for Effective Data Analysis, Visualization, and Machine Learning.pdf
+Python for Excel Users - Know Excel？ You Can Learn Python - Python for Excel Users： Know Excel？ You Can Learn Python (for Duc Ka).pdf
+Python for Excel Users： A Beginners Guide.pdf
+Python for Excel Users： Know Excel？ You Can Learn Python.pdf
+Python For Experimental Psychologists.pdf
+Python for Islamic Astronomy： Modern Computational Approaches to Hijri Calendar, Qibla, and Prayer Times.pdf
+PYTHON FOR LARGE LANGUAGE MODELS： A Beginners Handbook For Leveraging Llms Into Modern Development Workflows And Applications.pdf
+Python for Mathematics.pdf
+Python for Quantum Chemistry A Full Stack Programming Guide.pdf
+Python for Water and Environment (Innovations in Sustainable Technologies and Computing).pdf
+Python Functional Programming SimplifiedA Practical Guide with Examples.pdf
+Python Game Development ： Creating Interactive Games With Python And Pygame Library.pdf
+Python GPT Cookbook.pdf
+Python GUI Development Using Qt： Build Intuitive and User-Friendly GUIs with Python and Qt.pdf
+Python in Excel Advanced： Mastering Data Analysis and Financial Modeling with Python Automation in Excel.pdf
+Python in Excel： Boost Your Data Analysis and Automation with Powerful Python Scripts.pdf
+Python in Finance： An Introductory Guide to the use of Python in Quantitative Finance.pdf
+Python in Power BI： Unleash the Power of Python for Dynamic Data Analysis： A Comprehensive Guide to Data Visualization.pdf
+Python Libraries for Finance： Power Precision.pdf
+Python Options Lab： Build and Backtest Iron Condors, Straddles & Advanced Spreads for Consistent Profits.pdf
+Python Polars： The Definitive Guide： Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API.pdf
+Python Programming： An Object-Oriented Approach.pdf
+Python The Complete Manual.pdf
+Python Toolbox： 100 Scripts for Developers： Enhance Your Development Skills with Ready-to-Use Python Scripts.pdf
+Python Unleashed： Mastering Data Analysis and Machine Learning.pdf
+Python, Java, SQL, JavaScript & C++： The Complete 2025 Beginner’s Guide： Master the 5 Hottest Coding Languages and Launch Your Tech Career with Confidence..pdf
+PyTorch for Data Scientists： Machine Learning and Deep Learning with Python.pdf
+Quantum Computing from Hopfield Nets： A Textbook with Python Code Examples.pdf
+Reinforcement Learning for Finance： A Python-Based Introduction.pdf
+Scientific visualization ： python & matplotlib.pdf
+Signals and Systems： Theory and Practical Explorations with Python.pdf
+Silicon Valley Python Engineer Interview Guide： Data Structures, Algorithms, and System Design.pdf
+Simply Python： A Comprehensive Guide for All Levels： Master Python Programming from Scratch to Advanced Concepts with Practical Examples and Real-World Projects.pdf
+Simulating the Brain： A Four-Step Method Using Ordinary Differential Equations and Python.pdf
+Solid Mechanics with Python： Cartesian Coordinates (362 Pages).pdf
+Solid Mechanics with Python： Cartesian Coordinates.pdf
+Statistical Analysis with Python For Dummies.pdf
+Streamlining Your Research Laboratory with Python.pdf
+Symbolic Mathematics with Python.pdf
+Test-Driven Development with Python (for True Epub).pdf
+Test-Driven Development with Python： Obey the Testing Goat, 3rd Edition.pdf
+The BeagleY-AI Handbook： A Practical Guide to AI, Python, and Hardware Projects.pdf
+The Complete Guide To Deep Learning With Python Keras, Tensorflow, And Pytorch： Build And Deploy Complex Neural Networks For Image Recognition, NLP, And More.pdf
+The Python Book - 20th Edition, 2025.pdf
+The Python Workbook 3rd Edition.pdf
+The Python Workbook： A Brief Introduction with Exercises and Solutions.pdf
+The Ultimate Guide to PYTHON CERTIFICATIONS： Plans Descriptions and Support.pdf
+The Ultimate Python Quiz Book： Practice Core Concepts.pdf
+TypeScript for Python Developers： Bridging Syntax and Practices.pdf
+Ultimate Enterprise Data Analysis and Forecasting using Python： Leverage Cloud platforms with Azure Time Series Insights and AWS Forecast Components ... Modeling using Python (English Edition).pdf
+Ultimate Event-Driven Architecture with Python and Apache Kafka： Architect, Secure, Test, and Deploy Event-Driven Applications at Scale, Using the Power of Python and Apache Kafka.pdf
+Ultimate Genetic Algorithms with Python.pdf
+ULTIMATE Python Guide： From Zer0 to Hero.pdf
+Understanding Python re(gex)？.pdf
+Vector Calculus： Formulations, Applications and Python Codes.pdf
+Web Scraping with Python： Data Extraction from the Modern Web.pdf
+What Every Engineer Should Know about Python.pdf
+Wrong tittle ／／ Python Programming for Beginners／／ Really tittle ： Machine learning with python programming - 2023 a beginners guide.pdf
