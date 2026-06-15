@@ -1,0 +1,3206 @@
+groups:
+- md: "# Python and SQLite Development\n\nAgus Kurniawan\n\n# Python and SQLite Development\n\
+    \nPython and SQLite Development\n\nAgus Kurniawan\n\n1st Edition, 2021\n\nCopyright\
+    \ © 2021 Agus Kurniawan\n\nISBN: 978-1-716-24602-9\n\n# Table of Contents\n\n\
+    - [Python and SQLite Development](#)\n- [Preface](#)\n- [1. Setting up Development\
+    \ Environment](#)\n  - [1.1 Python](#)\n  - [1.2 SQLite Database](#)\n  - [1.3\
+    \ SQLite Driver for Python](#)\n  - [1.4 Development Tools](#)\n  - [1.5 Python\
+    \ Programming](#)\n- [2. Getting Started - Python and SQLite](#)\n  - [2.1 SQLite\
+    \ Shell](#)\n  - [2.2 Connecting to SQLite](#)\n  - [2.3 Creating Python Program](#)\n\
+    \  - [2.3 Running](#)\n- [3. CRUD Operations](#)\n  - [3.1 CRUD Operations](#)\n\
+    \  - [3.2 Creating Data](#)\n  - [3.3 Reading Data](#)\n  - [3.4 Updating Data](#)\n\
+    \  - [3.5 Deleting Data](#)\n- [4. Working with Image and Blob Data](#)\n  - [4.1\
+    \ Image and Blob Data](#)\n  - [4.2 Inserting Image File](#)\n  - [4.3 Reading\
+    \ and Saving Image File](#)\n- [5. Transaction](#)\n  - [5.1 Python and SQLite\
+    \ Transaction](#)\n  - [5.2 Demo](#)\n- [6. Python, SQLite and Pandas](#)\n  -\
+    \ [6.1 Demo](#)\n\nSource Code\n\nContact\n\n# Preface\n\nThis book provides alternative\
+    \ approach to build Python application with SQLite database. This book describes\
+    \ how to work with Python and SQLite and illustrates their use with code examples.\n\
+    \nAgus Kurniawan\n\nDepok, January 2021\n\n# 1. Setting up Development Environment\n\
+    \n## 1.1 Python\n\nPython is an interpreted, object-oriented, high-level programming\
+    \ language with dynamic semantics. In this book, we focus on learning how to develop\
+    \ Python programs to access SQLite database.\n\nTo install Python, you can download\
+    \ it for your platform. This book covers for Windows, Mac and Linux.\n\nAfter\
+    \ installed Python, you can verify it by opening Terminal or Command Prompt for\
+    \ Windows. Type this command.\n\n```\n$ python --version\n$ pip --version\n```\n\
+    \nYou should see python and pip versions on Terminal.\n\nFor Windows users, you\
+    \ probably get errors while you are running python command. You can configure\
+    \ Python path into Path environment from Control Panel. You can see my Python\
+    \ path configuration in Figure below.\n\nYou probably have Python 3.x so your\
+    \ pip may be pip3. You can type this command\n\n```\n$ python3 --version\n$ pip3\
+    \ --version\n```\n\nYou should get a Python version in Terminal. You can see my\
+    \ Python version in Windows.\n\n```\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>python\
+    \ --version\nPython 3.9.0\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>pip --version\n\
+    pip 20.3.1 from C:\\Users\\agus\\AppData\\Roaming\\Python\\Python39\\site-packages\\\
+    pip (python 3.9)\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>\n```\n\n## 1.2\
+    \ SQLite Database\n\nI use SQLite 3 for demo. SQLite provides a shell so you can\
+    \ perform data manipulation. You can download SQLite 3 shell on this site on Download\
+    \ SQLite shell based your platform. For Windows, you can download sqlite-tools\
+    \ as shown in Figure below.\n\nDownload and extract ZIP file. Then, you can see\
+    \ 3 files as shown in Figure below.\n\nFor Linux, for instance Debian/Ubuntu,\
+    \ we can download and install using these commands on Terminal.\n\n```\n$ sudo\
+    \ apt-get update\n$ sudo apt-get install sqlite3 libsqlite3-dev\n```\n\nIf you\
+    \ are working with macOS, you can install SQLite3 via brew. You can type this\
+    \ command on Terminal.\n\n```\n$ brew install sqlite\n```\n\nNow your platform\
+    \ is ready for SQLite database included SQLite shell.\n\n## 1.3 SQLite Driver\
+    \ for Python\n\nTo access SQLite from Python, we need SQLite driver for Python.\
+    \ Fortunately, SQLite driver for Python is already included in Python standard\
+    \ library so we don't need to install this.\n\nNext, we start to develop Python\
+    \ program for SQLite.\n\n## 1.4 Development Tools\n\nTechnically, you can use\
+    \ any editor to develop Python. For demo, I use Visual Studio Code for writing\
+    \ Python scripts. This tool is free. You can download it for Windows, macOS and\
+    \ Linux. Download it.\n\nThe following is a sample of Visual Studio Code.\n\n\
+    ## 1.5 Python Programming\n\nThis book does not cover about basic Python programming.\
+    \ You can learn Python programming from online stuffs. In addition, I also have\
+    \ written a book about Python Programming by Example.\n\nYou can get this book\
+    \ on the following online store:\n\n- Amazon\n- Google Play\n\n# 2. Getting Started\
+    \ - Python and SQLite\n\nThis chapter explains how to connect SQLite database\
+    \ via SQLite driver for Python.\n\n## 2.1 SQLite Shell\n\nSQLite has a shell that\
+    \ runs on Terminal. We can create database and tables using SQLite shell. You\
+    \ can download SQLite shell for your platform.\n\nAfter you set up SQLite shell,\
+    \ you can run this shell using sqlite3 command. You can type this.\n\n```\n$ sqlite3\
+    \ --version\n```\n\nYou should see SQLite shell version on Terminal. You can see\
+    \ my SQLite shell version in Figure below (macOS version).\n\nIf you are working\
+    \ on Windows, you can open Command Prompt. Then, navigate to a folder where SQLite\
+    \ shell file was extracted. Then, type sqlite3 --version so you can see SQLite\
+    \ version on Command Prompt.\n\n```\n$ sqlite3 --version\n```\n\nNext, we are\
+    \ playing with SQLite shell. We can use a memory database on SQLite. This means\
+    \ we can create some tables and then insert data but our data will loss after\
+    \ we quit from SQLite shell.\n\nYou can type sqlite3 on Terminal and then you\
+    \ can see SQLite memory database.\n\n```\n$ sqlite3\n```\n\nNow we can create\
+    \ a table, called tbl. You can type this command on SQLite shell.\n\n```\n> create\
+    \ table tbl(id int, name char(10));\n```\n\nAfter that, we can insert data into\
+    \ tbl table. Type these commands on SQLite shell.\n\n```\n> insert into tbl(id,name)\
+    \ values(1,'data 1');\n> insert into tbl(id,name) values(2,'data 2');\n> insert\
+    \ into tbl(id,name) values(3,'data 3');\n```\n\nAfter we inserted data, we show\
+    \ data using select statement. You can type this shell command.\n\n```\n> select\
+    \ * from tbl;\n```\n\nYou can see my program output from SQLite shell in Figure\
+    \ below.\n\nTo quit from SQLite shell, we can type .exit command.\n\n```\n> .exit\n\
+    ```\n\nNext, we can connect to SQLite database and perform data manipulation.\n\
+    \n## 2.2 Connecting to SQLite\n\nWe can connect to SQLite database using SQLite\
+    \ driver for Python with passing our database configuration such as SQLite database\
+    \ file. As we know, SQLite doesn't have database engine like SQL Server, Oracle\
+    \ and MySQL so we can access SQLite database through database file directly.\n\
+    \nNext, we create Python program to access SQLite database.\n\n## 2.3 Creating\
+    \ Python Program\n\nIn this section, we create Python file. The objective is to\
+    \ connect SQLite database via SQLite driver for Python.\n\nFirstly, we load SQLite\
+    \ driver for Python library and then define database file, called pydb.db. We\
+    \ use **pydb** database for demo.\n\n```\nimport sqlite3\n\ndb = 'pydb.db'\n\n\
+    conn = sqlite3.connect(db)\nprint('connected')\nprint(conn)\n\nconn.close()\n\
+    ```\n\nThen we connect to SQLite using **sqlite3.connect()** by passing database\
+    \ file. We should pass database file with full path. If the database file is not\
+    \ exist, SQLite driver will create a database file.\n\nAt the end of code, we\
+    \ close connection using **close()** function.\n\nSave all code. Next, we run\
+    \ this program.\n\n## 2.3 Running\n\nWe can run our Python program in Visual Studio\
+    \ Code. Open Terminal on Visual Studio Code (menu View -> Terminal). You also\
+    \ can run this program on Terminal directly.\n\n```\n$ python db_connect.py\n\
+    ```\n\nHere is a sample of running Python application."
+  mdcn: "# Python与SQLite开发\n\nAgus Kurniawan\n\n# Python与SQLite开发\n\nPython与SQLite开发\n\
+    \nAgus Kurniawan\n\n第一版，2021年\n\n版权所有 © 2021 Agus Kurniawan\n\nISBN: 978-1-716-24602-9\n\
+    \n# 目录\n\n- [Python与SQLite开发](#)\n- [前言](#)\n- [1. 搭建开发环境](#)\n  - [1.1 Python](#)\n\
+    \  - [1.2 SQLite数据库](#)\n  - [1.3 Python的SQLite驱动](#)\n  - [1.4 开发工具](#)\n  -\
+    \ [1.5 Python编程](#)\n- [2. 入门 - Python与SQLite](#)\n  - [2.1 SQLite Shell](#)\n\
+    \  - [2.2 连接到SQLite](#)\n  - [2.3 创建Python程序](#)\n  - [2.3 运行](#)\n- [3. CRUD操作](#)\n\
+    \  - [3.1 CRUD操作](#)\n  - [3.2 创建数据](#)\n  - [3.3 读取数据](#)\n  - [3.4 更新数据](#)\n\
+    \  - [3.5 删除数据](#)\n- [4. 处理图像和Blob数据](#)\n  - [4.1 图像和Blob数据](#)\n  - [4.2 插入图像文件](#)\n\
+    \  - [4.3 读取和保存图像文件](#)\n- [5. 事务](#)\n  - [5.1 Python与SQLite事务](#)\n  - [5.2\
+    \ 演示](#)\n- [6. Python、SQLite与Pandas](#)\n  - [6.1 演示](#)\n\n源代码\n\n联系方式\n\n#\
+    \ 前言\n\n本书提供了一种使用SQLite数据库构建Python应用程序的替代方法。本书描述了如何使用Python和SQLite，并通过代码示例说明了它们的用法。\n\
+    \nAgus Kurniawan\n\n德波，2021年1月\n\n# 1. 搭建开发环境\n\n## 1.1 Python\n\nPython是一种解释型、面向对象、具有动态语义的高级编程语言。在本书中，我们专注于学习如何开发Python程序来访问SQLite数据库。\n\
+    \n要安装Python，您可以从您的平台下载。本书涵盖Windows、Mac和Linux。\n\n安装Python后，您可以通过打开终端或Windows的命令提示符来验证它。输入此命令。\n\
+    \n```\n$ python --version\n$ pip --version\n```\n\n您应该在终端上看到python和pip版本。\n\n\
+    对于Windows用户，在运行python命令时可能会遇到错误。您可以从控制面板将Python路径配置到Path环境变量中。您可以在下图中看到我的Python路径配置。\n\
+    \n您可能安装的是Python 3.x，因此您的pip可能是pip3。您可以输入此命令\n\n```\n$ python3 --version\n$ pip3\
+    \ --version\n```\n\n您应该在终端中获得Python版本。您可以在Windows中看到我的Python版本。\n\n```\nE:\\Projects\\\
+    PEPRESS\\python_sqlite\\codes>python --version\nPython 3.9.0\n\nE:\\Projects\\\
+    PEPRESS\\python_sqlite\\codes>pip --version\npip 20.3.1 from C:\\Users\\agus\\\
+    AppData\\Roaming\\Python\\Python39\\site-packages\\pip (python 3.9)\n\nE:\\Projects\\\
+    PEPRESS\\python_sqlite\\codes>\n```\n\n## 1.2 SQLite数据库\n\n我使用SQLite 3进行演示。SQLite提供了一个shell，您可以执行数据操作。您可以在此站点上根据您的平台下载SQLite\
+    \ 3 shell。对于Windows，您可以下载sqlite-tools，如下图所示。\n\n下载并解压ZIP文件。然后，您可以看到3个文件，如下图所示。\n\
+    \n对于Linux，例如Debian/Ubuntu，我们可以在终端上使用这些命令下载和安装。\n\n```\n$ sudo apt-get update\n\
+    $ sudo apt-get install sqlite3 libsqlite3-dev\n```\n\n如果您使用的是macOS，您可以通过brew安装SQLite3。您可以在终端上输入此命令。\n\
+    \n```\n$ brew install sqlite\n```\n\n现在您的平台已准备好使用SQLite数据库，包括SQLite shell。\n\n\
+    ## 1.3 Python的SQLite驱动\n\n要从Python访问SQLite，我们需要Python的SQLite驱动。幸运的是，Python的SQLite驱动已经包含在Python标准库中，因此我们不需要安装它。\n\
+    \n接下来，我们开始为SQLite开发Python程序。\n\n## 1.4 开发工具\n\n从技术上讲，您可以使用任何编辑器来开发Python。在演示中，我使用Visual\
+    \ Studio Code编写Python脚本。此工具是免费的。您可以为Windows、macOS和Linux下载它。下载它。\n\n以下是Visual Studio\
+    \ Code的示例。\n\n## 1.5 Python编程\n\n本书不涵盖基础Python编程。您可以从在线资源学习Python编程。此外，我还写了一本关于Python编程示例的书。\n\
+    \n您可以在以下在线商店购买此书：\n\n- Amazon\n- Google Play\n\n# 2. 入门 - Python与SQLite\n\n本章解释了如何通过Python的SQLite驱动连接SQLite数据库。\n\
+    \n## 2.1 SQLite Shell\n\nSQLite有一个在终端上运行的shell。我们可以使用SQLite shell创建数据库和表。您可以为您的平台下载SQLite\
+    \ shell。\n\n设置好SQLite shell后，您可以使用sqlite3命令运行此shell。您可以输入此命令。\n\n```\n$ sqlite3\
+    \ --version\n```\n\n您应该在终端上看到SQLite shell版本。您可以在下图中看到我的SQLite shell版本（macOS版本）。\n\
+    \n如果您在Windows上工作，可以打开命令提示符。然后，导航到提取SQLite shell文件的文件夹。然后，输入sqlite3 --version，以便您可以在命令提示符上看到SQLite版本。\n\
+    \n```\n$ sqlite3 --version\n```\n\n接下来，我们来玩转SQLite shell。我们可以在SQLite中使用内存数据库。这意味着我们可以创建一些表，然后插入数据，但当我们退出SQLite\
+    \ shell后，数据将会丢失。\n\n您可以在终端上输入sqlite3，然后您可以看到SQLite内存数据库。\n\n```\n$ sqlite3\n```\n\
+    \n现在我们可以创建一个名为tbl的表。您可以在SQLite shell上输入此命令。\n\n```\n> create table tbl(id int,\
+    \ name char(10));\n```\n\n之后，我们可以将数据插入到tbl表中。在SQLite shell上输入这些命令。\n\n```\n> insert\
+    \ into tbl(id,name) values(1,'data 1');\n> insert into tbl(id,name) values(2,'data\
+    \ 2');\n> insert into tbl(id,name) values(3,'data 3');\n```\n\n插入数据后，我们使用select语句显示数据。您可以输入此shell命令。\n\
+    \n```\n> select * from tbl;\n```\n\n您可以在下图中看到我从SQLite shell的程序输出。\n\n要退出SQLite\
+    \ shell，我们可以输入.exit命令。\n\n```\n> .exit\n```\n\n接下来，我们可以连接到SQLite数据库并执行数据操作。\n\n\
+    ## 2.2 连接到SQLite\n\n我们可以使用Python的SQLite驱动连接到SQLite数据库，传递我们的数据库配置，例如SQLite数据库文件。众所周知，SQLite没有像SQL\
+    \ Server、Oracle和MySQL那样的数据库引擎，因此我们可以直接通过数据库文件访问SQLite数据库。\n\n接下来，我们创建Python程序来访问SQLite数据库。\n\
+    \n## 2.3 创建Python程序\n\n在本节中，我们创建一个Python文件。目标是通过Python的SQLite驱动连接SQLite数据库。\n\n\
+    首先，我们加载Python的SQLite驱动库，然后定义数据库文件，名为pydb.db。我们使用**pydb**数据库进行演示。\n\n```\nimport\
+    \ sqlite3\n\ndb = 'pydb.db'\n\nconn = sqlite3.connect(db)\nprint('connected')\n\
+    print(conn)\n\nconn.close()\n```\n\n然后我们使用**sqlite3.connect()**连接到SQLite，传递数据库文件。我们应该传递带有完整路径的数据库文件。如果数据库文件不存在，SQLite驱动将创建一个数据库文件。\n\
+    \n在代码末尾，我们使用**close()**函数关闭连接。\n\n保存所有代码。接下来，我们运行此程序。\n\n## 2.3 运行\n\n我们可以在Visual\
+    \ Studio Code中运行我们的Python程序。在Visual Studio Code上打开终端（菜单视图 -> 终端）。您也可以直接在终端上运行此程序。\n\
+    \n```\n$ python db_connect.py\n```\n\n以下是运行Python应用程序的示例。"
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_0_0.png)
+
+
+    Agus Kurniawan
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_0_1.png)
+
+
+    # Python and SQLite Development'
+  - '[PAGE 1]
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_1_0.png)'
+  - '[PAGE 2]
+
+
+    # Python and SQLite Development
+
+
+    Python and SQLite Development
+
+
+    Agus Kurniawan
+
+
+    1st Edition, 2021
+
+
+    Copyright © 2021 Agus Kurniawan
+
+
+    ISBN: 978-1-716-24602-9'
+  - "[PAGE 3]\n\n# Table of Contents\n\n+   - [Python and SQLite Development](#)\n\
+    - [Preface](#)\n- [1. Setting up Development Environment](#)\n  - [1.1 Python](#)\n\
+    \  - [1.2 SQLite Database](#)\n  - [1.3 SQLite Driver for Python](#)\n  - [1.4\
+    \ Development Tools](#)\n  - [1.5 Python Programming](#)\n- [2. Getting Started\
+    \ - Python and SQLite](#)\n  - [2.1 SQLite Shell](#)\n  - [2.2 Connecting to SQLite](#)\n\
+    \  - [2.3 Creating Python Program](#)\n  - [2.3 Running](#)\n- [3. CRUD Operations](#)\n\
+    \  - [3.1 CRUD Operations](#)\n  - [3.2 Creating Data](#)\n  - [3.3 Reading Data](#)\n\
+    \  - [3.4 Updating Data](#)\n  - [3.5 Deleting Data](#)\n- [4. Working with Image\
+    \ and Blob Data](#)\n  - [4.1 Image and Blob Data](#)\n  - [4.2 Inserting Image\
+    \ File](#)\n  - [4.3 Reading and Saving Image File](#)\n- [5. Transaction](#)\n\
+    \  - [5.1 Python and SQLite Transaction](#)\n  - [5.2 Demo](#)"
+  - '[PAGE 4]
+
+
+    # 6. Python, SQLite and Pandas
+
+
+    # 6.1 Demo
+
+
+    Source Code
+
+
+    Contact'
+  - '[PAGE 5]
+
+
+    # Preface
+
+
+    This book provides alternative approach to build Python application with SQLite
+    database. This book describes how to work with Python and SQLite and illustrates
+    their use with code examples.
+
+
+    Agus Kurniawan
+
+
+    Depok, January 2021'
+  - '[PAGE 6]
+
+
+    # 1. Setting up Development Environment'
+  - '[PAGE 7]
+
+
+    # 1.1 Python
+
+
+    Python is an interpreted, object-oriented, high-level programming language with
+    dynamic semantics. In this book, we focus on learning how to develop Python programs
+    to access SQLite database.
+
+
+    To install Python, you can download it for your platform This book covers for
+    Windows, Mac and Linux.
+
+
+    After installed Python, you can verify it by opening Terminal or Command Prompt
+    for Windows. Type this command.
+
+
+    ```
+
+    $ python --version
+
+    $ pip --version
+
+    ```
+
+
+    You should see python and pip versions on Terminal.
+
+
+    For Windows users, you probably get errors while you are running python command.
+    You can configure Python path into Path environment from Control Panel. You can
+    see my Python path configuration in Figure below.'
+  - '[PAGE 8]
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_8_0.png)
+
+
+    You probably have Python 3.x so your pip may be pip3. You can type this command
+
+
+    ```
+
+    $ python3 --version
+
+
+    $ pip3 --version
+
+    ```
+
+
+    You should get a Python version in Terminal. You can see my Python version in
+    Windows.'
+  - '[PAGE 9]
+
+
+    ```
+
+    E:\Projects\PEPRESS\python_sqlite\codes>python --version
+
+    Python 3.9.0
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>pip --version
+
+    pip 20.3.1 from C:\Users\agus\AppData\Roaming\Python\Python39\site-packages\pip
+    (python 3.9)
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>
+
+    ```'
+  - '[PAGE 10]
+
+
+    # 1.2 SQLite Database
+
+
+    I use Sqlite 3 for demo. SQLite provides a shell so you can perform data manipulation.
+    You can download Sqlite 3 shell on this site on Download SQLite shell based your
+    platform. For Windows, you can download sqlite-tools as shown in Figure below.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_10_0.png)
+
+
+    Download and extract ZIP file. Then, you can see 3 files as shown in Figure below.'
+  - '[PAGE 11]
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_11_0.png)
+
+
+    For Linux, for instance Debian/Ubuntu, we can download and install using these
+    commands on Terminal.
+
+
+    ```
+
+
+    $ sudo apt-get update
+
+    $ sudo apt-get install sqlite3 libsqlite3-dev
+
+    ```
+
+
+    If you are working with macOS, you can install SQLite3 via brew. You can type
+    this command on Terminal.
+
+
+    ```
+
+
+    $ brew install sqlite
+
+    ```
+
+
+    Now your platform is ready for SQLite database included SQLite shell.'
+  - '[PAGE 12]
+
+
+    # 1.3 SQLite Driver for Python
+
+
+    To access SQLite from Python, we need SQLite driver for Python. Fortunately, SQLite
+    driver for Python is already included in Python standard library so we don''t
+    need to install this.
+
+
+    Next, we start to develop Python program for SQLite.'
+  - '[PAGE 13]
+
+
+    # 1.4 Development Tools
+
+
+    Technically, you can use any editor to develop Python. For demo, I use Visual
+    Studio Code fo writing Python scripts. This tool is free, You can download it
+    for Windows, macOS and Linux. Download it
+
+
+    The following is a sample of Visual Studio Code.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_13_0.png)'
+  - '[PAGE 14]
+
+
+    # 1.5 Python Programming
+
+
+    This book does not cover about basic Python programming. You can learn Python
+    programming from online stuffs. In addition, I also have written a book about
+    Python Programming by Example.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_14_0.png)
+
+
+    You can get this book on the following online store:
+
+
+    +   - Amazon
+
+    - Google Play'
+  - '[PAGE 15]
+
+
+    # 2. Getting Started - Python and SQLite
+
+
+    This chapter explains how to connect SQLite database via SQLite driver for Python.'
+  - '[PAGE 16]
+
+
+    # 2.1 SQLite Shell
+
+
+    SQLite has a shell that runs on Terminal. We can create database and tables using
+    SQLite shell. You can download SQLite shell for your platform.
+
+
+    After you set up SQLite shell, you can run this shell using sqlite3 command. You
+    can type this.
+
+
+    ```
+
+    $ sqlite3 --version
+
+    ```
+
+
+    You should see SQLite shell version on Terminal. You can see my SQLite shell version
+    in Figure below (macOS version).
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_16_0.png)'
+  - '[PAGE 17]
+
+
+    If you are working on Windows, you can open Commmand Prompt. Then, navigate to
+    a folder where SQLite shell file was extracted. Then, type sqlite3 --version so
+    you can see SQLite version on Command Prompt.
+
+
+    ```
+
+    $ sqlite3 --version
+
+    ```
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_17_0.png)
+
+
+    Next, we are playing with SQLite shell. We can use a memory databse on SQLite.
+    This means we can create some tables and then insert data but our data will loss
+    after we quit from SQLite shell.
+
+
+    You can type sqlite3 on Terminal and then you can see SQLite memory database.
+
+
+    ```
+
+    $ sqlite3
+
+    ```
+
+
+    Now we can create a table, called tbl. You can type this command on SQLite shell.
+
+
+    ```
+
+    > create table tbl(id int, name char(10));
+
+    ```'
+  - '[PAGE 18]
+
+
+    After that, we can insert data into tb1 table. Type these commands on SQLite shell.
+
+
+    ```
+
+    > insert into tb1(id,name) values(1,''data 1'');
+
+    > insert into tb1(id,name) values(2,''data 2'');
+
+    > insert into tb1(id,name) values(3,''data 3'');
+
+    ```
+
+
+    After we inserted data, we show data using select statement. You can type this
+    shell command.
+
+
+    ```
+
+    > select * from tbl;
+
+    ```
+
+
+    You can see my program output from SQLite shell in Figure below.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_18_0.png)
+
+
+    To quit from SQLite shell, we can type .exit command.
+
+
+    ```
+
+    > .exit
+
+    ```'
+  - '[PAGE 19]
+
+
+    Next, we can connect to SQLite database and perform data manipulation.'
+  - '[PAGE 20]
+
+
+    # 2.2 Connecting to SQLite
+
+
+    We can connect to SQLite database using SQLite driver for Python with passing
+    our database configuration such as SQLite database file. As we know, SQLite doesn''t
+    has database engine like SQL Server, Oracle and MySQL so we can SQLite database
+    through database file directly.
+
+
+    Next, we create Python program to access SQLite database.'
+  - '[PAGE 21]
+
+
+    # 2.3 Creating Python Program
+
+
+    In this section, we create Python file, called The objective is to connect SQLite
+    database via SQLite driver for Python.
+
+
+    Firstly, we load SQLite driver for Python library and then define database file,
+    called pydb.db. We use **pydb** database for demo.
+
+
+    ```
+
+    import sqlite3
+
+
+    db = ''pydb.db''
+
+
+    conn = sqlite3.connect(db)
+
+    print(''connected'')
+
+    print(conn)
+
+
+    conn.close()
+
+    ```
+
+
+    Then we connect to SQLite using **sqlite3.connect()** by passing database file.
+    We should pass database file with full path. If the database file is not exist,
+    SQLite driver will create a database file.
+
+
+    At the end of code, we close connection using **close()** function.
+
+
+    Save all code. Next, we run this program.'
+  - '[PAGE 22]
+
+
+    # 2.3 Running
+
+
+    We can run our Python program in Visual Studio Code. Open Terminal on Visual Studio
+    Code (menu View -> Terminal). You also can run this program on Terminal directly.
+
+
+    ```
+
+    $ python db_connect.py
+
+    ```
+
+
+    Here is a sample of running Python application.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_22_0.png)'
+- md: "## 3. CRUD Operations\n\nThis chapter explains how to manipulate data SQLite\
+    \ using Python.\n\n## 3.1 CRUD Operations\n\nCRUD (Create, Read, Update, Delete)\
+    \ operations are basic data manipulation for database. In this chapter we will\
+    \ develop Python application to execute CRUD operations. Firstly, we create database,\
+    \ called and then create a table, called On previous chapter, we already created\
+    \ pydb database. The following is **product** table schema:\n\n- Data Type: integer;\
+    \ Primary Key (PK) and Not null (NN)\n- Data Type: character(30); Not null (NN)\n\
+    - Data Type: integer\n- Data Type: float\n- Data Type: datetime\n\nYou also can\
+    \ generate Product table using this query in Python. For CRUD demo, we start by\
+    \ creating a Python file, crud_demo.py. We create **open_database()** function\
+    \ to connect SQLite database file. The following is codes implementation for open_database()\
+    \ function. You can change database file name. I use pydb.db file. After we connected\
+    \ to SQLite database file, we return conn object.\n\n```python\nimport sqlite3\n\
+    from datetime import datetime\nfrom prettytable import PrettyTable\n\ndef open_database():\n\
+    \    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n    conn = sqlite3.connect(db)\n\
+    \    print('connected')\n\n    return conn\n```\n\n**open_database()** function\
+    \ will return conn object that will be used for CRUD operations.\n\nWe create\
+    \ create_table() function to create Product table. create_table() function needs\
+    \ SQLite connection. We define creating table query in sql variable. Firstly,\
+    \ we obtain cursor by calling conn.cursor(). Then, we execute a query using cursor.execute().\
+    \ After executed, you should call conn.commit() to commit all data changes.\n\n\
+    ```python\ndef create_table(conn):\n    cursor = conn.cursor()\n    sql = '''\
+    \ create table if not exists product(\n        id integer primary key autoincrement,\n\
+    \        name char(30) not null,\n        stock integer,\n        price float,\n\
+    \        created datetime\n    )'''\n\n    cursor.execute(sql)\n    conn.commit()\n\
+    \    print('created a table')\n```\n\nWe use PrettyTable library to display a\
+    \ table in Terminal. Further information about PrettyTable library, you can read\
+    \ it on You can install this library using pip.\n\n```\n$ pip install PrettyTable\n\
+    ```\n\nNow we can call open_database() function to connect SQLite database file.\
+    \ Then, we create a table by calling create_table().\n\n```python\n# open data\n\
+    conn = open_database()\n\n# creating table demo\ncreate_table(conn)\n\n# close\
+    \ data\nconn.close()\n```\n\nSave the code and try to run crud_demo.py file.\n\
+    \n```\n$ python crud_demo.py\n```\n\nThe following is sample running test on Terminal.\n\
+    \n![](img/e5b7246022b4d7fa697a71247ffc4e5a_26_0.png)\n\nThe next step is to create\
+    \ functions for CRUD implementation. We will add some functions to execute CRUD\
+    \ operations on next section.\n\n## 3.2 Creating Data\n\nIn this scenario, we\
+    \ create a new product and try to retrieve inserted ID. We can retrieve inserted\
+    \ id using cursor.lastrowid. We will use SQL statement to insert data but we use\
+    \ parameters to prevent SQL injection. At the end of codes, don't forget to release\
+    \ our usage resources and close connection using **close()**\n\nNow we add function\
+    \ **create_data()** to create new product. Write these codes.\n\n```python\ndef\
+    \ create_data(conn):\n    cursor = conn.cursor()\n    print('inserting data...')\n\
+    \    for i in range(1,6):\n        insert_sql = (\"INSERT INTO product \"\n  \
+    \                   \"(name, stock, price, created) \"\n                     \"\
+    VALUES(?, ?, ?, ?)\")\n\n        params = (\"product \" + str(i), 3+i*4,\n   \
+    \               0.4+i*8, datetime.now())\n        cursor.execute(insert_sql, params)\n\
+    \        product_id = cursor.lastrowid\n        print('inserted with id=', product_id)\n\
+    \n    conn.commit()\n    cursor.close()\n    print('done')\n```\n\nSave this code.\n\
+    \nTo test this class, we call **create_data()** function. After that, we try to\
+    \ insert 5 data.\n\n```python\n# open data\nconn = open_database()\n\n# creating\
+    \ data demo\ncreate_data(conn)\n\n# close data\nconn.close()\n```\n\nSave the\
+    \ code and try to run crud_demo.py file.\n\n```\n$ python crud_demo.py\n```\n\n\
+    The following is sample running test on Terminal.\n\n![](img/e5b7246022b4d7fa697a71247ffc4e5a_28_0.png)\n\
+    \n## 3.3 Reading Data\n\nAfter inserted data, we read data. The following is a\
+    \ list of reading data steps:\n\n- Open connection by calling **open_database()**\
+    \ function\n- Get cursor object to perform query\n- Create query with SELECT statement\n\
+    - Execute query using **execute()**\n- Get all data by looping on cursor object\n\
+    - Print data\n- Close connection using **close()**\n\nNow we implement our demo.\
+    \ Create a function called write this code:\n\n```python\ndef read_data(conn):\n\
+    \    print('reading data')\n    cursor = conn.cursor()\n\n    cursor.execute(\"\
+    select id, name, stock, price, created from product\")\n    t = PrettyTable(['ID','Name',\
+    \ 'Stock', 'Price', 'Created'])\n    for (id, name, stock, price, created) in\
+    \ cursor:\n        t.add_row([id, name, stock, format(price,'.2f'), created])\n\
+    \n    print(t)\n    cursor.close()\n    print('done')\n```\n\nSave this code.\n\
+    \nNow we test function Write these codes\n\n```python\n# open data\nconn = open_database()\n\
+    \n# reading data demo\nread_data(conn)\n\n# close data\nconn.close()\n```\n\n\
+    Save this code.\n\nYou can execute **crud_demo.py** file. The following is a sample\
+    \ of program output.\n\n![](img/e5b7246022b4d7fa697a71247ffc4e5a_30_0.png)\n\n\
+    ## 3.4 Updating Data\n\nOn this section, we will update data by particular ID.\
+    \ We use UPDATE statement and pass an updated data.\n\nNow we implement our scenario.\
+    \ Create a function called **update_data()** and write this function.\n\n```python\n\
+    def update_data(conn,id,product_name,stock,price):\n    print('updating data for\
+    \ product id=' + str(id))\n    update_sql = (\"UPDATE product SET name=?, stock=?,\
+    \ price=? \"\n                  \"WHERE id=?\")\n    cursor = conn.cursor()\n\n\
+    \    params = (product_name,stock,price,id,)\n    cursor.execute(update_sql, params)\n\
+    \    print(cursor.rowcount, ' products updated')\n\n    conn.commit()\n    cursor.close()\n\
+    \    print('done')\n```\n\nSave this code.\n\nNow we work on file call In this\
+    \ testing, we update product with ID 3. You may change product ID based on your\
+    \ database. After updated data, we show all data on Terminal.\n\n```python\n#\
+    \ open data\nconn = open_database()\n\n# updating data demo\nprint('updating data\
+    \ demo')\nid = 3\nproduct_name = 'updated name'\nstock = 10\nprice = 0.9\nupdate_data(conn,id,\
+    \ product_name, stock, price)\nread_data(conn)\n\n# close data\nconn.close()\n\
+    ```\n\nSave this code. Run file\n\n```\nE:\\Projects\\PEPRESS\\python_sqlite\\\
+    codes>python crud_demo.py\nConnecting to SQLite...\nconnected\nupdating data demo\n\
+    updating data for product id=3\n1  products updated\ndone\nreading data\n+----+---------------+-------+-------+-----------------------------+\n\
+    | ID | Name          | Stock | Price | Created                     |\n+----+---------------+-------+-------+-----------------------------+\n\
+    | 1  | product 1     | 7     | 8.40  | 2020-12-17 06:18:03.657792  |\n| 2  | product\
+    \ 2     | 11    | 16.40 | 2020-12-17 06:18:03.662788  |\n| 3  | updated name \
+    \ | 10    | 0.90  | 2020-12-17 06:18:03.663789  |\n| 4  | product 4     | 19 \
+    \   | 32.40 | 2020-12-17 06:18:03.663789  |\n| 5  | product 5     | 23    | 40.40\
+    \ | 2020-12-17 06:18:03.663789  |\n+----+---------------+-------+-------+-----------------------------+\n\
+    done\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>\n```\n\n## 3.5 Deleting Data\n\
+    \nTo delete data, we use SQL statement using DELETE and pass a product ID.\n\n\
+    We start by creating a function called **delete_data()** and write these codes.\n\
+    \n```python\ndef delete_data(conn,id):\n    print('deleting data with id=' + str(id))\n\
+    \    cursor = conn.cursor()\n\n    params = (id,)\n    cursor.execute(\"delete\
+    \ from product where id=?\", params)\n    print(cursor.rowcount, ' product deleted')\n\
+    \n    conn.commit()\n    cursor.close()\n    print('done')\n```\n\nSave this code.\n\
+    \nNow we test this function on file Firstly, we open and read existing data. Then,\
+    \ we delete data with ID = 3. You can change this ID based on your database. After\
+    \ that, we show a list of changed data.\n\n```python\n# open data\nconn = open_database()\n\
+    \n# deleting data demo\nprint('deleting data demo')\nread_data(conn)\nid = 3\n\
+    ```"
+  mdcn: "## 3. CRUD 操作\n\n本章将讲解如何使用 Python 操作 SQLite 数据库中的数据。\n\n## 3.1 CRUD 操作\n\n\
+    CRUD（创建、读取、更新、删除）操作是数据库的基本数据操作。在本章中，我们将开发一个 Python 应用来执行 CRUD 操作。首先，我们创建一个名为 `pydb`\
+    \ 的数据库，然后创建一个名为 `product` 的表。在上一章中，我们已经创建了 `pydb` 数据库。以下是 **product** 表的结构：\n\n\
+    -   数据类型：整数；主键（PK）且非空（NN）\n-   数据类型：字符(30)；非空（NN）\n-   数据类型：整数\n-   数据类型：浮点数\n\
+    -   数据类型：日期时间\n\n你也可以在 Python 中使用此查询来生成 Product 表。为了演示 CRUD，我们首先创建一个 Python 文件\
+    \ `crud_demo.py`。我们创建 **open_database()** 函数来连接 SQLite 数据库文件。以下是 `open_database()`\
+    \ 函数的代码实现。你可以更改数据库文件名。我使用的是 `pydb.db` 文件。连接到 SQLite 数据库文件后，我们返回 `conn` 对象。\n\n\
+    ```python\nimport sqlite3\nfrom datetime import datetime\nfrom prettytable import\
+    \ PrettyTable\n\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting\
+    \ to SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n \
+    \   return conn\n```\n\n**open_database()** 函数将返回一个 `conn` 对象，该对象将用于 CRUD 操作。\n\
+    \n我们创建 `create_table()` 函数来创建 Product 表。`create_table()` 函数需要 SQLite 连接。我们在 `sql`\
+    \ 变量中定义创建表的查询。首先，我们通过调用 `conn.cursor()` 获取游标。然后，我们使用 `cursor.execute()` 执行查询。执行后，你应该调用\
+    \ `conn.commit()` 来提交所有数据更改。\n\n```python\ndef create_table(conn):\n    cursor\
+    \ = conn.cursor()\n    sql = ''' create table if not exists product(\n       \
+    \ id integer primary key autoincrement,\n        name char(30) not null,\n   \
+    \     stock integer,\n        price float,\n        created datetime\n    )'''\n\
+    \n    cursor.execute(sql)\n    conn.commit()\n    print('created a table')\n```\n\
+    \n我们使用 PrettyTable 库在终端中显示表格。关于 PrettyTable 库的更多信息，你可以阅读其文档。你可以使用 pip 安装此库。\n\n\
+    ```\n$ pip install PrettyTable\n```\n\n现在我们可以调用 `open_database()` 函数来连接 SQLite\
+    \ 数据库文件。然后，通过调用 `create_table()` 来创建一个表。\n\n```python\n# open data\nconn = open_database()\n\
+    \n# creating table demo\ncreate_table(conn)\n\n# close data\nconn.close()\n```\n\
+    \n保存代码并尝试运行 `crud_demo.py` 文件。\n\n```\n$ python crud_demo.py\n```\n\n以下是终端中的示例运行测试。\n\
+    \n![](img/e5b7246022b4d7fa697a71247ffc4e5a_26_0.png)\n\n下一步是创建用于 CRUD 实现的函数。我们将在下一节中添加一些函数来执行\
+    \ CRUD 操作。\n\n## 3.2 创建数据\n\n在这个场景中，我们创建一个新产品并尝试检索插入的 ID。我们可以使用 `cursor.lastrowid`\
+    \ 来检索插入的 id。我们将使用 SQL 语句插入数据，但使用参数来防止 SQL 注入。在代码末尾，不要忘记使用 **close()** 释放我们使用的资源并关闭连接。\n\
+    \n现在我们添加 **create_data()** 函数来创建新产品。编写以下代码。\n\n```python\ndef create_data(conn):\n\
+    \    cursor = conn.cursor()\n    print('inserting data...')\n    for i in range(1,6):\n\
+    \        insert_sql = (\"INSERT INTO product \"\n                     \"(name,\
+    \ stock, price, created) \"\n                     \"VALUES(?, ?, ?, ?)\")\n\n\
+    \        params = (\"product \" + str(i), 3+i*4,\n                  0.4+i*8, datetime.now())\n\
+    \        cursor.execute(insert_sql, params)\n        product_id = cursor.lastrowid\n\
+    \        print('inserted with id=', product_id)\n\n    conn.commit()\n    cursor.close()\n\
+    \    print('done')\n```\n\n保存此代码。\n\n要测试这个函数，我们调用 **create_data()** 函数。之后，我们尝试插入\
+    \ 5 条数据。\n\n```python\n# open data\nconn = open_database()\n\n# creating data\
+    \ demo\ncreate_data(conn)\n\n# close data\nconn.close()\n```\n\n保存代码并尝试运行 `crud_demo.py`\
+    \ 文件。\n\n```\n$ python crud_demo.py\n```\n\n以下是终端中的示例运行测试。\n\n![](img/e5b7246022b4d7fa697a71247ffc4e5a_28_0.png)\n\
+    \n## 3.3 读取数据\n\n插入数据后，我们来读取数据。以下是读取数据的步骤列表：\n\n-   通过调用 **open_database()** 函数打开连接\n\
+    -   获取游标对象以执行查询\n-   使用 SELECT 语句创建查询\n-   使用 **execute()** 执行查询\n-   通过循环游标对象获取所有数据\n\
+    -   打印数据\n-   使用 **close()** 关闭连接\n\n现在我们来实现我们的示例。创建一个名为 `read_data()` 的函数，编写以下代码：\n\
+    \n```python\ndef read_data(conn):\n    print('reading data')\n    cursor = conn.cursor()\n\
+    \n    cursor.execute(\"select id, name, stock, price, created from product\")\n\
+    \    t = PrettyTable(['ID','Name', 'Stock', 'Price', 'Created'])\n    for (id,\
+    \ name, stock, price, created) in cursor:\n        t.add_row([id, name, stock,\
+    \ format(price,'.2f'), created])\n\n    print(t)\n    cursor.close()\n    print('done')\n\
+    ```\n\n保存此代码。\n\n现在我们测试 `read_data()` 函数。编写以下代码：\n\n```python\n# open data\nconn\
+    \ = open_database()\n\n# reading data demo\nread_data(conn)\n\n# close data\n\
+    conn.close()\n```\n\n保存此代码。\n\n你可以执行 **crud_demo.py** 文件。以下是程序输出的示例。\n\n![](img/e5b7246022b4d7fa697a71247ffc4e5a_30_0.png)\n\
+    \n## 3.4 更新数据\n\n在本节中，我们将通过特定 ID 更新数据。我们使用 UPDATE 语句并传递更新后的数据。\n\n现在我们来实现我们的场景。创建一个名为\
+    \ **update_data()** 的函数并编写此函数。\n\n```python\ndef update_data(conn,id,product_name,stock,price):\n\
+    \    print('updating data for product id=' + str(id))\n    update_sql = (\"UPDATE\
+    \ product SET name=?, stock=?, price=? \"\n                  \"WHERE id=?\")\n\
+    \    cursor = conn.cursor()\n\n    params = (product_name,stock,price,id,)\n \
+    \   cursor.execute(update_sql, params)\n    print(cursor.rowcount, ' products\
+    \ updated')\n\n    conn.commit()\n    cursor.close()\n    print('done')\n```\n\
+    \n保存此代码。\n\n现在我们在 `crud_demo.py` 文件中进行测试。在此测试中，我们更新 ID 为 3 的产品。你可以根据你的数据库更改产品\
+    \ ID。更新数据后，我们在终端上显示所有数据。\n\n```python\n# open data\nconn = open_database()\n\n\
+    # updating data demo\nprint('updating data demo')\nid = 3\nproduct_name = 'updated\
+    \ name'\nstock = 10\nprice = 0.9\nupdate_data(conn,id, product_name, stock, price)\n\
+    read_data(conn)\n\n# close data\nconn.close()\n```\n\n保存此代码。运行文件：\n\n```\nE:\\\
+    Projects\\PEPRESS\\python_sqlite\\codes>python crud_demo.py\nConnecting to SQLite...\n\
+    connected\nupdating data demo\nupdating data for product id=3\n1  products updated\n\
+    done\nreading data\n+----+---------------+-------+-------+-----------------------------+\n\
+    | ID | Name          | Stock | Price | Created                     |\n+----+---------------+-------+-------+-----------------------------+\n\
+    | 1  | product 1     | 7     | 8.40  | 2020-12-17 06:18:03.657792  |\n| 2  | product\
+    \ 2     | 11    | 16.40 | 2020-12-17 06:18:03.662788  |\n| 3  | updated name \
+    \ | 10    | 0.90  | 2020-12-17 06:18:03.663789  |\n| 4  | product 4     | 19 \
+    \   | 32.40 | 2020-12-17 06:18:03.663789  |\n| 5  | product 5     | 23    | 40.40\
+    \ | 2020-12-17 06:18:03.663789  |\n+----+---------------+-------+-------+-----------------------------+\n\
+    done\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>\n```\n\n## 3.5 删除数据\n\n要删除数据，我们使用\
+    \ DELETE 的 SQL 语句并传递一个产品 ID。\n\n我们首先创建一个名为 **delete_data()** 的函数并编写以下代码。\n\n```python\n\
+    def delete_data(conn,id):\n    print('deleting data with id=' + str(id))\n   \
+    \ cursor = conn.cursor()\n\n    params = (id,)\n    cursor.execute(\"delete from\
+    \ product where id=?\", params)\n    print(cursor.rowcount, ' product deleted')\n\
+    \n    conn.commit()\n    cursor.close()\n    print('done')\n```\n\n保存此代码。\n\n\
+    现在我们在 `crud_demo.py` 文件中测试此函数。首先，我们打开并读取现有数据。然后，我们删除 ID = 3 的数据。你可以根据你的数据库更改此\
+    \ ID。之后，我们显示更改后的数据列表。\n\n```python\n# open data\nconn = open_database()\n\n# deleting\
+    \ data demo\nprint('deleting data demo')\nread_data(conn)\nid = 3\n```"
+  merge: 0
+  raw:
+  - '[PAGE 23]
+
+
+    # 3. CRUD Operations
+
+
+    This chapter explains how to manipulate data SQLite using Python.'
+  - "[PAGE 24]\n\n# 3.1 CRUD Operations\n\nCRUD (Create, Read, Update, Delete) operations\
+    \ are basic data manipulation for database. In this chapter we will develop Python\
+    \ application to execute CRUD operations. Firstly, we create database, called\
+    \ and then create a table, called On previous chapter, we already created pydb\
+    \ database. The following is **product** table schema:\n\nData Type: integer;\
+    \ Primary Key (PK) and Not null (NN)\nData Type: character(30); Not null (NN)\n\
+    Data Type: integer\nData Type: float\nData Type: datetime\n\nYou also can generate\
+    \ Product table using this query in Python. For CRUD demo, we start by creating\
+    \ a Python file, crud_demo.py. We create **open_database()** function to connect\
+    \ SQLite database file. The following is codes implementation for open_database()\
+    \ function. You can change database file name. I use pydb.db file. After we connected\
+    \ to SQLite database file, we return conn object.\n\n```\nimport sqlite3\nfrom\
+    \ datetime import datetime\nfrom prettytable import PrettyTable\n\ndef open_database():\n\
+    \    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n    conn = sqlite3.connect(db)\n\
+    ```"
+  - "[PAGE 25]\n\n```\nprint('connected')\n\nreturn conn\n```\n\n**open_database()**\
+    \ function will return conn object that will be used for CRUD operations.\n\n\
+    We create create_table() function to create Product table. create_table() function\
+    \ needs SQLite connection. We define creating table query in sql variable. Firstly,\
+    \ we obtain cursor by calling conn.cursor(). Then, we execute a query using cursor.execute().\
+    \ After executed, you should call conn.commit() to commit all data changes.\n\n\
+    ```\ndef create_table(conn):\n    cursor = conn.cursor()\n    sql = ''' create\
+    \ table if not exists product(\n        id integer primary key autoincrement,\n\
+    \        name char(30) not null,\n        stock integer,\n        price float,\n\
+    \        created datetime\n    )'''\n\n    cursor.execute(sql)\n    conn.commit()\n\
+    \    print('created a table')\n```\n\nWe use PrettyTable library to display a\
+    \ table in Terminal. Further information about PrettyTable library, you can read\
+    \ it on You can install this library using pip.\n\n```\n$ pip install PrettyTable\n\
+    ```\n\nNow we can call open_database() function to connect SQLite database file.\
+    \ Then, we create a table by calling create_table()."
+  - '[PAGE 26]
+
+
+    ```
+
+    # open data
+
+    conn = open_database()
+
+
+    # creating table demo
+
+    create_table(conn)
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save the code and try to run crud_demo.py file.
+
+
+    ```
+
+    $ python crud_demo.py
+
+    ```
+
+
+    The following is sample running test on Terminal.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_26_0.png)
+
+
+    The next step is to create functions for CRUD implementation. We will add some
+    functions to execute CRUD operations on next section.'
+  - "[PAGE 27]\n\n# 3.2 Creating Data\n\nIn this scenario, we create a new product\
+    \ and try to retrieve inserted ID. We can retrieve inserted id using cursor.lastrowid.\
+    \ We will use SQL statement to insert data but we use parameters to prevent SQL\
+    \ injection. At the end of codes, don't forget to release our usage resources\
+    \ and close connection using **close()**\n\nNow we add function **create_data()**\
+    \ to create new product. Write these codes.\n\n```\ndef create_data(conn):\n \
+    \   cursor = conn.cursor()\n    print('inserting data...')\n    for i in range(1,6):\n\
+    \        insert_sql = (\"INSERT INTO product \"\n                     \"(name,\
+    \ stock, price, created) \"\n                     \"VALUES(?, ?, ?, ?)\")\n\n\
+    \        params = (\"product \" + str(i), 3+i*4,\n                  0.4+i*8, datetime.now())\n\
+    \        cursor.execute(insert_sql, params)\n        product_id = cursor.lastrowid\n\
+    \        print('inserted with id=', product_id)\n\n    conn.commit()\n    cursor.close()\n\
+    \    print('done')\n```\n\nSave this code.\n\nTo test this class, we call **create_data()**\
+    \ function. After that, we try to insert 5 data."
+  - '[PAGE 28]
+
+
+    ```
+
+    # open data
+
+    conn = open_database()
+
+
+    # creating data demo
+
+    create_data(conn)
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save the code and try to run crud_demo.py file.
+
+
+    ```
+
+    $ python crud_demo.py
+
+    ```
+
+
+    The following is sample running test on Terminal.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_28_0.png)'
+  - "[PAGE 29]\n\n# 3.3 Reading Data\n\nAfter inserted data, we read data. The following\
+    \ is a list of reading data steps:\n\n+   - Open connection by calling **open_database()**\
+    \ function\n- Get cursor object to perform query\n- Create query with SELECT statement\n\
+    - Execute query using **execute()**\n- Get all data by looping on cursor object\n\
+    - Print data\n- Close connection using **close()**\n\nNow we implement our demo.\
+    \ Create a function called write this code:\n\n```\ndef read_data(conn):\n   \
+    \ print('reading data')\n    cursor = conn.cursor()\n\n    cursor.execute(\"select\
+    \ id, name, stock, price, created from product\")\n    t = PrettyTable(['ID','Name',\
+    \ 'Stock', 'Price', 'Created'])\n    for (id, name, stock, price, created) in\
+    \ cursor:\n        t.add_row([id, name, stock, format(price,'.2f'), created])\n\
+    \n    print(t)\n    cursor.close()\n    print('done')\n```"
+  - '[PAGE 30]
+
+
+    Save this code.
+
+
+    Now we test function Write these codes
+
+
+    ```
+
+    # open data
+
+    conn = open_database()
+
+
+    # reading data demo
+
+    read_data(conn)
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save this code.
+
+
+    You can execute **crud_demo.py** file. The following is a sample of program output.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_30_0.png)'
+  - "[PAGE 31]\n\n# 3.4 Updating Data\n\nOn this section, we will update data by particular\
+    \ ID. We use UPDATE statement and pass an updated data.\n\nNow we implement our\
+    \ scenario. Create a function called **update_data()** and write this function.\n\
+    \n```\ndef update_data(conn,id,product_name,stock,price):\n    print('updating\
+    \ data for product id=' + str(id))\n    update_sql = (\"UPDATE product SET name=?,\
+    \ stock=?, price=? \"\n                  \"WHERE id=?\")\n    cursor = conn.cursor()\n\
+    \n    params = (product_name,stock,price,id,)\n    cursor.execute(update_sql,\
+    \ params)\n    print(cursor.rowcount, ' products updated')\n\n    conn.commit()\n\
+    \    cursor.close()\n    print('done')\n```\n\nSave this code.\n\nNow we work\
+    \ on file call In this testing, we update product with ID 3. You may change product\
+    \ ID based on your database. After updated data, we show all data on Terminal.\n\
+    \n```\n# open data\nconn = open_database()\n\n# updating data demo\n```"
+  - '[PAGE 32]
+
+
+    ```
+
+    print(''updating data demo'')
+
+    id = 3
+
+    product_name = ''updated name''
+
+    stock = 10
+
+    price = 0.9
+
+    update_data(conn,id, product_name, stock, price)
+
+    read_data(conn)
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save this code. Run file
+
+
+    ```
+
+    E:\Projects\PEPRESS\python_sqlite\codes>python crud_demo.py
+
+    Connecting to SQLite...
+
+    connected
+
+    updating data demo
+
+    updating data for product id=3
+
+    1  products updated
+
+    done
+
+    reading data
+
+    +----+---------------+-------+-------+-----------------------------+
+
+    | ID | Name          | Stock | Price | Created                     |
+
+    +----+---------------+-------+-------+-----------------------------+
+
+    | 1  | product 1     | 7     | 8.40  | 2020-12-17 06:18:03.657792  |
+
+    | 2  | product 2     | 11    | 16.40 | 2020-12-17 06:18:03.662788  |
+
+    | 3  | updated name  | 10    | 0.90  | 2020-12-17 06:18:03.663789  |
+
+    | 4  | product 4     | 19    | 32.40 | 2020-12-17 06:18:03.663789  |
+
+    | 5  | product 5     | 23    | 40.40 | 2020-12-17 06:18:03.663789  |
+
+    +----+---------------+-------+-------+-----------------------------+
+
+    done
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>
+
+    ```'
+  - "[PAGE 33]\n\n# 3.5 Deleting Data\n\nTo delete data, we use SQL statement using\
+    \ DELETE and pass a product ID.\n\nWe start by creating a function called **delete_data()**\
+    \ and write these codes.\n\n```\ndef delete_data(conn,id):\n    print('deleting\
+    \ data with id=' + str(id))\n    cursor = conn.cursor()\n\n    params = (id,)\n\
+    \    cursor.execute(\"delete from product where id=?\", params)\n    print(cursor.rowcount,\
+    \ ' product deleted')\n\n    conn.commit()\n    cursor.close()\n    print('done')\n\
+    ```\n\nSave this code.\n\nNow we test this function on file Firstly, we open and\
+    \ read existing data. Then, we delete data with ID = 3. You can change this ID\
+    \ based on your database. After that, we show a list of changed data.\n\n```\n\
+    # open data\nconn = open_database()\n\n# deleting data demo\nprint('deleting data\
+    \ demo')\nread_data(conn)\nid = 3\n```"
+- md: "## 4. Working with Image and Blob Data\n\nThis chapter explains how to work\
+    \ with image and blob data on SQLite database and manipulate them using Python.\n\
+    \n## 4.1 Image and Blob Data\n\nSQLite database provides data type for Text and\
+    \ blob for blob data. Image data type can store image file and binary data type\
+    \ can be used to store any file.\n\nIn this chapter, we will work with image file\
+    \ on SQLite database. The following is table schema, called\n\nThe following Table\
+    \ schema:\n\n- Data Type: integer; Primary Key and Auto Increment; Not null\n\
+    - Data Type: char(30); Not null\n- Data Type: char(15); Not null\n- Data Type:\
+    \ Text\n- Data Type: datetime\n\n**imagetype** is image type of uploading file.\
+    \ This is important while we want to display the image in web, for instance. Firstly,\
+    \ we create Python file, called We set database file configuration and create\
+    \ **open_database()** function to open SQLite database. In this demo, we create\
+    \ pydb.db SQLite database file. You probably change this database file.\n\n```python\n\
+    import sqlite3\nfrom datetime import datetime\nfrom prettytable import PrettyTable\n\
+    ```\n\n```python\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting\
+    \ to SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n \
+    \   return conn\n```\n\nNext, we create **create_table()** function to create\
+    \ ImageFiles table using SQLite query. You can type these scripts.\n\n```python\n\
+    def create_table(conn):\n    cursor = conn.cursor()\n    sql = ''' create table\
+    \ if not exists imagefiles(\n        id integer primary key autoincrement,\n \
+    \       filename char(30) not null,\n        imagetype char(30) not null,\n  \
+    \      imgfile blob,\n        created datetime\n    )'''\n\n    cursor.execute(sql)\n\
+    \    conn.commit()\n    print('created a table')\n```\n\nNow we can call **open_database()**\
+    \ and then call **create_table()** function to create database and table. Type\
+    \ these scripts.\n\n```python\n# open database\nconn = open_database()\n\n# creating\
+    \ data demo\ncreate_table(conn)\n\n# close database\nconn.close()\n```\n\nYou\
+    \ can see my program output in Figure below.\n\nThe next action we create two\
+    \ functions for uploading image and listing/saving image data.\n\n## 4.2 Inserting\
+    \ Image File\n\nIn this section, we insert an image file into SQLite database.\
+    \ Firstly, we create **insert_image_data()** function. For binary data, we open\
+    \ and read image file using **open()** and **read()** functions. Then, we pass\
+    \ all parameters to SQLite query. Write these codes for implementation.\n\n```python\n\
+    def insert_image_data(conn, full_file_path, file_name, file_type):\n    print('inserting\
+    \ image data')\n    cursor = conn.cursor()\n\n    with open(full_file_path, 'rb')\
+    \ as f:\n        imagedata = f.read()\n\n    params = (file_name, file_type, imagedata,\
+    \ datetime.now())\n    query = (\"insert into imagefiles(filename, imagetype,\
+    \ imgfile, created) \"\n             \"values(?, ?, ?, ?)\")\n\n    cursor.execute(query,\
+    \ params)\n    img_id = cursor.lastrowid\n    print('inserted with id=', img_id)\n\
+    \n    conn.commit()\n    cursor.close()\n```\n\nSave this program.\n\nNow we use\
+    \ the following image file, image1.png, to be inserted into SQLite Database.\n\
+    \nWe test our function **insert_image_data()** function. We use **image1.png**\
+    \ on the same directory with **db_image_demo.py** program.\n\n```python\n# open\
+    \ database\nconn = open_database()\n\n# inserting image data demo\nprint('inserting\
+    \ image data demo')\nfull_file_path = './image1.png'\nfile_name = 'image1.png'\n\
+    file_type = 'image/png'\ninsert_image_data(conn, full_file_path, file_name, file_type)\n\
+    print('done')\n```\n\nSave this program. You can run this file.\n\n```\n$ python\
+    \ db_image_demo.py\n```\n\nYou can see the program output as shown in Figure below.\n\
+    \n```\nCommand Prompt\nConnecting to SQLite...\nconnected\ncreated a table\n\n\
+    E:\\Projects\\PEPRESS\\python_sqlite\\codes>python db_image_demo.py\nConnecting\
+    \ to SQLite...\nconnected\ninserting image data demo\ninserting image data\ninserted\
+    \ with id= 1\ndone\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>\n```\n\nYou\
+    \ can try to upload another image file using this program.\n\n## 4.3 Reading and\
+    \ Saving Image File\n\nNow we build a function, to show an image data. We save\
+    \ image data into a file using **open()** and **write()** functions. We also print\
+    \ database data with PrettyTable library.\n\nWrite these codes for **read_image_data()**\
+    \ implementation.\n\n```python\ndef read_image_data(conn, id, save_as_file):\n\
+    \    print('reading data id=', id)\n    cursor = conn.cursor()\n    try:\n   \
+    \     params = (id,)\n        query = (\"select filename, imagetype, imgfile,\
+    \ created \"\n                 \"from imagefiles where id=?\")\n        cursor.execute(query,\
+    \ params)\n        t = PrettyTable(['ID', 'File Name', 'Image Type', 'Created'])\n\
+    \        for (filename, imagetype, imgfile, created) in cursor:\n            t.add_row([id,\
+    \ filename, imagetype, created])\n            with open(save_as_file, 'wb') as\
+    \ f:\n                f.write(imgfile)\n            f.close()\n            print('Save\
+    \ image data as ', save_as_file)\n        print(t)\n    except Exception as e:\n\
+    \        print(e)\n    finally:\n        cursor.close()\n        pass\n```\n\n\
+    Save the code.\n\nWe call **read_image_data()** function with passing file name\
+    \ **image1-read.png** and image ID so our image data will be saved as image1-read.png.\
+    \ For instance, I have my image with ID 1. I read this image data and save to\
+    \ local folder.\n\n```python\n# open database\nconn = open_database()\n\n# reading\
+    \ image data demo\nprint('reading image data demo')\nsave_as_file = './image1-read.png'\n\
+    id = 1\nread_image_data(conn, id, save_as_file)\nprint('done')\n```\n\nNow open\
+    \ image1-read.png file. You should see the image file. If you cannot open the\
+    \ file, you probably have problems on saving and reading image file. The following\
+    \ is a sample of program output.\n\n## 5. Transaction\n\nThis chapter explains\
+    \ how to work with transaction on SQLite using Python.\n\n## 5.1 Python and SQLite\
+    \ Transaction\n\nSQLite driver provides transaction operations. To implement a\
+    \ transaction in SQLite, we can perform the following steps:\n\n- open connection\
+    \ to SQLite\n- set connection with `conn.isolation_level = None`\n- if you use\
+    \ a cursor, you can call `cursor.execute(\"BEGIN\")`\n- `commit()` is used to\
+    \ commit all query operations\n- `rollback()` and `cursor.execute(\"ROLLBACK\"\
+    )` are used to cancel all query operations\n\nNext, we build a Python program\
+    \ to show how to work with transaction in SQLite.\n\n## 5.2 Demo\n\nTo illustrate\
+    \ transaction demo, we create a simple Python application. We insert 5 data into\
+    \ database. If one of them is failed we will call rollback transaction. If succeed,\
+    \ we call **commit()** to store all data. Otherwise, we call **rollback()** to\
+    \ perform rollback operation.\n\nFor demo, we use previous database, pydb.db SQLite\
+    \ file. Let's build. Create Python file, called and write the following code:\n\
+    \n```python\nimport sqlite3\nfrom datetime import datetime\nfrom prettytable import\
+    \ PrettyTable\n\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting\
+    \ to SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n \
+    \   return conn\n\ndef read_data(conn):\n    print('reading data')\n    cursor\
+    \ = conn.cursor()\n\n    cursor.execute(\"select id, name, stock, price, created\
+    \ from product\")\n    t = PrettyTable(['ID', 'Name', 'Stock', 'Price', 'Created'])\n\
+    \    for (id, name, stock, price, created) in cursor:\n        t.add_row([id,\
+    \ name, stock, format(price, '.2f'), created])\n\n    print(t)\n    cursor.close()\n\
+    ```\n\n```python\nprint('done')\n\n# creating data demo\nprint('transaction demo')\n\
+    \nconn = open_database()\nprint('Original data.....')\nread_data(conn)\n\n# set\
+    \ manual transaction\nconn.isolation_level = None\n\ntry:\n    cursor = conn.cursor()\n\
+    \    cursor.execute(\"BEGIN\")\n    for index in range(1, 5):\n        product_name\
+    \ = 'product ' + str(index)\n        price = 1.2 * index\n        stock = 10 +\
+    \ 2 * index\n\n        insert_sql = (\"INSERT INTO product \"\n              \
+    \        \"(name, stock, price, created) \"\n                      \"VALUES(?,\
+    \ ?, ?, ?)\")\n\n        # demo error\n        # if index == 3:\n        #   \
+    \  insert_sql = insert_sql.replace('INSERT', 'INSERT1') # wrong statement\n\n\
+    \        params = (product_name, stock, price, datetime.now())\n        conn.execute(insert_sql,\
+    \ params)\n        product_id = cursor.lastrowid\n        print('inserted with\
+    \ id=', product_id)\n\n    conn.commit()\n    cursor.close()\n\nexcept Exception\
+    \ as e:\n    cursor.execute(\"ROLLBACK\")\n    conn.rollback()\n    print('error\
+    \ in inserting data')\n    print(e)\n\nprint('Update data.....')\nread_data(conn)\n\
+    ```"
+  mdcn: "## 4. 处理图像和 Blob 数据\n\n本章介绍如何在 SQLite 数据库中处理图像和 Blob 数据，并使用 Python 进行操作。\n\
+    \n## 4.1 图像和 Blob 数据\n\nSQLite 数据库为文本和 Blob 数据提供了相应的数据类型。图像数据类型可以存储图像文件，而二进制数据类型可用于存储任何文件。\n\
+    \n在本章中，我们将处理 SQLite 数据库中的图像文件。以下是表结构，称为\n\n以下是表结构：\n\n- 数据类型：整数；主键且自增；非空\n- 数据类型：char(30)；非空\n\
+    - 数据类型：char(15)；非空\n- 数据类型：文本\n- 数据类型：日期时间\n\n**imagetype** 是上传文件的图像类型。这在我们想要在网页上显示图像时非常重要。首先，我们创建一个\
+    \ Python 文件，称为。我们设置数据库文件配置并创建 **open_database()** 函数来打开 SQLite 数据库。在这个演示中，我们创建\
+    \ pydb.db SQLite 数据库文件。你可能会更改这个数据库文件。\n\n```python\nimport sqlite3\nfrom datetime\
+    \ import datetime\nfrom prettytable import PrettyTable\n```\n\n```python\ndef\
+    \ open_database():\n    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n\
+    \    conn = sqlite3.connect(db)\n    print('connected')\n\n    return conn\n```\n\
+    \n接下来，我们创建 **create_table()** 函数，使用 SQLite 查询创建 ImageFiles 表。你可以输入这些脚本。\n\n```python\n\
+    def create_table(conn):\n    cursor = conn.cursor()\n    sql = ''' create table\
+    \ if not exists imagefiles(\n        id integer primary key autoincrement,\n \
+    \       filename char(30) not null,\n        imagetype char(30) not null,\n  \
+    \      imgfile blob,\n        created datetime\n    )'''\n\n    cursor.execute(sql)\n\
+    \    conn.commit()\n    print('created a table')\n```\n\n现在我们可以调用 **open_database()**，然后调用\
+    \ **create_table()** 函数来创建数据库和表。输入这些脚本。\n\n```python\n# open database\nconn =\
+    \ open_database()\n\n# creating data demo\ncreate_table(conn)\n\n# close database\n\
+    conn.close()\n```\n\n你可以在下图中看到我的程序输出。\n\n接下来的操作是创建两个函数，用于上传图像和列出/保存图像数据。\n\n##\
+    \ 4.2 插入图像文件\n\n在本节中，我们将一个图像文件插入 SQLite 数据库。首先，我们创建 **insert_image_data()** 函数。对于二进制数据，我们使用\
+    \ **open()** 和 **read()** 函数打开并读取图像文件。然后，我们将所有参数传递给 SQLite 查询。编写这些代码以实现功能。\n\n\
+    ```python\ndef insert_image_data(conn, full_file_path, file_name, file_type):\n\
+    \    print('inserting image data')\n    cursor = conn.cursor()\n\n    with open(full_file_path,\
+    \ 'rb') as f:\n        imagedata = f.read()\n\n    params = (file_name, file_type,\
+    \ imagedata, datetime.now())\n    query = (\"insert into imagefiles(filename,\
+    \ imagetype, imgfile, created) \"\n             \"values(?, ?, ?, ?)\")\n\n  \
+    \  cursor.execute(query, params)\n    img_id = cursor.lastrowid\n    print('inserted\
+    \ with id=', img_id)\n\n    conn.commit()\n    cursor.close()\n```\n\n保存此程序。\n\
+    \n现在我们使用以下图像文件 image1.png，将其插入 SQLite 数据库。\n\n我们测试我们的函数 **insert_image_data()**。我们使用与\
+    \ **db_image_demo.py** 程序在同一目录下的 **image1.png**。\n\n```python\n# open database\n\
+    conn = open_database()\n\n# inserting image data demo\nprint('inserting image\
+    \ data demo')\nfull_file_path = './image1.png'\nfile_name = 'image1.png'\nfile_type\
+    \ = 'image/png'\ninsert_image_data(conn, full_file_path, file_name, file_type)\n\
+    print('done')\n```\n\n保存此程序。你可以运行此文件。\n\n```\n$ python db_image_demo.py\n```\n\
+    \n你可以在下图中看到程序输出。\n\n```\nCommand Prompt\nConnecting to SQLite...\nconnected\n\
+    created a table\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>python db_image_demo.py\n\
+    Connecting to SQLite...\nconnected\ninserting image data demo\ninserting image\
+    \ data\ninserted with id= 1\ndone\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>\n\
+    ```\n\n你可以尝试使用此程序上传另一个图像文件。\n\n## 4.3 读取和保存图像文件\n\n现在我们构建一个函数来显示图像数据。我们使用 **open()**\
+    \ 和 **write()** 函数将图像数据保存到文件中。我们还使用 PrettyTable 库打印数据库数据。\n\n编写这些代码以实现 **read_image_data()**。\n\
+    \n```python\ndef read_image_data(conn, id, save_as_file):\n    print('reading\
+    \ data id=', id)\n    cursor = conn.cursor()\n    try:\n        params = (id,)\n\
+    \        query = (\"select filename, imagetype, imgfile, created \"\n        \
+    \         \"from imagefiles where id=?\")\n        cursor.execute(query, params)\n\
+    \        t = PrettyTable(['ID', 'File Name', 'Image Type', 'Created'])\n     \
+    \   for (filename, imagetype, imgfile, created) in cursor:\n            t.add_row([id,\
+    \ filename, imagetype, created])\n            with open(save_as_file, 'wb') as\
+    \ f:\n                f.write(imgfile)\n            f.close()\n            print('Save\
+    \ image data as ', save_as_file)\n        print(t)\n    except Exception as e:\n\
+    \        print(e)\n    finally:\n        cursor.close()\n        pass\n```\n\n\
+    保存代码。\n\n我们调用 **read_image_data()** 函数，传递文件名 **image1-read.png** 和图像 ID，这样我们的图像数据将保存为\
+    \ image1-read.png。例如，我有一个 ID 为 1 的图像。我读取此图像数据并保存到本地文件夹。\n\n```python\n# open database\n\
+    conn = open_database()\n\n# reading image data demo\nprint('reading image data\
+    \ demo')\nsave_as_file = './image1-read.png'\nid = 1\nread_image_data(conn, id,\
+    \ save_as_file)\nprint('done')\n```\n\n现在打开 image1-read.png 文件。你应该能看到图像文件。如果你无法打开文件，可能是在保存和读取图像文件时遇到了问题。以下是程序输出的示例。\n\
+    \n## 5. 事务\n\n本章介绍如何使用 Python 在 SQLite 中处理事务。\n\n## 5.1 Python 和 SQLite 事务\n\n\
+    SQLite 驱动程序提供事务操作。要在 SQLite 中实现事务，我们可以执行以下步骤：\n\n- 打开与 SQLite 的连接\n- 设置连接 `conn.isolation_level\
+    \ = None`\n- 如果你使用游标，可以调用 `cursor.execute(\"BEGIN\")`\n- `commit()` 用于提交所有查询操作\n\
+    - `rollback()` 和 `cursor.execute(\"ROLLBACK\")` 用于取消所有查询操作\n\n接下来，我们构建一个 Python\
+    \ 程序来展示如何在 SQLite 中处理事务。\n\n## 5.2 演示\n\n为了说明事务演示，我们创建一个简单的 Python 应用程序。我们向数据库插入\
+    \ 5 条数据。如果其中一条失败，我们将调用回滚事务。如果成功，我们调用 **commit()** 来存储所有数据。否则，我们调用 **rollback()**\
+    \ 来执行回滚操作。\n\n对于演示，我们使用之前的数据库 pydb.db SQLite 文件。让我们开始构建。创建一个 Python 文件，称为，并编写以下代码：\n\
+    \n```python\nimport sqlite3\nfrom datetime import datetime\nfrom prettytable import\
+    \ PrettyTable\n\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting\
+    \ to SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n \
+    \   return conn\n\ndef read_data(conn):\n    print('reading data')\n    cursor\
+    \ = conn.cursor()\n\n    cursor.execute(\"select id, name, stock, price, created\
+    \ from product\")\n    t = PrettyTable(['ID', 'Name', 'Stock', 'Price', 'Created'])\n\
+    \    for (id, name, stock, price, created) in cursor:\n        t.add_row([id,\
+    \ name, stock, format(price, '.2f'), created])\n\n    print(t)\n    cursor.close()\n\
+    ```\n\n```python\nprint('done')\n\n# creating data demo\nprint('transaction demo')\n\
+    \nconn = open_database()\nprint('Original data.....')\nread_data(conn)\n\n# set\
+    \ manual transaction\nconn.isolation_level = None\n\ntry:\n    cursor = conn.cursor()\n\
+    \    cursor.execute(\"BEGIN\")\n    for index in range(1, 5):\n        product_name\
+    \ = 'product ' + str(index)\n        price = 1.2 * index\n        stock = 10 +\
+    \ 2 * index\n\n        insert_sql = (\"INSERT INTO product \"\n              \
+    \        \"(name, stock, price, created) \"\n                      \"VALUES(?,\
+    \ ?, ?, ?)\")\n\n        # demo error\n        # if index == 3:\n        #   \
+    \  insert_sql = insert_sql.replace('INSERT', 'INSERT1') # wrong statement\n\n\
+    \        params = (product_name, stock, price, datetime.now())\n        conn.execute(insert_sql,\
+    \ params)\n        product_id = cursor.lastrowid\n        print('inserted with\
+    \ id=', product_id)\n\n    conn.commit()\n    cursor.close()\n\nexcept Exception\
+    \ as e:\n    cursor.execute(\"ROLLBACK\")\n    conn.rollback()\n    print('error\
+    \ in inserting data')\n    print(e)\n\nprint('Update data.....')\nread_data(conn)\n\
+    ```"
+  merge: 0
+  raw:
+  - '[PAGE 34]
+
+
+    ```
+
+    delete_data(conn,id)
+
+    read_data(conn)
+
+    print(''done'')
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save this code and
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_34_0.png)'
+  - '[PAGE 35]
+
+
+    # 4. Working with Image and Blob Data
+
+
+    This chapter explains how to work with image and blob data on SQLite database
+    and manipulate them using Python.'
+  - '[PAGE 36]
+
+
+    # 4.1 Image and Blob Data
+
+
+    SQLite database provides data type for Text and blob for blob data. Image data
+    type can store image file and binary data type can be used to store any file.
+
+
+    In this chapter, we will work with image file on SQLite database. The following
+    is table schema, called
+
+
+    The following Table schema:
+
+
+    +   - Data Type: integer; Primary Key and Auto Increment; Not null
+
+    - Data Type: char(30); Not null
+
+    - Data Type: char(15); Not null
+
+    - Data Type: Text
+
+    - Data Type: datetime
+
+
+    **imagetype** is image type of uploading file. This is important while we want
+    to display the image in web, for instance. Firstly, we create Python file, called
+    We set database file configuration and create **open_database()** function to
+    open SQLite database. In this demo, we create pydb.db SQLite database file. You
+    probably change this database file.
+
+
+    ```
+
+    import sqlite3
+
+    from datetime import datetime
+
+    from prettytable import PrettyTable
+
+    ```'
+  - "[PAGE 37]\n\n```\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting\
+    \ to SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n \
+    \   return conn\n```\n\nNext, we create **create_table()** function to create\
+    \ ImageFiles table using SQLite query. You can type these scripts.\n\n```\ndef\
+    \ create_table(conn):\n    cursor = conn.cursor()\n    sql = ''' create table\
+    \ if not exists imagefiles(\n        id integer primary key autoincrement,\n \
+    \       filename char(30) not null,\n        imagetype char(30) not null,\n  \
+    \      imgfile blob,\n        created datetime\n    )'''\n\n    cursor.execute(sql)\n\
+    \    conn.commit()\n    print('created a table')\n```\n\nNow we can call **open_database()**\
+    \ and then call **create_table()** function to create database and table. Type\
+    \ these scripts.\n\n```\n# open database\nconn = open_database()\n\n# creating\
+    \ data demo\ncreate_table(conn)\n\n# close database\nconn.close()\n```\n\nYou\
+    \ can see my program ouput in Figure below."
+  - '[PAGE 38]
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_38_0.png)
+
+
+    The next action we create two functions for uploading image and listing/saving
+    image data.'
+  - "[PAGE 39]\n\n# 4.2 Inserting Image File\n\nIn this section, we insert an image\
+    \ file into SQLite database. Firstly, we create **insert_image_data()** function.\
+    \ For binary data, we open and read image file using **open()** and **read()**\
+    \ functions. Then, we pass all parameters to SQLite query. Write these codes for\
+    \ implementation.\n\n```\ndef\ninsert_image_data(conn,full_file_path,file_name,file_type):\n\
+    \    print('inserting image data')\n    cursor = conn.cursor()\n\n    with open(full_file_path,\
+    \ 'rb') as f:\n        imagedata = f.read()\n\n    params = (file_name,file_type,imagedata,datetime.now())\n\
+    \    query = (\"insert into\nimagefiles(filename,imagetype,imgfile,created) \"\
+    \n             \"values(?,?,?,?)\")\n\n    cursor.execute(query, params)\n   \
+    \ img_id = cursor.lastrowid\n    print('inserted with id=',img_id)\n\n    conn.commit()\n\
+    \    cursor.close()\n```\n\nSave this program.\n\nNow we use the following image\
+    \ file, image1.png, to be inserted into SQLite Database."
+  - '[PAGE 40]
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_40_0.png)
+
+
+    We test our function **insert_image_data()** function. We use **image1.png** on
+    the same directory with **db_image_demo.py** program.
+
+
+    ```
+
+    # open database
+
+    conn = open_database()
+
+
+    # inserting image data demo
+
+    print(''inserting image data demo'')
+
+    full_file_path = ''./image1.png''
+
+    file_name = ''image1.png''
+
+    file_type = ''image/png''
+
+    insert_image_data(conn,full_file_path,file_name,file_type)
+
+    print(''done'')
+
+    ```
+
+
+    Save this program. You can run this file.
+
+
+    ```
+
+    $ python db_image_demo.py
+
+    ```
+
+
+    You can see the program output as shown in Figure below.'
+  - '[PAGE 41]
+
+
+    ```
+
+    Command Prompt
+
+    Connecting to SQLite...
+
+    connected
+
+    created a table
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>python db_image_demo.py
+
+    Connecting to SQLite...
+
+    connected
+
+    inserting image data demo
+
+    inserting image data
+
+    inserted with id= 1
+
+    done
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>
+
+    ```
+
+
+    You can try to upload another image file using this program.'
+  - "[PAGE 42]\n\n# 4.3 Reading and Saving Image File\n\nNow we build a function,\
+    \ to show an image data. We save image data into a file using **open()** and **write()**\
+    \ functions. We also print database data with PrettyTable library.\n\nWrite these\
+    \ codes for **read_image_data()** implementation.\n\n```\ndef read_image_data(conn,\
+    \ id, save_as_file):\n    print('reading data id=', id)\n    cursor = conn.cursor()\n\
+    \    try:\n        params = (id,)\n        query = (\"select filename,imagetype,imgfile,created\
+    \ \"\n                 \"from imagefiles where id=?\")\n        cursor.execute(query,\
+    \ params)\n        t = PrettyTable(['ID', 'File Name', 'Image Type', 'Created'])\n\
+    \        for (filename, imagetype, imgfile, created) in cursor:\n            t.add_row([id,\
+    \ filename, imagetype, created])\n            with open(save_as_file, 'wb') as\
+    \ f:\n                f.write(imgfile)\n            f.close()\n            print('Save\
+    \ image data as ', save_as_file)\n        print(t)\n    except Exception as e:\n\
+    \        print(e)\n    finally:\n        cursor.close()\n        pass\n```"
+  - '[PAGE 43]
+
+
+    Save the code.
+
+
+    We call **read_image_data()** function with passing file name **image1-read.png**
+    and image ID so our image data will be saved as image1-read.png. For instance,
+    I have my image with ID 1. I read this image data and save to local folder.
+
+
+    ```
+
+    # open database
+
+    conn = open_database()
+
+
+    # reading image data demo
+
+    print(''reading image data demo'')
+
+    save_as_file = ''./image1-read.png''
+
+    id = 1
+
+    read_image_data(conn,id,save_as_file)
+
+    print(''done'')
+
+    ```
+
+
+    Now open image1-read.png file. You should see the image file. If you cannot open
+    the file, you probably have problems on saving and reading image file. The following
+    is a sample of program output.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_43_0.png)'
+  - '[PAGE 44]
+
+
+    # 5. Transaction
+
+
+    This chapter explains how to work with transaction on SQLite using Python.'
+  - '[PAGE 45]
+
+
+    # 5.1 Python and SQLite Transaction
+
+
+    SQLite driver provides transaction operations. To implement a transaction in SQLite,
+    we can perform teh following steps:
+
+
+    +   - open connection to SQLite
+
+    - set connection with `conn.isolation_level = None`
+
+    - if you use a cursor, you can call `cursor.execute("BEGIN")`
+
+    - `commit()` is used to commit all query operations
+
+    - `rollback()` and `cursor.execute("ROLLBACK")` are used to cancel all query operations
+
+
+    Next, we build a Python program to show how to work with transaction in SQLite.'
+  - "[PAGE 46]\n\n# 5.2 Demo\n\nTo illustrate transaction demo, we create a simple\
+    \ Python application. We insert 5 data into database. If one of them is failed\
+    \ we will call rollback transaction. If succeed, we call **commit()** to store\
+    \ all data. Otherwise, we call **rollback()** to perform rollback operation.\n\
+    \nFor demo, we use previous database, pydb.db SQLite file. Let's build. Create\
+    \ Python file, called and write the following code:\n\n```\nimport sqlite3\nfrom\
+    \ datetime import datetime\nfrom prettytable import PrettyTable\n\ndef open_database():\n\
+    \    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n    conn = sqlite3.connect(db)\n\
+    \    print('connected')\n\n    return conn\n\ndef read_data(conn):\n    print('reading\
+    \ data')\n    cursor = conn.cursor()\n\n    cursor.execute(\"select id, name,\
+    \ stock, price, created from product\")\n    t = PrettyTable(['ID','Name', 'Stock',\
+    \ 'Price', 'Created'])\n    for (id, name, stock, price, created) in cursor:\n\
+    \        t.add_row([id, name, stock, format(price,'.2f'), created])\n\n    print(t)\n\
+    \    cursor.close()\n```"
+  - "[PAGE 47]\n\n```\nprint('done')\n\n# creating data demo\nprint('transaction demo')\n\
+    \nconn = open_database()\nprint('Original data.....')\nread_data(conn)\n\n# set\
+    \ manual transaction\nconn.isolation_level = None\n\ntry:\n    cursor = conn.cursor()\n\
+    \    cursor.execute(\"BEGIN\")\n    for index in range(1,5):\n        product_name\
+    \ = 'product ' + str(index)\n        price = 1.2 * index\n        stock = 10 +\
+    \ 2*index\n\n        insert_sql = (\"INSERT INTO product \"\n                \
+    \      \"(name, stock, price, created) \"\n                      \"VALUES(?, ?,\
+    \ ?, ?)\")\n\n        # demo error\n        # if index == 3:\n        #     insert_sql\
+    \ =\n        insert_sql.replace('INSERT','INSERT1') # wrong statement\n\n    \
+    \    params = (product_name, stock, price,\n        datetime.now())\n        conn.execute(insert_sql,\
+    \ params)\n        product_id = cursor.lastrowid\n        print('inserted with\
+    \ id=', product_id)\n\n    conn.commit()\n    cursor.close()\n\nexcept Exception\
+    \ as e:\n    cursor.execute(\"ROLLBACK\")\n    conn.rollback()\n    print('error\
+    \ in inserting data')\n    print(e)\n\nprint('Update data.....')\nread_data(conn)\n\
+    ```"
+- md: "conn.close()\nprint('done')\n\nSave this program. Now you can run this file.\n\
+    \n```\n$ python db_transaction.py\n```\n\nIf succeed, you can see the response\
+    \ as follows.\n\n![](img/e5b7246022b4d7fa697a71247ffc4e5a_48_0.png)\n\nFor rollback\
+    \ demo, we make error when inserting data on index=3.\nWe only make invalid query.\
+    \ We modify our codes (uncomment\ncodes).\n\n```python\nimport sqlite3\nfrom datetime\
+    \ import datetime\nfrom prettytable import PrettyTable\n\ndef open_database():\n\
+    \    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n    conn = sqlite3.connect(db)\n\
+    \    print('connected')\n\n    return conn\n\ndef read_data(conn):\n    print('reading\
+    \ data')\n    cursor = conn.cursor()\n\n    cursor.execute(\"select id, name,\
+    \ stock, price, created from product\")\n    t = PrettyTable(['ID', 'Name', 'Stock',\
+    \ 'Price', 'Created'])\n    for (id, name, stock, price, created) in cursor:\n\
+    \        t.add_row([id, name, stock, format(price, '.2f'), created])\n\n    print(t)\n\
+    \    cursor.close()\n    print('done')\n\n# creating data demo\nprint('transaction\
+    \ demo')\n\nconn = open_database()\nprint('Original data.....')\nread_data(conn)\n\
+    \n# set manual transaction\nconn.isolation_level = None\n\ntry:\n    cursor =\
+    \ conn.cursor()\n    cursor.execute(\"BEGIN\")\n    for index in range(1,5):\n\
+    \        product_name = 'product ' + str(index)\n        price = 1.2 * index\n\
+    \        stock = 10 + 2*index\n\n        insert_sql = (\"INSERT INTO product \"\
+    \n                      \"(name, stock, price, created) \"\n                 \
+    \     \"VALUES(?, ?, ?, ?)\")\n\n        # demo error\n        if index == 3:\n\
+    \            insert_sql = insert_sql.replace('INSERT','INSERT1') # wrong statement\n\
+    \n        params = (product_name, stock, price,\n                  datetime.now())\n\
+    \        conn.execute(insert_sql, params)\n        product_id = cursor.lastrowid\n\
+    \        print('inserted with id=', product_id)\n\n    conn.commit()\n    cursor.close()\n\
+    \nexcept Exception as e:\n    cursor.execute(\"ROLLBACK\")\n    conn.rollback()\n\
+    \    print('error in inserting data')\n    print(e)\n\n\nprint('Update data.....')\n\
+    read_data(conn)\n\nconn.close()\nprint('done')\n```\n\nSave and run this program.\n\
+    \nSince our program performs rollback operation, we don't see our inserted data\
+    \ on database.\n\nThe following is a program output.\n\n```\nE:\\Projects\\PEPRESS\\\
+    python_sqlite\\codes>python db_transaction.py\ntransaction demo\nConnecting to\
+    \ SQLite...\nconnected\nOriginal data.....\nreading data\n+----+-----------+-------+--------+---------------------------+\n\
+    | ID | Name      | Stock | Price  | Created                   |\n+----+-----------+-------+--------+---------------------------+\n\
+    | 1  | product 1 | 7     | 8.40   | 2021-01-09 20:37:34.794886 |\n| 2  | product\
+    \ 2 | 11    | 16.40  | 2021-01-09 20:37:34.795883 |\n| 3  | product 3 | 15   \
+    \ | 24.40  | 2021-01-09 20:37:34.795883 |\n| 4  | product 4 | 19    | 32.40  |\
+    \ 2021-01-09 20:37:34.796881 |\n| 5  | product 5 | 23    | 40.40  | 2021-01-09\
+    \ 20:37:34.796881 |\n| 6  | product 1 | 12    | 1.20   | 2021-01-09 20:37:52.172504\
+    \ |\n| 7  | product 2 | 14    | 2.40   | 2021-01-09 20:37:52.173506 |\n| 8  |\
+    \ product 3 | 16    | 3.60   | 2021-01-09 20:37:52.173506 |\n| 9  | product 4\
+    \ | 18    | 4.80   | 2021-01-09 20:37:52.173506 |\n+----+-----------+-------+--------+---------------------------+\n\
+    done\ninserted with id= 0\ninserted with id= 0\nerror in inserting data\nnear\
+    \ \"INSERT1\": syntax error\nUpdate data.....\nreading data\n+----+-----------+-------+--------+---------------------------+\n\
+    | ID | Name      | Stock | Price  | Created                   |\n+----+-----------+-------+--------+---------------------------+\n\
+    | 1  | product 1 | 7     | 8.40   | 2021-01-09 20:37:34.794886 |\n| 2  | product\
+    \ 2 | 11    | 16.40  | 2021-01-09 20:37:34.795883 |\n| 3  | product 3 | 15   \
+    \ | 24.40  | 2021-01-09 20:37:34.795883 |\n| 4  | product 4 | 19    | 32.40  |\
+    \ 2021-01-09 20:37:34.796881 |\n| 5  | product 5 | 23    | 40.40  | 2021-01-09\
+    \ 20:37:34.796881 |\n| 6  | product 1 | 12    | 1.20   | 2021-01-09 20:37:52.172504\
+    \ |\n| 7  | product 2 | 14    | 2.40   | 2021-01-09 20:37:52.173506 |\n| 8  |\
+    \ product 3 | 16    | 3.60   | 2021-01-09 20:37:52.173506 |\n| 9  | product 4\
+    \ | 18    | 4.80   | 2021-01-09 20:37:52.173506 |\n+----+-----------+-------+--------+---------------------------+\n\
+    done\ndone\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>\n```\n\n## 6. Python,\
+    \ SQLite and Pandas\n\nThis chapter explains how to work with Pandas and SQLite.\n\
+    \n### 6.1 Demo\n\nIn this section, we learn how to access SQLite using Pandas.\
+    \ As we know, Pandas is a Python library that we can perform data processing.\
+    \ Before we use Pandas library, we should install Pandas and Numpy libraries on\
+    \ our local computer using pip command. You can type this command\n\n```\n$ pip\
+    \ install numpy pandas\n```\n\nFor testing, we previous a database file, called\
+    \ We open a database file and then pass the database object into Pandas object.\
+    \ After that, we perform queries by calling read_sql_query() function. You can\
+    \ write the following complete codes for our demo.\n\n```python\nimport sqlite3\n\
+    from datetime import datetime\nfrom prettytable import PrettyTable\nimport pandas\
+    \ as pd\n\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting to\
+    \ SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n    return\
+    \ conn\n\nconn = open_database()\ndf = pd.read_sql_query(\"select * from product\"\
+    , conn)\nprint(df)\n\nconn.close()\n```\n\nSave this file. You can execute file\n\
+    \n```\n$ python sqlite_pandas.py\n```\n\nHere is a sample of program output.\n\
+    \n![](img/e5b7246022b4d7fa697a71247ffc4e5a_54_0.png)\n\n## Source Code\n\nYou\
+    \ can download source code for this book on http://www.makers.id/ak/pypostgres12195.zip\n\
+    \n## Contact\n\nIf you have question related to this book, please contact me at\
+    \ aguskur@hotmail.com . My blog: [http://blog.aguskurniawan.net](http://blog.aguskurniawan.net)\
+    \ .\n\n![](img/e5b7246022b4d7fa697a71247ffc4e5a_56_0.png)"
+  mdcn: "conn.close()\nprint('done')\n\n保存此程序。现在你可以运行这个文件。\n\n```\n$ python db_transaction.py\n\
+    ```\n\n如果成功，你将看到如下响应。\n\n![](img/e5b7246022b4d7fa697a71247ffc4e5a_48_0.png)\n\n\
+    对于回滚演示，我们在索引=3时插入数据时制造错误。\n我们只制造无效查询。我们修改代码（取消注释代码）。\n\n```python\nimport sqlite3\n\
+    from datetime import datetime\nfrom prettytable import PrettyTable\n\ndef open_database():\n\
+    \    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n    conn = sqlite3.connect(db)\n\
+    \    print('connected')\n\n    return conn\n\ndef read_data(conn):\n    print('reading\
+    \ data')\n    cursor = conn.cursor()\n\n    cursor.execute(\"select id, name,\
+    \ stock, price, created from product\")\n    t = PrettyTable(['ID', 'Name', 'Stock',\
+    \ 'Price', 'Created'])\n    for (id, name, stock, price, created) in cursor:\n\
+    \        t.add_row([id, name, stock, format(price, '.2f'), created])\n\n    print(t)\n\
+    \    cursor.close()\n    print('done')\n\n# creating data demo\nprint('transaction\
+    \ demo')\n\nconn = open_database()\nprint('Original data.....')\nread_data(conn)\n\
+    \n# set manual transaction\nconn.isolation_level = None\n\ntry:\n    cursor =\
+    \ conn.cursor()\n    cursor.execute(\"BEGIN\")\n    for index in range(1,5):\n\
+    \        product_name = 'product ' + str(index)\n        price = 1.2 * index\n\
+    \        stock = 10 + 2*index\n\n        insert_sql = (\"INSERT INTO product \"\
+    \n                      \"(name, stock, price, created) \"\n                 \
+    \     \"VALUES(?, ?, ?, ?)\")\n\n        # demo error\n        if index == 3:\n\
+    \            insert_sql = insert_sql.replace('INSERT','INSERT1') # wrong statement\n\
+    \n        params = (product_name, stock, price,\n                  datetime.now())\n\
+    \        conn.execute(insert_sql, params)\n        product_id = cursor.lastrowid\n\
+    \        print('inserted with id=', product_id)\n\n    conn.commit()\n    cursor.close()\n\
+    \nexcept Exception as e:\n    cursor.execute(\"ROLLBACK\")\n    conn.rollback()\n\
+    \    print('error in inserting data')\n    print(e)\n\n\nprint('Update data.....')\n\
+    read_data(conn)\n\nconn.close()\nprint('done')\n```\n\n保存并运行此程序。\n\n由于我们的程序执行了回滚操作，我们不会在数据库中看到我们插入的数据。\n\
+    \n以下是程序输出。\n\n```\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>python db_transaction.py\n\
+    transaction demo\nConnecting to SQLite...\nconnected\nOriginal data.....\nreading\
+    \ data\n+----+-----------+-------+--------+---------------------------+\n| ID\
+    \ | Name      | Stock | Price  | Created                   |\n+----+-----------+-------+--------+---------------------------+\n\
+    | 1  | product 1 | 7     | 8.40   | 2021-01-09 20:37:34.794886 |\n| 2  | product\
+    \ 2 | 11    | 16.40  | 2021-01-09 20:37:34.795883 |\n| 3  | product 3 | 15   \
+    \ | 24.40  | 2021-01-09 20:37:34.795883 |\n| 4  | product 4 | 19    | 32.40  |\
+    \ 2021-01-09 20:37:34.796881 |\n| 5  | product 5 | 23    | 40.40  | 2021-01-09\
+    \ 20:37:34.796881 |\n| 6  | product 1 | 12    | 1.20   | 2021-01-09 20:37:52.172504\
+    \ |\n| 7  | product 2 | 14    | 2.40   | 2021-01-09 20:37:52.173506 |\n| 8  |\
+    \ product 3 | 16    | 3.60   | 2021-01-09 20:37:52.173506 |\n| 9  | product 4\
+    \ | 18    | 4.80   | 2021-01-09 20:37:52.173506 |\n+----+-----------+-------+--------+---------------------------+\n\
+    done\ninserted with id= 0\ninserted with id= 0\nerror in inserting data\nnear\
+    \ \"INSERT1\": syntax error\nUpdate data.....\nreading data\n+----+-----------+-------+--------+---------------------------+\n\
+    | ID | Name      | Stock | Price  | Created                   |\n+----+-----------+-------+--------+---------------------------+\n\
+    | 1  | product 1 | 7     | 8.40   | 2021-01-09 20:37:34.794886 |\n| 2  | product\
+    \ 2 | 11    | 16.40  | 2021-01-09 20:37:34.795883 |\n| 3  | product 3 | 15   \
+    \ | 24.40  | 2021-01-09 20:37:34.795883 |\n| 4  | product 4 | 19    | 32.40  |\
+    \ 2021-01-09 20:37:34.796881 |\n| 5  | product 5 | 23    | 40.40  | 2021-01-09\
+    \ 20:37:34.796881 |\n| 6  | product 1 | 12    | 1.20   | 2021-01-09 20:37:52.172504\
+    \ |\n| 7  | product 2 | 14    | 2.40   | 2021-01-09 20:37:52.173506 |\n| 8  |\
+    \ product 3 | 16    | 3.60   | 2021-01-09 20:37:52.173506 |\n| 9  | product 4\
+    \ | 18    | 4.80   | 2021-01-09 20:37:52.173506 |\n+----+-----------+-------+--------+---------------------------+\n\
+    done\ndone\n\nE:\\Projects\\PEPRESS\\python_sqlite\\codes>\n```\n\n## 6. Python、SQLite\
+    \ 和 Pandas\n\n本章介绍如何使用 Pandas 和 SQLite。\n\n### 6.1 演示\n\n在本节中，我们将学习如何使用 Pandas\
+    \ 访问 SQLite。众所周知，Pandas 是一个 Python 库，我们可以用它进行数据处理。在使用 Pandas 库之前，我们应该使用 pip 命令在本地计算机上安装\
+    \ Pandas 和 Numpy 库。你可以输入以下命令\n\n```\n$ pip install numpy pandas\n```\n\n为了测试，我们之前有一个数据库文件，称为我们打开一个数据库文件，然后将数据库对象传递给\
+    \ Pandas 对象。之后，我们通过调用 read_sql_query() 函数执行查询。你可以为我们的演示编写以下完整代码。\n\n```python\n\
+    import sqlite3\nfrom datetime import datetime\nfrom prettytable import PrettyTable\n\
+    import pandas as pd\n\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting\
+    \ to SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n \
+    \   return conn\n\nconn = open_database()\ndf = pd.read_sql_query(\"select * from\
+    \ product\", conn)\nprint(df)\n\nconn.close()\n```\n\n保存此文件。你可以执行文件\n\n```\n$\
+    \ python sqlite_pandas.py\n```\n\n以下是程序输出的示例。\n\n![](img/e5b7246022b4d7fa697a71247ffc4e5a_54_0.png)\n\
+    \n## 源代码\n\n你可以在 http://www.makers.id/ak/pypostgres12195.zip 下载本书的源代码。\n\n## 联系方式\n\
+    \n如果你有关于本书的问题，请通过 aguskur@hotmail.com 联系我。我的博客：[http://blog.aguskurniawan.net](http://blog.aguskurniawan.net)。\n\
+    \n![](img/e5b7246022b4d7fa697a71247ffc4e5a_56_0.png)"
+  merge: 0
+  raw:
+  - '[PAGE 48]
+
+
+    ```
+
+    conn.close()
+
+    print(''done'')
+
+    ```
+
+
+    Save this program. Now you can run this file.
+
+
+    ```
+
+    $ python db_transaction.py
+
+    ```
+
+
+    If succeed, you can see the response as follows.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_48_0.png)'
+  - "[PAGE 49]\n\nFor rollback demo, we make error when inserting data on index=3.\n\
+    We only make invalid query. We modify our codes (uncomment\ncodes).\n\n```\nimport\
+    \ sqlite3\nfrom datetime import datetime\nfrom prettytable import PrettyTable\n\
+    \ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n\
+    \    conn = sqlite3.connect(db)\n    print('connected')\n\n    return conn\n\n\
+    def read_data(conn):\n    print('reading data')\n    cursor = conn.cursor()\n\n\
+    \    cursor.execute(\"select id, name, stock, price, created from product\")\n\
+    \    t = PrettyTable(['ID', 'Name', 'Stock', 'Price', 'Created'])\n    for (id,\
+    \ name, stock, price, created) in cursor:\n        t.add_row([id, name, stock,\
+    \ format(price, '.2f'), created])\n\n    print(t)\n    cursor.close()\n    print('done')\n\
+    \n# creating data demo\nprint('transaction demo')\n\nconn = open_database()\n\
+    print('Original data.....')\nread_data(conn)\n\n# set manual transaction\nconn.isolation_level\
+    \ = None\n\ntry:\n```"
+  - "[PAGE 50]\n\n```\ncursor = conn.cursor()\ncursor.execute(\"BEGIN\")\nfor index\
+    \ in range(1,5):\n    product_name = 'product ' + str(index)\n    price = 1.2\
+    \ * index\n    stock = 10 + 2*index\n\n    insert_sql = (\"INSERT INTO product\
+    \ \"\n                  \"(name, stock, price, created) \"\n                 \
+    \ \"VALUES(?, ?, ?, ?)\")\n\n    # demo error\n    if index == 3:\n        insert_sql\
+    \ =\ninsert_sql.replace('INSERT','INSERT1') # wrong statement\n\n    params =\
+    \ (product_name, stock, price,\ndatetime.now())\n    conn.execute(insert_sql,\
+    \ params)\n    product_id = cursor.lastrowid\n    print('inserted with id=', product_id)\n\
+    \nconn.commit()\ncursor.close()\n\nexcept Exception as e:\n    cursor.execute(\"\
+    ROLLBACK\")\n    conn.rollback()\n    print('error in inserting data')\n    print(e)\n\
+    \n\nprint('Update data.....')\nread_data(conn)\n\nconn.close()\nprint('done')\n\
+    ```\n\nSave and run this program.\n\nSince our program performs rollback operation,\
+    \ we don't see our inserted data on database.\n\nThe following is a program output."
+  - '[PAGE 51]
+
+
+    ```
+
+    E:\Projects\PEPRESS\python_sqlite\codes>python db_transaction.py
+
+    transaction demo
+
+    Connecting to SQLite...
+
+    connected
+
+    Original data.....
+
+    reading data
+
+    +----+-----------+-------+--------+---------------------------+
+
+    | ID | Name      | Stock | Price  | Created                   |
+
+    +----+-----------+-------+--------+---------------------------+
+
+    | 1  | product 1 | 7     | 8.40   | 2021-01-09 20:37:34.794886 |
+
+    | 2  | product 2 | 11    | 16.40  | 2021-01-09 20:37:34.795883 |
+
+    | 3  | product 3 | 15    | 24.40  | 2021-01-09 20:37:34.795883 |
+
+    | 4  | product 4 | 19    | 32.40  | 2021-01-09 20:37:34.796881 |
+
+    | 5  | product 5 | 23    | 40.40  | 2021-01-09 20:37:34.796881 |
+
+    | 6  | product 1 | 12    | 1.20   | 2021-01-09 20:37:52.172504 |
+
+    | 7  | product 2 | 14    | 2.40   | 2021-01-09 20:37:52.173506 |
+
+    | 8  | product 3 | 16    | 3.60   | 2021-01-09 20:37:52.173506 |
+
+    | 9  | product 4 | 18    | 4.80   | 2021-01-09 20:37:52.173506 |
+
+    +----+-----------+-------+--------+---------------------------+
+
+    done
+
+    inserted with id= 0
+
+    inserted with id= 0
+
+    error in inserting data
+
+    near "INSERT1": syntax error
+
+    Update data.....
+
+    reading data
+
+    +----+-----------+-------+--------+---------------------------+
+
+    | ID | Name      | Stock | Price  | Created                   |
+
+    +----+-----------+-------+--------+---------------------------+
+
+    | 1  | product 1 | 7     | 8.40   | 2021-01-09 20:37:34.794886 |
+
+    | 2  | product 2 | 11    | 16.40  | 2021-01-09 20:37:34.795883 |
+
+    | 3  | product 3 | 15    | 24.40  | 2021-01-09 20:37:34.795883 |
+
+    | 4  | product 4 | 19    | 32.40  | 2021-01-09 20:37:34.796881 |
+
+    | 5  | product 5 | 23    | 40.40  | 2021-01-09 20:37:34.796881 |
+
+    | 6  | product 1 | 12    | 1.20   | 2021-01-09 20:37:52.172504 |
+
+    | 7  | product 2 | 14    | 2.40   | 2021-01-09 20:37:52.173506 |
+
+    | 8  | product 3 | 16    | 3.60   | 2021-01-09 20:37:52.173506 |
+
+    | 9  | product 4 | 18    | 4.80   | 2021-01-09 20:37:52.173506 |
+
+    +----+-----------+-------+--------+---------------------------+
+
+    done
+
+    done
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>
+
+    ```'
+  - '[PAGE 52]
+
+
+    # 6. Python, SQLite and Pandas
+
+
+    This chapter explains how to work with Pandas and SQLite.'
+  - "[PAGE 53]\n\n# 6.1 Demo\n\nIn this section, we learn how to access SQLite using\
+    \ Pandas. As we know, Pandas is a Python library that we can perform data processing.\
+    \ Before we use Pandas library, we should install Pandas and Numpy libraries on\
+    \ our local computer using pip command. You can type this command\n\n```\n$ pip\
+    \ install numpy pandas\n```\n\nFor testing, we previous a database file, called\
+    \ We open a database file and then pass the database object into Pandas object.\
+    \ After that, we perform queries by calling read_sql_query() function. You can\
+    \ write the following complete codes for our demo.\n\n```\nimport sqlite3\nfrom\
+    \ datetime import datetime\nfrom prettytable import PrettyTable\nimport pandas\
+    \ as pd\n\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting to\
+    \ SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n    return\
+    \ conn\n\nconn = open_database()\ndf = pd.read_sql_query(\"select * from product\"\
+    , conn)\nprint(df)\n```"
+  - '[PAGE 54]
+
+
+    ```
+
+    conn.close()
+
+    ```
+
+
+    Save this file. You can execute file
+
+
+    ```
+
+    $ python sqlite_pandas.py
+
+    ```
+
+
+    Here is a sample of program output.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_54_0.png)'
+  - '[PAGE 55]
+
+
+    # Source Code
+
+
+    You can download source code for this book on http://www.makers.id/ak/pypostgres12195.zip'
+  - '[PAGE 56]
+
+
+    # Contact
+
+
+    If you have question related to this book, please contact me at aguskur@hotmail.com
+    . My blog: [http://blog.aguskurniawan.net](http://blog.aguskurniawan.net) .
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_56_0.png)'
+pages:
+- img_proc: true
+  md: '![](img/e5b7246022b4d7fa697a71247ffc4e5a_0_0.png)
+
+
+    Agus Kurniawan
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_0_1.png)
+
+
+    # Python and SQLite Development'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: '![](img/e5b7246022b4d7fa697a71247ffc4e5a_1_0.png)'
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: '# Python and SQLite Development
+
+
+    Python and SQLite Development
+
+
+    Agus Kurniawan
+
+
+    1st Edition, 2021
+
+
+    Copyright © 2021 Agus Kurniawan
+
+
+    ISBN: 978-1-716-24602-9'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: "# Table of Contents\n\n+   - [Python and SQLite Development](#)\n- [Preface](#)\n\
+    - [1. Setting up Development Environment](#)\n  - [1.1 Python](#)\n  - [1.2 SQLite\
+    \ Database](#)\n  - [1.3 SQLite Driver for Python](#)\n  - [1.4 Development Tools](#)\n\
+    \  - [1.5 Python Programming](#)\n- [2. Getting Started - Python and SQLite](#)\n\
+    \  - [2.1 SQLite Shell](#)\n  - [2.2 Connecting to SQLite](#)\n  - [2.3 Creating\
+    \ Python Program](#)\n  - [2.3 Running](#)\n- [3. CRUD Operations](#)\n  - [3.1\
+    \ CRUD Operations](#)\n  - [3.2 Creating Data](#)\n  - [3.3 Reading Data](#)\n\
+    \  - [3.4 Updating Data](#)\n  - [3.5 Deleting Data](#)\n- [4. Working with Image\
+    \ and Blob Data](#)\n  - [4.1 Image and Blob Data](#)\n  - [4.2 Inserting Image\
+    \ File](#)\n  - [4.3 Reading and Saving Image File](#)\n- [5. Transaction](#)\n\
+    \  - [5.1 Python and SQLite Transaction](#)\n  - [5.2 Demo](#)"
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: '# 6. Python, SQLite and Pandas
+
+
+    # 6.1 Demo
+
+
+    Source Code
+
+
+    Contact'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: '# Preface
+
+
+    This book provides alternative approach to build Python application with SQLite
+    database. This book describes how to work with Python and SQLite and illustrates
+    their use with code examples.
+
+
+    Agus Kurniawan
+
+
+    Depok, January 2021'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: '# 1. Setting up Development Environment'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: '# 1.1 Python
+
+
+    Python is an interpreted, object-oriented, high-level programming language with
+    dynamic semantics. In this book, we focus on learning how to develop Python programs
+    to access SQLite database.
+
+
+    To install Python, you can download it for your platform This book covers for
+    Windows, Mac and Linux.
+
+
+    After installed Python, you can verify it by opening Terminal or Command Prompt
+    for Windows. Type this command.
+
+
+    ```
+
+    $ python --version
+
+    $ pip --version
+
+    ```
+
+
+    You should see python and pip versions on Terminal.
+
+
+    For Windows users, you probably get errors while you are running python command.
+    You can configure Python path into Path environment from Control Panel. You can
+    see my Python path configuration in Figure below.'
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: '![](img/e5b7246022b4d7fa697a71247ffc4e5a_8_0.png)
+
+
+    You probably have Python 3.x so your pip may be pip3. You can type this command
+
+
+    ```
+
+    $ python3 --version
+
+
+    $ pip3 --version
+
+    ```
+
+
+    You should get a Python version in Terminal. You can see my Python version in
+    Windows.'
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: '```
+
+    E:\Projects\PEPRESS\python_sqlite\codes>python --version
+
+    Python 3.9.0
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>pip --version
+
+    pip 20.3.1 from C:\Users\agus\AppData\Roaming\Python\Python39\site-packages\pip
+    (python 3.9)
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>
+
+    ```'
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: '# 1.2 SQLite Database
+
+
+    I use Sqlite 3 for demo. SQLite provides a shell so you can perform data manipulation.
+    You can download Sqlite 3 shell on this site on Download SQLite shell based your
+    platform. For Windows, you can download sqlite-tools as shown in Figure below.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_10_0.png)
+
+
+    Download and extract ZIP file. Then, you can see 3 files as shown in Figure below.'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: '![](img/e5b7246022b4d7fa697a71247ffc4e5a_11_0.png)
+
+
+    For Linux, for instance Debian/Ubuntu, we can download and install using these
+    commands on Terminal.
+
+
+    ```
+
+
+    $ sudo apt-get update
+
+    $ sudo apt-get install sqlite3 libsqlite3-dev
+
+    ```
+
+
+    If you are working with macOS, you can install SQLite3 via brew. You can type
+    this command on Terminal.
+
+
+    ```
+
+
+    $ brew install sqlite
+
+    ```
+
+
+    Now your platform is ready for SQLite database included SQLite shell.'
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: '# 1.3 SQLite Driver for Python
+
+
+    To access SQLite from Python, we need SQLite driver for Python. Fortunately, SQLite
+    driver for Python is already included in Python standard library so we don''t
+    need to install this.
+
+
+    Next, we start to develop Python program for SQLite.'
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: '# 1.4 Development Tools
+
+
+    Technically, you can use any editor to develop Python. For demo, I use Visual
+    Studio Code fo writing Python scripts. This tool is free, You can download it
+    for Windows, macOS and Linux. Download it
+
+
+    The following is a sample of Visual Studio Code.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_13_0.png)'
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: '# 1.5 Python Programming
+
+
+    This book does not cover about basic Python programming. You can learn Python
+    programming from online stuffs. In addition, I also have written a book about
+    Python Programming by Example.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_14_0.png)
+
+
+    You can get this book on the following online store:
+
+
+    +   - Amazon
+
+    - Google Play'
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: '# 2. Getting Started - Python and SQLite
+
+
+    This chapter explains how to connect SQLite database via SQLite driver for Python.'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: '# 2.1 SQLite Shell
+
+
+    SQLite has a shell that runs on Terminal. We can create database and tables using
+    SQLite shell. You can download SQLite shell for your platform.
+
+
+    After you set up SQLite shell, you can run this shell using sqlite3 command. You
+    can type this.
+
+
+    ```
+
+    $ sqlite3 --version
+
+    ```
+
+
+    You should see SQLite shell version on Terminal. You can see my SQLite shell version
+    in Figure below (macOS version).
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_16_0.png)'
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: 'If you are working on Windows, you can open Commmand Prompt. Then, navigate
+    to a folder where SQLite shell file was extracted. Then, type sqlite3 --version
+    so you can see SQLite version on Command Prompt.
+
+
+    ```
+
+    $ sqlite3 --version
+
+    ```
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_17_0.png)
+
+
+    Next, we are playing with SQLite shell. We can use a memory databse on SQLite.
+    This means we can create some tables and then insert data but our data will loss
+    after we quit from SQLite shell.
+
+
+    You can type sqlite3 on Terminal and then you can see SQLite memory database.
+
+
+    ```
+
+    $ sqlite3
+
+    ```
+
+
+    Now we can create a table, called tbl. You can type this command on SQLite shell.
+
+
+    ```
+
+    > create table tbl(id int, name char(10));
+
+    ```'
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: 'After that, we can insert data into tb1 table. Type these commands on SQLite
+    shell.
+
+
+    ```
+
+    > insert into tb1(id,name) values(1,''data 1'');
+
+    > insert into tb1(id,name) values(2,''data 2'');
+
+    > insert into tb1(id,name) values(3,''data 3'');
+
+    ```
+
+
+    After we inserted data, we show data using select statement. You can type this
+    shell command.
+
+
+    ```
+
+    > select * from tbl;
+
+    ```
+
+
+    You can see my program output from SQLite shell in Figure below.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_18_0.png)
+
+
+    To quit from SQLite shell, we can type .exit command.
+
+
+    ```
+
+    > .exit
+
+    ```'
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: Next, we can connect to SQLite database and perform data manipulation.
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: '# 2.2 Connecting to SQLite
+
+
+    We can connect to SQLite database using SQLite driver for Python with passing
+    our database configuration such as SQLite database file. As we know, SQLite doesn''t
+    has database engine like SQL Server, Oracle and MySQL so we can SQLite database
+    through database file directly.
+
+
+    Next, we create Python program to access SQLite database.'
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: '# 2.3 Creating Python Program
+
+
+    In this section, we create Python file, called The objective is to connect SQLite
+    database via SQLite driver for Python.
+
+
+    Firstly, we load SQLite driver for Python library and then define database file,
+    called pydb.db. We use **pydb** database for demo.
+
+
+    ```
+
+    import sqlite3
+
+
+    db = ''pydb.db''
+
+
+    conn = sqlite3.connect(db)
+
+    print(''connected'')
+
+    print(conn)
+
+
+    conn.close()
+
+    ```
+
+
+    Then we connect to SQLite using **sqlite3.connect()** by passing database file.
+    We should pass database file with full path. If the database file is not exist,
+    SQLite driver will create a database file.
+
+
+    At the end of code, we close connection using **close()** function.
+
+
+    Save all code. Next, we run this program.'
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: '# 2.3 Running
+
+
+    We can run our Python program in Visual Studio Code. Open Terminal on Visual Studio
+    Code (menu View -> Terminal). You also can run this program on Terminal directly.
+
+
+    ```
+
+    $ python db_connect.py
+
+    ```
+
+
+    Here is a sample of running Python application.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_22_0.png)'
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: '# 3. CRUD Operations
+
+
+    This chapter explains how to manipulate data SQLite using Python.'
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: "# 3.1 CRUD Operations\n\nCRUD (Create, Read, Update, Delete) operations are\
+    \ basic data manipulation for database. In this chapter we will develop Python\
+    \ application to execute CRUD operations. Firstly, we create database, called\
+    \ and then create a table, called On previous chapter, we already created pydb\
+    \ database. The following is **product** table schema:\n\nData Type: integer;\
+    \ Primary Key (PK) and Not null (NN)\nData Type: character(30); Not null (NN)\n\
+    Data Type: integer\nData Type: float\nData Type: datetime\n\nYou also can generate\
+    \ Product table using this query in Python. For CRUD demo, we start by creating\
+    \ a Python file, crud_demo.py. We create **open_database()** function to connect\
+    \ SQLite database file. The following is codes implementation for open_database()\
+    \ function. You can change database file name. I use pydb.db file. After we connected\
+    \ to SQLite database file, we return conn object.\n\n```\nimport sqlite3\nfrom\
+    \ datetime import datetime\nfrom prettytable import PrettyTable\n\ndef open_database():\n\
+    \    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n    conn = sqlite3.connect(db)\n\
+    ```"
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: "```\nprint('connected')\n\nreturn conn\n```\n\n**open_database()** function\
+    \ will return conn object that will be used for CRUD operations.\n\nWe create\
+    \ create_table() function to create Product table. create_table() function needs\
+    \ SQLite connection. We define creating table query in sql variable. Firstly,\
+    \ we obtain cursor by calling conn.cursor(). Then, we execute a query using cursor.execute().\
+    \ After executed, you should call conn.commit() to commit all data changes.\n\n\
+    ```\ndef create_table(conn):\n    cursor = conn.cursor()\n    sql = ''' create\
+    \ table if not exists product(\n        id integer primary key autoincrement,\n\
+    \        name char(30) not null,\n        stock integer,\n        price float,\n\
+    \        created datetime\n    )'''\n\n    cursor.execute(sql)\n    conn.commit()\n\
+    \    print('created a table')\n```\n\nWe use PrettyTable library to display a\
+    \ table in Terminal. Further information about PrettyTable library, you can read\
+    \ it on You can install this library using pip.\n\n```\n$ pip install PrettyTable\n\
+    ```\n\nNow we can call open_database() function to connect SQLite database file.\
+    \ Then, we create a table by calling create_table()."
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: '```
+
+    # open data
+
+    conn = open_database()
+
+
+    # creating table demo
+
+    create_table(conn)
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save the code and try to run crud_demo.py file.
+
+
+    ```
+
+    $ python crud_demo.py
+
+    ```
+
+
+    The following is sample running test on Terminal.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_26_0.png)
+
+
+    The next step is to create functions for CRUD implementation. We will add some
+    functions to execute CRUD operations on next section.'
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: "# 3.2 Creating Data\n\nIn this scenario, we create a new product and try to\
+    \ retrieve inserted ID. We can retrieve inserted id using cursor.lastrowid. We\
+    \ will use SQL statement to insert data but we use parameters to prevent SQL injection.\
+    \ At the end of codes, don't forget to release our usage resources and close connection\
+    \ using **close()**\n\nNow we add function **create_data()** to create new product.\
+    \ Write these codes.\n\n```\ndef create_data(conn):\n    cursor = conn.cursor()\n\
+    \    print('inserting data...')\n    for i in range(1,6):\n        insert_sql\
+    \ = (\"INSERT INTO product \"\n                     \"(name, stock, price, created)\
+    \ \"\n                     \"VALUES(?, ?, ?, ?)\")\n\n        params = (\"product\
+    \ \" + str(i), 3+i*4,\n                  0.4+i*8, datetime.now())\n        cursor.execute(insert_sql,\
+    \ params)\n        product_id = cursor.lastrowid\n        print('inserted with\
+    \ id=', product_id)\n\n    conn.commit()\n    cursor.close()\n    print('done')\n\
+    ```\n\nSave this code.\n\nTo test this class, we call **create_data()** function.\
+    \ After that, we try to insert 5 data."
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: '```
+
+    # open data
+
+    conn = open_database()
+
+
+    # creating data demo
+
+    create_data(conn)
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save the code and try to run crud_demo.py file.
+
+
+    ```
+
+    $ python crud_demo.py
+
+    ```
+
+
+    The following is sample running test on Terminal.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_28_0.png)'
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: "# 3.3 Reading Data\n\nAfter inserted data, we read data. The following is a\
+    \ list of reading data steps:\n\n+   - Open connection by calling **open_database()**\
+    \ function\n- Get cursor object to perform query\n- Create query with SELECT statement\n\
+    - Execute query using **execute()**\n- Get all data by looping on cursor object\n\
+    - Print data\n- Close connection using **close()**\n\nNow we implement our demo.\
+    \ Create a function called write this code:\n\n```\ndef read_data(conn):\n   \
+    \ print('reading data')\n    cursor = conn.cursor()\n\n    cursor.execute(\"select\
+    \ id, name, stock, price, created from product\")\n    t = PrettyTable(['ID','Name',\
+    \ 'Stock', 'Price', 'Created'])\n    for (id, name, stock, price, created) in\
+    \ cursor:\n        t.add_row([id, name, stock, format(price,'.2f'), created])\n\
+    \n    print(t)\n    cursor.close()\n    print('done')\n```"
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: 'Save this code.
+
+
+    Now we test function Write these codes
+
+
+    ```
+
+    # open data
+
+    conn = open_database()
+
+
+    # reading data demo
+
+    read_data(conn)
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save this code.
+
+
+    You can execute **crud_demo.py** file. The following is a sample of program output.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_30_0.png)'
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: "# 3.4 Updating Data\n\nOn this section, we will update data by particular ID.\
+    \ We use UPDATE statement and pass an updated data.\n\nNow we implement our scenario.\
+    \ Create a function called **update_data()** and write this function.\n\n```\n\
+    def update_data(conn,id,product_name,stock,price):\n    print('updating data for\
+    \ product id=' + str(id))\n    update_sql = (\"UPDATE product SET name=?, stock=?,\
+    \ price=? \"\n                  \"WHERE id=?\")\n    cursor = conn.cursor()\n\n\
+    \    params = (product_name,stock,price,id,)\n    cursor.execute(update_sql, params)\n\
+    \    print(cursor.rowcount, ' products updated')\n\n    conn.commit()\n    cursor.close()\n\
+    \    print('done')\n```\n\nSave this code.\n\nNow we work on file call In this\
+    \ testing, we update product with ID 3. You may change product ID based on your\
+    \ database. After updated data, we show all data on Terminal.\n\n```\n# open data\n\
+    conn = open_database()\n\n# updating data demo\n```"
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: '```
+
+    print(''updating data demo'')
+
+    id = 3
+
+    product_name = ''updated name''
+
+    stock = 10
+
+    price = 0.9
+
+    update_data(conn,id, product_name, stock, price)
+
+    read_data(conn)
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save this code. Run file
+
+
+    ```
+
+    E:\Projects\PEPRESS\python_sqlite\codes>python crud_demo.py
+
+    Connecting to SQLite...
+
+    connected
+
+    updating data demo
+
+    updating data for product id=3
+
+    1  products updated
+
+    done
+
+    reading data
+
+    +----+---------------+-------+-------+-----------------------------+
+
+    | ID | Name          | Stock | Price | Created                     |
+
+    +----+---------------+-------+-------+-----------------------------+
+
+    | 1  | product 1     | 7     | 8.40  | 2020-12-17 06:18:03.657792  |
+
+    | 2  | product 2     | 11    | 16.40 | 2020-12-17 06:18:03.662788  |
+
+    | 3  | updated name  | 10    | 0.90  | 2020-12-17 06:18:03.663789  |
+
+    | 4  | product 4     | 19    | 32.40 | 2020-12-17 06:18:03.663789  |
+
+    | 5  | product 5     | 23    | 40.40 | 2020-12-17 06:18:03.663789  |
+
+    +----+---------------+-------+-------+-----------------------------+
+
+    done
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>
+
+    ```'
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: "# 3.5 Deleting Data\n\nTo delete data, we use SQL statement using DELETE and\
+    \ pass a product ID.\n\nWe start by creating a function called **delete_data()**\
+    \ and write these codes.\n\n```\ndef delete_data(conn,id):\n    print('deleting\
+    \ data with id=' + str(id))\n    cursor = conn.cursor()\n\n    params = (id,)\n\
+    \    cursor.execute(\"delete from product where id=?\", params)\n    print(cursor.rowcount,\
+    \ ' product deleted')\n\n    conn.commit()\n    cursor.close()\n    print('done')\n\
+    ```\n\nSave this code.\n\nNow we test this function on file Firstly, we open and\
+    \ read existing data. Then, we delete data with ID = 3. You can change this ID\
+    \ based on your database. After that, we show a list of changed data.\n\n```\n\
+    # open data\nconn = open_database()\n\n# deleting data demo\nprint('deleting data\
+    \ demo')\nread_data(conn)\nid = 3\n```"
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: '```
+
+    delete_data(conn,id)
+
+    read_data(conn)
+
+    print(''done'')
+
+
+    # close data
+
+    conn.close()
+
+    ```
+
+
+    Save this code and
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_34_0.png)'
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: '# 4. Working with Image and Blob Data
+
+
+    This chapter explains how to work with image and blob data on SQLite database
+    and manipulate them using Python.'
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: '# 4.1 Image and Blob Data
+
+
+    SQLite database provides data type for Text and blob for blob data. Image data
+    type can store image file and binary data type can be used to store any file.
+
+
+    In this chapter, we will work with image file on SQLite database. The following
+    is table schema, called
+
+
+    The following Table schema:
+
+
+    +   - Data Type: integer; Primary Key and Auto Increment; Not null
+
+    - Data Type: char(30); Not null
+
+    - Data Type: char(15); Not null
+
+    - Data Type: Text
+
+    - Data Type: datetime
+
+
+    **imagetype** is image type of uploading file. This is important while we want
+    to display the image in web, for instance. Firstly, we create Python file, called
+    We set database file configuration and create **open_database()** function to
+    open SQLite database. In this demo, we create pydb.db SQLite database file. You
+    probably change this database file.
+
+
+    ```
+
+    import sqlite3
+
+    from datetime import datetime
+
+    from prettytable import PrettyTable
+
+    ```'
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: "```\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n\
+    \    conn = sqlite3.connect(db)\n    print('connected')\n\n    return conn\n```\n\
+    \nNext, we create **create_table()** function to create ImageFiles table using\
+    \ SQLite query. You can type these scripts.\n\n```\ndef create_table(conn):\n\
+    \    cursor = conn.cursor()\n    sql = ''' create table if not exists imagefiles(\n\
+    \        id integer primary key autoincrement,\n        filename char(30) not\
+    \ null,\n        imagetype char(30) not null,\n        imgfile blob,\n       \
+    \ created datetime\n    )'''\n\n    cursor.execute(sql)\n    conn.commit()\n \
+    \   print('created a table')\n```\n\nNow we can call **open_database()** and then\
+    \ call **create_table()** function to create database and table. Type these scripts.\n\
+    \n```\n# open database\nconn = open_database()\n\n# creating data demo\ncreate_table(conn)\n\
+    \n# close database\nconn.close()\n```\n\nYou can see my program ouput in Figure\
+    \ below."
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: '![](img/e5b7246022b4d7fa697a71247ffc4e5a_38_0.png)
+
+
+    The next action we create two functions for uploading image and listing/saving
+    image data.'
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: "# 4.2 Inserting Image File\n\nIn this section, we insert an image file into\
+    \ SQLite database. Firstly, we create **insert_image_data()** function. For binary\
+    \ data, we open and read image file using **open()** and **read()** functions.\
+    \ Then, we pass all parameters to SQLite query. Write these codes for implementation.\n\
+    \n```\ndef\ninsert_image_data(conn,full_file_path,file_name,file_type):\n    print('inserting\
+    \ image data')\n    cursor = conn.cursor()\n\n    with open(full_file_path, 'rb')\
+    \ as f:\n        imagedata = f.read()\n\n    params = (file_name,file_type,imagedata,datetime.now())\n\
+    \    query = (\"insert into\nimagefiles(filename,imagetype,imgfile,created) \"\
+    \n             \"values(?,?,?,?)\")\n\n    cursor.execute(query, params)\n   \
+    \ img_id = cursor.lastrowid\n    print('inserted with id=',img_id)\n\n    conn.commit()\n\
+    \    cursor.close()\n```\n\nSave this program.\n\nNow we use the following image\
+    \ file, image1.png, to be inserted into SQLite Database."
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: '![](img/e5b7246022b4d7fa697a71247ffc4e5a_40_0.png)
+
+
+    We test our function **insert_image_data()** function. We use **image1.png** on
+    the same directory with **db_image_demo.py** program.
+
+
+    ```
+
+    # open database
+
+    conn = open_database()
+
+
+    # inserting image data demo
+
+    print(''inserting image data demo'')
+
+    full_file_path = ''./image1.png''
+
+    file_name = ''image1.png''
+
+    file_type = ''image/png''
+
+    insert_image_data(conn,full_file_path,file_name,file_type)
+
+    print(''done'')
+
+    ```
+
+
+    Save this program. You can run this file.
+
+
+    ```
+
+    $ python db_image_demo.py
+
+    ```
+
+
+    You can see the program output as shown in Figure below.'
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: '```
+
+    Command Prompt
+
+    Connecting to SQLite...
+
+    connected
+
+    created a table
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>python db_image_demo.py
+
+    Connecting to SQLite...
+
+    connected
+
+    inserting image data demo
+
+    inserting image data
+
+    inserted with id= 1
+
+    done
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>
+
+    ```
+
+
+    You can try to upload another image file using this program.'
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: "# 4.3 Reading and Saving Image File\n\nNow we build a function, to show an\
+    \ image data. We save image data into a file using **open()** and **write()**\
+    \ functions. We also print database data with PrettyTable library.\n\nWrite these\
+    \ codes for **read_image_data()** implementation.\n\n```\ndef read_image_data(conn,\
+    \ id, save_as_file):\n    print('reading data id=', id)\n    cursor = conn.cursor()\n\
+    \    try:\n        params = (id,)\n        query = (\"select filename,imagetype,imgfile,created\
+    \ \"\n                 \"from imagefiles where id=?\")\n        cursor.execute(query,\
+    \ params)\n        t = PrettyTable(['ID', 'File Name', 'Image Type', 'Created'])\n\
+    \        for (filename, imagetype, imgfile, created) in cursor:\n            t.add_row([id,\
+    \ filename, imagetype, created])\n            with open(save_as_file, 'wb') as\
+    \ f:\n                f.write(imgfile)\n            f.close()\n            print('Save\
+    \ image data as ', save_as_file)\n        print(t)\n    except Exception as e:\n\
+    \        print(e)\n    finally:\n        cursor.close()\n        pass\n```"
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: 'Save the code.
+
+
+    We call **read_image_data()** function with passing file name **image1-read.png**
+    and image ID so our image data will be saved as image1-read.png. For instance,
+    I have my image with ID 1. I read this image data and save to local folder.
+
+
+    ```
+
+    # open database
+
+    conn = open_database()
+
+
+    # reading image data demo
+
+    print(''reading image data demo'')
+
+    save_as_file = ''./image1-read.png''
+
+    id = 1
+
+    read_image_data(conn,id,save_as_file)
+
+    print(''done'')
+
+    ```
+
+
+    Now open image1-read.png file. You should see the image file. If you cannot open
+    the file, you probably have problems on saving and reading image file. The following
+    is a sample of program output.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_43_0.png)'
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: '# 5. Transaction
+
+
+    This chapter explains how to work with transaction on SQLite using Python.'
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: '# 5.1 Python and SQLite Transaction
+
+
+    SQLite driver provides transaction operations. To implement a transaction in SQLite,
+    we can perform teh following steps:
+
+
+    +   - open connection to SQLite
+
+    - set connection with `conn.isolation_level = None`
+
+    - if you use a cursor, you can call `cursor.execute("BEGIN")`
+
+    - `commit()` is used to commit all query operations
+
+    - `rollback()` and `cursor.execute("ROLLBACK")` are used to cancel all query operations
+
+
+    Next, we build a Python program to show how to work with transaction in SQLite.'
+  merge: -1
+  pgno: 45
+- img_proc: true
+  md: "# 5.2 Demo\n\nTo illustrate transaction demo, we create a simple Python application.\
+    \ We insert 5 data into database. If one of them is failed we will call rollback\
+    \ transaction. If succeed, we call **commit()** to store all data. Otherwise,\
+    \ we call **rollback()** to perform rollback operation.\n\nFor demo, we use previous\
+    \ database, pydb.db SQLite file. Let's build. Create Python file, called and write\
+    \ the following code:\n\n```\nimport sqlite3\nfrom datetime import datetime\n\
+    from prettytable import PrettyTable\n\ndef open_database():\n    db = 'pydb.db'\n\
+    \n    print('Connecting to SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\
+    \n    return conn\n\ndef read_data(conn):\n    print('reading data')\n    cursor\
+    \ = conn.cursor()\n\n    cursor.execute(\"select id, name, stock, price, created\
+    \ from product\")\n    t = PrettyTable(['ID','Name', 'Stock', 'Price', 'Created'])\n\
+    \    for (id, name, stock, price, created) in cursor:\n        t.add_row([id,\
+    \ name, stock, format(price,'.2f'), created])\n\n    print(t)\n    cursor.close()\n\
+    ```"
+  merge: -1
+  pgno: 46
+- img_proc: true
+  md: "```\nprint('done')\n\n# creating data demo\nprint('transaction demo')\n\nconn\
+    \ = open_database()\nprint('Original data.....')\nread_data(conn)\n\n# set manual\
+    \ transaction\nconn.isolation_level = None\n\ntry:\n    cursor = conn.cursor()\n\
+    \    cursor.execute(\"BEGIN\")\n    for index in range(1,5):\n        product_name\
+    \ = 'product ' + str(index)\n        price = 1.2 * index\n        stock = 10 +\
+    \ 2*index\n\n        insert_sql = (\"INSERT INTO product \"\n                \
+    \      \"(name, stock, price, created) \"\n                      \"VALUES(?, ?,\
+    \ ?, ?)\")\n\n        # demo error\n        # if index == 3:\n        #     insert_sql\
+    \ =\n        insert_sql.replace('INSERT','INSERT1') # wrong statement\n\n    \
+    \    params = (product_name, stock, price,\n        datetime.now())\n        conn.execute(insert_sql,\
+    \ params)\n        product_id = cursor.lastrowid\n        print('inserted with\
+    \ id=', product_id)\n\n    conn.commit()\n    cursor.close()\n\nexcept Exception\
+    \ as e:\n    cursor.execute(\"ROLLBACK\")\n    conn.rollback()\n    print('error\
+    \ in inserting data')\n    print(e)\n\nprint('Update data.....')\nread_data(conn)\n\
+    ```"
+  merge: -1
+  pgno: 47
+- img_proc: true
+  md: '```
+
+    conn.close()
+
+    print(''done'')
+
+    ```
+
+
+    Save this program. Now you can run this file.
+
+
+    ```
+
+    $ python db_transaction.py
+
+    ```
+
+
+    If succeed, you can see the response as follows.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_48_0.png)'
+  merge: -1
+  pgno: 48
+- img_proc: true
+  md: "For rollback demo, we make error when inserting data on index=3.\nWe only make\
+    \ invalid query. We modify our codes (uncomment\ncodes).\n\n```\nimport sqlite3\n\
+    from datetime import datetime\nfrom prettytable import PrettyTable\n\ndef open_database():\n\
+    \    db = 'pydb.db'\n\n    print('Connecting to SQLite...')\n    conn = sqlite3.connect(db)\n\
+    \    print('connected')\n\n    return conn\n\ndef read_data(conn):\n    print('reading\
+    \ data')\n    cursor = conn.cursor()\n\n    cursor.execute(\"select id, name,\
+    \ stock, price, created from product\")\n    t = PrettyTable(['ID', 'Name', 'Stock',\
+    \ 'Price', 'Created'])\n    for (id, name, stock, price, created) in cursor:\n\
+    \        t.add_row([id, name, stock, format(price, '.2f'), created])\n\n    print(t)\n\
+    \    cursor.close()\n    print('done')\n\n# creating data demo\nprint('transaction\
+    \ demo')\n\nconn = open_database()\nprint('Original data.....')\nread_data(conn)\n\
+    \n# set manual transaction\nconn.isolation_level = None\n\ntry:\n```"
+  merge: -1
+  pgno: 49
+- img_proc: true
+  md: "```\ncursor = conn.cursor()\ncursor.execute(\"BEGIN\")\nfor index in range(1,5):\n\
+    \    product_name = 'product ' + str(index)\n    price = 1.2 * index\n    stock\
+    \ = 10 + 2*index\n\n    insert_sql = (\"INSERT INTO product \"\n             \
+    \     \"(name, stock, price, created) \"\n                  \"VALUES(?, ?, ?,\
+    \ ?)\")\n\n    # demo error\n    if index == 3:\n        insert_sql =\ninsert_sql.replace('INSERT','INSERT1')\
+    \ # wrong statement\n\n    params = (product_name, stock, price,\ndatetime.now())\n\
+    \    conn.execute(insert_sql, params)\n    product_id = cursor.lastrowid\n   \
+    \ print('inserted with id=', product_id)\n\nconn.commit()\ncursor.close()\n\n\
+    except Exception as e:\n    cursor.execute(\"ROLLBACK\")\n    conn.rollback()\n\
+    \    print('error in inserting data')\n    print(e)\n\n\nprint('Update data.....')\n\
+    read_data(conn)\n\nconn.close()\nprint('done')\n```\n\nSave and run this program.\n\
+    \nSince our program performs rollback operation, we don't see our inserted data\
+    \ on database.\n\nThe following is a program output."
+  merge: -1
+  pgno: 50
+- img_proc: true
+  md: '```
+
+    E:\Projects\PEPRESS\python_sqlite\codes>python db_transaction.py
+
+    transaction demo
+
+    Connecting to SQLite...
+
+    connected
+
+    Original data.....
+
+    reading data
+
+    +----+-----------+-------+--------+---------------------------+
+
+    | ID | Name      | Stock | Price  | Created                   |
+
+    +----+-----------+-------+--------+---------------------------+
+
+    | 1  | product 1 | 7     | 8.40   | 2021-01-09 20:37:34.794886 |
+
+    | 2  | product 2 | 11    | 16.40  | 2021-01-09 20:37:34.795883 |
+
+    | 3  | product 3 | 15    | 24.40  | 2021-01-09 20:37:34.795883 |
+
+    | 4  | product 4 | 19    | 32.40  | 2021-01-09 20:37:34.796881 |
+
+    | 5  | product 5 | 23    | 40.40  | 2021-01-09 20:37:34.796881 |
+
+    | 6  | product 1 | 12    | 1.20   | 2021-01-09 20:37:52.172504 |
+
+    | 7  | product 2 | 14    | 2.40   | 2021-01-09 20:37:52.173506 |
+
+    | 8  | product 3 | 16    | 3.60   | 2021-01-09 20:37:52.173506 |
+
+    | 9  | product 4 | 18    | 4.80   | 2021-01-09 20:37:52.173506 |
+
+    +----+-----------+-------+--------+---------------------------+
+
+    done
+
+    inserted with id= 0
+
+    inserted with id= 0
+
+    error in inserting data
+
+    near "INSERT1": syntax error
+
+    Update data.....
+
+    reading data
+
+    +----+-----------+-------+--------+---------------------------+
+
+    | ID | Name      | Stock | Price  | Created                   |
+
+    +----+-----------+-------+--------+---------------------------+
+
+    | 1  | product 1 | 7     | 8.40   | 2021-01-09 20:37:34.794886 |
+
+    | 2  | product 2 | 11    | 16.40  | 2021-01-09 20:37:34.795883 |
+
+    | 3  | product 3 | 15    | 24.40  | 2021-01-09 20:37:34.795883 |
+
+    | 4  | product 4 | 19    | 32.40  | 2021-01-09 20:37:34.796881 |
+
+    | 5  | product 5 | 23    | 40.40  | 2021-01-09 20:37:34.796881 |
+
+    | 6  | product 1 | 12    | 1.20   | 2021-01-09 20:37:52.172504 |
+
+    | 7  | product 2 | 14    | 2.40   | 2021-01-09 20:37:52.173506 |
+
+    | 8  | product 3 | 16    | 3.60   | 2021-01-09 20:37:52.173506 |
+
+    | 9  | product 4 | 18    | 4.80   | 2021-01-09 20:37:52.173506 |
+
+    +----+-----------+-------+--------+---------------------------+
+
+    done
+
+    done
+
+
+    E:\Projects\PEPRESS\python_sqlite\codes>
+
+    ```'
+  merge: -1
+  pgno: 51
+- img_proc: true
+  md: '# 6. Python, SQLite and Pandas
+
+
+    This chapter explains how to work with Pandas and SQLite.'
+  merge: -1
+  pgno: 52
+- img_proc: true
+  md: "# 6.1 Demo\n\nIn this section, we learn how to access SQLite using Pandas.\
+    \ As we know, Pandas is a Python library that we can perform data processing.\
+    \ Before we use Pandas library, we should install Pandas and Numpy libraries on\
+    \ our local computer using pip command. You can type this command\n\n```\n$ pip\
+    \ install numpy pandas\n```\n\nFor testing, we previous a database file, called\
+    \ We open a database file and then pass the database object into Pandas object.\
+    \ After that, we perform queries by calling read_sql_query() function. You can\
+    \ write the following complete codes for our demo.\n\n```\nimport sqlite3\nfrom\
+    \ datetime import datetime\nfrom prettytable import PrettyTable\nimport pandas\
+    \ as pd\n\ndef open_database():\n    db = 'pydb.db'\n\n    print('Connecting to\
+    \ SQLite...')\n    conn = sqlite3.connect(db)\n    print('connected')\n\n    return\
+    \ conn\n\nconn = open_database()\ndf = pd.read_sql_query(\"select * from product\"\
+    , conn)\nprint(df)\n```"
+  merge: -1
+  pgno: 53
+- img_proc: true
+  md: '```
+
+    conn.close()
+
+    ```
+
+
+    Save this file. You can execute file
+
+
+    ```
+
+    $ python sqlite_pandas.py
+
+    ```
+
+
+    Here is a sample of program output.
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_54_0.png)'
+  merge: -1
+  pgno: 54
+- img_proc: true
+  md: '# Source Code
+
+
+    You can download source code for this book on http://www.makers.id/ak/pypostgres12195.zip'
+  merge: -1
+  pgno: 55
+- img_proc: true
+  md: '# Contact
+
+
+    If you have question related to this book, please contact me at aguskur@hotmail.com
+    . My blog: [http://blog.aguskurniawan.net](http://blog.aguskurniawan.net) .
+
+
+    ![](img/e5b7246022b4d7fa697a71247ffc4e5a_56_0.png)'
+  merge: -1
+  pgno: 56
+toc:
+- - '#'
+  - Python与SQLite开发
+- - '#'
+  - 目录
+- - '#'
+  - 前言
+- - '#'
+  - 1. 搭建开发环境
+- - '##'
+  - 1.1 Python
+- - '##'
+  - 1.2 SQLite数据库
+- - '##'
+  - 1.3 Python的SQLite驱动
+- - '##'
+  - 1.4 开发工具
+- - '##'
+  - 1.5 Python编程
+- - '#'
+  - 2. 入门 - Python与SQLite
+- - '##'
+  - 2.1 SQLite Shell
+- - '##'
+  - 2.2 连接到SQLite
+- - '##'
+  - 2.3 创建Python程序
+- - '##'
+  - 2.3 运行
+- - '#'
+  - 3. CRUD 操作
+- - '##'
+  - 3.1 CRUD 操作
+- - '##'
+  - 3.2 创建数据
+- - '##'
+  - 3.3 读取数据
+- - '##'
+  - 3.4 更新数据
+- - '##'
+  - 3.5 删除数据
+- - '#'
+  - 4. 处理图像和 Blob 数据
+- - '##'
+  - 4.1 图像和 Blob 数据
+- - '##'
+  - 4.2 插入图像文件
+- - '##'
+  - 4.3 读取和保存图像文件
+- - '#'
+  - 5. 事务
+- - '##'
+  - 5.1 Python 和 SQLite 事务
+- - '##'
+  - 5.2 演示
+- - '#'
+  - 6. Python、SQLite 和 Pandas
+- - '###'
+  - 6.1 演示
+- - '#'
+  - 源代码
+- - '#'
+  - 联系方式
