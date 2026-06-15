@@ -1,0 +1,3200 @@
+groups:
+- md: "# PYTHON BASICS\n\nPython Programming Net Intermediate\n\nwho curates the curriculum\
+    \ carefully. While studying a cumulative subject, massive attention must be paid\
+    \ while designing the learning path.\n\nAt this instant, I would say do not choose\
+    \ a language for its ranking; choose a language for which you have a complete\
+    \ course curriculum or learning path that makes no assumptions about prior knowledge.\n\
+    \nNow let's come to the topic.\n\n# What is Python?\n\nPython was first designed\
+    \ by Guido van Rossum and appeared the first time in 1991 publicly. It is an interpreted\
+    \ high-level programming language and was\n\nBelow are the names of few editors\
+    \ that write the Python program amongst many others.\n\n- Eclipse with PyDev:\
+    \ a Large community with considerable variation of customization.\n- Eric: This\
+    \ one utilizes the Qt framework, Scintilla that is code editing component.\n-\
+    \ DrPython: A free community...\n- PyCharm: A free community, beneficial for the\
+    \ learners.\n- Other choices include PyScriptor, LeoEditor, BlueFish, Spyder,\
+    \ Pt, and Geany.\n\n# Chapter Three: Introduction to numerous data types in Python\n\
+    \nPython consists of mainly five standard data types. In this book, I will discuss\
+    \ only three data types used In Python one by one.\n\nWhen we program, the information\
+    \ provided to the computer is referred to as data.\n\nFive data types in Python\
+    \ are:\n\n- Numbers\n- Strings\n- Boolean\n\n# NUMBERS:\n\n- Integers:\n  N=1,2,3\n\
+    \n- Strings:\n  Name=\"MARK\"\n  Surname=\"Quinn\"\n  Space=' '\n\n# BOOLEAN:\
+    \ True or False\n\nThis data type may be less familiar to you. Boolean data type\
+    \ has two conditions, i.e., true or false. For example, we can test variable name\
+    \ equals mark by calling the bool function, which evaluates the name equal to\
+    \ mark as true or false and in this case, it returns true before moving on\n\n\
+    ```\nN=bool (name=='MARK')\nN=true\n```\n\nto use and learn the latest version\
+    \ of Python.\n\nOn the first screen.\n\n- Click \"Add Python 3.6.exe to path\"\
+    \ option.\n- Then click \"Install now\" to proceed.\n\nAt this instant, you have\
+    \ to make a decision. If you want to remove the limitation on MAX_PATH variable,\
+    \ click on “Disable path length limit” option. If you don’t want to remove the\
+    \ limitation on MAX_PATH variable, you can finish the installation by clicking\
+    \ the “Close” option.\n\nYou can also confirm the installation of Python 3 by\
+    \ opening the command prompt and typing ‘Python -V’ command, this will also assure\
+    \ you either the path variable is set or not.\n\n# Chapter One: A-Z Guide for\
+    \ the beginners\n\n```\nprint \"Hello, world!\"\n```\n\nDo you want to start programming\
+    \ but confused about where to start? In this chapter, I will try to vanquish your\
+    \ confusion.\n\nComputer science is a cumulative field of study. It means that\
+    \ each previous topic relates to the previous one. Have you ever tried learning\
+    \ to program before but failed? You were not the fault. A good professor of a\
+    \ cumulative subject is the one\n\n- Easy to understand the syntax\n\nAs the syntax\
+    \ feels natural, so a code written in Python is straightforward to understand.\
+    \ I am taking an example case to elaborate my point clearly\n\n```\ng=1\nf=4\n\
+    Sum=g + f\n```\n\n```\nSum=g + f\nPrint Sum\n```\n\nLet's take another case\n\n\
+    ```\nThe first number = a\nSecond number = b\nAnswer = (a * b)\n```\n\n- Not an\
+    \ overly strict language\nDefining the type of variable in Python is not necessary,\
+    \ and the code will run\n\n# Chapter Five: Concept of interpreters and interactives\
+    \ in Python\n\nTo run the program, the majority of languages needs you to write\
+    \ source code, but with Python, everything is more comfortable you don't need\
+    \ to write source code to run a specific program in Python that is why is defined\
+    \ interpreter. Python allows its user to write the instruction directly from its\
+    \ command prompt without editing or creating a source file (Interactive). Interactive\
+    \ mode enables you to experiment with new syntax variations. One of the benefits\
+    \ of working with an interpreted language is that you can test\n\n# Chapter Nine:\
+    \ Suitable Python Versions for Beginners\n\nFor the people who have decided to\
+    \ work with Python for the very first time, the best option would be to go for\
+    \ the 3rd version. In the case where your needed options are not available in\
+    \ the 3rd version, then go for the 2nd one. By having the giving imports at the\
+    \ top of the program of Python 2, you can go like Python 3.\n\nIf you are new\
+    \ to Python and the packages you need are already available on Python 3, start\
+    \ with Python 3. If some packages you need are not yet available in Python 3,\
+    \ then chose Python 2.\n\nliving body of a human being which performs different\
+    \ functions.\n\n# Inheritance\n\nWhile human beings are assumed as Class, their\
+    \ body parts become properties, and their action becomes functions. Similarly,\
+    \ male and female can also be considered as classes which can inherit the properties\
+    \ by the concept of Inheritance.\n\n# Object\n\nExplaining this, a person named\
+    \ Kelvin is an object for the class Male. The physical existence of a person which\
+    \ is objected to change makes it an Object.\n\n# Abstraction\n\nAbstraction means\
+    \ portraying the exterior stuff while masking the interior\n\n# CONTENTS\n\nIntroduction\n\
+    \nChapter One: A-Z Guide for the beginners\n\nChapter Two: Why learning Python\
+    \ is essential?\n\nChapter Three: Introduction to numerous data types in Python\n\
+    \nChapter Four: How to get started with python\n\nChapter Five: Concept of interpreters\
+    \ and interactives in Python\n\nChapter Six: Python or PERL; which one is best?\n\
+    \nChapter Seven: Python- An object-oriented programming\n\nChapter Eight: Python\
+    \ – The Subdivisions\n\nChapter Nine: Suitable Python Versions for Beginners\n\
+    \nChapter Ten: Python-Overview\n\nChapter Eleven: Advantages and disadvantages\
+    \ of python\n\n# Conclusion\n\nwould do data analysis. The other thing I did is\
+    \ I used Python as a control language for C. Python can be used as a click language\
+    \ for building large applications like NIC like a mix of Python and a mix of C.\
+    \ It was just a huge productivity win. Python is like a computational corner to\
+    \ matrix multiply fast Fourier transform or something like that. Variables and\
+    \ initial conditions can be easily changed in Python making it easy to change\
+    \ something like that. Variables and initial conditions can be easily changed\
+    \ in Python without rewriting the whole code again.\n\nbasics, let us try to explain\
+    \ to you the meaning of the terminologies frequently applied in this language.\
+    \ To illustrate the concept of object-oriented programming clearly, I am going\
+    \ to relate it to human life. Taking the example of humans which are majorly classified\
+    \ into two categories/ classes; Male and Female, both have similar body structure,\
+    \ but some of the body parts specific and are only confined to a particular category.\
+    \ However, actions like sleeping, eating, walking are performed by both.\n\n#\
+    \ Class\n\nWith the help of the above example, here we will consider Human beings\
+    \ as the Class. A class works as the layout for any functional creature, which\
+    \ determines its characteristics and actions. Just like a"
+  mdcn: "# Python 基础\n\nPython 编程网络中级课程\n\n课程设计者会精心策划课程体系。在学习一门累积性学科时，设计学习路径必须格外谨慎。\n\
+    \n此时，我想说，不要因为一门语言的排名而选择它；而应选择一门拥有完整课程体系或学习路径、且不假设你具备任何先验知识的语言。\n\n现在，让我们进入正题。\n\
+    \n# 什么是 Python？\n\nPython 由吉多·范罗苏姆首次设计，并于 1991 年首次公开亮相。它是一种解释型的高级编程语言，并且是\n\n\
+    以下是众多编辑器中，可用于编写 Python 程序的几款名称。\n\n- Eclipse 配合 PyDev：拥有庞大社区和丰富的自定义选项。\n- Eric：此编辑器利用\
+    \ Qt 框架和 Scintilla 代码编辑组件。\n- DrPython：一个免费的社区版...\n- PyCharm：一个免费的社区版，对学习者很有帮助。\n\
+    - 其他选择包括 PyScripter、LeoEditor、BlueFish、Spyder、Pt 和 Geany。\n\n# 第三章：Python 中多种数据类型简介\n\
+    \nPython 主要包含五种标准数据类型。在本书中，我将逐一讨论 Python 中使用的三种数据类型。\n\n当我们编程时，提供给计算机的信息被称为数据。\n\
+    \nPython 中的五种数据类型是：\n\n- 数字\n- 字符串\n- 布尔值\n\n# 数字：\n\n- 整数：\n  N=1,2,3\n\n- 字符串：\n\
+    \  Name=\"MARK\"\n  Surname=\"Quinn\"\n  Space=' '\n\n# 布尔值：真或假\n\n这种数据类型你可能不太熟悉。布尔数据类型有两种状态，即真或假。例如，我们可以通过调用\
+    \ bool 函数来测试变量名是否等于 mark，该函数会评估 name 等于 mark 是真还是假，在这种情况下，它会返回 true。在继续之前\n\n\
+    ```\nN=bool (name=='MARK')\nN=true\n```\n\n去使用和学习最新版本的 Python。\n\n在第一个屏幕上。\n\n\
+    - 点击“将 Python 3.6.exe 添加到路径”选项。\n- 然后点击“立即安装”以继续。\n\n此时，你需要做出一个决定。如果你想移除 MAX_PATH\
+    \ 变量的限制，请点击“禁用路径长度限制”选项。如果你不想移除 MAX_PATH 变量的限制，可以通过点击“关闭”选项来完成安装。\n\n你也可以通过打开命令提示符并输入‘Python\
+    \ -V’命令来确认 Python 3 的安装，这也能让你确认路径变量是否已设置。\n\n# 第一章：初学者入门指南\n\n```\nprint \"Hello,\
+    \ world!\"\n```\n\n你想开始编程，但又困惑于从何处开始吗？在本章中，我将努力消除你的困惑。\n\n计算机科学是一门累积性的学科。这意味着每个新主题都与前一个主题相关。你是否曾尝试学习编程但失败了？那不是你的错。一位教授累积性学科的好老师是\n\
+    \n- 语法易于理解\n\n由于语法感觉很自然，因此用 Python 编写的代码非常易于理解。我举一个例子来清楚地阐述我的观点\n\n```\ng=1\n\
+    f=4\nSum=g + f\n```\n\n```\nSum=g + f\nPrint Sum\n```\n\n让我们再看一个例子\n\n```\nThe\
+    \ first number = a\nSecond number = b\nAnswer = (a * b)\n```\n\n- 不是一门过于严格的语言\n\
+    在 Python 中定义变量的类型不是必需的，代码将会运行\n\n# 第五章：Python 中解释器和交互模式的概念\n\n要运行程序，大多数语言需要你编写源代码，但对于\
+    \ Python，一切都更简单，你不需要编写源代码来运行特定的 Python 程序，这就是为什么它被定义为解释型语言。Python 允许用户直接从其命令提示符输入指令，而无需编辑或创建源文件（交互模式）。交互模式使你能够尝试新的语法变体。使用解释型语言的好处之一是你可以测试\n\
+    \n# 第九章：适合初学者的 Python 版本\n\n对于那些第一次决定使用 Python 的人来说，最好的选择是使用第 3 版。如果你需要的选项在第 3\
+    \ 版中不可用，那么就选择第 2 版。通过在 Python 2 程序的顶部添加给定的导入语句，你可以像使用 Python 3 一样使用它。\n\n如果你是\
+    \ Python 新手，并且你需要的包在 Python 3 上已经可用，那么从 Python 3 开始。如果你需要的一些包在 Python 3 中尚不可用，那么选择\
+    \ Python 2。\n\n人类的活体，执行着不同的功能。\n\n# 继承\n\n当人类被假定为类时，他们的身体部位成为属性，他们的行为成为函数。同样，男性和女性也可以被视为类，它们可以通过继承的概念继承属性。\n\
+    \n# 对象\n\n对此进行解释，一个名叫 Kelvin 的人是男性类的一个对象。一个人的物理存在，其被对象化以进行改变，使其成为一个对象。\n\n# 抽象\n\
+    \n抽象意味着描绘外部事物，同时隐藏内部\n\n# 目录\n\n引言\n\n第一章：初学者入门指南\n\n第二章：为什么学习 Python 很重要？\n\n\
+    第三章：Python 中多种数据类型简介\n\n第四章：如何开始使用 Python\n\n第五章：Python 中解释器和交互模式的概念\n\n第六章：Python\
+    \ 还是 PERL；哪个更好？\n\n第七章：Python - 面向对象编程\n\n第八章：Python – 细分\n\n第九章：适合初学者的 Python\
+    \ 版本\n\n第十章：Python 概述\n\n第十一章：Python 的优点和缺点\n\n# 结论\n\n会进行数据分析。我做的另一件事是将 Python\
+    \ 用作 C 的控制语言。Python 可以用作构建大型应用程序（如 NIC）的粘合语言，类似于 Python 和 C 的混合。这极大地提高了生产力。Python\
+    \ 就像是一个计算角落，用于快速傅里叶变换或矩阵乘法之类的东西。变量和初始条件在 Python 中可以轻松更改，使得更改此类内容变得容易。变量和初始条件在\
+    \ Python 中可以轻松更改，无需重写整个代码。\n\n基础，让我们尝试向你解释这门语言中常用术语的含义。为了清晰地阐述面向对象编程的概念，我将把它与人类生活联系起来。以人类为例，人类主要分为两类/类：男性和女性，两者具有相似的身体结构，但某些身体部位是特定的，仅限于某一类别。然而，像睡觉、吃饭、行走这样的动作，两者都会执行。\n\
+    \n# 类\n\n借助上面的例子，这里我们将把人类视为类。类作为任何功能性生物的蓝图，决定了其特征和行为。就像一个"
+  merge: -1
+  raw:
+  - '[PAGE 0]
+
+
+    ![](img/e58b2092d1a426c514a5c72c72dcbbb1_0_0.png)
+
+
+    # PYTHON BASICS
+
+
+    Python Programming Net Intermediate'
+  - '[PAGE 1]
+
+
+    ![](img/e58b2092d1a426c514a5c72c72dcbbb1_1_0.png)'
+  - '[PAGE 2]
+
+
+    who curates the curriculum carefully.
+
+    While studying a cumulative subject,
+
+    massive attention must be paid while
+
+    designing the learning path.
+
+
+    At this instant, I would say do not choose a
+
+    language for its ranking; choose a
+
+    language for which you have a complete
+
+    course curriculum or learning path that
+
+    makes no assumptions about prior
+
+    knowledge.'
+  - '[PAGE 3]
+
+
+    course curriculum or learning path that makes no assumptions about prior knowledge.
+
+
+    Now let''s come to the topic.
+
+
+    # What is Python?
+
+
+    Python was first designed by Guido van Rossum and appeared the first time in 1991
+    publicly. It is an interpreted high-level programming language and was'
+  - '[PAGE 4]
+
+
+    Below are the names of few editors that write the Python program amongst many
+    others.
+
+
+    +   - Eclipse with PyDev: a Large community with considerable variation of customization.
+
+    - Eric: This one utilizes the Qt framework, Scintilla that is code editing component.
+
+    - DrPython: A free community...'
+  - '[PAGE 5]
+
+
+    framework, Scintilla that is code editing component.
+
+
+    +   - PyCharm: A free community, beneficial for the learners.
+
+    - Other choices include PyScriptor, LeoEditor, BlueFish, Spyder, Pt, and Geany.'
+  - '[PAGE 6]
+
+
+    # Chapter Three: Introduction to numerous data types in Python
+
+
+    Python consists of mainly five standard data types. In this book, I will discuss
+    only three data types used In Python one by one.
+
+
+    When we program, the information provided to the computer is referred to as data.'
+  - '[PAGE 7]
+
+
+    provided to the computer is referred to as data.
+
+
+    Five data types in Python are:
+
+
+    +   - Numbers
+
+    - Strings
+
+    - Boolean
+
+
+    # NUMBERS:
+
+
+    -Integers:
+
+
+    N=1,2,3'
+  - '[PAGE 8]
+
+
+    Name="MARK"
+
+
+    Surname="Quinn"
+
+
+    Space='' ''
+
+
+    # BOOLEAN: True or False
+
+
+    This data type may be less familiar to you. Boolean data type has two conditions,
+    i.e., true or false. For example, we can test variable name equals mark by calling
+    the'
+  - '[PAGE 9]
+
+
+    Boolean data type has two conditions, i.e., true or false. For example, we can
+    test variable name equals mark by calling the bool function, which evaluates the
+    name equal to mark as true or false and in this case, it returns true before moving
+    on
+
+
+    ```
+
+    N=bool (name==''MARK'')
+
+    N=true
+
+    ```'
+  - '[PAGE 10]
+
+
+    to use and learn the latest version of Python.
+
+
+    On the first screen.
+
+
+    +   - Click "Add Python 3.6.exe to path" option.
+
+    - Then click "Install now" to proceed.
+
+
+    At this instant, you have to make a decision. If you want to remove the'
+  - '[PAGE 11]
+
+
+    At this instant, you have to make a decision. If you want to remove the limitation
+    on MAX_PATH variable, click on “Disable path length limit” option. If you don’t
+    want to remove the limitation on MAX_PATH variable, you can finish the installation
+    by clicking the “Close” option.
+
+
+    You can also confirm the installation of Python 3 by opening the command prompt
+    and typing ‘Python -V’ command, this will'
+  - '[PAGE 12]
+
+
+    # Chapter One: A-Z Guide for the beginners
+
+
+    ![](img/e58b2092d1a426c514a5c72c72dcbbb1_12_0.png)'
+  - '[PAGE 13]
+
+
+    ```
+
+    print "Hello, world!"
+
+    ```
+
+
+    Do you want to start programming but confused about where to start? In this chapter,
+    I will try to vanquish your confusion.
+
+
+    Computer science is a cumulative field of study. It means that each previous topic
+    relates to the previous one. Have you ever tried learning to program before but
+    failed? You were not the fault. A good professor of a cumulative subject is the
+    one'
+  - '[PAGE 14]
+
+
+    +   - Easy to understand the syntax
+
+
+    As the syntax feels natural, so a code written in Python is straightforward to
+    understand. I am taking an example case to elaborate my point clearly
+
+
+    ```
+
+    g=1
+
+    f=4
+
+    Sum=g + f
+
+    ```'
+  - '[PAGE 15]
+
+
+    1-4
+
+
+    ```
+
+    Sum=g + f
+
+    Print Sum
+
+    ```
+
+
+    Let''s take another case
+
+
+    ```
+
+    The first number = a
+
+    Second number = b
+
+    Answer = (a * b)
+
+    ```
+
+
+    +   - Not an overly strict language
+
+    Defining the type of variable in Python is not necessary, and the code will run'
+  - '[PAGE 16]
+
+
+    # Chapter Five: Concept of interpreters and interactives in Python
+
+
+    To run the program, the majority of languages needs you to write source code,
+    but with Python, everything is more comfortable you don''t need to write source
+    code to run a specific program in Python'
+  - '[PAGE 17]
+
+
+    comfortable you don''t need to write source code to run a specific program in
+    Python that is why is defined interpreter. Python allows its user to write the
+    instruction directly from its command prompt without editing or creating a source
+    file (Interactive). Interactive mode enables you to experiment with new syntax
+    variations. One of the benefits of working with an interpreted language is that
+    you can test'
+  - '[PAGE 18]
+
+
+    # Chapter Nine: Suitable Python Versions for Beginners
+
+
+    For the people who have decided to work with Python for the very first time, the
+    best option would be to go for the 3rd version. In the case where your needed
+    options are not available in the 3rd version, then go for the 2nd one. By having
+    the giving imports'
+  - '[PAGE 19]
+
+
+    In the case where you need options are not available in the 3rd version, then
+    go for the 2nd one. By having the giving imports at the top of the program of
+    Python 2, you can go like Python 3.
+
+
+    If you are new to Python and the packages you need are already available on Python
+    3, start with Python 3. If some packages you need are not yet available in Python
+    3, then chose Python 2.'
+  - '[PAGE 20]
+
+
+    also assure you either the path variable is set or not.'
+  - '[PAGE 21]
+
+
+    <!-- no content -->'
+  - '[PAGE 22]
+
+
+    living body of a human being which performs different functions.
+
+
+    # Inheritance
+
+
+    While human beings are assumed as Class, their body parts become properties, and
+    their action becomes functions. Similarly, male and female can also be considered
+    as classes which can inherit the properties by the concept of Inheritance.'
+  - '[PAGE 23]
+
+
+    classes which can inherit the properties by the concept of Inheritance.
+
+
+    # Object
+
+
+    Explaining this, a person named Kelvin is an object for the class Male. The physical
+    existence of a person which is objected to change makes it an Object.
+
+
+    # Abstraction
+
+
+    Abstraction means portraying the exterior stuff while masking the interior'
+  - '[PAGE 24]
+
+
+    # CONTENTS
+
+
+    Introduction
+
+
+    Chapter One: A-Z Guide for the beginners
+
+
+    Chapter Two: Why learning Python is essential?
+
+
+    Chapter Three: Introduction to numerous data types in Python
+
+
+    Chapter Four: How to get started with python
+
+
+    Chapter Five: Concept of interpreters and interactives in Python
+
+
+    Chapter Six: Python or PERL; which one is best?'
+  - '[PAGE 25]
+
+
+    # Chapter Five: Concept of interpreters and interactives in Python
+
+
+    # Chapter Six: Python or PERL; which one is best?
+
+
+    # Chapter Seven: Python- An object-oriented programming
+
+
+    # Chapter Eight: Python – The Subdivisions
+
+
+    # Chapter Nine: Suitable Python Versions for Beginners
+
+
+    # Chapter Ten: Python-Overview
+
+
+    # Chapter Eleven: Advantages and disadvantages of python
+
+
+    # Conclusion'
+  - '[PAGE 26]
+
+
+    would do data analysis. The other thing I did is I used Python as a control language
+    for C. Python can be used as a click language for building large applications
+    like NIC like a mix of Python and a mix of C. It was just a huge productivity
+    win. Python is like a computational corner to matrix multiply fast Fourier transform
+    or something like that. Variables and initial conditions can be easily changed
+    in Python'
+  - '[PAGE 27]
+
+
+    making it easy to change something like that. Variables and initial conditions
+    can be easily changed in Python without rewriting the whole code again.'
+  - '[PAGE 28]
+
+
+    basics, let us try to explain to you the meaning of the terminologies frequently
+    applied in this language. To illustrate the concept of object-oriented programming
+    clearly, I am going to relate it to human life. Taking the example of humans which
+    are majorly classified into two categories/ classes; Male and Female, both have
+    similar body structure, but some of the body parts specific and are only confined'
+  - '[PAGE 29]
+
+
+    humans, have and humans, you have similar body structure, but some of the body
+    parts specific and are only confined to a particular category. However, actions
+    like sleeping, eating, walking are performed by both.
+
+
+    # Class
+
+
+    With the help of the above example, here we will consider Human beings as the
+    Class. A class works as the layout for any functional creature, which determines
+    its characteristics and actions. Just like a'
+- md: "## How to confirm the installation?\n\n- Open the command prompt.\n- Type ‘Python\
+    \ -V’.\n\nSuccess! If you need only this particular version of python you can\
+    \ stop right here because installation is complete and the path variable is set;\
+    \ now you can use the Python.\n\n## How to install Python 3?\n\nYou can install\
+    \ the Python 3 along with python two without any issue if you want.\n\nThe sample\
+    \ of the interactive session is as follows:\n\n```\n>>> 7\n7\n>>> print (7*6)\n\
+    34\n>>> \"how are you\" * 4\n'How are cookware you how are you.'\n```\n\n```\n\
+    >>> \"how are you\" * 4\n'How are cookware you how are you.'\n>>> \"how are you.\"\
+    \ Class_\n<type 'str'>\n```\n\nThis might seem quite easy to follow and use in\
+    \ the program, but you have to be very careful in this regard. The interactive\
+    \ environment can be a little confusing. There is a sample Python script that\
+    \ is usually followed, which is given as follows.\n\n## How to install Python\
+    \ 2\n\nAfter downloading the Python 2.\n\n- Click on setup, a dialogue box will\
+    \ appear on the screen.\n- Select \"Install for all users\" option.\n- Click \"\
+    Next\" to proceed.\n\nWhen you click \"Next\" a directory selection screen will\
+    \ appear.\n\n- Leave the directory as \"Python 27\".\n- Click \"Next\" to proceed.\n\
+    \nWhen you click next, a customization screen will appear.\n\n- Scroll down and\
+    \ click \"Add Python.exe to the path.\"\n- After clicking \"Add Python.exe to\
+    \ Path,\" select \"Will be installed on local hard drive\" option.\n\nor statistical\
+    \ models. You can use Python for creating a desktop application like Blende 3d\
+    \ and for games pygames You can also translate python into a binary code like\
+    \ java. An interesting fact is that most Ubuntu configuration utilities are Pythonic.\n\
+    \nSome other uses of Python are listed below:\n\n- **Software and SAAS products**\n\
+    \  To help technology and software-driven companies with their software and SAAS\
+    \ products.\n- **Python big data**\n  Help leverage cloud platforms for building\
+    \ and delivering solutions.\n\n## Disadvantages of Python\n\n- Design restrictions.\n\
+    - Underdeveloped database access layers.\n- Weak in mobile computing and browsers.\n\
+    - Speed limitations.\n\nAs can be seen from the above bullet points pros exceed\
+    \ the cons so in conclusion Python is a useful programming language.\n\n```\n\
+    ...\n...\nTrue\n>>> print(\"Done\")\nDone\n>>>\n```\n\nSo this way of the interactive\
+    \ session would be useful and functional.\n\n```\nIf 1:\n    Print (\"True\")\n\
+    \    Print (\"Done\")\n```\n\nThis is the format specific \\to Python only whereas\
+    \ if you type this in the interactive environment, you might be surprised to see\
+    \ what appears as a result.\n\n```\n>>> if 1:\n...     Print(\"True\")\n...  \
+    \   Print(\"Done\")\nFile \"<stdin>\", line 3\n    Print(\"Done\")\n    ^\nSyntax\
+    \ Error: invalid syntax\n```\n\nspecifications. Just like a human body can show\
+    \ off their skin but beneath it remains a secret to others.\n\n## Encapsulation\n\
+    \nThe idea of this terminology is the attachment of properties for the performance\
+    \ of the function. We can take the example of our legs which assist us in moving\
+    \ or performing an action.\n\n## Polymorphism\n\nPolymorphism is the idea of elaborating\
+    \ the same thing differently. This is achieved either by changing the properties\
+    \ of work or the way it is performed.\n\n## Chapter Eleven: Advantages and disadvantages\
+    \ of python\n\nPython has a wide range of applications in software development\
+    \ companies like gaming, web frameworks and applications, language development,\
+    \ prototyping, graphic design applications, etc.\n\nLike every other language\
+    \ Python also has its advantages and disadvantages. In the succeeding section,\
+    \ I will let you know about the advantages and disadvantages of Python.\n\nFirstly,\
+    \ I will list the advantages then we will talk about the disadvantage.\n\nPython\
+    \ that can be very useful for Data Analysis.\n\nPython is equipped with much more\
+    \ libraries specially designed for Data Analysis. Conclusively, I would say Python\
+    \ is an \"essential to learning\" programming language.\n\nchatbots. The list\
+    \ of the top six languages to learn created by Michael O' Church doesn't include\
+    \ PERL.\n\nI personally like Python because it is straightforward to learn. But\
+    \ Python can't be used for larger system applications. You can use Python for\
+    \ solving maths problems, creating games, building simple apps and also for a\
+    \ lot of other purposes. Relative to the lines of newly created code Pearl and\
+    \ Python both have faced their usage drop off in the past recent years. PERL has\
+    \ successfully maintained that level for the last ten years, never getting as\
+    \ big as Python. The job openings for PERL developers are more than that of Python\
+    \ developers because the number of developers of Python is decreasing day by day,\
+    \ but the Python developers are\n\n## Chapter Four: How to get started with python\n\
+    \nIn this section, I will guide you completely how to install python in your PC,\
+    \ or Laptop, Python is very easy to Install. First, I will let you know how to\
+    \ install Python on Windows.\n\nA few years back, a significant update to Python\
+    \ created a split between Python versions. This thing is a little bit confusing\
+    \ for the newcomers, but it is not a big issue.\nIn this book, I will talk about\
+    \ the installation of both versions of Python.\n\nWhen you search Python for windows\
+    \ on google, you will immediately see the\n\n## INTERACTIVE MODE\n\nThe common\
+    \ mode in which python works is the one described earlier that is script mode,\
+    \ while the other one is interactive mode. The basic difference in both these\
+    \ modes is that the interactive mode keeps the previous statements in its active\
+    \ memory which are fed in this. The feedback to newly given statements is immediate\
+    \ and interpreted by the previous fed statements. The lines that are given to\
+    \ the interpreter are always interpreted in two sections, in part as separate\
+    \ and also as a whole.\n\nThe interactive mode in comparison to the script mode\
+    \ is more suitable for you if you want to play with Python programming. It is\
+    \ also preferred for using different varieties on the syntax.\n\nI=-111\n\n##\
+    \ -Float:\n\nDecimal points i.e. g=6.87, f= 10*e^-10\n\nThe first of our basic\
+    \ data types are numbers including integers, e.g., 3, -11.\n\nReal number or decimal\
+    \ number which have floating points are called floats.\n\nComplex numbers, e.g.,\
+    \ J which is equal to the square root(-1) which is an imaginary number.\n\n##\
+    \ STRINGS:\n\nBesides these, we also have strings which resemble words each string\
+    \ is comprised of letter or elements and. They are defined using quotation marks\
+    \ such as name or surname or even space which is an empty character.\n\ndivisions.\
+    \ The repository ask whether you want to install latest releases of Python 2 or\
+    \ Python 3 ( 2.7.1 and 3.6.1 respectively).\n\nIf you're going to learn Python\
+    \ thoroughly, I will recommend you download both the versions side by side. This\
+    \ will allow you to learn the latest version of Python as well as the older version.\n\
+    \nBut if you think you only need a particular"
+  mdcn: "## 如何确认安装成功？\n\n- 打开命令提示符。\n- 输入‘Python -V’。\n\n成功！如果你只需要这个特定版本的Python，那么到此为止即可，因为安装已完成且路径变量已设置；现在你可以使用Python了。\n\
+    \n## 如何安装Python 3？\n\n如果你愿意，可以毫无问题地同时安装Python 3和Python 2。\n\n交互式会话的示例如下：\n\n```\n\
+    >>> 7\n7\n>>> print (7*6)\n34\n>>> \"how are you\" * 4\n'How are cookware you\
+    \ how are you.'\n```\n\n```\n>>> \"how are you\" * 4\n'How are cookware you how\
+    \ are you.'\n>>> \"how are you.\" Class_\n<type 'str'>\n```\n\n这看起来似乎很容易在程序中遵循和使用，但在这方面你必须非常小心。交互式环境可能会有点令人困惑。通常会遵循一个示例Python脚本，如下所示。\n\
+    \n## 如何安装Python 2\n\n下载Python 2之后。\n\n- 点击安装程序，屏幕上会出现一个对话框。\n- 选择“为所有用户安装”选项。\n\
+    - 点击“下一步”继续。\n\n当你点击“下一步”时，会出现一个目录选择屏幕。\n\n- 将目录保留为“Python 27”。\n- 点击“下一步”继续。\n\
+    \n当你点击下一步时，会出现一个自定义屏幕。\n\n- 向下滚动并点击“将Python.exe添加到路径”。\n- 点击“将Python.exe添加到路径”后，选择“将安装在本地硬盘驱动器上”选项。\n\
+    \n或统计模型。你可以使用Python创建像Blender 3D这样的桌面应用程序，以及用于游戏的Pygame。你还可以将Python转换为像Java一样的二进制代码。一个有趣的事实是，大多数Ubuntu配置工具都是Python化的。\n\
+    \nPython的其他一些用途如下：\n\n- **软件和SaaS产品**\n  帮助技术和软件驱动公司处理其软件和SaaS产品。\n- **Python大数据**\n\
+    \  帮助利用云平台来构建和交付解决方案。\n\n## Python的缺点\n\n- 设计限制。\n- 数据库访问层不发达。\n- 在移动计算和浏览器方面较弱。\n\
+    - 速度限制。\n\n从以上要点可以看出，优点多于缺点，因此总而言之，Python是一种有用的编程语言。\n\n```\n...\n...\nTrue\n\
+    >>> print(\"Done\")\nDone\n>>>\n```\n\n所以这种交互式会话的方式将是实用且功能性的。\n\n```\nIf 1:\n\
+    \    Print (\"True\")\n    Print (\"Done\")\n```\n\n这是Python特有的格式，而如果你在交互式环境中输入这个，你可能会惊讶地看到出现的结果。\n\
+    \n```\n>>> if 1:\n...     Print(\"True\")\n...     Print(\"Done\")\nFile \"<stdin>\"\
+    , line 3\n    Print(\"Done\")\n    ^\nSyntax Error: invalid syntax\n```\n\n规范。就像人体可以展示皮肤，但其下对他人而言仍是一个秘密。\n\
+    \n## 封装\n\n这个术语的理念是为函数的性能附加属性。我们可以以我们的腿为例，它们帮助我们移动或执行动作。\n\n## 多态\n\n多态是阐述同一事物的不同方式的理念。这可以通过改变工作的属性或执行方式来实现。\n\
+    \n## 第十一章：Python的优点和缺点\n\nPython在软件开发公司中有广泛的应用，如游戏、Web框架和应用程序、语言开发、原型设计、图形设计应用程序等。\n\
+    \n像其他所有语言一样，Python也有其优点和缺点。在接下来的部分，我将告诉你Python的优点和缺点。\n\n首先，我将列出优点，然后我们将讨论缺点。\n\
+    \nPython对于数据分析可能非常有用。\n\nPython配备了更多专门为数据分析设计的库。总之，我想说Python是一门“必学”的编程语言。\n\n\
+    聊天机器人。Michael O' Church创建的六大必学语言列表中不包括PERL。\n\n我个人喜欢Python，因为它学习起来很直接。但Python不能用于大型系统应用程序。你可以使用Python来解决数学问题、创建游戏、构建简单应用程序以及许多其他用途。相对于新创建的代码行数，Perl和Python在过去的几年中都面临使用率下降。PERL在过去的十年中成功地保持了那个水平，从未像Python那样庞大。PERL开发者的职位空缺比Python开发者多，因为Python开发者的数量在逐日减少，但Python开发者是\n\
+    \n## 第四章：如何开始使用Python\n\n在本节中，我将完全指导你如何在你的PC或笔记本电脑上安装Python，Python非常容易安装。首先，我将让你知道如何在Windows上安装Python。\n\
+    \n几年前，Python的一个重大更新导致了Python版本之间的分裂。这件事对新手来说有点令人困惑，但这不是什么大问题。\n在本书中，我将讨论两个版本Python的安装。\n\
+    \n当你在谷歌上搜索Windows版的Python时，你会立即看到\n\n## 交互模式\n\nPython工作的常见模式是前面描述的脚本模式，而另一种是交互模式。这两种模式的基本区别在于，交互模式将其活动内存中保留之前输入的语句。对新给出的语句的反馈是即时的，并由之前输入的语句解释。提供给解释器的行总是被解释为两个部分，一部分是独立的，也作为整体。\n\
+    \n与脚本模式相比，交互模式更适合你如果你想尝试Python编程。它也适用于使用语法的不同变体。\n\nI=-111\n\n## -浮点数：\n\n小数点，即\
+    \ g=6.87, f= 10*e^-10\n\n我们的基本数据类型首先是数字，包括整数，例如，3，-11。\n\n具有浮点的实数或小数称为浮点数。\n\n\
+    复数，例如，J，它等于平方根(-1)，这是一个虚数。\n\n## 字符串：\n\n除此之外，我们还有字符串，它们类似于单词，每个字符串由字母或元素组成。它们使用引号定义，例如名字或姓氏，甚至是空格，这是一个空字符。\n\
+    \n除法。仓库询问你是要安装最新的Python 2还是Python 3版本（分别是2.7.1和3.6.1）。\n\n如果你打算彻底学习Python，我建议你同时下载两个版本。这将允许你学习最新版本的Python以及旧版本。\n\
+    \n但如果你认为你只需要一个特定的"
+  merge: 0
+  raw:
+  - '[PAGE 30]
+
+
+    +   - Click “Next” to proceed.
+
+
+    After this point, you have to make no more decisions. Just click through the installation
+    wizard to complete the installation process. You can also confirm the installation.
+
+
+    # How to confirm the installation?
+
+
+    +   - Open the command prompt.
+
+    - Type ‘Python -V’.'
+  - '[PAGE 31]
+
+
+    +   - Open the command prompt.
+
+    - Type ‘Python -V’.
+
+
+    Success! If you need only this particular version of python you can stop right
+    here because installation is complete and the path variable is set; now you can
+    use the Python.
+
+
+    # How to install Python 3?
+
+
+    You can install the Python 3 along with python two without any issue if you want'
+  - '[PAGE 32]
+
+
+    The sample of the interactive session is as follows:
+
+
+    ```
+
+    >>> 7
+
+    7
+
+    >>> print (7*6)
+
+    34
+
+    >>> "how are you" * 4
+
+    ''How are cookware you how are you.''
+
+    ```'
+  - '[PAGE 33]
+
+
+    ```
+
+    >>> "how are you" * 4
+
+    ''How are cookware you how are you.''
+
+    >>> "how are you." Class_
+
+    <type ''str''>
+
+    ```
+
+
+    This might seem quite easy to follow and use in the program, but you have to be
+    very careful in this regard. The interactive environment can be a little confusing.
+    There is a sample Python script that is usually followed, which is given as follows.'
+  - '[PAGE 34]
+
+
+    # How to install Python 2
+
+
+    After downloading the Python 2.
+
+
+    +   - Click on setup, a dialogue box will appear on the screen.
+
+    - Select "Install for all users" option.
+
+    - Click "Next" to proceed.
+
+
+    When you click "Next" a directory selection screen will appear.'
+  - '[PAGE 35]
+
+
+    When you click "Next" a directory selection screen will appear.
+
+
+    +   - Leave the directory as "Python 27".
+
+    - Click "Next" to proceed.
+
+
+    When you click next, a customization screen will appear.
+
+
+    +   - Scroll down and click "Add Python.exe to the path."
+
+    - After clicking "Add Python.exe to Path," select "Will be installed on local
+    hard drive" option.'
+  - '[PAGE 36]
+
+
+    or statistical models. You can use Python for creating a desktop application like
+    Blende 3d and for games pygames You can also translate python into a binary code
+    like java. An interesting fact is that most Ubuntu configuration utilities are
+    Pythonic.
+
+
+    Some other uses of Python are listed below:'
+  - "[PAGE 37]\n\nSome other uses of Python are listed below:\n\n+   - **Software\
+    \ and SAAS products**\n  To help technology and software-driven companies with\
+    \ their software and SAAS products.\n- **Python big data**\n  Help leverage cloud\
+    \ platforms for building and delivering solutions."
+  - '[PAGE 38]
+
+
+    # Disadvantages of Python
+
+
+    +   - Design restrictions.
+
+    - Underdeveloped database access layers.
+
+    - Weak in mobile computing and browsers.
+
+    - Speed limitations.
+
+
+    As can be seen from the above bullet points'
+  - '[PAGE 39]
+
+
+    +   - Speed limitations.
+
+
+    As can be seen from the above bullet points pros exceed the cons so in conclusion
+    Python is a useful programming language.'
+  - '[PAGE 40]
+
+
+    ```
+
+    ...
+
+    ...
+
+    True
+
+    >>> print("Done")
+
+    Done
+
+    >>>
+
+    ```
+
+
+    So this way of the interactive session would be useful and functional.'
+  - '[PAGE 41]
+
+
+    So this way of the interactive session would be useful and functional.'
+  - "[PAGE 42]\n\n```\nIf 1:\n    Print (\"True\")\n    Print (\"Done\")\n```\n\n\
+    This is the format specific \\to Python only whereas if you type this in the interactive\
+    \ environment, you might be surprised to see what appears as a result."
+  - "[PAGE 43]\n\nenvironment, you might be surprised to see what appears as a result.\n\
+    \n```\n>>> if 1:\n...     Print(\"True\")\n...     Print(\"Done\")\nFile \"<stdin>\"\
+    , line 3\n    Print(\"Done\")\n    ^\nSyntax Error: invalid syntax\n```"
+  - '[PAGE 44]
+
+
+    specifications. Just like a human body can show off their skin but beneath it
+    remains a secret to others.
+
+
+    # Encapsulation
+
+
+    The idea of this terminology is the attachment of properties for the performance
+    of the function. We can take the example of our legs which assist us in moving
+    or performing an action.'
+  - '[PAGE 45]
+
+
+    the example of our legs which assist us in moving or performing an action.
+
+
+    # Polymorphism
+
+
+    Polymorphism is the idea of elaborating the same thing differently. This is achieved
+    either by changing the properties of work or the way it is performed.'
+  - '[PAGE 46]
+
+
+    # Chapter Eleven: Advantages and disadvantages of python
+
+
+    Python has a wide range of applications in software development companies like
+    gaming, web frameworks and applications, language development, prototyping, graphic
+    design applications, etc.'
+  - '[PAGE 47]
+
+
+    applications, language development, prototyping, graphic design applications,
+    etc.
+
+
+    Like every other language Python also has its advantages and disadvantages. In
+    the succeeding section, I will let you know about the advantages and disadvantages
+    of Python.
+
+
+    Firstly, I will list the advantages then we will talk about the disadvantage.'
+  - '[PAGE 48]
+
+
+    Python that can be very useful for Data Analysis.
+
+
+    Python is equipped with much more libraries specially designed for Data Analysis.
+    Conclusively, I would say Python is an "essential to learning" programming language.'
+  - '[PAGE 49]
+
+
+    <!-- no content -->'
+  - '[PAGE 50]
+
+
+    chatbots. The list of the top six languages to learn created by Michael O'' Church
+    doesn''t include PERL.
+
+
+    I personally like Python because it is straightforward to learn. But Python can''t
+    be used for larger system applications. You can use Python for solving maths problems,
+    creating games, building simple apps and also for a lot of other purposes. Relative
+    to the lines of newly created code'
+  - '[PAGE 51]
+
+
+    problems, creating games, building simple apps and also for a lot of other purposes.
+    Relative to the lines of newly created code Pearl and Python both have faced their
+    usage drop off in the past recent years. PERL has successfully maintained that
+    level for the last ten years, never getting as big as Python. The job openings
+    for PERL developers are more than that of Python developers because the number
+    of developers of Python is decreasing day by day, but the Python developers are'
+  - '[PAGE 52]
+
+
+    # Chapter Four: How to get started with python
+
+
+    In this section, I will guide you completely how to install python in your PC,
+    or Laptop, Python is very easy to Install. First, I will let you know how to install'
+  - '[PAGE 53]
+
+
+    Laptop, Python is very easy to Install.
+
+    First, I will let you know how to install Python on Windows.
+
+
+    A few years back, a significant update to Python created a split between Python
+    versions. This thing is a little bit confusing for the newcomers, but it is not
+    a big issue.
+
+    In this book, I will talk about the installation of both versions of Python.
+
+
+    When you search Python for windows on google, you will immediately see the'
+  - '[PAGE 54]
+
+
+    # INTERACTIVE MODE
+
+
+    The common mode in which python works is the one described earlier that is script
+    mode, while the other one is interactive mode. The basic difference in both these
+    modes is that the interactive mode keeps the previous statements in its active
+    memory which are fed in this. The feedback to newly given statements is immediate
+    and interpreted by the previous'
+  - '[PAGE 55]
+
+
+    memory which are fed in this. The feedback to newly given statements is immediate
+    and interpreted by the previous fed statements. The lines that are given to the
+    interpreter are always interpreted in two sections, in part as separate and also
+    as a whole.
+
+
+    The interactive mode in comparison to the script mode is more suitable for you
+    if you want to play with Python programming. It is also preferred for using different
+    varieties on the syntax.'
+  - '[PAGE 56]
+
+
+    I=-111
+
+
+    # -Float:
+
+
+    Decimal points i.e. g=6.87, f= 10*e^-10
+
+
+    The first of our basic data types are numbers including integers, e.g., 3, -11.
+
+
+    Real number or decimal number which have floating points are called floats.
+
+
+    Complex numbers, e.g., J which is equal to'
+  - '[PAGE 57]
+
+
+    have floating points are called floats. Complex numbers, e.g., J which is equal
+    to the square root(-1) which is an imaginary number.
+
+
+    # STRINGS:
+
+
+    Besides these, we also have strings which resemble words each string is comprised
+    of letter or elements and. They are defined using quotation marks such as name
+    or surname or even space which is an empty character.'
+  - '[PAGE 58]
+
+
+    divisions. The repository ask whether you want to install latest releases of Python
+    2 or Python 3 ( 2.7.1 and 3.6.1 respectively).
+
+
+    If you''re going to learn Python thoroughly, I will recommend you download both
+    the versions side by side. This will allow you to learn the latest version of
+    Python as well as the older version.
+
+
+    But if you think you only need a particular'
+- md: "the older version.\n\nBut if you think you only need a particular version of\
+    \ Python, then you can install just Python 2 or Python 3. In this book, I will\
+    \ discuss the installation of both, so I recommend you install both versions.\n\
+    \nUnder the main entry, you will see an “x86-64” installer. Click on this installer;\
+    \ this installer will automatically install the appropriate 32-bit or 64-bit version\
+    \ on your laptop or computer.\n\n## Chapter Six: Python or PERL; which one is\
+    \ best?\n\nPython or PERL? Which one is better, this question may arise into your\
+    \ mind. In this section, I will compare Python with PERL and also discuss key\
+    \ features of both languages so that you can choose between Python and PERL easily.\n\
+    \nand discuss key features of your languages so that you can choose between Python\
+    \ and PERL easily.\n\n## Why is PERL better than Python?\n\nPERL is a much older\
+    \ language; it was the first language used for backend web development. PERL is\
+    \ 25 years old. Python is much newer and is now only in its third revision. PERL\
+    \ and Python are both on Earl Raymond's list of languages to learn. He also suggests\
+    \ learning Lisp, and that its only major implementation today is\n\nbits of code\
+    \ in the interactive mode before you put them in the script. There is a little\
+    \ difference between interactive mode and script mode that can confuse the Python\
+    \ users.\n\nFor example, if you write code for a calculator in Python, you may\
+    \ write\n\n```\n>>> miles=26.2\n>>> miles*1.62\n```\n\n```\n>>> miles=26.2\n>>>\
+    \ miles*1.62\n42.182\n```\n\nThe first line will assign the value to miles, but\
+    \ it has no visible effect. The second line is an expression so that the interpreter\
+    \ evaluates it and display the result. So we learn that a marathon race is about\
+    \ 42 kilometers.\n\nSomeone Else.' Another such word which is used in this language\
+    \ is Wrapper; this has a similar meaning to the wrapper used in our daily language.\
+    \ Python wrapper over C++ code means that the python code someone has used interacts\
+    \ with C++ language. This feature enables you to work with languages you are not\
+    \ aware of by applying the Python wrapper.\n\nPython facilitates you in managing\
+    \ data\n\nwith languages you are not aware of by applying the Python wrapper.\n\
+    \nPython facilitates you in managing data analysis, governing and controlling\
+    \ robots and hardware; create games as well as websites.\n\nYou can also create\
+    \ GUI's or Graphical User Interface with the help of Python. GUI enables to make\
+    \ the program more user-friendly by adding graphics to it.\n\n## Chapter Ten:\
+    \ Python-Overview\n\nA list of frequently used keywords in Python and their description\
+    \ is given below.\n\nIDE-Integrated Development Environment\n\nYou can find this\
+    \ option in the main menu,\n\n## Environment\n\nYou can find this option in the\
+    \ main menu, and it is used to edit, test and operate the tools that are created.\
+    \ IDLE can be coded in Python by the Tkinter GUI toolkit cross-platform, in Windows,\
+    \ Mac OS X, Linux or Unix, the process and features remain the same. It contains\
+    \ the Python Shell Window which is an interactive interpreter, which adds color\
+    \ to your codes. It enables search within a window and also multiple windows.\n\
+    \nroots in the world of programming and languages. So what are you waiting for?\
+    \ Install Python in your PC or laptop and start learning.\n\nGood luck and happy\
+    \ learning.\n\n![](img/e58b2092d1a426c514a5c72c72dcbbb1_68_0.png)\n\n![](img/e58b2092d1a426c514a5c72c72dcbbb1_69_0.png)\n\
+    \nperfectly even if you forgot to put the semicolons at the end.\n\n- **User-friendly\
+    \ language**\n  Python is a more user-friendly programming language as compared\
+    \ to Java because it has a more subconscious coding style. Java and Python have\
+    \ their advantages and disadvantages, but if you are going to start your career\
+    \ as a\n\nadvantages and disadvantages, but if you are going to start your career\
+    \ as a programmer, then I would recommend you start by learning Python as it is\
+    \ less complicated than Java.\n\n## What is the use of Python Programming?\n\n\
+    The examples of some scripting languages are PERL, PHP, and Python, etc. Python\
+    \ is a very useful language for physics sims\n\nspecially designed to take you\
+    \ from beginner level to an expert.\n\nI am sure this book will not make you feel\
+    \ bored. I hope you will enjoy learning Python. Some books are available in the\
+    \ market on the topic “How to learn Python,” but I would like you to choose this\
+    \ one because once you do that, you will immediately realize the benefit in that\
+    \ decision.\n\nthis one because once you do that, you will immediately realize\
+    \ the benefit in that decision.\n\nincreasing relatively. Initially, developers\
+    \ used PERL for system administration. PERL can't do the interfacing well because\
+    \ it was designed to support a large number of applications on the same server.\
+    \ PERL and Python both have their uses, but PHP replaces both these languages.\n\
+    \n## Why did I start using Python?\n\nI started using Python since around 1996,\n\
+    \n## Why did I start using Python?\n\nI started using Python since around 1996,\
+    \ what attracted me to Python? Well, the thing that attracted me to Python is\
+    \ that I was spending all my time doing annoying problems like moving files around\
+    \ not cleaning data more like administrative tasks onto it that are sort of tangential\
+    \ to high-performance computing and I was like wasting all of my time with that.\
+    \ I say Python is maybe a productivity tool to simplify a lot and with the right\
+    \ scripts that\n\nfiles in interactive mode but does have the option to edit them\
+    \ and run them within the same program.\n\nWhen you print the python entered line,\
+    \ they will appear much like this\n\n```\nPython 3.0b3 (r30b3:66303, Sep 8 2008,\
+    \ 14:01:02) [MSC v.1500 32 bit (Intel)] on win32\nType \"help\", \"copyright\"\
+    , \"credits\" or\n```\n\non win32\n\n```\nType \"help\", \"copyright\", \"credits\"\
+    \ or \"license\" for more information.\n```\n\nIn case if you are facing trouble\
+    \ in running the Python make sure that it was correctly installed and also check\
+    \ whether the Path variable has been set or not.\n\n## How can you know that you\
+    \ are in interactive mode?\n\nThe sign >>> shows that you are in interactive mode\n\
+    \n## Why use the interactive mode?\n\nThe best reason why people are attracted\
+    \ to this mode is that it responds quickly. As soon as you type, you get the results.\
+    \ If you type 1+1 python will give you two\n\nto and type an expression or query.\
+    \ As soon as you type, you get the results. If you type 1+1 python will give you\
+    \ two immediately. Moreover, it is useful because the interactive mode helps you\
+    \ to explore what python can do. It assists in testing new and creative ways to\
+    \ use the python program.\n\nthis book the basic concept of Python, and essential\
+    \ programming functions are explained through a straightforward step by step procedure.\
+    \ I have written this book in a very easy to understand manner so that everyone\
+    \ can understand it without any confusion.\n\nThe most interesting fact about\
+    \ Python Is that you need to install a specific OS in your PC. or Laptop because\
+    \ it works\n\nThe most interesting fact about Python Is that you need to install\
+    \ a specific OS in your PC, or Laptop because it works correctly and efficiently\
+    \ on every OS.\n\nIn the first chapters, we will learn the importance of learning\
+    \ Python, how to use it and the advantages and disadvantages of Python. In the\
+    \ fourth chapter, I will discuss step by step procedure of how to install Python\
+    \ using Mac, Linux or Windows. From the fifth chapter, we will start an easy to\
+    \ understand process\n\ncommands so its kind of like this little sandbox where\
+    \ we can test out and try out different Python command and different Python functions\
+    \ in a very safe and very neutral environment. I can say that a dirty way to write\
+    \ programs in Python is Python interpreter. You can use the Python interpreter\
+    \ by opening up the command prompt.\n\nNow let's go into the interactive mode.\n\
+    \ninterpreter as shown in the previous prompt.\n\nNow let's go into the interactive\
+    \ mode.\n\nThe interpreter can also be used in interactive mode."
+  mdcn: "旧版本。\n\n但如果你认为自己只需要特定版本的Python，那么你可以只安装Python 2或Python 3。在本书中，我将讨论两者的安装，因此我建议你安装两个版本。\n\
+    \n在主条目下，你会看到一个“x86-64”安装程序。点击这个安装程序；该安装程序会自动在你的笔记本电脑或计算机上安装合适的32位或64位版本。\n\n##\
+    \ 第六章：Python还是PERL；哪个更好？\n\nPython还是PERL？哪个更好，这个问题可能会出现在你的脑海中。在本节中，我将比较Python和PERL，并讨论两种语言的关键特性，以便你能够轻松地在Python和PERL之间做出选择。\n\
+    \n并讨论两种语言的关键特性，以便你能够轻松地在Python和PERL之间做出选择。\n\n## 为什么PERL比Python更好？\n\nPERL是一种更古老的语言；它是第一种用于后端Web开发的语言。PERL已有25年的历史。Python则新得多，目前只发展到第三个版本。PERL和Python都在Earl\
+    \ Raymond推荐学习的语言列表中。他还建议学习Lisp，而Lisp今天唯一的主要实现是\n\n在将代码放入脚本之前，你可以在交互模式下测试代码片段。交互模式和脚本模式之间有一点区别，这可能会让Python用户感到困惑。\n\
+    \n例如，如果你用Python编写一个计算器的代码，你可能会写\n\n```\n>>> miles=26.2\n>>> miles*1.62\n```\n\n\
+    ```\n>>> miles=26.2\n>>> miles*1.62\n42.182\n```\n\n第一行将值赋给miles，但它没有可见的效果。第二行是一个表达式，因此解释器会计算它并显示结果。所以我们了解到马拉松比赛大约是42公里。\n\
+    \n“其他人”。这种语言中使用的另一个词是Wrapper；这与我们日常语言中使用的包装器含义相似。Python wrapper over C++代码意味着有人使用的Python代码与C++语言交互。此功能使你能够通过应用Python包装器来使用你不熟悉的语言。\n\
+    \nPython使你能够轻松管理数据分析、控制和操作机器人以及硬件；创建游戏和网站。\n\n你还可以借助Python创建GUI或图形用户界面。GUI通过添加图形使程序更加用户友好。\n\
+    \n## 第十章：Python概述\n\n下面列出了Python中常用的关键字及其描述。\n\nIDE-集成开发环境\n\n你可以在主菜单中找到此选项，\n\
+    \n## 环境\n\n你可以在主菜单中找到此选项，它用于编辑、测试和操作已创建的工具。IDLE可以使用Tkinter GUI工具包在Windows、Mac\
+    \ OS X、Linux或Unix上用Python编码，跨平台，其过程和功能保持不变。它包含Python Shell窗口，这是一个交互式解释器，可以为你的代码添加颜色。它支持在窗口内搜索，也支持多窗口。\n\
+    \n在编程和语言世界中的根基。那么你还在等什么？在你的PC或笔记本电脑上安装Python并开始学习吧。\n\n祝你好运，学习愉快。\n\n![](img/e58b2092d1a426c514a5c72c72dcbbb1_68_0.png)\n\
+    \n![](img/e58b2092d1a426c514a5c72c72dcbbb1_69_0.png)\n\n即使你忘记在末尾添加分号，它也能完美运行。\n\
+    \n- **用户友好的语言**\n  与Java相比，Python是一种更用户友好的编程语言，因为它具有更直观的编码风格。Java和Python各有优缺点，但如果你打算开始你的职业生涯\n\
+    \n优缺点，但如果你打算开始你的程序员生涯，那么我建议你从学习Python开始，因为它比Java不那么复杂。\n\n## Python编程有什么用？\n\n\
+    一些脚本语言的例子包括PERL、PHP和Python等。Python是一种非常有用的语言，用于物理模拟\n\n专门设计用于将你从初学者水平带到专家水平。\n\
+    \n我相信这本书不会让你感到无聊。我希望你会享受学习Python的乐趣。市场上有一些关于“如何学习Python”的书籍，但我希望你选择这一本，因为一旦你这样做，你会立即意识到这个决定的好处。\n\
+    \n这一本，因为一旦你这样做，你会立即意识到这个决定的好处。\n\n相对增加。最初，开发人员使用PERL进行系统管理。PERL无法很好地处理接口，因为它被设计为在同一服务器上支持大量应用程序。PERL和Python各有用途，但PHP取代了这两种语言。\n\
+    \n## 为什么我开始使用Python？\n\n我从大约1996年开始使用Python，\n\n## 为什么我开始使用Python？\n\n我从大约1996年开始使用Python，是什么吸引了我？嗯，吸引我的是，我一直在花时间处理像移动文件这样烦人的问题，而不是清理数据，更像是与高性能计算有点脱节的管理任务，我就像在浪费所有时间。我说Python可能是一个生产力工具，可以简化很多事情，并且通过正确的脚本\n\
+    \n在交互模式下处理文件，但确实可以选择在同一程序中编辑和运行它们。\n\n当你打印Python输入的行时，它们看起来会像这样\n\n```\nPython\
+    \ 3.0b3 (r30b3:66303, Sep 8 2008, 14:01:02) [MSC v.1500 32 bit (Intel)] on win32\n\
+    Type \"help\", \"copyright\", \"credits\" or\n```\n\n在win32上\n\n```\nType \"help\"\
+    , \"copyright\", \"credits\" or \"license\" for more information.\n```\n\n如果你在运行Python时遇到问题，请确保它已正确安装，并检查Path变量是否已设置。\n\
+    \n## 如何知道你处于交互模式？\n\n符号 >>> 表明你处于交互模式\n\n## 为什么使用交互模式？\n\n人们被这种模式吸引的最佳原因是它响应迅速。一旦你输入，你就会得到结果。如果你输入1+1，Python会给你两个\n\
+    \n并输入表达式或查询。一旦你输入，你就会得到结果。如果你输入1+1，Python会立即给你两个。此外，它很有用，因为交互模式帮助你探索Python能做什么。它有助于测试使用Python程序的新颖和创造性方法。\n\
+    \n本书通过简单直接的步骤解释了Python的基本概念和必要的编程功能。我以非常易于理解的方式撰写了本书，以便每个人都能毫无困惑地理解它。\n\n关于Python最有趣的事实是，你需要在你的PC或笔记本电脑上安装特定的操作系统，因为它能\n\
+    \n关于Python最有趣的事实是，你需要在你的PC或笔记本电脑上安装特定的操作系统，因为它能在每个操作系统上正确高效地运行。\n\n在前几章中，我们将学习学习Python的重要性、如何使用它以及Python的优缺点。在第四章中，我将逐步讨论如何使用Mac、Linux或Windows安装Python。从第五章开始，我们将开始一个易于理解的过程\n\
+    \n命令，所以它有点像一个小沙盒，我们可以在一个非常安全和中立的环境中测试和尝试不同的Python命令和不同的Python函数。我可以说，用Python编写程序的一种不规范方式是Python解释器。你可以通过打开命令提示符来使用Python解释器。\n\
+    \n现在让我们进入交互模式。\n\n如前一个提示所示的解释器。\n\n现在让我们进入交互模式。\n\n解释器也可以在交互模式下使用。"
+  merge: 1
+  raw:
+  - '[PAGE 59]
+
+
+    the older version.
+
+
+    But if you think you only need a particular version of Python, then you can install
+    just Python 2 or Python 3. In this book, I will discuss the installation of both,
+    so I recommend you install both versions.
+
+
+    Under the main entry, you will see an “x86-64” installer. Click on this installer
+    this installer will automatically install the appropriate 32-bit or 64-bit version
+    on your laptop or computer.'
+  - '[PAGE 60]
+
+
+    # Chapter Six: Python or PERL; which one is best?
+
+
+    Python or PERL? Which one is better, this question may arise into your mind. In
+    this section, I will compare Python with PERL and also discuss key features of
+    both languages so that you can choose between Python and PERL easily.'
+  - '[PAGE 61]
+
+
+    and discuss key features of your languages so that you can choose between Python
+    and PERL easily.
+
+
+    # Why is PERL better than Python?
+
+
+    PERL is a much older language; it was the first language used for backend web
+    development. PERL is 25 years old. Python is much newer and is now only in its
+    third revision PERL, and Python are both on Earl Raymond''s list of languages
+    to learn. He also suggests learning Lisp, and that its only major implementation
+    today is'
+  - '[PAGE 62]
+
+
+    bits of code in the interactive mode before you put them in the script. There
+    is a little difference between interactive mode and script mode that can confuse
+    the Python users.
+
+
+    For example, if you write code for a calculator in Python, you may write
+
+
+    ```
+
+    >>>miles=26.2
+
+    >>>miles*1.62
+
+    ```'
+  - '[PAGE 63]
+
+
+    ```
+
+    >>> miles=26.2
+
+    >>> miles*1.62
+
+    42.182
+
+    ```
+
+
+    The first line will assign the value to miles, but it has no visible effect. The
+    second line is an expression so that the interpreter evaluates it and display
+    the result. So we learn that a marathon race is about 42 kilometers.'
+  - '[PAGE 64]
+
+
+    Someone Else.'' Another such word which is used in this language is Wrapper; this
+    has a similar meaning to the wrapper used in our daily language. Python wrapper
+    over C++ code means that the python code someone has used interacts with C++ language.
+    This feature enables you to work with languages you are not aware of by applying
+    the Python wrapper.
+
+
+    Python facilitates you in managing data'
+  - '[PAGE 65]
+
+
+    with languages you are not aware of by applying the Python wrapper.
+
+
+    Python facilitates you in managing data analysis, governing and controlling robots
+    and hardware; create games as well as websites.
+
+
+    You can also create GUI''s or Graphical User Interface with the help of Python.
+    GUI enables to make the program more user-friendly by adding graphics to it.'
+  - '[PAGE 66]
+
+
+    # Chapter Ten: Python-Overview
+
+
+    A list of frequently used keywords in Python and their description is given below.
+
+
+    IDE-Integrated Development Environment
+
+
+    You can find this option in the main menu,'
+  - '[PAGE 67]
+
+
+    # Environment
+
+
+    You can find this option in the main menu, and it is used to edit, test and operate
+    the tools that are created. IDLE can be coded in Python by the Tkinter GUI toolkit
+    cross-platform, in Windows, Mac OS X, Linux or Unix, the process and features
+    remain the same. It contains the Python Shell Window which is an interactive interpreter,
+    which adds color to your codes. It enables search within a window and also multiple
+    windows.'
+  - '[PAGE 68]
+
+
+    roots in the world of programming and languages. So what are you waiting for?
+    Install Python in your PC or laptop and start learning.
+
+
+    Good luck and happy learning.
+
+
+    ![](img/e58b2092d1a426c514a5c72c72dcbbb1_68_0.png)'
+  - '[PAGE 69]
+
+
+    ![](img/e58b2092d1a426c514a5c72c72dcbbb1_69_0.png)'
+  - "[PAGE 70]\n\nperfectly even if you forgot to put the semicolons at the end.\n\
+    \n+   - **User-friendly language**\n  Python is a more user-friendly programming\
+    \ language as compared to Java because it has a more subconscious coding style.\
+    \ Java and Python have their advantages and disadvantages, but if you are going\
+    \ to start your career as a"
+  - '[PAGE 71]
+
+
+    advantages and disadvantages, but if you are going to start your career as a programmer,
+    then I would recommend you start by learning Python as it is less complicated
+    than Java.
+
+
+    # What is the use of Python Programming?
+
+
+    The examples of some scripting languages are PERL, PHP, and Python, etc. Python
+    is a very useful language for physics sims'
+  - '[PAGE 72]
+
+
+    specially designed to take you from beginner level to an expert.
+
+
+    I am sure this book will not make you feel bored. I hope you will enjoy learning
+    Python. Some books are available in the market on the topic “How to learn Python,”
+    but I would like you to choose this one because once you do that, you will immediately
+    realize the benefit in that decision.'
+  - '[PAGE 73]
+
+
+    this one because once you do that, you will immediately realize the benefit in
+    that decision.'
+  - '[PAGE 74]
+
+
+    increasing relatively. Initially, developers used PERL for system administration.
+    PERL can''t do the interfacing well because it was designed to support a large
+    number of applications on the same server. PERL and Python both have their uses,
+    but PHP replaces both these languages.
+
+
+    # Why did I start using Python?
+
+
+    I started using Python since around 1996,'
+  - '[PAGE 75]
+
+
+    # Why did I start using Python?
+
+
+    I started using Python since around 1996, what attracted me to Python? Well, the
+    thing that attracted me to Python is that I was spending all my time doing annoying
+    problems like moving files around not cleaning data more like administrative tasks
+    onto it that are sort of tangential to high-performance computing and I was like
+    wasting all of my time with that. I say Python is maybe a productivity tool to
+    simplify a lot and with the right scripts that'
+  - '[PAGE 76]
+
+
+    files in interactive mode but does have the option to edit them and run them within
+    the same program.
+
+
+    When you print the python entered line, they will appear much like this
+
+
+    ```
+
+    Python 3.0b3 (r30b3:66303, Sep 8 2008, 14:01:02) [MSC v.1500 32 >bit (Intel)]
+    on win32
+
+    Type "help", "copyright", "credits" or
+
+    ```'
+  - '[PAGE 77]
+
+
+    on win32
+
+
+    ```
+
+    Type "help", "copyright", "credits" or "license" for more information.
+
+    ```
+
+
+    In case if you are facing trouble in running the Python make sure that it was
+    correctly installed and also check whether the Path variable has been set or not.'
+  - '[PAGE 78]
+
+
+    # How can you know that you are in interactive mode?
+
+
+    The sign >>> shows that you are in interactive mode
+
+
+    # Why use the interactive mode?
+
+
+    The best reason why people are attracted to this mode is that it responds quickly.
+    As soon as you type, you get the results. If you type 1+1 python will give you
+    two'
+  - '[PAGE 79]
+
+
+    to and type an expression or query. As soon as you type, you get the results.
+    If you type 1+1 python will give you two immediately. Moreover, it is useful because
+    the interactive mode helps you to explore what python can do. It assists in testing
+    new and creative ways to use the python program.'
+  - '[PAGE 80]
+
+
+    this book the basic concept of Python, and essential programming functions are
+    explained through a straightforward step by step procedure. I have written this
+    book in a very easy to understand manner so that everyone can understand it without
+    any confusion.
+
+
+    The most interesting fact about Python Is that you need to install a specific
+    OS in your PC. or Laptop because it works'
+  - '[PAGE 81]
+
+
+    The most interesting fact about Python Is that you need to install a specific
+    OS in your PC, or Laptop because it works correctly and efficiently on every OS.
+
+
+    In the first chapters, we will learn the importance of learning Python, how to
+    use it and the advantages and disadvantages of Python. In the fourth chapter,
+    I will discuss step by step procedure of how to install Python using Mac, Linux
+    or Windows. From the fifth chapter, we will start an easy to understand process'
+  - '[PAGE 82]
+
+
+    commands so its kind of like this little sandbox where we can test out and try
+    out different Python command and different Python functions in a very safe and
+    very neutral environment. I can say that a dirty way to write programs in Python
+    is Python interpreter. You can use the Python interpreter by opening up the command
+    prompt.
+
+
+    Now let''s go into the interactive mode.'
+  - '[PAGE 83]
+
+
+    interpreter as shown in the previous prompt.
+
+
+    Now let''s go into the interactive mode.
+
+
+    The interpreter can also be used in interactive mode.'
+- md: "## Introduction\n\nIf you are viewing this book I can bet, you are a beginner\
+    \ to Python. If you are interested in learning Python, then you have chosen the\
+    \ right book. Well, Python is a very easy to understand language. In this book,\
+    \ I will try my best to prove myself right. No doubt, Python is a great language\
+    \ either you are a newbie in the world of programming or if you are already a\
+    \ professional programmer.\n\nIf you are a beginner in the world of programming,\
+    \ then you must be worrying about how to learn Python. This book will eradicate\
+    \ your worry for sure. Because, in the past few years, two programming languages\
+    \ were most popular for developing websites by their framework. Those languages\
+    \ are Python and Ruby. These languages are beneficial for writing quick programs\
+    \ or scripts, so they are often known as “Scripting languages.”. In Data Analytics,\
+    \ Python is the most widely used language. Because of the Python’s improved lib\
+    \ support, Python is popular among developers because it provides a compelling\
+    \ alternative to performing data manipulation tasks.\n\nNumPy, Pandas, matplotlib,\
+    \ IPython, and SciPy are the examples of some necessary libraries in Python.\n\
+    \nNow the interpreter is trying to convey is that indentation you entered for\
+    \ the second print is unexpected. The possible error is that there must have been\
+    \ a blank line entered at the end of the first statement (i.e., “if”) before the\
+    \ second print statement started.\n\nFor example, the right way to enter the statement\
+    \ should be this\n\n```\nIf 1:\n    Print (\"True\")\n    Print (\"Done\")\n```\n\
+    \nThis would then result in the following statement which would be correct technically\n\
+    \n```\n>>> if 1:\n```\n\nPython was created on an ideology that pays particular\
+    \ focus on code readability. It provides a platform for explicit programming on\
+    \ both small and large scales. Python exhibits a dynamic type system and automatic\
+    \ memory management. Python can support multiple programming paradigms like imperative,\
+    \ functional, object-oriented and procedural. It is also equipped with an extensive\
+    \ and comprehensive standard library.\n\n## Is it easy to learn Python?\n\nNow\
+    \ a question may arise into your mind that is it easy to learn Python? Well, the\
+    \ answer is yes. Here are some reasons that will surely justify my statement.\n\
+    \nBut when you write the same code in the script, you will get no result at all\
+    \ because It has no visible effect. Python evaluates the result but doesn't display\
+    \ it unless you tell it to.\n\n```\n>>>miles=26.2\nPrint miles*1.61\n```\n\nThis\
+    \ behavior is confusing. Some languages get compiled into machine code; others\
+    \ are read and executed by an interpreter. So like C would be an excellent example\
+    \ of a compiled language and Python is an excellent example of interpreted language.\
+    \ Python programs are just text files with py extension to their file name. These\
+    \ files need an interpreter to execute. Python interpreter is an environment that\
+    \ we can use to execute little Python programs.\n\n## Advantages of Python\n\n\
+    - Extensive Support Libraries\n- A powerful and fast programming language.\n-\
+    \ Clear, readable, and easy to understand syntax.\n- Dynamic type programming\
+    \ language.\n- Python Runs immediately.\n- The python community always provides\
+    \ support to Python users.\n- Modular and portable programming language.\n- Less\
+    \ coding is required.\n- Open source language.\n- Easy to maintain.\n\n## Chapter\
+    \ Two: Why learning Python is essential?\n\nAfter a brief intro, I would like\
+    \ to inform you that based on its usage learning python is very important. Python\
+    \ has diversified applications, and the most exciting thing is that it has a syntax\
+    \ that is understandable by both beginners and experts.\n\nIn the following section,\
+    \ I will discuss some reasons to make you realize that how important is it to\
+    \ learn python.\n\n- As discussed earlier Python is a user-friendly language.\
+    \ Python is one of the most-used dynamic type, programming language.\n- **Mobile\
+    \ Web solutions**\n  Build customer and enterprise mobile app for customer engagement\
+    \ and workforce productivity\n- **IoT solutions**\n  Build solutions to monitor,\
+    \ learn and capture insights from connected devices.\n\n## Chapter Seven: Python-\
+    \ An object-oriented programming\n\nAnother unique feature of Python is being\
+    \ an Object-oriented (OOP) program. Object-oriented programming is the one which\
+    \ is based on data instead of logic or objects instead of actions. This concept\
+    \ is applied to the majority of programming languages; C language is the only\
+    \ exception. The idea revolves around purposes like inheritance, polymorphism,\
+    \ abstraction, encapsulation, etc. Understanding the basic concepts of OOP is\
+    \ very important, especially for a python or C++ as well as Java user. And that\
+    \ is the main reason for the inclusion of this chapter in this book. Beginning\
+    \ from the basics, we will move towards the advanced concepts.\n\n## Chapter Eight:\
+    \ Python – The Subdivisions\n\nBeing a programmer means having a backup of libraries\
+    \ required to interpret the codes of language. But python gives you the facility\
+    \ of having already written and working libraries which are known as ‘Modules.’\
+    \ These modules contain already written codes which can perform essential functions\
+    \ for you in Python programming. Also, these tasks are completed efficiently and\
+    \ without any errors.\n\nWhile using this program, you might come in contact with\
+    \ phrases or words like DRY, which has the abbreviation of ‘Don’t Repeat Yourself’\
+    \ or ‘Don’t Repeat Yourself’ principle.\n\nIDLE contains two types of windows,\
+    \ namely Shell Window and Editor Window. Editor window has a subtype which is\
+    \ called Output window; the only difference is of the default title and context\
+    \ menu. You can open more than one Editor Windows at a time and use them. There\
+    \ is a wide range of cuisines for IDLE, depending on the type of windows that\
+    \ you are using.\n\nLet us see how to run a command on IDLE now\n\n```\nprint(\"\
+    Let's start\")\n```\n\nAs we save the file by \"file/save\" and name it start.py.\
+    \ Now we can run this by the \"run\" command.\n\n## How to go in interactive mode:\n\
+    \nIf you are using the macOS or the Linux, you will have to follow the below-given\
+    \ steps as they are.\n\nFirstly, you open the terminal that is there for typing.\n\
+    \nThen type “python” in it.\n\nIf it’s the windows you are using, then there are\
+    \ several ways to go to the interactive mode. For example, open command prompt\
+    \ and then type \"py\" in it and there you are in interactive mode. Or otherwise,\
+    \ you go to the taskbar or the app menu and select \"Python (Command line)\",\
+    \ \"IDLE\" or any other program that is similar to this one.\n\nIDLE is the GUI\
+    \ type of program that is dual in function. It means that it runs the code and\
+    \ also allows you to write the code.\n\nTo gain access to a module in Python,\
+    \ you have to use the Import statement, and the code will be executed. But before\
+    \ accessing any module, you must look for the built-in module in it (Python contains\
+    \ a range of integrated module)."
+  mdcn: "## 引言\n\n如果你正在阅读这本书，我敢打赌，你是一位Python初学者。如果你有兴趣学习Python，那么你选对了书。嗯，Python是一门非常容易理解的语言。在这本书中，我将尽我所能证明自己是对的。毫无疑问，Python是一门很棒的语言，无论你是编程世界的新手，还是已经是一位专业的程序员。\n\
+    \n如果你是编程世界的新手，那么你一定在担心如何学习Python。这本书肯定会消除你的担忧。因为，在过去几年里，有两种编程语言因其框架而成为开发网站最流行的语言。这些语言是Python和Ruby。这些语言对于编写快速程序或脚本非常有益，因此它们通常被称为“脚本语言”。在数据分析领域，Python是使用最广泛的语言。由于Python改进的库支持，Python在开发者中很受欢迎，因为它为执行数据操作任务提供了一个引人注目的替代方案。\n\
+    \nNumPy、Pandas、matplotlib、IPython和SciPy是Python中一些必要库的例子。\n\n现在解释器试图传达的是，你为第二个print输入的缩进是意外的。可能的错误是，在第一个语句（即“if”）结束之后，第二个print语句开始之前，一定输入了一个空行。\n\
+    \n例如，输入语句的正确方式应该是这样\n\n```\nIf 1:\n    Print (\"True\")\n    Print (\"Done\")\n\
+    ```\n\n这将导致以下语句，从技术上讲是正确的\n\n```\n>>> if 1:\n```\n\nPython的创建基于一种特别关注代码可读性的理念。它为小规模和大规模的显式编程提供了一个平台。Python具有动态类型系统和自动内存管理。Python可以支持多种编程范式，如命令式、函数式、面向对象和过程式。它还配备了一个广泛而全面的标准库。\n\
+    \n## 学习Python容易吗？\n\n现在你心中可能会产生一个问题：学习Python容易吗？嗯，答案是肯定的。以下是一些理由，它们肯定会证明我的说法。\n\
+    \n但是当你在脚本中编写相同的代码时，你将得不到任何结果，因为它没有可见的效果。Python会计算结果，但不会显示它，除非你告诉它显示。\n\n```\n\
+    >>>miles=26.2\nPrint miles*1.61\n```\n\n这种行为令人困惑。有些语言被编译成机器码；另一些则由解释器读取并执行。所以像C语言就是编译语言的一个很好的例子，而Python是解释语言的一个很好的例子。Python程序只是文件名带有py扩展名的文本文件。这些文件需要解释器来执行。Python解释器是一个我们可以用来执行小型Python程序的环境。\n\
+    \n## Python的优势\n\n- 广泛的支持库\n- 一门强大且快速的编程语言。\n- 清晰、可读且易于理解的语法。\n- 动态类型编程语言。\n-\
+    \ Python立即运行。\n- Python社区始终为Python用户提供支持。\n- 模块化和可移植的编程语言。\n- 需要的编码较少。\n- 开源语言。\n\
+    - 易于维护。\n\n## 第二章：为什么学习Python很重要？\n\n在简要介绍之后，我想告诉你，根据其用途，学习Python非常重要。Python有多样化的应用，最令人兴奋的是它的语法对初学者和专家来说都是可以理解的。\n\
+    \n在接下来的部分，我将讨论一些原因，让你意识到学习Python有多重要。\n\n- 正如前面讨论的，Python是一种用户友好的语言。Python是使用最广泛的动态类型编程语言之一。\n\
+    - **移动Web解决方案**\n  构建客户和企业移动应用程序，以提升客户参与度和员工生产力。\n- **物联网解决方案**\n  构建解决方案，以监控、学习和从连接的设备中获取洞察。\n\
+    \n## 第七章：Python——面向对象编程\n\nPython的另一个独特之处是它是一个面向对象（OOP）的程序。面向对象编程是基于数据而非逻辑，或基于对象而非动作的编程。这个概念被应用于大多数编程语言；C语言是唯一的例外。这个概念围绕着继承、多态、抽象、封装等目的展开。理解面向对象的基本概念非常重要，特别是对于Python、C++以及Java用户。这就是将本章包含在本书中的主要原因。从基础开始，我们将逐步深入到高级概念。\n\
+    \n## 第八章：Python——细分\n\n作为一名程序员，意味着拥有解释语言代码所需的库备份。但Python为你提供了已经编写好且可工作的库，这些库被称为“模块”。这些模块包含已经编写的代码，可以在Python编程中为你执行基本功能。此外，这些任务可以高效且无任何错误地完成。\n\
+    \n在使用这个程序时，你可能会接触到像DRY这样的短语或单词，它是“Don’t Repeat Yourself”（不要重复你自己）或“Don’t Repeat\
+    \ Yourself”原则的缩写。\n\nIDLE包含两种类型的窗口，即Shell窗口和编辑器窗口。编辑器窗口有一个子类型，称为输出窗口；唯一的区别是默认标题和上下文菜单。你可以同时打开多个编辑器窗口并使用它们。IDLE有多种主题，具体取决于你使用的窗口类型。\n\
+    \n现在让我们看看如何在IDLE上运行命令\n\n```\nprint(\"Let's start\")\n```\n\n我们通过“file/save”保存文件并将其命名为start.py。现在我们可以通过“run”命令运行它。\n\
+    \n## 如何进入交互模式：\n\n如果你使用的是macOS或Linux，你将必须按照以下给出的步骤操作。\n\n首先，打开用于输入的终端。\n\n然后在其中输入“python”。\n\
+    \n如果你使用的是Windows，那么有几种方法可以进入交互模式。例如，打开命令提示符，然后在其中输入“py”，你就进入了交互模式。或者，你可以转到任务栏或应用程序菜单，选择“Python（命令行）”、“IDLE”或任何其他类似的程序。\n\
+    \nIDLE是GUI类型的程序，具有双重功能。这意味着它运行代码，也允许你编写代码。\n\n要在Python中访问一个模块，你必须使用Import语句，代码将被执行。但在访问任何模块之前，你必须先查找其中的内置模块（Python包含一系列集成模块）。"
+  merge: 0
+  raw:
+  - '[PAGE 84]
+
+
+    +   - In the past few years, two programming languages were most popular for developing
+    websites by their framework. Those languages are Python and Ruby. These languages
+    are beneficial for writing quick programs or scripts, so they are often known
+    as “Scripting languages.”. In Data Analytics, Python is the most widely used'
+  - '[PAGE 85]
+
+
+    are often known as scripting languages.”. In Data Analytics Python is the most
+    widely used language. Because of the Python’s improved lib support, Python is
+    popular among developers because it provides a compelling alternative to performing
+    data manipulation tasks.
+
+
+    +   - NumPy, Pandas, matplotlib, IPython, and SciPy are the examples of some necessary
+    libraries in'
+  - '[PAGE 86]
+
+
+    Now the interpreter is trying to convey is that indentation you entered for the
+    second print is unexpected. The possible error is that there must have been a
+    blank line entered at the end of the first statement (i.e., “if”) before the second
+    print statement started.
+
+
+    For example, the right way to enter the . . .'
+  - "[PAGE 87]\n\nprint statement started.\n\nFor example, the right way to enter\
+    \ the statement should be this\n\n```\nIf 1:\n    Print (\"True\")\n    Print\
+    \ (\"Done\")\n```\n\nThis would then result in the following statement which would\
+    \ be correct technically\n\n```\n>>> if 1:\n```"
+  - '[PAGE 88]
+
+
+    created on an ideology that pays particular focus on code readability. It provides
+    a platform for explicit programming on both small and large scales. Python exhibits
+    a dynamic type system and automatic memory management. Python can support multiple
+    programming paradigms like imperative, functional, object-oriented and procedural.
+    It is also equipp'
+  - '[PAGE 89]
+
+
+    s and strings, functions, object-oriented and procedural. It is also equipped
+    with an extensive and comprehensive standard library.
+
+
+    # Is it easy to learn Python?
+
+
+    Now a question may arise into your mind that is it easy to learn Python? Well,
+    the answer is yes. Here are some reasons that will surely justify my statement.'
+  - '[PAGE 90]
+
+
+    But when you write the same code in the script, you will get no result at all
+    because It has no visible effect. Python evaluates the result but doesn''t display
+    it unless you tell it to.
+
+
+    ```
+
+    >>>miles=26.2
+
+    Print miles*1.61
+
+    ```
+
+
+    This behavior is confusing. Some languages get compiled into machine code; others'
+  - '[PAGE 91]
+
+
+    This behavior is confusing. Some languages get compiled into machine code; others
+    are read and executed by an interpreter. So like C would be an excellent example
+    of a compiled language and Python is an excellent example of interpreted language.
+    Python programs are just text files with py extension to their file name. These
+    files need an interpreter to execute. Python interpreter is an environment that
+    we can use to execute little Python'
+  - '[PAGE 92]
+
+
+    # Advantages of Python
+
+
+    +   - Extensive Support Libraries
+
+    - A powerful and fast programming language.
+
+    - Clear, readable, and easy to understand syntax.
+
+    - Dynamic type programming language.'
+  - '[PAGE 93]
+
+
+    +   - Dynamic type programming language.
+
+    - Python Runs immediately.
+
+    - The python community always provides support to Python users.
+
+    - Modular and portable programming language.
+
+    - Less coding is required.
+
+    - Open source language.
+
+    - Easy to maintain.'
+  - '[PAGE 94]
+
+
+    # Chapter Two: Why learning Python is essential?
+
+
+    After a brief intro, I would like to inform you that based on its usage learning
+    python is very important. Python has diversified applications, and the most exciting
+    thing is that it has a syntax that is understandable by both beginners and'
+  - '[PAGE 95]
+
+
+    universal appeal, and the most exciting thing is that it has a syntax that is
+    understandable by both beginners and experts.
+
+
+    In the following section, I will discuss some reasons to make you realize that
+    how important is it to learn python.
+
+
+    +   - As discussed earlier Python is a user-friendly language. Python is one of
+    the most-used dynamic type, programming language.'
+  - "[PAGE 96]\n\n+   - **Mobile Web solutions**\n  Build customer and enterprise\
+    \ mobile app for customer engagement and workforce productivity\n- **IoT solutions**\n\
+    \  Build solutions to monitor, learn and capture insights from connected devices."
+  - '[PAGE 97]
+
+
+    Build solutions to monitor, learn and capture insights from connected devices.'
+  - '[PAGE 98]
+
+
+    # Chapter Eight: Python – The Subdivisions
+
+
+    Being a programmer means having a backup of libraries required to interpret the
+    codes of language. But python gives you the facility of having already verified
+    and working libraries which are known as ‘Modules.’ These modules contain already'
+  - '[PAGE 99]
+
+
+    you the facility of having already written and working libraries which are known
+    as ‘Modules.’ These modules contain already written codes which can perform essential
+    functions for you in Python programming. Also, these tasks are completed efficiently
+    and without any errors.
+
+
+    While using this program, you might come in contact with phrases or words like
+    DRY, which has the abbreviation of ‘Don’t Repeat Yourself’ or ‘Don’t Repeat'
+  - '[PAGE 100]
+
+
+    IDLE contains two types of windows, namely Shell Window and Editor Window. Editor
+    window has a subtype which is called Output window; the only difference is of
+    the default title and context menu. You can open more than one Editor Windows
+    at a time and use them. There is a wide range of cuisines for IDLE, depending
+    on the type of windows that you are using.'
+  - '[PAGE 101]
+
+
+    depending on the type of windows that you are using.
+
+
+    Let us see how to run a command on IDLE now
+
+
+    ```
+
+    print("Let''s start")
+
+    ```
+
+
+    As we save the file by "file/save" and name it start.py. Now we can run this by
+    the "run" command.'
+  - '[PAGE 102]
+
+
+    # How to go in interactive mode:
+
+
+    If you are using the macOS or the Linux, you will have to follow the below-given
+    steps as they are.
+
+
+    Firstly, you open the terminal that is there for typing.
+
+
+    Then type “python” in it.
+
+
+    If it’s the windows you are using, then there are several ways to on to the'
+  - '[PAGE 103]
+
+
+    If it''s the windows you are using, then there are several ways to go to the interactive
+    mode. For example, open command prompt and then type "py" in it and there you
+    are in interactive mode. Or otherwise, you go to the taskbar or the app menu and
+    select "Python (Command line)", "IDLE" or any other program that is similar to
+    this one.
+
+
+    IDLE is the GUI type of program that is dual in function. It means that is run
+    the'
+  - '[PAGE 104]
+
+
+    To gain access to a module in Python, you have to use the Import statement, and
+    the code will be executed. But before accessing any module, you must look for
+    the built-in module in it (Python contains a range of integrated module).'
+  - '[PAGE 105]
+
+
+    <!-- no content -->'
+  - '[PAGE 106]
+
+
+    # Chapter Seven: Python- An object-oriented programming
+
+
+    Another unique feature of Python is being an Object-oriented (OOP) program. Object-oriented
+    programming is the one which is based on data instead of logic or objects instead
+    of actions. This concept is applied to the majority of programming'
+  - '[PAGE 107]
+
+
+    which is based on data instead of logic or objects instead of actions. This concept
+    is applied to the majority of programming languages; C language is the only exception.
+    The idea revolves around purposes like inheritance, polymorphism, abstraction,
+    encapsulation, etc. Understanding the basic concepts of OOP is very important,
+    especially for a python or C++ as well as Java user. And that is the main reason
+    for the inclusion of this chapter in this book. Beginning from the'
+  - '[PAGE 108]
+
+
+    # Introduction
+
+
+    If you are viewing this book I can bet, you are a beginner to Python. If you are
+    interested in learning Python, then you have chosen the right book. Well, Python
+    is a very easy to understand'
+  - '[PAGE 109]
+
+
+    then you have chosen the right book. Well, Python is a very easy to understand
+    language. In this book, I will try my best to prove myself right. No doubt, Python
+    is a great language either you are a newbie in the world of programming or if
+    you are already a professional programmer.
+
+
+    If you are a beginner in the world of programming, then you must be worrying about
+    how to learn Python. This book will eradicate your worry for sure. Because, in'
+pages:
+- img_proc: true
+  md: '![](img/e58b2092d1a426c514a5c72c72dcbbb1_0_0.png)
+
+
+    # PYTHON BASICS
+
+
+    Python Programming Net Intermediate'
+  merge: -1
+  pgno: 0
+- img_proc: true
+  md: '![](img/e58b2092d1a426c514a5c72c72dcbbb1_1_0.png)'
+  merge: -1
+  pgno: 1
+- img_proc: true
+  md: 'who curates the curriculum carefully.
+
+    While studying a cumulative subject,
+
+    massive attention must be paid while
+
+    designing the learning path.
+
+
+    At this instant, I would say do not choose a
+
+    language for its ranking; choose a
+
+    language for which you have a complete
+
+    course curriculum or learning path that
+
+    makes no assumptions about prior
+
+    knowledge.'
+  merge: -1
+  pgno: 2
+- img_proc: true
+  md: 'course curriculum or learning path that makes no assumptions about prior knowledge.
+
+
+    Now let''s come to the topic.
+
+
+    # What is Python?
+
+
+    Python was first designed by Guido van Rossum and appeared the first time in 1991
+    publicly. It is an interpreted high-level programming language and was'
+  merge: -1
+  pgno: 3
+- img_proc: true
+  md: 'Below are the names of few editors that write the Python program amongst many
+    others.
+
+
+    +   - Eclipse with PyDev: a Large community with considerable variation of customization.
+
+    - Eric: This one utilizes the Qt framework, Scintilla that is code editing component.
+
+    - DrPython: A free community...'
+  merge: -1
+  pgno: 4
+- img_proc: true
+  md: 'framework, Scintilla that is code editing component.
+
+
+    +   - PyCharm: A free community, beneficial for the learners.
+
+    - Other choices include PyScriptor, LeoEditor, BlueFish, Spyder, Pt, and Geany.'
+  merge: -1
+  pgno: 5
+- img_proc: true
+  md: '# Chapter Three: Introduction to numerous data types in Python
+
+
+    Python consists of mainly five standard data types. In this book, I will discuss
+    only three data types used In Python one by one.
+
+
+    When we program, the information provided to the computer is referred to as data.'
+  merge: -1
+  pgno: 6
+- img_proc: true
+  md: 'provided to the computer is referred to as data.
+
+
+    Five data types in Python are:
+
+
+    +   - Numbers
+
+    - Strings
+
+    - Boolean
+
+
+    # NUMBERS:
+
+
+    -Integers:
+
+
+    N=1,2,3'
+  merge: -1
+  pgno: 7
+- img_proc: true
+  md: 'Name="MARK"
+
+
+    Surname="Quinn"
+
+
+    Space='' ''
+
+
+    # BOOLEAN: True or False
+
+
+    This data type may be less familiar to you. Boolean data type has two conditions,
+    i.e., true or false. For example, we can test variable name equals mark by calling
+    the'
+  merge: -1
+  pgno: 8
+- img_proc: true
+  md: 'Boolean data type has two conditions, i.e., true or false. For example, we
+    can test variable name equals mark by calling the bool function, which evaluates
+    the name equal to mark as true or false and in this case, it returns true before
+    moving on
+
+
+    ```
+
+    N=bool (name==''MARK'')
+
+    N=true
+
+    ```'
+  merge: -1
+  pgno: 9
+- img_proc: true
+  md: 'to use and learn the latest version of Python.
+
+
+    On the first screen.
+
+
+    +   - Click "Add Python 3.6.exe to path" option.
+
+    - Then click "Install now" to proceed.
+
+
+    At this instant, you have to make a decision. If you want to remove the'
+  merge: -1
+  pgno: 10
+- img_proc: true
+  md: 'At this instant, you have to make a decision. If you want to remove the limitation
+    on MAX_PATH variable, click on “Disable path length limit” option. If you don’t
+    want to remove the limitation on MAX_PATH variable, you can finish the installation
+    by clicking the “Close” option.
+
+
+    You can also confirm the installation of Python 3 by opening the command prompt
+    and typing ‘Python -V’ command, this will'
+  merge: -1
+  pgno: 11
+- img_proc: true
+  md: '# Chapter One: A-Z Guide for the beginners
+
+
+    ![](img/e58b2092d1a426c514a5c72c72dcbbb1_12_0.png)'
+  merge: -1
+  pgno: 12
+- img_proc: true
+  md: '```
+
+    print "Hello, world!"
+
+    ```
+
+
+    Do you want to start programming but confused about where to start? In this chapter,
+    I will try to vanquish your confusion.
+
+
+    Computer science is a cumulative field of study. It means that each previous topic
+    relates to the previous one. Have you ever tried learning to program before but
+    failed? You were not the fault. A good professor of a cumulative subject is the
+    one'
+  merge: -1
+  pgno: 13
+- img_proc: true
+  md: '+   - Easy to understand the syntax
+
+
+    As the syntax feels natural, so a code written in Python is straightforward to
+    understand. I am taking an example case to elaborate my point clearly
+
+
+    ```
+
+    g=1
+
+    f=4
+
+    Sum=g + f
+
+    ```'
+  merge: -1
+  pgno: 14
+- img_proc: true
+  md: '1-4
+
+
+    ```
+
+    Sum=g + f
+
+    Print Sum
+
+    ```
+
+
+    Let''s take another case
+
+
+    ```
+
+    The first number = a
+
+    Second number = b
+
+    Answer = (a * b)
+
+    ```
+
+
+    +   - Not an overly strict language
+
+    Defining the type of variable in Python is not necessary, and the code will run'
+  merge: -1
+  pgno: 15
+- img_proc: true
+  md: '# Chapter Five: Concept of interpreters and interactives in Python
+
+
+    To run the program, the majority of languages needs you to write source code,
+    but with Python, everything is more comfortable you don''t need to write source
+    code to run a specific program in Python'
+  merge: -1
+  pgno: 16
+- img_proc: true
+  md: comfortable you don't need to write source code to run a specific program in
+    Python that is why is defined interpreter. Python allows its user to write the
+    instruction directly from its command prompt without editing or creating a source
+    file (Interactive). Interactive mode enables you to experiment with new syntax
+    variations. One of the benefits of working with an interpreted language is that
+    you can test
+  merge: -1
+  pgno: 17
+- img_proc: true
+  md: '# Chapter Nine: Suitable Python Versions for Beginners
+
+
+    For the people who have decided to work with Python for the very first time, the
+    best option would be to go for the 3rd version. In the case where your needed
+    options are not available in the 3rd version, then go for the 2nd one. By having
+    the giving imports'
+  merge: -1
+  pgno: 18
+- img_proc: true
+  md: 'In the case where you need options are not available in the 3rd version, then
+    go for the 2nd one. By having the giving imports at the top of the program of
+    Python 2, you can go like Python 3.
+
+
+    If you are new to Python and the packages you need are already available on Python
+    3, start with Python 3. If some packages you need are not yet available in Python
+    3, then chose Python 2.'
+  merge: -1
+  pgno: 19
+- img_proc: true
+  md: also assure you either the path variable is set or not.
+  merge: -1
+  pgno: 20
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 21
+- img_proc: true
+  md: 'living body of a human being which performs different functions.
+
+
+    # Inheritance
+
+
+    While human beings are assumed as Class, their body parts become properties, and
+    their action becomes functions. Similarly, male and female can also be considered
+    as classes which can inherit the properties by the concept of Inheritance.'
+  merge: -1
+  pgno: 22
+- img_proc: true
+  md: 'classes which can inherit the properties by the concept of Inheritance.
+
+
+    # Object
+
+
+    Explaining this, a person named Kelvin is an object for the class Male. The physical
+    existence of a person which is objected to change makes it an Object.
+
+
+    # Abstraction
+
+
+    Abstraction means portraying the exterior stuff while masking the interior'
+  merge: -1
+  pgno: 23
+- img_proc: true
+  md: '# CONTENTS
+
+
+    Introduction
+
+
+    Chapter One: A-Z Guide for the beginners
+
+
+    Chapter Two: Why learning Python is essential?
+
+
+    Chapter Three: Introduction to numerous data types in Python
+
+
+    Chapter Four: How to get started with python
+
+
+    Chapter Five: Concept of interpreters and interactives in Python
+
+
+    Chapter Six: Python or PERL; which one is best?'
+  merge: -1
+  pgno: 24
+- img_proc: true
+  md: '# Chapter Five: Concept of interpreters and interactives in Python
+
+
+    # Chapter Six: Python or PERL; which one is best?
+
+
+    # Chapter Seven: Python- An object-oriented programming
+
+
+    # Chapter Eight: Python – The Subdivisions
+
+
+    # Chapter Nine: Suitable Python Versions for Beginners
+
+
+    # Chapter Ten: Python-Overview
+
+
+    # Chapter Eleven: Advantages and disadvantages of python
+
+
+    # Conclusion'
+  merge: -1
+  pgno: 25
+- img_proc: true
+  md: would do data analysis. The other thing I did is I used Python as a control
+    language for C. Python can be used as a click language for building large applications
+    like NIC like a mix of Python and a mix of C. It was just a huge productivity
+    win. Python is like a computational corner to matrix multiply fast Fourier transform
+    or something like that. Variables and initial conditions can be easily changed
+    in Python
+  merge: -1
+  pgno: 26
+- img_proc: true
+  md: making it easy to change something like that. Variables and initial conditions
+    can be easily changed in Python without rewriting the whole code again.
+  merge: -1
+  pgno: 27
+- img_proc: true
+  md: basics, let us try to explain to you the meaning of the terminologies frequently
+    applied in this language. To illustrate the concept of object-oriented programming
+    clearly, I am going to relate it to human life. Taking the example of humans which
+    are majorly classified into two categories/ classes; Male and Female, both have
+    similar body structure, but some of the body parts specific and are only confined
+  merge: -1
+  pgno: 28
+- img_proc: true
+  md: 'humans, have and humans, you have similar body structure, but some of the body
+    parts specific and are only confined to a particular category. However, actions
+    like sleeping, eating, walking are performed by both.
+
+
+    # Class
+
+
+    With the help of the above example, here we will consider Human beings as the
+    Class. A class works as the layout for any functional creature, which determines
+    its characteristics and actions. Just like a'
+  merge: -1
+  pgno: 29
+- img_proc: true
+  md: '+   - Click “Next” to proceed.
+
+
+    After this point, you have to make no more decisions. Just click through the installation
+    wizard to complete the installation process. You can also confirm the installation.
+
+
+    # How to confirm the installation?
+
+
+    +   - Open the command prompt.
+
+    - Type ‘Python -V’.'
+  merge: -1
+  pgno: 30
+- img_proc: true
+  md: '+   - Open the command prompt.
+
+    - Type ‘Python -V’.
+
+
+    Success! If you need only this particular version of python you can stop right
+    here because installation is complete and the path variable is set; now you can
+    use the Python.
+
+
+    # How to install Python 3?
+
+
+    You can install the Python 3 along with python two without any issue if you want'
+  merge: -1
+  pgno: 31
+- img_proc: true
+  md: 'The sample of the interactive session is as follows:
+
+
+    ```
+
+    >>> 7
+
+    7
+
+    >>> print (7*6)
+
+    34
+
+    >>> "how are you" * 4
+
+    ''How are cookware you how are you.''
+
+    ```'
+  merge: -1
+  pgno: 32
+- img_proc: true
+  md: '```
+
+    >>> "how are you" * 4
+
+    ''How are cookware you how are you.''
+
+    >>> "how are you." Class_
+
+    <type ''str''>
+
+    ```
+
+
+    This might seem quite easy to follow and use in the program, but you have to be
+    very careful in this regard. The interactive environment can be a little confusing.
+    There is a sample Python script that is usually followed, which is given as follows.'
+  merge: -1
+  pgno: 33
+- img_proc: true
+  md: '# How to install Python 2
+
+
+    After downloading the Python 2.
+
+
+    +   - Click on setup, a dialogue box will appear on the screen.
+
+    - Select "Install for all users" option.
+
+    - Click "Next" to proceed.
+
+
+    When you click "Next" a directory selection screen will appear.'
+  merge: -1
+  pgno: 34
+- img_proc: true
+  md: 'When you click "Next" a directory selection screen will appear.
+
+
+    +   - Leave the directory as "Python 27".
+
+    - Click "Next" to proceed.
+
+
+    When you click next, a customization screen will appear.
+
+
+    +   - Scroll down and click "Add Python.exe to the path."
+
+    - After clicking "Add Python.exe to Path," select "Will be installed on local
+    hard drive" option.'
+  merge: -1
+  pgno: 35
+- img_proc: true
+  md: 'or statistical models. You can use Python for creating a desktop application
+    like Blende 3d and for games pygames You can also translate python into a binary
+    code like java. An interesting fact is that most Ubuntu configuration utilities
+    are Pythonic.
+
+
+    Some other uses of Python are listed below:'
+  merge: -1
+  pgno: 36
+- img_proc: true
+  md: "Some other uses of Python are listed below:\n\n+   - **Software and SAAS products**\n\
+    \  To help technology and software-driven companies with their software and SAAS\
+    \ products.\n- **Python big data**\n  Help leverage cloud platforms for building\
+    \ and delivering solutions."
+  merge: -1
+  pgno: 37
+- img_proc: true
+  md: '# Disadvantages of Python
+
+
+    +   - Design restrictions.
+
+    - Underdeveloped database access layers.
+
+    - Weak in mobile computing and browsers.
+
+    - Speed limitations.
+
+
+    As can be seen from the above bullet points'
+  merge: -1
+  pgno: 38
+- img_proc: true
+  md: '+   - Speed limitations.
+
+
+    As can be seen from the above bullet points pros exceed the cons so in conclusion
+    Python is a useful programming language.'
+  merge: -1
+  pgno: 39
+- img_proc: true
+  md: '```
+
+    ...
+
+    ...
+
+    True
+
+    >>> print("Done")
+
+    Done
+
+    >>>
+
+    ```
+
+
+    So this way of the interactive session would be useful and functional.'
+  merge: -1
+  pgno: 40
+- img_proc: true
+  md: So this way of the interactive session would be useful and functional.
+  merge: -1
+  pgno: 41
+- img_proc: true
+  md: "```\nIf 1:\n    Print (\"True\")\n    Print (\"Done\")\n```\n\nThis is the\
+    \ format specific \\to Python only whereas if you type this in the interactive\
+    \ environment, you might be surprised to see what appears as a result."
+  merge: -1
+  pgno: 42
+- img_proc: true
+  md: "environment, you might be surprised to see what appears as a result.\n\n```\n\
+    >>> if 1:\n...     Print(\"True\")\n...     Print(\"Done\")\nFile \"<stdin>\"\
+    , line 3\n    Print(\"Done\")\n    ^\nSyntax Error: invalid syntax\n```"
+  merge: -1
+  pgno: 43
+- img_proc: true
+  md: 'specifications. Just like a human body can show off their skin but beneath
+    it remains a secret to others.
+
+
+    # Encapsulation
+
+
+    The idea of this terminology is the attachment of properties for the performance
+    of the function. We can take the example of our legs which assist us in moving
+    or performing an action.'
+  merge: -1
+  pgno: 44
+- img_proc: true
+  md: 'the example of our legs which assist us in moving or performing an action.
+
+
+    # Polymorphism
+
+
+    Polymorphism is the idea of elaborating the same thing differently. This is achieved
+    either by changing the properties of work or the way it is performed.'
+  merge: -1
+  pgno: 45
+- img_proc: true
+  md: '# Chapter Eleven: Advantages and disadvantages of python
+
+
+    Python has a wide range of applications in software development companies like
+    gaming, web frameworks and applications, language development, prototyping, graphic
+    design applications, etc.'
+  merge: -1
+  pgno: 46
+- img_proc: true
+  md: 'applications, language development, prototyping, graphic design applications,
+    etc.
+
+
+    Like every other language Python also has its advantages and disadvantages. In
+    the succeeding section, I will let you know about the advantages and disadvantages
+    of Python.
+
+
+    Firstly, I will list the advantages then we will talk about the disadvantage.'
+  merge: -1
+  pgno: 47
+- img_proc: true
+  md: 'Python that can be very useful for Data Analysis.
+
+
+    Python is equipped with much more libraries specially designed for Data Analysis.
+    Conclusively, I would say Python is an "essential to learning" programming language.'
+  merge: -1
+  pgno: 48
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 49
+- img_proc: true
+  md: 'chatbots. The list of the top six languages to learn created by Michael O''
+    Church doesn''t include PERL.
+
+
+    I personally like Python because it is straightforward to learn. But Python can''t
+    be used for larger system applications. You can use Python for solving maths problems,
+    creating games, building simple apps and also for a lot of other purposes. Relative
+    to the lines of newly created code'
+  merge: -1
+  pgno: 50
+- img_proc: true
+  md: problems, creating games, building simple apps and also for a lot of other purposes.
+    Relative to the lines of newly created code Pearl and Python both have faced their
+    usage drop off in the past recent years. PERL has successfully maintained that
+    level for the last ten years, never getting as big as Python. The job openings
+    for PERL developers are more than that of Python developers because the number
+    of developers of Python is decreasing day by day, but the Python developers are
+  merge: -1
+  pgno: 51
+- img_proc: true
+  md: '# Chapter Four: How to get started with python
+
+
+    In this section, I will guide you completely how to install python in your PC,
+    or Laptop, Python is very easy to Install. First, I will let you know how to install'
+  merge: -1
+  pgno: 52
+- img_proc: true
+  md: 'Laptop, Python is very easy to Install.
+
+    First, I will let you know how to install Python on Windows.
+
+
+    A few years back, a significant update to Python created a split between Python
+    versions. This thing is a little bit confusing for the newcomers, but it is not
+    a big issue.
+
+    In this book, I will talk about the installation of both versions of Python.
+
+
+    When you search Python for windows on google, you will immediately see the'
+  merge: -1
+  pgno: 53
+- img_proc: true
+  md: '# INTERACTIVE MODE
+
+
+    The common mode in which python works is the one described earlier that is script
+    mode, while the other one is interactive mode. The basic difference in both these
+    modes is that the interactive mode keeps the previous statements in its active
+    memory which are fed in this. The feedback to newly given statements is immediate
+    and interpreted by the previous'
+  merge: -1
+  pgno: 54
+- img_proc: true
+  md: 'memory which are fed in this. The feedback to newly given statements is immediate
+    and interpreted by the previous fed statements. The lines that are given to the
+    interpreter are always interpreted in two sections, in part as separate and also
+    as a whole.
+
+
+    The interactive mode in comparison to the script mode is more suitable for you
+    if you want to play with Python programming. It is also preferred for using different
+    varieties on the syntax.'
+  merge: -1
+  pgno: 55
+- img_proc: true
+  md: 'I=-111
+
+
+    # -Float:
+
+
+    Decimal points i.e. g=6.87, f= 10*e^-10
+
+
+    The first of our basic data types are numbers including integers, e.g., 3, -11.
+
+
+    Real number or decimal number which have floating points are called floats.
+
+
+    Complex numbers, e.g., J which is equal to'
+  merge: -1
+  pgno: 56
+- img_proc: true
+  md: 'have floating points are called floats. Complex numbers, e.g., J which is equal
+    to the square root(-1) which is an imaginary number.
+
+
+    # STRINGS:
+
+
+    Besides these, we also have strings which resemble words each string is comprised
+    of letter or elements and. They are defined using quotation marks such as name
+    or surname or even space which is an empty character.'
+  merge: -1
+  pgno: 57
+- img_proc: true
+  md: 'divisions. The repository ask whether you want to install latest releases of
+    Python 2 or Python 3 ( 2.7.1 and 3.6.1 respectively).
+
+
+    If you''re going to learn Python thoroughly, I will recommend you download both
+    the versions side by side. This will allow you to learn the latest version of
+    Python as well as the older version.
+
+
+    But if you think you only need a particular'
+  merge: -1
+  pgno: 58
+- img_proc: true
+  md: 'the older version.
+
+
+    But if you think you only need a particular version of Python, then you can install
+    just Python 2 or Python 3. In this book, I will discuss the installation of both,
+    so I recommend you install both versions.
+
+
+    Under the main entry, you will see an “x86-64” installer. Click on this installer
+    this installer will automatically install the appropriate 32-bit or 64-bit version
+    on your laptop or computer.'
+  merge: -1
+  pgno: 59
+- img_proc: true
+  md: '# Chapter Six: Python or PERL; which one is best?
+
+
+    Python or PERL? Which one is better, this question may arise into your mind. In
+    this section, I will compare Python with PERL and also discuss key features of
+    both languages so that you can choose between Python and PERL easily.'
+  merge: -1
+  pgno: 60
+- img_proc: true
+  md: 'and discuss key features of your languages so that you can choose between Python
+    and PERL easily.
+
+
+    # Why is PERL better than Python?
+
+
+    PERL is a much older language; it was the first language used for backend web
+    development. PERL is 25 years old. Python is much newer and is now only in its
+    third revision PERL, and Python are both on Earl Raymond''s list of languages
+    to learn. He also suggests learning Lisp, and that its only major implementation
+    today is'
+  merge: -1
+  pgno: 61
+- img_proc: true
+  md: 'bits of code in the interactive mode before you put them in the script. There
+    is a little difference between interactive mode and script mode that can confuse
+    the Python users.
+
+
+    For example, if you write code for a calculator in Python, you may write
+
+
+    ```
+
+    >>>miles=26.2
+
+    >>>miles*1.62
+
+    ```'
+  merge: -1
+  pgno: 62
+- img_proc: true
+  md: '```
+
+    >>> miles=26.2
+
+    >>> miles*1.62
+
+    42.182
+
+    ```
+
+
+    The first line will assign the value to miles, but it has no visible effect. The
+    second line is an expression so that the interpreter evaluates it and display
+    the result. So we learn that a marathon race is about 42 kilometers.'
+  merge: -1
+  pgno: 63
+- img_proc: true
+  md: 'Someone Else.'' Another such word which is used in this language is Wrapper;
+    this has a similar meaning to the wrapper used in our daily language. Python wrapper
+    over C++ code means that the python code someone has used interacts with C++ language.
+    This feature enables you to work with languages you are not aware of by applying
+    the Python wrapper.
+
+
+    Python facilitates you in managing data'
+  merge: -1
+  pgno: 64
+- img_proc: true
+  md: 'with languages you are not aware of by applying the Python wrapper.
+
+
+    Python facilitates you in managing data analysis, governing and controlling robots
+    and hardware; create games as well as websites.
+
+
+    You can also create GUI''s or Graphical User Interface with the help of Python.
+    GUI enables to make the program more user-friendly by adding graphics to it.'
+  merge: -1
+  pgno: 65
+- img_proc: true
+  md: '# Chapter Ten: Python-Overview
+
+
+    A list of frequently used keywords in Python and their description is given below.
+
+
+    IDE-Integrated Development Environment
+
+
+    You can find this option in the main menu,'
+  merge: -1
+  pgno: 66
+- img_proc: true
+  md: '# Environment
+
+
+    You can find this option in the main menu, and it is used to edit, test and operate
+    the tools that are created. IDLE can be coded in Python by the Tkinter GUI toolkit
+    cross-platform, in Windows, Mac OS X, Linux or Unix, the process and features
+    remain the same. It contains the Python Shell Window which is an interactive interpreter,
+    which adds color to your codes. It enables search within a window and also multiple
+    windows.'
+  merge: -1
+  pgno: 67
+- img_proc: true
+  md: 'roots in the world of programming and languages. So what are you waiting for?
+    Install Python in your PC or laptop and start learning.
+
+
+    Good luck and happy learning.
+
+
+    ![](img/e58b2092d1a426c514a5c72c72dcbbb1_68_0.png)'
+  merge: -1
+  pgno: 68
+- img_proc: true
+  md: '![](img/e58b2092d1a426c514a5c72c72dcbbb1_69_0.png)'
+  merge: -1
+  pgno: 69
+- img_proc: true
+  md: "perfectly even if you forgot to put the semicolons at the end.\n\n+   - **User-friendly\
+    \ language**\n  Python is a more user-friendly programming language as compared\
+    \ to Java because it has a more subconscious coding style. Java and Python have\
+    \ their advantages and disadvantages, but if you are going to start your career\
+    \ as a"
+  merge: -1
+  pgno: 70
+- img_proc: true
+  md: 'advantages and disadvantages, but if you are going to start your career as
+    a programmer, then I would recommend you start by learning Python as it is less
+    complicated than Java.
+
+
+    # What is the use of Python Programming?
+
+
+    The examples of some scripting languages are PERL, PHP, and Python, etc. Python
+    is a very useful language for physics sims'
+  merge: -1
+  pgno: 71
+- img_proc: true
+  md: 'specially designed to take you from beginner level to an expert.
+
+
+    I am sure this book will not make you feel bored. I hope you will enjoy learning
+    Python. Some books are available in the market on the topic “How to learn Python,”
+    but I would like you to choose this one because once you do that, you will immediately
+    realize the benefit in that decision.'
+  merge: -1
+  pgno: 72
+- img_proc: true
+  md: this one because once you do that, you will immediately realize the benefit
+    in that decision.
+  merge: -1
+  pgno: 73
+- img_proc: true
+  md: 'increasing relatively. Initially, developers used PERL for system administration.
+    PERL can''t do the interfacing well because it was designed to support a large
+    number of applications on the same server. PERL and Python both have their uses,
+    but PHP replaces both these languages.
+
+
+    # Why did I start using Python?
+
+
+    I started using Python since around 1996,'
+  merge: -1
+  pgno: 74
+- img_proc: true
+  md: '# Why did I start using Python?
+
+
+    I started using Python since around 1996, what attracted me to Python? Well, the
+    thing that attracted me to Python is that I was spending all my time doing annoying
+    problems like moving files around not cleaning data more like administrative tasks
+    onto it that are sort of tangential to high-performance computing and I was like
+    wasting all of my time with that. I say Python is maybe a productivity tool to
+    simplify a lot and with the right scripts that'
+  merge: -1
+  pgno: 75
+- img_proc: true
+  md: 'files in interactive mode but does have the option to edit them and run them
+    within the same program.
+
+
+    When you print the python entered line, they will appear much like this
+
+
+    ```
+
+    Python 3.0b3 (r30b3:66303, Sep 8 2008, 14:01:02) [MSC v.1500 32 >bit (Intel)]
+    on win32
+
+    Type "help", "copyright", "credits" or
+
+    ```'
+  merge: -1
+  pgno: 76
+- img_proc: true
+  md: 'on win32
+
+
+    ```
+
+    Type "help", "copyright", "credits" or "license" for more information.
+
+    ```
+
+
+    In case if you are facing trouble in running the Python make sure that it was
+    correctly installed and also check whether the Path variable has been set or not.'
+  merge: -1
+  pgno: 77
+- img_proc: true
+  md: '# How can you know that you are in interactive mode?
+
+
+    The sign >>> shows that you are in interactive mode
+
+
+    # Why use the interactive mode?
+
+
+    The best reason why people are attracted to this mode is that it responds quickly.
+    As soon as you type, you get the results. If you type 1+1 python will give you
+    two'
+  merge: -1
+  pgno: 78
+- img_proc: true
+  md: to and type an expression or query. As soon as you type, you get the results.
+    If you type 1+1 python will give you two immediately. Moreover, it is useful because
+    the interactive mode helps you to explore what python can do. It assists in testing
+    new and creative ways to use the python program.
+  merge: -1
+  pgno: 79
+- img_proc: true
+  md: 'this book the basic concept of Python, and essential programming functions
+    are explained through a straightforward step by step procedure. I have written
+    this book in a very easy to understand manner so that everyone can understand
+    it without any confusion.
+
+
+    The most interesting fact about Python Is that you need to install a specific
+    OS in your PC. or Laptop because it works'
+  merge: -1
+  pgno: 80
+- img_proc: true
+  md: 'The most interesting fact about Python Is that you need to install a specific
+    OS in your PC, or Laptop because it works correctly and efficiently on every OS.
+
+
+    In the first chapters, we will learn the importance of learning Python, how to
+    use it and the advantages and disadvantages of Python. In the fourth chapter,
+    I will discuss step by step procedure of how to install Python using Mac, Linux
+    or Windows. From the fifth chapter, we will start an easy to understand process'
+  merge: -1
+  pgno: 81
+- img_proc: true
+  md: 'commands so its kind of like this little sandbox where we can test out and
+    try out different Python command and different Python functions in a very safe
+    and very neutral environment. I can say that a dirty way to write programs in
+    Python is Python interpreter. You can use the Python interpreter by opening up
+    the command prompt.
+
+
+    Now let''s go into the interactive mode.'
+  merge: -1
+  pgno: 82
+- img_proc: true
+  md: 'interpreter as shown in the previous prompt.
+
+
+    Now let''s go into the interactive mode.
+
+
+    The interpreter can also be used in interactive mode.'
+  merge: -1
+  pgno: 83
+- img_proc: true
+  md: +   - In the past few years, two programming languages were most popular for
+    developing websites by their framework. Those languages are Python and Ruby. These
+    languages are beneficial for writing quick programs or scripts, so they are often
+    known as “Scripting languages.”. In Data Analytics, Python is the most widely
+    used
+  merge: -1
+  pgno: 84
+- img_proc: true
+  md: 'are often known as scripting languages.”. In Data Analytics Python is the most
+    widely used language. Because of the Python’s improved lib support, Python is
+    popular among developers because it provides a compelling alternative to performing
+    data manipulation tasks.
+
+
+    +   - NumPy, Pandas, matplotlib, IPython, and SciPy are the examples of some necessary
+    libraries in'
+  merge: -1
+  pgno: 85
+- img_proc: true
+  md: 'Now the interpreter is trying to convey is that indentation you entered for
+    the second print is unexpected. The possible error is that there must have been
+    a blank line entered at the end of the first statement (i.e., “if”) before the
+    second print statement started.
+
+
+    For example, the right way to enter the . . .'
+  merge: -1
+  pgno: 86
+- img_proc: true
+  md: "print statement started.\n\nFor example, the right way to enter the statement\
+    \ should be this\n\n```\nIf 1:\n    Print (\"True\")\n    Print (\"Done\")\n```\n\
+    \nThis would then result in the following statement which would be correct technically\n\
+    \n```\n>>> if 1:\n```"
+  merge: -1
+  pgno: 87
+- img_proc: true
+  md: created on an ideology that pays particular focus on code readability. It provides
+    a platform for explicit programming on both small and large scales. Python exhibits
+    a dynamic type system and automatic memory management. Python can support multiple
+    programming paradigms like imperative, functional, object-oriented and procedural.
+    It is also equipp
+  merge: -1
+  pgno: 88
+- img_proc: true
+  md: 's and strings, functions, object-oriented and procedural. It is also equipped
+    with an extensive and comprehensive standard library.
+
+
+    # Is it easy to learn Python?
+
+
+    Now a question may arise into your mind that is it easy to learn Python? Well,
+    the answer is yes. Here are some reasons that will surely justify my statement.'
+  merge: -1
+  pgno: 89
+- img_proc: true
+  md: 'But when you write the same code in the script, you will get no result at all
+    because It has no visible effect. Python evaluates the result but doesn''t display
+    it unless you tell it to.
+
+
+    ```
+
+    >>>miles=26.2
+
+    Print miles*1.61
+
+    ```
+
+
+    This behavior is confusing. Some languages get compiled into machine code; others'
+  merge: -1
+  pgno: 90
+- img_proc: true
+  md: This behavior is confusing. Some languages get compiled into machine code; others
+    are read and executed by an interpreter. So like C would be an excellent example
+    of a compiled language and Python is an excellent example of interpreted language.
+    Python programs are just text files with py extension to their file name. These
+    files need an interpreter to execute. Python interpreter is an environment that
+    we can use to execute little Python
+  merge: -1
+  pgno: 91
+- img_proc: true
+  md: '# Advantages of Python
+
+
+    +   - Extensive Support Libraries
+
+    - A powerful and fast programming language.
+
+    - Clear, readable, and easy to understand syntax.
+
+    - Dynamic type programming language.'
+  merge: -1
+  pgno: 92
+- img_proc: true
+  md: '+   - Dynamic type programming language.
+
+    - Python Runs immediately.
+
+    - The python community always provides support to Python users.
+
+    - Modular and portable programming language.
+
+    - Less coding is required.
+
+    - Open source language.
+
+    - Easy to maintain.'
+  merge: -1
+  pgno: 93
+- img_proc: true
+  md: '# Chapter Two: Why learning Python is essential?
+
+
+    After a brief intro, I would like to inform you that based on its usage learning
+    python is very important. Python has diversified applications, and the most exciting
+    thing is that it has a syntax that is understandable by both beginners and'
+  merge: -1
+  pgno: 94
+- img_proc: true
+  md: 'universal appeal, and the most exciting thing is that it has a syntax that
+    is understandable by both beginners and experts.
+
+
+    In the following section, I will discuss some reasons to make you realize that
+    how important is it to learn python.
+
+
+    +   - As discussed earlier Python is a user-friendly language. Python is one of
+    the most-used dynamic type, programming language.'
+  merge: -1
+  pgno: 95
+- img_proc: true
+  md: "+   - **Mobile Web solutions**\n  Build customer and enterprise mobile app\
+    \ for customer engagement and workforce productivity\n- **IoT solutions**\n  Build\
+    \ solutions to monitor, learn and capture insights from connected devices."
+  merge: -1
+  pgno: 96
+- img_proc: true
+  md: Build solutions to monitor, learn and capture insights from connected devices.
+  merge: -1
+  pgno: 97
+- img_proc: true
+  md: '# Chapter Eight: Python – The Subdivisions
+
+
+    Being a programmer means having a backup of libraries required to interpret the
+    codes of language. But python gives you the facility of having already verified
+    and working libraries which are known as ‘Modules.’ These modules contain already'
+  merge: -1
+  pgno: 98
+- img_proc: true
+  md: 'you the facility of having already written and working libraries which are
+    known as ‘Modules.’ These modules contain already written codes which can perform
+    essential functions for you in Python programming. Also, these tasks are completed
+    efficiently and without any errors.
+
+
+    While using this program, you might come in contact with phrases or words like
+    DRY, which has the abbreviation of ‘Don’t Repeat Yourself’ or ‘Don’t Repeat'
+  merge: -1
+  pgno: 99
+- img_proc: true
+  md: IDLE contains two types of windows, namely Shell Window and Editor Window. Editor
+    window has a subtype which is called Output window; the only difference is of
+    the default title and context menu. You can open more than one Editor Windows
+    at a time and use them. There is a wide range of cuisines for IDLE, depending
+    on the type of windows that you are using.
+  merge: -1
+  pgno: 100
+- img_proc: true
+  md: 'depending on the type of windows that you are using.
+
+
+    Let us see how to run a command on IDLE now
+
+
+    ```
+
+    print("Let''s start")
+
+    ```
+
+
+    As we save the file by "file/save" and name it start.py. Now we can run this by
+    the "run" command.'
+  merge: -1
+  pgno: 101
+- img_proc: true
+  md: '# How to go in interactive mode:
+
+
+    If you are using the macOS or the Linux, you will have to follow the below-given
+    steps as they are.
+
+
+    Firstly, you open the terminal that is there for typing.
+
+
+    Then type “python” in it.
+
+
+    If it’s the windows you are using, then there are several ways to on to the'
+  merge: -1
+  pgno: 102
+- img_proc: true
+  md: 'If it''s the windows you are using, then there are several ways to go to the
+    interactive mode. For example, open command prompt and then type "py" in it and
+    there you are in interactive mode. Or otherwise, you go to the taskbar or the
+    app menu and select "Python (Command line)", "IDLE" or any other program that
+    is similar to this one.
+
+
+    IDLE is the GUI type of program that is dual in function. It means that is run
+    the'
+  merge: -1
+  pgno: 103
+- img_proc: true
+  md: To gain access to a module in Python, you have to use the Import statement,
+    and the code will be executed. But before accessing any module, you must look
+    for the built-in module in it (Python contains a range of integrated module).
+  merge: -1
+  pgno: 104
+- img_proc: true
+  md: <!-- no content -->
+  merge: -1
+  pgno: 105
+- img_proc: true
+  md: '# Chapter Seven: Python- An object-oriented programming
+
+
+    Another unique feature of Python is being an Object-oriented (OOP) program. Object-oriented
+    programming is the one which is based on data instead of logic or objects instead
+    of actions. This concept is applied to the majority of programming'
+  merge: -1
+  pgno: 106
+- img_proc: true
+  md: which is based on data instead of logic or objects instead of actions. This
+    concept is applied to the majority of programming languages; C language is the
+    only exception. The idea revolves around purposes like inheritance, polymorphism,
+    abstraction, encapsulation, etc. Understanding the basic concepts of OOP is very
+    important, especially for a python or C++ as well as Java user. And that is the
+    main reason for the inclusion of this chapter in this book. Beginning from the
+  merge: -1
+  pgno: 107
+- img_proc: true
+  md: '# Introduction
+
+
+    If you are viewing this book I can bet, you are a beginner to Python. If you are
+    interested in learning Python, then you have chosen the right book. Well, Python
+    is a very easy to understand'
+  merge: -1
+  pgno: 108
+- img_proc: true
+  md: 'then you have chosen the right book. Well, Python is a very easy to understand
+    language. In this book, I will try my best to prove myself right. No doubt, Python
+    is a great language either you are a newbie in the world of programming or if
+    you are already a professional programmer.
+
+
+    If you are a beginner in the world of programming, then you must be worrying about
+    how to learn Python. This book will eradicate your worry for sure. Because, in'
+  merge: -1
+  pgno: 109
+toc:
+- - '#'
+  - Python 基础
+- - '##'
+  - 什么是 Python？
+- - '##'
+  - 第三章：Python 中多种数据类型简介
+- - '###'
+  - 数字：
+- - '###'
+  - 布尔值：真或假
+- - '##'
+  - 第一章：初学者入门指南
+- - '##'
+  - 第五章：Python 中解释器和交互模式的概念
+- - '##'
+  - 第九章：适合初学者的 Python 版本
+- - '###'
+  - 继承
+- - '###'
+  - 对象
+- - '###'
+  - 抽象
+- - '##'
+  - 目录
+- - '##'
+  - 结论
+- - '###'
+  - 类
+- - '###'
+  - 如何确认安装成功？
+- - '###'
+  - 如何安装Python 3？
+- - '###'
+  - 如何安装Python 2
+- - '###'
+  - Python的缺点
+- - '###'
+  - 封装
+- - '###'
+  - 多态
+- - '##'
+  - 第十一章：Python的优点和缺点
+- - '##'
+  - 第四章：如何开始使用Python
+- - '###'
+  - 交互模式
+- - '###'
+  - -浮点数：
+- - '###'
+  - 字符串：
+- - '##'
+  - 第六章：Python还是PERL；哪个更好？
+- - '###'
+  - 为什么PERL比Python更好？
+- - '##'
+  - 第十章：Python概述
+- - '###'
+  - 环境
+- - '###'
+  - Python编程有什么用？
+- - '###'
+  - 为什么我开始使用Python？
+- - '###'
+  - 为什么我开始使用Python？
+- - '###'
+  - 如何知道你处于交互模式？
+- - '###'
+  - 为什么使用交互模式？
+- - '###'
+  - 引言
+- - '###'
+  - 学习Python容易吗？
+- - '###'
+  - Python的优势
+- - '##'
+  - 第二章：为什么学习Python很重要？
+- - '##'
+  - 第七章：Python——面向对象编程
+- - '##'
+  - 第八章：Python——细分
+- - '###'
+  - 如何进入交互模式：
